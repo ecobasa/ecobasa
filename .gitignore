@@ -36,3 +36,7 @@ nosetests.xml
 
 # vim
 *.swp
+
+# static / media files
+/static/
+/media/

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}ecobasa :: {% trans "profile" %} {{  object.username }}{% endblock %}
+
+{% block content %}
+<h1>{% trans "profile" %} {{ object.username }}</h1>
+
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span2">
+			<p>profile zeugs...</p>
+			{% if user.is_authenticated %}<a href="{% url 'skillshare:add-for-owner' object.username %}">{% trans 'Add skill' %}</a>{% endif %}
+		</div>
+		<div class="span10">
+			{% include 'skillshare/fragments/list.html' %}
+		</div>
+	</div>
+</div>
+{% endblock %}

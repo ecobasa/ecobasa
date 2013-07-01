@@ -1,16 +1,14 @@
 from django.conf.urls import patterns, include, url
-
 from django.contrib import admin
 admin.autodiscover()
 
+from ecobasa_uanoa.views import HomeView, ProfileView
+
+
 urlpatterns = patterns('',
-    # Examples:
-    url(r'^$', 'ecobasa_uanoa.views.home', name='home'),
-    # url(r'^ecobasa_uanoa/', include('ecobasa_uanoa.foo.urls')),
-
-    # Uncomment the admin/doc line below to enable admin documentation:
-    # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
-
-    # Uncomment the next line to enable the admin:
+    url(r'^$', HomeView.as_view(), name='home'),
+    url(r'^profile/(?P<slug>[-_\w]+)/$', ProfileView.as_view(), name='profile'),
     url(r'^admin/', include(admin.site.urls)),
+
+    url(r'^skillshare/', include('skillshare.urls', namespace='skillshare')),
 )

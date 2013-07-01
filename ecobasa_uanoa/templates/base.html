@@ -1,0 +1,22 @@
+{% load i18n %}
+<!DOCTYPE html>
+<html>
+<head>
+	<title>{% block title %}{% endblock %}</title>
+	<meta name="generator" content="Vim" />
+	<link rel="stylesheet" href="{{ STATIC_URL}}bootstrap-2.3/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="{{ STATIC_URL}}bootstrap-combobox/css/bootstrap-combobox.css" />
+	{% block extrahead %}{% endblock %}
+	<script src="{{ STATIC_URL }}js/jquery-2.0.2.min.js"></script>
+</head>
+<body>
+	<div id="content" class="container">
+		{% include 'nav.html' %}
+
+		{% block content %}{% endblock %}
+	</div>
+
+	<script src="{{ STATIC_URL }}bootstrap-2.3/js/bootstrap.min.js"></script>
+	<script src="{{ STATIC_URL }}bootstrap-combobox/js/bootstrap-combobox.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}ecobasa{% endblock %}
+
+{% block content %}
+<h1>users</h1>
+<ul>
+	{% for user in users %}<li><a href="{% url 'profile' user.username %}">{{ user.username }}</a></li>{% endfor %}
+</ul>
+{% endblock %}

@@ -20,3 +20,18 @@ if the TYPE 'local' for USER 'all' has METHOD set to 'md5' . Afterwards you
 should be able to syncdb as your normal user:
 
 	$ ./manage.py syncdb
+
+
+Running
+-------
+
+Before running in production mode, you should collect the static files:
+
+	$ ./manage.py collectstatic
+
+which will collect all apps' static files into the directory static/ .
+
+
+Run it:
+
+	$ ./manage.py runserver
