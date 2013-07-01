@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}ecobasa :: {% trans "search skills" %}{% endblock %}
+
+{% block content %}
+<h1>{% trans "Search skills" %}</h1>
+<div class="container-fluid">
+	<div class="row-fluid">
+		<div class="span6">
+			<form method="POST" action="{% url 'skillshare:search' %}">
+				{% csrf_token %}
+				{{ form }}
+				<br />
+				<input type="submit" value="{% trans 'Search' %}" />
+			</form>
+		</div>
+
+		<div class="span6">
+			{% if posted %}
+			<h2>{% trans "Results" %}</h2>
+			<p>
+				{% trans "Skill name" %}: {{ skillname }}<br />
+				{% trans "Experience" %}: {{ experience }}<br />
+				{% trans "Share type" %}: {{ sharetype }}
+			</p>
+			{% if result %}
+			<ul>{% for skill in result %}
+				<li><a href="{% url 'skillshare:detail' skill.name.slug skill.owner.username %}">{{ skill }}</a></li>
+			{% endfor %}</ul>
+			{% else %}
+			<p>{% trans "No Results" %}</p>
+			{% endif %}
+			{% endif %}
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript" src="{{ STATIC_URL }}skillshare/js/extend-combobox.js"></script>
+<script type="text/javascript">
+$(function() { $('select#id_skillname').combobox(); });
+</script>
+
+{% endblock %}

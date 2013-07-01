@@ -1,0 +1,7 @@
+{% load i18n %}
+<h2>{% trans "Skills" %}</h2>
+<ul>
+	{% for skill in skills %}<li>
+		{% include 'skillshare/fragments/item.html' %}
+	</li>{% endfor %}
+</ul>

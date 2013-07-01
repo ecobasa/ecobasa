@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}ecobasa :: {% trans "list skills" %}{% endblock %}
+
+{% block content %}
+<h1>{% trans "List skills" %}</h1>
+<ul>
+{% for skill in skills %}<li>
+	{{ skill.name }}
+	<ul>
+		{% for owner in skill.owners %}<li>
+			<a href="{% url 'skillshare:detail' skill.slug owner %}">{{ owner }}</a>
+		</li>{% endfor %}
+	</ul>
+</li>{% endfor %}
+</ul>
+{% endblock %}

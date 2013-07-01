@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}ecobasa :: {% trans "edit skill" %}{% endblock %}
+
+{% block content %}
+<h1>{% trans 'Edit skill' %}</h1>
+<form method="POST" action="">
+	{% csrf_token %}
+	{{ form }}
+	<br />
+	<input type="submit" value="{% trans 'Edit' %}" />
+</form>
+{% endblock %}

@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}ecobasa :: {% trans "add skill" %}{% endblock %}
+
+{% block content %}
+<h1>{% trans 'Add skill' %}</h1>
+<form method="POST" action="">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<br />
+	<input type="submit" value="{% trans 'Add' %}" />
+</form>
+
+<script type="text/javascript">
+var URL_AVAILABLE_OWNERS = '{{ url_ajax_available_owners }}';
+</script>
+<script type="text/javascript" src="{{ STATIC_URL }}skillshare/js/extend-combobox.js"></script>
+<script type="text/javascript" src="{{ STATIC_URL }}skillshare/js/add.js"></script>
+{% endblock %}

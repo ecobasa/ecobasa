@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}ecobasa :: {% trans "add badge" %}{% endblock %}
+
+{% block content %}
+<h1>{% trans 'Add badge' %}</h1>
+<form method="POST" action="">
+	{% csrf_token %}
+	{{ form }}
+	<br />
+	<input type="submit" value="{% trans 'Add' %}" />
+</form>
+{% endblock %}

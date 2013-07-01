@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}ecobasa :: {% trans "skill" %} {{ skill.name }} :: {{ skill.owner }}{% endblock %}
+
+{% block content %}
+<h1>{% trans "Skill" %} {{ skill.name }} : {{ skill.owner }}</h1>
+{% include 'skillshare/fragments/item.html' %}
+{% endblock %}
