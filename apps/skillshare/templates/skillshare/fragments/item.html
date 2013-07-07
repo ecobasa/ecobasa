@@ -1,20 +1,22 @@
 {% load i18n %}
-<dl>
-	<dt>{% trans "Name" %}</dt>
-	<dd>{{ skill.name }}<dd>
-	<dt>{% trans "Owner" %}</dt>
-	<dd>{{ skill.owner }}</dd>
-	<dt>{% trans "Info" %}</dt>
-	<dd>{{ skill.info }}<dd>
-	<dt>{% trans "Experience" %}</dt>
-	<dd>{{ skill.get_experience_display }}<dd>
-	<dt>{% trans "Will teach?" %}</dt>
-	<dd>{% if skill.teach %}{% trans "Yes" %}{% else %}{% trans "No" %}{% endif %}<dd>
-	<dt>{{ skill.skillshare_badge.count }} {% trans "Badge(s)" %}</dt>
-	<dd><ul>
-		{% for badge in skill.skillshare_badge.all %}<li>
-			{{ badge.giver }}: <p>{{ badge.feedback }}</p>
-		</li>{% endfor %}
-		{% include 'skillshare/fragments/form_badge.html' %}
-	</ul><dd>
-</dl>
+<div class="skillshare-skill-item">
+	<dl>
+		<dt>{% trans "Name" %}</dt>
+		<dd>{{ skill.name }}<dd>
+		<dt>{% trans "Owner" %}</dt>
+		<dd>{{ skill.owner }}</dd>
+		<dt>{% trans "Info" %}</dt>
+		<dd>{{ skill.info }}<dd>
+		<dt>{% trans "Experience" %}</dt>
+		<dd>{{ skill.get_experience_display }}<dd>
+		<dt>{% trans "Will teach?" %}</dt>
+		<dd>{% if skill.teach %}{% trans "Yes" %}{% else %}{% trans "No" %}{% endif %}<dd>
+		<dt>{{ skill.skillshare_badge.count }} {% trans "Badge(s)" %}</dt>
+		<dd><ul>
+			{% for badge in skill.skillshare_badge.all %}<li>
+				{{ badge.giver }}: <p>{{ badge.feedback }}</p>
+			</li>{% endfor %}
+			{% include 'skillshare/fragments/form_badge.html' %}
+		</ul><dd>
+	</dl>
+</div>

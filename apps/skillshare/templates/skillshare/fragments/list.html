@@ -1,7 +1,12 @@
 {% load i18n %}
-<h2>{% trans "Skills" %}</h2>
-<ul>
-	{% for skill in skills %}<li>
-		{% include 'skillshare/fragments/item.html' %}
-	</li>{% endfor %}
-</ul>
+<div class="skillshare-skill-list">
+	{% if skills %}
+	<ul>
+		{% for skill in skills %}<li>
+			{% include 'skillshare/fragments/item.html' %}
+		</li>{% endfor %}
+	</ul>
+	{% else %}
+		{% trans "No skills" %}
+	{% endif %}
+</div>

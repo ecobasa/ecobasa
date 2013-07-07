@@ -1,6 +1,6 @@
 {% load i18n %}
 {% if skill.form_badge %}
-<div id="skills-form-badge">
+<div class="skillshare-form-badge">
 	<h3>{% trans "Add badge" %}</h3>
 	<form method="post" action="{% url 'skillshare:badge-add' skill.name.slug skill.owner %}">
 		{% csrf_token %}
