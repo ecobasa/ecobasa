@@ -146,6 +146,7 @@ INSTALLED_APPS = (
     # custom apps
     'ecobasa_uanoa', # to find the templates
     'skillshare',
+    'references',
 )
 
 # A sample logging configuration. The only tangible logging

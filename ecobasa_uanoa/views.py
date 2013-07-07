@@ -4,6 +4,7 @@ from django.views.generic import TemplateView
 from django.views.generic.detail import DetailView
 
 from skillshare import get_skills_for_owner
+from references import get_references_for_receiver
 
 
 class HomeView(TemplateView):
@@ -25,6 +26,8 @@ class ProfileView(DetailView):
         context = super(ProfileView, self).get_context_data(**kwargs)
         return_url = reverse('profile', kwargs={'slug' : context['object']})
         context['skills'] = get_skills_for_owner(
+            self.request, context['object'], return_url)
+        context['references'], context['reference_form'] = get_references_for_receiver(
             self.request, context['object'], return_url)
         return context
 

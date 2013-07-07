@@ -1,0 +1,13 @@
+{% load i18n %}
+<div class="references-list">
+	{% if references %}
+	<ul>
+		{% for reference in references %}<li>
+			{% include 'references/fragments/item.html' %}
+		</li>{% endfor %}
+	</ul>
+	{% else %}
+		{% trans "No references" %}
+	{% endif %}
+	{% include 'references/fragments/form_reference.html' %}
+</div>

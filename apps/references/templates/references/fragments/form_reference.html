@@ -1,0 +1,11 @@
+{% load i18n %}
+{% if reference_form %}
+<div class="references-form">
+	<h4>{% trans "Add reference" %}</h4>
+	<form method="post" action="{% url 'references:add' object %}">
+		{% csrf_token %}
+		{{ reference_form.as_p }}
+		<input type="submit" value="{% trans 'Add' %}" />
+	</form>
+</div>
+{% endif %}

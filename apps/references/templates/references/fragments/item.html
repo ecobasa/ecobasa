@@ -1,0 +1,5 @@
+{% load i18n %}
+<div class="references-item">
+	<p class="references-giver">{% trans "by" %} <a href="{% url 'profile' reference.giver %}">{{ reference.giver }}</a>{% ifequal reference.giver user %} | <a href="{% url 'references:edit' reference.pk %}">{% trans "edit" %}</a>{% endifequal %}</p>
+	<p class="references-text">{{ reference.text }}</p>
+</div>

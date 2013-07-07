@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "edit reference" %}{% endblock %}
+
+{% block content %}
+<h1>{% trans 'Edit reference for' %} <a href="{% url 'profile' reference.receiver %}">{{ reference.receiver }}</a></h1>
+<form method="POST" action="">
+	{% csrf_token %}
+	{{ form }}
+	<br />
+	<input type="submit" value="{% trans 'Edit' %}" />
+</form>
+{% endblock %}

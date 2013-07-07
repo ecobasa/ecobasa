@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% trans "add reference" %}{% endblock %}
+
+{% block content %}
+<h1>{% trans 'Add reference' %}</h1>
+<form method="POST" action="">
+	{% csrf_token %}
+	{{ form.as_p }}
+	<br />
+	<input type="submit" value="{% trans 'Add' %}" />
+</form>
+{% endblock %}
