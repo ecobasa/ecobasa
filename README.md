@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 ecobasa_uanoa
 =============
 
@@ -35,3 +36,9 @@ which will collect all apps' static files into the directory static/ .
 Run it:
 
 	$ ./manage.py runserver
+=======
+ecobasa-UaNoa
+=============
+
+ecobasa 2.0
+>>>>>>> c60d6f2057e0e24b6ce739f4bbc49d12f0bd28bf
