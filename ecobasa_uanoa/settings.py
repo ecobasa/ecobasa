@@ -16,10 +16,10 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'ecobasa',
-        'USER': 'Arne',
-        'PASSWORD': '',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'tour',
+        'USER': 'tour',
+        'PASSWORD': 'tour',
         'HOST': '',
         'PORT': '',
     }
@@ -27,7 +27,7 @@ DATABASES = {
 
 if 'test' in sys.argv:
     DATABASES['default'] = {
-        'ENGINE': 'django.db.backends.sqlite3'
+        'ENGINE': 'django.db.backends.mysql'
     }
     SOUTH_TESTS_MIGRATE = False
 
@@ -95,16 +95,25 @@ STATICFILES_FINDERS = (
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'r(y6&k-^j^lz2_)bpt&89v5aqy=2c%f^ppff2n5fptk%a11*_!'
 
-MIDDLEWARE_CLASSES = (
-    'django.middleware.common.CommonMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.middleware.locale.LocaleMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    # Uncomment the next line for simple clickjacking protection:
-    # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
+MIDDLEWARE_CLASSES = (                                                          
+    'django.contrib.sessions.middleware.SessionMiddleware',                     
+    'django.middleware.locale.LocaleMiddleware',                                
+    'django.middleware.common.CommonMiddleware',                                
+    'django.middleware.csrf.CsrfViewMiddleware',                                
+    'django.contrib.auth.middleware.AuthenticationMiddleware',                  
+    'django.contrib.messages.middleware.MessageMiddleware',                     
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',                   
 )
+
+TEMPLATE_CONTEXT_PROCESSORS = [                                                 
+    'django.contrib.auth.context_processors.auth',                              
+    'django.contrib.messages.context_processors.messages',                      
+    'django.core.context_processors.i18n',                                      
+    'django.core.context_processors.request',                                   
+    'django.core.context_processors.media',                                     
+    'django.core.context_processors.static',                                    
+    'cosinnus.utils.context_processors.settings',                               
+]
 
 ROOT_URLCONF = 'ecobasa_uanoa.urls'
 
@@ -116,7 +125,7 @@ WSGI_APPLICATION = 'ecobasa_uanoa.wsgi.application'
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
     'django.template.loaders.app_directories.Loader',
-#     'django.template.loaders.eggs.Loader',
+    'django.template.loaders.eggs.Loader',
 )
 
 TEMPLATE_DIRS = (
@@ -125,28 +134,30 @@ TEMPLATE_DIRS = (
     # Don't forget to use absolute paths, not relative paths.
 )
 
-TEMPLATE_CONTEXT_PROCESSORS = (
-    'django.contrib.auth.context_processors.auth',
-    'django.core.context_processors.static',
-)
-
 
 INSTALLED_APPS = (
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.sites',
-    'django.contrib.messages',
+    'django.contrib.admin',                                                     
+    'django.contrib.auth',                                                      
+    'django.contrib.contenttypes',                                              
+    'django.contrib.humanize',                                                  
+    'django.contrib.sessions',                                                  
+    'django.contrib.messages',                                                  
     'django.contrib.staticfiles',
-    'django.contrib.admin',
+    'bootstrap3',                                                                  
+    'bootstrap3_datetime',                                                         
+    # 'easy_thumbnails',                                                             
+    # 'geoposition',                                                                                                                                    
+    'taggit',                                                                      
+    'appconf',
 
     # third-party
     'south',
 
     # custom apps
     'ecobasa_uanoa', # to find the templates
-    'skillshare',
-    'references',
+    'cosinnus',
+    # 'skillshare',
+    # 'references',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -179,5 +190,19 @@ LOGGING = {
 }
 
 
-from django.core.urlresolvers import reverse
-LOGIN_URL = reverse('home')
+# from django.core.urlresolvers import reverse
+# LOGIN_URL = reverse('home')
+
+
+# COSINNUS_ATTACHABLE_OBJECTS = {                                                    
+#     'cosinnus_document.Document' : [                                               
+#         'cosinnus_file.FileEntry',                                                 
+#         'cosinnus_document.Document',                                                                  
+#     ],                                                                          
+# }
+
+
+
+# FORMAT_MODULE_PATH = 'cosinnus.formats'
+
+COSINNUS_USER_PROFILE_MODEL = 'cosinnus.UserProfile'
