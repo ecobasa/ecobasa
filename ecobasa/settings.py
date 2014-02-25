@@ -1,4 +1,4 @@
-# Django settings for ecobasa_uanoa project.
+# Django settings for ecobasa project.
 import os, sys
 
 PROJECT_ROOT = os.path.abspath(
@@ -16,10 +16,10 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'tour',
-        'USER': 'tour',
-        'PASSWORD': 'tour',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'ecobasa',
+        'USER': 'django',
+        'PASSWORD': 'ecobasa',
         'HOST': '',
         'PORT': '',
     }
@@ -27,7 +27,7 @@ DATABASES = {
 
 if 'test' in sys.argv:
     DATABASES['default'] = {
-        'ENGINE': 'django.db.backends.mysql'
+        'ENGINE': 'django.db.backends.sqlite3'
     }
     SOUTH_TESTS_MIGRATE = False
 
@@ -95,30 +95,30 @@ STATICFILES_FINDERS = (
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'r(y6&k-^j^lz2_)bpt&89v5aqy=2c%f^ppff2n5fptk%a11*_!'
 
-MIDDLEWARE_CLASSES = (                                                          
-    'django.contrib.sessions.middleware.SessionMiddleware',                     
-    'django.middleware.locale.LocaleMiddleware',                                
-    'django.middleware.common.CommonMiddleware',                                
-    'django.middleware.csrf.CsrfViewMiddleware',                                
-    'django.contrib.auth.middleware.AuthenticationMiddleware',                  
-    'django.contrib.messages.middleware.MessageMiddleware',                     
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',                   
+MIDDLEWARE_CLASSES = (
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-TEMPLATE_CONTEXT_PROCESSORS = [                                                 
-    'django.contrib.auth.context_processors.auth',                              
-    'django.contrib.messages.context_processors.messages',                      
-    'django.core.context_processors.i18n',                                      
-    'django.core.context_processors.request',                                   
-    'django.core.context_processors.media',                                     
-    'django.core.context_processors.static',                                    
-    'cosinnus.utils.context_processors.settings',                               
+TEMPLATE_CONTEXT_PROCESSORS = [
+    'django.contrib.auth.context_processors.auth',
+    'django.contrib.messages.context_processors.messages',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.request',
+    'django.core.context_processors.media',
+    'django.core.context_processors.static',
+    'cosinnus.utils.context_processors.settings',
 ]
 
-ROOT_URLCONF = 'ecobasa_uanoa.urls'
+ROOT_URLCONF = 'ecobasa.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
-WSGI_APPLICATION = 'ecobasa_uanoa.wsgi.application'
+WSGI_APPLICATION = 'ecobasa.wsgi.application'
 
 
 # List of callables that know how to import templates from various sources.
@@ -136,25 +136,25 @@ TEMPLATE_DIRS = (
 
 
 INSTALLED_APPS = (
-    'django.contrib.admin',                                                     
-    'django.contrib.auth',                                                      
-    'django.contrib.contenttypes',                                              
-    'django.contrib.humanize',                                                  
-    'django.contrib.sessions',                                                  
-    'django.contrib.messages',                                                  
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.humanize',
+    'django.contrib.sessions',
+    'django.contrib.messages',
     'django.contrib.staticfiles',
-    'bootstrap3',                                                                  
-    'bootstrap3_datetime',                                                         
-    # 'easy_thumbnails',                                                             
-    # 'geoposition',                                                                                                                                    
-    'taggit',                                                                      
-    'appconf',
 
     # third-party
+    'appconf',
+    'bootstrap3',
+    'bootstrap3_datetime',
+    # 'easy_thumbnails',
+    # 'geoposition',
     'south',
+    'taggit',
 
     # custom apps
-    'ecobasa_uanoa', # to find the templates
+    'ecobasa',
     'cosinnus',
     # 'skillshare',
     # 'references',
@@ -194,15 +194,14 @@ LOGGING = {
 # LOGIN_URL = reverse('home')
 
 
-# COSINNUS_ATTACHABLE_OBJECTS = {                                                    
-#     'cosinnus_document.Document' : [                                               
-#         'cosinnus_file.FileEntry',                                                 
-#         'cosinnus_document.Document',                                                                  
-#     ],                                                                          
+# COSINNUS settings
+FORMAT_MODULE_PATH = 'cosinnus.formats'
+
+# COSINNUS_ATTACHABLE_OBJECTS = {
+#     'cosinnus_document.Document' : [
+#         'cosinnus_file.FileEntry',
+#         'cosinnus_document.Document',
+#     ],
 # }
 
-
-
-# FORMAT_MODULE_PATH = 'cosinnus.formats'
-
-COSINNUS_USER_PROFILE_MODEL = 'cosinnus.UserProfile'
+#COSINNUS_USER_PROFILE_MODEL = 'cosinnus.UserProfile'

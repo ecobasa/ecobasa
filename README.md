@@ -1,8 +1,12 @@
-<<<<<<< HEAD
-ecobasa_uanoa
-=============
+Ecobasa
+=======
 
 Relaunch of http://ecobasa.org
+
+Requirements
+------------
+
+	$ pip install -r requirements.txt
 
 
 Database
@@ -14,7 +18,7 @@ for a bit of setup info. Basically:
 
 	$ sudo su - postgres
 	$ createuser django -P # enter password, answer no to all questions
-	$ createdb -E utf8 -O django ecobasa_uanoa -T template0
+	$ createdb -E utf8 -O django ecobasa -T template0
 
 As user posgres, you might have to check /etc/postgresql/9.1/main/pg_hba.conf
 if the TYPE 'local' for USER 'all' has METHOD set to 'md5' . Afterwards you
@@ -36,9 +40,3 @@ which will collect all apps' static files into the directory static/ .
 Run it:
 
 	$ ./manage.py runserver
-=======
-ecobasa-UaNoa
-=============
-
-ecobasa 2.0
->>>>>>> c60d6f2057e0e24b6ce739f4bbc49d12f0bd28bf
