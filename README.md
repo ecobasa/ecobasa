@@ -21,10 +21,17 @@ for a bit of setup info. Basically:
 	$ createdb -E utf8 -O django ecobasa -T template0
 
 As user posgres, you might have to check /etc/postgresql/9.1/main/pg_hba.conf
-if the TYPE 'local' for USER 'all' has METHOD set to 'md5' . Afterwards you
-should be able to syncdb as your normal user:
+if the TYPE 'local' for USER 'all' has METHOD set to 'md5' .
 
-	$ ./manage.py syncdb
+Afterwards you should be able to bootstrap the database as your normal user:
+
+	$ ./manage.py syncdb --noinput
+	$ ./manage.py migrate
+	$ ./manage.py createsuperuser
+
+Note: Running `syncdb` with `--noinput` is important, as otherwise setting up
+the superuser will fail due to tables which would only be created at migration
+time.
 
 
 Running
