@@ -40,3 +40,6 @@ nosetests.xml
 # static / media files
 /static/
 /media/
+
+# local settings
+ecobasa/settings.py

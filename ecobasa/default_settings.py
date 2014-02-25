@@ -6,25 +6,6 @@ PROJECT_ROOT = os.path.abspath(
 )
 sys.path.insert(0, os.path.join(PROJECT_ROOT, 'apps'))
 
-DEBUG = True
-TEMPLATE_DEBUG = DEBUG
-
-ADMINS = (
-    # ('Your Name', 'your_email@example.com'),
-)
-MANAGERS = ADMINS
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'ecobasa',
-        'USER': 'django',
-        'PASSWORD': 'ecobasa',
-        'HOST': '',
-        'PORT': '',
-    }
-}
-
 if 'test' in sys.argv:
     DATABASES['default'] = {
         'ENGINE': 'django.db.backends.sqlite3'
@@ -91,9 +72,6 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
-
-# Make this unique, and don't share it with anybody.
-SECRET_KEY = 'r(y6&k-^j^lz2_)bpt&89v5aqy=2c%f^ppff2n5fptk%a11*_!'
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
