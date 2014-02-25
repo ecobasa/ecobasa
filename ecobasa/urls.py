@@ -9,7 +9,8 @@ urlpatterns = patterns('',
     # url(r'^$', HomeView.as_view(), name='home'),
     # url(r'^profile/(?P<slug>[-_\w]+)/$', ProfileView.as_view(), name='profile'),
 
-    url(r'^', include('cosinnus.utils.django_auth_urls')),
+    url(r'^accounts/', include('cosinnus.utils.django_auth_urls')),
+    url(r'^accounts/', include('userprofiles.urls')),
     url(r'^admin/', include(admin.site.urls)),
 
     # url(r'^skillshare/', include('skillshare.urls', namespace='skillshare')),

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% load i18n bootstrap3 %}
+
+{% block page_title %}{% trans "Registration" %}{% endblock %}
+
+{% block content %}
+    <h1>{% trans "Registration" %}</h1>
+
+    <form action="." method="post">
+      {% csrf_token %}
+      {% bootstrap_form form %}
+      {% trans "Create account" as submit_label %}
+      {% buttons submit=submit_label %}{% endbuttons %}
+    </form>
+{% endblock %}

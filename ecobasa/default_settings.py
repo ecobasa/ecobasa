@@ -119,8 +119,15 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.humanize',
     'django.contrib.sessions',
+    'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # custom apps
+    'ecobasa',
+    'cosinnus',
+    # 'skillshare',
+    # 'references',
 
     # third-party
     'appconf',
@@ -131,11 +138,12 @@ INSTALLED_APPS = (
     'south',
     'taggit',
 
-    # custom apps
-    'ecobasa',
-    'cosinnus',
-    # 'skillshare',
-    # 'references',
+    # userprofiles
+    'userprofiles',
+    'userprofiles.contrib.accountverification',
+    #'userprofiles.contrib.emailverification',
+    #'userprofiles.contrib.profiles',
+
 )
 
 # A sample logging configuration. The only tangible logging
@@ -168,6 +176,25 @@ LOGGING = {
 }
 
 
+# userprofile settings
+USERPROFILES_CHECK_UNIQUE_EMAIL = True
+USERPROFILES_DOUBLE_CHECK_EMAIL = False
+USERPROFILES_DOUBLE_CHECK_PASSWORD = True
+USERPROFILES_REGISTRATION_FULLNAME = False
+#USERPROFILES_REGISTRATION_FORM = 'pyconde.accounts.forms.ProfileRegistrationForm'
+
+USERPROFILES_USE_ACCOUNT_VERIFICATION = True
+USERPROFILES_ACCOUNT_VERIFICATION_DAYS = 7
+
+USERPROFILES_USE_PROFILE = False
+USERPROFILES_INLINE_PROFILE_ADMIN = False
+#USERPROFILES_PROFILE_FORM = 'pyconde.accounts.forms.ProfileForm'
+
+USERPROFILES_USE_EMAIL_VERIFICATION = False
+#USERPROFILES_EMAIL_VERIFICATION_DAYS = 2
+#USERPROFILES_EMAIL_VERIFICATION_DONE_URL = 'userprofiles_profile_change'
+
+
 # from django.core.urlresolvers import reverse
 # LOGIN_URL = reverse('home')
 
@@ -183,3 +210,4 @@ FORMAT_MODULE_PATH = 'cosinnus.formats'
 # }
 
 #COSINNUS_USER_PROFILE_MODEL = 'cosinnus.UserProfile'
+

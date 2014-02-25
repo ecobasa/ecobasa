@@ -47,3 +47,12 @@ which will collect all apps' static files into the directory static/ .
 Run it:
 
 	$ ./manage.py runserver
+
+
+Set up your Django site
+-----------------------
+
+For some features, e.g. user registration to work properly, it is necessary to
+set up a Django site, go to http://localhost:8000/admin/sites/site/1/ and edit
+the appropriate domain and display name (use the super user account created
+earlier to log in).
