@@ -8,10 +8,15 @@ from .models import EcobasaUserProfile
 
 
 class EcobasaRegistrationForm(RegistrationForm):
-    myfield = forms.CharField(label=_('myfield'), required=True)
+    model_fields = forms.fields_for_model(EcobasaUserProfile)
+
+    def __init__(self, *args, **kwargs):
+        super(EcobasaRegistrationForm, self).__init__(*args, **kwargs)
+        self.fields.update(self.model_fields)
 
     def save_profile(self, new_user, *args, **kwargs):
         # do not catch DoesNotExist: there must be something else wrong
         profile = EcobasaUserProfile.objects.get(user=new_user)
-        profile.myfield = self.cleaned_data['myfield']
+        for field in self.model_fields.keys():
+            setattr(profile, field, self.cleaned_data[field])
         profile.save()
