@@ -1,5 +1,6 @@
 # Django settings for ecobasa project.
-import os, sys
+import os
+import sys
 
 PROJECT_ROOT = os.path.abspath(
     os.path.join(os.path.dirname(os.path.realpath(__file__)), os.pardir)
@@ -7,7 +8,7 @@ PROJECT_ROOT = os.path.abspath(
 sys.path.insert(0, os.path.join(PROJECT_ROOT, 'apps'))
 
 if 'test' in sys.argv:
-    DATABASES['default'] = {
+    DATABASES['default'] = {  # noqa
         'ENGINE': 'django.db.backends.sqlite3'
     }
     SOUTH_TESTS_MIGRATE = False
@@ -70,7 +71,6 @@ STATICFILES_DIRS = (
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-#    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -107,8 +107,7 @@ TEMPLATE_LOADERS = (
 )
 
 TEMPLATE_DIRS = (
-    # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
-    # Always use forward slashes, even on Windows.
+    # Put strings here, like "/home/html/django_templates"
     # Don't forget to use absolute paths, not relative paths.
 )
 
@@ -133,7 +132,7 @@ INSTALLED_APPS = (
     'appconf',
     'bootstrap3',
     'bootstrap3_datetime',
-    # 'easy_thumbnails',
+    'easy_thumbnails',
     # 'geoposition',
     'south',
     'taggit',
@@ -180,7 +179,7 @@ LOGGING = {
 USERPROFILES_CHECK_UNIQUE_EMAIL = True
 USERPROFILES_DOUBLE_CHECK_EMAIL = False
 USERPROFILES_DOUBLE_CHECK_PASSWORD = True
-USERPROFILES_REGISTRATION_FULLNAME = False
+USERPROFILES_REGISTRATION_FULLNAME = True
 USERPROFILES_REGISTRATION_FORM = 'ecobasa.forms.EcobasaRegistrationForm'
 
 USERPROFILES_USE_ACCOUNT_VERIFICATION = True
