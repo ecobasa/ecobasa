@@ -1,15 +1,35 @@
 {% extends "base.html" %}
-{% load i18n bootstrap3 %}
+{% load i18n bootstrap3 ecobasa_registration %}
 
 {% block page_title %}{% trans "Registration" %}{% endblock %}
+
+{% block extrahead %}
+{{ block.super }}
+{{ form.media.css }}
+{% endblock extrahead %}
 
 {% block content %}
     <h1>{% trans "Registration" %}</h1>
 
-    <form action="." method="post">
+    <form action="." method="post" enctype="multipart/form-data">
       {% csrf_token %}
       {% bootstrap_form form %}
+
+      {% get_interests as interests %}
+      {% trans "available interests" %}: {% for tag in interests %}{{ tag }},{% endfor %}<br />
+
+      {% get_skills as skills %}
+      {% trans "available skills" %}: {% for tag in skills %}{{ tag }},{% endfor %}<br />
+
+      {% get_products as products %}
+      {% trans "available products" %}: {% for tag in products %}{{ tag }},{% endfor %}<br />
+
       {% trans "Create account" as submit_label %}
       {% buttons submit=submit_label %}{% endbuttons %}
     </form>
-{% endblock %}
+{% endblock content %}
+
+{% block extrafooter %}
+{{ block.super }}
+{{ form.media.js }}
+{% endblock extrafooter %}

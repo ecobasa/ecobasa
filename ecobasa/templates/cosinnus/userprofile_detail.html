@@ -1,16 +1,73 @@
 {% extends "cosinnus/base.html" %}
-{% load i18n %}
+{% load i18n thumbnail %}
 
 {% block page_title %}
   {% blocktrans with username=object.user.get_username %}User profile: {{ username }}{% endblocktrans %}
 {% endblock %}
 
 {% block content %}
-  <h1>{% blocktrans with username=object.user.get_username %}User profile: {{ username }}{% endblocktrans %}</h1>
+<h1>{% blocktrans with username=object.user.get_username %}User profile: {{ username }}{% endblocktrans %}</h1>
 
-  <dl>{% for field in optional_fields %}
-    <dt>{{ field.name }}</dt> <dd>{{ field.value }}</dd>
-  {% endfor %}</dl>
+<div class="row">
+  <div class="col-xs-6">
+    <dl>
+      <dt>{% trans "avatar" %}</dt>
+      <dd>{% if object.avatar %}<img src="{% thumbnail object.avatar "70x0" crop=1 upscale=1 %}" />{% endif %}</dd>
 
-  <a href="{% url 'cosinnus:profile-edit' %}">{% trans "Edit" %}</a>
+      <dt>{% trans "name" %}</dt>
+      <dd>{{ object.user.get_full_name }}</dd>
+
+      <dt>{% trans "email" %}</dt>
+      <dd>{{ object.user.email }}</dd>
+
+      <dt>{% trans "gender" %}</dt>
+      <dd>{{ object.get_gender_display }}</dt>
+
+      <dt>{% trans "birth date" %}</dt>
+      <dd>{{ object.birth_date }}</dt>
+
+      <dt>{% trans "country" %}</dt>
+      <dd>{{ object.get_country_display }}</dd>
+
+      <dt>{% trans "city" %}</dt>
+      <dd>{{ object.city }}</dt>
+
+      <dt>{% trans "zipcode" %}</dt>
+      <dd>{{ object.zipcode }}</dt>
+
+      <dt>{% trans "interests" %}</dt>
+      <dd>{% for tag in object.interests.all %}{{ tag }}{% if not forloop.last %}, {% endif %}{% endfor %}</dd>
+
+      <dt>{% trans "skills" %}</dt>
+      <dd>{% for tag in object.skills.all %}{{ tag }}{% if not forloop.last %}, {% endif %}{% endfor %}</dd>
+
+      <dt>{% trans "products" %}</dt>
+      <dd>{% for tag in object.products.all %}{{ tag }}{% if not forloop.last %}, {% endif %}{% endfor %}</dd>
+    </dl>
+  </div>
+
+  <div class="col-xs-6">
+    {% if object.has_bus %}
+    <h2>{% trans "Bus" %}</h2>
+    <dl>
+      <dt>{% trans "image" %}</dt>
+      <dd>{% if object.bus_image %}<img src="{% thumbnail object.bus_image "200x0" crop=1 upscale=1 %}" />{% endif %}</dd>
+
+      <dt>{% trans "has driving license" %}</dt>
+      <dd>{{ object.bus_has_driving_license }}</dd>
+
+      <dt>{% trans "others can drive" %}</dt>
+      <dd>{{ object.bus_others_can_drive }}</dd>
+
+      <dt>{% trans "num passengers" %}</dt>
+      <dd>{{ object.bus_num_passengers }}</dd>
+
+      <dt>{% trans "fuel consumption" %}</dt>
+      <dd>{{ object.bus_consumption }}</dd>
+    </dl>
+    {% endif %}
+  </div>
+</div>
+
+<a class="btn btn-primary" href="{% url 'cosinnus:profile-edit' %}">{% trans "Edit" %}</a>
 {% endblock content %}
