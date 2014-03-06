@@ -8,3 +8,5 @@ easy-thumbnails==1.4
 -e git+git@git.sinnwerkstatt.com:cosinnus/cosinnus-core.git@staging#egg=cosinnus
 django-sekizai==0.7
 suit==2.0.2
+django-filer
+cmsplugin_nivoslider
