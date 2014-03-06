@@ -113,6 +113,7 @@ TEMPLATE_DIRS = (
 
 
 INSTALLED_APPS = (
+    # Django Apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -121,6 +122,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'suit',
 
     # custom apps
     'ecobasa',
@@ -136,6 +138,7 @@ INSTALLED_APPS = (
     # 'geoposition',
     'south',
     'taggit',
+    'sekizai',
 
     # userprofiles
     'userprofiles',
@@ -182,7 +185,7 @@ USERPROFILES_DOUBLE_CHECK_PASSWORD = True
 USERPROFILES_REGISTRATION_FULLNAME = True
 USERPROFILES_REGISTRATION_FORM = 'ecobasa.forms.EcobasaRegistrationForm'
 
-USERPROFILES_USE_ACCOUNT_VERIFICATION = True
+USERPROFILES_USE_ACCOUNT_VERIFICATION = False
 USERPROFILES_ACCOUNT_VERIFICATION_DAYS = 7
 
 USERPROFILES_USE_PROFILE = False
