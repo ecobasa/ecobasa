@@ -1,21 +1,84 @@
 # -*- coding: utf-8 -*-
+from __future__ import unicode_literals
 
 from django import forms
+from django.utils.translation import ugettext_lazy as _
 from userprofiles.forms import RegistrationForm
 
 from cosinnus.forms.widgets import DateL10nPicker
-from .models import EcobasaUserProfile
+from cosinnus.models import (CosinnusGroup, CosinnusGroupMembership,
+    MEMBERSHIP_ADMIN)
+
+from .models import EcobasaUserProfile, EcobasaCommunityProfile
 
 
 class EcobasaRegistrationForm(RegistrationForm):
-    model_fields = forms.fields_for_model(EcobasaUserProfile)
-
     def __init__(self, *args, **kwargs):
         super(EcobasaRegistrationForm, self).__init__(*args, **kwargs)
-        self.fields.update(self.model_fields)
+        fields_user = forms.fields_for_model(EcobasaUserProfile)
+        self.fields.update(fields_user)
         self.fields['birth_date'].widget = DateL10nPicker()
 
-    def save_profile(self, new_user, *args, **kwargs):
+        fields_community = forms.fields_for_model(EcobasaCommunityProfile)
+        self.fields.update(fields_community)
+
+        choices = [
+            ('community', _('Community')),
+            ('user', _('User'))]
+        self.fields['register_as'] = forms.ChoiceField(
+            choices=choices, widget=forms.RadioSelect())
+
+    def _save_community_profile(self, new_user):
+        name = self.cleaned_data['name']
+
+        # set up cosinnus group and admin user
+        community = CosinnusGroup.objects.create(name=name, public=False)
+        CosinnusGroupMembership.objects.create(
+            user=new_user, group=community, status=MEMBERSHIP_ADMIN)
+
+        # set up profile
+        profile = EcobasaCommunityProfile.objects.create(group=community)
+        profile.name = name
+        profile.contact_telephone = self.cleaned_data['contact_telephone']
+        profile.contact_street = self.cleaned_data['contact_street']
+        profile.contact_city = self.cleaned_data['contact_city']
+        profile.contact_zipcode = self.cleaned_data['contact_zipcode']
+        profile.contact_country = self.cleaned_data['contact_country']
+        profile.contact_show = self.cleaned_data['contact_show']
+
+        profile.visitors_num = self.cleaned_data['visitors_num']
+        profile.visitors_accommodation =\
+            self.cleaned_data['visitors_accommodation']
+
+        profile.wishlist_materials = self.cleaned_data['wishlist_materials']
+        profile.wishlist_tools = self.cleaned_data['wishlist_tools']
+        profile.wishlist_seeds_kind = self.cleaned_data['wishlist_seeds_kind']
+        profile.wishlist_seeds_num = self.cleaned_data['wishlist_seeds_num']
+        profile.wishlist_special_needs =\
+            self.cleaned_data['wishlist_special_needs']
+
+        for tag in self.cleaned_data['offers_services']:
+            profile.offers_services.add(tag)
+        for tag in self.cleaned_data['offers_skills']:
+            profile.offers_skills.add(tag)
+        for tag in self.cleaned_data['offers_creations']:
+            profile.offers_creations.add(tag)
+        profile.offers_workshop_spaces =\
+            self.cleaned_data['offers_workshop_spaces']
+        profile.offers_learning_seminars =\
+            self.cleaned_data['offers_learning_seminars']
+
+        profile.basic_inhabitants = self.cleaned_data['basic_inhabitants']
+        profile.basic_inhabitants_underage =\
+            self.cleaned_data['basic_inhabitants_underage']
+        profile.basic_brings_together =\
+            self.cleaned_data['basic_brings_together']
+        profile.basic_membership_status =\
+            self.cleaned_data['basic_membership_status']
+
+        profile.save()
+
+    def _save_user_profile(self, new_user):
         # do not catch DoesNotExist: there must be something else wrong
         profile = EcobasaUserProfile.objects.get(user=new_user)
 
@@ -43,3 +106,9 @@ class EcobasaRegistrationForm(RegistrationForm):
             profile.products.add(tag)
 
         profile.save()
+
+    def save_profile(self, new_user, *args, **kwargs):
+        if self.cleaned_data['register_as'] == 'user':
+            return self._save_user_profile(new_user)
+        else:
+            return self._save_community_profile(new_user)
