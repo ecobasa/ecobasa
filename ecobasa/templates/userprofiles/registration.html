@@ -1,11 +1,13 @@
 {% extends "base.html" %}
-{% load i18n bootstrap3 ecobasa_registration %}
+{% load i18n static bootstrap3 ecobasa_registration %}
 
 {% block page_title %}{% trans "Registration" %}{% endblock %}
 
 {% block extrahead %}
 {{ block.super }}
 {{ form.media.css }}
+<link href="{% static "css/vendor/select2-bootstrap.css" %}" rel="stylesheet"/>
+<link href="{% static "css/vendor/select2.css" %}" rel="stylesheet"/>
 {% endblock extrahead %}
 
 {% block content %}
@@ -97,18 +99,12 @@
       <div class="row">
         <div class="col-xs-4">
         {% bootstrap_field form.interests %}
-        {% get_interests as interests %}
-        {% trans "available interests" %}: {% for tag in interests %}{{ tag }},{% endfor %}
         </div>
         <div class="col-xs-4">
         {% bootstrap_field form.skills %}
-        {% get_skills as skills %}
-        {% trans "available skills" %}: {% for tag in skills %}{{ tag }},{% endfor %}
         </div>
         <div class="col-xs-4">
         {% bootstrap_field form.products %}
-        {% get_products as products %}
-        {% trans "available products" %}: {% for tag in products %}{{ tag }},{% endfor %}
         </div>
       </div>
     </div>
@@ -168,18 +164,12 @@
       <div class="row">
         <div class="col-xs-4">
         {% bootstrap_field form.offers_services %}
-        {% get_offers_services as offers_services %}
-        {% trans "available services" %}: {% for tag in offers_services %}{{ tag }},{% endfor %}<br />
         </div>
         <div class="col-xs-4">
         {% bootstrap_field form.offers_skills %}
-        {% get_offers_skills as offers_skills %}
-        {% trans "available skills" %}: {% for tag in offers_skills %}{{ tag }},{% endfor %}<br />
         </div>
         <div class="col-xs-4">
         {% bootstrap_field form.offers_creations %}
-        {% get_offers_creations as offers_creations %}
-        {% trans "available creations" %}: {% for tag in offers_creations %}{{ tag }},{% endfor %}<br />
         </div>
       </div>
 
@@ -219,14 +209,56 @@
 {% block extrafooter %}
 {{ block.super }}
 {{ form.media.js }}
+{% get_interests as interests %}
+{% get_products as products %}
+{% get_skills as skills %}
+{% get_offers_services as offers_services %}
+{% get_offers_skills as offers_skills %}
+{% get_offers_creations as offers_creations %}
+<script src="{% static "js/vendor/select2/select2.min.js" %}"></script>
 <script type="text/javascript">
 $(function() {
+  $('#id_country').select2({
+    placeholder: "Select a Country",
+    allowClear: true
+  });
+  $("#id_interests").select2({
+  tags:[{% for tag in interests %}"{{ tag }}"{% if not forloop.last %}, {% endif %}{% endfor %}],
+  tokenSeparators: [",", " "]
+  });
+  $("#id_skills").select2({
+  tags:[{% for tag in skills %}"{{ tag }}"{% if not forloop.last %}, {% endif %}{% endfor %}],
+  tokenSeparators: [",", " "]
+  });
+  $("#id_products").select2({
+  tags:[{% for tag in products %}"{{ tag }}"{% if not forloop.last %}, {% endif %}{% endfor %}],
+  tokenSeparators: [",", " "]
+  });
+
+  $('#id_contact_country').select2({
+    placeholder: "Select a Country",
+    allowClear: true
+  });
+  $("#id_offers_services").select2({
+  tags:[{% for tag in offers_services %}"{{ tag }}"{% if not forloop.last %}, {% endif %}{% endfor %}],
+  tokenSeparators: [",", " "]
+  });
+  $("#id_offers_skills").select2({
+  tags:[{% for tag in offers_skills %}"{{ tag }}"{% if not forloop.last %}, {% endif %}{% endfor %}],
+  tokenSeparators: [",", " "]
+  });
+  $("#id_offers_creations").select2({
+  tags:[{% for tag in offers_creations %}"{{ tag }}"{% if not forloop.last %}, {% endif %}{% endfor %}],
+  tokenSeparators: [",", " "]
+  });
+
   $('#id_register_as_0').click(function() {
     if ($(this).is(':checked')) {
       $('#form_register_user').removeClass('show').addClass('hidden');
       $('#form_register_community').removeClass('hidden').addClass('show');
     }
   });
+
   $('#id_register_as_1').click(function() {
     if ($(this).is(':checked')) {
       $('#form_register_community').removeClass('show').addClass('hidden');
