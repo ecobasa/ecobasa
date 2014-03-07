@@ -9,35 +9,36 @@ from ..models import (TaggedInterest, TaggedSkill, TaggedProduct,
 register = template.Library()
 
 
-def map_tagmodel(model):
-    return map(lambda x: x.tag.name, model.objects.all())
+def get_tagnames(model):
+    qs = model.objects.all().select_related('tag')
+    return set(map(lambda x: x.tag.name, qs))
 
 
 @register.assignment_tag
 def get_interests():
-    return map_tagmodel(TaggedInterest)
+    return get_tagnames(TaggedInterest)
 
 
 @register.assignment_tag
 def get_skills():
-    return map_tagmodel(TaggedSkill)
+    return get_tagnames(TaggedSkill)
 
 
 @register.assignment_tag
 def get_products():
-    return map_tagmodel(TaggedProduct)
+    return get_tagnames(TaggedProduct)
 
 
 @register.assignment_tag
 def get_offers_services():
-    return map_tagmodel(TaggedOffersService)
+    return get_tagnames(TaggedOffersService)
 
 
 @register.assignment_tag
 def get_offers_skills():
-    return map_tagmodel(TaggedOffersSkill)
+    return get_tagnames(TaggedOffersSkill)
 
 
 @register.assignment_tag
 def get_offers_creations():
-    return map_tagmodel(TaggedOffersCreation)
+    return get_tagnames(TaggedOffersCreation)
