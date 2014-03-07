@@ -93,10 +93,6 @@ TEMPLATE_CONTEXT_PROCESSORS = [
     'cosinnus.utils.context_processors.settings',
 ]
 
-THUMBNAIL_PROCESSORS = [
-'cmsplugin_nivoslider.thumbnail_processors.pad_image',
-]
-
 ROOT_URLCONF = 'ecobasa.urls'
 
 # Python dotted path to the WSGI application used by Django's runserver.
