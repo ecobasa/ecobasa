@@ -1,10 +1,13 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+import json
+
 from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
 from django.utils.translation import ugettext_lazy as _
 from easy_thumbnails.fields import ThumbnailerImageField
+from six.moves import urllib
 from taggit.managers import TaggableManager
 from taggit.models import TaggedItemBase
 
@@ -354,6 +357,9 @@ class EcobasaCommunityProfile(models.Model):
         max_length=255, blank=True, null=True)
     contact_country = models.CharField(_('country'),
         max_length=2, choices=COUNTRY_CHOICES, default='ZZ')
+    contact_lat = models.FloatField(_('latitude'), default=0., blank=True)
+    contact_lon = models.FloatField(_('longitude'), default=0., blank=True)
+
     contact_show = models.BooleanField(_('show address in profile'),
         default=False, blank=True)
 
@@ -413,3 +419,35 @@ class EcobasaCommunityProfile(models.Model):
 
     def __str__(self):
         return self.name
+
+    def _get_lat_lon(self):
+        params = {
+            'street': self.contact_street,
+            'city': self.contact_city,
+            'country': self.contact_country,
+            'postalcode': self.contact_zipcode,
+            'format': 'jsonv2',
+            'limit': 1,
+        }
+        data = urllib.parse.urlencode(params).encode('ascii')
+        url = 'http://nominatim.openstreetmap.org/search/?' + data
+        timeout = 20
+
+        response = urllib.request.urlopen(url, None, timeout).read()
+        if not response:
+            return 0., 0.
+
+        try:
+            result = json.loads(response.decode('utf-8'))[0]
+        except:
+            result = None
+        if not isinstance(result, dict):
+            return 0., 0.
+
+        lat = float(result.get('lat', 0.))
+        lon = float(result.get('lon', 0.))
+        return lat, lon
+
+    def save(self, *args, **kwargs):
+        self.contact_lat, self.contact_lon = self._get_lat_lon()
+        return super(EcobasaCommunityProfile, self).save(*args, **kwargs)
