@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load static i18n bootstrap3 ecobasa_registration sekizai_tags%}
+{% load i18n static bootstrap3 ecobasa_registration %}
 
 {% block page_title %}{% trans "Registration" %}{% endblock %}
 
@@ -15,9 +15,194 @@
 
     <form action="." method="post" enctype="multipart/form-data">
       {% csrf_token %}
-      {% bootstrap_form form %}
+
+    {% bootstrap_field form.register_as %}
+
+<div class="row">
+  <div class="col-xs-10">
+    <div class="row">
+      <div class="col-xs-6">
+    {% bootstrap_field form.username %}
+      </div>
+      <div class="col-xs-6">
+    {% bootstrap_field form.email %}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-6">
+    {% bootstrap_field form.first_name %}
+      </div>
+      <div class="col-xs-6">
+    {% bootstrap_field form.last_name %}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-6">
+    {% bootstrap_field form.password %}
+      </div>
+      <div class="col-xs-6">
+    {% bootstrap_field form.password_repeat %}
+      </div>
+    </div>
+
+    <div class="hidden" id="form_register_user">
+      <div class="row">
+        <div class="col-xs-4">
+        {% bootstrap_field form.avatar %}
+        </div>
+        <div class="col-xs-4">
+        {% bootstrap_field form.gender %}
+        </div>
+        <div class="col-xs-4">
+        {% bootstrap_field form.birth_date %}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-4">
+        {% bootstrap_field form.city %}
+        </div>
+        <div class="col-xs-4">
+        {% bootstrap_field form.zipcode %}
+        </div>
+        <div class="col-xs-4">
+        {% bootstrap_field form.country %}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-6">
+        {% bootstrap_field form.has_bus %}
+        </div>
+        <div class="col-xs-6">
+        {% bootstrap_field form.bus_image %}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-3">
+        {% bootstrap_field form.bus_has_driving_license %}
+        </div>
+        <div class="col-xs-3">
+        {% bootstrap_field form.bus_others_can_drive %}
+        </div>
+        <div class="col-xs-3">
+        {% bootstrap_field form.bus_num_passengers %}
+        </div>
+        <div class="col-xs-3">
+        {% bootstrap_field form.bus_consumption %}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-4">
+        {% bootstrap_field form.interests %}
+        </div>
+        <div class="col-xs-4">
+        {% bootstrap_field form.skills %}
+        </div>
+        <div class="col-xs-4">
+        {% bootstrap_field form.products %}
+        </div>
+      </div>
+    </div>
+
+    <div class="hidden" id="form_register_community">
+      {% bootstrap_field form.name %}
+
+      <div class="row">
+        <div class="col-xs-3">
+        {% bootstrap_field form.contact_telephone %}
+        </div>
+        <div class="col-xs-2">
+        {% bootstrap_field form.contact_street %}
+        </div>
+        <div class="col-xs-2">
+        {% bootstrap_field form.contact_city %}
+        </div>
+        <div class="col-xs-2">
+        {% bootstrap_field form.contact_zipcode %}
+        </div>
+        <div class="col-xs-3">
+        {% bootstrap_field form.contact_country %}
+        </div>
+      </div>
+
+      {% bootstrap_field form.contact_show %}
+
+      <div class="row">
+        <div class="col-xs-6">
+        {% bootstrap_field form.visitors_num %}
+        </div>
+        <div class="col-xs-6">
+        {% bootstrap_field form.visitors_accommodation %}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-6">
+        {% bootstrap_field form.wishlist_materials %}
+        </div>
+        <div class="col-xs-6">
+        {% bootstrap_field form.wishlist_tools %}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-6">
+        {% bootstrap_field form.wishlist_seeds_kind %}
+        </div>
+        <div class="col-xs-6">
+        {% bootstrap_field form.wishlist_seeds_num %}
+        </div>
+      </div>
+
+      {% bootstrap_field form.wishlist_special_needs %}
+
+      <div class="row">
+        <div class="col-xs-4">
+        {% bootstrap_field form.offers_services %}
+        </div>
+        <div class="col-xs-4">
+        {% bootstrap_field form.offers_skills %}
+        </div>
+        <div class="col-xs-4">
+        {% bootstrap_field form.offers_creations %}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-6">
+        {% bootstrap_field form.offers_workshop_spaces %}
+        </div>
+        <div class="col-xs-6">
+        {% bootstrap_field form.offers_learning_seminars %}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-3">
+        {% bootstrap_field form.basic_inhabitants %}
+        </div>
+        <div class="col-xs-3">
+        {% bootstrap_field form.basic_inhabitants_underage %}
+        </div>
+        <div class="col-xs-3">
+        {% bootstrap_field form.basic_brings_together %}
+        </div>
+        <div class="col-xs-3">
+        {% bootstrap_field form.basic_membership_status %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-2">
       {% trans "Create account" as submit_label %}
       {% buttons submit=submit_label %}{% endbuttons %}
+  </div>
+</div>
     </form>
 {% endblock content %}
 
@@ -27,9 +212,12 @@
 {% get_interests as interests %}
 {% get_products as products %}
 {% get_skills as skills %}
+{% get_offers_services as offers_services %}
+{% get_offers_skills as offers_skills %}
+{% get_offers_creations as offers_creations %}
 <script src="{% static "js/vendor/select2/select2.min.js" %}"></script>
-<script>
-$(document).ready(function() {
+<script type="text/javascript">
+$(function() {
   $('#id_country').select2({
     placeholder: "Select a Country",
     allowClear: true
@@ -45,6 +233,38 @@ $(document).ready(function() {
   $("#id_products").select2({
   tags:[{% for tag in products %}"{{ tag }}"{% if not forloop.last %}, {% endif %}{% endfor %}],
   tokenSeparators: [",", " "]
+  });
+
+  $('#id_contact_country').select2({
+    placeholder: "Select a Country",
+    allowClear: true
+  });
+  $("#id_offers_services").select2({
+  tags:[{% for tag in offers_services %}"{{ tag }}"{% if not forloop.last %}, {% endif %}{% endfor %}],
+  tokenSeparators: [",", " "]
+  });
+  $("#id_offers_skills").select2({
+  tags:[{% for tag in offers_skills %}"{{ tag }}"{% if not forloop.last %}, {% endif %}{% endfor %}],
+  tokenSeparators: [",", " "]
+  });
+  $("#id_offers_creations").select2({
+  tags:[{% for tag in offers_creations %}"{{ tag }}"{% if not forloop.last %}, {% endif %}{% endfor %}],
+  tokenSeparators: [",", " "]
+  });
+
+  $('#id_register_as_0').click(function() {
+    if ($(this).is(':checked')) {
+      $('#form_register_user').removeClass('show').addClass('hidden');
+      $('#form_register_community').removeClass('hidden').addClass('show');
+    }
+  });
+
+  $('#id_register_as_1').click(function() {
+    if ($(this).is(':checked')) {
+      $('#form_register_community').removeClass('show').addClass('hidden');
+      $('#id_name').val(' ');
+      $('#form_register_user').removeClass('hidden').addClass('show');
+    }
   });
 });
 </script>
