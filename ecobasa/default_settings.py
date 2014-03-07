@@ -81,6 +81,12 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.doc.XViewMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'cms.middleware.page.CurrentPageMiddleware',
+    'cms.middleware.user.CurrentUserMiddleware',
+    'cms.middleware.toolbar.ToolbarMiddleware',
+    'cms.middleware.language.LanguageCookieMiddleware',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = [
@@ -91,11 +97,13 @@ TEMPLATE_CONTEXT_PROCESSORS = [
     'django.core.context_processors.media',
     'django.core.context_processors.static',
     'cosinnus.utils.context_processors.settings',
+    'cms.context_processors.media',
+    'sekizai.context_processors.sekizai',
 ]
 
-THUMBNAIL_PROCESSORS = [
+THUMBNAIL_PROCESSORS = (
 'cmsplugin_nivoslider.thumbnail_processors.pad_image',
-]
+)
 
 ROOT_URLCONF = 'ecobasa.urls'
 
@@ -113,8 +121,16 @@ TEMPLATE_LOADERS = (
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates"
     # Don't forget to use absolute paths, not relative paths.
+    os.path.join(PROJECT_ROOT, "templates"),
 )
 
+CMS_TEMPLATES = (
+    ('start.html', 'Startpage'),
+)
+
+LANGUAGES = [
+    ('en', 'English'),
+]
 
 INSTALLED_APPS = (
     # Django Apps
@@ -152,6 +168,11 @@ INSTALLED_APPS = (
     'cms.plugins.text',
     'cms.plugins.link',
     'sekizai',
+    'cmsplugin_filer_folder',
+    'cmsplugin_filer_file',
+    'cmsplugin_filer_image',
+    'cmsplugin_filer_teaser',
+    'cmsplugin_filer_video',
 
     # userprofiles
     'userprofiles',

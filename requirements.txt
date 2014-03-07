@@ -10,3 +10,4 @@ django-sekizai==0.7
 suit==2.0.2
 django-filer
 cmsplugin_nivoslider
+cmsplugin-filer
