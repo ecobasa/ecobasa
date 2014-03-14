@@ -1,6 +1,48 @@
 {% extends "base.html" %}
-{% load cms_tags %}
+{% load cms_tags static sekizai_tags %}
+
+{% block extrahead %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static "nivo/nivo-slider.css" %}">
+<link rel="stylesheet" href="{% static "css/ecobasa.css" %}">
+<script src="{% static "nivo/js/jquery.nivo.slider.pack.js" %}"></script>
+{% endblock %}
 
 {% block base_content %}
   {% placeholder template_1_content %}
+  <div class="container">
+  	<div class="row">
+  		<div class="col-xs-6">
+  			<h2>What is this project?</h2>
+			<p>The community-tours empower an alternative economy based on trust and sharing.  
+We will travel between ecovillages and other sustainable communities across Europe. By bringing spare resources and experts from one community to the next place where they are needed, a new culture of gift-economy is emerging!  
+The buses will roll for 6 weeks and all experiences will be documented and published here on this website.  
+The concept of the tour can be recreated by anyone, anywhere.  
+The goal is to establish a self-running gift-economy network.</p>
+  		</div>
+  		<div class="col-xs-6">
+  			<h2>Communities that want to be visited</h2>
+  			#map
+  		</div>
+  	</div>
+  		<div class="row">
+  			<div class="col-xs-5 col-xs-offset-1">
+  				<h2>Register your community</h2>
+  				<ul>
+  					<li>get support for your projects</li>
+  					<li>receive and offer gifts</li>
+  					<li>connect to awesome people and other communities</li>
+  				</ul>
+  			</div>
+  			<div class="col-xs-6">
+				<h2>Join the Tour!</h2>
+				<ul>
+					<li>gain an inside view into the world of sustainable lifestyles</li>
+					<li>share your skills</li>
+					<li>travel to get inspired</li>
+				</ul>
+  			</div>
+  		</div>
+  </div>
+
 {% endblock %}
