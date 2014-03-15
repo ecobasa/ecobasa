@@ -22,11 +22,25 @@ class EcobasaRegistrationForm(RegistrationForm):
         fields_community = forms.fields_for_model(EcobasaCommunityProfile)
         self.fields.update(fields_community)
 
-        choices = [
-            ('community', _('Community')),
-            ('user', _('User'))]
-        self.fields['register_as'] = forms.ChoiceField(
-            choices=choices, widget=forms.RadioSelect())
+        # Value for register_as is defined by clicking the appropriate button
+        self.fields['register_as'] = forms.CharField(widget=forms.HiddenInput())
+
+        # has_bus is a boolean field, but is represented as a button in the
+        # form. Form validation has to be told explicitly that this field is
+        # not required.
+        self.fields['has_bus'] = forms.CharField(
+            widget=forms.HiddenInput(),
+            label=self.fields['has_bus'].label,
+            required=False)
+
+        # Alas, template has to use two different <form> for member and
+        # community, otherwise User (not profile) fields would be sent twice,
+        # once for member slides and once for community slides. And then form
+        # validation would complain about empty fields for community (coz
+        # member is defined first). But now we have to set the community name
+        # to something arbitrary in member form to fool validation.
+        if self.data.get('register_as', '') == 'member':
+            self.data['name'] = ' '
 
     def _save_community_profile(self, new_user):
         name = self.cleaned_data['name']
@@ -108,7 +122,7 @@ class EcobasaRegistrationForm(RegistrationForm):
         profile.save()
 
     def save_profile(self, new_user, *args, **kwargs):
-        if self.cleaned_data['register_as'] == 'user':
+        if self.cleaned_data['register_as'] == 'member':
             return self._save_user_profile(new_user)
-        else:
+        elif self.cleaned_data['register_as'] == 'community':
             return self._save_community_profile(new_user)

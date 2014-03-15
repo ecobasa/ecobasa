@@ -289,13 +289,13 @@ class EcobasaUserProfile(BaseUserProfile):
         (GENDER_OTHER, _('Other')),
     )
     gender = models.CharField(_('"gender"'),
-        max_length=2, choices=GENDER_CHOICES, default=GENDER_OTHER)
+        max_length=2, blank=True, choices=GENDER_CHOICES, default=GENDER_OTHER)
 
     birth_date = models.DateField(_('birth date'),
         default=None, blank=True, null=True)
 
     country = models.CharField(_('country'),
-        max_length=2, choices=COUNTRY_CHOICES, default='ZZ')
+        max_length=2, blank=True, choices=COUNTRY_CHOICES, default='ZZ')
     city = models.CharField(_('city'),
         max_length=255, blank=True, null=True)
     zipcode = models.CharField(_('zipcode'),
@@ -356,7 +356,7 @@ class EcobasaCommunityProfile(models.Model):
     contact_zipcode = models.CharField(_('zipcode'),
         max_length=255, blank=True, null=True)
     contact_country = models.CharField(_('country'),
-        max_length=2, choices=COUNTRY_CHOICES, default='ZZ')
+        max_length=2, blank=True, choices=COUNTRY_CHOICES, default='ZZ')
     contact_lat = models.FloatField(_('latitude'), default=0., blank=True)
     contact_lon = models.FloatField(_('longitude'), default=0., blank=True)
 
@@ -415,7 +415,10 @@ class EcobasaCommunityProfile(models.Model):
         (MEMBERSHIP_CLOSED, _('closed for new members')),
     )
     basic_membership_status = models.CharField(_('member status'),
-        max_length=2, choices=MEMBERSHIP_CHOICES, default=MEMBERSHIP_OPEN)
+        max_length=2,
+        blank=True,
+        choices=MEMBERSHIP_CHOICES,
+        default=MEMBERSHIP_OPEN)
 
     def __str__(self):
         return self.name
@@ -433,7 +436,10 @@ class EcobasaCommunityProfile(models.Model):
         url = 'http://nominatim.openstreetmap.org/search/?' + data
         timeout = 20
 
-        response = urllib.request.urlopen(url, None, timeout).read()
+        try:
+            response = urllib.request.urlopen(url, None, timeout).read()
+        except urllib.error.URLError:
+            response = None
         if not response:
             return 0., 0.
 

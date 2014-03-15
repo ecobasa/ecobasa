@@ -8,203 +8,385 @@
 {{ form.media.css }}
 <link href="{% static "css/vendor/select2-bootstrap.css" %}" rel="stylesheet"/>
 <link href="{% static "css/vendor/select2.css" %}" rel="stylesheet"/>
+<link href="{% static "css/ecobasa.css" %}" rel="stylesheet"/>
 {% endblock extrahead %}
 
 {% block content %}
-    <h1>{% trans "Registration" %}</h1>
+{% with form.register_as.value as register_as %}
 
-    <form action="." method="post" enctype="multipart/form-data">
-      {% csrf_token %}
+<div id="slide-register-as" class="slide {% if register_as %}hide{% else %}show{% endif %}">
+    <a id="slide-register-member" class="btn btn-default">{% trans "Join as a member" %}</a>
+    <a id="slide-register-community" class="btn btn-default">{% trans "Add your community" %}</a>
+</div>
 
-    {% bootstrap_field form.register_as %}
 
-<div class="row">
-  <div class="col-xs-10">
-    <div class="row">
-      <div class="col-xs-6">
-    {% bootstrap_field form.username %}
-      </div>
-      <div class="col-xs-6">
-    {% bootstrap_field form.email %}
-      </div>
+<form id="form-register-member" action="." method="post" enctype="multipart/form-data" novalidate="novalidate">
+  {% csrf_token %}
+  {{ form.register_as }}
+  {{ form.has_bus }}
+
+
+<div id="navbar-member" class="{% ifequal form.register_as.value 'member' %}{% if form.errors %}show{% endif %}{% else %}hide{% endifequal %}">
+  <nav class="navbar navbar-default" role="navigation">
+    <ul class="nav navbar-nav">
+        <li class="active"><a href="#slide-member-personal">{% trans "personal" %}</a></li>
+        <li><a href="#slide-member-interests">{% trans "interests" %}</a></li>
+        <li><a href="#slide-member-skills-products">{% trans "skills" %}</a></li>
+        <li><a href="#slide-member-bus-ask">{% trans "bus" %}</a></li>
+    </ul>
+  </nav>
+</div>
+
+
+<div id="slide-member-personal" class="slide {% ifequal register_as 'member' %}{% if form.errors %}show{% endif %}{% else %}hide{% endifequal %}">
+  <div class="row">
+    <div class="col-xs-6">
+      {% bootstrap_field form.avatar %}
     </div>
-
-    <div class="row">
-      <div class="col-xs-6">
-    {% bootstrap_field form.first_name %}
-      </div>
-      <div class="col-xs-6">
-    {% bootstrap_field form.last_name %}
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-xs-6">
-    {% bootstrap_field form.password %}
-      </div>
-      <div class="col-xs-6">
-    {% bootstrap_field form.password_repeat %}
-      </div>
-    </div>
-
-    <div class="hidden" id="form_register_user">
+    <div class="col-xs-6">
       <div class="row">
-        <div class="col-xs-4">
-        {% bootstrap_field form.avatar %}
-        </div>
-        <div class="col-xs-4">
-        {% bootstrap_field form.gender %}
-        </div>
-        <div class="col-xs-4">
-        {% bootstrap_field form.birth_date %}
-        </div>
+        <div class="col-xs-3">{% bootstrap_label form.username.label %}</div>
+        <div class="col-xs-9">{% bootstrap_field form.username show_label=False %}</div>
       </div>
 
       <div class="row">
-        <div class="col-xs-4">
-        {% bootstrap_field form.city %}
-        </div>
-        <div class="col-xs-4">
-        {% bootstrap_field form.zipcode %}
-        </div>
-        <div class="col-xs-4">
-        {% bootstrap_field form.country %}
-        </div>
+        <div class="col-xs-3">{% bootstrap_label form.first_name.label %}</div>
+        <div class="col-xs-9">{% bootstrap_field form.first_name show_label=False %}</div>
       </div>
 
       <div class="row">
-        <div class="col-xs-6">
-        {% bootstrap_field form.has_bus %}
-        </div>
-        <div class="col-xs-6">
-        {% bootstrap_field form.bus_image %}
-        </div>
+        <div class="col-xs-3">{% bootstrap_label form.last_name.label %}</div>
+        <div class="col-xs-9">{% bootstrap_field form.last_name show_label=False %}</div>
       </div>
 
       <div class="row">
-        <div class="col-xs-3">
-        {% bootstrap_field form.bus_has_driving_license %}
-        </div>
-        <div class="col-xs-3">
-        {% bootstrap_field form.bus_others_can_drive %}
-        </div>
-        <div class="col-xs-3">
-        {% bootstrap_field form.bus_num_passengers %}
-        </div>
-        <div class="col-xs-3">
-        {% bootstrap_field form.bus_consumption %}
-        </div>
+        <div class="col-xs-3">{% bootstrap_label form.gender.label %}</div>
+        <div class="col-xs-9">{% bootstrap_field form.gender show_label=False %}</div>
       </div>
 
       <div class="row">
-        <div class="col-xs-4">
-        {% bootstrap_field form.interests %}
-        </div>
-        <div class="col-xs-4">
-        {% bootstrap_field form.skills %}
-        </div>
-        <div class="col-xs-4">
-        {% bootstrap_field form.products %}
-        </div>
-      </div>
-    </div>
-
-    <div class="hidden" id="form_register_community">
-      {% bootstrap_field form.name %}
-
-      <div class="row">
-        <div class="col-xs-3">
-        {% bootstrap_field form.contact_telephone %}
-        </div>
-        <div class="col-xs-2">
-        {% bootstrap_field form.contact_street %}
-        </div>
-        <div class="col-xs-2">
-        {% bootstrap_field form.contact_city %}
-        </div>
-        <div class="col-xs-2">
-        {% bootstrap_field form.contact_zipcode %}
-        </div>
-        <div class="col-xs-3">
-        {% bootstrap_field form.contact_country %}
-        </div>
-      </div>
-
-      {% bootstrap_field form.contact_show %}
-
-      <div class="row">
-        <div class="col-xs-6">
-        {% bootstrap_field form.visitors_num %}
-        </div>
-        <div class="col-xs-6">
-        {% bootstrap_field form.visitors_accommodation %}
-        </div>
+        <div class="col-xs-3">{% bootstrap_label form.birth_date.label %}</div>
+        <div class="col-xs-9">{% bootstrap_field form.birth_date show_label=False %}</div>
       </div>
 
       <div class="row">
-        <div class="col-xs-6">
-        {% bootstrap_field form.wishlist_materials %}
-        </div>
-        <div class="col-xs-6">
-        {% bootstrap_field form.wishlist_tools %}
-        </div>
+        <div class="col-xs-3">{% bootstrap_label form.country.label %}</div>
+        <div class="col-xs-9">{% bootstrap_field form.country show_label=False %}</div>
       </div>
 
       <div class="row">
-        <div class="col-xs-6">
-        {% bootstrap_field form.wishlist_seeds_kind %}
-        </div>
-        <div class="col-xs-6">
-        {% bootstrap_field form.wishlist_seeds_num %}
-        </div>
-      </div>
-
-      {% bootstrap_field form.wishlist_special_needs %}
-
-      <div class="row">
-        <div class="col-xs-4">
-        {% bootstrap_field form.offers_services %}
-        </div>
-        <div class="col-xs-4">
-        {% bootstrap_field form.offers_skills %}
-        </div>
-        <div class="col-xs-4">
-        {% bootstrap_field form.offers_creations %}
-        </div>
+        <div class="col-xs-3">{% bootstrap_label form.zipcode.label %}</div>
+        <div class="col-xs-3">{% bootstrap_field form.zipcode show_label=False %}</div>
+        <div class="col-xs-2">{% bootstrap_label form.city.label %}</div>
+        <div class="col-xs-4">{% bootstrap_field form.city show_label=False %}</div>
       </div>
 
       <div class="row">
-        <div class="col-xs-6">
-        {% bootstrap_field form.offers_workshop_spaces %}
-        </div>
-        <div class="col-xs-6">
-        {% bootstrap_field form.offers_learning_seminars %}
-        </div>
+        <div class="col-xs-3">{% bootstrap_label form.email.label %}</div>
+        <div class="col-xs-9">{% bootstrap_field form.email show_label=False %}</div>
       </div>
 
       <div class="row">
-        <div class="col-xs-3">
-        {% bootstrap_field form.basic_inhabitants %}
-        </div>
-        <div class="col-xs-3">
-        {% bootstrap_field form.basic_inhabitants_underage %}
-        </div>
-        <div class="col-xs-3">
-        {% bootstrap_field form.basic_brings_together %}
-        </div>
-        <div class="col-xs-3">
-        {% bootstrap_field form.basic_membership_status %}
-        </div>
+        <div class="col-xs-3">{% bootstrap_label form.password.label %}</div>
+        <div class="col-xs-9">{% bootstrap_field form.password show_label=False %}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-3">{% bootstrap_label form.password_repeat.label %}</div>
+        <div class="col-xs-9">{% bootstrap_field form.password_repeat show_label=False %}</div>
       </div>
     </div>
   </div>
-  <div class="col-xs-2">
-      {% trans "Create account" as submit_label %}
-      {% buttons submit=submit_label %}{% endbuttons %}
+
+  <div class="row">
+    <div class="col-xs-12">i want to become a member of ecobasa.org</div>
+  </div>
+
+  <div class="row proceed">
+    <div class="col-xs-6"><a href="#slide-register-as"><span class="glyphicon glyphicon-chevron-left"></span></a></div>
+    <div class="col-xs-6"><a class="pull-right" href="#slide-member-interests"><span class="glyphicon glyphicon-chevron-right"></span></a></div>
   </div>
 </div>
-    </form>
+
+
+<div id="slide-member-interests" class="slide hide">
+  {% bootstrap_field form.interests %}
+
+  <div class="row proceed">
+    <div class="col-xs-6"><a href="#slide-member-personal"><span class="glyphicon glyphicon-chevron-left"></span></a></div>
+    <div class="col-xs-6"><a class="pull-right" href="#slide-member-skills-products"><span class="glyphicon glyphicon-chevron-right"></span></a></div>
+  </div>
+</div>
+
+<div id="slide-member-skills-products" class="slide hide">
+  {% bootstrap_field form.skills %}<br />
+  {% bootstrap_field form.products %}
+
+  <div class="row proceed">
+    <div class="col-xs-6"><a href="#slide-member-interests"><span class="glyphicon glyphicon-chevron-left"></span></a></div>
+    <div class="col-xs-6-right"><a class="pull-right" href="#slide-member-bus-ask"><span class="glyphicon glyphicon-chevron-right"></span></a></div>
+  </div>
+</div>
+
+
+<div id="slide-member-bus-ask" class="slide hide">
+  <div class="centered">
+    <h2>{% bootstrap_label form.has_bus.label %}</h2>
+
+    <div class="row proceed">
+      <div class="col-xs-6"><a class="btn btn-default" href="#slide-member-bus-details">{% trans "YES" %}</a></div>
+      <div class="col-xs-6">
+        {% trans "NO, Register" as submit_label %}
+        {% buttons submit=submit_label %}{% endbuttons %}
+      </div>
+    </div>
+    <br />
+
+    <p>{% trans "You can also add a bus later, it would be great if you could ask around among your friends if they want to join us with their bus!" %}</p>
+  </div>
+
+  <div class="row proceed">
+    <div class="col-xs-6"><a href="#slide-member-skills-products"><span class="glyphicon glyphicon-chevron-left"></span></a></div>
+    <div class="col-xs-6"><a class="pull-right" href="#slide-member-bus-details"><span class="glyphicon glyphicon-chevron-right"></span></a></div>
+  </div>
+</div>
+
+
+<div id="slide-member-bus-details" class="slide hide">
+  <div class="row">
+    <div class="col-xs-6">
+      {% bootstrap_field form.bus_image %}
+    </div>
+    <div class="col-xs-6">
+
+      <div class="row">
+        <div class="col-xs-6">
+          {% bootstrap_field form.bus_has_driving_license %}
+        </div>
+        <div class="col-xs-6">
+          {% bootstrap_field form.bus_others_can_drive %}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-9">{% bootstrap_label form.bus_num_passengers.label %}</div>
+        <div class="col-xs-3">{% bootstrap_field form.bus_num_passengers show_label=False %}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-9">{% bootstrap_label form.bus_consumption.label %}</div>
+        <div class="col-xs-3">{% bootstrap_field form.bus_consumption show_label=False %}</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="row proceed">
+    <div class="col-xs-6"><a href="#slide-member-bus-ask"><span class="glyphicon glyphicon-chevron-left"></span></a></div>
+    <!--<div class="col-xs-6"><a class="pull-right" href="#slide-member-welcome"><span class="glyphicon glyphicon-chevron-right"></span></a></div>-->
+  </div>
+
+  <div class="register">
+    {% trans "Register" as submit_label %}
+    {% buttons submit=submit_label %}{% endbuttons %}
+  </div>
+</div>
+
+
+<div id="slide-member-welcome" class="slide hide">
+  <div class="jumbotron">
+    <h2>{% trans "Welcome on board" %}</h2>
+    <p>{% trans "and thank you for joining up!" %}</p>
+  </div>
+
+  <p>{% trans "You are now a full part of our team! We need your help to organise this tour." %}</p>
+  <p>{% trans "You can contact communities that you know or that you would like to visit and tell them to sign up on this website, so we have their information." %}</p>
+  <p>{% trans "Then we can send them the experts and resources they wish for." %}</p>
+  <p>{% trans "We will contact you soon for any news and meetups!" %}</p>
+  <p>{% trans "See you soon, the rest of the Community Tours team." %}</p>
+</div>
+
+
+</form>
+
+<form id="form-register-community" action="." method="post" enctype="multipart/form-data" novalidate="novalidate">
+  {% csrf_token %}
+  {{ form.register_as }}
+
+
+<div id="navbar-community" class="{% ifequal register_as 'community' %}{% if form.errors %}show{% endif %}{% else %}hide{% endifequal %}">
+  <nav class="navbar navbar-default" role="navigation">
+    <ul class="nav navbar-nav">
+        <li class="active"><a href="#slide-community-contact">{% trans "contact info" %}</a></li>
+        <li><a href="#slide-community-visitors">{% trans "visitors" %}</a></li>
+        <li><a href="#slide-community-wishlist">{% trans "wishlist" %}</a></li>
+        <li><a href="#slide-community-offers">{% trans "offers" %}</a></li>
+        <li><a href="#slide-community-basic">{% trans "basic info" %}</a></li>
+    </ul>
+  </nav>
+</div>
+
+<div id="slide-community-contact" class="slide {% ifequal register_as 'community' %}{% if form.errors %}show{% endif %}{% else %}hide{% endifequal %}">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="row">
+        <div class="col-xs-3">{% bootstrap_label form.username.label %}</div>
+        <div class="col-xs-9">{% bootstrap_field form.username show_label=False %}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-3">{% bootstrap_label form.first_name.label %}</div>
+        <div class="col-xs-9">{% bootstrap_field form.first_name show_label=False %}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-3">{% bootstrap_label form.last_name.label %}</div>
+        <div class="col-xs-9">{% bootstrap_field form.last_name show_label=False %}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-3">{% bootstrap_label form.email.label %}</div>
+        <div class="col-xs-9">{% bootstrap_field form.email show_label=False %}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-3">{% bootstrap_label form.password.label %}</div>
+        <div class="col-xs-9">{% bootstrap_field form.password show_label=False %}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-3">{% bootstrap_label form.password_repeat.label %}</div>
+        <div class="col-xs-9">{% bootstrap_field form.password_repeat show_label=False %}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-3">{% bootstrap_label form.contact_telephone.label %}</div>
+        <div class="col-xs-9">{% bootstrap_field form.contact_telephone show_label=False %}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-3">{% bootstrap_label form.name.label %}</div>
+        <div class="col-xs-9">{% bootstrap_field form.name show_label=False %}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-3">{% bootstrap_label form.contact_street.label %}</div>
+        <div class="col-xs-9">{% bootstrap_field form.contact_street show_label=False %}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-3">{% bootstrap_label form.contact_zipcode.label %}</div>
+        <div class="col-xs-3">{% bootstrap_field form.contact_zipcode show_label=False %}</div>
+        <div class="col-xs-2">{% bootstrap_label form.contact_city.label %}</div>
+        <div class="col-xs-4">{% bootstrap_field form.contact_city show_label=False %}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-3">{% bootstrap_label form.contact_country.label %}</div>
+        <div class="col-xs-5">{% bootstrap_field form.contact_country show_label=False %}</div>
+        <div class="col-xs-4">{% bootstrap_field form.contact_show %}</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row proceed">
+    <div class="col-xs-6"><a href="#slide-register-as"><span class="glyphicon glyphicon-chevron-left"></span></a></div>
+    <div class="col-xs-6"><a class="pull-right" href="#slide-community-visitors"><span class="glyphicon glyphicon-chevron-right"></span></a></div>
+  </div>
+</div>
+
+
+<div id="slide-community-visitors" class="slide hide">
+  <div class="row">
+    <div class="col-xs-9">{% bootstrap_label form.visitors_num.label %}</div>
+    <div class="col-xs-3">{% bootstrap_field form.visitors_num show_label=False %}</div>
+  </div>
+
+  {% bootstrap_field form.visitors_accommodation %}
+
+  <div class="row proceed">
+    <div class="col-xs-6"><a href="#slide-community-contact"><span class="glyphicon glyphicon-chevron-left"></span></a></div>
+    <div class="col-xs-6"><a class="pull-right" href="#slide-community-wishlist"><span class="glyphicon glyphicon-chevron-right"></span></a></div>
+  </div>
+</div>
+
+
+<div id="slide-community-wishlist" class="slide hide">
+  {% bootstrap_field form.wishlist_materials %}
+  {% bootstrap_field form.wishlist_tools %}<br />
+
+
+  <div class="row">
+    <div class="col-xs-9">{% bootstrap_field form.wishlist_seeds_kind %}</div>
+    <div class="col-xs-3">{% bootstrap_field form.wishlist_seeds_num %}</div>
+  </div>
+
+  {% bootstrap_field form.wishlist_special_needs %}
+
+  <div class="row proceed">
+    <div class="col-xs-6"><a href="#slide-community-visitors"><span class="glyphicon glyphicon-chevron-left"></span></a></div>
+    <div class="col-xs-6"><a class="pull-right" href="#slide-community-offers"><span class="glyphicon glyphicon-chevron-right"></span></a></div>
+  </div>
+</div>
+
+
+<div id="slide-community-offers" class="slide hide">
+  {% bootstrap_field form.offers_services %}
+  {% bootstrap_field form.offers_skills %}
+  {% bootstrap_field form.offers_creations %}
+
+  {% bootstrap_field form.offers_workshop_spaces %}
+  {% bootstrap_field form.offers_learning_seminars %}
+
+  <div class="row proceed">
+    <div class="col-xs-6"><a href="#slide-community-offers"><span class="glyphicon glyphicon-chevron-left"></span></a></div>
+    <div class="col-xs-6"><a class="pull-right" href="#slide-community-basic"><span class="glyphicon glyphicon-chevron-right"></span></a></div>
+  </div>
+</div>
+
+
+<div id="slide-community-basic" class="slide hide">
+  <div class="row">
+    <div class="col-xs-9">{% bootstrap_label form.basic_inhabitants.label %}</div>
+    <div class="col-xs-3">{% bootstrap_field form.basic_inhabitants show_label=False %}</div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-9">{% bootstrap_label form.basic_inhabitants_underage.label %}</div>
+    <div class="col-xs-3">{% bootstrap_field form.basic_inhabitants_underage show_label=False %}</div>
+  </div>
+
+  {% bootstrap_field form.basic_brings_together %}
+
+  <div class="row">
+    <div class="col-xs-9">{% bootstrap_label form.basic_membership_status.label %}</div>
+    <div class="col-xs-3">{% bootstrap_field form.basic_membership_status show_label=False %}</div>
+  </div>
+
+  <div class="row proceed">
+    <div class="col-xs-6"><a href="#slide-community-offers"><span class="glyphicon glyphicon-chevron-left"></span></a></div>
+<!--
+    <div class="col-xs-6"><a class="pull-right" href="#slide-community-welcome"><span class="glyphicon glyphicon-chevron-right"></span></a></div>
+-->
+  </div>
+
+  <div class="register">
+    {% trans "Register" as submit_label %}
+    {% buttons submit=submit_label %}{% endbuttons %}
+  </div>
+</div>
+
+
+<div id="slide-community-welcome" class="slide hide">
+  <h2>{% trans "Thank you for offering your community!" %}</h2>
+  <p>{% trans "If we find people that you would be happy to host, we will get them in contact with you in advance, so you can speak about the necessary commodities!" %}</p>
+</div>
+
+</form>
+
+{% endwith %}
 {% endblock content %}
+
 
 {% block extrafooter %}
 {{ block.super }}
@@ -218,10 +400,13 @@
 <script src="{% static "js/vendor/select2/select2.min.js" %}"></script>
 <script type="text/javascript">
 $(function() {
+  $('#id_gender').select2();
+
   $('#id_country').select2({
     placeholder: "Select a Country",
     allowClear: true
   });
+
   $("#id_interests").select2({
   tags:[{% for tag in interests %}"{{ tag }}"{% if not forloop.last %}, {% endif %}{% endfor %}],
   tokenSeparators: [",", " "]
@@ -252,20 +437,58 @@ $(function() {
   tokenSeparators: [",", " "]
   });
 
-  $('#id_register_as_0').click(function() {
-    if ($(this).is(':checked')) {
-      $('#form_register_user').removeClass('show').addClass('hidden');
-      $('#form_register_community').removeClass('hidden').addClass('show');
-    }
+
+  $('#slide-register-member').click(function(ev) {
+    $('#form-register-member #id_register_as').val('member');
+    $('#slide-register-as').removeClass('show').addClass('hide');
+    $('#navbar-member').removeClass('hide').addClass('show');
+    $('#slide-member-personal').removeClass('hide').addClass('show');
+
+    ev.preventDefault();
   });
 
-  $('#id_register_as_1').click(function() {
-    if ($(this).is(':checked')) {
-      $('#form_register_community').removeClass('show').addClass('hidden');
-      $('#id_name').val(' ');
-      $('#form_register_user').removeClass('hidden').addClass('show');
-    }
+  $('#slide-register-community').click(function(ev) {
+    $('#form-register-community #id_register_as').val('community');
+    $('#slide-register-as').removeClass('show').addClass('hide');
+    $('#navbar-community').removeClass('hide').addClass('show');
+    $('#slide-community-contact').removeClass('hide').addClass('show');
+
+    ev.preventDefault();
   });
+
+
+  $('#slide-member-bus-ask .proceed a[href="#slide-member-bus-details"').click(function (ev) {
+    $('#id_has_bus').val('on');
+
+    ev.preventDefault();
+  });
+
+
+  $('.proceed a').click(function(ev) {
+    $('.slide.show').removeClass('show').addClass('hide');
+    var slide = $(this).attr('href');
+    $(slide).removeClass('hide').addClass('show');
+
+    // FIXME: should be done more efficiently
+    if (slide != '#slide-member-bus-details') {
+      $('.navbar-nav li.active').removeClass('active');
+      $('.navbar-nav a[href=' + slide + ']').parent().addClass('active');
+    }
+
+    ev.preventDefault();
+  });
+
+  $('.navbar-nav a').click(function(ev) {
+    var slide = $(this).attr('href');
+    $('.slide.show').removeClass('show').addClass('hide');
+    $(slide).removeClass('hide').addClass('show');
+
+    $('.navbar-nav li.active').removeClass('active');
+    $(this).parent().addClass('active');
+
+    ev.preventDefault();
+  });
+
 });
 </script>
 {% endblock extrafooter %}
