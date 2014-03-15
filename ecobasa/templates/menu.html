@@ -1,0 +1,13 @@
+{% load menu_tags %}
+{% for child in children %}
+<li class="{% if forloop.first %}first {% endif %}{% if child.selected %}selected{% endif %}{% if child.ancestor %}ancestor{% endif %}{% if child.sibling %}sibling{% endif %}{% if child.descendant %}descendant{% endif %}">
+        <a class="layer{{ child.level|add:"1" }}" href="{{ child.attr.redirect_url|default:child.get_absolute_url }}">{{ child.get_menu_title }}</a>
+        {% if child.children %}
+        <div class="layer{{ child.level|add:"2" }}" style="visiblity:hidden">
+        	<div class="inner-wrapper">
+    			{% show_menu from_level to_level extra_inactive extra_active "submenu.html" "" "" child %}
+    		</div>
+    	</div>
+    {% endif %}
+</li>
+{% endfor %}
