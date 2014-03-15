@@ -1,5 +1,7 @@
 {% extends "base.html" %}
-{% load cms_tags static sekizai_tags ecobasa_community %}
+{% load i18n cms_tags static cosinnus_tags sekizai_tags ecobasa_community %}
+
+{% block page_title %}{% trans "Communities" %}{% endblock %}
 
 {% block extrahead %}
 {{ block.super }}
@@ -8,7 +10,75 @@
 {% endblock %}
 
 {% block base_content %}
-<div id="community-map" class="community-map-large"></div>
+<div id="community-map" class="community-map-large">
+  <div class="btn-group view-select">
+    <button type="button" class="btn btn-default active">Map</button>
+    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#community-list">Community-List</button>
+  </div>
+</div>
+<div class="modal fade" id="community-list">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Community List</h4>
+      </div>
+      <div class="modal-body">
+        {% if rows %}
+    <table class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>{% trans "Group name" %}</th>
+          {% if user.is_authenticated %}
+            <th>{% trans "Joined" %}</th>
+          {% endif %}
+        </tr>
+      </thead>
+      <tbody>
+        {% if user.is_authenticated %}
+          {% for group, members, pendings in rows %}
+            <tr>
+              {% if user.is_superuser or user.pk in members or group.public %}
+                <td>
+                  <a href="{% url 'cosinnus:group-dashboard' group=group.slug %}">{{ group.name }}</a>
+                </td>
+              {% else %}
+                <td>
+                  {{ group.name }}
+                </td>
+              {% endif %}
+
+              {% if user.pk in members %}
+                <td>
+                  <a href="{% url 'cosinnus:group-user-leave' group=group.slug %}">{% trans "Leave" %}</a>
+                </td>
+              {% elif user.pk in pendings %}
+                <td>
+                  <a href="{% url 'cosinnus:group-user-withdraw' group=group.slug %}">{% trans "Withdraw" %}</a>
+                </td>
+              {% else %}
+                <td>
+                  <a href="{% url 'cosinnus:group-user-join' group=group.slug %}">{% trans "Join" %}</a>
+                </td>
+              {% endif %}
+            </tr>
+          {% endfor %}
+        {% else %}
+          {% for group in object_list %}
+            <tr>
+              <td><a href="{% url 'cosinnus:group-dashboard' group=group.slug %}">{{ group.name }}</a></td>
+            </tr>
+          {% endfor %}
+        {% endif %}
+      </tbody>
+    </table>
+  {% else %}
+    {% trans "There are no groups." %}
+  {% endif %}
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 {% endblock %}
 
 {% block extrafooter %}
