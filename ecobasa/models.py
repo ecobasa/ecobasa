@@ -301,6 +301,10 @@ class EcobasaUserProfile(BaseUserProfile):
     zipcode = models.CharField(_('zipcode'),
         max_length=255, blank=True, null=True)
 
+    ecobasa_member = models.BooleanField(
+        _('I want to become a member of ecobasa.org (it will make this project permanently possible)'),
+        blank=True, default=False)
+
     interests = TaggableManager(_('interests'),
         through=TaggedInterest, related_name='_interest', blank=True)
     skills = TaggableManager(_('knowledge/skills'),

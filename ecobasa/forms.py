@@ -103,6 +103,8 @@ class EcobasaRegistrationForm(RegistrationForm):
         profile.city = self.cleaned_data['city']
         profile.zipcode = self.cleaned_data['zipcode']
 
+        profile.ecobasa_member = self.cleaned_data['ecobasa_member']
+
         profile.has_bus = self.cleaned_data['has_bus']
         profile.bus_consumption = self.cleaned_data['bus_consumption']
         profile.bus_has_driving_license =\
