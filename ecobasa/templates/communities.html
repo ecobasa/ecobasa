@@ -28,9 +28,13 @@
     <table class="table table-bordered table-hover">
       <thead>
         <tr>
-          <th>{% trans "Group name" %}</th>
-          {% if user.is_authenticated %}
-            <th>{% trans "Joined" %}</th>
+          <th>{% trans "Community name" %}</th>
+          <th>{% trans "Size" %}</th>
+          <th>{% trans "Country" %}</th>
+          <th>{% trans "Status" %}</th>
+          <th>{% trans "Skills" %}</th>
+          {% if user.is_superuser or user.pk in members or group.public or user.is_authenticated %}
+          <th>{% trans "Joined" %}</th>
           {% endif %}
         </tr>
       </thead>
@@ -47,6 +51,22 @@
                   {{ group.name }}
                 </td>
               {% endif %}
+
+              <td>
+                {{ ecobasa_registration.basic_inhabitants }}
+              </td>
+
+              <td>
+                {{ ecobasa_registration.contact_country }}
+              </td>
+
+              <td>
+                {{ ecobasa_registration.basic_membership_status }}
+              </td>
+
+              <td>
+                {{ ecobasa_registration.offers_skills }}
+              </td>
 
               {% if user.pk in members %}
                 <td>
@@ -67,6 +87,18 @@
           {% for group in object_list %}
             <tr>
               <td><a href="{% url 'cosinnus:group-dashboard' group=group.slug %}">{{ group.name }}</a></td>
+              <td>
+                {{ ecobasa_registration.basic_inhabitants }}
+              </td>
+              <td>
+                {{ ecobasa_registration.contact_country }}
+              </td>
+              <td>
+                {{ ecobasa_registration.basic_membership_status }}
+              </td>
+              <td>
+                {{ ecobasa_registration.offers_skills }}
+              </td>
             </tr>
           {% endfor %}
         {% endif %}
