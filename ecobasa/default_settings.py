@@ -132,6 +132,7 @@ TEMPLATE_DIRS = (
 CMS_TEMPLATES = (
     ('start.html', 'Startpage'),
     ('about.html', 'About'),
+    ('communities.html', 'Communities')
 )
 
 LANGUAGES = [

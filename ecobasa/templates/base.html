@@ -1,7 +1,10 @@
 {% extends 'cosinnus/base.html' %}
-{% load cms_tags sekizai_tags %}
+{% load cms_tags sekizai_tags menu_tags %}
 
 {% block content %}
+  <div class="menu">
+  	{% show_menu 0 100 100 100 "menu.html" %}
+  </div>
   {{ block.super }}
   {% cms_toolbar %}
   {% placeholder base_content %}

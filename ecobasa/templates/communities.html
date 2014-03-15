@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load cms_tags static sekizai_tags ecobasa_community %}
+
+{% block extrahead %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static "css/ecobasa.css" %}">
+<link rel="stylesheet" href="{% static "leaflet/leaflet.css" %}" />
+{% endblock %}
+
+{% block base_content %}
+<div id="community-map" class="community-map-large"></div>
+{% endblock %}
+
+{% block extrafooter %}
+  {{ block.super }}
+  <script src="{% static "leaflet/leaflet.js" %}"></script>
+  <script src="{% static "js/ecobasa_map.js" %}"></script>
+  <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.4"></script>
+  <script type="text/javascript">
+  {% get_community_locations as locations %}
+  $(function() {
+    EcobasaMap.init('community-map');
+    {% for l in locations %}
+    EcobasaMap.addMarker({{ l.lat}}, {{ l.lon }}, "{{ l.name }}");
+    {% endfor %}
+  });
+  </script>
+{% endblock extrafooter %}
