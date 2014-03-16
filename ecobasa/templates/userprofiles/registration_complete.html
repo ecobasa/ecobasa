@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Registration" %}{% endblock %}
+
+{% block content %}
+  <div class="jumbotron">
+    <h1>{% trans "Welcome on board" %}</h1>
+    <p>{% trans "and thank you for joining up!" %}</p>
+  </div>
+
+  <p>{% trans "You are now a full part of our team! We need your help to organise this tour." %}</p>
+  <p>{% trans "You can contact communities that you know or that you would like to visit and tell them to sign up on this website, so we have their information." %}</p>
+  <p>{% trans "Then we can send them the experts and resources they wish for." %}</p>
+  <p>{% trans "We will contact you soon for any news and meetups!" %}</p>
+  <p>{% trans "See you soon, the rest of the Community Tours team." %}</p>
+{% endblock %}
