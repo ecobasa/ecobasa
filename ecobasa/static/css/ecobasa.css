@@ -1,7 +1,3 @@
-.community-map-small { 
-	height: 400px; 
-}
-
 .nivoSlider {
 	height: 400px;
 }
@@ -33,4 +29,47 @@
 
 #community-map button {
 	z-index: 7;
+}
+
+.community-map-small { 
+	height: 400px; 
+}
+
+#slide-register-as {
+  width: 50%;
+  margin: 0 auto;
+}
+#slide-register-as .btn {
+  width: 100%;
+  padding: 10%;
+  margin: 5% auto;
+  font-size: xx-large;
+}
+
+#slide-member-bus-ask .btn {
+  font-size: large;
+}
+
+.slide .proceed .glyphicon {
+  font-size: xx-large;
+}
+
+#slide-community-wishlist #id_wishlist_seeds_num,
+#slide-community-wishlist #id_wishlist_seeds_kind {
+  height: 40px; /* can't use % */
+}
+
+#slide-member-bus-ask .centered,
+#slide-member-welcome .jumbotron {
+  text-align: center;
+}
+
+#slide-community-basic .register,
+#slide-member-bus-details .register {
+  text-align: center;
+}
+
+#slide-community-basic .register button,
+#slide-member-bus-details .register button {
+  font-size: xx-large;
 }
