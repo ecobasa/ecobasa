@@ -437,7 +437,7 @@ class EcobasaCommunityProfile(models.Model):
             'limit': 1,
         }
         data = urllib.parse.urlencode(params).encode('ascii')
-        url = 'http://nominatim.openstreetmap.org/search/?' + data
+        url = 'http://nominatim.openstreetmap.org/search?' + data
         timeout = 20
 
         try:
