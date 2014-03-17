@@ -1,9 +1,15 @@
-.community-map-small { 
-	height: 400px; 
+/***************Communities**************/
+
+.nivoSlider img {
+	width: 100%;
 }
 
 .nivoSlider {
 	height: 400px;
+}
+
+.community-map-small { 
+	height: 400px; 
 }
 
 .btn-primary {

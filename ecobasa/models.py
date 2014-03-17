@@ -10,10 +10,59 @@ from easy_thumbnails.fields import ThumbnailerImageField
 from six.moves import urllib
 from taggit.managers import TaggableManager
 from taggit.models import TaggedItemBase
+from cms.models import CMSPlugin, Page
 
 from cosinnus.models import (BaseUserProfile, BaseUserProfileManager,
     CosinnusGroup)
 
+
+class SlideshowPlugin(CMSPlugin):
+    name = models.CharField(verbose_name=_("name"), max_length=100)
+    
+    def __unicode__(self):
+        return u"%s" % (self.name,)
+    
+    @property
+    def height(self):
+        max_height = 0
+        for image in self.images.all():
+            max_height = max(max_height, image.file.height)
+        return max_height
+    
+    class Meta:
+        verbose_name=_("slide show")
+        verbose_name_plural=_("slide shows")
+
+    def copy_relations(self, oldinstance):
+        for image in oldinstance.images.all():
+            image.pk = None
+            image.slideshow = self
+            image.save()
+
+class Linkable(object):
+    @property
+    def link(self):
+        if self.link_url:
+            return self.link_url
+        elif self.link_page:
+            return self.link_page.get_absolute_url()
+        elif self.link_article:
+            return self.link_article.get_absolute_url()
+        return "#"
+
+class SlideshowImage(Linkable, models.Model):
+    slideshow = models.ForeignKey(SlideshowPlugin, verbose_name=_("slide show"), related_name="images")
+    file = models.ImageField(verbose_name=_("file"), upload_to=lambda i,f: 'uploads/slideshow-image-%s-%s%s' % (slugify(i.slideshow.name), slugify(splitext(f)[0]), splitext(f)[1].lower()))
+    # text = models.CharField(verbose_name=_("text"), max_length=255, blank=True, help_text=_("Will not be visible. Only for search engines etc."))
+    order = models.PositiveSmallIntegerField(verbose_name=_("order"), default=0)
+
+    def __unicode__(self):
+        return u"%s slideshow image" % (self.slideshow,)
+
+    class Meta:
+        verbose_name=_("image")
+        verbose_name_plural=_("images")
+        ordering = ('order', 'id',)
 
 COUNTRY_CHOICES = (
     ('AD', _('Andorra')),
