@@ -103,7 +103,7 @@
   <script src="{% static "js/ecobasa_map.js" %}"></script>
   <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.4"></script>
   <script type="text/javascript">
-
+ {% get_community_locations as locations %}
   $(function() {
     EcobasaMap.init('community-map');
     {% for l in locations %}

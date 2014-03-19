@@ -1,4 +1,4 @@
-{% load i18n cosinnus_tags %}
+{% load i18n menu_tags cosinnus_tags %}
 <nav class="navbar navbar-default" role="navigation">
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
@@ -11,9 +11,21 @@
   </div>
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <ul class="nav navbar-nav">
+      {% for child in children %}
+      <li class="{% if forloop.first %}first {% endif %}{% if child.selected %}selected{% endif %}{% if child.ancestor %}ancestor{% endif %}{% if child.sibling %}sibling{% endif %}{% if child.descendant %}descendant{% endif %}">
+              <a class="layer{{ child.level|add:"1" }}" href="{{ child.attr.redirect_url|default:child.get_absolute_url }}">{{ child.get_menu_title }}</a>
+              {% if child.children %}
+              <div class="layer{{ child.level|add:"2" }}" style="visiblity:hidden">
+                <div class="inner-wrapper">
+                {% show_menu from_level to_level extra_inactive extra_active "submenu.html" "" "" child %}
+              </div>
+            </div>
+          {% endif %}
+      </li>
+      {% endfor %}
       {% if group %}
         {% url 'cosinnus:group-dashboard' group=group.slug as dashboard_url %}
-        <li {% ifequal dashboard_url request.path %} class="active"{% endifequal %}><a href="{{ dashboard_url }}">{% trans "Dashboard" %}</a></li>
+        <li {% ifequal dashboard_url request.path %} class="active"{% endifequal %}><a href="{{ dashboard_url }}">{% trans "Community Dashboard" %}</a></li>
       {% endif %}
       {% for app in apps %}
         <li{% if app.active %} class="active"{% endif %}><a href="{{ app.url }}">{{ app.label }}</a></li>
