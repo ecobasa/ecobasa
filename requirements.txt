@@ -1,5 +1,9 @@
 Django==1.5.5
 South==0.8.4
+Pillow==2.1.0
+Fabric==1.8.0
+fabric-virtualenv==0.2.1
+
 psycopg2==2.5
 django-cms==2.4.3
 django-userprofiles==0.4
@@ -9,5 +13,5 @@ easy-thumbnails==1.4
 django-sekizai==0.7
 suit==2.0.2
 django-filer
-cmsplugin_nivoslider
 cmsplugin-filer
+django-recaptcha==0.0.6

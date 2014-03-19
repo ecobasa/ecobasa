@@ -1,34 +1,38 @@
-{% extends "cosinnus/base.html" %}
-{% load i18n static cosinnus_tags ecobasa_community %}
+{% extends "base.html" %}
+{% load i18n cms_tags static cosinnus_tags sekizai_tags %}
 
-{% block page_title %}{% trans "Groups" %}{% endblock %}
-
-{% block content_title %}
-  {% trans "Groups" %}
-  {% if user.is_superuser %}
-    <div class="btn-group pull-right">
-      <a href="{% url 'cosinnus:group-add' %}" class="btn btn-success">{% trans "Create Group" %}</a>
-    </div>
-  {% endif %}
-{% endblock content_title %}
-
+{% block page_title %}{% trans "Communities" %}{% endblock %}
 
 {% block extrahead %}
-  {{ block.super }}
-  <link rel="stylesheet" href="{% static "css/ecobasa.css" %}" />
-  <link rel="stylesheet" href="{% static "leaflet/leaflet.css" %}" />
-{% endblock extrahead %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static "css/ecobasa.css" %}">
+<link rel="stylesheet" href="{% static "leaflet/leaflet.css" %}" />
+{% endblock %}
 
-
-{% block content %}
-  {% if rows %}
+{% block base_content %}
+<div id="community-map" class="community-map-large">
+  <div class="btn-group view-select">
+    <button type="button" class="btn btn-default active"><span class="glyphicon glyphicon-globe"></span> Map</button>
+    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#community-list"><span class="glyphicon glyphicon-list-alt"></span> List</button>
+  </div>
+</div>
+<div class="modal fade" id="community-list">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">Community List</h4>
+      </div>
+      <div class="modal-body">
+        {% if rows %}
     <table class="table table-bordered table-hover">
       <thead>
         <tr>
-          <th>{% trans "Group name" %}</th>
-          {% if user.is_authenticated %}
-            <th>{% trans "Joined" %}</th>
-          {% endif %}
+          <th>{% trans "Community name" %}</th>
+          <th>{% trans "Size" %}</th>
+          <th>{% trans "Country" %}</th>
+          <th>{% trans "Status" %}</th>
+          <th>{% trans "Skills" %}</th>
         </tr>
       </thead>
       <tbody>
@@ -45,25 +49,40 @@
                 </td>
               {% endif %}
 
-              {% if user.pk in members %}
-                <td>
-                  <a href="{% url 'cosinnus:group-user-leave' group=group.slug %}">{% trans "Leave" %}</a>
-                </td>
-              {% elif user.pk in pendings %}
-                <td>
-                  <a href="{% url 'cosinnus:group-user-withdraw' group=group.slug %}">{% trans "Withdraw" %}</a>
-                </td>
-              {% else %}
-                <td>
-                  <a href="{% url 'cosinnus:group-user-join' group=group.slug %}">{% trans "Join" %}</a>
-                </td>
-              {% endif %}
+              <td>
+                {{ group.profile.basic_inhabitants }}
+              </td>
+
+              <td>
+                {{ group.profile.contact_country }}
+              </td>
+
+              <td>
+                {{ group.profile.basic_membership_status }}
+              </td>
+
+              <td>
+                {{ group.profile.offers_skills }}
+              </td>
+
             </tr>
           {% endfor %}
         {% else %}
           {% for group in object_list %}
             <tr>
               <td><a href="{% url 'cosinnus:group-dashboard' group=group.slug %}">{{ group.name }}</a></td>
+              <td>
+                {{ group.profile.basic_inhabitants }}
+              </td>
+              <td>
+                {{ group.profile.contact_country }}
+              </td>
+              <td>
+                {{ group.profile.basic_membership_status }}
+              </td>
+              <td>
+                {{ group.profile.offers_skills }}
+              </td>
             </tr>
           {% endfor %}
         {% endif %}
@@ -72,21 +91,23 @@
   {% else %}
     {% trans "There are no groups." %}
   {% endif %}
-
-  <div id="community-map"></div>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 {% endblock %}
-
 
 {% block extrafooter %}
   {{ block.super }}
   <script src="{% static "leaflet/leaflet.js" %}"></script>
   <script src="{% static "js/ecobasa_map.js" %}"></script>
+  <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.4"></script>
   <script type="text/javascript">
-  {% get_community_locations as locations %}
+
   $(function() {
     EcobasaMap.init('community-map');
     {% for l in locations %}
-    EcobasaMap.addMarker({{ l.lat}}, {{ l.lon }}, "{{ l.name }}");
+    EcobasaMap.addMarker({{ l.lat }}, {{ l.lon }}, "{{ l.name }}");
     {% endfor %}
   });
   </script>

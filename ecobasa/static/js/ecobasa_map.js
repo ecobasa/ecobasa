@@ -1,11 +1,11 @@
 EcobasaMap = {
 	map: null,
-	//mapUrl: "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
 	mapUrl: "http://otile1.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.png",
 	attrib: 'Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
-	minZoom: 1,
-	maxZoom: 15,
+	minZoom: 8,
+	maxZoom: 13,
 	defaultZoom: 5,
+	tms: true,
 
 	addMarker: function(lat, lon, community) {
 		var marker = L.marker([lat, lon]).addTo(EcobasaMap.map);
@@ -19,6 +19,7 @@ EcobasaMap = {
 			maxZoom: EcobasaMap.maxZoom,
 			attribution: EcobasaMap.attrib
 		});
+
 		var layer1 = new L.StamenTileLayer("watercolor", {
 		});
 		var layer2 = new L.StamenTileLayer("toner-lite", {

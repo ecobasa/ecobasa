@@ -12,8 +12,8 @@
 {% block base_content %}
 <div id="community-map" class="community-map-large">
   <div class="btn-group view-select">
-    <button type="button" class="btn btn-default active">Map</button>
-    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#community-list">Community-List</button>
+    <button type="button" class="btn btn-default active"><span class="glyphicon glyphicon-globe"></span> Map</button>
+    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#community-list"><span class="glyphicon glyphicon-list-alt"></span> List</button>
   </div>
 </div>
 <div class="modal fade" id="community-list">
@@ -123,7 +123,7 @@
   $(function() {
     EcobasaMap.init('community-map');
     {% for l in locations %}
-    EcobasaMap.addMarker({{ l.lat}}, {{ l.lon }}, "{{ l.name }}");
+    EcobasaMap.addMarker({{ l.lat }}, {{ l.lon }}, "{{ l.name }}");
     {% endfor %}
   });
   </script>

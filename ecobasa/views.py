@@ -1,10 +1,12 @@
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
-from django.views.generic import TemplateView
-from django.views.generic.detail import DetailView
+from django.views.generic import TemplateView, RedirectView, DetailView
+from cosinnus.views.mixins.group import RequireReadMixin
+from cosinnus.views.group import GroupDetailView, GroupListView
 
 from skillshare import get_skills_for_owner
 from references import get_references_for_receiver
+
 
 
 class HomeView(TemplateView):
@@ -26,7 +28,25 @@ class ProfileView(DetailView):
         return_url = reverse('profile', kwargs={'slug': context['object']})
         context['skills'] = get_skills_for_owner(
             self.request, context['object'], return_url)
-        context['references'], context['reference_form'] =\
+        context['references'], context['reference_form'] = \
             get_references_for_receiver(self.request, context['object'],
             return_url)
         return context
+
+class GroupIndexView(RequireReadMixin, RedirectView):
+    def get_redirect_url(self, *args, **kwargs):
+        return reverse('cosinnus:group-detail', kwargs={'group': self.group.slug})
+group_index = GroupIndexView.as_view()
+
+class EcobasaGroupDetailView(GroupDetailView):
+    def get_context_data(self, **kwargs):
+        context = super(EcobasaGroupDetailView, self).get_context_data(**kwargs)
+        context['profile'] = self.object.profile
+        return context
+group_detail = EcobasaGroupDetailView.as_view()
+
+class EcobasaGroupListView(GroupListView):
+    def get_context_data(self, **kwargs):
+        context = super(EcobasaGroupListView, self).get_context_data(**kwargs)
+        return context
+group_list = EcobasaGroupListView.as_view()
