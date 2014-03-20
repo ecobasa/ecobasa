@@ -132,7 +132,6 @@ TEMPLATE_DIRS = (
 CMS_TEMPLATES = (
     ('start.html', 'Startpage'),
     ('about.html', 'About'),
-    ('communities.html', 'Communities')
 )
 
 LANGUAGES = [
@@ -153,6 +152,7 @@ INSTALLED_APPS = (
 
     # custom apps
     'ecobasa',
+    'apps.soth',
     'cosinnus',
     # 'skillshare',
     # 'references',
