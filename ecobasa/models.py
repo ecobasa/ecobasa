@@ -11,6 +11,7 @@ from six.moves import urllib
 from taggit.managers import TaggableManager
 from taggit.models import TaggedItemBase
 from cms.models import CMSPlugin, Page
+from filer.fields.image import FilerImageField
 
 from cosinnus.models import (BaseUserProfile, BaseUserProfileManager,
     CosinnusGroup)
@@ -52,7 +53,7 @@ class Linkable(object):
 
 class SlideshowImage(Linkable, models.Model):
     slideshow = models.ForeignKey(SlideshowPlugin, verbose_name=_("slide show"), related_name="images")
-    file = models.ImageField(verbose_name=_("file"), upload_to=lambda i,f: 'uploads/slideshow-image-%s-%s%s' % (slugify(i.slideshow.name), slugify(splitext(f)[0]), splitext(f)[1].lower()))
+    file = FilerImageField(verbose_name=_("file"), null=True, blank=True)
     # text = models.CharField(verbose_name=_("text"), max_length=255, blank=True, help_text=_("Will not be visible. Only for search engines etc."))
     order = models.PositiveSmallIntegerField(verbose_name=_("order"), default=0)
 

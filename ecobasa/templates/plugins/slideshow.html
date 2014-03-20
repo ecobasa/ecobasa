@@ -1,3 +1,5 @@
+{% load thumbnail %}
+
 <div id="carousel-startpage" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators">
@@ -9,8 +11,8 @@
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
     {% for image in slideshow.images.all %}
-    <div class="item active">
-      <img src="{% thumbnail image.file "978x420" crop=1 upscale=1 %}" width="978" height="420" alt="{{ image.text }}">
+    <div class="item {% if forloop.first %}active{% endif %}">
+      <img src="{% thumbnail image.file "1600x600" crop=1 upscale=1 %}" alt="{{ image.text }}">
       <div class="carousel-caption">
         <div class="caption-back"></div>
       </div>
@@ -19,10 +21,10 @@
   </div>
 
   <!-- Controls -->
-  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+  <a class="left carousel-control" href="#carousel-startpage" data-slide="prev">
     <span class="glyphicon glyphicon-chevron-left"></span>
   </a>
-  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+  <a class="right carousel-control" href="#carousel-startpage" data-slide="next">
     <span class="glyphicon glyphicon-chevron-right"></span>
   </a>
 

@@ -8,38 +8,24 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
-        # Adding model 'SlideshowImage'
-        db.create_table(u'ecobasa_slideshowimage', (
-            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
-            ('slideshow', self.gf('django.db.models.fields.related.ForeignKey')(related_name=u'images', to=orm['ecobasa.SlideshowPlugin'])),
-            ('file', self.gf('django.db.models.fields.files.ImageField')(max_length=100)),
-            ('order', self.gf('django.db.models.fields.PositiveSmallIntegerField')(default=0)),
-        ))
-        db.send_create_signal(u'ecobasa', ['SlideshowImage'])
 
-        # Adding model 'SlideshowPlugin'
-        db.create_table(u'cmsplugin_slideshowplugin', (
-            (u'cmsplugin_ptr', self.gf('django.db.models.fields.related.OneToOneField')(to=orm['cms.CMSPlugin'], unique=True, primary_key=True)),
-            ('name', self.gf('django.db.models.fields.CharField')(max_length=100)),
-        ))
-        db.send_create_signal(u'ecobasa', ['SlideshowPlugin'])
-
-        # Deleting field 'EcobasaUserProfile.ecobasa_member'
-        db.delete_column(u'ecobasa_ecobasauserprofile', 'ecobasa_member')
+        # Renaming column for 'SlideshowImage.file' to match new field type.
+        db.rename_column(u'ecobasa_slideshowimage', 'file', 'file_id')
+        # Changing field 'SlideshowImage.file'
+        db.alter_column(u'ecobasa_slideshowimage', 'file_id', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['filer.Image'], null=True))
+        # Adding index on 'SlideshowImage', fields ['file']
+        db.create_index(u'ecobasa_slideshowimage', ['file_id'])
 
 
     def backwards(self, orm):
-        # Deleting model 'SlideshowImage'
-        db.delete_table(u'ecobasa_slideshowimage')
+        # Removing index on 'SlideshowImage', fields ['file']
+        db.delete_index(u'ecobasa_slideshowimage', ['file_id'])
 
-        # Deleting model 'SlideshowPlugin'
-        db.delete_table(u'cmsplugin_slideshowplugin')
 
-        # Adding field 'EcobasaUserProfile.ecobasa_member'
-        db.add_column(u'ecobasa_ecobasauserprofile', 'ecobasa_member',
-                      self.gf('django.db.models.fields.BooleanField')(default=False),
-                      keep_default=False)
-
+        # Renaming column for 'SlideshowImage.file' to match new field type.
+        db.rename_column(u'ecobasa_slideshowimage', 'file_id', 'file')
+        # Changing field 'SlideshowImage.file'
+        db.alter_column(u'ecobasa_slideshowimage', 'file', self.gf('django.db.models.fields.files.ImageField')(default='', max_length=100))
 
     models = {
         u'auth.group': {
@@ -120,9 +106,9 @@ class Migration(SchemaMigration):
             'basic_brings_together': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
             'basic_inhabitants': ('django.db.models.fields.PositiveIntegerField', [], {'default': '0', 'null': 'True', 'blank': 'True'}),
             'basic_inhabitants_underage': ('django.db.models.fields.PositiveIntegerField', [], {'default': '0', 'null': 'True', 'blank': 'True'}),
-            'basic_membership_status': ('django.db.models.fields.CharField', [], {'default': "u'o'", 'max_length': '2'}),
+            'basic_membership_status': ('django.db.models.fields.CharField', [], {'default': "u'o'", 'max_length': '2', 'blank': 'True'}),
             'contact_city': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'}),
-            'contact_country': ('django.db.models.fields.CharField', [], {'default': "u'ZZ'", 'max_length': '2'}),
+            'contact_country': ('django.db.models.fields.CharField', [], {'default': "u'ZZ'", 'max_length': '2', 'blank': 'True'}),
             'contact_lat': ('django.db.models.fields.FloatField', [], {'default': '0.0', 'blank': 'True'}),
             'contact_lon': ('django.db.models.fields.FloatField', [], {'default': '0.0', 'blank': 'True'}),
             'contact_show': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
@@ -152,8 +138,9 @@ class Migration(SchemaMigration):
             'bus_num_passengers': ('django.db.models.fields.PositiveIntegerField', [], {'default': '0', 'null': 'True', 'blank': 'True'}),
             'bus_others_can_drive': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
             'city': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'}),
-            'country': ('django.db.models.fields.CharField', [], {'default': "u'ZZ'", 'max_length': '2'}),
-            'gender': ('django.db.models.fields.CharField', [], {'default': "u'o'", 'max_length': '2'}),
+            'country': ('django.db.models.fields.CharField', [], {'default': "u'ZZ'", 'max_length': '2', 'blank': 'True'}),
+            'ecobasa_member': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
+            'gender': ('django.db.models.fields.CharField', [], {'default': "u'o'", 'max_length': '2', 'blank': 'True'}),
             'has_bus': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'user': ('django.db.models.fields.related.OneToOneField', [], {'related_name': "u'cosinnus_profile'", 'unique': 'True', 'to': u"orm['auth.User']"}),
@@ -161,7 +148,7 @@ class Migration(SchemaMigration):
         },
         u'ecobasa.slideshowimage': {
             'Meta': {'ordering': "(u'order', u'id')", 'object_name': 'SlideshowImage'},
-            'file': ('django.db.models.fields.files.ImageField', [], {'max_length': '100'}),
+            'file': ('django.db.models.fields.related.ForeignKey', [], {'to': "orm['filer.Image']", 'null': 'True', 'blank': 'True'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'order': ('django.db.models.fields.PositiveSmallIntegerField', [], {'default': '0'}),
             'slideshow': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "u'images'", 'to': u"orm['ecobasa.SlideshowPlugin']"})
@@ -206,6 +193,50 @@ class Migration(SchemaMigration):
             'content_object': ('django.db.models.fields.related.ForeignKey', [], {'to': u"orm['ecobasa.EcobasaUserProfile']"}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
             'tag': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "u'ecobasa_taggedskill_items'", 'to': u"orm['taggit.Tag']"})
+        },
+        'filer.file': {
+            'Meta': {'object_name': 'File'},
+            '_file_size': ('django.db.models.fields.IntegerField', [], {'null': 'True', 'blank': 'True'}),
+            'description': ('django.db.models.fields.TextField', [], {'null': 'True', 'blank': 'True'}),
+            'file': ('django.db.models.fields.files.FileField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'}),
+            'folder': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'all_files'", 'null': 'True', 'to': "orm['filer.Folder']"}),
+            'has_all_mandatory_data': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'is_public': ('django.db.models.fields.BooleanField', [], {'default': 'True'}),
+            'modified_at': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
+            'name': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '255', 'blank': 'True'}),
+            'original_filename': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'}),
+            'owner': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'owned_files'", 'null': 'True', 'to': u"orm['auth.User']"}),
+            'polymorphic_ctype': ('django.db.models.fields.related.ForeignKey', [], {'related_name': "'polymorphic_filer.file_set'", 'null': 'True', 'to': u"orm['contenttypes.ContentType']"}),
+            'sha1': ('django.db.models.fields.CharField', [], {'default': "''", 'max_length': '40', 'blank': 'True'}),
+            'uploaded_at': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'})
+        },
+        'filer.folder': {
+            'Meta': {'ordering': "('name',)", 'unique_together': "(('parent', 'name'),)", 'object_name': 'Folder'},
+            'created_at': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'}),
+            u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
+            'level': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
+            'lft': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
+            'modified_at': ('django.db.models.fields.DateTimeField', [], {'auto_now': 'True', 'blank': 'True'}),
+            'name': ('django.db.models.fields.CharField', [], {'max_length': '255'}),
+            'owner': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'filer_owned_folders'", 'null': 'True', 'to': u"orm['auth.User']"}),
+            'parent': ('django.db.models.fields.related.ForeignKey', [], {'blank': 'True', 'related_name': "'children'", 'null': 'True', 'to': "orm['filer.Folder']"}),
+            'rght': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
+            'tree_id': ('django.db.models.fields.PositiveIntegerField', [], {'db_index': 'True'}),
+            'uploaded_at': ('django.db.models.fields.DateTimeField', [], {'auto_now_add': 'True', 'blank': 'True'})
+        },
+        'filer.image': {
+            'Meta': {'object_name': 'Image', '_ormbases': ['filer.File']},
+            '_height': ('django.db.models.fields.IntegerField', [], {'null': 'True', 'blank': 'True'}),
+            '_width': ('django.db.models.fields.IntegerField', [], {'null': 'True', 'blank': 'True'}),
+            'author': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'}),
+            'date_taken': ('django.db.models.fields.DateTimeField', [], {'null': 'True', 'blank': 'True'}),
+            'default_alt_text': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'}),
+            'default_caption': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'}),
+            u'file_ptr': ('django.db.models.fields.related.OneToOneField', [], {'to': "orm['filer.File']", 'unique': 'True', 'primary_key': 'True'}),
+            'must_always_publish_author_credit': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
+            'must_always_publish_copyright': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
+            'subject_location': ('django.db.models.fields.CharField', [], {'default': 'None', 'max_length': '64', 'null': 'True', 'blank': 'True'})
         },
         u'taggit.tag': {
             'Meta': {'object_name': 'Tag'},

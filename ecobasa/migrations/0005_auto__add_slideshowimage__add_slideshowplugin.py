@@ -145,6 +145,7 @@ class Migration(SchemaMigration):
             'bus_others_can_drive': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
             'city': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'}),
             'country': ('django.db.models.fields.CharField', [], {'default': "u'ZZ'", 'max_length': '2'}),
+            'ecobasa_member': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
             'gender': ('django.db.models.fields.CharField', [], {'default': "u'o'", 'max_length': '2'}),
             'has_bus': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
             u'id': ('django.db.models.fields.AutoField', [], {'primary_key': 'True'}),
