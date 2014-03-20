@@ -10,19 +10,21 @@
     {% include "cosinnus/brand.html" %}
   </div>
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    <ul class="nav navbar-nav">
-      <li><a href="/about">About the tour</a></li>
-      <li><a href="/groups">Communities</a></li>
-      <li><a href="/users">Pioneers</a></li>
-      <li><a href="/busses">Busses</a></li>
-      {% if group %}
-        {% url 'cosinnus:group-dashboard' group=group.slug as dashboard_url %}
-        <li {% ifequal dashboard_url request.path %} class="active"{% endifequal %}><a href="{{ dashboard_url }}">{% trans "Community Dashboard" %}</a></li>
-      {% endif %}
-      {% for app in apps %}
-        <li{% if app.active %} class="active"{% endif %}><a href="{{ app.url }}">{{ app.label }}</a></li>
-      {% endfor %}
-    </ul>
+    <div class="col-md-5">
+      <ul class="nav navbar-nav">
+        <li><a href="/about">About the tour</a></li>
+        <li><a href="/groups">Communities</a></li>
+        <li><a href="/users">Pioneers</a></li>
+        <li><a href="/busses">Busses</a></li>
+        {% if group %}
+          {% url 'cosinnus:group-dashboard' group=group.slug as dashboard_url %}
+          <li {% ifequal dashboard_url request.path %} class="active"{% endifequal %}><a href="{{ dashboard_url }}">{% trans "Community Dashboard" %}</a></li>
+        {% endif %}
+        {% for app in apps %}
+          <li{% if app.active %} class="active"{% endif %}><a href="{{ app.url }}">{{ app.label }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
     <ul class="nav navbar-nav navbar-right">
       {% if request.user.is_authenticated %}
         {% if groups %}
