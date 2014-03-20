@@ -1,0 +1,41 @@
+{% extends "cosinnus/base.html" %}
+{% load i18n thumbnail %}
+
+{% block page_title %}{% trans "Users" %}{% endblock %}
+
+{% block content %}
+    <h1>The gift-economy pioneers, taking part in the first Community-Tour</h1>
+    <a class="btn btn-primary pull-right" href="{% url 'cosinnus:user-add' %}">{% trans "Add user" %}</a>
+    
+    {% if object_list %}
+    {% for user in object_list %}
+    <div class="media">
+        <a class="pull-left" href="{% url 'cosinnus:user-detail' username=user.username %}">
+            {% if user.avatar %}
+              <img class="avatar media-object" src="{% thumbnail user.avatar "70x0" crop=1 upscale=1 %} "60x60" crop=1 upscale=1 %}">
+            {% else %}
+              <img class="avatar media-object" src="http://placehold.it/30x30">
+            {% endif %}
+          </a>
+        </a>
+        <div class="media-body">
+        <h4 class="media-heading"><a href="{% url 'cosinnus:user-detail' username=user.username %}">{{ user.username }}</a></h4>
+        </div>
+    </div>
+    {% endfor %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>{% trans "User" %}</th>
+            </tr>
+        </thead>
+        {% for user in object_list %}
+        <tr>
+            <th><a href="{% url 'cosinnus:user-detail' username=user.username %}">{{ user.username }}</a></th>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+        {% trans "There are no users." %}
+    {% endif %}
+{% endblock %}

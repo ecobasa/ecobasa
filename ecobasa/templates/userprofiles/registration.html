@@ -8,15 +8,14 @@
 {{ form.media.css }}
 <link href="{% static "css/vendor/select2-bootstrap.css" %}" rel="stylesheet"/>
 <link href="{% static "css/vendor/select2.css" %}" rel="stylesheet"/>
-<link href="{% static "css/ecobasa.css" %}" rel="stylesheet"/>
 {% endblock extrahead %}
 
 {% block content %}
 {% with form.register_as.value as register_as %}
 
 <div id="slide-register-as" class="slide {% if register_as %}hide{% else %}show{% endif %}">
-    <a id="slide-register-member" class="btn btn-default">{% trans "Join as a member" %}</a>
-    <a id="slide-register-community" class="btn btn-default">{% trans "Add your community" %}</a>
+    <a id="slide-register-member" class="btn btn-primary btn-lg">{% trans "Join as a member" %}</a>
+    <a id="slide-register-community" class="btn btn-primary btn-lg">{% trans "Add your community" %}</a>
 </div>
 
 
@@ -27,7 +26,7 @@
 
 
 <div id="navbar-member" class="{% ifequal form.register_as.value 'member' %}{% if form.errors %}show{% endif %}{% else %}hide{% endifequal %}">
-  <nav class="navbar navbar-default" role="navigation">
+  <nav class="navbar navbar-default registration" role="navigation">
     <ul class="nav navbar-nav">
         <li class="active"><a href="#slide-member-personal">{% trans "personal" %}</a></li>
         <li><a href="#slide-member-interests">{% trans "interests" %}</a></li>
@@ -42,6 +41,9 @@
   <div class="row">
     <div class="col-xs-6">
       {% bootstrap_field form.avatar %}
+      <div class="row">
+        {% bootstrap_field form.ecobasa_member  %}
+      </div>
     </div>
     <div class="col-xs-6">
       <div class="row">
@@ -98,10 +100,6 @@
     </div>
   </div>
 
-  <div class="row">
-    <div class="col-xs-12">{% bootstrap_field form.ecobasa_member  %}</div>
-  </div>
-
   <div class="row proceed">
     <div class="col-xs-6"><a href="#slide-register-as"><span class="glyphicon glyphicon-chevron-left"></span></a></div>
     <div class="col-xs-6"><a class="pull-right" href="#slide-member-interests"><span class="glyphicon glyphicon-chevron-right"></span></a></div>
@@ -132,17 +130,15 @@
 <div id="slide-member-bus-ask" class="slide hide">
   <div class="centered">
     <h2>{% bootstrap_label form.has_bus.label %}</h2>
-
+    <h3>{% trans "You can also add a bus later, it would be great if you could ask around among your friends if they want to join us with their bus!" %}</h3>
     <div class="row proceed">
-      <div class="col-xs-6"><a class="btn btn-default" href="#slide-member-bus-details">{% trans "YES" %}</a></div>
+      <div class="col-xs-6"><a class="register btn btn-default" href="#slide-member-bus-details">{% trans "YES" %}</a></div>
       <div class="col-xs-6">
         {% trans "NO, Register" as submit_label %}
         {% buttons submit=submit_label %}{% endbuttons %}
       </div>
     </div>
     <br />
-
-    <p>{% trans "You can also add a bus later, it would be great if you could ask around among your friends if they want to join us with their bus!" %}</p>
   </div>
 
   <div class="row proceed">
@@ -200,7 +196,7 @@
 
 
 <div id="navbar-community" class="{% ifequal register_as 'community' %}{% if form.errors %}show{% endif %}{% else %}hide{% endifequal %}">
-  <nav class="navbar navbar-default" role="navigation">
+  <nav class="navbar navbar-default registration" role="navigation">
     <ul class="nav navbar-nav">
         <li class="active"><a href="#slide-community-contact">{% trans "contact info" %}</a></li>
         <li><a href="#slide-community-visitors">{% trans "visitors" %}</a></li>
@@ -347,15 +343,19 @@
     <div class="col-xs-9">{% bootstrap_label form.basic_membership_status.label %}</div>
     <div class="col-xs-3">{% bootstrap_field form.basic_membership_status show_label=False %}</div>
   </div>
-
-  <div class="row proceed">
-    <div class="col-xs-6"><a href="#slide-community-offers"><span class="glyphicon glyphicon-chevron-left"></span></a></div>
+  <div class="row">
+    {% bootstrap_field form.ecobasa_member  %}
   </div>
 
   <div class="register">
     {% trans "Register" as submit_label %}
     {% buttons submit=submit_label %}{% endbuttons %}
   </div>
+
+  <div class="row proceed">
+    <div class="col-xs-6"><a href="#slide-community-offers"><span class="glyphicon glyphicon-chevron-left"></span></a></div>
+  </div>
+
 </div>
 
 </form>

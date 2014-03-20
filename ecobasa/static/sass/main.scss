@@ -22,16 +22,14 @@
 	display: block;
 	height: 100px;
 	width: 200px;
-}
-
-.urban {
+	&.urban {
 	background: url('../img/urbancclogo.png') no-repeat;
 	background-size: cover;
-}
-
-.danube {
-	background: url('../img/danubecclogo.png') no-repeat;
-	background-size: cover;
+	}
+	&.danube {
+		background: url('../img/danubecclogo.png') no-repeat;
+		background-size: cover;
+	}
 }
 
 #container, #progress_bar_wrapper {
@@ -82,21 +80,18 @@ a[data-toggle=tooltip] {
 	z-index: 7;
 }
 
-.community-map-small { 
-	height: 400px; 
-}
 
 /*********** Registration **************/
 
 #slide-register-as {
-  width: 50%;
-  margin: 0 auto;
-}
-#slide-register-as .btn {
-  width: 100%;
-  padding: 10%;
-  margin: 5% auto;
-  font-size: xx-large;
+	width: 50%;
+	margin: 0 auto;
+	.btn {
+	  width: 100%;
+	  padding: 10%;
+	  margin: 5% auto;
+	  font-size: xx-large;
+	}
 }
 
 #slide-member-bus-ask .btn {
@@ -119,10 +114,9 @@ a[data-toggle=tooltip] {
 
 #slide-community-basic .register,
 #slide-member-bus-details .register {
-  text-align: center;
+	text-align: center;
+	&button {
+		font-size: xx-large;
+	}
 }
 
-#slide-community-basic .register button,
-#slide-member-bus-details .register button {
-  font-size: xx-large;
-}

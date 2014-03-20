@@ -353,7 +353,7 @@ class EcobasaUserProfile(BaseUserProfile):
         max_length=255, blank=True, null=True)
 
     ecobasa_member = models.BooleanField(
-        _('I want to become a member of ecobasa.org (it will make this project permanently possible)'),
+        _('I also want to become a member of ecobasa.org later</br>(it will make this project permanently possible)'),
         blank=True, default=False)
 
     interests = TaggableManager(_('interests'),
