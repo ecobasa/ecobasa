@@ -11,26 +11,28 @@
 
 </div>
 {% placeholder fullwidth_slider %}
-  <div class="container">
-  	<div class="row">
-  		<div class="col-xs-6">
-        {% placeholder description %}
-  		</div>
-  		<div class="col-xs-6">
-  			<h2>Communities that want to be visited</h2>
-  			<div id="community-map" class="community-map-small"></div>
-  		</div>
-  	</div>
-  		<div class="row">
-  			<div class="col-md-5 col-md-offset-1 col-xs-6">
-          {% placeholder register_community %}
-          <a href="accounts/register" class="register btn btn-primary btn-lg">Register your community</a>
-  			</div>
-  			<div class="col-md-5 col-md-offset-1 col-xs-6">
-          {% placeholder register_individual %}
-        <a href="accounts/register" class="register btn btn-primary btn-lg">Register as a participant</a>
-  			</div>
-  		</div>
+  <div class="gradient">
+    <div class="container content">
+    	<div class="row">
+    		<div class="col-xs-6">
+          {% placeholder description %}
+    		</div>
+    		<div class="col-xs-6">
+    			<h2>Communities that want to be visited</h2>
+    			<div id="community-map" class="community-map-small"></div>
+    		</div>
+    	</div>
+    		<div class="row">
+    			<div class="col-md-5 col-md-offset-1 col-xs-6">
+            {% placeholder register_community %}
+            <a href="accounts/register" class="register btn btn-primary btn-lg">Register your community</a>
+    			</div>
+    			<div class="col-md-5 col-md-offset-1 col-xs-6">
+            {% placeholder register_individual %}
+          <a href="accounts/register" class="register btn btn-primary btn-lg">Register as a participant</a>
+    			</div>
+    		</div>
+    </div>
   </div>
 
 {% endblock %}
