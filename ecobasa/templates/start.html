@@ -1,14 +1,15 @@
 {% extends "base.html" %}
-{% load i18n cms_tags static cosinnus_tags sekizai_tags ecobasa_community %}
+{% load i18n thumbnail cms_tags static cosinnus_tags sekizai_tags ecobasa_community %}
 
 {% block extrahead %}
 {{ block.super }}
-<link rel="stylesheet" href="{% static "nivo/nivo-slider.css" %}">
 <link rel="stylesheet" href="{% static "css/ecobasa.css" %}">
 <link rel="stylesheet" href="{% static "leaflet/leaflet.css" %}" />
 {% endblock %}
 
 {% block base_content %}
+
+</div>
   <div class="container">
   	<div class="row">
   		<div class="col-xs-6">
@@ -35,7 +36,6 @@
 
 {% block extrafooter %}
   {{ block.super }}
-  <script src="{% static "nivo/js/jquery.nivo.slider.pack.js" %}"></script>
   <script src="{% static "leaflet/leaflet.js" %}"></script>
   <script src="{% static "js/ecobasa_map.js" %}"></script>
   <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.4"></script>
