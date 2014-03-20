@@ -1,8 +1,4 @@
-/***************Communities**************/
-
-.community-map-small { 
-	height: 400px; 
-}
+/*********** Default **************/
 
 .btn-primary {
 	background-color: #ed582f;
@@ -10,7 +6,60 @@
 	color: #f4ede3;
 }
 
+/*********** Startpage ****************/
+
+.navbar-brand {
+	background: url('../img/bus.png') no-repeat left;
+	background-size: 10%;
+	margin-left: 20px;
+	padding-left: 60px;
+}
+
+
+/************** About Page ***************/
+
+.cc_logo {
+	display: block;
+	height: 100px;
+	width: 200px;
+}
+
+.urban {
+	background: url('../img/urbancclogo.png') no-repeat;
+	background-size: cover;
+}
+
+.danube {
+	background: url('../img/danubecclogo.png') no-repeat;
+	background-size: cover;
+}
+
+#container, #progress_bar_wrapper {
+	position:relative;
+}
+
+#bus {
+	background: url('../img/bus.png') no-repeat center;
+	display: block;
+	width: 100px;
+	height: 100px;
+	background-size: 50%;
+}
+
+a[data-toggle=tooltip] {
+	width:5px;
+	height:15px;
+	position:absolute;
+	background-color:#000;
+	cursor: pointer;
+	top: -15px;
+}
+
 /***************Communities**************/
+
+.community-map-small { 
+	height: 400px; 
+}
 
 .community-map-large {
 	position: absolute;
@@ -36,6 +85,8 @@
 .community-map-small { 
 	height: 400px; 
 }
+
+/*********** Registration **************/
 
 #slide-register-as {
   width: 50%;

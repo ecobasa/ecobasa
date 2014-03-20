@@ -54,7 +54,8 @@ class Linkable(object):
 class SlideshowImage(Linkable, models.Model):
     slideshow = models.ForeignKey(SlideshowPlugin, verbose_name=_("slide show"), related_name="images")
     file = FilerImageField(verbose_name=_("file"), null=True, blank=True)
-    # text = models.CharField(verbose_name=_("text"), max_length=255, blank=True, help_text=_("Will not be visible. Only for search engines etc."))
+    title = models.CharField(verbose_name=_("title"), max_length=255, blank=True)
+    text = models.TextField(verbose_name=_("text"), max_length=255, blank=True, help_text=_("Text appearing on top of the image"))
     order = models.PositiveSmallIntegerField(verbose_name=_("order"), default=0)
 
     def __unicode__(self):

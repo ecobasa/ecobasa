@@ -1,5 +1,9 @@
 {% extends 'cosinnus/base.html' %}
-{% load cms_tags sekizai_tags %}
+{% load cms_tags sekizai_tags static %}
+
+{% block extrahead %}
+<link rel="stylesheet" href="{% static "css/ecobasa.css" %}">
+{% endblock %}
 
 {% block content %}
   {{ block.super }}
