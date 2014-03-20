@@ -44,13 +44,6 @@ class EcobasaProfileView(UserProfileDetailView):
 user_detail = EcobasaProfileView.as_view()
 
 
-class EcobasaProfileListView(UserListView):
-    def get_context_data(self, **kwargs):
-        context = super(EcobasaProfileListView, self).get_context_data(**kwargs)
-        return context
-user_list = EcobasaProfileListView.as_view()
-
-
 class GroupIndexView(RequireReadMixin, RedirectView):
     def get_redirect_url(self, *args, **kwargs):
         return reverse('cosinnus:group-detail', kwargs={'group': self.group.slug})
@@ -70,3 +63,4 @@ class EcobasaGroupListView(GroupListView):
         context = super(EcobasaGroupListView, self).get_context_data(**kwargs)
         return context
 group_list = EcobasaGroupListView.as_view()
+

@@ -34,17 +34,29 @@
     <h3>What brings this community together</h3>
     <p>{{ profile.basic_brings_together }}</p>
     <h3>What can you learn here</h3>
-    {{ profile.offers_skills }}
+    <ul>
+      {% for offer_skill in profile.offers_skills.all %}
+      <li>{{ profile.offers_skills }}</li>
+      {% endfor %}
+    </ul>
     <h3>Accomodation for guests</h3>
     <p>{{ profile.visitors_accomodation }}</p>
     <h2>Offers</h2>
     <div class="col-xs-6">
       <h3>Services</h3>
-      {{ profile.offers_services }}
+      <ul>
+        {% for offer_service in profile.offers_services.all %}
+        <li>{{ profile.offer_service }}</li>
+        {% endfor %}
+      </ul>
     </div>
     <div class="col-xs-6">
       <h3>Products and Creations</h3>
-      {{ profile.offers_creations }}
+      <ul>
+        {% for offer_creation in profile.offers_creations.all %}
+        <li>{{ offer_creation }}</li>
+        {% endfor %}
+      </ul>
     </div>
     <h3>Workshop and factoring spaces</h3>
     {{ profile.offers_workshop_spaces }}
