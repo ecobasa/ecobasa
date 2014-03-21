@@ -2,8 +2,7 @@
 {% load i18n thumbnail cms_tags static cosinnus_tags sekizai_tags ecobasa_community %}
 
 {% block extrahead %}
-{{ block.super }}
-<link rel="stylesheet" href="{% static "css/ecobasa.css" %}">
+{{ block.super }} 
 <link rel="stylesheet" href="{% static "leaflet/leaflet.css" %}" />
 {% endblock %}
 
@@ -41,7 +40,6 @@
   {{ block.super }}
   <script src="{% static "leaflet/leaflet.js" %}"></script>
   <script src="{% static "js/ecobasa_map.js" %}"></script>
-  <script src="{% static "js/main.js" %}"></script>
   <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.4"></script>
   <script type="text/javascript">
   {% get_community_locations as locations %}

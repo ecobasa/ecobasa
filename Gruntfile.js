@@ -5,7 +5,7 @@ module.exports = function (grunt) {
     // load all grunt tasks
     require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
-    var base = 'static';
+    var base = 'ecobasa/static';
 
     // Project configuration.
     grunt.initConfig({
@@ -27,7 +27,7 @@ module.exports = function (grunt) {
                     /* lineNumbers: true */
                 },
                 files: {
-                    'static/css/main.css': base + '/sass/main.scss'
+                    'ecobasa/static/css/main.css': base + '/sass/main.scss'
                     //'forum/static/forum/css/main.css': 'forum/' + base + '/forum/sass/main.scss',
                 }
             }

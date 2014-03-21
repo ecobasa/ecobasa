@@ -1,186 +1,180 @@
-$primary: #da6137;
-$secondary: #f4ede3;
-$third: #b4502c;
-
 /*********** Default **************/
-
 body {
-	background: #f4ede3;
+  background: #f4ede3;
 }
 
 .btn-primary {
-	background-color: #da6137;
-	border-color: #b4502c;
-	color: #f4ede3;
+  background-color: #da6137;
+  border-color: #b4502c;
+  color: #f4ede3;
 }
 
 a {
-	color: #da6137
+  color: #da6137;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	margin-top: 40px;
-	margin-bottom: 20px;
+  margin-top: 40px;
+  margin-bottom: 20px;
 }
 
 h2 {
-	font-size: 33px;
+  font-size: 33px;
 }
 
 .gradient {
-	-webkit-box-shadow: inset 0 5px 10px -5px rgba(0,0,0,0.4);
-	-moz-box-shadow: inset 0 5px 10px -5px rgba(0,0,0,0.4);
-	box-shadow: inset 0 5px 10px -5px rgba(0,0,0,0.4);
-	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#e5e5e5),color-stop(100%,#fff));
-	background-image: -webkit-linear-gradient(top,#e5e5e5,#fff);
-	background-image: -moz-linear-gradient(top,#e5e5e5,#fff);
-	background-image: -ms-linear-gradient(top,#e5e5e5,#fff);
-	background-image: -o-linear-gradient(top,#e5e5e5,#fff);
-	background-image: linear-gradient(top,#e5e5e5,#fff);
-	background-size: 100% 52px;
-	background-repeat: no-repeat;
+  -webkit-box-shadow: inset 0 5px 10px -5px rgba(0, 0, 0, 0.4);
+  -moz-box-shadow: inset 0 5px 10px -5px rgba(0, 0, 0, 0.4);
+  box-shadow: inset 0 5px 10px -5px rgba(0, 0, 0, 0.4);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e5e5e5), color-stop(100%, white));
+  background-image: -webkit-linear-gradient(top, #e5e5e5, white);
+  background-image: -moz-linear-gradient(top, #e5e5e5, white);
+  background-image: -ms-linear-gradient(top, #e5e5e5, white);
+  background-image: -o-linear-gradient(top, #e5e5e5, white);
+  background-image: linear-gradient(top, #e5e5e5, white);
+  background-size: 100% 52px;
+  background-repeat: no-repeat;
 }
 
 /************ Header ****************/
-
 .header.navbar {
-	background-color: #da6137;
-	margin-bottom: 0px;
-	border-radius: 0px;
-	border: none;
-	height: 60px;
-	padding-top: 5px;
+  background-color: #da6137;
+  margin-bottom: 0px;
+  border-radius: 0px;
+  border: none;
+  height: 60px;
+  padding-top: 5px;
 }
 
 .navbar-default .navbar-brand {
-	background: url('../img/bus.png') no-repeat left;
-	background-size: 10%;
-	margin-left: 20px;
-	padding-left: 60px;
-	color: #f4ede3;
+  background: url("../img/bus.png") no-repeat left;
+  background-size: 10%;
+  margin-left: 20px;
+  padding-left: 60px;
+  color: #f4ede3;
 }
 
-.navbar-default .navbar-nav>li>a {
-	color: #f4ede3;
+.navbar-default ul.navbar-nav {
+  float: right;
+}
+.navbar-default ul.navbar-nav > li > a {
+  color: #f4ede3;
+}
+.navbar-default ul.navbar-nav .dropdown > a .caret {
+  border-top-color: #f4ede3;
+  border-bottom-color: #f4ede3;
 }
 
-ul.nav.navbar-nav {
-	float: right;
+/************* Footer ******************/
+#footer {
+  margin-top: 50px;
 }
 
-.navbar-default .navbar-nav>.dropdown>a .caret {
-border-top-color: #f4ede3;
-border-bottom-color: #f4ede3;
+#myCanvas {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-top: 30px;
 }
 
 /*********** Startpage ****************/
-
 .container.content {
-	padding-top: 50px;
+  padding-top: 50px;
 }
 
 .register {
-	margin-top: 40px;
-	padding: 20px 36px;
+  margin-top: 40px;
+  padding: 20px 36px;
 }
 
 /*************** Slider *****************/
-
 .carousel-caption {
-	color: #f4ede3;
-	text-align: left;
-	width: 580px;
+  color: #f4ede3;
+  text-align: left;
+  width: 580px;
 }
 
 /************** About Page ***************/
-
 .about h1 {
-	margin-top: 5px;
+  margin-top: 5px;
 }
 
 .cc_logo {
-	display: block;
-	height: 65px;
-	width: 187px;
+  display: block;
+  height: 65px;
+  width: 187px;
 }
-
-.urban {
-	background: url('../img/urbancclogo.png') no-repeat;
+.cc_logo.urban {
+  background: url("../img/urbancclogo.png") no-repeat;
 }
-
-.danube {
-	background: url('../img/danubecclogo.png') no-repeat;
-	float: right;
-}
-
-.danube-info .cc_description {
-	float: right;
+.cc_logo.danube {
+  background: url("../img/danubecclogo.png") no-repeat;
+  float: right;
 }
 
 .danube-info {
-	text-align: right;
+  text-align: right;
 }
-
+.danube-info .cc_description {
+  float: right;
+}
 .danube-info p {
-	float: right;
+  float: right;
 }
 
 #container, #progress_bar_wrapper {
-	position:relative;
+  position: relative;
 }
 
 #bus {
-	background: url('../img/bus.png') no-repeat center;
-	display: block;
-	width: 100px;
-	height: 100px;
-	background-size: 50%;
+  background: url("../img/bus.png") no-repeat center;
+  display: block;
+  width: 100px;
+  height: 100px;
+  background-size: 50%;
 }
 
 a[data-toggle=tooltip] {
-	width:5px;
-	height:15px;
-	position:absolute;
-	background-color:#000;
-	cursor: pointer;
-	top: -15px;
+  width: 5px;
+  height: 15px;
+  position: absolute;
+  background-color: #000;
+  cursor: pointer;
+  top: -15px;
 }
 
 /***************Communities**************/
-
-.community-map-small { 
-	height: 400px; 
+.community-map-small {
+  height: 400px;
 }
 
 .community-map-large {
-	position: absolute;
-	top: 52px;
-	left: 0px;
-	width: 100%;
-	height: 100%;
+  position: absolute;
+  top: 52px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
 }
 
 .view-select {
-	position: absolute;
-	left: 45%;
-	top: 20px;
-	margin: 10px 10px 0 0;
-	box-shadow: 0 1px 5px rgba(0,0,0,0.65);
-	z-index: 7;
-	border-radius: 4px;
+  position: absolute;
+  left: 45%;
+  top: 20px;
+  margin: 10px 10px 0 0;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.65);
+  z-index: 7;
+  border-radius: 4px;
 }
 
 .leaflet-top {
-	top: 20px;
+  top: 20px;
 }
 
 #community-map button {
-	z-index: 7;
+  z-index: 7;
 }
 
-
 /*********** Registration **************/
-
 #slide-register-as {
   width: 50%;
   margin: 0 auto;
@@ -193,12 +187,11 @@ a[data-toggle=tooltip] {
 }
 
 .navbar.navbar-default.registration {
-	background-color: #b4502c;
+  background-color: #b4502c;
 }
-
-.navbar-default .navbar-nav>.active>a {
-	color: #555;
-	background-color: #da6137;
+.navbar.navbar-default.registration .navbar-nav > .active > a {
+  color: #555;
+  background-color: #da6137;
 }
 
 #slide-member-bus-ask .btn {
@@ -211,7 +204,8 @@ a[data-toggle=tooltip] {
 
 #slide-community-wishlist #id_wishlist_seeds_num,
 #slide-community-wishlist #id_wishlist_seeds_kind {
-  height: 40px; /* can't use % */
+  height: 40px;
+  /* can't use % */
 }
 
 #slide-member-bus-ask .centered,
@@ -227,7 +221,7 @@ a[data-toggle=tooltip] {
 #slide-community-basic .register button,
 #slide-member-bus-details .register button
 #slide-member-bus-ask button.None {
-	font-size: xx-large;
-	margin-top: 40px;
-	padding: 20px 36px;
+  font-size: xx-large;
+  margin-top: 40px;
+  padding: 20px 36px;
 }

@@ -1,34 +1,135 @@
+$primary: #da6137;
+$secondary: #f4ede3;
+$third: #b4502c;
+
 /*********** Default **************/
 
+body {
+	background: #f4ede3;
+}
+
 .btn-primary {
-	background-color: #ed582f;
-	border-color: #ed582f;
+	background-color: #da6137;
+	border-color: #b4502c;
 	color: #f4ede3;
 }
 
-/*********** Startpage ****************/
+a {
+	color: #da6137
+}
 
-.navbar-brand {
+h1, h2, h3, h4, h5, h6 {
+	margin-top: 40px;
+	margin-bottom: 20px;
+}
+
+h2 {
+	font-size: 33px;
+}
+
+.gradient {
+	-webkit-box-shadow: inset 0 5px 10px -5px rgba(0,0,0,0.4);
+	-moz-box-shadow: inset 0 5px 10px -5px rgba(0,0,0,0.4);
+	box-shadow: inset 0 5px 10px -5px rgba(0,0,0,0.4);
+	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#e5e5e5),color-stop(100%,#fff));
+	background-image: -webkit-linear-gradient(top,#e5e5e5,#fff);
+	background-image: -moz-linear-gradient(top,#e5e5e5,#fff);
+	background-image: -ms-linear-gradient(top,#e5e5e5,#fff);
+	background-image: -o-linear-gradient(top,#e5e5e5,#fff);
+	background-image: linear-gradient(top,#e5e5e5,#fff);
+	background-size: 100% 52px;
+	background-repeat: no-repeat;
+}
+
+/************ Header ****************/
+
+.header.navbar {
+	background-color: #da6137;
+	margin-bottom: 0px;
+	border-radius: 0px;
+	border: none;
+	height: 60px;
+	padding-top: 5px;
+}
+
+.navbar-default .navbar-brand {
 	background: url('../img/bus.png') no-repeat left;
 	background-size: 10%;
 	margin-left: 20px;
 	padding-left: 60px;
+	color: #f4ede3;
+}
+
+.navbar-default ul.navbar-nav {
+	float: right;
+	&>li>a {
+		color: #f4ede3;
+	}
+	.dropdown>a .caret {
+		border-top-color: #f4ede3;
+		border-bottom-color: #f4ede3;
+	}
 }
 
 
+/************* Footer ******************/
+
+#footer {
+	margin-top: 50px;
+}
+
+#myCanvas {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	margin-top: 30px;
+}
+
+/*********** Startpage ****************/
+
+.container.content {
+	padding-top: 50px;
+}
+
+.register {
+	margin-top: 40px;
+	padding: 20px 36px;
+}
+
+/*************** Slider *****************/
+
+.carousel-caption {
+	color: #f4ede3;
+	text-align: left;
+	width: 580px;
+}
+
 /************** About Page ***************/
+
+.about h1 {
+	margin-top: 5px;
+}
 
 .cc_logo {
 	display: block;
-	height: 100px;
-	width: 200px;
+	height: 65px;
+	width: 187px;
 	&.urban {
-	background: url('../img/urbancclogo.png') no-repeat;
-	background-size: cover;
+		background: url('../img/urbancclogo.png') no-repeat;
 	}
 	&.danube {
 		background: url('../img/danubecclogo.png') no-repeat;
-		background-size: cover;
+		float: right;
+	}
+}
+
+.danube-info {
+	text-align: right;
+	.cc_description {
+		float: right;
+	}
+	p {
+		float: right;
 	}
 }
 
@@ -64,16 +165,21 @@ a[data-toggle=tooltip] {
 	top: 52px;
 	left: 0px;
 	width: 100%;
-	height: 500px;
+	height: 100%;
 }
 
 .view-select {
 	position: absolute;
-	right: 0px;
+	left: 45%;
+	top: 20px;
 	margin: 10px 10px 0 0;
 	box-shadow: 0 1px 5px rgba(0,0,0,0.65);
 	z-index: 7;
 	border-radius: 4px;
+}
+
+.leaflet-top {
+	top: 20px;
 }
 
 #community-map button {
@@ -84,13 +190,21 @@ a[data-toggle=tooltip] {
 /*********** Registration **************/
 
 #slide-register-as {
-	width: 50%;
-	margin: 0 auto;
-	.btn {
+  width: 50%;
+  margin: 0 auto;
+  .btn {
 	  width: 100%;
 	  padding: 10%;
 	  margin: 5% auto;
 	  font-size: xx-large;
+	}
+}
+
+.navbar.navbar-default.registration {
+	background-color: #b4502c;
+	.navbar-nav>.active>a {
+		color: #555;
+		background-color: #da6137;
 	}
 }
 
@@ -114,9 +228,13 @@ a[data-toggle=tooltip] {
 
 #slide-community-basic .register,
 #slide-member-bus-details .register {
-	text-align: center;
-	&button {
-		font-size: xx-large;
-	}
+  text-align: center;
 }
 
+#slide-community-basic .register button,
+#slide-member-bus-details .register button
+#slide-member-bus-ask button.None {
+	font-size: xx-large;
+	margin-top: 40px;
+	padding: 20px 36px;
+}

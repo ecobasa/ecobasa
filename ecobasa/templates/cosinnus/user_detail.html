@@ -2,11 +2,11 @@
 {% load i18n thumbnail %}
 
 {% block page_title %}
-  {% blocktrans with username=object.user.get_username %}User profile: {{ username }}{% endblocktrans %}
+  {% blocktrans with username=object.get_username %}User profile: {{ username }}{% endblocktrans %}
 {% endblock %}
 
 {% block content %}
-<h1>{% blocktrans with username=object.user.get_username %}User profile: {{ username }}{% endblocktrans %}</h1>
+<h1>{% blocktrans with username=object.get_username %}{{ object.username }} - a gift-economy pioneer{% endblocktrans %}</h1>
 
 <div class="row">
   <div class="col-xs-6">
@@ -15,10 +15,10 @@
       <dd>{% if object.avatar %}<img src="{% thumbnail object.avatar "70x0" crop=1 upscale=1 %}" />{% endif %}</dd>
 
       <dt>{% trans "name" %}</dt>
-      <dd>{{ object.user.get_full_name }}</dd>
+      <dd>{{ object.get_full_name }}</dd>
 
       <dt>{% trans "email" %}</dt>
-      <dd>{{ object.user.email }}</dd>
+      <dd>{{ object.email }}</dd>
 
       <dt>{% trans "gender" %}</dt>
       <dd>{{ object.get_gender_display }}</dt>
