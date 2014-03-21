@@ -43,3 +43,7 @@ nosetests.xml
 
 # local settings
 ecobasa/settings.py
+
+# npm and bower 
+bower_components/
+node_modules/
