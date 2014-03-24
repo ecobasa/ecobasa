@@ -21,6 +21,18 @@ urlpatterns = i18n_patterns('',
     # url(r'^references/', include('references.urls', namespace='references')),
 
     url(r'^$', 'cms.views.details', {'slug': ''}),
+)
+
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns += patterns('',
+        url(r'^__debug__/', include(debug_toolbar.urls)),
+    )
+
+
+# catch-all patterns
+urlpatterns += i18n_patterns('',
     url(r'^', include('cosinnus.urls', namespace='cosinnus')),
     url(r'^', include('cms.urls')),
 )
