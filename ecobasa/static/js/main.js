@@ -1,6 +1,7 @@
  $(document).ready(function() {
    if( ! $('#myCanvas').tagcanvas({
      textColour : '#000',
+     outlineColour : '#da6137',
      outlineThickness : 1,
      stretchX : 3,
      imageScale : 0.6,
