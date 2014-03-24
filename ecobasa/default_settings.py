@@ -169,7 +169,6 @@ INSTALLED_APPS = (
     'cms',
     'mptt',
     'menus',
-    'cmsplugin_nivoslider',
     'cms.plugins.text',
     'cms.plugins.link',
     'sekizai',
