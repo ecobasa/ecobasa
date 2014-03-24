@@ -26,7 +26,7 @@ $(function() {
   });
 
 
-  $('#slide-member-bus-ask .proceed a[href="#slide-member-bus-details"').click(function (ev) {
+  $('#slide-member-bus-ask .proceed a[href="#slide-member-bus-details"]').click(function (ev) {
     $('#id_has_bus').val('on');
 
     ev.preventDefault();
