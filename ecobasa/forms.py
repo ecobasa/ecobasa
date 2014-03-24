@@ -14,7 +14,7 @@ from .models import EcobasaUserProfile, EcobasaCommunityProfile
 
 class EcobasaRegistrationForm(RegistrationForm):
 
-    community_is_public = forms.BooleanField()
+    #community_is_public = forms.BooleanField()
 
     def __init__(self, *args, **kwargs):
         super(EcobasaRegistrationForm, self).__init__(*args, **kwargs)
@@ -49,8 +49,9 @@ class EcobasaRegistrationForm(RegistrationForm):
         name = self.cleaned_data['name']
 
         # set up cosinnus group and admin user
-        is_public = self.cleaned_data['community_is_public']
-        community = CosinnusGroup.objects.create(name=name, public=is_public)
+        #is_public = self.cleaned_data['community_is_public']
+        #community = CosinnusGroup.objects.create(name=name, public=is_public)
+        community = CosinnusGroup.objects.create(name=name, public=False)
         CosinnusGroupMembership.objects.create(
             user=new_user, group=community, status=MEMBERSHIP_ADMIN)
 
@@ -93,8 +94,6 @@ class EcobasaRegistrationForm(RegistrationForm):
             self.cleaned_data['basic_brings_together']
         profile.basic_membership_status =\
             self.cleaned_data['basic_membership_status']
-
-
 
         profile.save()
 
