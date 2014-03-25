@@ -146,6 +146,10 @@ a[data-toggle=tooltip] {
 
 /***************Communities**************/
 .community-map-small {
+  height: 300px;
+}
+
+.community-map-middle {
   height: 400px;
 }
 
