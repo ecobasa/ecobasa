@@ -21,7 +21,6 @@ urlpatterns = i18n_patterns('',
     # url(r'^references/', include('references.urls', namespace='references')),
 
     url(r'^$', 'cms.views.details', {'slug': ''}),
-    (r'^ckeditor/', include('ckeditor.urls')),
 )
 
 
