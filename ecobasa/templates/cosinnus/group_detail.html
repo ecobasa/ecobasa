@@ -14,7 +14,14 @@
   {% blocktrans with group_name=object.name %}
   {{ group_name }}
   {% endblocktrans %}
-  {% if user.is_superuser or user|is_group_admin:object %}
+{% endblock content_title %}
+
+{% block body %}community-profile{% endblock body %}
+
+{% block content %}
+<div class="row">
+  <h1>{{ object.name }}</h1>
+    {% if user.is_superuser or user|is_group_admin:object %}
     <div class="btn-group pull-right">
       <a href="{% url 'cosinnus:group-edit' group=object.slug %}" class="btn btn-primary">{% trans "Edit" %}</a>
       <a href="{% url 'cosinnus:group-export' group=object.slug %}" class="btn btn-primary">{% trans "Export" context "the verb" %}</a>
@@ -30,54 +37,90 @@
       
     </div>
   {% endif %}
-{% endblock content_title %}
-
-{% block content %}
-<div class="row">
   <div class="col-xs-8">
-    <h3>What brings this community together</h3>
-    <p>{{ profile.basic_brings_together }}</p>
-    <h3>What can you learn here</h3>
-    <ul>
-      {% for offer_skill in profile.offers_skills.all %}
-      <li>{{ offer_skill }}</li>
-      {% endfor %}
-    </ul>
-    <h3>Accomodation for guests</h3>
-    <p>{{ profile.visitors_accomodation }}</p>
-    <h2>Offers</h2>
-    <div class="col-xs-6">
-      <h3>Services</h3>
-      <ul>
-        {% for offer_service in profile.offers_services.all %}
-        <li>{{ offer_service }}</li>
-        {% endfor %}
-      </ul>
+    <div class="row">
+      <div class="col-xs-12">
+        <h3>What brings this community together</h3>
+        <p>{{ profile.basic_brings_together }}</p>
+        <h3>What can you learn here</h3>
+        <ul>
+          {% for offer_skill in profile.offers_skills.all %}
+          <li>{{ offer_skill }}</li>
+          {% endfor %}
+        </ul>
+        <h3>Accomodation for guests</h3>
+        <p>{{ profile.visitors_accomodation }}</p>
+      </div>
     </div>
-    <div class="col-xs-6">
-      <h3>Products and Creations</h3>
-      <ul>
-        {% for offer_creation in profile.offers_creations.all %}
-        <li>{{ offer_creation }}</li>
-        {% endfor %}
-      </ul>
+    <div class="row">
+      <h2>Offers</h2>
+      <div class="col-xs-6">
+        <h3>Services</h3>
+        <ul>
+          {% for offer_service in profile.offers_services.all %}
+          <li>{{ offer_service }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+      <div class="col-xs-6">
+        <h3>Products and Creations</h3>
+        <ul>
+          {% for offer_creation in profile.offers_creations.all %}
+          <li>{{ offer_creation }}</li>
+          {% endfor %}
+        </ul>
+      </div>
     </div>
-    <h3>Workshop and factoring spaces</h3>
-    {{ profile.offers_workshop_spaces }}
-    <h3>Seminars</h3>
-    <p>{{ profile.offers_learning_seminars }}</p>
+    <div class="row">
+      <div class="col-xs-12">
+        <h3>Workshop and factoring spaces</h3>
+        {{ profile.offers_workshop_spaces }}
+        <h3>Seminars</h3>
+        <p>{{ profile.offers_learning_seminars }}</p>
+      </div>
+    </div>
+    <div class="row">
+      <h2>Needs</h2>
+      <div class="col-xs-12">
+        <h3>Materials</h3>
+        <p>{{ profile.wishlist_materials }}</p>
+        <h3>Tools</h3>
+        <p>{{ profile.wishlist_tools }}</p>
+        <h3>Seeds</h3>
+        <div class="table-responsive">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th>Sort</th>
+                <th>Quantity</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{{ profile.wishlist_seeds_kind }}</td>
+                <td>{{ profile.wishlist_seeds_num }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <h3>Special Needs</h3>
+        <p>{{ profile.wishlist_special_needs }}</p>
+      </div>
+      
+    </div>
   </div>
-  <div class="col-xs-4 visitor-info">
-    <h3>Visitor Info</h3>
-    <ul>
-      <li><span class="data">Maximum Guests</span><span class="guests">{{ profile.visitors_num }}</span></li>
-      <li><span class="data">Country</span><span class="country">{{ profile.contact_country }}</span></li>
-      <li><span class="data">City</span><span class="city">{{ profile.contact_city }}</span></li>
-      <li><span class="data">Size</span><span class="size">{{ profile.basic_inhabitants }} people</span></li>
-      <li><span class="data">Children</span><span class="children">{{ profile.basic_inhabitants_underage }}</span></li>
-      <li><span class="data">Membership status</span><span class="members">{{ profile.basic_membership_status }}</span></li>
-    </ul>
-    <button class="btn btn-small">Connect to this community</button>
+  <div class="col-xs-4 sidebar">
+    <div class="visitor-info">
+      <h3>Visitor Info</h3>
+      <ul>
+        <li><span class="data">Maximum Guests:</span><span class="guests">{{ profile.visitors_num }}</span></li>
+        <li><span class="data">Country:</span><span class="country">{{ profile.get_contact_country_display }}</span></li>
+        <li><span class="data">Size:</span><span class="size">{{ profile.basic_inhabitants }} people</span></li>
+        <li><span class="data">Children:</span><span class="children">{{ profile.basic_inhabitants_underage }}</span></li>
+        <li><span class="data">Membership status:</span><span class="members">{{ profile.get_basic_membership_status_display }}</span></li>
+      </ul>
+      <button class="btn btn-primary btn-small">Connect to this community</button>
+    </div>
     <div id="community-map" class="community-map-small"></div>
     {% if user.is_authenticated %}
     <div class="contact">
@@ -89,57 +132,57 @@
       Telephone: {{ profile.contact_telephone }}
     </div>
     {% endif %}
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-12">
-    <h3>{% trans "Community gift-economy Ambassadors" %}</h3>
-    <ul class="media-list">
-      {% for member in members %}
-        <li class="media">
-          <a class="pull-left" href="{% url 'cosinnus:user-detail' username=member.get_username %}">
-            {% if member.cosinnus_profile.avatar %}
-              <img class="avatar" src="{% thumbnail member.cosinnus_profile.avatar.url "60x60" crop=1 upscale=1 %}">
-            {% else %}
-              <img class="avatar" src="http://placehold.it/30x30">
-            {% endif %}
-          </a>
-          <div class="media-body">
-            <a class="pull-left" href="{% url 'cosinnus:user-detail' username=member.get_username %}">{{ member.get_full_name|default:member.get_username }}</a>
-            <div class="btn-group btn-group-xs">
-              <a href="{% url 'cosinnus:group-user-edit' group=object.slug username=member.get_username %}" class="btn btn-default">{% trans "Change" %}</a>
-              <a href="{% url 'cosinnus:group-user-delete' group=object.slug username=member.get_username %}" class="btn btn-default">{% trans "Delete" %}</a>
-            </div>
-          </div>
-        </li>
-      {% endfor %}
-    </ul>
-  </div>
-</div>
-{% if user.is_superuser or user|is_group_admin:object %}
-<div class="row">
-  <div class="col-md-12">
-    <h3>{% trans "Pending users" %}</h3>
-    <ul class="media-list">
-      {% for pending in pendings %}
-        <li class="media">
-          <a class="pull-left" href="{% url 'cosinnus:user-detail' username=pending.get_username %}">
-            {% if pending.cosinnus_profile.avatar %}
-              <img class="avatar" src="{% thumbnail cosinnus_profile.avatar.url "60x60" crop=1 upscale=1 %}">
-            {% else %}
-              <img class="avatar" src="http://placehold.it/30x30">
-            {% endif %}
-          </a>
-          <div class="media-body">
-            <a class="pull-left" href="{% url 'cosinnus:user-detail' username=pending.get_username %}">{{ pending.get_full_name|default:pending.get_username }}</a>
-            <div class="btn-group btn-group-xs">
-              <a href="{% url 'cosinnus:group-user-add' group=object.slug username=pending.get_username %}" class="btn btn-default">{% trans "Add" %}</a>
-              <a href="{% url 'cosinnus:group-user-delete' group=object.slug username=pending.get_username %}" class="btn btn-default">{% trans "Delete" %}</a>
-            </div>
-          </div>
-        </li>
-      {% endfor %}
-    </ul>
+    <div class="row">
+      <div class="col-md-12">
+        <h3>{% trans "Community gift-economy Ambassadors" %}</h3>
+        <ul class="media-list">
+          {% for member in members %}
+            <li class="media">
+              <a class="pull-left" href="{% url 'cosinnus:user-detail' username=member.get_username %}">
+                {% if member.cosinnus_profile.avatar %}
+                  <img class="avatar" src="{% thumbnail member.cosinnus_profile.avatar.url "60x60" crop=1 upscale=1 %}">
+                {% else %}
+                  <img class="avatar" src="http://placehold.it/30x30">
+                {% endif %}
+              </a>
+              <div class="media-body">
+                <a class="pull-left" href="{% url 'cosinnus:user-detail' username=member.get_username %}">{{ member.get_full_name|default:member.get_username }}</a>
+                <div class="btn-group btn-group-xs">
+                  <a href="{% url 'cosinnus:group-user-edit' group=object.slug username=member.get_username %}" class="btn btn-default">{% trans "Change" %}</a>
+                  <a href="{% url 'cosinnus:group-user-delete' group=object.slug username=member.get_username %}" class="btn btn-default">{% trans "Delete" %}</a>
+                </div>
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+    {% if user.is_superuser or user|is_group_admin:object %}
+    <div class="row">
+      <div class="col-md-12">
+        <h3>{% trans "Pending users" %}</h3>
+        <ul class="media-list">
+          {% for pending in pendings %}
+            <li class="media">
+              <a class="pull-left" href="{% url 'cosinnus:user-detail' username=pending.get_username %}">
+                {% if pending.cosinnus_profile.avatar %}
+                  <img class="avatar" src="{% thumbnail cosinnus_profile.avatar.url "60x60" crop=1 upscale=1 %}">
+                {% else %}
+                  <img class="avatar" src="http://placehold.it/30x30">
+                {% endif %}
+              </a>
+              <div class="media-body">
+                <a class="pull-left" href="{% url 'cosinnus:user-detail' username=pending.get_username %}">{{ pending.get_full_name|default:pending.get_username }}</a>
+                <div class="btn-group btn-group-xs">
+                  <a href="{% url 'cosinnus:group-user-add' group=object.slug username=pending.get_username %}" class="btn btn-default">{% trans "Add" %}</a>
+                  <a href="{% url 'cosinnus:group-user-delete' group=object.slug username=pending.get_username %}" class="btn btn-default">{% trans "Delete" %}</a>
+                </div>
+              </div>
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
   </div>
 </div>
 {% endif %}

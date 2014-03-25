@@ -8,6 +8,10 @@ body {
 	background: #f4ede3;
 }
 
+body>.container {
+	padding-top: 20px;
+}
+
 .btn-primary {
 	background-color: #da6137;
 	border-color: #b4502c;
@@ -69,20 +73,6 @@ h2 {
 		border-top-color: #f4ede3;
 		border-bottom-color: #f4ede3;
 	}
-}
-
-
-/************* Footer ******************/
-
-#footer {
-	margin-top: 50px;
-}
-
-#myCanvas {
-	margin-left: auto;
-	margin-right: auto;
-	display: block;
-	margin-top: 30px;
 }
 
 
@@ -244,3 +234,48 @@ a[data-toggle=tooltip] {
 	margin-top: 40px;
 	padding: 20px 36px;
 }
+
+
+/*************** Community-Profiles **************/
+
+#community-profile {
+	h2 {
+		font-size: 20px;
+		padding: 10px;
+		background: $primary;
+		color: $secondary;
+		border: 1px dotted $third;
+		-webkit-border-radius: 4px;
+		-moz-border-radius: 4px;
+		border-radius: 4px;
+	}
+}
+
+.sidebar {
+	.data {
+		margin-right: 5px;
+	}
+	.community-map-small {
+		margin-top: 20px;
+	}
+}
+
+
+/************* Footer ******************/
+
+#footer {
+	margin-top: 50px;
+	h2 {
+		border: none;
+		background: none;
+		color: $primary;
+	}
+}
+
+#myCanvas {
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	margin-top: 30px;
+}
+

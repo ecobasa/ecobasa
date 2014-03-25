@@ -3,6 +3,10 @@ body {
   background: #f4ede3;
 }
 
+body > .container {
+  padding-top: 20px;
+}
+
 .btn-primary {
   background-color: #da6137;
   border-color: #b4502c;
@@ -63,18 +67,6 @@ h2 {
 .navbar-default ul.navbar-nav .dropdown > a .caret {
   border-top-color: #f4ede3;
   border-bottom-color: #f4ede3;
-}
-
-/************* Footer ******************/
-#footer {
-  margin-top: 50px;
-}
-
-#myCanvas {
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-  margin-top: 30px;
 }
 
 /*********** Startpage ****************/
@@ -229,4 +221,40 @@ a[data-toggle=tooltip] {
   font-size: xx-large;
   margin-top: 40px;
   padding: 20px 36px;
+}
+
+/*************** Community-Profiles **************/
+#community-profile h2 {
+  font-size: 20px;
+  padding: 10px;
+  background: #da6137;
+  color: #f4ede3;
+  border: 1px dotted #b4502c;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+}
+
+.sidebar .data {
+  margin-right: 5px;
+}
+.sidebar .community-map-small {
+  margin-top: 20px;
+}
+
+/************* Footer ******************/
+#footer {
+  margin-top: 50px;
+}
+#footer h2 {
+  border: none;
+  background: none;
+  color: #da6137;
+}
+
+#myCanvas {
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-top: 30px;
 }

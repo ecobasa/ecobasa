@@ -61,7 +61,11 @@
               </td>
 
               <td>
-                {{ group.profile.offers_skills }}
+                <ul>
+                  {% for offer_skill in profile.offers_skills.all %}
+                  <li>{{ offer_skill }}</li>
+                  {% endfor %}
+                </ul>
               </td>
 
             </tr>
