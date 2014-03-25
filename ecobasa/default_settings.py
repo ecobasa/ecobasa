@@ -258,3 +258,6 @@ COSINNUS_USER_PROFILE_MODEL = 'ecobasa.EcobasaUserProfile'
 # http://django-debug-toolbar.readthedocs.org/en/1.0/installation.html#explicit-setup
 DEBUG_TOOLBAR_PATCH_SETTINGS = False
 INTERNAL_IPS = ('127.0.0.1', '::1', 'localhost',)
+
+
+CKEDITOR_UPLOAD_PATH = "uploads/"
