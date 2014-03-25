@@ -177,6 +177,7 @@ INSTALLED_APPS = (
     'cmsplugin_filer_image',
     'cmsplugin_filer_teaser',
     'cmsplugin_filer_video',
+    'ckeditor',
 
     # userprofiles
     'userprofiles',
