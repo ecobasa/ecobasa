@@ -166,10 +166,10 @@ INSTALLED_APPS = (
     'filer',
 
     # CMS
+    'djangocms_text_ckeditor',
     'cms',
     'mptt',
     'menus',
-    'cms.plugins.text',
     'cms.plugins.link',
     'sekizai',
     'cmsplugin_filer_folder',
@@ -177,7 +177,6 @@ INSTALLED_APPS = (
     'cmsplugin_filer_image',
     'cmsplugin_filer_teaser',
     'cmsplugin_filer_video',
-    'ckeditor',
 
     # userprofiles
     'userprofiles',
