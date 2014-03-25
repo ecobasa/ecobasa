@@ -16,4 +16,3 @@ django-filer==0.9.5
 cmsplugin-filer==0.9.5
 django-recaptcha==0.0.9
 django-ckeditor-updated==4.2.8
-fabric-virtualenv==0.2.1
