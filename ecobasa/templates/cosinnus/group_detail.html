@@ -1,6 +1,11 @@
 {% extends "cosinnus/base.html" %}
 {% load i18n static cosinnus_tags thumbnail %}
 
+{% block extrahead %}
+{{ block.super }} 
+<link rel="stylesheet" href="{% static "leaflet/leaflet.css" %}" />
+{% endblock %}
+
 {% block page_title %}
   {% blocktrans with group_name=object.name %}Group “{{ group_name }}”{% endblocktrans %}
 {% endblock %}
