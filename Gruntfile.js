@@ -16,7 +16,7 @@ module.exports = function (grunt) {
                 tasks: ['sass:dev']
             },
             options: {
-                livereload: true,
+                livereload: 35731,
             },
         },
         sass: {                              // Task

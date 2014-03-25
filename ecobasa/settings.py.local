@@ -31,3 +31,9 @@ ALLOWED_HOSTS = []
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'r(y6&k-^j^lz2_)bpt&89v2aqy=2c%f^ppff2v5fptk%a11*_!'
+
+if DEBUG:
+    MIDDLEWARE_CLASSES =\
+        ('debug_toolbar.middleware.DebugToolbarMiddleware',) +\
+        MIDDLEWARE_CLASSES
+    INSTALLED_APPS += ('debug_toolbar',)

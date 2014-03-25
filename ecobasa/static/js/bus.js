@@ -1,17 +1,10 @@
 // be aware that the months are numbered 0 through 11 numerically in JS
-var progress_start = new Date(2014, 5, 1);
-var progress_end = new Date(2014, 9 , 1);
+var progress_start = new Date(2014, 1, 1);
+var progress_end = new Date(2014, 6 , 28);
 var today = new Date();
 var progress_position_pct = (today.getTime() - progress_start.getTime()) / (progress_end.getTime() - progress_start.getTime());
 // check boundaries (0 - 100%)
 progress_position_pct = (progress_position_pct > 1.0 || progress_position_pct < 0.0) ? Math.floor(Math.abs(progress_position_pct)) : progress_position_pct;
-
-var blog_posts = [
-{date: new Date(2014, 3, 22), title: 'Blog Post 1', url: 'http://www.ccc.de'},
-{date: new Date(2014, 3, 23), title: 'Blog Post 2', url: 'http://www.ccc.de'},
-{date: new Date(2014, 5, 19), title: 'Blog Post 3', url: 'http://www.ccc.de'},
-{date: new Date(2014, 1, 19), title: 'Blog Post 0', url: 'http://www.ccc.de'}
-];
 
 function calc_position(object)
 {

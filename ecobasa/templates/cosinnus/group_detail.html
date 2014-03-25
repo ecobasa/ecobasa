@@ -1,5 +1,5 @@
 {% extends "cosinnus/base.html" %}
-{% load i18n cosinnus_tags thumbnail %}
+{% load i18n static cosinnus_tags thumbnail %}
 
 {% block page_title %}
   {% blocktrans with group_name=object.name %}Group “{{ group_name }}”{% endblocktrans %}
@@ -28,7 +28,6 @@
 {% endblock content_title %}
 
 {% block content %}
-{{ profile.contact_street }}
 <div class="row">
   <div class="col-xs-8">
     <h3>What brings this community together</h3>
@@ -36,7 +35,7 @@
     <h3>What can you learn here</h3>
     <ul>
       {% for offer_skill in profile.offers_skills.all %}
-      <li>{{ profile.offers_skills }}</li>
+      <li>{{ offer_skill }}</li>
       {% endfor %}
     </ul>
     <h3>Accomodation for guests</h3>
@@ -46,7 +45,7 @@
       <h3>Services</h3>
       <ul>
         {% for offer_service in profile.offers_services.all %}
-        <li>{{ profile.offer_service }}</li>
+        <li>{{ offer_service }}</li>
         {% endfor %}
       </ul>
     </div>
@@ -74,11 +73,22 @@
       <li><span class="data">Membership status</span><span class="members">{{ profile.basic_membership_status }}</span></li>
     </ul>
     <button class="btn btn-small">Connect to this community</button>
+    <div id="community-map" class="community-map-small"></div>
+    {% if user.is_authenticated %}
+    <div class="contact">
+      <h3>Contact info</h3>
+      {{ profile.contact_street }}</br>
+      {{ profile.contact_zipcode }}
+      {{ profile.contact_city }}</br>
+      {{ profile.get_contact_country_display }}</br></br>
+      Telephone: {{ profile.contact_telephone }}
+    </div>
+    {% endif %}
   </div>
 </div>
 <div class="row">
   <div class="col-md-12">
-    <h3>{% trans "Members" %}</h3>
+    <h3>{% trans "Community gift-economy Ambassadors" %}</h3>
     <ul class="media-list">
       {% for member in members %}
         <li class="media">
@@ -129,3 +139,17 @@
 </div>
 {% endif %}
 {% endblock %}
+
+{% block extrafooter %}
+  {{ block.super }}
+  <script src="{% static "leaflet/leaflet.js" %}"></script>
+  <script src="{% static "js/ecobasa_map.js" %}"></script>
+  <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.4"></script>
+  <script type="text/javascript">
+
+  $(function() {
+    EcobasaMap.init('community-map');
+    EcobasaMap.addMarker({{ profile.contact_lat }}, {{ profile.contact_lon }}, "{{ object.name }}");
+  });
+  </script>
+{% endblock extrafooter %}

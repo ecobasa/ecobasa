@@ -35,5 +35,10 @@
 
 {% block extrafooter %}
   {{ block.super }}
-  <script src="{% static "js/bus.js" %}"></script>
+  <script type="text/javascript" src="{% static "js/bus.js" %}"></script>
+  <script type="text/javascript">
+//   var blog_posts = [
+// {date: new Date(2014, 4, 25), title: 'Blog Post 2', url: 'http://www.ccc.de'},
+// ];
+</script>
 {% endblock extrafooter %}

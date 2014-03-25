@@ -53,7 +53,7 @@ h2 {
 }
 
 .navbar-default .navbar-brand {
-	background: url('../img/bus.png') no-repeat left;
+	background: url('../img/community-tours_logo_small.png') no-repeat left;
 	background-size: 10%;
 	margin-left: 20px;
 	padding-left: 60px;
@@ -84,6 +84,7 @@ h2 {
 	display: block;
 	margin-top: 30px;
 }
+
 
 /*********** Startpage ****************/
 
@@ -140,9 +141,10 @@ h2 {
 #bus {
 	background: url('../img/bus.png') no-repeat center;
 	display: block;
-	width: 100px;
-	height: 100px;
-	background-size: 50%;
+	width: 200px;
+	height: 179px;
+	margin: 20px 0 20px 0;
+	background-size: contain;
 }
 
 a[data-toggle=tooltip] {
