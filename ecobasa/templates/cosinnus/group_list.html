@@ -62,7 +62,7 @@
 
               <td>
                 <ul>
-                  {% for offer_skill in profile.offers_skills.all %}
+                  {% for offer_skill in group.profile.offers_skills.all %}
                   <li>{{ offer_skill }}</li>
                   {% endfor %}
                 </ul>
@@ -110,7 +110,7 @@
   $(function() {
     EcobasaMap.init('community-map');
     {% for l in locations %}
-    EcobasaMap.addMarker({{ l.lat }}, {{ l.lon }}, "{{ l.name }}");
+    EcobasaMap.addMarker({{ l.lat }}, {{ l.lon }}, '<a href="{% url 'group-detail' group=l.slug %}">{{ l.name }}</a>');
     {% endfor %}
   });
   </script>
