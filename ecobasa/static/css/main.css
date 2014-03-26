@@ -245,6 +245,8 @@ a[data-toggle=tooltip] {
 /************* Footer ******************/
 #footer {
   margin-top: 50px;
+  background: url("../img/footer.png") no-repeat bottom center;
+  height: 650px;
 }
 #footer h2 {
   border: none;
