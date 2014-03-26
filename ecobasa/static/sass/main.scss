@@ -78,6 +78,10 @@ h2 {
 
 /*********** Startpage ****************/
 
+body#start > .container {
+	padding-top: 0px;
+}
+
 .container.content {
 	padding-top: 50px;
 }
