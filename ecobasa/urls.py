@@ -7,6 +7,10 @@ admin.autodiscover()
 
 
 urlpatterns = i18n_patterns('',
+    url(r'^accounts/register/community',
+        'ecobasa.views.register_community', name='register-community'),
+    url(r'^accounts/register/member',
+        'ecobasa.views.register_member', name='register-member'),
     url(r'^accounts/', include('cosinnus.utils.django_auth_urls')),
     url(r'^accounts/', include('userprofiles.urls')),
     url(r'^admin/', include(admin.site.urls)),

@@ -5,9 +5,10 @@ from cosinnus.views.mixins.group import RequireReadMixin
 from cosinnus.views.group import GroupDetailView, GroupListView
 from cosinnus.views.profile import UserProfileDetailView
 from cosinnus.views.user import UserListView
+from userprofiles.views import RegistrationView
 
-from skillshare import get_skills_for_owner
-from references import get_references_for_receiver
+from .forms import (
+    EcobasaRegistrationMemberForm, EcobasaRegistrationCommunityForm)
 
 
 class EcobasaProfileView(UserProfileDetailView):
@@ -37,4 +38,20 @@ class EcobasaGroupListView(GroupListView):
         context = super(EcobasaGroupListView, self).get_context_data(**kwargs)
         return context
 group_list = EcobasaGroupListView.as_view()
+
+
+#############################################################################
+# registration overrides
+#############################################################################
+
+class EcobasaRegistrationMemberView(RegistrationView):
+    template_name = 'userprofiles/registration_member.html'
+    form_class = EcobasaRegistrationMemberForm
+register_member = EcobasaRegistrationMemberView.as_view()
+
+
+class EcobasaRegistrationCommunityView(RegistrationView):
+    template_name = 'userprofiles/registration_community.html'
+    form_class = EcobasaRegistrationCommunityForm
+register_community = EcobasaRegistrationCommunityView.as_view()
 
