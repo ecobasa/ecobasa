@@ -6,6 +6,7 @@ from django.utils.translation import ugettext_lazy as _
 
 from ecobasa.models import SlideshowPlugin, SlideshowImage
 
+
 class SlideshowImageInline(admin.StackedInline):
     model = SlideshowImage
     extra = 0
@@ -17,8 +18,8 @@ class CMSSlideshowPlugin(CMSPluginBase):
     render_template = "plugins/slideshow.html"
     text_enabled = False
     admin_preview = False
-    inlines = [SlideshowImageInline,]
-    
+    inlines = [SlideshowImageInline, ]
+
     def render(self, context, instance, placeholder):
         context.update({
             'slideshow': instance,

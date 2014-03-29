@@ -1,4 +1,4 @@
-from fabric.api import *
+from fabric.api import *  # noqa
 from fabvenv import virtualenv
 
 
@@ -32,4 +32,3 @@ def deploy():
     update()
     migrate()
     run("supervisorctl reload ecobasa")
-

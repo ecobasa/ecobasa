@@ -1,12 +1,8 @@
-from django.contrib.auth.models import User
-from django.core.urlresolvers import reverse
-from django.views.generic import TemplateView, RedirectView, DetailView
+from django.views.generic import DetailView
 from cosinnus.models import CosinnusGroup
-from cosinnus.views.mixins.group import RequireReadMixin
 from cosinnus.views.group import GroupListView
 from cosinnus.views.profile import UserProfileDetailView
 from cosinnus.views.widget import DashboardMixin
-from cosinnus.views.user import UserListView
 from userprofiles.views import RegistrationView
 
 from .forms import (
@@ -69,4 +65,3 @@ class EcobasaRegistrationCommunityView(RegistrationView):
     template_name = 'userprofiles/registration_community.html'
     form_class = EcobasaRegistrationCommunityForm
 register_community = EcobasaRegistrationCommunityView.as_view()
-

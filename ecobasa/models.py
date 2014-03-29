@@ -10,7 +10,7 @@ from easy_thumbnails.fields import ThumbnailerImageField
 from six.moves import urllib
 from taggit.managers import TaggableManager
 from taggit.models import TaggedItemBase
-from cms.models import CMSPlugin, Page
+from cms.models import CMSPlugin
 from filer.fields.image import FilerImageField
 
 from cosinnus.models import (BaseUserProfile, BaseUserProfileManager,
@@ -19,26 +19,27 @@ from cosinnus.models import (BaseUserProfile, BaseUserProfileManager,
 
 class SlideshowPlugin(CMSPlugin):
     name = models.CharField(verbose_name=_("name"), max_length=100)
-    
+
     def __unicode__(self):
         return u"%s" % (self.name,)
-    
+
     @property
     def height(self):
         max_height = 0
         for image in self.images.all():
             max_height = max(max_height, image.file.height)
         return max_height
-    
+
     class Meta:
-        verbose_name=_("slide show")
-        verbose_name_plural=_("slide shows")
+        verbose_name = _("slide show")
+        verbose_name_plural = _("slide shows")
 
     def copy_relations(self, oldinstance):
         for image in oldinstance.images.all():
             image.pk = None
             image.slideshow = self
             image.save()
+
 
 class Linkable(object):
     @property
@@ -51,6 +52,7 @@ class Linkable(object):
             return self.link_article.get_absolute_url()
         return "#"
 
+
 class SlideshowImage(Linkable, models.Model):
     slideshow = models.ForeignKey(SlideshowPlugin, verbose_name=_("slide show"), related_name="images")
     file = FilerImageField(verbose_name=_("file"), null=True, blank=True)
@@ -62,8 +64,8 @@ class SlideshowImage(Linkable, models.Model):
         return u"%s slideshow image" % (self.slideshow,)
 
     class Meta:
-        verbose_name=_("image")
-        verbose_name_plural=_("images")
+        verbose_name = _("image")
+        verbose_name_plural = _("images")
         ordering = ('order', 'id',)
 
 COUNTRY_CHOICES = (
