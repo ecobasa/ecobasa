@@ -71,15 +71,6 @@ class EcobasaRegistrationCommunityForm(RegistrationForm):
         fields_community = forms.fields_for_model(EcobasaCommunityProfile)
         self.fields.update(fields_community)
 
-        # has_bus is a boolean field, but is represented as a button in the
-        # form. Form validation has to be told explicitly that this field is
-        # not required.
-        #self.fields['has_bus'] = forms.CharField(
-        #    widget=forms.HiddenInput(),
-        #    label=self.fields['has_bus'].label,
-        #    required=False)
-
-
     def save_profile(self, new_user, *args, **kwargs):
         name = self.cleaned_data['name']
 
