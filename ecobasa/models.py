@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 import json
+import six
 
 from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
@@ -480,15 +481,25 @@ class EcobasaCommunityProfile(models.Model):
     def __str__(self):
         return self.name
 
-    def _get_lat_lon(self):
+    def _get_lat_lon_params(self):
         params = {
-            'street': self.contact_street,
-            'city': self.contact_city,
-            'country': self.contact_country,
-            'postalcode': self.contact_zipcode,
             'format': 'jsonv2',
             'limit': 1,
         }
+        optional = {
+            'street': 'contact_street',
+            'city': 'contact_city',
+            'country': 'contact_country',
+            'postalcode': 'contact_zipcode',
+        }
+        for k, v in six.iteritems(optional):
+            attr = getattr(self, v, None)
+            if attr:
+                params[k] = attr
+        return params
+
+    def _get_lat_lon(self):
+        params = self._get_lat_lon_params()
         data = urllib.parse.urlencode(params).encode('ascii')
         url = 'http://nominatim.openstreetmap.org/search?' + data
         timeout = 20
