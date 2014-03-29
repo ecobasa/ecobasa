@@ -1,9 +1,11 @@
 from django.contrib.auth.models import User
 from django.core.urlresolvers import reverse
 from django.views.generic import TemplateView, RedirectView, DetailView
+from cosinnus.models import CosinnusGroup
 from cosinnus.views.mixins.group import RequireReadMixin
-from cosinnus.views.group import GroupDetailView, GroupListView
+from cosinnus.views.group import GroupListView
 from cosinnus.views.profile import UserProfileDetailView
+from cosinnus.views.widget import DashboardMixin
 from cosinnus.views.user import UserListView
 from userprofiles.views import RegistrationView
 
@@ -19,25 +21,38 @@ class EcobasaProfileView(UserProfileDetailView):
 user_detail = EcobasaProfileView.as_view()
 
 
-class GroupIndexView(RequireReadMixin, RedirectView):
-    def get_redirect_url(self, *args, **kwargs):
-        return reverse('cosinnus:group-detail', kwargs={'group': self.group.slug})
-group_index = GroupIndexView.as_view()
+class EcobasaGroupDetailView(DetailView):
+    model = CosinnusGroup
+    slug_url_kwarg = 'group'
+    template_name = 'cosinnus/group_detail.html'
 
-
-class EcobasaGroupDetailView(GroupDetailView):
     def get_context_data(self, **kwargs):
         context = super(EcobasaGroupDetailView, self).get_context_data(**kwargs)
         context['profile'] = self.object.profile
         return context
+
 group_detail = EcobasaGroupDetailView.as_view()
 
 
 class EcobasaGroupListView(GroupListView):
+    def get_queryset(self):
+        return self.model.objects.all()
+
     def get_context_data(self, **kwargs):
         context = super(EcobasaGroupListView, self).get_context_data(**kwargs)
         return context
 group_list = EcobasaGroupListView.as_view()
+
+
+class EcobasaGroupDashboardView(DashboardMixin, DetailView):
+    model = CosinnusGroup
+    slug_url_kwarg = 'group'
+    context_object_name = 'group'
+
+    def get_filter(self):
+        return {'group_id': self.object.pk}
+
+group_dashboard = EcobasaGroupDashboardView.as_view()
 
 
 #############################################################################
