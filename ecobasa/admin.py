@@ -7,5 +7,6 @@ from .models import EcobasaCommunityProfile
 
 
 class EcobasaCommunityProfileAdmin(admin.ModelAdmin):
-    pass
+    readonly_fields = ('contact_lat', 'contact_lon',)
+
 admin.site.register(EcobasaCommunityProfile, EcobasaCommunityProfileAdmin)
