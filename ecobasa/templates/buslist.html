@@ -1,0 +1,31 @@
+{% extends "cosinnus/base.html" %}
+{% load i18n thumbnail %}
+
+{% block page_title %}{% trans "Buses" %}{% endblock %}
+
+{% block content %}
+    <h1>The available buses for the Community-Tour</h1>
+    <a class="btn btn-primary pull-right" href="{% url 'cosinnus:user-add' %}">{% trans "Add bus" %}</a>
+    
+    {% if object_list %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>{% trans "Bus" %}</th>
+                <th>{% trans "Owner" %}</th>
+                <th>{% trans "Capacity" %}</th>
+                <th>{% trans "Needs a driver" %}</th>
+            </tr>
+        </thead>
+        {% for user in object_list %}
+        <tr>
+            <th>{% if object.bus_image %}<img src="{% thumbnail object.bus_image "200x0" crop=1 upscale=1 %}" />{% endif %}</th>
+            <th><a href="{% url 'cosinnus:user-detail' username=user.username %}">{{ user.username }}</a></th>
+            <th>{% object.bus_num_passengers %}</th>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+        {% trans "There are no busses, add one now." %}
+    {% endif %}
+{% endblock %}
