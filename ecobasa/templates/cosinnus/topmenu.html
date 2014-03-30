@@ -15,7 +15,7 @@
         <li><a href="/about">About the tour</a></li>
         <li><a href="/groups">Communities</a></li>
         <li><a href="/users">Pioneers</a></li>
-        <li><a href="/busses">Busses</a></li>
+        <li><a href="/busses">Buses</a></li>
         {% if group %}
           {% url 'cosinnus:group-dashboard' group=group.slug as dashboard_url %}
           <li {% ifequal dashboard_url request.path %} class="active"{% endifequal %}><a href="{{ dashboard_url }}">{% trans "Community Dashboard" %}</a></li>
