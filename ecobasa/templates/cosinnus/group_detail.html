@@ -16,7 +16,7 @@
   {% endblocktrans %}
 {% endblock content_title %}
 
-{% block body %}community-profile{% endblock body %}
+{% block body %}profile{% endblock body %}
 
 {% block content %}
 <div class="row">
@@ -197,7 +197,9 @@
 
   $(function() {
     EcobasaMap.init('community-map');
+    var location = new L.LatLng({{ profile.contact_lat }}, {{ profile.contact_lon }});
     EcobasaMap.addMarker({{ profile.contact_lat }}, {{ profile.contact_lon }}, "{{ object.name }}");
+    EcobasaMap.map.setView(location, EcobasaMap.defaultZoom);
   });
   </script>
 {% endblock extrafooter %}
