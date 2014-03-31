@@ -39,7 +39,7 @@ class EcobasaGroupListView(GroupListView):
         return context
 group_list = EcobasaGroupListView.as_view()
 
-class BusListView(UserListView):
+class BusListView(UserProfileDetailView):
     template_name = 'buslist.html'
     def get_context_data(self, **kwargs):
         context = super(BusListView, self).get_context_data(**kwargs)
