@@ -2,6 +2,7 @@
 from __future__ import unicode_literals
 
 from django import template
+import json
 
 from ..models import (TaggedInterest, TaggedSkill, TaggedProduct,
     TaggedOffersService, TaggedOffersSkill, TaggedOffersCreation)
@@ -11,7 +12,8 @@ register = template.Library()
 
 def get_tagnames(model):
     qs = model.objects.all().select_related('tag')
-    return set(map(lambda x: x.tag.name, qs))
+    names = set(map(lambda x: x.tag.name, qs))
+    return json.dumps(list(names))
 
 
 @register.assignment_tag

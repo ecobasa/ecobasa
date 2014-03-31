@@ -13,4 +13,3 @@ def get_community_locations():
     return [{
         'lat': c.contact_lat, 'lon': c.contact_lon, 'name': c.name, 'slug': c.group.slug
     } for c in qs]
-

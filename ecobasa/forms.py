@@ -2,7 +2,6 @@
 from __future__ import unicode_literals
 
 from django import forms
-from django.utils.translation import ugettext_lazy as _
 from userprofiles.forms import RegistrationForm
 
 from cosinnus.forms.widgets import DateL10nPicker
@@ -12,21 +11,13 @@ from cosinnus.models import (CosinnusGroup, CosinnusGroupMembership,
 from .models import EcobasaUserProfile, EcobasaCommunityProfile
 
 
-class EcobasaRegistrationForm(RegistrationForm):
-
-    #community_is_public = forms.BooleanField()
+class EcobasaRegistrationMemberForm(RegistrationForm):
 
     def __init__(self, *args, **kwargs):
-        super(EcobasaRegistrationForm, self).__init__(*args, **kwargs)
+        super(EcobasaRegistrationMemberForm, self).__init__(*args, **kwargs)
         fields_user = forms.fields_for_model(EcobasaUserProfile)
         self.fields.update(fields_user)
         self.fields['birth_date'].widget = DateL10nPicker()
-
-        fields_community = forms.fields_for_model(EcobasaCommunityProfile)
-        self.fields.update(fields_community)
-
-        # Value for register_as is defined by clicking the appropriate button
-        self.fields['register_as'] = forms.CharField(widget=forms.HiddenInput())
 
         # has_bus is a boolean field, but is represented as a button in the
         # form. Form validation has to be told explicitly that this field is
@@ -36,21 +27,53 @@ class EcobasaRegistrationForm(RegistrationForm):
             label=self.fields['has_bus'].label,
             required=False)
 
-        # Alas, template has to use two different <form> for member and
-        # community, otherwise User (not profile) fields would be sent twice,
-        # once for member slides and once for community slides. And then form
-        # validation would complain about empty fields for community (coz
-        # member is defined first). But now we have to set the community name
-        # to something arbitrary in member form to fool validation.
-        if self.data.get('register_as', '') == 'member':
-            self.data['name'] = ' '
+    def save_profile(self, new_user, *args, **kwargs):
+        # do not catch DoesNotExist: there must be something else wrong
+        profile = EcobasaUserProfile.objects.get(user=new_user)
 
-    def _save_community_profile(self, new_user):
+        profile.avatar = self.cleaned_data['avatar']
+        profile.gender = self.cleaned_data['gender']
+        profile.birth_date = self.cleaned_data['birth_date']
+        profile.country = self.cleaned_data['country']
+        profile.city = self.cleaned_data['city']
+        profile.zipcode = self.cleaned_data['zipcode']
+
+        profile.ecobasa_member = self.cleaned_data['ecobasa_member']
+
+        profile.has_bus = self.cleaned_data['has_bus']
+        profile.bus_consumption = self.cleaned_data['bus_consumption']
+        profile.bus_has_driving_license =\
+            self.cleaned_data['bus_has_driving_license']
+        profile.bus_image = self.cleaned_data['bus_image']
+        profile.bus_num_passengers = self.cleaned_data['bus_num_passengers']
+        profile.bus_others_can_drive =\
+            self.cleaned_data['bus_others_can_drive']
+
+        for tag in self.cleaned_data['interests']:
+            profile.interests.add(tag)
+        for tag in self.cleaned_data['skills']:
+            profile.skills.add(tag)
+        for tag in self.cleaned_data['products']:
+            profile.products.add(tag)
+
+        profile.save()
+
+
+class EcobasaRegistrationCommunityForm(RegistrationForm):
+
+    def __init__(self, *args, **kwargs):
+        super(EcobasaRegistrationCommunityForm, self).__init__(*args, **kwargs)
+        fields_user = forms.fields_for_model(EcobasaUserProfile)
+        self.fields.update(fields_user)
+        self.fields['birth_date'].widget = DateL10nPicker()
+
+        fields_community = forms.fields_for_model(EcobasaCommunityProfile)
+        self.fields.update(fields_community)
+
+    def save_profile(self, new_user, *args, **kwargs):
         name = self.cleaned_data['name']
 
         # set up cosinnus group and admin user
-        #is_public = self.cleaned_data['community_is_public']
-        #community = CosinnusGroup.objects.create(name=name, public=is_public)
         community = CosinnusGroup.objects.create(name=name, public=False)
         CosinnusGroupMembership.objects.create(
             user=new_user, group=community, status=MEMBERSHIP_ADMIN)
@@ -96,40 +119,3 @@ class EcobasaRegistrationForm(RegistrationForm):
             self.cleaned_data['basic_membership_status']
 
         profile.save()
-
-    def _save_user_profile(self, new_user):
-        # do not catch DoesNotExist: there must be something else wrong
-        profile = EcobasaUserProfile.objects.get(user=new_user)
-
-        profile.avatar = self.cleaned_data['avatar']
-        profile.gender = self.cleaned_data['gender']
-        profile.birth_date = self.cleaned_data['birth_date']
-        profile.country = self.cleaned_data['country']
-        profile.city = self.cleaned_data['city']
-        profile.zipcode = self.cleaned_data['zipcode']
-
-        profile.ecobasa_member = self.cleaned_data['ecobasa_member']
-
-        profile.has_bus = self.cleaned_data['has_bus']
-        profile.bus_consumption = self.cleaned_data['bus_consumption']
-        profile.bus_has_driving_license =\
-            self.cleaned_data['bus_has_driving_license']
-        profile.bus_image = self.cleaned_data['bus_image']
-        profile.bus_num_passengers = self.cleaned_data['bus_num_passengers']
-        profile.bus_others_can_drive =\
-            self.cleaned_data['bus_others_can_drive']
-
-        for tag in self.cleaned_data['interests']:
-            profile.interests.add(tag)
-        for tag in self.cleaned_data['skills']:
-            profile.skills.add(tag)
-        for tag in self.cleaned_data['products']:
-            profile.products.add(tag)
-
-        profile.save()
-
-    def save_profile(self, new_user, *args, **kwargs):
-        if self.cleaned_data['register_as'] == 'member':
-            return self._save_user_profile(new_user)
-        elif self.cleaned_data['register_as'] == 'community':
-            return self._save_community_profile(new_user)
