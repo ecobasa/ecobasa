@@ -7,6 +7,8 @@ admin.autodiscover()
 
 
 urlpatterns = i18n_patterns('',
+    url(r'^accounts/register/$',
+        'ecobasa.views.register', name='register'),
     url(r'^accounts/register/community',
         'ecobasa.views.register_community', name='register-community'),
     url(r'^accounts/register/member',
@@ -20,7 +22,7 @@ urlpatterns = i18n_patterns('',
     url(r'^group/(?P<group>[^/]+)/$', 'ecobasa.views.group_dashboard', name='group-dashboard'),
     url(r'^group/(?P<group>[^/]+)/details/$', 'ecobasa.views.group_detail', name='group-detail'),
     url(r'^groups/$', 'ecobasa.views.group_list', name='group-list'),
-    url(r'^busses/$', 'ecobasa.views.bus_list', name='bus-list'),
+    url(r'^buses/$', 'ecobasa.views.bus_list', name='bus-list'),
 
     # url(r'^skillshare/', include('skillshare.urls', namespace='skillshare')),
     # url(r'^references/', include('references.urls', namespace='references')),

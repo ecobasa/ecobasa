@@ -2,6 +2,7 @@ from django.views.generic import DetailView
 from cosinnus.models import CosinnusGroup
 from cosinnus.views.group import GroupListView
 from cosinnus.views.profile import UserProfileDetailView
+from cosinnus.views.user import UserListView
 from cosinnus.views.widget import DashboardMixin
 from userprofiles.views import RegistrationView
 
@@ -39,7 +40,7 @@ class EcobasaGroupListView(GroupListView):
         return context
 group_list = EcobasaGroupListView.as_view()
 
-class BusListView(UserProfileDetailView):
+class BusListView(UserListView):
     template_name = 'buslist.html'
     def get_context_data(self, **kwargs):
         context = super(BusListView, self).get_context_data(**kwargs)
@@ -61,6 +62,11 @@ group_dashboard = EcobasaGroupDashboardView.as_view()
 #############################################################################
 # registration overrides
 #############################################################################
+
+class EcobasaRegistrationView(RegistrationView):
+    template_name = 'userprofiles/registration.html'
+register = EcobasaRegistrationView.as_view()
+
 
 class EcobasaRegistrationMemberView(RegistrationView):
     template_name = 'userprofiles/registration_member.html'

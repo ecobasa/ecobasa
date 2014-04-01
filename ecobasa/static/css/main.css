@@ -141,6 +141,10 @@ a[data-toggle=tooltip] {
 }
 
 /***************Communities**************/
+.community-map {
+  z-index: 1;
+}
+
 .community-map-small {
   height: 300px;
 }
@@ -176,11 +180,7 @@ a[data-toggle=tooltip] {
 }
 
 /*********** Registration **************/
-#slide-register-as {
-  width: 50%;
-  margin: 0 auto;
-}
-#slide-register-as .btn {
+.register.btn {
   width: 100%;
   padding: 10%;
   margin: 5% auto;
@@ -219,8 +219,6 @@ a[data-toggle=tooltip] {
   text-align: center;
 }
 
-#slide-community-basic .register button,
-#slide-member-bus-details .register button
 #slide-member-bus-ask button.None {
   font-size: xx-large;
   margin-top: 40px;

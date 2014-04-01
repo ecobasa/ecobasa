@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% load i18n static bootstrap3 ecobasa_registration %}
+
+{% block page_title %}{% trans "Registration" %}{% endblock %}
+
+{% block content %}
+<div class="row">
+  <div class="col-xs-12">
+    <a href="{% url 'register-member' %}" class="register btn btn-primary btn-lg">{% trans "Join as a gift-economy pioneer" %}</a>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <a href="{% url 'register-community' %}" class="register btn btn-primary btn-lg">{% trans "Join as your communities gift-economy ambassador" %}</a>
+  </div>
+</div>
+{% endblock content %}
+
+

@@ -33,26 +33,31 @@
     <div class="container">
       {% bootstrap_messages %}
       {% block content %}{% endblock content %}
-      <div id="footer"><h2>Our Partnernetwork</h2>
-        <div id="myCanvasContainer">
-          <canvas width="900" height="300" id="myCanvas">
-            <p>If this loks like a small static image, your browser does not support the
-  canvas tag. Please try again using a different browser, or try to imagine our massive cloud of partnerlogos
-  swirling around in response to the mouse position.</p>
-            <ul>
-              <li><a href="http://alt.jugend-in-aktion.de/" target="blank"><img src="{% static 'img/eu.png' %}" />Youth in Action</a></li> 
-              <li><a href="http://communitiesconvergence.org" target="blank"><img src="{% static 'img/cc.png' %}" />Communities-Convergence</a></li>
-              <li><a href="http://ecobasa.org" target="blank"><img src="{% static 'img/ecobasa_logo.png' %}" />ecobasa</li></a>
-              <li><a href="" target="blank"><img src="{% static 'img/cloud1.png' %}" /></a></li>
-              <li><a href="http://gen-europe.org" target="blank"><img src="{% static 'img/gen.png' %}" />Global Ecovillage Network</a></li>
-              <li><a href="http://communtierra.org" target="blank"><img src="{% static 'img/comuntera.png' %}" />Commun-Tierra</a></li>
-              <li><a href="http://projectnuevomundo.org/odyssey" target="blank"><img src="{% static 'img/earthodyssey.png' %}" />Project Nuevo Mundo</a></li>
-              <li><a href="" target="blank"><img src="{% static 'img/cloud2.png' %}" /></a></li>
-              <li><a href="http://" target="blank"><img src="{% static 'img/greenbustour.png' %}" /></a></li>
-              <li><a href="http://" target="blank"><img src="{% static 'img/visioncaravan.png' %}" /></a></li>
-              <li><a href="" target="blank"><img src="{% static 'img/cloud3.png' %}" /></a></li>
-            </ul>
-          </canvas>
+      <div id="footer">
+        <div class="container">
+          <div class="col-xs-12">
+            <h2>Our Partnernetwork</h2>
+            <div id="myCanvasContainer">
+              <canvas width="900" height="300" id="myCanvas">
+                <p>If this loks like a small static image, your browser does not support the
+              canvas tag. Please try again using a different browser, or try to imagine our massive cloud of partnerlogos
+              swirling around in response to the mouse position.</p>
+                <ul>
+                  <li><a href="http://alt.jugend-in-aktion.de/" target="blank"><img src="{% static 'img/eu.png' %}" />Youth in Action</a></li> 
+                  <li><a href="http://communitiesconvergence.org" target="blank"><img src="{% static 'img/cc.png' %}" />Communities-Convergence</a></li>
+                  <li><a href="http://ecobasa.org" target="blank"><img src="{% static 'img/ecobasa_logo.png' %}" />ecobasa</li></a>
+                  <li><a href="" target="blank"><img src="{% static 'img/cloud1.png' %}" /></a></li>
+                  <li><a href="http://gen-europe.org" target="blank"><img src="{% static 'img/gen.png' %}" />Global Ecovillage Network</a></li>
+                  <li><a href="http://communtierra.org" target="blank"><img src="{% static 'img/comuntera.png' %}" />Commun-Tierra</a></li>
+                  <li><a href="http://projectnuevomundo.org/odyssey" target="blank"><img src="{% static 'img/earthodyssey.png' %}" />Project Nuevo Mundo</a></li>
+                  <li><a href="" target="blank"><img src="{% static 'img/cloud2.png' %}" /></a></li>
+                  <li><a href="http://" target="blank"><img src="{% static 'img/greenbustour.png' %}" /></a></li>
+                  <li><a href="http://" target="blank"><img src="{% static 'img/visioncaravan.png' %}" /></a></li>
+                  <li><a href="" target="blank"><img src="{% static 'img/cloud3.png' %}" /></a></li>
+                </ul>
+              </canvas>
+            </div>
+          </div>
         </div>
       </div>
     </div>

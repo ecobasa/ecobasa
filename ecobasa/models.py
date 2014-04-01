@@ -360,7 +360,8 @@ class EcobasaUserProfile(BaseUserProfile):
         blank=True, default=False)
 
     interests = TaggableManager(_('interests'),
-        through=TaggedInterest, related_name='_interest', blank=True)
+        through=TaggedInterest, related_name='_interest', blank=True,
+        help_text='A comma-separated list of tags. You can type anything here. You can also chose from other users tags. Connect two words with a "-" to have one tag.')
     skills = TaggableManager(_('knowledge/skills'),
         through=TaggedSkill, related_name='_skill', blank=True)
     products = TaggableManager(_('products'),

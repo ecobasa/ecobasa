@@ -14,18 +14,21 @@
                 <th>{% trans "Bus" %}</th>
                 <th>{% trans "Owner" %}</th>
                 <th>{% trans "Capacity" %}</th>
+                <th>{% trans "Consumption" %}</th>
                 <th>{% trans "Needs a driver" %}</th>
             </tr>
         </thead>
         {% for user in object_list %}
         <tr>
-            <th>{% if object.bus_image %}<img src="{% thumbnail object.bus_image "200x0" crop=1 upscale=1 %}" />{% endif %}</th>
+            <th>{% if user.cosinnus_profile.bus_image %}<img src="{% thumbnail user.cosinnus_profile.bus_image "200x0" crop=1 upscale=1 %}" />{% endif %}</th>
             <th><a href="{% url 'cosinnus:user-detail' username=user.username %}">{{ user.username }}</a></th>
-            <th>{% object.bus_num_passengers %}</th>
+            <th>{{ user.cosinnus_profile.bus_num_passengers }} people</th>
+            <th>{{ user.cosinnus_profile.bus_consumption }}l/100km</th>
+            <th>{% if user.cosinnus_profile.bus_has_driving_license = 'False' and user.cosinnus_profile.bus_others_can_drive = 'True' %}YES{% else %}NO{% endif %}</th>
         </tr>
         {% endfor %}
     </table>
     {% else %}
-        {% trans "There are no busses, add one now." %}
+        {% trans "There are no buses, add one now." %}
     {% endif %}
 {% endblock %}
