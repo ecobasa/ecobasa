@@ -31,13 +31,7 @@
                 {{ user.username }}
                 </a>
             </th>
-            <th>
-                <ul>
-                    {% for tag in user.cosinnus_profile.skills.all %}
-                    <li>{{ tag }}</li>
-                    {% if not forloop.last %}, {% endif %}{% endfor %}
-                </ul>
-            </th>
+            <th>{% for tag in user.cosinnus_profile.skills.all %}{{ tag }}{% if not forloop.last %}, {% endif %}{% endfor %}</th>
             <th>
                 {% if user.cosinnus_profile.has_bus %}
                 {% if user.cosinnus_profile.bus_image %}
