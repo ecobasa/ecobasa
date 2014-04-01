@@ -44,6 +44,9 @@ class BusListView(UserListView):
     template_name = 'buslist.html'
     def get_context_data(self, **kwargs):
         context = super(BusListView, self).get_context_data(**kwargs)
+        #import pdb; pdb.set_trace()
+        context['user_list'] = context['user_list'].filter(cosinnus_profile__has_bus=True)
+        #context['user_list'] = [user.name for user in context['user_list'] if user.has_bus == True]
         return context
 bus_list = BusListView.as_view()
 

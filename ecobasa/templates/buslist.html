@@ -18,7 +18,8 @@
                 <th>{% trans "Needs a driver" %}</th>
             </tr>
         </thead>
-        {% for user in object_list %}
+        {% for user in user_list %}
+
         <tr>
             <th>{% if user.cosinnus_profile.bus_image %}<img src="{% thumbnail user.cosinnus_profile.bus_image "200x0" crop=1 upscale=1 %}" />{% endif %}</th>
             <th><a href="{% url 'cosinnus:user-detail' username=user.username %}">{{ user.username }}</a></th>
@@ -29,6 +30,6 @@
         {% endfor %}
     </table>
     {% else %}
-        {% trans "There are no buses, add one now." %}
+        {% trans "There are no buses, " %}<a href="{% url 'register' %}">{% trans "sign up" %}</a>{% trans "and add one now." %}
     {% endif %}
 {% endblock %}

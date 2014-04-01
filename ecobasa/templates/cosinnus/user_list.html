@@ -46,6 +46,6 @@
         {% endfor %}
     </table>
     {% else %}
-        {% trans "There are no users yet, join now!." %}
+        {% trans "There are no users yet, " %}<a href="{% url 'register' %}">{% trans "join now!" %}</a>
     {% endif %}
 {% endblock %}
