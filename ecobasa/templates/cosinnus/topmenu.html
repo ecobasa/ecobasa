@@ -14,7 +14,7 @@
       <ul class="nav navbar-nav">
         <li><a href="/about">About the tour</a></li>
         <li><a href="/groups">Communities</a></li>
-        <li><a href="/users">Pioneers</a></li>
+        <li><a href="{% url 'pioneer-list' %}">{% trans "Pioneers" %}</a></li>
         <li><a href="/buses">Buses</a></li>
         {% if group %}
           {% url 'cosinnus:group-dashboard' group=group.slug as dashboard_url %}

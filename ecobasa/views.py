@@ -1,5 +1,6 @@
 from django.views.generic import DetailView
 from cosinnus.models import CosinnusGroup
+from cosinnus.models.group import MEMBERSHIP_ADMIN
 from cosinnus.views.group import GroupListView
 from cosinnus.views.profile import UserProfileDetailView
 from cosinnus.views.user import UserListView
@@ -39,6 +40,17 @@ class EcobasaGroupListView(GroupListView):
         context = super(EcobasaGroupListView, self).get_context_data(**kwargs)
         return context
 group_list = EcobasaGroupListView.as_view()
+
+
+class PioneerListView(UserListView):
+    def get_queryset(self):
+       users = super(PioneerListView, self).get_queryset()
+       pioneers = users.exclude(cosinnus_memberships__status=MEMBERSHIP_ADMIN)
+       pioneers = pioneers.exclude(is_superuser=True, is_staff=True)
+       return pioneers
+
+pioneer_list = PioneerListView.as_view()
+
 
 class BusListView(UserListView):
     template_name = 'buslist.html'
