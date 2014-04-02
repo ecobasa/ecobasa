@@ -1,12 +1,14 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+from django.contrib.auth.decorators import login_required
 from django.core.urlresolvers import reverse
+from django.utils.decorators import method_decorator
 from django.views.generic import DetailView
 from cosinnus.models import CosinnusGroup
 from cosinnus.models.group import MEMBERSHIP_ADMIN
 from cosinnus.views.group import GroupListView, GroupUpdateView
-from cosinnus.views.user import UserListView, UserDetailView
+from cosinnus.views.user import UserListView, USER_MODEL
 from cosinnus.views.profile import UserProfileUpdateView
 from cosinnus.views.widget import DashboardMixin
 from userprofiles.views import RegistrationView
@@ -66,8 +68,19 @@ class PioneerListView(UserListView):
 pioneer_list = PioneerListView.as_view()
 
 
-class PioneerDetailView(UserDetailView):
+class PioneerDetailView(DetailView):
+    """
+    cosinnus has a weird requirement to require staff to see a user's details.
+    """
+    model = USER_MODEL
+    slug_field = 'username'
+    slug_url_kwarg = 'username'
     template_name = 'ecobasa/pioneer_detail.html'
+
+    @method_decorator(login_required)
+    def dispatch(self, *args, **kwargs):
+        return super(PioneerDetailView, self).dispatch(*args, **kwargs)
+
 
 pioneer_detail = PioneerDetailView.as_view()
 
