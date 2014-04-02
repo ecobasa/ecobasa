@@ -35,29 +35,31 @@
         </tr>
       </thead>
       <tbody>
-        {% for group in object_list %}
+        {% for community in object_list %}
+          {% with community.profile as profile %}
           <tr>
               <td>
-                <a href="{% url 'group-detail' group=group.slug %}">{{ group.name }}</a>
+                <a href="{% url 'community-detail' group=community.slug %}">{{ community.name }}</a>
               </td>
             <td>
-              {{ group.profile.basic_inhabitants }}
+              {{ profile.basic_inhabitants }}
             </td>
 
             <td>
-              {{ group.profile.contact_country }}
+              {{ profile.contact_country }}
             </td>
 
             <td>
-              {{ group.profile.basic_membership_status }}
+              {{ profile.basic_membership_status }}
             </td>
 
             <td>
-              <ul>{% for skill in group.profile.offers_skills.names %}
+              <ul>{% for skill in profile.offers_skills.names %}
                 <li>{{ skill }}</li>
               {% endfor %}</ul>
             </td>
           </tr>
+          {% endwith %}
         {% endfor %}
       </tbody>
     </table>
@@ -80,7 +82,7 @@
   $(function() {
     EcobasaMap.init('community-map');
     {% for l in locations %}
-    EcobasaMap.addMarker({{ l.lat }}, {{ l.lon }}, '<a href="{% url 'group-detail' group=l.slug %}">{{ l.name }}</a>');
+    EcobasaMap.addMarker({{ l.lat }}, {{ l.lon }}, '<a href="{% url 'community-detail' group=l.slug %}">{{ l.name }}</a>');
     {% endfor %}
   });
   </script>

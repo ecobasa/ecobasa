@@ -11,10 +11,10 @@ from cosinnus.models import (CosinnusGroup, CosinnusGroupMembership,
 from .models import EcobasaUserProfile, EcobasaCommunityProfile
 
 
-class EcobasaRegistrationMemberForm(RegistrationForm):
+class RegistrationMemberForm(RegistrationForm):
 
     def __init__(self, *args, **kwargs):
-        super(EcobasaRegistrationMemberForm, self).__init__(*args, **kwargs)
+        super(RegistrationMemberForm, self).__init__(*args, **kwargs)
         fields_user = forms.fields_for_model(EcobasaUserProfile)
         self.fields.update(fields_user)
         self.fields['birth_date'].widget = DateL10nPicker()
@@ -59,10 +59,10 @@ class EcobasaRegistrationMemberForm(RegistrationForm):
         profile.save()
 
 
-class EcobasaRegistrationCommunityForm(RegistrationForm):
+class RegistrationCommunityForm(RegistrationForm):
 
     def __init__(self, *args, **kwargs):
-        super(EcobasaRegistrationCommunityForm, self).__init__(*args, **kwargs)
+        super(RegistrationCommunityForm, self).__init__(*args, **kwargs)
         fields_user = forms.fields_for_model(EcobasaUserProfile)
         self.fields.update(fields_user)
         self.fields['birth_date'].widget = DateL10nPicker()

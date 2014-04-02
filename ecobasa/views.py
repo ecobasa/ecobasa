@@ -1,48 +1,57 @@
 from django.views.generic import DetailView
 from cosinnus.models import CosinnusGroup
 from cosinnus.models.group import MEMBERSHIP_ADMIN
-from cosinnus.views.group import GroupListView
-from cosinnus.views.profile import UserProfileDetailView
-from cosinnus.views.user import UserListView
+from cosinnus.views.group import GroupListView, GroupUpdateView
+from cosinnus.views.user import UserListView, UserDetailView
 from cosinnus.views.widget import DashboardMixin
 from userprofiles.views import RegistrationView
 
-from .forms import (
-    EcobasaRegistrationMemberForm, EcobasaRegistrationCommunityForm)
+from .forms import RegistrationMemberForm, RegistrationCommunityForm
 
 
-class EcobasaProfileView(UserProfileDetailView):
-    def get_context_data(self, **kwargs):
-        context = super(EcobasaProfileView, self).get_context_data(**kwargs)
-        context['profile'] = self.object.profile
-        return context
-user_detail = EcobasaProfileView.as_view()
-
-
-class EcobasaGroupDetailView(DetailView):
+class CommunityDetailView(DetailView):
     model = CosinnusGroup
     slug_url_kwarg = 'group'
-    template_name = 'cosinnus/group_detail.html'
+    template_name = 'ecobasa/community_detail.html'
 
     def get_context_data(self, **kwargs):
-        context = super(EcobasaGroupDetailView, self).get_context_data(**kwargs)
+        context = super(CommunityDetailView, self).get_context_data(**kwargs)
         context['profile'] = self.object.profile
         return context
 
-group_detail = EcobasaGroupDetailView.as_view()
+community_detail = CommunityDetailView.as_view()
 
 
-class EcobasaGroupListView(GroupListView):
+class CommunityDashboardView(DashboardMixin, DetailView):
+    """Not really useful yet."""
+    model = CosinnusGroup
+    slug_url_kwarg = 'group'
+    context_object_name = 'group'
+
+    def get_filter(self):
+        return {'group_id': self.object.pk}
+
+community_dashboard = CommunityDashboardView.as_view()
+
+
+class CommunityListView(GroupListView):
+    template_name = 'ecobasa/community_list.html'
+
     def get_queryset(self):
         return self.model.objects.all()
 
-    def get_context_data(self, **kwargs):
-        context = super(EcobasaGroupListView, self).get_context_data(**kwargs)
-        return context
-group_list = EcobasaGroupListView.as_view()
+community_list = CommunityListView.as_view()
+
+
+class CommunityUpdateView(GroupUpdateView):
+    template_name = 'ecobasa/community_form.html'
+
+community_update = CommunityUpdateView.as_view()
 
 
 class PioneerListView(UserListView):
+    template_name = 'ecobasa/pioneer_list.html'
+
     def get_queryset(self):
        users = super(PioneerListView, self).get_queryset()
        pioneers = users.exclude(cosinnus_memberships__status=MEMBERSHIP_ADMIN)
@@ -52,44 +61,41 @@ class PioneerListView(UserListView):
 pioneer_list = PioneerListView.as_view()
 
 
+class PioneerDetailView(UserDetailView):
+    template_name = 'ecobasa/pioneer_detail.html'
+
+pioneer_detail = PioneerDetailView.as_view()
+
+
 class BusListView(UserListView):
-    template_name = 'buslist.html'
+    template_name = 'ecobasa/bus_list.html'
+
     def get_context_data(self, **kwargs):
         context = super(BusListView, self).get_context_data(**kwargs)
         #import pdb; pdb.set_trace()
         context['user_list'] = context['user_list'].filter(cosinnus_profile__has_bus=True)
         #context['user_list'] = [user.name for user in context['user_list'] if user.has_bus == True]
         return context
+
 bus_list = BusListView.as_view()
-
-
-class EcobasaGroupDashboardView(DashboardMixin, DetailView):
-    model = CosinnusGroup
-    slug_url_kwarg = 'group'
-    context_object_name = 'group'
-
-    def get_filter(self):
-        return {'group_id': self.object.pk}
-
-group_dashboard = EcobasaGroupDashboardView.as_view()
 
 
 #############################################################################
 # registration overrides
 #############################################################################
 
-class EcobasaRegistrationView(RegistrationView):
+class RegistrationView(RegistrationView):
     template_name = 'userprofiles/registration.html'
-register = EcobasaRegistrationView.as_view()
+register = RegistrationView.as_view()
 
 
-class EcobasaRegistrationMemberView(RegistrationView):
+class RegistrationMemberView(RegistrationView):
     template_name = 'userprofiles/registration_member.html'
-    form_class = EcobasaRegistrationMemberForm
-register_member = EcobasaRegistrationMemberView.as_view()
+    form_class = RegistrationMemberForm
+register_member = RegistrationMemberView.as_view()
 
 
-class EcobasaRegistrationCommunityView(RegistrationView):
+class RegistrationCommunityView(RegistrationView):
     template_name = 'userprofiles/registration_community.html'
-    form_class = EcobasaRegistrationCommunityForm
-register_community = EcobasaRegistrationCommunityView.as_view()
+    form_class = RegistrationCommunityForm
+register_community = RegistrationCommunityView.as_view()

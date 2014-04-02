@@ -12,12 +12,12 @@
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <div class="col-md-5">
       <ul class="nav navbar-nav">
-        <li><a href="/about">About the tour</a></li>
-        <li><a href="/groups">Communities</a></li>
+        <li><a href="{% url 'pages-details-by-slug' slug='about' %}">About the tour</a></li>
+        <li><a href="{% url 'community-list' %}">{% trans "Communities" %}</a></li>
         <li><a href="{% url 'pioneer-list' %}">{% trans "Pioneers" %}</a></li>
-        <li><a href="/buses">Buses</a></li>
+        <li><a href="{% url 'bus-list' %}">{% trans "Buses" %}</a></li>
         {% if group %}
-          {% url 'cosinnus:group-dashboard' group=group.slug as dashboard_url %}
+          {% url 'community-dashboard' group=group.slug as dashboard_url %}
           <li {% ifequal dashboard_url request.path %} class="active"{% endifequal %}><a href="{{ dashboard_url }}">{% trans "Community Dashboard" %}</a></li>
         {% endif %}
         {% for app in apps %}
@@ -29,17 +29,15 @@
       {% if request.user.is_authenticated %}
         {% if groups %}
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans "My Groups" %}{% if group %} <strong>({{ group }})</strong>{% endif %} <b class="caret"></b></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% trans "My Communities" %}{% if group %} <strong>({{ group }})</strong>{% endif %} <b class="caret"></b></a>
             <ul class="dropdown-menu">
               {% for g in groups %}
-                <li{% if g == group %} class="active"{% endif %}><a href="{% url 'cosinnus:group-dashboard' group=g.slug %}">{{ g.name }}</a></li>
+                <li{% if g == group %} class="active"{% endif %}><a href="{% url 'community-dashboard' group=g.slug %}">{{ g.name }}</a></li>
               {% endfor %}
               <li class="divider"></li>
-              <li><a href="{% url 'cosinnus:group-list' %}">{% trans "List all groups" %}</a></li>
+              <li><a href="{% url 'community-list' %}">{% trans "List all communities" %}</a></li>
             </ul>
           </li>
-        {% else %}
-          <!-- <li><a href="{% url 'cosinnus:group-list' %}">{% trans "No Groups. Join!" %}</a></li> -->
         {% endif %}
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ request.user|full_name }} <b class="caret"></b></a>

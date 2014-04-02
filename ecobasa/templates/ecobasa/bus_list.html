@@ -18,16 +18,19 @@
                 <th>{% trans "Needs a driver" %}</th>
             </tr>
         </thead>
-        {% for user in user_list %}
 
+        {% for pioneer in user_list %}
+        {% with pioneer.cosinnus_profile as profile %}
         <tr>
-            <th>{% if user.cosinnus_profile.bus_image %}<img src="{% thumbnail user.cosinnus_profile.bus_image "200x0" crop=1 upscale=1 %}" />{% endif %}</th>
-            <th><a href="{% url 'cosinnus:user-detail' username=user.username %}">{{ user.username }}</a></th>
-            <th>{{ user.cosinnus_profile.bus_num_passengers }} people</th>
-            <th>{{ user.cosinnus_profile.bus_consumption }}l/100km</th>
-            <th>{% if user.cosinnus_profile.bus_has_driving_license = 'False' and user.cosinnus_profile.bus_others_can_drive = 'True' %}YES{% else %}NO{% endif %}</th>
+            <th>{% if profile.bus_image %}<img src="{% thumbnail profile.bus_image "200x0" crop=1 upscale=1 %}" />{% endif %}</th>
+            <th><a href="{% url 'pioneer-detail' username=pioneer.username %}">{{ pioneer.username }}</a></th>
+            <th>{{ profile.bus_num_passengers }} people</th>
+            <th>{{ profile.bus_consumption }}l/100km</th>
+            <th>{% if not profile.bus_has_driving_license and profile.bus_others_can_drive %}YES{% else %}NO{% endif %}</th>
         </tr>
+        {% endwith %}
         {% endfor %}
+
     </table>
     {% else %}
         {% trans "There are no buses, " %}<a href="{% url 'register' %}">{% trans "sign up" %}</a>{% trans "and add one now." %}

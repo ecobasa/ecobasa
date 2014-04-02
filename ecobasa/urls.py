@@ -19,10 +19,14 @@ urlpatterns = i18n_patterns('',
     url(r'^media/(?P<path>.*)$', 'django.views.static.serve',
         {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
 
-    url(r'^group/(?P<group>[^/]+)/$', 'ecobasa.views.group_dashboard', name='group-dashboard'),
-    url(r'^group/(?P<group>[^/]+)/details/$', 'ecobasa.views.group_detail', name='group-detail'),
-    url(r'^groups/$', 'ecobasa.views.group_list', name='group-list'),
+    url(r'^communities/$', 'ecobasa.views.community_list', name='community-list'),
+    url(r'^community/(?P<group>[^/]+)/$', 'ecobasa.views.community_dashboard', name='community-dashboard'),
+    url(r'^community/(?P<group>[^/]+)/details/$', 'ecobasa.views.community_detail', name='community-detail'),
+    url(r'^community/(?P<group>[^/]+)/edit/$', 'ecobasa.views.community_update', name='community-edit'),
+
     url(r'^pioneers/$', 'ecobasa.views.pioneer_list', name='pioneer-list'),
+    url(r'^pioneer/(?P<username>[^/]+)/$', 'ecobasa.views.pioneer_detail', name='pioneer-detail'),
+
     url(r'^buses/$', 'ecobasa.views.bus_list', name='bus-list'),
 
     # url(r'^skillshare/', include('skillshare.urls', namespace='skillshare')),
