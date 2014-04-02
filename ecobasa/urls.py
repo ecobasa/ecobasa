@@ -28,6 +28,7 @@ urlpatterns = i18n_patterns('',
     url(r'^pioneer/(?P<username>[^/]+)/$', 'ecobasa.views.pioneer_detail', name='pioneer-detail'),
 
     url(r'^buses/$', 'ecobasa.views.bus_list', name='bus-list'),
+    url(r'^bus/add/$', 'ecobasa.views.bus_add', name='bus-add'),
 
     # url(r'^skillshare/', include('skillshare.urls', namespace='skillshare')),
     # url(r'^references/', include('references.urls', namespace='references')),

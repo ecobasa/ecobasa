@@ -5,8 +5,10 @@
 
 {% block content %}
     <h1>The available buses for the Community-Tour</h1>
-    <a class="btn btn-primary pull-right" href="{% url 'cosinnus:user-add' %}">{% trans "Add bus" %}</a>
-    
+    {% if user.is_authenticated and not user.cosinnus_profile.has_bus %}
+    <a class="btn btn-primary pull-right" href="{% url 'bus-add' %}">{% trans "Add your bus" %}</a>
+    {% endif %}
+
     {% if object_list %}
     <table class="table table-striped">
         <thead>

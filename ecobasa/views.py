@@ -1,8 +1,13 @@
+# -*- coding: utf-8 -*-
+from __future__ import unicode_literals
+
+from django.core.urlresolvers import reverse
 from django.views.generic import DetailView
 from cosinnus.models import CosinnusGroup
 from cosinnus.models.group import MEMBERSHIP_ADMIN
 from cosinnus.views.group import GroupListView, GroupUpdateView
 from cosinnus.views.user import UserListView, UserDetailView
+from cosinnus.views.profile import UserProfileUpdateView
 from cosinnus.views.widget import DashboardMixin
 from userprofiles.views import RegistrationView
 
@@ -78,6 +83,15 @@ class BusListView(UserListView):
         return context
 
 bus_list = BusListView.as_view()
+
+
+class BusAddView(UserProfileUpdateView):
+    template_name = 'ecobasa/bus_add.html'
+
+    def get_success_url(self):
+        return reverse('bus-list')
+
+bus_add = BusAddView.as_view()
 
 
 #############################################################################
