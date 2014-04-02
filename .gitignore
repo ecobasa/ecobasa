@@ -40,3 +40,5 @@ nosetests.xml
 # static / media files
 /static/
 /media/
+
+ecobasa_uanoa/settings.py
