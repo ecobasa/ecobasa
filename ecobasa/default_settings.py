@@ -1,6 +1,7 @@
 # Django settings for ecobasa project.
 import os
 import sys
+from django.utils.translation import ugettext_lazy as _
 
 PROJECT_ROOT = os.path.abspath(
     os.path.join(os.path.dirname(os.path.realpath(__file__)), os.pardir)
@@ -134,7 +135,8 @@ CMS_TEMPLATES = (
 )
 
 LANGUAGES = [
-    ('en', 'English'),
+    ('en', _('English')),
+    ('de, _('German')),
 ]
 
 INSTALLED_APPS = (
