@@ -15,5 +15,7 @@
      // TagCanvas failed to load
      $('#myCanvasContainer').hide();
    }
-   // your other jQuery stuff here...
  });
+
+$('#bus').tooltip(); 
+$('.container.about #progress_bar').tooltip();
