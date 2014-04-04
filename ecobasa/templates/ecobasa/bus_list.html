@@ -6,7 +6,7 @@
 {% block content %}
     <h1>The available buses for the Community-Tour</h1>
     {% if user.is_authenticated and not user.cosinnus_profile.has_bus %}
-    <a class="btn btn-primary pull-right" href="{% url 'bus-add' %}">{% trans "Add your bus" %}</a>
+    <a class="btn btn-primary pull-right" href="{% url 'bus-add' %}">{% trans "Add a bus" %}</a>
     {% endif %}
 
     {% if object_list %}
@@ -35,6 +35,11 @@
 
     </table>
     {% else %}
-        {% trans "There are no buses, " %}<a href="{% url 'register' %}">{% trans "sign up" %}</a>{% trans "and add one now." %}
+        {% trans "There are no buses, yet! " %}
+        {% if user.is_authenticated and not user.cosinnus_profile.has_bus %}
+            <a href="{% url 'bus-add' %}">{% trans "Add a bus" %}</a>
+        {% else %}
+            <a href="{% url 'register' %}">{% trans "Sign up" %}</a>{% trans "and add one now." %}
+        {% endif %}
     {% endif %}
 {% endblock %}
