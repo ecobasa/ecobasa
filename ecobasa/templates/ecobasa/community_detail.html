@@ -201,7 +201,7 @@
     EcobasaMap.init('community-map');
     var location = new L.LatLng({{ profile.contact_lat }}, {{ profile.contact_lon }});
     EcobasaMap.addMarker({{ profile.contact_lat }}, {{ profile.contact_lon }}, "{{ object.name }}");
-    EcobasaMap.map.setView(location, EcobasaMap.defaultZoom);
+    EcobasaMap.map.setView(location, 10);
   });
   </script>
 {% endblock extrafooter %}
