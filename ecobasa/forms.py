@@ -8,7 +8,8 @@ from cosinnus.forms.widgets import DateL10nPicker
 from cosinnus.models import (CosinnusGroup, CosinnusGroupMembership,
     MEMBERSHIP_ADMIN)
 
-from .models import EcobasaUserProfile, EcobasaCommunityProfile
+from .models import (EcobasaUserProfile, EcobasaCommunityProfile,
+    EcobasaCommunityProfileSeed)
 
 
 class RegistrationMemberForm(RegistrationForm):
@@ -60,6 +61,8 @@ class RegistrationMemberForm(RegistrationForm):
 
 
 class RegistrationCommunityForm(RegistrationForm):
+    SeedInlineFormSet = forms.models.inlineformset_factory(
+        EcobasaCommunityProfile, EcobasaCommunityProfileSeed, extra=1)
 
     def __init__(self, *args, **kwargs):
         super(RegistrationCommunityForm, self).__init__(*args, **kwargs)
@@ -94,8 +97,6 @@ class RegistrationCommunityForm(RegistrationForm):
 
         profile.wishlist_materials = self.cleaned_data['wishlist_materials']
         profile.wishlist_tools = self.cleaned_data['wishlist_tools']
-        profile.wishlist_seeds_kind = self.cleaned_data['wishlist_seeds_kind']
-        profile.wishlist_seeds_num = self.cleaned_data['wishlist_seeds_num']
         profile.wishlist_special_needs =\
             self.cleaned_data['wishlist_special_needs']
 
@@ -119,3 +120,9 @@ class RegistrationCommunityForm(RegistrationForm):
             self.cleaned_data['basic_membership_status']
 
         profile.save()
+
+        # seed stuff
+        formsets = self.SeedInlineFormSet(self.data, instance=profile)
+        for formset in formsets:
+            if formset.is_valid():
+                formset.save()

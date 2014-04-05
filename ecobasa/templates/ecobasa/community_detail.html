@@ -96,10 +96,12 @@
               </tr>
             </thead>
             <tbody>
+              {% for seed in profile.wishlist_seeds.all %}
               <tr>
-                <td>{{ profile.wishlist_seeds_kind }}</td>
-                <td>{{ profile.wishlist_seeds_num }}</td>
+                <td>{{ seed.kind }}</td>
+                <td>{{ seed.num }}</td>
               </tr>
+              {% endfor %}
             </tbody>
           </table>
         </div>
