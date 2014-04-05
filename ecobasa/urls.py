@@ -20,15 +20,16 @@ urlpatterns = i18n_patterns('',
         {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
 
     url(r'^communities/$', 'ecobasa.views.community_list', name='community-list'),
-    url(r'^community/(?P<group>[^/]+)/$', 'ecobasa.views.community_dashboard', name='community-dashboard'),
-    url(r'^community/(?P<group>[^/]+)/details/$', 'ecobasa.views.community_detail', name='community-detail'),
-    url(r'^community/(?P<group>[^/]+)/edit/$', 'ecobasa.views.community_update', name='community-edit'),
+    url(r'^communities/(?P<group>[^/]+)/$', 'ecobasa.views.community_detail', name='community-detail'),
+    url(r'^communities/(?P<group>[^/]+)/edit/$', 'ecobasa.views.community_update', name='community-edit'),
+    url(r'^communities/(?P<group>[^/]+)/dashboard/$', 'ecobasa.views.community_dashboard', name='community-dashboard'),
 
     url(r'^pioneers/$', 'ecobasa.views.pioneer_list', name='pioneer-list'),
-    url(r'^pioneer/(?P<username>[^/]+)/$', 'ecobasa.views.pioneer_detail', name='pioneer-detail'),
+    url(r'^pioneers/(?P<username>[^/]+)/$', 'ecobasa.views.pioneer_detail', name='pioneer-detail'),
+    url(r'^pioneers/(?P<username>[^/]+)/edit/$', 'ecobasa.views.pioneer_update', name='pioneer-update'),
 
     url(r'^buses/$', 'ecobasa.views.bus_list', name='bus-list'),
-    url(r'^bus/add/$', 'ecobasa.views.bus_add', name='bus-add'),
+    url(r'^buses/add/$', 'ecobasa.views.bus_add', name='bus-add'),
 
     # url(r'^skillshare/', include('skillshare.urls', namespace='skillshare')),
     # url(r'^references/', include('references.urls', namespace='references')),

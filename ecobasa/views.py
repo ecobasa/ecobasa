@@ -85,6 +85,16 @@ class PioneerDetailView(DetailView):
 pioneer_detail = PioneerDetailView.as_view()
 
 
+class PioneerUpdateView(UserProfileUpdateView):
+    template_name = 'ecobasa/pioneer_form.html'
+
+    def get_success_url(self):
+        return reverse('pioneer-detail')
+
+pioneer_update = PioneerUpdateView.as_view()
+
+
+
 class BusListView(UserListView):
     template_name = 'ecobasa/bus_list.html'
 
