@@ -125,4 +125,10 @@ register_member = RegistrationMemberView.as_view()
 class RegistrationCommunityView(RegistrationView):
     template_name = 'userprofiles/registration_community.html'
     form_class = RegistrationCommunityForm
+
+    def get_context_data(self, **kwargs):
+        context = super(RegistrationCommunityView, self).get_context_data(**kwargs)
+        context['formset_seed'] = self.form_class.SeedInlineFormSet(instance=None)
+        return context
+
 register_community = RegistrationCommunityView.as_view()

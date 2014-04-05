@@ -117,10 +117,25 @@
   {% bootstrap_field form.wishlist_tools %}<br />
 
 
-  <div class="row">
-    <div class="col-xs-9">{% bootstrap_field form.wishlist_seeds_kind %}</div>
-    <div class="col-xs-3">{% bootstrap_field form.wishlist_seeds_num %}</div>
-  </div>
+  <fieldset id="formset-{{ formset_seed.prefix }}">
+    <div class="row">
+      <div class="col-xs-12">
+        {{ formset_seed.management_form }}
+        <label class="control-label" for="">{% trans "Seeds" %}</label>
+      </div>
+    </div>
+
+    {% for inlineform in formset_seed.forms %}
+    <div class="control-group{% if inlineform.errors %} error{% endif %}">
+      <div class="controls form-inline">
+        <div class="row">
+          <div class="col-xs-9">{% bootstrap_field inlineform.kind %}</div>
+          <div class="col-xs-3">{% bootstrap_field inlineform.num %}</div>
+        </div>
+       </div>
+    </div>
+    {% endfor %}
+  </fieldset>
 
   {% bootstrap_field form.wishlist_special_needs %}
 
@@ -188,6 +203,20 @@
 {{ block.super }}
 {{ form.media.js }}
 <script src="{% static 'js/vendor/select2/select2.min.js' %}"></script>
+
+{# for seeds #}
+<script type="text/javascript" src="{% static 'js/vendor/bootstrap.inline.js' %}"></script>
+<script type="text/javascript">
+  $(function() {
+    $('#formset-{{ formset_seed.prefix }} div.control-group').formset({
+      addCssClass: 'add-row btn',
+      addText: '<span class="glyphicon glyphicon-plus"></span> {% trans "More kinds of seeds" %}',
+      insertAddInSelector: true,
+      prefix: '{{ formset_seed.prefix }}',
+    });
+  });
+</script>
+
 <script src="{% static 'js/ecobasa_register.js' %}"></script>
 <script type="text/javascript">
 var registerAs = 'community';

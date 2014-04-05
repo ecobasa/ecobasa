@@ -435,10 +435,6 @@ class EcobasaCommunityProfile(models.Model):
     wishlist_tools = models.TextField(
         _('what tools or machines do you need?'),
         blank=True, null=True)
-    wishlist_seeds_kind = models.TextField(_('do you need seeds?'),
-        blank=True, null=True)
-    wishlist_seeds_num = models.PositiveIntegerField(
-        _('how many?'), blank=True, default=0)
     wishlist_special_needs = models.TextField(
         _('special needs (knowledge, information)'), blank=True, null=True)
 
@@ -526,3 +522,14 @@ class EcobasaCommunityProfile(models.Model):
     def save(self, *args, **kwargs):
         self.contact_lat, self.contact_lon = self._get_lat_lon()
         return super(EcobasaCommunityProfile, self).save(*args, **kwargs)
+
+
+class EcobasaCommunityProfileSeed(models.Model):
+    profile = models.ForeignKey(EcobasaCommunityProfile,
+        verbose_name=_('seeds'),
+        on_delete=models.CASCADE,
+        related_name='wishlist_seeds',
+    )
+    kind = models.TextField(_('what kind of seeds?'), blank=True, null=True)
+    num = models.PositiveIntegerField(_('how many?'), blank=True, default=0)
+
