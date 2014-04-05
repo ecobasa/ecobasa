@@ -135,10 +135,10 @@ CMS_TEMPLATES = (
     ('about.html', 'About'),
 )
 
-LANGUAGES = [
+LANGUAGES = (
     ('en', _('English')),
     ('de', _('German')),
-]
+)
 
 INSTALLED_APPS = (
     # Django Apps
