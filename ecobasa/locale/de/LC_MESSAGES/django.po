@@ -1,0 +1,1580 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2014-04-05 10:01+0200\n"
+"PO-Revision-Date: 2014-04-05 09:00+0200\n"
+"Last-Translator: Sebastian Henschel <ecobasa@kodeaffe.de\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: cms_plugins.py:17
+msgid "Slideshow"
+msgstr "Diashow"
+
+#: default_settings.py:139
+msgid "English"
+msgstr "Englisch"
+
+#: default_settings.py:140
+msgid "German"
+msgstr "Deutsch"
+
+#: models.py:22
+msgid "name"
+msgstr "Name"
+
+#: models.py:35 models.py:58
+msgid "slide show"
+msgstr "Diashow"
+
+#: models.py:36
+msgid "slide shows"
+msgstr "Diashows"
+
+#: models.py:59
+msgid "file"
+msgstr "Datei"
+
+#: models.py:60
+msgid "title"
+msgstr "Titel"
+
+#: models.py:61
+msgid "text"
+msgstr "Text"
+
+#: models.py:61
+msgid "Text appearing on top of the image"
+msgstr "Text, der überhalb des Bildes erscheint"
+
+#: models.py:62
+msgid "order"
+msgstr "Position"
+
+#: models.py:68
+msgid "image"
+msgstr "Bild"
+
+#: models.py:69
+msgid "images"
+msgstr "Bilder"
+
+#: models.py:73
+msgid "Andorra"
+msgstr "Andorra"
+
+#: models.py:74
+msgid "United Arab Emirates"
+msgstr "Vereinigte Arabische Emirate"
+
+#: models.py:75
+msgid "Afghanistan"
+msgstr "Afghanistan"
+
+#: models.py:76
+msgid "Antigua & Barbuda"
+msgstr "Antigua & Barbuda"
+
+#: models.py:77
+msgid "Anguilla"
+msgstr "Anguilla"
+
+#: models.py:78
+msgid "Albania"
+msgstr "Albanien"
+
+#: models.py:79
+msgid "Armenia"
+msgstr "Armenien"
+
+#: models.py:80
+msgid "Netherlands Antilles"
+msgstr "Niederländische Antillen"
+
+#: models.py:81
+msgid "Angola"
+msgstr "Angola"
+
+#: models.py:82
+msgid "Antarctica"
+msgstr "Antarktis"
+
+#: models.py:83
+msgid "Argentina"
+msgstr "Argentinien"
+
+#: models.py:84
+msgid "American Samoa"
+msgstr "Amerikanisch Samoa"
+
+#: models.py:85
+msgid "Austria"
+msgstr "Österreich"
+
+#: models.py:86
+msgid "Australia"
+msgstr "Australien"
+
+#: models.py:87
+msgid "Aruba"
+msgstr "Aruba"
+
+#: models.py:88
+msgid "Azerbaijan"
+msgstr "Aserbaidschan"
+
+#: models.py:89
+msgid "Bosnia and Herzegovina"
+msgstr "Bosnien und Herzegowina"
+
+#: models.py:90
+msgid "Barbados"
+msgstr "Barbados"
+
+#: models.py:91
+msgid "Bangladesh"
+msgstr "Bangladesch"
+
+#: models.py:92
+msgid "Belgium"
+msgstr "Belgien"
+
+#: models.py:93
+msgid "Burkina Faso"
+msgstr "Burkina Faso"
+
+#: models.py:94
+msgid "Bulgaria"
+msgstr "Bulgarien"
+
+#: models.py:95
+msgid "Bahrain"
+msgstr "Bahrein"
+
+#: models.py:96
+msgid "Burundi"
+msgstr "Burundi"
+
+#: models.py:97
+msgid "Benin"
+msgstr "Benin"
+
+#: models.py:98
+msgid "Bermuda"
+msgstr "Bermuda"
+
+#: models.py:99
+msgid "Brunei Darussalam"
+msgstr "Brunei Dar-es-Salam"
+
+#: models.py:100
+msgid "Bolivia"
+msgstr "Bolivien"
+
+#: models.py:101
+msgid "Brazil"
+msgstr "Brasilien"
+
+#: models.py:102
+msgid "Bahama"
+msgstr "Bahamas"
+
+#: models.py:103
+msgid "Bhutan"
+msgstr "Bhutan"
+
+#: models.py:104
+msgid "Bouvet Island"
+msgstr "Bouvet"
+
+#: models.py:105
+msgid "Botswana"
+msgstr "Botsuana"
+
+#: models.py:106
+msgid "Belarus"
+msgstr "Weissrussland"
+
+#: models.py:107
+msgid "Belize"
+msgstr "Belize"
+
+#: models.py:108
+msgid "Canada"
+msgstr "Kanada"
+
+#: models.py:109
+msgid "Cocos (Keeling) Islands"
+msgstr "Kokos-Inseln"
+
+#: models.py:110
+msgid "Central African Republic"
+msgstr "Zentralafrikanische Republik"
+
+#: models.py:111
+msgid "Congo"
+msgstr "Kongo"
+
+#: models.py:112
+msgid "Switzerland"
+msgstr "Schweiz"
+
+#: models.py:113
+msgid "Ivory Coast"
+msgstr "Elfenbeinküste"
+
+#: models.py:114
+msgid "Cook Iislands"
+msgstr "Cook-Inseln"
+
+#: models.py:115
+msgid "Chile"
+msgstr "Chile"
+
+#: models.py:116
+msgid "Cameroon"
+msgstr "Kamerun"
+
+#: models.py:117
+msgid "China"
+msgstr "China"
+
+#: models.py:118
+msgid "Colombia"
+msgstr "Kolumbien"
+
+#: models.py:119
+msgid "Costa Rica"
+msgstr "Costa Rica"
+
+#: models.py:120
+msgid "Cuba"
+msgstr "Kub"
+
+#: models.py:121
+msgid "Cape Verde"
+msgstr "Kap Verde"
+
+#: models.py:122
+msgid "Christmas Island"
+msgstr "Weihnachts-Insel"
+
+#: models.py:123
+msgid "Cyprus"
+msgstr "Zypern"
+
+#: models.py:124
+msgid "Czech Republic"
+msgstr "Tschechien"
+
+#: models.py:125
+msgid "Germany"
+msgstr "Deutschland"
+
+#: models.py:126
+msgid "Djibouti"
+msgstr "Dschibuti"
+
+#: models.py:127
+msgid "Denmark"
+msgstr "Dänemark"
+
+#: models.py:128
+msgid "Dominica"
+msgstr "Dominika"
+
+#: models.py:129
+msgid "Dominican Republic"
+msgstr "Dominikanische Republik"
+
+#: models.py:130
+msgid "Algeria"
+msgstr "Algerien"
+
+#: models.py:131
+msgid "Ecuador"
+msgstr "Ecuador"
+
+#: models.py:132
+msgid "Estonia"
+msgstr "Estland"
+
+#: models.py:133
+msgid "Egypt"
+msgstr "Ägypten"
+
+#: models.py:134
+msgid "Western Sahara"
+msgstr "West-Sahara"
+
+#: models.py:135
+msgid "Eritrea"
+msgstr "Eritrea"
+
+#: models.py:136
+msgid "Spain"
+msgstr "Spanien"
+
+#: models.py:137
+msgid "Ethiopia"
+msgstr "Äthiopien"
+
+#: models.py:138
+msgid "Finland"
+msgstr "Finnland"
+
+#: models.py:139
+msgid "Fiji"
+msgstr "Fiji"
+
+#: models.py:140
+msgid "Falkland Islands (Malvinas)"
+msgstr "Falkland-Inseln"
+
+#: models.py:141
+msgid "Micronesia"
+msgstr "Mikronesien"
+
+#: models.py:142
+msgid "Faroe Islands"
+msgstr "Faröer-Inseln"
+
+#: models.py:143
+msgid "France"
+msgstr "Frankreich"
+
+#: models.py:144
+msgid "France, Metropolitan"
+msgstr "Frankreich, Metropolregion"
+
+#: models.py:145
+msgid "Gabon"
+msgstr "Gabun"
+
+#: models.py:146
+msgid "United Kingdom (Great Britain)"
+msgstr "Grossbritannien"
+
+#: models.py:147
+msgid "Grenada"
+msgstr "Grenada"
+
+#: models.py:148
+msgid "Georgia"
+msgstr "Georgien"
+
+#: models.py:149
+msgid "French Guiana"
+msgstr "Französich Guyana"
+
+#: models.py:150
+msgid "Ghana"
+msgstr "Ghana"
+
+#: models.py:151
+msgid "Gibraltar"
+msgstr "Gibraltar"
+
+#: models.py:152
+msgid "Greenland"
+msgstr "Grönland"
+
+#: models.py:153
+msgid "Gambia"
+msgstr "Gambia"
+
+#: models.py:154
+msgid "Guinea"
+msgstr "Guinea"
+
+#: models.py:155
+msgid "Guadeloupe"
+msgstr "Guadalup"
+
+#: models.py:156
+msgid "Equatorial Guinea"
+msgstr "Äquatorial-Guinea"
+
+#: models.py:157
+msgid "Greece"
+msgstr "Griechenland"
+
+#: models.py:158
+msgid "South Georgia and the South Sandwich Islands"
+msgstr "Südgeorgien und die Südlichen Sandwich-Inseln"
+
+#: models.py:159
+msgid "Guatemala"
+msgstr "Guatemala"
+
+#: models.py:160
+msgid "Guam"
+msgstr "Guam"
+
+#: models.py:161
+msgid "Guinea-Bissau"
+msgstr "Guinea-Bissau"
+
+#: models.py:162
+msgid "Guyana"
+msgstr "Guyana"
+
+#: models.py:163
+msgid "Hong Kong"
+msgstr "Hong Kong"
+
+#: models.py:164
+msgid "Heard & McDonald Islands"
+msgstr "Heard & McDonald-Insen"
+
+#: models.py:165
+msgid "Honduras"
+msgstr "Honduras"
+
+#: models.py:166
+msgid "Croatia"
+msgstr "Kroatien"
+
+#: models.py:167
+msgid "Haiti"
+msgstr "Haiti"
+
+#: models.py:168
+msgid "Hungary"
+msgstr "Ungan"
+
+#: models.py:169
+msgid "Indonesia"
+msgstr "Indonesien"
+
+#: models.py:170
+msgid "Ireland"
+msgstr "Irland"
+
+#: models.py:171
+msgid "Israel"
+msgstr "Israel"
+
+#: models.py:172
+msgid "India"
+msgstr "Indien"
+
+#: models.py:173
+msgid "British Indian Ocean Territory"
+msgstr "Britisches Territoriu im Indischen Ozean"
+
+#: models.py:174
+msgid "Iraq"
+msgstr "Irak"
+
+#: models.py:175
+msgid "Islamic Republic of Iran"
+msgstr "Iran"
+
+#: models.py:176
+msgid "Iceland"
+msgstr "Island"
+
+#: models.py:177
+msgid "Italy"
+msgstr "Italien"
+
+#: models.py:178
+msgid "Jamaica"
+msgstr "Jamaika"
+
+#: models.py:179
+msgid "Jordan"
+msgstr "Jordanien"
+
+#: models.py:180
+msgid "Japan"
+msgstr "Japan"
+
+#: models.py:181
+msgid "Kenya"
+msgstr "Kenia"
+
+#: models.py:182
+msgid "Kyrgyzstan"
+msgstr "Kirgisistan"
+
+#: models.py:183
+msgid "Cambodia"
+msgstr "Kambodscha"
+
+#: models.py:184
+msgid "Kiribati"
+msgstr "Kiribati"
+
+#: models.py:185
+msgid "Comoros"
+msgstr "Komoren"
+
+#: models.py:186
+msgid "St. Kitts and Nevis"
+msgstr "St. Kitts und Nevis"
+
+#: models.py:187
+msgid "Korea, Democratic People's Republic of"
+msgstr "Nordkorea"
+
+#: models.py:188
+msgid "Korea, Republic of"
+msgstr "Südkorea"
+
+#: models.py:189
+msgid "Kuwait"
+msgstr "Kuwait"
+
+#: models.py:190
+msgid "Cayman Islands"
+msgstr "Kaiman-Inseln"
+
+#: models.py:191
+msgid "Kazakhstan"
+msgstr "Kasachstan"
+
+#: models.py:192
+msgid "Lao People's Democratic Republic"
+msgstr "Laos"
+
+#: models.py:193
+msgid "Lebanon"
+msgstr "Libanon"
+
+#: models.py:194
+msgid "Saint Lucia"
+msgstr "Saint Lucia"
+
+#: models.py:195
+msgid "Liechtenstein"
+msgstr "Liechtenstein"
+
+#: models.py:196
+msgid "Sri Lanka"
+msgstr "Sri Lanka"
+
+#: models.py:197
+msgid "Liberia"
+msgstr "Liberia"
+
+#: models.py:198
+msgid "Lesotho"
+msgstr "Lesotho"
+
+#: models.py:199
+msgid "Lithuania"
+msgstr "Litauen"
+
+#: models.py:200
+msgid "Luxembourg"
+msgstr "Luxemburg"
+
+#: models.py:201
+msgid "Latvia"
+msgstr "Lettland"
+
+#: models.py:202
+msgid "Libyan Arab Jamahiriya"
+msgstr "Libyen"
+
+#: models.py:203
+msgid "Morocco"
+msgstr "Marokko"
+
+#: models.py:204
+msgid "Monaco"
+msgstr "Monaco"
+
+#: models.py:205
+msgid "Moldova, Republic of"
+msgstr "Moldawien"
+
+#: models.py:206
+msgid "Madagascar"
+msgstr "Madagaskar"
+
+#: models.py:207
+msgid "Marshall Islands"
+msgstr "Marshall-Inseln"
+
+#: models.py:208
+msgid "Mali"
+msgstr "Mali"
+
+#: models.py:209
+msgid "Mongolia"
+msgstr "Mongolei"
+
+#: models.py:210
+msgid "Myanmar"
+msgstr "Myanmar"
+
+#: models.py:211
+msgid "Macau"
+msgstr "Makau"
+
+#: models.py:212
+msgid "Northern Mariana Islands"
+msgstr "Nördliche Marianen"
+
+#: models.py:213
+msgid "Martinique"
+msgstr "Martinik"
+
+#: models.py:214
+msgid "Mauritania"
+msgstr "Mauretanien"
+
+#: models.py:215
+msgid "Monserrat"
+msgstr "Monserrat"
+
+#: models.py:216
+msgid "Malta"
+msgstr "Malta"
+
+#: models.py:217
+msgid "Mauritius"
+msgstr "Mauritius"
+
+#: models.py:218
+msgid "Maldives"
+msgstr "Malediven"
+
+#: models.py:219
+msgid "Malawi"
+msgstr "Malawi"
+
+#: models.py:220
+msgid "Mexico"
+msgstr "Mexiko"
+
+#: models.py:221
+msgid "Malaysia"
+msgstr "Malaysia"
+
+#: models.py:222
+msgid "Mozambique"
+msgstr "Mosambik"
+
+#: models.py:223
+msgid "Namibia"
+msgstr "Namibia"
+
+#: models.py:224
+msgid "New Caledonia"
+msgstr "Neukaledonien"
+
+#: models.py:225
+msgid "Niger"
+msgstr "Niger"
+
+#: models.py:226
+msgid "Norfolk Island"
+msgstr "Norfolk-Inseln"
+
+#: models.py:227
+msgid "Nigeria"
+msgstr "Nigeria"
+
+#: models.py:228
+msgid "Nicaragua"
+msgstr "Nicaragua"
+
+#: models.py:229
+msgid "Netherlands"
+msgstr "Niederlande"
+
+#: models.py:230
+msgid "Norway"
+msgstr "Norwegen"
+
+#: models.py:231
+msgid "Nepal"
+msgstr "Nepal"
+
+#: models.py:232
+msgid "Nauru"
+msgstr "Nauru"
+
+#: models.py:233
+msgid "Niue"
+msgstr "Niue"
+
+#: models.py:234
+msgid "New Zealand"
+msgstr "Neuseeland"
+
+#: models.py:235
+msgid "Oman"
+msgstr "Oman"
+
+#: models.py:236
+msgid "Panama"
+msgstr "Panama"
+
+#: models.py:237
+msgid "Peru"
+msgstr "Peru"
+
+#: models.py:238
+msgid "French Polynesia"
+msgstr "Französisch Polinesien"
+
+#: models.py:239
+msgid "Papua New Guinea"
+msgstr "Papua-Neuguinea"
+
+#: models.py:240
+msgid "Philippines"
+msgstr "Philippinen"
+
+#: models.py:241
+msgid "Pakistan"
+msgstr "Pakistan"
+
+#: models.py:242
+msgid "Poland"
+msgstr "Polen"
+
+#: models.py:243
+msgid "St. Pierre & Miquelon"
+msgstr "St. Pierre & Miquelon"
+
+#: models.py:244
+msgid "Pitcairn"
+msgstr "Pitcairn"
+
+#: models.py:245
+msgid "Puerto Rico"
+msgstr "Puerto Rico"
+
+#: models.py:246
+msgid "Portugal"
+msgstr "Portugal"
+
+#: models.py:247
+msgid "Palau"
+msgstr "Palau"
+
+#: models.py:248
+msgid "Paraguay"
+msgstr "Paraguay"
+
+#: models.py:249
+msgid "Qatar"
+msgstr "Katar"
+
+#: models.py:250
+msgid "Reunion"
+msgstr "Reunion"
+
+#: models.py:251
+msgid "Romania"
+msgstr "Rumänien"
+
+#: models.py:252
+msgid "Russian Federation"
+msgstr "Russland"
+
+#: models.py:253
+msgid "Rwanda"
+msgstr "Ruana"
+
+#: models.py:254
+msgid "Saudi Arabia"
+msgstr "Saudi Arabien"
+
+#: models.py:255
+msgid "Solomon Islands"
+msgstr "Solomon-Inseln"
+
+#: models.py:256
+msgid "Seychelles"
+msgstr "Seychellen"
+
+#: models.py:257
+msgid "Sudan"
+msgstr "Sudan"
+
+#: models.py:258
+msgid "Sweden"
+msgstr "Schweden"
+
+#: models.py:259
+msgid "Singapore"
+msgstr "Singapur"
+
+#: models.py:260
+msgid "St. Helena"
+msgstr "St. Helena"
+
+#: models.py:261
+msgid "Slovenia"
+msgstr "Slowenien"
+
+#: models.py:262
+msgid "Svalbard & Jan Mayen Islands"
+msgstr "Svalbard & Jan Mayen-Inseln"
+
+#: models.py:263
+msgid "Slovakia"
+msgstr "Slowakei"
+
+#: models.py:264
+msgid "Sierra Leone"
+msgstr "Sierra Leone"
+
+#: models.py:265
+msgid "San Marino"
+msgstr "San Marino"
+
+#: models.py:266
+msgid "Senegal"
+msgstr "Senegal"
+
+#: models.py:267
+msgid "Somalia"
+msgstr "Somalia"
+
+#: models.py:268
+msgid "Suriname"
+msgstr "Surinam"
+
+#: models.py:269
+msgid "Sao Tome & Principe"
+msgstr "Sao Tome & Principe"
+
+#: models.py:270
+msgid "El Salvador"
+msgstr "El Salvador"
+
+#: models.py:271
+msgid "Syrian Arab Republic"
+msgstr "Syrien"
+
+#: models.py:272
+msgid "Swaziland"
+msgstr "Swasiland"
+
+#: models.py:273
+msgid "Turks & Caicos Islands"
+msgstr "Turks & Caicos-Inseln"
+
+#: models.py:274
+msgid "Chad"
+msgstr "Tschad"
+
+#: models.py:275
+msgid "French Southern Territories"
+msgstr "Französische Südliche Territorien"
+
+#: models.py:276
+msgid "Togo"
+msgstr "Togo"
+
+#: models.py:277
+msgid "Thailand"
+msgstr "Thailand"
+
+#: models.py:278
+msgid "Tajikistan"
+msgstr "Tadschikistan"
+
+#: models.py:279
+msgid "Tokelau"
+msgstr "Tokelau"
+
+#: models.py:280
+msgid "Turkmenistan"
+msgstr "Turkmenistan"
+
+#: models.py:281
+msgid "Tunisia"
+msgstr "Tunesien"
+
+#: models.py:282
+msgid "Tonga"
+msgstr "Tonga"
+
+#: models.py:283
+msgid "East Timor"
+msgstr "Osttimor"
+
+#: models.py:284
+msgid "Turkey"
+msgstr "Türkei"
+
+#: models.py:285
+msgid "Trinidad & Tobago"
+msgstr "Trinidad & Tobago"
+
+#: models.py:286
+msgid "Tuvalu"
+msgstr "Tuvalu"
+
+#: models.py:287
+msgid "Taiwan, Province of China"
+msgstr "Taiwan"
+
+#: models.py:288
+msgid "Tanzania, United Republic of"
+msgstr "Tansania"
+
+#: models.py:289
+msgid "Ukraine"
+msgstr "Ukraine"
+
+#: models.py:290
+msgid "Uganda"
+msgstr "Uganda"
+
+#: models.py:291
+msgid "United States Minor Outlying Islands"
+msgstr "Vereinigte Staaten Kleine Äussere Inseln"
+
+#: models.py:292
+msgid "United States of America"
+msgstr "Vereinigte Staaten von Amerika"
+
+#: models.py:293
+msgid "Uruguay"
+msgstr "Uruguay"
+
+#: models.py:294
+msgid "Uzbekistan"
+msgstr "Usbekistan"
+
+#: models.py:295
+msgid "Vatican City State (Holy See)"
+msgstr "Vatikan-Stadt"
+
+#: models.py:296
+msgid "St. Vincent & the Grenadines"
+msgstr "St. Vincent & the Grenadines"
+
+#: models.py:297
+msgid "Venezuela"
+msgstr "Venezuela"
+
+#: models.py:298
+msgid "British Virgin Islands"
+msgstr "Britische Jungfern-Inseln"
+
+#: models.py:299
+msgid "United States Virgin Islands"
+msgstr "USA Jungfern-Inseln"
+
+#: models.py:300
+msgid "Viet Nam"
+msgstr "Vietnam"
+
+#: models.py:301
+msgid "Vanuatu"
+msgstr "Vanuatu"
+
+#: models.py:302
+msgid "Wallis & Futuna Islands"
+msgstr "Wallis & Futuna-Inseln"
+
+#: models.py:303
+msgid "Samoa"
+msgstr "Samoa"
+
+#: models.py:304
+msgid "Yemen"
+msgstr "Jemen"
+
+#: models.py:305
+msgid "Mayotte"
+msgstr "Mayotte"
+
+#: models.py:306
+msgid "Yugoslavia"
+msgstr "Jugoslawien"
+
+#: models.py:307
+msgid "South Africa"
+msgstr "Südafrika"
+
+#: models.py:308
+msgid "Zambia"
+msgstr "Sambia"
+
+#: models.py:309
+msgid "Zaire"
+msgstr "Zaire"
+
+#: models.py:310
+msgid "Zimbabwe"
+msgstr "Simbabwe"
+
+#: models.py:311
+msgid "Unknown or unspecified country"
+msgstr "Unbekanntes oder unspezifiziertes Land"
+
+#: models.py:333
+msgid "avatar"
+msgstr "Avatar"
+
+#: models.py:341
+msgid "Female"
+msgstr "Weiblich"
+
+#: models.py:342
+msgid "Male"
+msgstr "Männlich"
+
+#: models.py:343
+msgid "Other"
+msgstr "Anders"
+
+#: models.py:345
+msgid "\"gender\""
+msgstr "\"Geschlecht\""
+
+#: models.py:348 templates/ecobasa/pioneer_detail.html:51
+msgid "birth date"
+msgstr "Geburtsdatum"
+
+#: models.py:351 models.py:417 templates/ecobasa/pioneer_detail.html:59
+msgid "country"
+msgstr "Land"
+
+#: models.py:353 models.py:413 templates/ecobasa/pioneer_detail.html:67
+msgid "city"
+msgstr "Stadt"
+
+#: models.py:355 models.py:415
+msgid "zipcode"
+msgstr "PLZ"
+
+#: models.py:359
+msgid ""
+"I also want to become a member of ecobasa.org later</br>(it will make this "
+"project permanently possible)"
+msgstr ""
+"Ich möchte auch später ein Mitglied von ecobasa.org werden</br>(Es wird "
+"dieses Projekt permanent ermöglichen)"
+
+#: models.py:362 templates/userprofiles/registration_member.html:24
+msgid "interests"
+msgstr "Interessen"
+
+#: models.py:365
+msgid "knowledge/skills"
+msgstr "Wissen/Fertigkeiten"
+
+#: models.py:367
+msgid "products"
+msgstr "Produkte"
+
+#: models.py:372
+msgid "Do you have a bus or car that you want to take on the tour?"
+msgstr ""
+"Hast du einen Bus oder ein Auto, welches du zur Tour mitbringen möchtest?"
+
+#: models.py:374
+msgid "bus image"
+msgstr "Bild des Busses"
+
+#: models.py:377
+msgid "I have a driving license"
+msgstr "Ich habe einen Führerschein"
+
+#: models.py:379
+msgid "Other people can drive it too"
+msgstr "Andere dürfen auch fahren"
+
+#: models.py:382
+msgid "How many people can it take"
+msgstr "Wieviele Leute kann es aufnehmen"
+
+#: models.py:384
+msgid "Consumption (l/100km)"
+msgstr "Verbrauch (l/100km)"
+
+#: models.py:406
+msgid "name of community"
+msgstr "Name der Gemeinschaft"
+
+#: models.py:409
+msgid "telephone"
+msgstr "Telefon"
+
+#: models.py:411
+msgid "street"
+msgstr "Strasse"
+
+#: models.py:419
+msgid "latitude"
+msgstr "Breitengrad"
+
+#: models.py:420
+msgid "longitude"
+msgstr "Längengrad"
+
+#: models.py:422
+msgid "show address in profile"
+msgstr "Zeige Addresse im Profil"
+
+#: models.py:427
+msgid "maximum number of people you can host"
+msgstr "Maximale Anzahl der Leute, die ihr empfangen könnt"
+
+#: models.py:429
+msgid "accommodation for guests"
+msgstr "Unterkunft für Gäste"
+
+#: models.py:433
+msgid "what materials do you need?"
+msgstr "Welche Materialien braucht ihr?"
+
+#: models.py:436
+msgid "what tools or machines do you need?"
+msgstr "Welche Werkzeuge oder Maschinen braucht ihr?"
+
+#: models.py:438
+msgid "do you need seeds?"
+msgstr "Braucht ihr Samen?"
+
+#: models.py:441
+msgid "how many?"
+msgstr "Wieviele?"
+
+#: models.py:443
+msgid "special needs (knowledge, information)"
+msgstr "Besondere Bedürfnisse (Wissen, Information)"
+
+#: models.py:446
+msgid "services"
+msgstr "Dienstleistungen"
+
+#: models.py:449
+msgid "skills people can learn"
+msgstr "Erlernbare Fertigkeiten"
+
+#: models.py:452
+msgid "creations/products"
+msgstr "Kreationen / Produkte"
+
+#: models.py:455
+msgid "workshop spaces"
+msgstr "Arbeitsplätze"
+
+#: models.py:457
+msgid "learning seminars"
+msgstr "Lernseminare"
+
+#: models.py:462
+msgid "how many people live in your community?"
+msgstr "Wieviele Leute leben in eurer Gemscheinschaft?"
+
+#: models.py:465
+msgid "how many of them are under 18?"
+msgstr "Wieviele davon sind unter 18?"
+
+#: models.py:467
+msgid "what brings your community together"
+msgstr "Was eure Gemeinschaft zusammenbringt"
+
+#: models.py:472
+msgid "open to new members"
+msgstr "Offen für neue Mitglieder"
+
+#: models.py:473
+msgid "looking for members"
+msgstr "Suchen nach Mitgliedern"
+
+#: models.py:474
+msgid "closed for new members"
+msgstr "Geschlossen für neue Mitglieder"
+
+#: models.py:476
+msgid "member status"
+msgstr "Mitgliederstatus"
+
+#: templates/cosinnus/topmenu.html:5
+msgid "Toggle navigation"
+msgstr "Navigation umschalten"
+
+#: templates/cosinnus/topmenu.html:15
+msgid "About the tour"
+msgstr "Über die Tour"
+
+#: templates/cosinnus/topmenu.html:16 templates/ecobasa/community_list.html:4
+msgid "Communities"
+msgstr "Gemeinschaften"
+
+#: templates/cosinnus/topmenu.html:17
+msgid "Pioneers"
+msgstr "Pioniere"
+
+#: templates/cosinnus/topmenu.html:18 templates/ecobasa/bus_list.html:4
+msgid "Buses"
+msgstr "Busse"
+
+#: templates/cosinnus/topmenu.html:21
+msgid "Community Dashboard"
+msgstr "Gemeinschafts Dashboard"
+
+#: templates/cosinnus/topmenu.html:32
+msgid "My Communities"
+msgstr "Meine Gemeinschaften"
+
+#: templates/cosinnus/topmenu.html:32
+msgid "My Community"
+msgstr "Meine Gemeinschaft"
+
+#: templates/cosinnus/topmenu.html:38
+msgid "List all communities"
+msgstr "Alle Gemeinschaften auflisten"
+
+#: templates/cosinnus/topmenu.html:45
+msgid "Profile"
+msgstr "Profil"
+
+#: templates/cosinnus/topmenu.html:46
+msgid "Dashboard"
+msgstr "Dashboard"
+
+#: templates/cosinnus/topmenu.html:47
+msgid "Logout"
+msgstr "Abmelden"
+
+#: templates/cosinnus/topmenu.html:52
+msgctxt "the verb"
+msgid "Register"
+msgstr "Registrieren"
+
+#: templates/cosinnus/topmenu.html:54
+msgid "Login"
+msgstr "Anmelden"
+
+#: templates/cosinnus/registration/password_reset_email.html:2
+#, python-format
+msgid ""
+"You're receiving this email because you requested a password reset for your "
+"user account at %(site_name)s."
+msgstr ""
+"Du erhälst dies Email, weil du für dein Konto auf %(site_name)s das "
+"Zurücksetzen deines Passworts veranlasst hast."
+
+#: templates/cosinnus/registration/password_reset_email.html:4
+msgid "Please go to the following page and choose a new password:"
+msgstr "Bitte besuche die folgende Seite und wähle ein neues Passwort:"
+
+#: templates/cosinnus/registration/password_reset_email.html:8
+msgid "Your username, in case you've forgotten:"
+msgstr "Falls du deinen Nutzernamen vergessen haben solltest:"
+
+#: templates/cosinnus/registration/password_reset_email.html:10
+msgid "Thanks for using our site!"
+msgstr "Danke, dass du unsere Seite benutzst!"
+
+#: templates/cosinnus/registration/password_reset_email.html:12
+#, python-format
+msgid "The %(site_name)s team"
+msgstr "Das Team von %(site_name)s"
+
+#: templates/ecobasa/bus_add.html:4
+msgid "Add your bus"
+msgstr "Deinen Bus hinzufügen"
+
+#: templates/ecobasa/bus_add.html:39
+#: templates/ecobasa/community_detail.html:177
+msgid "Add"
+msgstr "Hinzufügen"
+
+#: templates/ecobasa/bus_add.html:40 templates/ecobasa/community_form.html:187
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#: templates/ecobasa/bus_list.html:9 templates/ecobasa/bus_list.html.py:40
+msgid "Add a bus"
+msgstr "Einen Bus hinzufügen"
+
+#: templates/ecobasa/bus_list.html:16 templates/ecobasa/pioneer_detail.html:77
+#: templates/ecobasa/pioneer_list.html:18
+msgid "Bus"
+msgstr "Bus"
+
+#: templates/ecobasa/bus_list.html:17
+msgid "Owner"
+msgstr "Besitzer"
+
+#: templates/ecobasa/bus_list.html:18
+msgid "Capacity"
+msgstr "Kapazität"
+
+#: templates/ecobasa/bus_list.html:19
+msgid "Consumption"
+msgstr "Verbrauch"
+
+#: templates/ecobasa/bus_list.html:20
+msgid "Needs a driver"
+msgstr "Braucht eine/n Fahrer/in"
+
+#: templates/ecobasa/bus_list.html:38
+msgid "There are no buses, yet! "
+msgstr "Es gibt noch keine Busse!"
+
+#: templates/ecobasa/bus_list.html:42
+msgid "Sign up"
+msgstr "Registrieren"
+
+#: templates/ecobasa/bus_list.html:42
+msgid "and add one now."
+msgstr "und füge jetzt einen hinzu"
+
+#: templates/ecobasa/community_detail.html:10
+#, python-format
+msgid "Community “%(name)s”"
+msgstr "Gemeinschaft “%(name)s”"
+
+#: templates/ecobasa/community_detail.html:14
+#, python-format
+msgid "%(name)s"
+msgstr "%(name)s"
+
+#: templates/ecobasa/community_detail.html:24
+#: templates/ecobasa/pioneer_detail.html:11
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#: templates/ecobasa/community_detail.html:25
+msgctxt "the verb"
+msgid "Export"
+msgstr "Exportieren"
+
+#: templates/ecobasa/community_detail.html:27
+#: templates/ecobasa/community_detail.html:152
+#: templates/ecobasa/community_detail.html:178
+msgid "Delete"
+msgstr "Entfernen"
+
+#: templates/ecobasa/community_detail.html:30
+#: templates/ecobasa/pioneer_list.html:4
+msgid "Users"
+msgstr "Nutzer"
+
+#: templates/ecobasa/community_detail.html:32
+#: templates/ecobasa/pioneer_list.html:9
+msgid "Add user"
+msgstr "Nutzer hinzufügen"
+
+#: templates/ecobasa/community_detail.html:137
+msgid "Gift-economy Ambassadors"
+msgstr "Botschafter der Geschenkökonomie"
+
+#: templates/ecobasa/community_detail.html:151
+msgid "Change"
+msgstr "Ändern"
+
+#: templates/ecobasa/community_detail.html:163
+msgid "Pending users"
+msgstr "Nutzer in der Schwebe"
+
+#: templates/ecobasa/community_form.html:6
+#: templates/ecobasa/community_form.html:21
+#, python-format
+msgid "Edit group “%(group_name)s”"
+msgstr "Gruppe “%(group_name)s” bearbeiten"
+
+#: templates/ecobasa/community_form.html:8
+#: templates/ecobasa/community_form.html:23
+msgid "Create Group"
+msgstr "Erzeuge Gruppe"
+
+#: templates/ecobasa/community_form.html:36
+#: templates/userprofiles/registration_community.html:21
+msgid "contact info"
+msgstr "Kontakt-Info"
+
+#: templates/ecobasa/community_form.html:37
+#: templates/userprofiles/registration_community.html:22
+msgid "visitors"
+msgstr "Besucher"
+
+#: templates/ecobasa/community_form.html:38
+#: templates/userprofiles/registration_community.html:23
+msgid "wishlist"
+msgstr "Wunschliste"
+
+#: templates/ecobasa/community_form.html:39
+#: templates/userprofiles/registration_community.html:24
+msgid "offers"
+msgstr "Angebote"
+
+#: templates/ecobasa/community_form.html:40
+#: templates/userprofiles/registration_community.html:25
+msgid "basic info"
+msgstr "Basis-Info"
+
+#: templates/ecobasa/community_form.html:186
+#: templates/userprofiles/registration_community.html:173
+#: templates/userprofiles/registration_member.html:175
+msgid "Register"
+msgstr "Registrieren"
+
+#: templates/ecobasa/community_list.html:30
+msgid "Community name"
+msgstr "Gemeinschaftsname"
+
+#: templates/ecobasa/community_list.html:31
+msgid "Size"
+msgstr "Grösse"
+
+#: templates/ecobasa/community_list.html:32
+#: templates/ecobasa/pioneer_list.html:19
+msgid "Country"
+msgstr "Land"
+
+#: templates/ecobasa/community_list.html:33
+msgid "Status"
+msgstr "Status"
+
+#: templates/ecobasa/community_list.html:34
+#: templates/ecobasa/pioneer_detail.html:21
+#: templates/ecobasa/pioneer_list.html:17
+msgid "Skills"
+msgstr "Fertigkeiten"
+
+#: templates/ecobasa/community_list.html:67
+msgid "There are no groups."
+msgstr "Es gibt keine Gruppen"
+
+#: templates/ecobasa/pioneer_detail.html:5
+#, python-format
+msgid "Pioneer profile: %(name)s"
+msgstr "Pionier-Profil: %(name)s"
+
+#: templates/ecobasa/pioneer_detail.html:12
+msgid "a gift-economy pioneer"
+msgstr "ein Pionier der Geschenkökonomie"
+
+#: templates/ecobasa/pioneer_detail.html:27
+msgid "Interests"
+msgstr "Interessen"
+
+#: templates/ecobasa/pioneer_detail.html:33
+msgid "Products"
+msgstr "Produkte"
+
+#: templates/ecobasa/pioneer_detail.html:43
+msgid "gender"
+msgstr "\"Geschlecht\""
+
+#: templates/ecobasa/pioneer_detail.html:93
+msgid "Maximum passengers this bus can take:"
+msgstr "Maximale Anzahl der Passagiere, die dieser Bus befördern kann:"
+
+#: templates/ecobasa/pioneer_detail.html:96
+msgid "fuel consumption"
+msgstr "Kraftstoffverbrauch"
+
+#: templates/ecobasa/pioneer_list.html:16
+msgid "User"
+msgstr "Nutzer"
+
+#: templates/ecobasa/pioneer_list.html:49
+msgid "There are no users yet, "
+msgstr "Es gibt noch keine Nutzer, "
+
+#: templates/ecobasa/pioneer_list.html:49
+msgid "join now!"
+msgstr "trete jetzt bei!"
+
+#: templates/userprofiles/registration.html:4
+#: templates/userprofiles/registration_community.html:4
+#: templates/userprofiles/registration_complete.html:4
+#: templates/userprofiles/registration_member.html:4
+msgid "Registration"
+msgstr "Registrierung"
+
+#: templates/userprofiles/registration.html:9
+msgid "Join as a gift-economy pioneer"
+msgstr "Trete als Pionier der Geschenkökonomie bei"
+
+#: templates/userprofiles/registration.html:14
+msgid "Join as your communities gift-economy ambassador"
+msgstr "Trete als Botschafter deiner Geschenkökonomie-Gemeinschaft bei"
+
+#: templates/userprofiles/registration_complete.html:8
+msgid "Welcome on board"
+msgstr "Willkommen"
+
+#: templates/userprofiles/registration_complete.html:9
+msgid "and thank you for joining up!"
+msgstr "und danke für's Beitreten!"
+
+#: templates/userprofiles/registration_complete.html:12
+msgid ""
+"You are now a full part of our team! We need your help to organise this tour."
+msgstr ""
+"Du bist jetzt ein vollwertiges Mitglied unseres Teams! Wir brauchen deine "
+"Hilfe diese Tour zu organisieren."
+
+#: templates/userprofiles/registration_complete.html:13
+msgid ""
+"You can contact communities that you know or that you would like to visit "
+"and tell them to sign up on this website, so we have their information."
+msgstr ""
+"Du kannst Gemeinschaften, die du kennst oder die du besuchen möchtest, "
+"kontaktieren, und ihnen erzählen dass sie sich auf dieser Webseite "
+"registrieren sollen, damit wir ihre Infos haben."
+
+#: templates/userprofiles/registration_complete.html:14
+msgid "Then we can send them the experts and resources they wish for."
+msgstr ""
+"Dann können wir ihnen die Experten und Ressourcen senden, die sie sich "
+"wünschen."
+
+#: templates/userprofiles/registration_complete.html:15
+msgid "We will contact you soon for any news and meetups!"
+msgstr "Wir werden dich bald bzgl. Neuigkeiten und Treffen kontaktieren!"
+
+#: templates/userprofiles/registration_complete.html:16
+msgid "See you soon, the rest of the Community Tours team."
+msgstr "Bis bald, der Rest des Community Tours Teams."
+
+#: templates/userprofiles/registration_member.html:23
+msgid "personal"
+msgstr "Persönlich"
+
+#: templates/userprofiles/registration_member.html:25
+msgid "skills"
+msgstr "Fertigkeiten"
+
+#: templates/userprofiles/registration_member.html:26
+msgid "bus"
+msgstr "Bus"
+
+#: templates/userprofiles/registration_member.html:123
+msgid ""
+"You can also add a bus later, it would be great if you could ask around "
+"among your friends if they want to join us with their bus!"
+msgstr ""
+"Du kannst den Bus auch später hinzufügen, es wäre toll, wenn du bei deinen "
+"herumfragst, ob sie uns mit ihrem Bus beitreten wollen!"
+
+#: templates/userprofiles/registration_member.html:125
+msgid "YES"
+msgstr "JA"
+
+#: templates/userprofiles/registration_member.html:127
+msgid "NO, Register"
+msgstr "NEIN, Registrieren"
