@@ -13,7 +13,7 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>{% trans "User" %}</th>
+                <th>{% trans "Pioneer" %}</th>
                 <th>{% trans "Skills" %}</th>
                 <th>{% trans "Bus" %}</th>
                 <th>{% trans "Country" %}</th>
@@ -46,6 +46,6 @@
         {% endfor %}
     </table>
     {% else %}
-        {% trans "There are no users yet, " %}<a href="{% url 'register' %}">{% trans "join now!" %}</a>
+        {% blocktrans %}There are no gift-economy pioneers yet, <a href="{% url 'register' %}">join the tours now!{% endblocktrans %}</a>
     {% endif %}
 {% endblock %}

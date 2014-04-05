@@ -16,7 +16,7 @@
   </div>
 </div>
 <div class="modal fade" id="community-list">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -64,7 +64,7 @@
       </tbody>
     </table>
   {% else %}
-    {% trans "There are no groups." %}
+    {% blocktrans %}There are no communities, yet. <a href="{% url 'register-community' %}">Register as a gift-economy ambassador for your community</a> {% endblocktrans %}
   {% endif %}
       </div>
     </div><!-- /.modal-content -->
