@@ -46,6 +46,6 @@
         {% endfor %}
     </table>
     {% else %}
-        {% blocktrans %}There are no gift-economy pioneers yet, <a href="{% url 'register' %}">join the tours now!{% endblocktrans %}</a>
+        {% trans "There are no pioneers registered yet, " %}<a href="{% url 'register' %}">{% trans "join the tours now!" %}</a>
     {% endif %}
 {% endblock %}

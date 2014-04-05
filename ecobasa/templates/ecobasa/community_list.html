@@ -64,7 +64,7 @@
       </tbody>
     </table>
   {% else %}
-    {% blocktrans %}There are no communities, yet. <a href="{% url 'register-community' %}">Register as a gift-economy ambassador for your community</a> {% endblocktrans %}
+    {% trans "There are no communities, yet." %} <a href="{% url 'register-community' %}">{% trans "Register as a gift-economy ambassador for your community</a>" %}
   {% endif %}
       </div>
     </div><!-- /.modal-content -->
