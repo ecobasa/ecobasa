@@ -209,8 +209,8 @@
 <script type="text/javascript">
   $(function() {
     $('#formset-{{ formset_seed.prefix }} div.control-group').formset({
-      addCssClass: 'add-row btn',
-      addText: '<span class="glyphicon glyphicon-plus"></span> {% trans "More kinds of seeds" %}',
+      addCssClass: 'add-row btn pull-right',
+      addText: '<button type="button" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-plus"></span> {% trans "More seeds" %}</button>',
       insertAddInSelector: true,
       prefix: '{{ formset_seed.prefix }}',
     });
