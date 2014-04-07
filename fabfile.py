@@ -27,6 +27,7 @@ def update():
         with virtualenv(env.virtualenv_path):
             run("pip install -r requirements.txt")
             run("./manage.py collectstatic --noinput")
+            run("./django-admin.py compilemessages")
 
 
 def migrate():
