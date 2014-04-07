@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-04 16:49+0200\n"
+"POT-Creation-Date: 2014-04-07 08:55+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -44,7 +44,7 @@ msgstr ""
 #: apps/skillshare/templates/skillshare/badge_add.html:12
 #: apps/skillshare/templates/skillshare/fragments/form_badge.html:8
 #: ecobasa/templates/ecobasa/bus_add.html:39
-#: ecobasa/templates/ecobasa/community_detail.html:177
+#: ecobasa/templates/ecobasa/community_detail.html:179
 msgid "Add"
 msgstr ""
 
@@ -287,6 +287,14 @@ msgstr ""
 
 #: ecobasa/cms_plugins.py:17
 msgid "Slideshow"
+msgstr ""
+
+#: ecobasa/default_settings.py:139
+msgid "English"
+msgstr ""
+
+#: ecobasa/default_settings.py:140
+msgid "German"
 msgstr ""
 
 #: ecobasa/models.py:22
@@ -1330,8 +1338,9 @@ msgstr "PLZ"
 msgid ""
 "I also want to become a member of ecobasa.org later</br>(it will make this "
 "project permanently possible)"
-msgstr "Ich will später auch ein Mitglied auf ecobasa.org werden</br>(das wird dieses "
-"Projekt auf Dauer möglich machen"
+msgstr ""
+"Ich will später auch ein Mitglied auf ecobasa.org werden</br>(das wird "
+"dieses Projekt auf Dauer möglich machen"
 
 #: ecobasa/models.py:362 ecobasa/templates/ecobasa/pioneer_form.html:24
 #: ecobasa/templates/userprofiles/registration_member.html:24
@@ -1410,69 +1419,90 @@ msgstr "Was für Materialien benötigt ihr?"
 msgid "what tools or machines do you need?"
 msgstr "Was für Werkzeug oder Maschienen braucht ihr?"
 
-#: ecobasa/models.py:438
-msgid "do you need seeds?"
-msgstr "braucht ihr Samen?"
-
-#: ecobasa/models.py:441
-msgid "how many?"
-msgstr "wie viel?"
-
-#: ecobasa/models.py:443
+#: ecobasa/models.py:439
 msgid "special needs (knowledge, information)"
 msgstr "Besonderer Bedarf (Wissen, Informationen..)"
 
-#: ecobasa/models.py:446
+#: ecobasa/models.py:442
 msgid "services"
 msgstr "Dienstleistungen"
 
-#: ecobasa/models.py:449
+#: ecobasa/models.py:445
 msgid "skills people can learn"
 msgstr "Fähigkeiten die Leute bei euch lernen können"
 
-#: ecobasa/models.py:452
+#: ecobasa/models.py:448
 msgid "creations/products"
 msgstr "Kreationen/Produkte"
 
-#: ecobasa/models.py:455
+#: ecobasa/models.py:451
 msgid "workshop spaces"
 msgstr "Werkstätten"
 
-#: ecobasa/models.py:457
+#: ecobasa/models.py:453
 msgid "learning seminars"
 msgstr "Workshops/Seminare"
 
-#: ecobasa/models.py:462
+#: ecobasa/models.py:458
 msgid "how many people live in your community?"
 msgstr "Wie viele Menschen leben in eurer Gemeinschaft?"
 
-#: ecobasa/models.py:465
+#: ecobasa/models.py:461
 msgid "how many of them are under 18?"
 msgstr "Wie viele davon sind unter 18?"
 
-#: ecobasa/models.py:467
+#: ecobasa/models.py:463
 msgid "what brings your community together"
 msgstr "Was bringt eure Gemeinschaft zusammen"
 
-#: ecobasa/models.py:472
+#: ecobasa/models.py:468
 msgid "open to new members"
 msgstr "Offen für neue Mitglieder"
 
-#: ecobasa/models.py:473
+#: ecobasa/models.py:469
 msgid "looking for members"
 msgstr "Suchen neue Mitglieder"
 
-#: ecobasa/models.py:474
+#: ecobasa/models.py:470
 msgid "closed for new members"
 msgstr "Geschlossen für neue Mitglieder"
 
-#: ecobasa/models.py:476
+#: ecobasa/models.py:472
 msgid "member status"
 msgstr "Mitgliedsstatus"
+
+#: ecobasa/models.py:529
+msgid "seeds"
+msgstr ""
+
+#: ecobasa/models.py:533
+#, fuzzy
+msgid "what kind of seeds?"
+msgstr "Was für Materialien benötigt ihr?"
+
+#: ecobasa/models.py:534
+msgid "how many?"
+msgstr "wie viel?"
+
+#: ecobasa/templates/start.html:22
+msgid "Communities that want to be visited"
+msgstr "Gemeinschaften die besucht werden wollen"
+
+#: ecobasa/templates/start.html:36
+msgid "Register as an ambassador"
+msgstr "Als Botschafter anmelden"
+
+#: ecobasa/templates/start.html:39
+msgid "Register as a participant"
+msgstr "Als Teilnehmer anmelden"
 
 #: ecobasa/templates/cosinnus/topmenu.html:5
 msgid "Toggle navigation"
 msgstr ""
+
+#: ecobasa/templates/cosinnus/topmenu.html:15
+msgid "About the tour"
+msgstr "Über die Tour"
 
 #: ecobasa/templates/cosinnus/topmenu.html:16
 #: ecobasa/templates/ecobasa/community_list.html:4
@@ -1584,8 +1614,9 @@ msgstr "Sprit Verbrauch"
 msgid ""
 "You're receiving this email because you requested a password reset for your "
 "user account at %(site_name)s."
-msgstr "Du erhälts diese E-Mail weil du einen Passwort Reset angefordert hast für deinen"
-"Benutzeraccount auf %(site_name)s."
+msgstr ""
+"Du erhälts diese E-Mail weil du einen Passwort Reset angefordert hast für "
+"deinenBenutzeraccount auf %(site_name)s."
 
 #: ecobasa/templates/cosinnus/registration/password_reset_email.html:4
 msgid "Please go to the following page and choose a new password:"
@@ -1659,8 +1690,8 @@ msgid "Export"
 msgstr "Exportieren"
 
 #: ecobasa/templates/ecobasa/community_detail.html:27
-#: ecobasa/templates/ecobasa/community_detail.html:152
-#: ecobasa/templates/ecobasa/community_detail.html:178
+#: ecobasa/templates/ecobasa/community_detail.html:154
+#: ecobasa/templates/ecobasa/community_detail.html:180
 msgid "Delete"
 msgstr "Löschen"
 
@@ -1674,15 +1705,15 @@ msgstr "Pioniere"
 msgid "Add user"
 msgstr ""
 
-#: ecobasa/templates/ecobasa/community_detail.html:137
+#: ecobasa/templates/ecobasa/community_detail.html:139
 msgid "Gift-economy Ambassadors"
 msgstr "Schenkökonomie Botschafter"
 
-#: ecobasa/templates/ecobasa/community_detail.html:151
+#: ecobasa/templates/ecobasa/community_detail.html:153
 msgid "Change"
 msgstr ""
 
-#: ecobasa/templates/ecobasa/community_detail.html:163
+#: ecobasa/templates/ecobasa/community_detail.html:165
 msgid "Pending users"
 msgstr ""
 
@@ -1723,7 +1754,7 @@ msgid "basic info"
 msgstr "Grundinfo"
 
 #: ecobasa/templates/ecobasa/community_form.html:186
-#: ecobasa/templates/userprofiles/registration_community.html:173
+#: ecobasa/templates/userprofiles/registration_community.html:188
 #: ecobasa/templates/userprofiles/registration_member.html:175
 msgid "Register"
 msgstr "Anmelden"
@@ -1746,8 +1777,13 @@ msgid "Status"
 msgstr ""
 
 #: ecobasa/templates/ecobasa/community_list.html:67
-msgid "There are no groups."
-msgstr "Es gibt noch keine Gemeinschaften"
+#, fuzzy
+msgid "There are no communities, yet."
+msgstr "Wir haben noch keine Busse!"
+
+#: ecobasa/templates/ecobasa/community_list.html:67
+msgid "Register as a gift-economy ambassador for your community</a>"
+msgstr ""
 
 #: ecobasa/templates/ecobasa/pioneer_form.html:4
 #: ecobasa/templates/userprofiles/registration.html:4
@@ -1777,7 +1813,10 @@ msgstr "Bus"
 msgid ""
 "You can also add a bus later, it would be great if you could ask around "
 "among your friends if they want to join us with their bus!"
-msgstr "Du kannst auch später einen Bus hinzufügen, es wäre super wenn du in deinem Bekanntenkreis herumfragen würdest ob sie uns ihren Bus leihen oder selbst mitfahren wollen!"
+msgstr ""
+"Du kannst auch später einen Bus hinzufügen, es wäre super wenn du in deinem "
+"Bekanntenkreis herumfragen würdest ob sie uns ihren Bus leihen oder selbst "
+"mitfahren wollen!"
 
 #: ecobasa/templates/ecobasa/pioneer_form.html:125
 #: ecobasa/templates/userprofiles/registration_member.html:125
@@ -1794,15 +1833,18 @@ msgid "Save profile"
 msgstr "Profil speichern"
 
 #: ecobasa/templates/ecobasa/pioneer_list.html:16
-msgid "User"
-msgstr "Benutzer"
+#, fuzzy
+msgid "Pioneer"
+msgstr "Pioniere"
 
 #: ecobasa/templates/ecobasa/pioneer_list.html:49
-msgid "There are no users yet, "
+#, fuzzy
+msgid "There are no pioneers registered yet, "
 msgstr "Es gibt noch keine Anmeldungen"
 
 #: ecobasa/templates/ecobasa/pioneer_list.html:49
-msgid "join now!"
+#, fuzzy
+msgid "join the tours now!"
 msgstr "Mach mit!"
 
 #: ecobasa/templates/userprofiles/registration.html:9
@@ -1812,6 +1854,14 @@ msgstr "Als Pionier der Schenkökonomie anmelden"
 #: ecobasa/templates/userprofiles/registration.html:14
 msgid "Join as your communities gift-economy ambassador"
 msgstr "Als Schenkökonomie Botschafter für deine Gemeinschaft anmelden"
+
+#: ecobasa/templates/userprofiles/registration_community.html:124
+msgid "Seeds"
+msgstr ""
+
+#: ecobasa/templates/userprofiles/registration_community.html:213
+msgid "More seeds"
+msgstr ""
 
 #: ecobasa/templates/userprofiles/registration_complete.html:8
 msgid "Welcome on board"
@@ -1824,18 +1874,25 @@ msgstr "und danke für's Mitmachen!"
 #: ecobasa/templates/userprofiles/registration_complete.html:12
 msgid ""
 "You are now a full part of our team! We need your help to organise this tour."
-msgstr "Du bist jetzt vollwertiges Mitglied unseres Teams! We brauchen deine Hilfe um diese Tour zu Organisieren."
+msgstr ""
+"Du bist jetzt vollwertiges Mitglied unseres Teams! We brauchen deine Hilfe "
+"um diese Tour zu Organisieren."
 
 #: ecobasa/templates/userprofiles/registration_complete.html:13
 msgid ""
 "You can contact communities that you know or that you would like to visit "
 "and tell them to sign up on this website, so we have their information."
-msgstr "Du kannst Gemeinschaften kontaktieren die du kennst oder die du gerne besuchen würdest."
-"Sag ihnen sie sollen sich auf dieser Webseite anmelden, damit wir wissen was sie brauchen und wir ihre Informationen haben für die Organisation."
+msgstr ""
+"Du kannst Gemeinschaften kontaktieren die du kennst oder die du gerne "
+"besuchen würdest.Sag ihnen sie sollen sich auf dieser Webseite anmelden, "
+"damit wir wissen was sie brauchen und wir ihre Informationen haben für die "
+"Organisation."
 
 #: ecobasa/templates/userprofiles/registration_complete.html:14
 msgid "Then we can send them the experts and resources they wish for."
-msgstr "Dann können wir ihnen die Experten und Ressources schicken die sie sich wünschen."
+msgstr ""
+"Dann können wir ihnen die Experten und Ressources schicken die sie sich "
+"wünschen."
 
 #: ecobasa/templates/userprofiles/registration_complete.html:15
 msgid "We will contact you soon for any news and meetups!"
@@ -1844,3 +1901,12 @@ msgstr "Du wirst bald von uns hören wegen Neuigkeiten und Treffen!"
 #: ecobasa/templates/userprofiles/registration_complete.html:16
 msgid "See you soon, the rest of the Community Tours team."
 msgstr "Bis bald, der Rest des Community-Tours Teams."
+
+#~ msgid "do you need seeds?"
+#~ msgstr "braucht ihr Samen?"
+
+#~ msgid "There are no groups."
+#~ msgstr "Es gibt noch keine Gemeinschaften"
+
+#~ msgid "User"
+#~ msgstr "Benutzer"
