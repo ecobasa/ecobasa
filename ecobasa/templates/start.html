@@ -19,7 +19,7 @@
           {% placeholder description %}
     		</div>
     		<div class="col-xs-6">
-    			<h2>Communities that want to be visited</h2>
+    			<h2>{% trans "Communities that want to be visited" %}</h2>
     			<div id="community-map" class="community-map-middle"></div>
     		</div>
     	</div>
@@ -33,10 +33,10 @@
     		</div>
         <div class="row">
           <div class="col-xs-6">
-            <a href="{% url 'register-community' %}" class="register btn btn-primary btn-lg">Register as an ambassador</a>
+            <a href="{% url 'register-community' %}" class="register btn btn-primary btn-lg">{% trans "Register as an ambassador" %}</a>
           </div>
           <div class="col-xs-6">
-            <a href="{% url 'register-member' %}" class="register btn btn-primary btn-lg">Register as a participant</a>
+            <a href="{% url 'register-member' %}" class="register btn btn-primary btn-lg">{% trans "Register as a participant" %}</a>
           </div>
         </div>
     </div>
