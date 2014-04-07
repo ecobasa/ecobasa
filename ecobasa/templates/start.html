@@ -26,13 +26,19 @@
     		<div class="row">
     			<div class="col-xs-6">
             {% placeholder register_community %}
-            <a href="{% url 'register-community' %}" class="register btn btn-primary btn-lg">Register as an ambassador</a>
     			</div>
     			<div class="col-xs-6">
             {% placeholder register_individual %}
-          <a href="{% url 'register-member' %}" class="register btn btn-primary btn-lg">Register as a participant</a>
     			</div>
     		</div>
+        <div class="row">
+          <div class="col-xs-6">
+            <a href="{% url 'register-community' %}" class="register btn btn-primary btn-lg">Register as an ambassador</a>
+          </div>
+          <div class="col-xs-6">
+            <a href="{% url 'register-member' %}" class="register btn btn-primary btn-lg">Register as a participant</a>
+          </div>
+        </div>
     </div>
   </div>
 
