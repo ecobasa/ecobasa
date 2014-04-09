@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-09 11:32+0200\n"
+"POT-Creation-Date: 2014-04-09 15:28+0200\n"
 "PO-Revision-Date: 2014-04-05 09:00+0200\n"
 "Last-Translator: Sebastian Henschel <ecobasa@kodeaffe.de\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1205,7 +1205,7 @@ msgstr "Mitgliederstatus"
 
 #: models.py:529
 msgid "seeds"
-msgstr ""
+msgstr "samen"
 
 #: models.py:533
 #, fuzzy
@@ -1222,11 +1222,12 @@ msgstr "Gemeinschaften die besucht werden wollen"
 
 #: templates/start.html:36
 msgid "Register as an ambassador"
-msgstr ""
+msgstr "Als Botschafter anmelden"
 
 #: templates/start.html:39
-msgid "Register as a participant"
-msgstr ""
+#, fuzzy
+msgid "Register as a pioneer"
+msgstr "Als Pionier anmelden"
 
 #: templates/cosinnus/topmenu.html:5
 msgid "Toggle navigation"
@@ -1293,7 +1294,7 @@ msgstr "Pionier-Profil: %(name)s"
 
 #: templates/cosinnus/userprofile_detail.html:11
 msgid "Edit your profile"
-msgstr ""
+msgstr "Profil bearbeiten"
 
 #: templates/cosinnus/userprofile_detail.html:12
 #: templates/ecobasa/pioneer_detail.html:12
@@ -1520,11 +1521,11 @@ msgstr "Status"
 #: templates/ecobasa/community_list.html:67
 #, fuzzy
 msgid "There are no communities, yet."
-msgstr "Es gibt noch keine Busse!"
+msgstr "Es haben sich noch keine Gemeinschaften angemeldet!"
 
 #: templates/ecobasa/community_list.html:67
 msgid "Register as a gift-economy ambassador for your community</a>"
-msgstr ""
+msgstr "Melde dich als Schenkökonomie Botschafter für deine Gemeinschaft an"
 
 #: templates/ecobasa/pioneer_form.html:4
 #: templates/userprofiles/registration.html:4
@@ -1574,6 +1575,10 @@ msgstr "NEIN, Registrieren"
 msgid "Save profile"
 msgstr "Profil"
 
+#: templates/ecobasa/pioneer_list.html:7
+msgid "The gift-economy pioneers, taking part in the first Community-Tour"
+msgstr "Die Schenkökonomie Pioniere, die an der ersten Community-Tour teilnehmen"
+
 #: templates/ecobasa/pioneer_list.html:16
 #, fuzzy
 msgid "Pioneer"
@@ -1582,7 +1587,7 @@ msgstr "Pioniere"
 #: templates/ecobasa/pioneer_list.html:49
 #, fuzzy
 msgid "There are no pioneers registered yet, "
-msgstr "Es gibt noch keine Nutzer, "
+msgstr "Es gibt noch keine Pioniere, die sich angemeldet haben, "
 
 #: templates/ecobasa/pioneer_list.html:49
 #, fuzzy
@@ -1599,11 +1604,11 @@ msgstr "Als Schenkökonomie Botschafter für deine Gemeinschaft anmelden"
 
 #: templates/userprofiles/registration_community.html:124
 msgid "Seeds"
-msgstr ""
+msgstr "Saatgut"
 
 #: templates/userprofiles/registration_community.html:213
 msgid "More seeds"
-msgstr ""
+msgstr "Mehr Saatgut"
 
 #: templates/userprofiles/registration_complete.html:8
 msgid "Welcome on board"
