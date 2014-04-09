@@ -12,4 +12,4 @@ def get_community_locations():
     qs = EcobasaCommunityProfile.objects.all()
     return [{
         'lat': c.contact_lat, 'lon': c.contact_lon, 'name': c.name, 'slug': c.group.slug
-    } for c in qs]
+    } for c in qs if c.contact_lat and c.contact_lon]
