@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-09 15:34+0200\n"
+"POT-Creation-Date: 2014-04-09 15:41+0200\n"
 "PO-Revision-Date: 2014-04-05 09:00+0200\n"
 "Last-Translator: Sebastian Henschel <ecobasa@kodeaffe.de\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1227,9 +1227,13 @@ msgstr "Als Botschafter anmelden"
 msgid "Register as a pioneer"
 msgstr "Als Pionier anmelden"
 
-#: templates/cosinnus/base.html:39
+#: templates/cosinnus/base.html:40
 msgid "Our Partnernetwork"
 msgstr "Unser Partnernetzwerk"
+
+#: templates/cosinnus/brand.html:2
+msgid "Community-Tours: A Gift Economy Experience"
+msgstr "Community-Tours: Eine Schenkökonomie Erfahrung"
 
 #: templates/cosinnus/topmenu.html:5
 msgid "Toggle navigation"
