@@ -54,7 +54,7 @@
   $(function() {
     EcobasaMap.init('community-map');
     {% for l in locations %}
-    EcobasaMap.addMarker({{ l.lat}}, {{ l.lon }}, '<a href="{% url 'community-detail' group=l.slug %}">{{ l.name }}</a>');
+    EcobasaMap.addMarker({{ l.lat|escapejs }}, {{ l.lon|escapejs }}, '<a href="{% url 'community-detail' group=l.slug %}">{{ l.name }}</a>');
     {% endfor %}
   });
   </script>
