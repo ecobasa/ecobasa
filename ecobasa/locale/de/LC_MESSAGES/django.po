@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-09 15:28+0200\n"
+"POT-Creation-Date: 2014-04-09 15:34+0200\n"
 "PO-Revision-Date: 2014-04-05 09:00+0200\n"
 "Last-Translator: Sebastian Henschel <ecobasa@kodeaffe.de\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1227,6 +1227,10 @@ msgstr "Als Botschafter anmelden"
 msgid "Register as a pioneer"
 msgstr "Als Pionier anmelden"
 
+#: templates/cosinnus/base.html:39
+msgid "Our Partnernetwork"
+msgstr "Unser Partnernetzwerk"
+
 #: templates/cosinnus/topmenu.html:5
 msgid "Toggle navigation"
 msgstr "Navigation umschalten"
@@ -1573,7 +1577,8 @@ msgstr "Profil speichern"
 
 #: templates/ecobasa/pioneer_list.html:7
 msgid "The gift-economy pioneers, taking part in the first Community-Tour"
-msgstr "Die Schenkökonomie Pioniere, die an der ersten Community-Tour teilnehmen"
+msgstr ""
+"Die Schenkökonomie Pioniere, die an der ersten Community-Tour teilnehmen"
 
 #: templates/ecobasa/pioneer_list.html:16
 msgid "Pioneer"
