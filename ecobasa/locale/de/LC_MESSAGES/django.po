@@ -1208,9 +1208,8 @@ msgid "seeds"
 msgstr "samen"
 
 #: models.py:533
-#, fuzzy
 msgid "what kind of seeds?"
-msgstr "Was für Materialien braucht ihr?"
+msgstr "Was für Saatgut?"
 
 #: models.py:534
 msgid "how many?"
@@ -1225,7 +1224,6 @@ msgid "Register as an ambassador"
 msgstr "Als Botschafter anmelden"
 
 #: templates/start.html:39
-#, fuzzy
 msgid "Register as a pioneer"
 msgstr "Als Pionier anmelden"
 
@@ -1519,7 +1517,6 @@ msgid "Status"
 msgstr "Status"
 
 #: templates/ecobasa/community_list.html:67
-#, fuzzy
 msgid "There are no communities, yet."
 msgstr "Es haben sich noch keine Gemeinschaften angemeldet!"
 
@@ -1571,26 +1568,22 @@ msgid "NO, Register"
 msgstr "NEIN, Registrieren"
 
 #: templates/ecobasa/pioneer_form.html:175
-#, fuzzy
 msgid "Save profile"
-msgstr "Profil"
+msgstr "Profil speichern"
 
 #: templates/ecobasa/pioneer_list.html:7
 msgid "The gift-economy pioneers, taking part in the first Community-Tour"
 msgstr "Die Schenkökonomie Pioniere, die an der ersten Community-Tour teilnehmen"
 
 #: templates/ecobasa/pioneer_list.html:16
-#, fuzzy
 msgid "Pioneer"
-msgstr "Pioniere"
+msgstr "Pionier"
 
 #: templates/ecobasa/pioneer_list.html:49
-#, fuzzy
 msgid "There are no pioneers registered yet, "
 msgstr "Es gibt noch keine Pioniere, die sich angemeldet haben, "
 
 #: templates/ecobasa/pioneer_list.html:49
-#, fuzzy
 msgid "join the tours now!"
 msgstr "melde dich jetzt an!"
 
