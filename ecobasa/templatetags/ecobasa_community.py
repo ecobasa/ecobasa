@@ -9,7 +9,14 @@ register = template.Library()
 
 @register.assignment_tag
 def get_community_locations():
-    qs = EcobasaCommunityProfile.objects.all()
-    return [{
-        'lat': c.contact_lat, 'lon': c.contact_lon, 'name': c.name, 'slug': c.group.slug
-    } for c in qs if c.contact_lat and c.contact_lon]
+    def mkloc(community):
+        return {
+            'lat': community.contact_lat,
+            'lon': community.contact_lon,
+            'name': community.name,
+            'slug': community.group.slug,
+        }
+
+    qs = EcobasaCommunityProfile.objects.all().select_related('group')
+    locations = [mkloc(c) for c in qs if c.contact_lat and c.contact_lon]
+    return locations
