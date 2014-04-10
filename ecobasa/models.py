@@ -532,4 +532,3 @@ class EcobasaCommunityProfileSeed(models.Model):
     )
     kind = models.TextField(_('what kind of seeds?'), blank=True, null=True)
     num = models.PositiveIntegerField(_('how many?'), blank=True, default=0)
-

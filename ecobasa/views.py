@@ -60,10 +60,10 @@ class PioneerListView(UserListView):
     template_name = 'ecobasa/pioneer_list.html'
 
     def get_queryset(self):
-       users = super(PioneerListView, self).get_queryset()
-       pioneers = users.exclude(cosinnus_memberships__status=MEMBERSHIP_ADMIN)
-       pioneers = pioneers.exclude(is_superuser=True, is_staff=True)
-       return pioneers
+        users = super(PioneerListView, self).get_queryset()
+        pioneers = users.exclude(cosinnus_memberships__status=MEMBERSHIP_ADMIN)
+        pioneers = pioneers.exclude(is_superuser=True, is_staff=True)
+        return pioneers
 
 pioneer_list = PioneerListView.as_view()
 
@@ -92,7 +92,6 @@ class PioneerUpdateView(UserProfileUpdateView):
         return reverse('pioneer-detail')
 
 pioneer_update = PioneerUpdateView.as_view()
-
 
 
 class BusListView(UserListView):

@@ -1,8 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-import datetime
-from haystack.indexes import BasicSearchIndex, Indexable, CharField, BooleanField
+from haystack.indexes import BasicSearchIndex, Indexable
 
 from .models import EcobasaCommunityProfile
 
