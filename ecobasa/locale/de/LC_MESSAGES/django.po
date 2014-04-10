@@ -1,15 +1,14 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# German translations for ecobasa
+# Copyright (C) 2014
+# This file is distributed under the same license as the ecobasa package.
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-09 15:41+0200\n"
-"PO-Revision-Date: 2014-04-05 09:00+0200\n"
+"POT-Creation-Date: 2014-04-10 16:57+0200\n"
+"PO-Revision-Date: 2014-04-10 17:05+0200\n"
 "Last-Translator: Sebastian Henschel <ecobasa@kodeaffe.de\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: de\n"
@@ -1205,7 +1204,7 @@ msgstr "Mitgliederstatus"
 
 #: models.py:529
 msgid "seeds"
-msgstr "samen"
+msgstr "Samen"
 
 #: models.py:533
 msgid "what kind of seeds?"
@@ -1308,9 +1307,9 @@ msgid "a gift-economy pioneer"
 msgstr "ein Pionier der Schenkökonomie"
 
 #: templates/cosinnus/userprofile_detail.html:21
-#: templates/ecobasa/community_list.html:34
+#: templates/ecobasa/community_list.html:35
 #: templates/ecobasa/pioneer_detail.html:21
-#: templates/ecobasa/pioneer_list.html:17
+#: templates/ecobasa/pioneer_list.html:24
 msgid "Skills"
 msgstr "Fertigkeiten"
 
@@ -1331,7 +1330,7 @@ msgstr "\"Geschlecht\""
 
 #: templates/cosinnus/userprofile_detail.html:77
 #: templates/ecobasa/bus_list.html:16 templates/ecobasa/pioneer_detail.html:77
-#: templates/ecobasa/pioneer_list.html:18
+#: templates/ecobasa/pioneer_list.html:25
 msgid "Bus"
 msgstr "Bus"
 
@@ -1449,7 +1448,7 @@ msgid "Users"
 msgstr "Nutzer"
 
 #: templates/ecobasa/community_detail.html:32
-#: templates/ecobasa/pioneer_list.html:9
+#: templates/ecobasa/pioneer_list.html:16
 msgid "Add user"
 msgstr "Nutzer hinzufügen"
 
@@ -1507,28 +1506,28 @@ msgstr "Basis-Info"
 msgid "Register"
 msgstr "Registrieren"
 
-#: templates/ecobasa/community_list.html:30
+#: templates/ecobasa/community_list.html:31
 msgid "Community name"
 msgstr "Name der Gemeinschaft"
 
-#: templates/ecobasa/community_list.html:31
+#: templates/ecobasa/community_list.html:32
 msgid "Size"
 msgstr "Grösse"
 
-#: templates/ecobasa/community_list.html:32
-#: templates/ecobasa/pioneer_list.html:19
+#: templates/ecobasa/community_list.html:33
+#: templates/ecobasa/pioneer_list.html:26
 msgid "Country"
 msgstr "Land"
 
-#: templates/ecobasa/community_list.html:33
+#: templates/ecobasa/community_list.html:34
 msgid "Status"
 msgstr "Status"
 
-#: templates/ecobasa/community_list.html:67
+#: templates/ecobasa/community_list.html:68
 msgid "There are no communities, yet."
 msgstr "Es haben sich noch keine Gemeinschaften angemeldet!"
 
-#: templates/ecobasa/community_list.html:67
+#: templates/ecobasa/community_list.html:68
 msgid "Register as a gift-economy ambassador for your community</a>"
 msgstr "Melde dich als Schenkökonomie Botschafter für deine Gemeinschaft an"
 
@@ -1579,22 +1578,62 @@ msgstr "NEIN, Registrieren"
 msgid "Save profile"
 msgstr "Profil speichern"
 
-#: templates/ecobasa/pioneer_list.html:7
+#: templates/ecobasa/pioneer_list.html:14
 msgid "The gift-economy pioneers, taking part in the first Community-Tour"
 msgstr ""
 "Die Schenkökonomie Pioniere, die an der ersten Community-Tour teilnehmen"
 
-#: templates/ecobasa/pioneer_list.html:16
+#: templates/ecobasa/pioneer_list.html:23
 msgid "Pioneer"
 msgstr "Pionier"
 
-#: templates/ecobasa/pioneer_list.html:49
+#: templates/ecobasa/pioneer_list.html:56
 msgid "There are no pioneers registered yet, "
 msgstr "Es gibt noch keine Pioniere, die sich angemeldet haben, "
 
-#: templates/ecobasa/pioneer_list.html:49
+#: templates/ecobasa/pioneer_list.html:56
 msgid "join the tours now!"
 msgstr "melde dich jetzt an!"
+
+#: templates/search/search.html:5 templates/search/search.html.py:9
+msgid "Find communities"
+msgstr "Finde Gemeinschaften"
+
+#: templates/search/search.html:13
+msgid "Enter search term"
+msgstr "Suchbegriff eingeben"
+
+#: templates/search/search.html:15
+msgid "Find"
+msgstr "Finde"
+
+#: templates/search/search.html:21
+#, python-format
+msgid ""
+"\n"
+"        %(num)s result for \"%(query)s\".\n"
+"        "
+msgid_plural ""
+"\n"
+"        %(num)s results for \"%(query)s\".\n"
+"      "
+msgstr[0] ""
+"\n"
+"        %(num)s Ergebnis für \"%(query)s\".\n"
+"        "
+msgstr[1] ""
+"\n"
+"        %(num)s Ergebnisse für \"%(query)s\".\n"
+"        "
+
+#: templates/search/search.html:28
+#, python-format
+msgid "No results found for \"%(query)s\"."
+msgstr "Keine Ergebnisse für \"%(query)s\" gefunden."
+
+#: templates/search/search.html:30
+msgid "No search term given!"
+msgstr "Kein Suchbegriff angegeben!"
 
 #: templates/userprofiles/registration.html:9
 msgid "Join as a gift-economy pioneer"
@@ -1649,12 +1688,3 @@ msgstr "Wir werden dich bald bzgl. Neuigkeiten und Treffen kontaktieren!"
 #: templates/userprofiles/registration_complete.html:16
 msgid "See you soon, the rest of the Community Tours team."
 msgstr "Bis bald, der Rest des Community-Tours Teams."
-
-#~ msgid "do you need seeds?"
-#~ msgstr "Braucht ihr Samen?"
-
-#~ msgid "There are no groups."
-#~ msgstr "Es gibt keine Gruppen"
-
-#~ msgid "User"
-#~ msgstr "Nutzer"

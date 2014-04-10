@@ -31,6 +31,8 @@ urlpatterns = i18n_patterns('',
     url(r'^buses/$', 'ecobasa.views.bus_list', name='bus-list'),
     url(r'^buses/add/$', 'ecobasa.views.bus_add', name='bus-add'),
 
+    (r'^find/$', include('haystack.urls')),
+
     # url(r'^skillshare/', include('skillshare.urls', namespace='skillshare')),
     # url(r'^references/', include('references.urls', namespace='references')),
 
