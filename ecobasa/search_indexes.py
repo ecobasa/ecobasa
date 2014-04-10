@@ -8,6 +8,9 @@ from .models import EcobasaCommunityProfile
 
 
 class EcobasaCommunityProfileIndex(BasicSearchIndex, Indexable):
+    address_fields = ['contact_telephone', 'contact_street',
+        'contact_zipcode', 'contact_city', 'contact_country']
+
     def get_model(self):
         return EcobasaCommunityProfile
 
@@ -26,9 +29,7 @@ class EcobasaCommunityProfileIndex(BasicSearchIndex, Indexable):
         text = self.prepared_data['text']
 
         if not obj.contact_show:
-            address_fields = ['contact_telephone', 'contact_street',
-                'contact_zipcode', 'contact_city', 'contact_country']
-            for field in address_fields:
+            for field in self.address_fields:
                 value = getattr(obj, field)
                 if value:
                     text = text.replace(value, '')
