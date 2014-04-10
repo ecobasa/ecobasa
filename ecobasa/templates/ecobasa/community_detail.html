@@ -201,9 +201,11 @@
 
   $(function() {
     EcobasaMap.init('community-map');
-    var location = new L.LatLng({{ profile.contact_lat }}, {{ profile.contact_lon }});
-    EcobasaMap.addMarker({{ profile.contact_lat }}, {{ profile.contact_lon }}, "{{ object.name }}");
+    {% with lat=profile.contact_lat|escapejs lon=profile.contact_lon|escapejs %}
+    var location = new L.LatLng({{ lat }}, {{ lon }});
+    EcobasaMap.addMarker({{ lat }}, {{ lon }}, "{{ object.name }}");
     EcobasaMap.map.setView(location, 10);
+    {% endwith %}
   });
   </script>
 {% endblock extrafooter %}
