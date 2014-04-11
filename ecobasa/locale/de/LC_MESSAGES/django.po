@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-09 15:41+0200\n"
+"POT-Creation-Date: 2014-04-11 16:15+0200\n"
 "PO-Revision-Date: 2014-04-05 09:00+0200\n"
 "Last-Translator: Sebastian Henschel <ecobasa@kodeaffe.de\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1308,9 +1308,9 @@ msgid "a gift-economy pioneer"
 msgstr "ein Pionier der Schenkökonomie"
 
 #: templates/cosinnus/userprofile_detail.html:21
-#: templates/ecobasa/community_list.html:34
+#: templates/ecobasa/community_list.html:35
 #: templates/ecobasa/pioneer_detail.html:21
-#: templates/ecobasa/pioneer_list.html:17
+#: templates/ecobasa/pioneer_list.html:24
 msgid "Skills"
 msgstr "Fertigkeiten"
 
@@ -1331,7 +1331,7 @@ msgstr "\"Geschlecht\""
 
 #: templates/cosinnus/userprofile_detail.html:77
 #: templates/ecobasa/bus_list.html:16 templates/ecobasa/pioneer_detail.html:77
-#: templates/ecobasa/pioneer_list.html:18
+#: templates/ecobasa/pioneer_list.html:25
 msgid "Bus"
 msgstr "Bus"
 
@@ -1449,7 +1449,7 @@ msgid "Users"
 msgstr "Nutzer"
 
 #: templates/ecobasa/community_detail.html:32
-#: templates/ecobasa/pioneer_list.html:9
+#: templates/ecobasa/pioneer_list.html:16
 msgid "Add user"
 msgstr "Nutzer hinzufügen"
 
@@ -1507,28 +1507,40 @@ msgstr "Basis-Info"
 msgid "Register"
 msgstr "Registrieren"
 
-#: templates/ecobasa/community_list.html:30
+#: templates/ecobasa/community_list.html:15
+msgid "Map"
+msgstr "Karte"
+
+#: templates/ecobasa/community_list.html:16
+msgid "List"
+msgstr "Liste"
+
+#: templates/ecobasa/community_list.html:24
+msgid "Community List"
+msgstr "Gemeinschafts-Liste"
+
+#: templates/ecobasa/community_list.html:31
 msgid "Community name"
 msgstr "Name der Gemeinschaft"
 
-#: templates/ecobasa/community_list.html:31
+#: templates/ecobasa/community_list.html:32
 msgid "Size"
 msgstr "Grösse"
 
-#: templates/ecobasa/community_list.html:32
-#: templates/ecobasa/pioneer_list.html:19
+#: templates/ecobasa/community_list.html:33
+#: templates/ecobasa/pioneer_list.html:26
 msgid "Country"
 msgstr "Land"
 
-#: templates/ecobasa/community_list.html:33
+#: templates/ecobasa/community_list.html:34
 msgid "Status"
 msgstr "Status"
 
-#: templates/ecobasa/community_list.html:67
+#: templates/ecobasa/community_list.html:68
 msgid "There are no communities, yet."
 msgstr "Es haben sich noch keine Gemeinschaften angemeldet!"
 
-#: templates/ecobasa/community_list.html:67
+#: templates/ecobasa/community_list.html:68
 msgid "Register as a gift-economy ambassador for your community</a>"
 msgstr "Melde dich als Schenkökonomie Botschafter für deine Gemeinschaft an"
 
@@ -1579,20 +1591,20 @@ msgstr "NEIN, Registrieren"
 msgid "Save profile"
 msgstr "Profil speichern"
 
-#: templates/ecobasa/pioneer_list.html:7
+#: templates/ecobasa/pioneer_list.html:14
 msgid "The gift-economy pioneers, taking part in the first Community-Tour"
 msgstr ""
 "Die Schenkökonomie Pioniere, die an der ersten Community-Tour teilnehmen"
 
-#: templates/ecobasa/pioneer_list.html:16
+#: templates/ecobasa/pioneer_list.html:23
 msgid "Pioneer"
 msgstr "Pionier"
 
-#: templates/ecobasa/pioneer_list.html:49
+#: templates/ecobasa/pioneer_list.html:56
 msgid "There are no pioneers registered yet, "
 msgstr "Es gibt noch keine Pioniere, die sich angemeldet haben, "
 
-#: templates/ecobasa/pioneer_list.html:49
+#: templates/ecobasa/pioneer_list.html:56
 msgid "join the tours now!"
 msgstr "melde dich jetzt an!"
 
