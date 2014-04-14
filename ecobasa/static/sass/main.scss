@@ -67,7 +67,6 @@ h2 {
 	margin-bottom: 0px;
 	border-radius: 0px;
 	border: none;
-	height: 60px;
 	padding-top: 5px;
 }
 
@@ -81,14 +80,14 @@ h2 {
 		}
 		h2 {
 			font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
-			font-size: 17px;
+			font-size: 16px;
 		}
 	}
 }
 
 .navbar-default .navbar-brand {
 	background: url('../img/community-tours_logo_small.png') no-repeat left top;
-	background-size: 18%;
+	background-size: 55px 52px;
 	margin-left: 20px;
 	padding-left: 66px;
 	padding-top: 4px;
@@ -97,6 +96,7 @@ h2 {
 
 .navbar-default ul.navbar-nav {
 	float: right;
+	margin-top: 2px;
 	&>li>a {
 		color: $secondary;
 	}
