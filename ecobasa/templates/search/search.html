@@ -37,8 +37,8 @@
       {% with result.object as obj %}
       <li>
         {% ifequal result.model_name 'ecobasacommunityprofile' %}
-          <a href="{% url 'community-detail' group=obj.group.slug %}">{{ obj.name }}</a>
-          <div class="well">{{ obj.basic_brings_together }}</div>
+          <a href="{% url 'community-detail' group=result.slug %}">{{ result.name }}</a>
+          <div class="well">{{ result.basic_brings_together }}</div>
         {% endifequal %}
       </li>
       {% endwith %}

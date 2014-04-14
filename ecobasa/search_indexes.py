@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from haystack.indexes import BasicSearchIndex, Indexable
+from haystack.indexes import BasicSearchIndex, Indexable, CharField
 
 from .models import EcobasaCommunityProfile
 
@@ -9,6 +9,9 @@ from .models import EcobasaCommunityProfile
 class EcobasaCommunityProfileIndex(BasicSearchIndex, Indexable):
     address_fields = ['contact_telephone', 'contact_street',
         'contact_zipcode', 'contact_city', 'contact_country']
+    name = CharField(model_attr='name')
+    slug = CharField(model_attr='group__slug')
+    basic_brings_together = CharField(model_attr='basic_brings_together', null=True)
 
     def get_model(self):
         return EcobasaCommunityProfile
