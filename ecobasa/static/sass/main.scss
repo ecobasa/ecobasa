@@ -36,8 +36,8 @@ a {
 }
 
 h1, h2, h3, h4, h5, h6 {
-	margin-top: 40px;
-	margin-bottom: 20px;
+	margin-top: 50px;
+	margin-bottom: 30px;
 	font-family: 'archistico', Courier, serif;
 	color: $primary;
 }
@@ -71,11 +71,27 @@ h2 {
 	padding-top: 5px;
 }
 
+.header {
+	.navbar-brand {
+		h1, h2 {
+			color: $secondary;
+			font-size: 20px;
+			margin-top: 0px;
+			margin-bottom: 0px;
+		}
+		h2 {
+			font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+			font-size: 17px;
+		}
+	}
+}
+
 .navbar-default .navbar-brand {
-	background: url('../img/community-tours_logo_small.png') no-repeat left;
-	background-size: 10%;
+	background: url('../img/community-tours_logo_small.png') no-repeat left top;
+	background-size: 18%;
 	margin-left: 20px;
-	padding-left: 60px;
+	padding-left: 66px;
+	padding-top: 4px;
 	color: $secondary;
 }
 
