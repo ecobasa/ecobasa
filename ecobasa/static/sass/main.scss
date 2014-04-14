@@ -2,45 +2,60 @@ $primary: #da6137;
 $secondary: #f4ede3;
 $third: #b4502c;
 
+@font-face {
+    font-family: 'archistico';
+    src: url('../fonts/Archistico_Simple-webfont.eot');
+    src: url('../fonts/Archistico_Simple-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Archistico_Simple-webfont.woff') format('woff'),
+         url('../fonts/Archistico_Simple-webfont.ttf') format('truetype'),
+         url('../fonts/Archistico_Simple-webfont.svg#archisticonormal') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
 /*********** Default **************/
 
 body {
-	background: #f4ede3;
+	background: $secondary;
 }
 
-body>.container {
+body > .container {
 	padding-top: 20px;
 }
 
 .btn-primary {
-	background-color: #da6137;
-	border-color: #b4502c;
-	color: #f4ede3;
+	background-color: $primary;
+	border-color: $third;
+	color: $secondary;
 }
 
 a {
-	color: #da6137
+	color: $primary;
 }
 
 h1, h2, h3, h4, h5, h6 {
 	margin-top: 40px;
 	margin-bottom: 20px;
+	font-family: 'archistico', Courier, serif;
+	color: $primary;
 }
 
 h2 {
-	font-size: 33px;
+	font-size: 30px;
 }
 
 .gradient {
 	-webkit-box-shadow: inset 0 5px 10px -5px rgba(0,0,0,0.4);
 	-moz-box-shadow: inset 0 5px 10px -5px rgba(0,0,0,0.4);
 	box-shadow: inset 0 5px 10px -5px rgba(0,0,0,0.4);
-	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#e5e5e5),color-stop(100%,#f4ede3));
-	background-image: -webkit-linear-gradient(top,#e5e5e5,#f4ede3);
-	background-image: -moz-linear-gradient(top,#e5e5e5,#f4ede3);
-	background-image: -ms-linear-gradient(top,#e5e5e5,#f4ede3);
-	background-image: -o-linear-gradient(top,#e5e5e5,#f4ede3);
-	background-image: linear-gradient(top,#e5e5e5,#f4ede3);
+	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#e5e5e5),color-stop(100%, $secondary));
+	background-image: -webkit-linear-gradient(top,#e5e5e5, $secondary);
+	background-image: -moz-linear-gradient(top,#e5e5e5, $secondary);
+	background-image: -ms-linear-gradient(top,#e5e5e5, $secondary);
+	background-image: -o-linear-gradient(top,#e5e5e5, $secondary);
+	background-image: linear-gradient(top,#e5e5e5, $secondary);
 	background-size: 100% 52px;
 	background-repeat: no-repeat;
 }
@@ -48,7 +63,7 @@ h2 {
 /************ Header ****************/
 
 .header.navbar {
-	background-color: #da6137;
+	background-color: $primary;
 	margin-bottom: 0px;
 	border-radius: 0px;
 	border: none;
@@ -61,17 +76,17 @@ h2 {
 	background-size: 10%;
 	margin-left: 20px;
 	padding-left: 60px;
-	color: #f4ede3;
+	color: $secondary;
 }
 
 .navbar-default ul.navbar-nav {
 	float: right;
 	&>li>a {
-		color: #f4ede3;
+		color: $secondary;
 	}
 	.dropdown>a .caret {
-		border-top-color: #f4ede3;
-		border-bottom-color: #f4ede3;
+		border-top-color: $secondary;
+		border-bottom-color: $secondary;
 	}
 }
 
@@ -94,7 +109,7 @@ body#start > .container {
 /*************** Slider *****************/
 
 .carousel-caption {
-	color: #f4ede3;
+	color: $secondary;
 	text-align: left;
 	width: 580px;
 }
@@ -201,10 +216,10 @@ a[data-toggle=tooltip] {
 }
 
 .navbar.navbar-default.registration {
-	background-color: #b4502c;
+	background-color: $third;
 	.navbar-nav>.active>a {
 		color: #555;
-		background-color: #da6137;
+		background-color: $primary;
 	}
 }
 

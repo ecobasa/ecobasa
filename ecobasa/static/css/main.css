@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'archistico';
+  src: url("../fonts/Archistico_Simple-webfont.eot");
+  src: url("../fonts/Archistico_Simple-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/Archistico_Simple-webfont.woff") format("woff"), url("../fonts/Archistico_Simple-webfont.ttf") format("truetype"), url("../fonts/Archistico_Simple-webfont.svg#archisticonormal") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
 /*********** Default **************/
 body {
   background: #f4ede3;
@@ -20,10 +28,12 @@ a {
 h1, h2, h3, h4, h5, h6 {
   margin-top: 40px;
   margin-bottom: 20px;
+  font-family: 'archistico', Courier, serif;
+  color: #da6137;
 }
 
 h2 {
-  font-size: 33px;
+  font-size: 30px;
 }
 
 .gradient {
