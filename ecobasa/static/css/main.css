@@ -1,7 +1,7 @@
 @font-face {
   font-family: 'archistico';
-  src: url("../fonts/Archistico_Simple-webfont.eot");
-  src: url("../fonts/Archistico_Simple-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/Archistico_Simple-webfont.woff") format("woff"), url("../fonts/Archistico_Simple-webfont.ttf") format("truetype"), url("../fonts/Archistico_Simple-webfont.svg#archisticonormal") format("svg");
+  src: url("../fonts/Archistico_Bold-webfont.eot");
+  src: url("../fonts/Archistico_Bold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/Archistico_Bold-webfont.woff") format("woff"), url("../fonts/Archistico_Bold-webfont.ttf") format("truetype"), url("../fonts/Archistico_Bold-webfont.svg#archisticonormal") format("svg");
   font-weight: normal;
   font-style: normal;
 }
