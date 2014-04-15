@@ -4,6 +4,7 @@ from __future__ import unicode_literals
 from django import forms
 from userprofiles.forms import RegistrationForm
 
+from cosinnus.forms.profile import UserProfileForm
 from cosinnus.forms.widgets import DateL10nPicker
 from cosinnus.models import (CosinnusGroup, CosinnusGroupMembership,
     MEMBERSHIP_ADMIN)
@@ -126,3 +127,9 @@ class RegistrationCommunityForm(RegistrationForm):
         for formset in formsets:
             if formset.is_valid():
                 formset.save()
+
+
+class PioneerProfileForm(UserProfileForm):
+       def __init__(self, *args, **kwargs):
+        super(PioneerProfileForm, self).__init__(*args, **kwargs)
+        self.fields['birth_date'].widget = DateL10nPicker()

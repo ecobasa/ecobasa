@@ -26,7 +26,7 @@ urlpatterns = i18n_patterns('',
 
     url(r'^pioneers/$', 'ecobasa.views.pioneer_list', name='pioneer-list'),
     url(r'^pioneers/(?P<username>[^/]+)/$', 'ecobasa.views.pioneer_detail', name='pioneer-detail'),
-    url(r'^pioneers/(?P<username>[^/]+)/edit/$', 'ecobasa.views.pioneer_update', name='pioneer-update'),
+    url(r'^pioneers/(?P<username>[^/]+)/edit/$', 'ecobasa.views.pioneer_update', name='pioneer-edit'),
 
     url(r'^buses/$', 'ecobasa.views.bus_list', name='bus-list'),
     url(r'^buses/add/$', 'ecobasa.views.bus_add', name='bus-add'),
