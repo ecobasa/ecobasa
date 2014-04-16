@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n thumbnail cms_tags static cosinnus_tags sekizai_tags ecobasa_community %}
+{% load i18n l10n thumbnail cms_tags static cosinnus_tags sekizai_tags ecobasa_community %}
 
 {% block extrahead %}
 {{ block.super }} 
@@ -54,7 +54,7 @@
   $(function() {
     EcobasaMap.init('community-map');
     {% for l in locations %}
-    EcobasaMap.addMarker({{ l.lat|escapejs }}, {{ l.lon|escapejs }}, '<a href="{% url 'community-detail' group=l.slug %}">{{ l.name }}</a>');
+    EcobasaMap.addMarker({{ l.lat|unlocalize }}, {{ l.lon|unlocalize }}, '<a href="{% url 'community-detail' group=l.slug %}">{{ l.name }}</a>');
     {% endfor %}
   });
   </script>
