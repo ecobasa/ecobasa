@@ -1,5 +1,5 @@
 {% extends "cosinnus/base.html" %}
-{% load i18n static cosinnus_tags thumbnail %}
+{% load i18n l10n static cosinnus_tags thumbnail %}
 
 {% block extrahead %}
 {{ block.super }} 
@@ -201,7 +201,7 @@
 
   $(function() {
     EcobasaMap.init('community-map');
-    {% with lat=profile.contact_lat|escapejs lon=profile.contact_lon|escapejs %}
+    {% with lat=profile.contact_lat|unlocalize lon=profile.contact_lon|unlocalize %}
     var location = new L.LatLng({{ lat }}, {{ lon }});
     EcobasaMap.addMarker({{ lat }}, {{ lon }}, "{{ object.name }}");
     EcobasaMap.map.setView(location, 10);
