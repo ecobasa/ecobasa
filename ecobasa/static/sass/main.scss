@@ -165,6 +165,8 @@ body#start > .container {
 
 #bus {
 	background: url('../img/bus.png') no-repeat center;
+	transition: 1s;
+    left: 0;
 	display: block;
 	width: 200px;
 	height: 179px;
