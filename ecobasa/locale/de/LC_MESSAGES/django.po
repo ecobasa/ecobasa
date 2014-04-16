@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-11 16:15+0200\n"
+"POT-Creation-Date: 2014-04-16 21:57+0200\n"
 "PO-Revision-Date: 2014-04-05 09:00+0200\n"
 "Last-Translator: Sebastian Henschel <ecobasa@kodeaffe.de\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1228,12 +1228,16 @@ msgid "Register as a pioneer"
 msgstr "Als Pionier anmelden"
 
 #: templates/cosinnus/base.html:40
-msgid "Our Partnernetwork"
+msgid "Our partner-network"
 msgstr "Unser Partnernetzwerk"
 
 #: templates/cosinnus/brand.html:2
-msgid "Community-Tours: A Gift Economy Experience"
-msgstr "Community-Tours: Eine Schenkökonomie Erfahrung"
+msgid "Community-Tours:"
+msgstr "Community-Tours:"
+
+#: templates/cosinnus/brand.html:2
+msgid "A Gift Economy Experience"
+msgstr "Eine Schenkökonomie Erfahrung"
 
 #: templates/cosinnus/topmenu.html:5
 msgid "Toggle navigation"
@@ -1593,8 +1597,7 @@ msgstr "Profil speichern"
 
 #: templates/ecobasa/pioneer_list.html:14
 msgid "The gift-economy pioneers, taking part in the first Community-Tour"
-msgstr ""
-"Die Schenkökonomie Pioniere, die an der ersten Community-Tour teilnehmen"
+msgstr "Die Schenkökonomie Pioniere, die an der ersten Community-Tour teilnehmen"
 
 #: templates/ecobasa/pioneer_list.html:23
 msgid "Pioneer"
@@ -1636,8 +1639,7 @@ msgstr "und danke für's Beitreten!"
 msgid ""
 "You are now a full part of our team! We need your help to organise this tour."
 msgstr ""
-"Du bist jetzt ein vollwertiges Mitglied unseres Teams! Wir brauchen deine "
-"Hilfe diese Tour zu organisieren."
+"Du bist jetzt ein vollwertiges Mitglied unseres Teams! Wir brauchen deine Hilfe diese Tour zu organisieren."
 
 #: templates/userprofiles/registration_complete.html:13
 msgid ""
