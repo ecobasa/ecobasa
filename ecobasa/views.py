@@ -12,13 +12,13 @@ from django.utils.translation import ugettext_lazy as _
 from django.views.generic import DetailView, UpdateView
 from cosinnus.models import CosinnusGroup
 from cosinnus.models.group import MEMBERSHIP_ADMIN
-from cosinnus.views.group import GroupListView, GroupUpdateView
+from cosinnus.views.group import GroupListView
 from cosinnus.views.user import UserListView, USER_MODEL
 from cosinnus.views.profile import UserProfileUpdateView
 from cosinnus.views.widget import DashboardMixin
 from userprofiles.views import RegistrationView
 
-from .forms import (PioneerProfileForm,
+from .forms import (CommunityProfileForm, PioneerProfileForm,
     RegistrationMemberForm, RegistrationCommunityForm)
 
 
@@ -56,8 +56,37 @@ class CommunityListView(GroupListView):
 community_list = CommunityListView.as_view()
 
 
-class CommunityUpdateView(GroupUpdateView):
+class CommunityUpdateView(UpdateView):
     template_name = 'ecobasa/community_form.html'
+    form_class = CommunityProfileForm
+
+    def dispatch(self, *args, **kwargs):
+        group = get_object_or_404(CosinnusGroup, slug=self.kwargs['group'])
+        user = self.request.user
+        if user.is_superuser or group.is_admin(user):
+            self.group = group
+            return super(CommunityUpdateView, self).dispatch(*args, **kwargs)
+        else:
+            raise PermissionDenied
+
+    def get_object(self):
+        return self.group.profile
+
+    def get_context_data(self, **kwargs):
+        context = super(CommunityUpdateView, self).get_context_data(**kwargs)
+        context['formset_seed'] = self.form_class.SeedInlineFormSet(
+            instance=self.object)
+        return context
+
+    def form_valid(self, form):
+        result = super(CommunityUpdateView, self).form_valid(form)
+        messages.success(self.request,
+            _('The profile was successfully updated.'))
+        return result
+
+    def get_success_url(self):
+        kwargs = {'group': self.group.slug}
+        return reverse('community-detail', kwargs=kwargs)
 
 community_update = CommunityUpdateView.as_view()
 

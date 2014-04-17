@@ -130,6 +130,27 @@ class RegistrationCommunityForm(RegistrationForm):
                 formset.save()
 
 
+class CommunityProfileForm(forms.ModelForm):
+    SeedInlineFormSet = forms.models.inlineformset_factory(
+        EcobasaCommunityProfile, EcobasaCommunityProfileSeed, extra=0)
+
+    class Meta:
+        model = EcobasaCommunityProfile
+
+    def save(self, commit=True):
+        formset = self.SeedInlineFormSet(self.data, instance=self.instance)
+        for form in formset:
+            if form.is_valid():
+                # is_valid populates cleaned_data
+                data = form.cleaned_data
+                if data and data['kind'] and data['num']:
+                    if data['DELETE']:
+                        data['id'].delete()
+                    else:
+                        form.save(commit)
+        return super(CommunityProfileForm, self).save(commit)
+
+
 class PioneerProfileForm(UserProfileForm):
     error_messages = {
         'password_mismatch': _("The two password fields didn't match."),
