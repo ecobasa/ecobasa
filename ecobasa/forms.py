@@ -132,7 +132,7 @@ class RegistrationCommunityForm(RegistrationForm):
 
 class CommunityProfileForm(forms.ModelForm):
     SeedInlineFormSet = forms.models.inlineformset_factory(
-        EcobasaCommunityProfile, EcobasaCommunityProfileSeed, extra=0)
+        EcobasaCommunityProfile, EcobasaCommunityProfileSeed, extra=1)
 
     class Meta:
         model = EcobasaCommunityProfile
