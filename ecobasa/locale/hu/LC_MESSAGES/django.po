@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-11 16:10+0200\n"
+"POT-Creation-Date: 2014-04-17 16:04+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1224,11 +1224,15 @@ msgid "Register as a pioneer"
 msgstr ""
 
 #: templates/cosinnus/base.html:40
-msgid "Our Partnernetwork"
+msgid "Our partner-network"
 msgstr ""
 
 #: templates/cosinnus/brand.html:2
-msgid "Community-Tours: A Gift Economy Experience"
+msgid "Community-Tours:"
+msgstr ""
+
+#: templates/cosinnus/brand.html:2
+msgid "A Gift Economy Experience"
 msgstr ""
 
 #: templates/cosinnus/topmenu.html:5
@@ -1596,6 +1600,40 @@ msgstr ""
 
 #: templates/ecobasa/pioneer_list.html:56
 msgid "join the tours now!"
+msgstr ""
+
+#: templates/search/search.html:5 templates/search/search.html.py:9
+msgid "Find communities"
+msgstr ""
+
+#: templates/search/search.html:13
+msgid "Enter search term"
+msgstr ""
+
+#: templates/search/search.html:15
+msgid "Find"
+msgstr ""
+
+#: templates/search/search.html:21
+#, python-format
+msgid ""
+"\n"
+"        %(num)s result for \"%(query)s\".\n"
+"        "
+msgid_plural ""
+"\n"
+"        %(num)s results for \"%(query)s\".\n"
+"      "
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/search/search.html:28
+#, python-format
+msgid "No results found for \"%(query)s\"."
+msgstr ""
+
+#: templates/search/search.html:30
+msgid "No search term given!"
 msgstr ""
 
 #: templates/userprofiles/registration.html:9

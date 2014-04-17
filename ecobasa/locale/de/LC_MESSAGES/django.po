@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-10 16:57+0200\n"
+"POT-Creation-Date: 2014-04-17 16:03+0200\n"
 "PO-Revision-Date: 2014-04-10 17:05+0200\n"
 "Last-Translator: Sebastian Henschel <ecobasa@kodeaffe.de\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1596,7 +1596,8 @@ msgstr "Profil speichern"
 
 #: templates/ecobasa/pioneer_list.html:14
 msgid "The gift-economy pioneers, taking part in the first Community-Tour"
-msgstr "Die Schenkökonomie Pioniere, die an der ersten Community-Tour teilnehmen"
+msgstr ""
+"Die Schenkökonomie Pioniere, die an der ersten Community-Tour teilnehmen"
 
 #: templates/ecobasa/pioneer_list.html:23
 msgid "Pioneer"
@@ -1606,7 +1607,7 @@ msgstr "Pionier"
 msgid "There are no pioneers registered yet, "
 msgstr "Es gibt noch keine Pioniere, die sich angemeldet haben, "
 
-#: templates/ecobasa/pioneer_list.html:49
+#: templates/ecobasa/pioneer_list.html:56
 msgid "join the tours now!"
 msgstr "melde dich jetzt an!"
 
@@ -1678,7 +1679,8 @@ msgstr "und danke für's Beitreten!"
 msgid ""
 "You are now a full part of our team! We need your help to organise this tour."
 msgstr ""
-"Du bist jetzt ein vollwertiges Mitglied unseres Teams! Wir brauchen deine Hilfe diese Tour zu organisieren."
+"Du bist jetzt ein vollwertiges Mitglied unseres Teams! Wir brauchen deine "
+"Hilfe diese Tour zu organisieren."
 
 #: templates/userprofiles/registration_complete.html:13
 msgid ""
