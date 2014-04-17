@@ -11,6 +11,8 @@ from cosinnus.views.group import GroupListView, GroupUpdateView
 from cosinnus.views.user import UserListView, USER_MODEL
 from cosinnus.views.profile import UserProfileUpdateView
 from cosinnus.views.widget import DashboardMixin
+from haystack.utils import Highlighter
+from haystack.views import SearchView
 from userprofiles.views import RegistrationView
 
 from .forms import RegistrationMemberForm, RegistrationCommunityForm
@@ -141,3 +143,27 @@ class RegistrationCommunityView(RegistrationView):
         return context
 
 register_community = RegistrationCommunityView.as_view()
+
+
+#############################################################################
+# find views
+#############################################################################
+
+class FindView(SearchView):
+    def get_results(self):
+        """
+        Override get_results to add the value of the field where query was found
+        Also takes care of highlighting the query.
+        """
+        results = super(FindView, self).get_results()
+        query = self.query.lower()
+        highlight = Highlighter(query)
+        for r in results:
+            for field in r.get_stored_fields():
+                value = getattr(r, field)
+                if query in value.lower() and field != 'text':
+                    r.found = highlight.highlight(value)
+                    continue
+        return results
+
+# SearchView is no Django view, so no "find = FindView.as_view()"

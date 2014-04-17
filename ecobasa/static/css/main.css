@@ -286,3 +286,9 @@ a[data-toggle=tooltip] {
   display: block;
   margin-top: 30px;
 }
+
+/************* Search ******************/
+.highlighted {
+  color: #da6137;
+  font-weight: bold;
+}

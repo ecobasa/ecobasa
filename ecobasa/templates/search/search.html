@@ -34,14 +34,12 @@
 
   {% if query %}
     <ul>{% for result in page.object_list %}
-      {% with result.object as obj %}
       <li>
         {% ifequal result.model_name 'ecobasacommunityprofile' %}
           <a href="{% url 'community-detail' group=result.slug %}">{{ result.name }}</a>
-          <div class="well">{{ result.basic_brings_together }}</div>
+          <div class="well">{{ result.found|safe }}</div>
         {% endifequal %}
       </li>
-      {% endwith %}
     {% endfor %}</ul>
 
 

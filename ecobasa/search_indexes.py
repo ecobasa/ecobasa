@@ -11,7 +11,22 @@ class EcobasaCommunityProfileIndex(BasicSearchIndex, Indexable):
         'contact_zipcode', 'contact_city', 'contact_country']
     name = CharField(model_attr='name')
     slug = CharField(model_attr='group__slug')
-    basic_brings_together = CharField(model_attr='basic_brings_together', null=True)
+    name = CharField(model_attr='name')
+    contact_telephone = CharField(model_attr='contact_telephone')
+    contact_street = CharField(model_attr='contact_street')
+    contact_zipcode = CharField(model_attr='contact_zipcode')
+    contact_city = CharField(model_attr='contact_city')
+    contact_country = CharField(model_attr='contact_country')
+    visitors_accommodation = CharField(model_attr='visitors_accommodation')
+    wishlist_materials = CharField(model_attr='wishlist_materials')
+    wishlist_tools = CharField(model_attr='wishlist_tools')
+    wishlist_special_needs = CharField(model_attr='wishlist_special_needs')
+    offers_services = CharField(model_attr='offers_services')
+    offers_skills = CharField(model_attr='offers_skills')
+    offers_creations = CharField(model_attr='offers_creations')
+    offers_learning_seminars = CharField(model_attr='offers_learning_seminars')
+    offers_workshop_spaces = CharField(model_attr='offers_workshop_spaces')
+    basic_brings_together = CharField(model_attr='basic_brings_together')
 
     def get_model(self):
         return EcobasaCommunityProfile
