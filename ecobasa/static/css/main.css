@@ -146,6 +146,8 @@ body#start > .container {
 
 #bus {
   background: url("../img/bus.png") no-repeat center;
+  transition: 1s;
+  left: 0;
   display: block;
   width: 200px;
   height: 179px;
@@ -248,7 +250,7 @@ a[data-toggle=tooltip] {
 }
 
 /*************** Community-Profiles **************/
-#profile h2 {
+#profile .content h2 {
   font-size: 20px;
   padding: 10px;
   background: #da6137;
