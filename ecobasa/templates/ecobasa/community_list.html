@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n cms_tags static cosinnus_tags sekizai_tags ecobasa_community %}
+{% load i18n l10n cms_tags static cosinnus_tags sekizai_tags ecobasa_community %}
 
 {% block page_title %}{% trans "Communities" %}{% endblock %}
 
@@ -12,8 +12,8 @@
 {% block base_content %}
 <div id="community-map" class="community-map-large">
   <div class="btn-group view-select">
-    <button type="button" class="btn btn-default active"><span class="glyphicon glyphicon-globe"></span> Map</button>
-    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#community-list"><span class="glyphicon glyphicon-list-alt"></span> List</button>
+    <button type="button" class="btn btn-default active"><span class="glyphicon glyphicon-globe"></span> {% trans "Map" %}</button>
+    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#community-list"><span class="glyphicon glyphicon-list-alt"></span> {% trans "List" %}</button>
   </div>
 </div>
 <div class="modal fade" id="community-list">
@@ -21,7 +21,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-        <h4 class="modal-title">Community List</h4>
+        <h4 class="modal-title">{% trans "Community List" %}</h4>
       </div>
       <div class="modal-body">
         {% if object_list %}
@@ -85,7 +85,7 @@
   $(function() {
     EcobasaMap.init('community-map');
     {% for l in locations %}
-    EcobasaMap.addMarker({{ l.lat|escapejs }}, {{ l.lon|escapejs }}, '<a href="{% url 'community-detail' group=l.slug %}">{{ l.name }}</a>');
+    EcobasaMap.addMarker({{ l.lat|unlocalize }}, {{ l.lon|unlocalize }}, '<a href="{% url 'community-detail' group=l.slug %}">{{ l.name }}</a>');
     {% endfor %}
 
     $.extend($.tablesorter.themes.bootstrap, {

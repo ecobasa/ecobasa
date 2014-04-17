@@ -1,3 +1,11 @@
+@font-face {
+  font-family: 'archistico';
+  src: url("../fonts/Archistico_Bold-webfont.eot");
+  src: url("../fonts/Archistico_Bold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/Archistico_Bold-webfont.woff") format("woff"), url("../fonts/Archistico_Bold-webfont.ttf") format("truetype"), url("../fonts/Archistico_Bold-webfont.svg#archisticonormal") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
 /*********** Default **************/
 body {
   background: #f4ede3;
@@ -18,12 +26,14 @@ a {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin-top: 40px;
-  margin-bottom: 20px;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  font-family: 'archistico', Courier, serif;
+  color: #da6137;
 }
 
 h2 {
-  font-size: 33px;
+  font-size: 30px;
 }
 
 .gradient {
@@ -46,20 +56,32 @@ h2 {
   margin-bottom: 0px;
   border-radius: 0px;
   border: none;
-  height: 60px;
   padding-top: 5px;
 }
 
+.header .navbar-brand h1, .header .navbar-brand h2 {
+  color: #f4ede3;
+  font-size: 20px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.header .navbar-brand h2 {
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+  font-size: 16px;
+}
+
 .navbar-default .navbar-brand {
-  background: url("../img/community-tours_logo_small.png") no-repeat left;
-  background-size: 10%;
+  background: url("../img/community-tours_logo_small.png") no-repeat left top;
+  background-size: 55px 52px;
   margin-left: 20px;
-  padding-left: 60px;
+  padding-left: 66px;
+  padding-top: 4px;
   color: #f4ede3;
 }
 
 .navbar-default ul.navbar-nav {
   float: right;
+  margin-top: 2px;
 }
 .navbar-default ul.navbar-nav > li > a {
   color: #f4ede3;
@@ -124,6 +146,8 @@ body#start > .container {
 
 #bus {
   background: url("../img/bus.png") no-repeat center;
+  transition: 1s;
+  left: 0;
   display: block;
   width: 200px;
   height: 179px;
@@ -226,7 +250,7 @@ a[data-toggle=tooltip] {
 }
 
 /*************** Community-Profiles **************/
-#profile h2 {
+#profile .content h2 {
   font-size: 20px;
   padding: 10px;
   background: #da6137;

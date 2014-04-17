@@ -2,45 +2,60 @@ $primary: #da6137;
 $secondary: #f4ede3;
 $third: #b4502c;
 
+@font-face {
+    font-family: 'archistico';
+    src: url('../fonts/Archistico_Bold-webfont.eot');
+    src: url('../fonts/Archistico_Bold-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/Archistico_Bold-webfont.woff') format('woff'),
+         url('../fonts/Archistico_Bold-webfont.ttf') format('truetype'),
+         url('../fonts/Archistico_Bold-webfont.svg#archisticonormal') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
 /*********** Default **************/
 
 body {
-	background: #f4ede3;
+	background: $secondary;
 }
 
-body>.container {
+body > .container {
 	padding-top: 20px;
 }
 
 .btn-primary {
-	background-color: #da6137;
-	border-color: #b4502c;
-	color: #f4ede3;
+	background-color: $primary;
+	border-color: $third;
+	color: $secondary;
 }
 
 a {
-	color: #da6137
+	color: $primary;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	margin-top: 40px;
-	margin-bottom: 20px;
+	margin-top: 50px;
+	margin-bottom: 30px;
+	font-family: 'archistico', Courier, serif;
+	color: $primary;
 }
 
 h2 {
-	font-size: 33px;
+	font-size: 30px;
 }
 
 .gradient {
 	-webkit-box-shadow: inset 0 5px 10px -5px rgba(0,0,0,0.4);
 	-moz-box-shadow: inset 0 5px 10px -5px rgba(0,0,0,0.4);
 	box-shadow: inset 0 5px 10px -5px rgba(0,0,0,0.4);
-	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#e5e5e5),color-stop(100%,#f4ede3));
-	background-image: -webkit-linear-gradient(top,#e5e5e5,#f4ede3);
-	background-image: -moz-linear-gradient(top,#e5e5e5,#f4ede3);
-	background-image: -ms-linear-gradient(top,#e5e5e5,#f4ede3);
-	background-image: -o-linear-gradient(top,#e5e5e5,#f4ede3);
-	background-image: linear-gradient(top,#e5e5e5,#f4ede3);
+	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#e5e5e5),color-stop(100%, $secondary));
+	background-image: -webkit-linear-gradient(top,#e5e5e5, $secondary);
+	background-image: -moz-linear-gradient(top,#e5e5e5, $secondary);
+	background-image: -ms-linear-gradient(top,#e5e5e5, $secondary);
+	background-image: -o-linear-gradient(top,#e5e5e5, $secondary);
+	background-image: linear-gradient(top,#e5e5e5, $secondary);
 	background-size: 100% 52px;
 	background-repeat: no-repeat;
 }
@@ -48,30 +63,46 @@ h2 {
 /************ Header ****************/
 
 .header.navbar {
-	background-color: #da6137;
+	background-color: $primary;
 	margin-bottom: 0px;
 	border-radius: 0px;
 	border: none;
-	height: 60px;
 	padding-top: 5px;
 }
 
+.header {
+	.navbar-brand {
+		h1, h2 {
+			color: $secondary;
+			font-size: 20px;
+			margin-top: 0px;
+			margin-bottom: 0px;
+		}
+		h2 {
+			font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+			font-size: 16px;
+		}
+	}
+}
+
 .navbar-default .navbar-brand {
-	background: url('../img/community-tours_logo_small.png') no-repeat left;
-	background-size: 10%;
+	background: url('../img/community-tours_logo_small.png') no-repeat left top;
+	background-size: 55px 52px;
 	margin-left: 20px;
-	padding-left: 60px;
-	color: #f4ede3;
+	padding-left: 66px;
+	padding-top: 4px;
+	color: $secondary;
 }
 
 .navbar-default ul.navbar-nav {
 	float: right;
+	margin-top: 2px;
 	&>li>a {
-		color: #f4ede3;
+		color: $secondary;
 	}
 	.dropdown>a .caret {
-		border-top-color: #f4ede3;
-		border-bottom-color: #f4ede3;
+		border-top-color: $secondary;
+		border-bottom-color: $secondary;
 	}
 }
 
@@ -94,7 +125,7 @@ body#start > .container {
 /*************** Slider *****************/
 
 .carousel-caption {
-	color: #f4ede3;
+	color: $secondary;
 	text-align: left;
 	width: 580px;
 }
@@ -134,6 +165,8 @@ body#start > .container {
 
 #bus {
 	background: url('../img/bus.png') no-repeat center;
+	transition: 1s;
+    left: 0;
 	display: block;
 	width: 200px;
 	height: 179px;
@@ -201,10 +234,10 @@ a[data-toggle=tooltip] {
 }
 
 .navbar.navbar-default.registration {
-	background-color: #b4502c;
+	background-color: $third;
 	.navbar-nav>.active>a {
 		color: #555;
-		background-color: #da6137;
+		background-color: $primary;
 	}
 }
 
@@ -241,7 +274,7 @@ a[data-toggle=tooltip] {
 /*************** Community-Profiles **************/
 
 #profile {
-	h2 {
+	.content h2 {
 		font-size: 20px;
 		padding: 10px;
 		background: $primary;
