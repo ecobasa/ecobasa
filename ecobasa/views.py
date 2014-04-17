@@ -1,11 +1,14 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.core.exceptions import PermissionDenied
 from django.core.urlresolvers import reverse
 from django.shortcuts import get_object_or_404
 from django.utils.decorators import method_decorator
+from django.utils.translation import ugettext_lazy as _
 from django.views.generic import DetailView, UpdateView
 from cosinnus.models import CosinnusGroup
 from cosinnus.models.group import MEMBERSHIP_ADMIN
@@ -106,6 +109,12 @@ class PioneerUpdateView(UpdateView):
             return super(PioneerUpdateView, self).dispatch(*args, **kwargs)
         else:
             raise PermissionDenied
+
+    def form_valid(self, form):
+        result = super(PioneerUpdateView, self).form_valid(form)
+        messages.success(self.request,
+            _('The profile was successfully updated.'))
+        return result
 
     def get_success_url(self):
         kwargs = {'username': self.object.user.username}
