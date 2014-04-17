@@ -11,6 +11,7 @@
 {% endblock extrahead %}
 
 {% block content %}
+<h1>{% blocktrans with username=object.user.username %}Edit pioneer “{{ username }}”{% endblocktrans %}</h1>
 <form action="" method="post" enctype="multipart/form-data">
   {% csrf_token %}
   <div class="row">
