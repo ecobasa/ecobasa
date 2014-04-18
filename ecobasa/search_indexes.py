@@ -32,19 +32,15 @@ class EcobasaCommunityProfileIndex(BasicSearchIndex, Indexable):
     wishlist_materials = CharField(model_attr='wishlist_materials')
     wishlist_tools = CharField(model_attr='wishlist_tools')
     wishlist_special_needs = CharField(model_attr='wishlist_special_needs')
-    offers_services = CharField(model_attr='offers_services')
-    offers_skills = CharField(model_attr='offers_skills')
-    offers_creations = CharField(model_attr='offers_creations')
+    offers_creations = TaggableField(model_attr='offers_creations')
+    offers_services = TaggableField(model_attr='offers_services')
+    offers_skills = TaggableField(model_attr='offers_skills')
     offers_learning_seminars = CharField(model_attr='offers_learning_seminars')
     offers_workshop_spaces = CharField(model_attr='offers_workshop_spaces')
     basic_brings_together = CharField(model_attr='basic_brings_together')
 
     def get_model(self):
         return EcobasaCommunityProfile
-
-    def index_queryset(self, using=None):
-        "Used when the entire index for model is updated."
-        return EcobasaCommunityProfile.objects.all()
 
     def prepare_text(self, obj):
         """FIXME: can this be done using the API properly?
