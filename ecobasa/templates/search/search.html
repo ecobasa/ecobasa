@@ -40,6 +40,11 @@
           {{ result.context.field }}
           <div class="well">{{ result.context.value|safe }}</div>
         {% endifequal %}
+        {% ifequal result.model_name 'ecobasauserprofile' %}
+          <a href="{% url 'pioneer-detail' username=result.username %}">{{ result.username }}</a><br>
+          {{ result.context.field }}
+          <div class="well">{{ result.context.value|safe }}</div>
+        {% endifequal %}
       </li>
     {% endfor %}</ul>
 

@@ -1,9 +1,20 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
-from haystack.indexes import BasicSearchIndex, Indexable, CharField
+import six
+from haystack.fields import CharField, SearchField
+from haystack.indexes import BasicSearchIndex, Indexable
 
-from .models import EcobasaCommunityProfile
+from .models import EcobasaCommunityProfile, EcobasaUserProfile
+
+
+class TaggableField(SearchField):
+    field_type = 'taggable'
+
+    def prepare(self, obj):
+        taggable_manager = getattr(obj, self.model_attr)
+        strings = [six.text_type(x) for x in taggable_manager.all()]
+        return ', '.join(strings)
 
 
 class EcobasaCommunityProfileIndex(BasicSearchIndex, Indexable):
@@ -52,3 +63,13 @@ class EcobasaCommunityProfileIndex(BasicSearchIndex, Indexable):
                     text = text.replace(value, '')
 
         return text
+
+
+class EcobasaUserProfileIndex(BasicSearchIndex, Indexable):
+    username = CharField(model_attr='user__username')
+    interests = TaggableField(model_attr='interests')
+    products = TaggableField(model_attr='products')
+    skills = TaggableField(model_attr='skills')
+
+    def get_model(self):
+        return EcobasaUserProfile
