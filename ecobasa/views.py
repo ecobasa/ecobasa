@@ -164,8 +164,12 @@ class FindView(SearchView):
                 # assume search index field 'text' is document field
                 if query in value.lower() and field != 'text':
                     # assume search index field name == model field name
+                    try:
+                        name = r.object._meta.get_field(field).verbose_name
+                    except:
+                        name = field
                     r.context = {
-                        'field': r.object._meta.get_field(field).verbose_name,
+                        'field': name,
                         'value': highlight.highlight(value)
                     }
                     continue
