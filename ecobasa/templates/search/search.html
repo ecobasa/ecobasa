@@ -36,8 +36,9 @@
     <ul>{% for result in page.object_list %}
       <li>
         {% ifequal result.model_name 'ecobasacommunityprofile' %}
-          <a href="{% url 'community-detail' group=result.slug %}">{{ result.name }}</a>
-          <div class="well">{{ result.found|safe }}</div>
+          <a href="{% url 'community-detail' group=result.slug %}">{{ result.name }}</a><br>
+          {{ result.context.field }}
+          <div class="well">{{ result.context.value|safe }}</div>
         {% endifequal %}
       </li>
     {% endfor %}</ul>
