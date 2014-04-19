@@ -1,52 +1,14 @@
-function initMember() {
-	$('#id_gender').select2();
-
-	$('#id_country').select2({
-		placeholder: "Select a Country",
-		allowClear: true
-	});
-
-	$("#id_interests").select2({
-		tags: tags.interests, tokenSeparators: [",", " "]
-	});
-	$("#id_skills").select2({
-		tags: tags.skills, tokenSeparators: [",", " "]
-	});
-	$("#id_products").select2({
-		tags: tags.products, tokenSeparators: [",", " "]
-	});
-
-	var sel='#slide-member-bus-ask .proceed a[href="#slide-member-bus-details"]';
-	$(sel).click(function (ev) {
-		$('#id_has_bus').val('on');
-		ev.preventDefault();
-	});
-};
-
-
-function initCommunity() {
-		$('#id_contact_country').select2({
-			placeholder: "Select a Country",
-			allowClear: true
-		});
-
-		$("#id_offers_services").select2({
-			tags: tags.offersServices, tokenSeparators: [",", " "]
-		});
-		$("#id_offers_skills").select2({
-			tags: tags.offersSkills, tokenSeparators: [",", " "]
-		});
-		$("#id_offers_creations").select2({
-			tags: tags.offersCreations, tokenSeparators: [",", " "]
-		});
-};
-
-
 $(function() {
 	if (registerAs == 'member') {
-		initMember();
+		EcobasaProfile.initMember();
+
+		var sel='#slide-member-bus-ask .proceed a[href="#slide-member-bus-details"]';
+		$(sel).click(function (ev) {
+			$('#id_has_bus').val('on');
+			ev.preventDefault();
+		});
 	} else if (registerAs == 'community') {
-		initCommunity();
+		EcobasaProfile.initCommunity();
 	}
 
 	$('.proceed a').click(function(ev) {

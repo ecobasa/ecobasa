@@ -1,19 +1,25 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
 
+
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from django.core.exceptions import PermissionDenied
 from django.core.urlresolvers import reverse
+from django.shortcuts import get_object_or_404
 from django.utils.decorators import method_decorator
-from django.views.generic import DetailView
+from django.utils.translation import ugettext_lazy as _
+from django.views.generic import DetailView, UpdateView
 from cosinnus.models import CosinnusGroup
 from cosinnus.models.group import MEMBERSHIP_ADMIN
-from cosinnus.views.group import GroupListView, GroupUpdateView
+from cosinnus.views.group import GroupListView
 from cosinnus.views.user import UserListView, USER_MODEL
 from cosinnus.views.profile import UserProfileUpdateView
 from cosinnus.views.widget import DashboardMixin
 from userprofiles.views import RegistrationView
 
-from .forms import RegistrationMemberForm, RegistrationCommunityForm
+from .forms import (CommunityProfileForm, PioneerProfileForm,
+    RegistrationMemberForm, RegistrationCommunityForm)
 
 
 class CommunityDetailView(DetailView):
@@ -50,8 +56,37 @@ class CommunityListView(GroupListView):
 community_list = CommunityListView.as_view()
 
 
-class CommunityUpdateView(GroupUpdateView):
+class CommunityUpdateView(UpdateView):
     template_name = 'ecobasa/community_form.html'
+    form_class = CommunityProfileForm
+
+    def dispatch(self, *args, **kwargs):
+        group = get_object_or_404(CosinnusGroup, slug=self.kwargs['group'])
+        user = self.request.user
+        if user.is_superuser or group.is_admin(user):
+            self.group = group
+            return super(CommunityUpdateView, self).dispatch(*args, **kwargs)
+        else:
+            raise PermissionDenied
+
+    def get_object(self):
+        return self.group.profile
+
+    def get_context_data(self, **kwargs):
+        context = super(CommunityUpdateView, self).get_context_data(**kwargs)
+        context['formset_seed'] = self.form_class.SeedInlineFormSet(
+            instance=self.object)
+        return context
+
+    def form_valid(self, form):
+        result = super(CommunityUpdateView, self).form_valid(form)
+        messages.success(self.request,
+            _('The profile was successfully updated.'))
+        return result
+
+    def get_success_url(self):
+        kwargs = {'group': self.group.slug}
+        return reverse('community-detail', kwargs=kwargs)
 
 community_update = CommunityUpdateView.as_view()
 
@@ -85,11 +120,34 @@ class PioneerDetailView(DetailView):
 pioneer_detail = PioneerDetailView.as_view()
 
 
-class PioneerUpdateView(UserProfileUpdateView):
+class PioneerUpdateView(UpdateView):
+    """
+    Alas, cosinnus' UserUpdateView only allows to edit the logged-in user's
+    profile.
+    """
+    form_class = PioneerProfileForm
     template_name = 'ecobasa/pioneer_form.html'
 
+    def get_object(self):
+        user = get_object_or_404(USER_MODEL, username=self.kwargs['username'])
+        return user.cosinnus_profile
+
+    def dispatch(self, *args, **kwargs):
+        user = self.request.user
+        if user.is_superuser or user.username == self.kwargs['username']:
+            return super(PioneerUpdateView, self).dispatch(*args, **kwargs)
+        else:
+            raise PermissionDenied
+
+    def form_valid(self, form):
+        result = super(PioneerUpdateView, self).form_valid(form)
+        messages.success(self.request,
+            _('The profile was successfully updated.'))
+        return result
+
     def get_success_url(self):
-        return reverse('pioneer-detail')
+        kwargs = {'username': self.object.user.username}
+        return reverse('pioneer-detail', kwargs=kwargs)
 
 pioneer_update = PioneerUpdateView.as_view()
 
