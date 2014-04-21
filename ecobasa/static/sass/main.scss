@@ -135,11 +135,6 @@ body#start > .container {
 	padding-top: 0px;
 }
 
-.register {
-	margin-top: 40px;
-	padding: 20px 36px;
-}
-
 /*************** Slider *****************/
 
 .carousel-caption {
@@ -243,6 +238,11 @@ a[data-toggle=tooltip] {
 
 /*********** Registration **************/
 
+.register {
+	margin-top: 40px;
+	padding: 20px 36px;
+}
+
 .register.btn {
 	width: 100%;
 	padding: 10%;
@@ -256,6 +256,11 @@ a[data-toggle=tooltip] {
 		color: #555;
 		background-color: $primary;
 	}
+}
+
+form#form-register-member,
+form#form-register-community {
+margin-top: 20px;
 }
 
 #slide-member-bus-ask .btn {
