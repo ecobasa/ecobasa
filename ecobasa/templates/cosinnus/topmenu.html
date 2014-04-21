@@ -26,6 +26,11 @@
       </ul>
     </div>
     <ul class="nav navbar-nav navbar-right">
+
+      <li id="language-chooser">
+        {% language_chooser %}
+      </li>
+
       {% if request.user.is_authenticated %}
         {% if groups %}
           <li class="dropdown">
