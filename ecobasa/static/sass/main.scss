@@ -64,7 +64,6 @@ h2 {
 	margin-bottom: 0px;
 	border-radius: 0px;
 	border: none;
-	padding-top: 5px;
 }
 
 .header {
@@ -83,23 +82,49 @@ h2 {
 }
 
 .navbar-default .navbar-brand {
-	background: url('../img/community-tours_logo_small.png') no-repeat left top;
+	background: url('../img/community-tours_logo_small.png') no-repeat left;
 	background-size: 55px 52px;
 	margin-left: 20px;
 	padding-left: 66px;
-	padding-top: 4px;
+	padding-top: 13px;
 	color: $secondary;
 }
 
 .navbar-default ul.navbar-nav {
 	float: right;
-	margin-top: 2px;
-	&>li>a {
+	& > li > a {
 		color: $secondary;
+		padding: 23px;
+		&:hover {
+			color: $third;
+		}
 	}
-	.dropdown>a .caret {
+	.dropdown > a .caret {
 		border-top-color: $secondary;
 		border-bottom-color: $secondary;
+	}
+	.open > a, 
+	.open > a:hover, 
+	.open > a:focus {
+		color: $primary;
+	}
+}
+
+ul.dropdown-menu {
+	background: rgba($primary, .8);
+	color: $secondary;
+	width: 100%;
+	min-width: initial;
+	> li > a {
+		color: $secondary;
+		padding: 3px 11px;
+	}
+	> .active > a,
+	> .active > a:hover,
+	> .active > a:focus,
+	> li > a:hover {
+		background-color: $secondary;
+		color: $primary;
 	}
 }
 
