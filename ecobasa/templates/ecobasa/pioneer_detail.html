@@ -8,7 +8,7 @@
 {% block body %}profile{% endblock body %}
 
 {% block content %}
-{% if user.is_superuser or user.is_user %}<a class="btn btn-primary pull-right" href="{% url 'cosinnus:user-edit' username=object.username %}">{% trans "Edit" %}</a>{% endif %}
+{% if user.is_superuser or user == object %}<a class="btn btn-primary pull-right" href="{% url 'pioneer-edit' username=object.username %}">{% trans "Edit profile" %}</a>{% endif %}
 <h1>{{ object.username }} - {% trans "a gift-economy pioneer" %}</h1>
 
 {% with object.cosinnus_profile as profile %}

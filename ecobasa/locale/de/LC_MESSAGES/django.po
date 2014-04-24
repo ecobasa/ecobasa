@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-04-17 16:03+0200\n"
-"PO-Revision-Date: 2014-04-10 17:05+0200\n"
+"PO-Revision-Date: 2014-04-24 17:05+0200\n"
 "Last-Translator: Sebastian Henschel <ecobasa@kodeaffe.de\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: de\n"
@@ -28,6 +28,30 @@ msgstr "Englisch"
 #: default_settings.py:140
 msgid "German"
 msgstr "Deutsch"
+
+#: forms.py:156
+msgid "The two password fields didn't match."
+msgstr "Die beiden Passwortfelder stimmen nicht überein."
+
+#: forms.py:157
+msgid "Your old password was entered incorrectly. Please enter it again."
+msgstr "Das alte Passwort wurde nicht korrekt eingegegeben. Bitte nochmal versuchen."
+
+#: forms.py:160
+msgid "Old password"
+msgstr "Altes Passwort"
+
+#: forms.py:163
+msgid "New password"
+msgstr "Neues Passwort"
+
+#: forms.py:166
+msgid "New password confirmation"
+msgstr "Neues Passwort (Bestätigung)"
+
+#: forms.py:169
+msgid "Email"
+msgstr "Email"
 
 #: models.py:22
 msgid "name"
@@ -1045,18 +1069,15 @@ msgstr "Anders"
 msgid "\"gender\""
 msgstr "\"Geschlecht\""
 
-#: models.py:348 templates/cosinnus/userprofile_detail.html:51
-#: templates/ecobasa/pioneer_detail.html:51
+#: models.py:348 templates/ecobasa/pioneer_detail.html:51
 msgid "birth date"
 msgstr "Geburtsdatum"
 
-#: models.py:351 models.py:417 templates/cosinnus/userprofile_detail.html:59
-#: templates/ecobasa/pioneer_detail.html:59
+#: models.py:351 models.py:417 templates/ecobasa/pioneer_detail.html:59
 msgid "country"
 msgstr "Land"
 
-#: models.py:353 models.py:413 templates/cosinnus/userprofile_detail.html:67
-#: templates/ecobasa/pioneer_detail.html:67
+#: models.py:353 models.py:413 templates/ecobasa/pioneer_detail.html:67
 msgid "city"
 msgstr "Stadt"
 
@@ -1072,8 +1093,7 @@ msgstr ""
 "Ich möchte auch später ein Mitglied von ecobasa.org werden</br>(Es wird "
 "dieses Projekt auf Dauer möglich machen)"
 
-#: models.py:362 templates/ecobasa/pioneer_form.html:24
-#: templates/userprofiles/registration_member.html:24
+#: models.py:362 templates/userprofiles/registration_member.html:24
 msgid "interests"
 msgstr "Interessen"
 
@@ -1204,7 +1224,7 @@ msgstr "Mitgliederstatus"
 
 #: models.py:529
 msgid "seeds"
-msgstr "Samen"
+msgstr "samen"
 
 #: models.py:533
 msgid "what kind of seeds?"
@@ -1213,6 +1233,10 @@ msgstr "Was für Saatgut?"
 #: models.py:534
 msgid "how many?"
 msgstr "Wieviele?"
+
+#: views.py:84 views.py:145
+msgid "The profile was successfully updated."
+msgstr "Das Profil wurde erfolgreich aktualisiert."
 
 #: templates/start.html:22
 msgid "Communities that want to be visited"
@@ -1383,14 +1407,19 @@ msgstr "Deinen Bus hinzufügen"
 msgid "Add"
 msgstr "Hinzufügen"
 
-#: templates/ecobasa/bus_add.html:40 templates/ecobasa/community_form.html:187
-#: templates/ecobasa/pioneer_form.html:176
+#: templates/ecobasa/bus_add.html:40 templates/ecobasa/community_form.html:128
+#: templates/ecobasa/pioneer_form.html:58
 msgid "Cancel"
 msgstr "Abbrechen"
 
 #: templates/ecobasa/bus_list.html:9 templates/ecobasa/bus_list.html.py:40
 msgid "Add a bus"
 msgstr "Einen Bus hinzufügen"
+
+#: templates/ecobasa/bus_list.html:16 templates/ecobasa/pioneer_detail.html:77
+#: templates/ecobasa/pioneer_list.html:25
+msgid "Bus"
+msgstr "Bus"
 
 #: templates/ecobasa/bus_list.html:17
 msgid "Owner"
@@ -1468,47 +1497,26 @@ msgstr "Ändern"
 msgid "Pending users"
 msgstr "Nutzer in der Schwebe"
 
-#: templates/ecobasa/community_form.html:6
-#: templates/ecobasa/community_form.html:21
+#: templates/ecobasa/community_form.html:5
+#: templates/ecobasa/community_form.html:17
 #, python-format
-msgid "Edit group “%(group_name)s”"
-msgstr "Gruppe “%(group_name)s” bearbeiten"
+msgid "Edit community “%(name)s”"
+msgstr "Gemeinschaft “%(name)s” bearbeiten"
 
-#: templates/ecobasa/community_form.html:8
-#: templates/ecobasa/community_form.html:23
-msgid "Create Group"
-msgstr "Erzeuge Gruppe"
+#: templates/ecobasa/community_form.html:72
+#: templates/userprofiles/registration_community.html:124
+msgid "Seeds"
+msgstr "Saatgut"
 
-#: templates/ecobasa/community_form.html:36
-#: templates/userprofiles/registration_community.html:21
-msgid "contact info"
-msgstr "Kontakt-Info"
+#: templates/ecobasa/community_form.html:127
+#: templates/ecobasa/pioneer_form.html:57
+msgid "Save"
+msgstr "Speichern"
 
-#: templates/ecobasa/community_form.html:37
-#: templates/userprofiles/registration_community.html:22
-msgid "visitors"
-msgstr "Besucher"
-
-#: templates/ecobasa/community_form.html:38
-#: templates/userprofiles/registration_community.html:23
-msgid "wishlist"
-msgstr "Wunschliste"
-
-#: templates/ecobasa/community_form.html:39
-#: templates/userprofiles/registration_community.html:24
-msgid "offers"
-msgstr "Angebote"
-
-#: templates/ecobasa/community_form.html:40
-#: templates/userprofiles/registration_community.html:25
-msgid "basic info"
-msgstr "Basis-Info"
-
-#: templates/ecobasa/community_form.html:186
-#: templates/userprofiles/registration_community.html:188
-#: templates/userprofiles/registration_member.html:175
-msgid "Register"
-msgstr "Registrieren"
+#: templates/ecobasa/community_form.html:161
+#: templates/userprofiles/registration_community.html:213
+msgid "More seeds"
+msgstr "Mehr Saatgut"
 
 #: templates/ecobasa/community_list.html:15
 msgid "Map"
@@ -1539,6 +1547,12 @@ msgstr "Land"
 msgid "Status"
 msgstr "Status"
 
+#: templates/ecobasa/community_list.html:35
+#: templates/ecobasa/pioneer_detail.html:21
+#: templates/ecobasa/pioneer_list.html:24
+msgid "Skills"
+msgstr "Fertigkeiten"
+
 #: templates/ecobasa/community_list.html:68
 msgid "There are no communities, yet."
 msgstr "Es haben sich noch keine Gemeinschaften angemeldet!"
@@ -1547,52 +1561,47 @@ msgstr "Es haben sich noch keine Gemeinschaften angemeldet!"
 msgid "Register as a gift-economy ambassador for your community</a>"
 msgstr "Melde dich als Schenkökonomie Botschafter für deine Gemeinschaft an"
 
+#: templates/ecobasa/pioneer_detail.html:5
+#, python-format
+msgid "Pioneer profile: %(name)s"
+msgstr "Pionier-Profil: %(name)s"
+
+#: templates/ecobasa/pioneer_detail.html:11
+msgid "Edit profile"
+msgstr "Profil bearbeiten"
+
+#: templates/ecobasa/pioneer_detail.html:12
+msgid "a gift-economy pioneer"
+msgstr "ein Pionier der Schenkökonomie"
+
+#: templates/ecobasa/pioneer_detail.html:27
+msgid "Interests"
+msgstr "Interessen"
+
+#: templates/ecobasa/pioneer_detail.html:33
+msgid "Products"
+msgstr "Produkte"
+
+#: templates/ecobasa/pioneer_detail.html:43
+msgid "gender"
+msgstr "\"Geschlecht\""
+
+#: templates/ecobasa/pioneer_detail.html:93
+msgid "Maximum passengers this bus can take:"
+msgstr "Maximale Anzahl der Passagiere, die dieser Bus befördern kann:"
+
+#: templates/ecobasa/pioneer_detail.html:96
+msgid "fuel consumption"
+msgstr "Kraftstoffverbrauch"
+
 #: templates/ecobasa/pioneer_form.html:4
-#: templates/userprofiles/registration.html:4
-#: templates/userprofiles/registration_community.html:4
-#: templates/userprofiles/registration_complete.html:4
-#: templates/userprofiles/registration_member.html:4
-msgid "Registration"
-msgstr "Registrierung"
+msgid "Edit pioneer"
+msgstr "Pionier bearbeiten"
 
-#: templates/ecobasa/pioneer_form.html:23
-#: templates/userprofiles/registration_member.html:23
-msgid "personal"
-msgstr "Persönlich"
-
-#: templates/ecobasa/pioneer_form.html:25
-#: templates/userprofiles/registration_member.html:25
-msgid "skills"
-msgstr "Fertigkeiten"
-
-#: templates/ecobasa/pioneer_form.html:26
-#: templates/userprofiles/registration_member.html:26
-msgid "bus"
-msgstr "Bus"
-
-#: templates/ecobasa/pioneer_form.html:123
-#: templates/userprofiles/registration_member.html:123
-msgid ""
-"You can also add a bus later, it would be great if you could ask around "
-"among your friends if they want to join us with their bus!"
-msgstr ""
-"Du kannst auch später einen Bus hinzufügen, es wäre toll, wenn du bei deinen "
-"Bekanntenkreis herumfragst, ob sie uns ihren Bus leihen oder mitfahren "
-"wollen!"
-
-#: templates/ecobasa/pioneer_form.html:125
-#: templates/userprofiles/registration_member.html:125
-msgid "YES"
-msgstr "JA"
-
-#: templates/ecobasa/pioneer_form.html:127
-#: templates/userprofiles/registration_member.html:127
-msgid "NO, Register"
-msgstr "NEIN, Registrieren"
-
-#: templates/ecobasa/pioneer_form.html:175
-msgid "Save profile"
-msgstr "Profil speichern"
+#: templates/ecobasa/pioneer_form.html:14
+#, python-format
+msgid "Edit pioneer “%(username)s”"
+msgstr "Pionier “%(username)s” bearbeiten"
 
 #: templates/ecobasa/pioneer_list.html:14
 msgid "The gift-economy pioneers, taking part in the first Community-Tour"
@@ -1611,45 +1620,12 @@ msgstr "Es gibt noch keine Pioniere, die sich angemeldet haben, "
 msgid "join the tours now!"
 msgstr "melde dich jetzt an!"
 
-#: templates/search/search.html:5 templates/search/search.html.py:9
-msgid "Find communities"
-msgstr "Finde Gemeinschaften"
-
-#: templates/search/search.html:13
-msgid "Enter search term"
-msgstr "Suchbegriff eingeben"
-
-#: templates/search/search.html:15
-msgid "Find"
-msgstr "Finde"
-
-#: templates/search/search.html:21
-#, python-format
-msgid ""
-"\n"
-"        %(num)s result for \"%(query)s\".\n"
-"        "
-msgid_plural ""
-"\n"
-"        %(num)s results for \"%(query)s\".\n"
-"      "
-msgstr[0] ""
-"\n"
-"        %(num)s Ergebnis für \"%(query)s\".\n"
-"        "
-msgstr[1] ""
-"\n"
-"        %(num)s Ergebnisse für \"%(query)s\".\n"
-"        "
-
-#: templates/search/search.html:28
-#, python-format
-msgid "No results found for \"%(query)s\"."
-msgstr "Keine Ergebnisse für \"%(query)s\" gefunden."
-
-#: templates/search/search.html:30
-msgid "No search term given!"
-msgstr "Kein Suchbegriff angegeben!"
+#: templates/userprofiles/registration.html:4
+#: templates/userprofiles/registration_community.html:4
+#: templates/userprofiles/registration_complete.html:4
+#: templates/userprofiles/registration_member.html:4
+msgid "Registration"
+msgstr "Registrierung"
 
 #: templates/userprofiles/registration.html:9
 msgid "Join as a gift-economy pioneer"
@@ -1659,13 +1635,30 @@ msgstr "Als Pionier der Schenkökonomie anmelden"
 msgid "Join as your communities gift-economy ambassador"
 msgstr "Als Schenkökonomie Botschafter für deine Gemeinschaft anmelden"
 
-#: templates/userprofiles/registration_community.html:124
-msgid "Seeds"
-msgstr "Saatgut"
+#: templates/userprofiles/registration_community.html:21
+msgid "contact info"
+msgstr "Kontakt-Info"
 
-#: templates/userprofiles/registration_community.html:213
-msgid "More seeds"
-msgstr "Mehr Saatgut"
+#: templates/userprofiles/registration_community.html:22
+msgid "visitors"
+msgstr "Besucher"
+
+#: templates/userprofiles/registration_community.html:23
+msgid "wishlist"
+msgstr "Wunschliste"
+
+#: templates/userprofiles/registration_community.html:24
+msgid "offers"
+msgstr "Angebote"
+
+#: templates/userprofiles/registration_community.html:25
+msgid "basic info"
+msgstr "Basis-Info"
+
+#: templates/userprofiles/registration_community.html:188
+#: templates/userprofiles/registration_member.html:175
+msgid "Register"
+msgstr "Registrieren"
 
 #: templates/userprofiles/registration_complete.html:8
 msgid "Welcome on board"
@@ -1704,6 +1697,41 @@ msgstr "Wir werden dich bald bzgl. Neuigkeiten und Treffen kontaktieren!"
 #: templates/userprofiles/registration_complete.html:16
 msgid "See you soon, the rest of the Community Tours team."
 msgstr "Bis bald, der Rest des Community-Tours Teams."
+
+#: templates/userprofiles/registration_member.html:23
+msgid "personal"
+msgstr "Persönlich"
+
+#: templates/userprofiles/registration_member.html:25
+msgid "skills"
+msgstr "Fertigkeiten"
+
+#: templates/userprofiles/registration_member.html:26
+msgid "bus"
+msgstr "Bus"
+
+#: templates/userprofiles/registration_member.html:123
+msgid ""
+"You can also add a bus later, it would be great if you could ask around "
+"among your friends if they want to join us with their bus!"
+msgstr ""
+"Du kannst auch später einen Bus hinzufügen, es wäre toll, wenn du bei deinen "
+"Bekanntenkreis herumfragst, ob sie uns ihren Bus leihen oder mitfahren "
+"wollen!"
+
+#: templates/userprofiles/registration_member.html:125
+msgid "YES"
+msgstr "JA"
+
+#: templates/userprofiles/registration_member.html:127
+msgid "NO, Register"
+msgstr "NEIN, Registrieren"
+
+#~ msgid "Create Group"
+#~ msgstr "Erzeuge Gruppe"
+
+#~ msgid "Save profile"
+#~ msgstr "Profil speichern"
 
 #~ msgid "do you need seeds?"
 #~ msgstr "Braucht ihr Samen?"

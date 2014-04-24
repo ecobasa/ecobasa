@@ -530,5 +530,8 @@ class EcobasaCommunityProfileSeed(models.Model):
         on_delete=models.CASCADE,
         related_name='wishlist_seeds',
     )
-    kind = models.TextField(_('what kind of seeds?'), blank=True, null=True)
+    kind = models.CharField(_('what kind of seeds?'),
+        max_length=255,
+        blank=True,
+        null=True)
     num = models.PositiveIntegerField(_('how many?'), blank=True, default=0)

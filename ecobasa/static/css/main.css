@@ -11,10 +11,6 @@ body {
   background: #f4ede3;
 }
 
-body > .container {
-  padding-top: 20px;
-}
-
 .btn-primary {
   background-color: #da6137;
   border-color: #b4502c;
@@ -56,7 +52,6 @@ h2 {
   margin-bottom: 0px;
   border-radius: 0px;
   border: none;
-  padding-top: 5px;
 }
 
 .header .navbar-brand h1, .header .navbar-brand h2 {
@@ -71,38 +66,55 @@ h2 {
 }
 
 .navbar-default .navbar-brand {
-  background: url("../img/community-tours_logo_small.png") no-repeat left top;
+  background: url("../img/community-tours_logo_small.png") no-repeat left;
   background-size: 55px 52px;
   margin-left: 20px;
   padding-left: 66px;
-  padding-top: 4px;
+  padding-top: 13px;
   color: #f4ede3;
 }
 
 .navbar-default ul.navbar-nav {
   float: right;
-  margin-top: 2px;
 }
 .navbar-default ul.navbar-nav > li > a {
   color: #f4ede3;
+  padding: 23px;
+}
+.navbar-default ul.navbar-nav > li > a:hover {
+  color: #b4502c;
 }
 .navbar-default ul.navbar-nav .dropdown > a .caret {
   border-top-color: #f4ede3;
   border-bottom-color: #f4ede3;
 }
+.navbar-default ul.navbar-nav .open > a,
+.navbar-default ul.navbar-nav .open > a:hover,
+.navbar-default ul.navbar-nav .open > a:focus {
+  color: #da6137;
+}
+
+ul.dropdown-menu {
+  background: rgba(218, 97, 55, 0.8);
+  color: #f4ede3;
+  width: 100%;
+  min-width: initial;
+}
+ul.dropdown-menu > li > a {
+  color: #f4ede3;
+  padding: 3px 11px;
+}
+ul.dropdown-menu > .active > a,
+ul.dropdown-menu > .active > a:hover,
+ul.dropdown-menu > .active > a:focus,
+ul.dropdown-menu > li > a:hover {
+  background-color: #f4ede3;
+  color: #da6137;
+}
 
 /*********** Startpage ****************/
 body#start > .container {
   padding-top: 0px;
-}
-
-.container.content {
-  padding-top: 50px;
-}
-
-.register {
-  margin-top: 40px;
-  padding: 20px 36px;
 }
 
 /*************** Slider *****************/
@@ -179,7 +191,6 @@ a[data-toggle=tooltip] {
 
 .community-map-large {
   position: absolute;
-  top: 52px;
   left: 0px;
   width: 100%;
   height: 100%;
@@ -204,6 +215,11 @@ a[data-toggle=tooltip] {
 }
 
 /*********** Registration **************/
+.register {
+  margin-top: 40px;
+  padding: 20px 36px;
+}
+
 .register.btn {
   width: 100%;
   padding: 10%;
@@ -217,6 +233,11 @@ a[data-toggle=tooltip] {
 .navbar.navbar-default.registration .navbar-nav > .active > a {
   color: #555;
   background-color: #da6137;
+}
+
+form#form-register-member,
+form#form-register-community {
+  margin-top: 20px;
 }
 
 #slide-member-bus-ask .btn {

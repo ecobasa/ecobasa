@@ -1,0 +1,13 @@
+{% load i18n menu_tags %}
+{% get_available_languages as languages %}
+{% get_current_language as current_lang %}
+<a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ current_lang }} <b class="caret"></b></a>
+<ul class="dropdown-menu">
+{% for language in languages %}
+    {% language language.0 %}
+        <li{% ifequal current_language language.0 %} class="active"{% endifequal %}>
+        	<a href="{% page_language_url language.0 %}">{{ language.1 }}</a>
+        </li>
+    {% endlanguage %}
+{% endfor %}
+</ul>
