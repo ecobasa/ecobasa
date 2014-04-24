@@ -1316,6 +1316,59 @@ msgstr ""
 msgid "Login"
 msgstr ""
 
+#: templates/cosinnus/userprofile_detail.html:5
+#: templates/ecobasa/pioneer_detail.html:5
+#, python-format
+msgid "Pioneer profile: %(name)s"
+msgstr ""
+
+#: templates/cosinnus/userprofile_detail.html:11
+msgid "Edit your profile"
+msgstr ""
+
+#: templates/cosinnus/userprofile_detail.html:12
+#: templates/ecobasa/pioneer_detail.html:12
+msgid "a gift-economy pioneer"
+msgstr ""
+
+#: templates/cosinnus/userprofile_detail.html:21
+#: templates/ecobasa/community_list.html:35
+#: templates/ecobasa/pioneer_detail.html:21
+#: templates/ecobasa/pioneer_list.html:24
+msgid "Skills"
+msgstr ""
+
+#: templates/cosinnus/userprofile_detail.html:27
+#: templates/ecobasa/pioneer_detail.html:27
+msgid "Interests"
+msgstr ""
+
+#: templates/cosinnus/userprofile_detail.html:33
+#: templates/ecobasa/pioneer_detail.html:33
+msgid "Products"
+msgstr ""
+
+#: templates/cosinnus/userprofile_detail.html:43
+#: templates/ecobasa/pioneer_detail.html:43
+msgid "gender"
+msgstr ""
+
+#: templates/cosinnus/userprofile_detail.html:77
+#: templates/ecobasa/bus_list.html:16 templates/ecobasa/pioneer_detail.html:77
+#: templates/ecobasa/pioneer_list.html:25
+msgid "Bus"
+msgstr ""
+
+#: templates/cosinnus/userprofile_detail.html:93
+#: templates/ecobasa/pioneer_detail.html:93
+msgid "Maximum passengers this bus can take:"
+msgstr ""
+
+#: templates/cosinnus/userprofile_detail.html:96
+#: templates/ecobasa/pioneer_detail.html:96
+msgid "fuel consumption"
+msgstr ""
+
 #: templates/cosinnus/registration/password_reset_email.html:2
 #, python-format
 msgid ""
@@ -1402,6 +1455,7 @@ msgid "%(name)s"
 msgstr ""
 
 #: templates/ecobasa/community_detail.html:24
+#: templates/ecobasa/pioneer_detail.html:11
 msgid "Edit"
 msgstr ""
 

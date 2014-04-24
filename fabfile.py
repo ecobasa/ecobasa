@@ -17,6 +17,7 @@ def production():
     env.push_branch = 'tour'
     env.push_remote = 'origin'
 
+
 def reload_webserver():
     run("touch %(path)s/ecobasa/wsgi.py" % env)
 
@@ -34,6 +35,7 @@ def migrate():
     with virtualenv(env.virtualenv_path):
         run("%(path)s/manage.py syncdb" % env)
         run("%(path)s/manage.py migrate" % env)
+
 
 def production_deploy():
     update()

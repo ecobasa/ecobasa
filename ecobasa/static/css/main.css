@@ -307,3 +307,9 @@ form#form-register-community {
   display: block;
   margin-top: 30px;
 }
+
+/************* Search ******************/
+.highlighted {
+  color: #da6137;
+  font-weight: bold;
+}

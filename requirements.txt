@@ -16,3 +16,5 @@ django-filer==0.9.5
 cmsplugin-filer==0.9.5
 django-recaptcha==0.0.9
 djangocms-text-ckeditor<2
+Whoosh==2.6.0
+django-haystack==2.1.0

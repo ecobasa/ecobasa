@@ -10,6 +10,7 @@ class SeedAdmin(admin.TabularInline):
     model = EcobasaCommunityProfileSeed
     extra = 1
 
+
 class EcobasaCommunityProfileAdmin(admin.ModelAdmin):
     readonly_fields = ('contact_lat', 'contact_lon',)
     inlines = [SeedAdmin]

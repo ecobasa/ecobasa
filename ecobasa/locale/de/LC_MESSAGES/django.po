@@ -1,15 +1,14 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# German translations for ecobasa
+# Copyright (C) 2014
+# This file is distributed under the same license as the ecobasa package.
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-17 10:29+0200\n"
-"PO-Revision-Date: 2014-04-05 09:00+0200\n"
+"POT-Creation-Date: 2014-04-17 16:03+0200\n"
+"PO-Revision-Date: 2014-04-24 17:05+0200\n"
 "Last-Translator: Sebastian Henschel <ecobasa@kodeaffe.de\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: de\n"
@@ -1320,6 +1319,59 @@ msgstr "Registrieren"
 msgid "Login"
 msgstr "Anmelden"
 
+#: templates/cosinnus/userprofile_detail.html:5
+#: templates/ecobasa/pioneer_detail.html:5
+#, python-format
+msgid "Pioneer profile: %(name)s"
+msgstr "Pionier-Profil: %(name)s"
+
+#: templates/cosinnus/userprofile_detail.html:11
+msgid "Edit your profile"
+msgstr "Profil bearbeiten"
+
+#: templates/cosinnus/userprofile_detail.html:12
+#: templates/ecobasa/pioneer_detail.html:12
+msgid "a gift-economy pioneer"
+msgstr "ein Pionier der Schenkökonomie"
+
+#: templates/cosinnus/userprofile_detail.html:21
+#: templates/ecobasa/community_list.html:35
+#: templates/ecobasa/pioneer_detail.html:21
+#: templates/ecobasa/pioneer_list.html:24
+msgid "Skills"
+msgstr "Fertigkeiten"
+
+#: templates/cosinnus/userprofile_detail.html:27
+#: templates/ecobasa/pioneer_detail.html:27
+msgid "Interests"
+msgstr "Interessen"
+
+#: templates/cosinnus/userprofile_detail.html:33
+#: templates/ecobasa/pioneer_detail.html:33
+msgid "Products"
+msgstr "Produkte"
+
+#: templates/cosinnus/userprofile_detail.html:43
+#: templates/ecobasa/pioneer_detail.html:43
+msgid "gender"
+msgstr "\"Geschlecht\""
+
+#: templates/cosinnus/userprofile_detail.html:77
+#: templates/ecobasa/bus_list.html:16 templates/ecobasa/pioneer_detail.html:77
+#: templates/ecobasa/pioneer_list.html:25
+msgid "Bus"
+msgstr "Bus"
+
+#: templates/cosinnus/userprofile_detail.html:93
+#: templates/ecobasa/pioneer_detail.html:93
+msgid "Maximum passengers this bus can take:"
+msgstr "Maximale Anzahl der Passagiere, die dieser Bus befördern kann:"
+
+#: templates/cosinnus/userprofile_detail.html:96
+#: templates/ecobasa/pioneer_detail.html:96
+msgid "fuel consumption"
+msgstr "Kraftstoffverbrauch"
+
 #: templates/cosinnus/registration/password_reset_email.html:2
 #, python-format
 msgid ""
@@ -1408,6 +1460,7 @@ msgid "%(name)s"
 msgstr "%(name)s"
 
 #: templates/ecobasa/community_detail.html:24
+#: templates/ecobasa/pioneer_detail.html:11
 msgid "Edit"
 msgstr "Bearbeiten"
 

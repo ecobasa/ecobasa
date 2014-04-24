@@ -535,4 +535,3 @@ class EcobasaCommunityProfileSeed(models.Model):
         blank=True,
         null=True)
     num = models.PositiveIntegerField(_('how many?'), blank=True, default=0)
-
