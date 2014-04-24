@@ -86,7 +86,7 @@
       {% if profile.bus_others_can_drive = "True" %}
         <p>Other people can drive this bus too</p>
       {% else %}
-        <p>This bus needs to be driven by {{  user.username }} only</p>
+        <p>This bus needs to be driven by {{ object.username }} only</p>
       {% endif %}
     </div>
     <div class="row">
