@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load i18n bootstrap3 %}
+
+
+{% block page_title %}{% trans "Find communities" %}{% endblock page_title %}
+
+
+{% block base_content %}
+  <h1>{% trans "Find communities" %}</h1>
+
+  <form method="get" action="." class="search form-inline" role="form">
+    <div class="form-group">
+      <input type="text" class="form-control" id="id_q" name="q" placeholder="{% trans "Enter search term" %}"{% if form.q.value %} value="{{ form.q.value }}"{% endif %}>
+    </div>
+    <button type="submit" class="btn btn-default">{% trans "Find" %}</button>
+  </form>
+  <br />
+
+  <div class="alert alert-info">
+    {% if paginator.count %}
+      <p>{% blocktrans with query=query count num=paginator.count %}
+        {{ num }} result for "{{ query }}".
+        {% plural %}
+        {{ num }} results for "{{ query }}".
+      {% endblocktrans %}</p>
+    {% else %}
+      {% if query %}
+        <p>{% blocktrans with query=query %}No results found for "{{ query }}".{% endblocktrans %}</p>
+      {% else %}
+        <p>{% trans "No search term given!" %}</p>
+      {% endif %}
+    {% endif %}
+  </div>
+
+  {% if query %}
+    <ul>{% for result in page.object_list %}
+      <li>
+        {% ifequal result.model_name 'ecobasacommunityprofile' %}
+          <a href="{% url 'community-detail' group=result.slug %}">{{ result.name }}</a><br>
+          {{ result.context.field }}
+          <div class="well">{{ result.context.value|safe }}</div>
+        {% endifequal %}
+        {% ifequal result.model_name 'ecobasauserprofile' %}
+          <a href="{% url 'pioneer-detail' username=result.username %}">{{ result.username }}</a><br>
+          {{ result.context.field }}
+          <div class="well">{{ result.context.value|safe }}</div>
+        {% endifequal %}
+      </li>
+    {% endfor %}</ul>
+
+
+    {% if page.has_previous or page.has_next %}
+      <div>
+        <div>
+          <a {% if page.has_previous %} href="?q={{ query }}{% if request.GET.models %}&amp;models={{ request.GET.models }}{% endif %}&amp;page={{ 1 }}"{% endif %}>&lt;&lt;</a>
+          <a {% if page.has_previous %}href="?q={{ query }}{% if request.GET.models %}&amp;models={{ request.GET.models }}{% endif %}&amp;page={{ page.previous_page_number }}"{% endif %}>&lt;</a>
+
+          {% for num in paginator.page_range %}
+            {% ifequal num page.number %}<span><a class="active">{{ num }}</a></span>{% else %}<a href="?q={{ query }}{% if request.GET.models %}&amp;models={{ request.GET.models }}{% endif %}&amp;page={{ num }}"> {{ num }}</a>{% endifequal %}
+          {% endfor %}
+
+          <a {% if page.has_next %}href="?q={{ query }}{% if request.GET.models %}&amp;models={{ request.GET.models }}{% endif %}&amp;page={{ page.next_page_number }}"{% endif %}>&gt;</a>
+          <a {% if page.has_next %}href="?q={{ query }}{% if request.GET.models %}&amp;models={{ request.GET.models }}{% endif %}&amp;page={{ paginator.num_pages }}"{% endif %}>&gt;&gt;</a>
+        </div>
+      </div>
+    {% endif %}
+  {% endif %}
+{% endblock %}

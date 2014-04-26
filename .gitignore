@@ -48,3 +48,6 @@ ecobasa/settings.py
 # npm and bower 
 bower_components/
 node_modules/
+
+# search
+whoosh_index/

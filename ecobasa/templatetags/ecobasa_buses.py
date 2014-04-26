@@ -10,4 +10,3 @@ register = template.Library()
 @register.assignment_tag
 def get_buses():
     return EcobasaUserProfile.objects.has_bus
-

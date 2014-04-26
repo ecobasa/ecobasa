@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-17 10:34+0200\n"
+"POT-Creation-Date: 2014-04-26 10:35+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1091,7 +1091,7 @@ msgid ""
 "project permanently possible)"
 msgstr ""
 
-#: models.py:362 templates/userprofiles/registration_member.html:24
+#: models.py:362 templates/userprofiles/registration_member.html:25
 msgid "interests"
 msgstr ""
 
@@ -1227,11 +1227,11 @@ msgstr ""
 msgid "what kind of seeds?"
 msgstr ""
 
-#: models.py:534
+#: models.py:537
 msgid "how many?"
 msgstr ""
 
-#: views.py:84 views.py:145
+#: views.py:86 views.py:147
 msgid "The profile was successfully updated."
 msgstr ""
 
@@ -1283,37 +1283,49 @@ msgstr ""
 msgid "Community Dashboard"
 msgstr ""
 
-#: templates/cosinnus/topmenu.html:32
+#: templates/cosinnus/topmenu.html:37
 msgid "My Communities"
 msgstr ""
 
-#: templates/cosinnus/topmenu.html:32
+#: templates/cosinnus/topmenu.html:37
 msgid "My Community"
 msgstr ""
 
-#: templates/cosinnus/topmenu.html:38
+#: templates/cosinnus/topmenu.html:43
 msgid "List all communities"
 msgstr ""
 
-#: templates/cosinnus/topmenu.html:45
+#: templates/cosinnus/topmenu.html:50
 msgid "Profile"
 msgstr ""
 
-#: templates/cosinnus/topmenu.html:46
+#: templates/cosinnus/topmenu.html:51
 msgid "Dashboard"
 msgstr ""
 
-#: templates/cosinnus/topmenu.html:47
+#: templates/cosinnus/topmenu.html:52
 msgid "Logout"
 msgstr ""
 
-#: templates/cosinnus/topmenu.html:52
+#: templates/cosinnus/topmenu.html:57
 msgctxt "the verb"
 msgid "Register"
 msgstr ""
 
-#: templates/cosinnus/topmenu.html:54
+#: templates/cosinnus/topmenu.html:59
+#: templates/cosinnus/registration/login.html:4
+#: templates/cosinnus/registration/login.html:11
 msgid "Login"
+msgstr ""
+
+#: templates/cosinnus/registration/login.html:12
+msgid "Lost password"
+msgstr ""
+
+#: templates/cosinnus/registration/login.html:13
+#: templates/userprofiles/registration_community.html:189
+#: templates/userprofiles/registration_member.html:176
+msgid "Register"
 msgstr ""
 
 #: templates/cosinnus/registration/password_reset_email.html:2
@@ -1349,7 +1361,7 @@ msgstr ""
 msgid "Add"
 msgstr ""
 
-#: templates/ecobasa/bus_add.html:40 templates/ecobasa/community_form.html:128
+#: templates/ecobasa/bus_add.html:40 templates/ecobasa/community_form.html:126
 #: templates/ecobasa/pioneer_form.html:58
 msgid "Cancel"
 msgstr ""
@@ -1444,18 +1456,18 @@ msgstr ""
 msgid "Edit community “%(name)s”"
 msgstr ""
 
-#: templates/ecobasa/community_form.html:72
-#: templates/userprofiles/registration_community.html:124
+#: templates/ecobasa/community_form.html:71
+#: templates/userprofiles/registration_community.html:125
 msgid "Seeds"
 msgstr ""
 
-#: templates/ecobasa/community_form.html:127
+#: templates/ecobasa/community_form.html:125
 #: templates/ecobasa/pioneer_form.html:57
 msgid "Save"
 msgstr ""
 
-#: templates/ecobasa/community_form.html:161
-#: templates/userprofiles/registration_community.html:213
+#: templates/ecobasa/community_form.html:159
+#: templates/userprofiles/registration_community.html:215
 msgid "More seeds"
 msgstr ""
 
@@ -1560,6 +1572,40 @@ msgstr ""
 msgid "join the tours now!"
 msgstr ""
 
+#: templates/search/search.html:5 templates/search/search.html.py:9
+msgid "Find communities"
+msgstr ""
+
+#: templates/search/search.html:13
+msgid "Enter search term"
+msgstr ""
+
+#: templates/search/search.html:15
+msgid "Find"
+msgstr ""
+
+#: templates/search/search.html:21
+#, python-format
+msgid ""
+"\n"
+"        %(num)s result for \"%(query)s\".\n"
+"        "
+msgid_plural ""
+"\n"
+"        %(num)s results for \"%(query)s\".\n"
+"      "
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/search/search.html:28
+#, python-format
+msgid "No results found for \"%(query)s\"."
+msgstr ""
+
+#: templates/search/search.html:30
+msgid "No search term given!"
+msgstr ""
+
 #: templates/userprofiles/registration.html:4
 #: templates/userprofiles/registration_community.html:4
 #: templates/userprofiles/registration_complete.html:4
@@ -1575,29 +1621,24 @@ msgstr ""
 msgid "Join as your communities gift-economy ambassador"
 msgstr ""
 
-#: templates/userprofiles/registration_community.html:21
+#: templates/userprofiles/registration_community.html:22
 msgid "contact info"
 msgstr ""
 
-#: templates/userprofiles/registration_community.html:22
+#: templates/userprofiles/registration_community.html:23
 msgid "visitors"
 msgstr ""
 
-#: templates/userprofiles/registration_community.html:23
+#: templates/userprofiles/registration_community.html:24
 msgid "wishlist"
 msgstr ""
 
-#: templates/userprofiles/registration_community.html:24
+#: templates/userprofiles/registration_community.html:25
 msgid "offers"
 msgstr ""
 
-#: templates/userprofiles/registration_community.html:25
+#: templates/userprofiles/registration_community.html:26
 msgid "basic info"
-msgstr ""
-
-#: templates/userprofiles/registration_community.html:188
-#: templates/userprofiles/registration_member.html:175
-msgid "Register"
 msgstr ""
 
 #: templates/userprofiles/registration_complete.html:8
@@ -1631,28 +1672,28 @@ msgstr ""
 msgid "See you soon, the rest of the Community Tours team."
 msgstr ""
 
-#: templates/userprofiles/registration_member.html:23
+#: templates/userprofiles/registration_member.html:24
 msgid "personal"
 msgstr ""
 
-#: templates/userprofiles/registration_member.html:25
+#: templates/userprofiles/registration_member.html:26
 msgid "skills"
 msgstr ""
 
-#: templates/userprofiles/registration_member.html:26
+#: templates/userprofiles/registration_member.html:27
 msgid "bus"
 msgstr ""
 
-#: templates/userprofiles/registration_member.html:123
+#: templates/userprofiles/registration_member.html:124
 msgid ""
 "You can also add a bus later, it would be great if you could ask around "
 "among your friends if they want to join us with their bus!"
 msgstr ""
 
-#: templates/userprofiles/registration_member.html:125
+#: templates/userprofiles/registration_member.html:126
 msgid "YES"
 msgstr ""
 
-#: templates/userprofiles/registration_member.html:127
+#: templates/userprofiles/registration_member.html:128
 msgid "NO, Register"
 msgstr ""

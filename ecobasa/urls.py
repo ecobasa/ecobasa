@@ -2,6 +2,9 @@ from django.conf import settings
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.conf.urls.i18n import i18n_patterns
+from haystack.views import search_view_factory
+
+from .views import FindView
 
 admin.autodiscover()
 
@@ -30,6 +33,8 @@ urlpatterns = i18n_patterns('',
 
     url(r'^buses/$', 'ecobasa.views.bus_list', name='bus-list'),
     url(r'^buses/add/$', 'ecobasa.views.bus_add', name='bus-add'),
+
+    url(r'^find/$', search_view_factory(view_class=FindView), name='find'),
 
     # url(r'^skillshare/', include('skillshare.urls', namespace='skillshare')),
     # url(r'^references/', include('references.urls', namespace='references')),

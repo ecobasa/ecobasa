@@ -1,0 +1,16 @@
+{{ object.name }}
+{{ object.contact_telephone }}
+{{ object.contact_street }}
+{{ object.contact_zipcode }}
+{{ object.contact_city }}
+{{ object.contact_country }}
+{{ object.visitors_accommodation }}
+{{ object.wishlist_materials }}
+{{ object.wisthlist_tools }}
+{{ object.wishlist_special_needs }}
+{{ object.offers_services.all }}
+{{ object.offers_skills.all }}
+{{ object.offers_creations.all }}
+{{ object.offers_workshop_spaces }}
+{{ object.offers_learning_seminars }}
+{{ object.basic_brings_together }}

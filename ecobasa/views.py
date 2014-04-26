@@ -16,6 +16,8 @@ from cosinnus.views.group import GroupListView
 from cosinnus.views.user import UserListView, USER_MODEL
 from cosinnus.views.profile import UserProfileUpdateView
 from cosinnus.views.widget import DashboardMixin
+from haystack.utils import Highlighter
+from haystack.views import SearchView
 from userprofiles.views import RegistrationView
 
 from .forms import (CommunityProfileForm, PioneerProfileForm,
@@ -95,10 +97,10 @@ class PioneerListView(UserListView):
     template_name = 'ecobasa/pioneer_list.html'
 
     def get_queryset(self):
-       users = super(PioneerListView, self).get_queryset()
-       pioneers = users.exclude(cosinnus_memberships__status=MEMBERSHIP_ADMIN)
-       pioneers = pioneers.exclude(is_superuser=True, is_staff=True)
-       return pioneers
+        users = super(PioneerListView, self).get_queryset()
+        pioneers = users.exclude(cosinnus_memberships__status=MEMBERSHIP_ADMIN)
+        pioneers = pioneers.exclude(is_superuser=True, is_staff=True)
+        return pioneers
 
 pioneer_list = PioneerListView.as_view()
 
@@ -152,7 +154,6 @@ class PioneerUpdateView(UpdateView):
 pioneer_update = PioneerUpdateView.as_view()
 
 
-
 class BusListView(UserListView):
     template_name = 'ecobasa/bus_list.html'
 
@@ -200,3 +201,36 @@ class RegistrationCommunityView(RegistrationView):
         return context
 
 register_community = RegistrationCommunityView.as_view()
+
+
+#############################################################################
+# find views
+#############################################################################
+
+class FindView(SearchView):
+    def get_results(self):
+        """
+        Override get_results to add the value of the field where query was found
+        Also takes care of highlighting the query.
+        """
+        results = super(FindView, self).get_results()
+        query = self.query.lower()
+        highlight = Highlighter(query)
+        for r in results:
+            for field in r.get_stored_fields():
+                value = getattr(r, field)
+                # assume search index field 'text' is document field
+                if query in value.lower() and field != 'text':
+                    # assume search index field name == model field name
+                    try:
+                        name = r.object._meta.get_field(field).verbose_name
+                    except:
+                        name = field
+                    r.context = {
+                        'field': name,
+                        'value': highlight.highlight(value)
+                    }
+                    continue
+        return results
+
+# SearchView is no Django view, so no "find = FindView.as_view()"
