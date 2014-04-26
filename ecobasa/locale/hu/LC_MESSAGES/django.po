@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-26 10:35+0200\n"
+"POT-Creation-Date: 2014-04-26 10:51+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,27 +29,27 @@ msgstr ""
 msgid "German"
 msgstr ""
 
-#: forms.py:156
+#: forms.py:159
 msgid "The two password fields didn't match."
 msgstr ""
 
-#: forms.py:157
+#: forms.py:160
 msgid "Your old password was entered incorrectly. Please enter it again."
 msgstr ""
 
-#: forms.py:160
+#: forms.py:163
 msgid "Old password"
 msgstr ""
 
-#: forms.py:163
+#: forms.py:166
 msgid "New password"
 msgstr ""
 
-#: forms.py:166
+#: forms.py:169
 msgid "New password confirmation"
 msgstr ""
 
-#: forms.py:169
+#: forms.py:172
 msgid "Email"
 msgstr ""
 
@@ -1069,19 +1069,19 @@ msgstr ""
 msgid "\"gender\""
 msgstr ""
 
-#: models.py:348 templates/ecobasa/pioneer_detail.html:51
+#: models.py:348 templates/ecobasa/pioneer_detail.html:57
 msgid "birth date"
 msgstr ""
 
-#: models.py:351 models.py:417 templates/ecobasa/pioneer_detail.html:59
+#: models.py:351 models.py:422 templates/ecobasa/pioneer_detail.html:65
 msgid "country"
 msgstr ""
 
-#: models.py:353 models.py:413 templates/ecobasa/pioneer_detail.html:67
+#: models.py:353 models.py:418 templates/ecobasa/pioneer_detail.html:73
 msgid "city"
 msgstr ""
 
-#: models.py:355 models.py:415
+#: models.py:355 models.py:420
 msgid "zipcode"
 msgstr ""
 
@@ -1095,139 +1095,147 @@ msgstr ""
 msgid "interests"
 msgstr ""
 
-#: models.py:365
+#: models.py:365 templates/ecobasa/pioneer_detail.html:22
+msgid "Why do you want to take part in the tour?"
+msgstr ""
+
+#: models.py:367 templates/ecobasa/pioneer_detail.html:24
+msgid "How do you want to take part in the tour?"
+msgstr ""
+
+#: models.py:370
 msgid "knowledge/skills"
 msgstr ""
 
-#: models.py:367
+#: models.py:372
 msgid "products"
 msgstr ""
 
-#: models.py:372
+#: models.py:377
 msgid "Do you have a bus or car that you want to take on the tour?"
 msgstr ""
 
-#: models.py:374
+#: models.py:379
 msgid "bus image"
 msgstr ""
 
-#: models.py:377
+#: models.py:382
 msgid "I have a driving license"
 msgstr ""
 
-#: models.py:379
+#: models.py:384
 msgid "Other people can drive it too"
 msgstr ""
 
-#: models.py:382
+#: models.py:387
 msgid "How many people can it take"
 msgstr ""
 
-#: models.py:384
+#: models.py:389
 msgid "Consumption (l/100km)"
 msgstr ""
 
-#: models.py:406
+#: models.py:411
 msgid "name of community"
 msgstr ""
 
-#: models.py:409
+#: models.py:414
 msgid "telephone"
 msgstr ""
 
-#: models.py:411
+#: models.py:416
 msgid "street"
 msgstr ""
 
-#: models.py:419
+#: models.py:424
 msgid "latitude"
 msgstr ""
 
-#: models.py:420
+#: models.py:425
 msgid "longitude"
 msgstr ""
 
-#: models.py:422
+#: models.py:427
 msgid "show address in profile"
 msgstr ""
 
-#: models.py:427
+#: models.py:432
 msgid "maximum number of people you can host"
 msgstr ""
 
-#: models.py:429
+#: models.py:434
 msgid "accommodation for guests"
 msgstr ""
 
-#: models.py:433
+#: models.py:438
 msgid "what materials do you need?"
 msgstr ""
 
-#: models.py:436
+#: models.py:441
 msgid "what tools or machines do you need?"
 msgstr ""
 
-#: models.py:439
+#: models.py:444
 msgid "special needs (knowledge, information)"
 msgstr ""
 
-#: models.py:442
+#: models.py:447
 msgid "services"
 msgstr ""
 
-#: models.py:445
+#: models.py:450
 msgid "skills people can learn"
 msgstr ""
 
-#: models.py:448
+#: models.py:453
 msgid "creations/products"
 msgstr ""
 
-#: models.py:451
+#: models.py:456
 msgid "workshop spaces"
 msgstr ""
 
-#: models.py:453
+#: models.py:458
 msgid "learning seminars"
 msgstr ""
 
-#: models.py:458
+#: models.py:463
 msgid "how many people live in your community?"
 msgstr ""
 
-#: models.py:461
+#: models.py:466
 msgid "how many of them are under 18?"
 msgstr ""
 
-#: models.py:463
+#: models.py:468
 msgid "what brings your community together"
 msgstr ""
 
-#: models.py:468
+#: models.py:473
 msgid "open to new members"
 msgstr ""
 
-#: models.py:469
+#: models.py:474
 msgid "looking for members"
 msgstr ""
 
-#: models.py:470
+#: models.py:475
 msgid "closed for new members"
 msgstr ""
 
-#: models.py:472
+#: models.py:477
 msgid "member status"
 msgstr ""
 
-#: models.py:529
+#: models.py:534
 msgid "seeds"
 msgstr ""
 
-#: models.py:533
+#: models.py:538
 msgid "what kind of seeds?"
 msgstr ""
 
-#: models.py:537
+#: models.py:542
 msgid "how many?"
 msgstr ""
 
@@ -1324,7 +1332,7 @@ msgstr ""
 
 #: templates/cosinnus/registration/login.html:13
 #: templates/userprofiles/registration_community.html:189
-#: templates/userprofiles/registration_member.html:176
+#: templates/userprofiles/registration_member.html:186
 msgid "Register"
 msgstr ""
 
@@ -1362,7 +1370,7 @@ msgid "Add"
 msgstr ""
 
 #: templates/ecobasa/bus_add.html:40 templates/ecobasa/community_form.html:126
-#: templates/ecobasa/pioneer_form.html:58
+#: templates/ecobasa/pioneer_form.html:61
 msgid "Cancel"
 msgstr ""
 
@@ -1370,7 +1378,7 @@ msgstr ""
 msgid "Add a bus"
 msgstr ""
 
-#: templates/ecobasa/bus_list.html:16 templates/ecobasa/pioneer_detail.html:77
+#: templates/ecobasa/bus_list.html:16 templates/ecobasa/pioneer_detail.html:83
 #: templates/ecobasa/pioneer_list.html:25
 msgid "Bus"
 msgstr ""
@@ -1462,7 +1470,7 @@ msgid "Seeds"
 msgstr ""
 
 #: templates/ecobasa/community_form.html:125
-#: templates/ecobasa/pioneer_form.html:57
+#: templates/ecobasa/pioneer_form.html:60
 msgid "Save"
 msgstr ""
 
@@ -1501,7 +1509,7 @@ msgid "Status"
 msgstr ""
 
 #: templates/ecobasa/community_list.html:35
-#: templates/ecobasa/pioneer_detail.html:21
+#: templates/ecobasa/pioneer_detail.html:27
 #: templates/ecobasa/pioneer_list.html:24
 msgid "Skills"
 msgstr ""
@@ -1527,23 +1535,27 @@ msgstr ""
 msgid "a gift-economy pioneer"
 msgstr ""
 
-#: templates/ecobasa/pioneer_detail.html:27
-msgid "Interests"
+#: templates/ecobasa/pioneer_detail.html:21
+msgid "Tour"
 msgstr ""
 
 #: templates/ecobasa/pioneer_detail.html:33
+msgid "Interests"
+msgstr ""
+
+#: templates/ecobasa/pioneer_detail.html:39
 msgid "Products"
 msgstr ""
 
-#: templates/ecobasa/pioneer_detail.html:43
+#: templates/ecobasa/pioneer_detail.html:49
 msgid "gender"
 msgstr ""
 
-#: templates/ecobasa/pioneer_detail.html:93
+#: templates/ecobasa/pioneer_detail.html:99
 msgid "Maximum passengers this bus can take:"
 msgstr ""
 
-#: templates/ecobasa/pioneer_detail.html:96
+#: templates/ecobasa/pioneer_detail.html:102
 msgid "fuel consumption"
 msgstr ""
 
@@ -1684,16 +1696,16 @@ msgstr ""
 msgid "bus"
 msgstr ""
 
-#: templates/userprofiles/registration_member.html:124
+#: templates/userprofiles/registration_member.html:134
 msgid ""
 "You can also add a bus later, it would be great if you could ask around "
 "among your friends if they want to join us with their bus!"
 msgstr ""
 
-#: templates/userprofiles/registration_member.html:126
+#: templates/userprofiles/registration_member.html:136
 msgid "YES"
 msgstr ""
 
-#: templates/userprofiles/registration_member.html:128
+#: templates/userprofiles/registration_member.html:138
 msgid "NO, Register"
 msgstr ""

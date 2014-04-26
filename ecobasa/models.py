@@ -362,6 +362,11 @@ class EcobasaUserProfile(BaseUserProfile):
     interests = TaggableManager(_('interests'),
         through=TaggedInterest, related_name='_interest', blank=True,
         help_text='A comma-separated list of tags. You can type anything here. You can also chose from other users tags. Connect two words with a "-" to have one tag.')
+    tour_why = models.TextField(_('Why do you want to take part in the tour?'),
+        blank=True, null=True)
+    tour_how = models.TextField(_('How do you want to take part in the tour?'),
+        blank=True, null=True)
+
     skills = TaggableManager(_('knowledge/skills'),
         through=TaggedSkill, related_name='_skill', blank=True)
     products = TaggableManager(_('products'),
