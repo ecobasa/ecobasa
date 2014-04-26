@@ -18,6 +18,12 @@
       <a class="btn btn-smll" href="mailto:{{ profile.email }}"></a>
   </div>
   <div class="col-xs-6">
+    <h2>{% trans "Tour" %}</h2>
+    <h5>{% trans "Why do you want to take part in the tour?" %}</h5>
+    <p>{{ profile.tour_why }}</p>
+    <h5>{% trans "How do you want to take part in the tour?" %}</h5>
+    <p>{{ profile.tour_how }}</p>
+
     <h2>{% trans "Skills" %}</h2>
     <ul>
       {% for tag in profile.skills.all %}
