@@ -43,6 +43,9 @@ class RegistrationMemberForm(RegistrationForm):
 
         profile.ecobasa_member = self.cleaned_data['ecobasa_member']
 
+        profile.tour_why = self.cleaned_data['tour_why']
+        profile.tour_how = self.cleaned_data['tour_how']
+
         profile.has_bus = self.cleaned_data['has_bus']
         profile.bus_consumption = self.cleaned_data['bus_consumption']
         profile.bus_has_driving_license =\

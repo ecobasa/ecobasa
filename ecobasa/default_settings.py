@@ -138,6 +138,7 @@ CMS_TEMPLATES = (
 LANGUAGES = (
     ('en', _('English')),
     ('de', _('German')),
+    ('hu', _('Hungarian')),
 )
 
 INSTALLED_APPS = (

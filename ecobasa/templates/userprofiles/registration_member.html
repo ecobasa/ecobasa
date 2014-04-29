@@ -99,8 +99,18 @@
     
     
     <div id="slide-member-interests" class="slide hide">
-      {% bootstrap_field form.interests %}
-    
+      <div class="row">
+        <div class="col-xs-3">{% bootstrap_label form.tour_why.label %}</div>
+        <div class="col-xs-9">{% bootstrap_field form.tour_why show_label=False %}</div>
+      </div>
+      <div class="row">
+        <div class="col-xs-3">{% bootstrap_label form.tour_how.label %}</div>
+        <div class="col-xs-9">{% bootstrap_field form.tour_how show_label=False %}</div>
+      </div>
+      <div class="row">
+         <div class="col-xs-12">{% bootstrap_field form.interests %}</div>
+      </div>
+
       <div class="row proceed">
         <div class="col-xs-6"><a href="#slide-member-personal"><span class="glyphicon glyphicon-chevron-left"></span></a></div>
         <div class="col-xs-6"><a class="pull-right" href="#slide-member-skills-products"><span class="glyphicon glyphicon-chevron-right"></span></a></div>
