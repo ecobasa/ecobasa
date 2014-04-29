@@ -8,13 +8,13 @@ EcobasaProfile = {
 		});
 
 		$("#id_interests").select2({
-			tags: tags.interests, tokenSeparators: [",", " "]
+			tags: tags.interests, tokenSeparators: [","]
 		});
 		$("#id_skills").select2({
-			tags: tags.skills, tokenSeparators: [",", " "]
+			tags: tags.skills, tokenSeparators: [","]
 		});
 		$("#id_products").select2({
-			tags: tags.products, tokenSeparators: [",", " "]
+			tags: tags.products, tokenSeparators: [","]
 		});
 	},
 
@@ -25,13 +25,13 @@ EcobasaProfile = {
 		});
 
 		$("#id_offers_services").select2({
-			tags: tags.offersServices, tokenSeparators: [",", " "]
+			tags: tags.offersServices, tokenSeparators: [","]
 		});
 		$("#id_offers_skills").select2({
-			tags: tags.offersSkills, tokenSeparators: [",", " "]
+			tags: tags.offersSkills, tokenSeparators: [","]
 		});
 		$("#id_offers_creations").select2({
-			tags: tags.offersCreations, tokenSeparators: [",", " "]
+			tags: tags.offersCreations, tokenSeparators: [","]
 		});
 	}
 }
