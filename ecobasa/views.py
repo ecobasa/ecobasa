@@ -11,7 +11,7 @@ from django.utils.decorators import method_decorator
 from django.utils.translation import ugettext_lazy as _
 from django.views.generic import DetailView, UpdateView
 from cosinnus.models import CosinnusGroup
-from cosinnus.models.group import MEMBERSHIP_ADMIN
+from cosinnus.models.group import MEMBERSHIP_ADMIN, MEMBERSHIP_PENDING
 from cosinnus.views.group import GroupListView
 from cosinnus.views.user import UserListView, USER_MODEL
 from cosinnus.views.profile import UserProfileUpdateView
@@ -32,6 +32,14 @@ class CommunityDetailView(DetailView):
     def get_context_data(self, **kwargs):
         context = super(CommunityDetailView, self).get_context_data(**kwargs)
         context['profile'] = self.object.profile
+
+        # CosinnusGroup.admins and .pendings return pks, not objects :(
+        # So does CosinnusGroupMembership.get_pendings/admins :((
+        context['object'].ambassadors = map(lambda x: x.user,
+            context['object'].memberships.filter(status=MEMBERSHIP_ADMIN))
+        context['object'].pending_members = map(lambda x: x.user,
+            context['object'].memberships.filter(status=MEMBERSHIP_PENDING))
+
         return context
 
 community_detail = CommunityDetailView.as_view()

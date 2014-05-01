@@ -138,21 +138,17 @@
       <div class="col-md-12">
         <h3>{% trans "Gift-economy Ambassadors" %}</h3>
         <ul class="media-list">
-          {% for member in members %}
+          {% for amb in object.ambassadors %}
             <li class="media">
-              <a class="pull-left" href="{% url 'cosinnus:user-detail' username=member.get_username %}">
-                {% if member.cosinnus_profile.avatar %}
-                  <img class="avatar" src="{% thumbnail member.cosinnus_profile.avatar.url "60x60" crop=1 upscale=1 %}">
+              <a class="pull-left" href="{% url 'cosinnus:user-detail' username=amb.username %}">
+                {% if amb.cosinnus_profile.avatar %}
+                  <img class="avatar" src="{% thumbnail amb.cosinnus_profile.avatar.url "60x60" crop=1 upscale=1 %}">
                 {% else %}
                   <img class="avatar" src="http://placehold.it/30x30">
                 {% endif %}
               </a>
               <div class="media-body">
-                <a class="pull-left" href="{% url 'cosinnus:user-detail' username=member.get_username %}">{{ member.get_full_name|default:member.get_username }}</a>
-                <div class="btn-group btn-group-xs">
-                  <a href="{% url 'cosinnus:group-user-edit' group=object.slug username=member.get_username %}" class="btn btn-default">{% trans "Change" %}</a>
-                  <a href="{% url 'cosinnus:group-user-delete' group=object.slug username=member.get_username %}" class="btn btn-default">{% trans "Delete" %}</a>
-                </div>
+                <a class="pull-left" href="{% url 'cosinnus:user-detail' username=amb.username %}">{{ amb.get_full_name|default:amb.username }}</a>
               </div>
             </li>
           {% endfor %}
@@ -164,9 +160,9 @@
       <div class="col-md-12">
         <h3>{% trans "Pending users" %}</h3>
         <ul class="media-list">
-          {% for pending in pendings %}
+          {% for pending in object.pending_members %}
             <li class="media">
-              <a class="pull-left" href="{% url 'cosinnus:user-detail' username=pending.get_username %}">
+              <a class="pull-left" href="{% url 'cosinnus:user-detail' username=pending.username %}">
                 {% if pending.cosinnus_profile.avatar %}
                   <img class="avatar" src="{% thumbnail cosinnus_profile.avatar.url "60x60" crop=1 upscale=1 %}">
                 {% else %}
@@ -174,11 +170,7 @@
                 {% endif %}
               </a>
               <div class="media-body">
-                <a class="pull-left" href="{% url 'cosinnus:user-detail' username=pending.get_username %}">{{ pending.get_full_name|default:pending.get_username }}</a>
-                <div class="btn-group btn-group-xs">
-                  <a href="{% url 'cosinnus:group-user-add' group=object.slug username=pending.get_username %}" class="btn btn-default">{% trans "Add" %}</a>
-                  <a href="{% url 'cosinnus:group-user-delete' group=object.slug username=pending.get_username %}" class="btn btn-default">{% trans "Delete" %}</a>
-                </div>
+                <a class="pull-left" href="{% url 'cosinnus:user-detail' username=pending.username %}">{{ pending.get_full_name|default:pending.username }}</a>
               </div>
             </li>
           {% endfor %}
