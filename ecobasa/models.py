@@ -15,7 +15,7 @@ from cms.models import CMSPlugin
 from filer.fields.image import FilerImageField
 
 from cosinnus.models import (BaseUserProfile, BaseUserProfileManager,
-    CosinnusGroup)
+    CosinnusGroup, CosinnusGroupMembership)
 
 
 class SlideshowPlugin(CMSPlugin):
@@ -540,3 +540,22 @@ class EcobasaCommunityProfileSeed(models.Model):
         blank=True,
         null=True)
     num = models.PositiveIntegerField(_('how many?'), blank=True, default=0)
+
+
+class OrganiserRole(models.Model):
+    # links to user and group
+    cosinnus_group_membership = models.ForeignKey(CosinnusGroupMembership,
+        verbose_name=_('Cosinnus group membership'))
+    title = models.CharField(
+        verbose_name=_('Role title'),
+        max_length=255)
+    description = models.TextField(
+        verbose_name=_('Role description'))
+
+    class Meta:
+        verbose_name = _('Organiser role')
+        verbose_name_plural = _('Organiser roles')
+
+    def __unicode__(self):
+        return '%s: %s' % (
+            self.cosinnus_group_membership.user.username, self.title)
