@@ -78,30 +78,42 @@
     </div>
   </div>
 </div>
-<div class="row">
   {% if profile.has_bus %}
-  <h2>{% trans "Bus" %}</h2>
-  <div class="col-xs-3">
-    {% if profile.bus_image %}<img src="{% thumbnail profile.bus_image "200x0" crop=1 upscale=1 %}" />{% endif %}
-  </div>
-  <div class="col-xs-6">
     <div class="row">
-      {% if  profile.bus_has_driving_license = "False" %}
-        <span class="important">This bus still needs a driver!</span>
+      <h2>{% trans "Bus" %}</h2>
+      <div class="col-xs-3">
+        {% if profile.bus_image %}<img src="{% thumbnail profile.bus_image "200x0" crop=1 upscale=1 %}" />{% endif %}
+      </div>
+      <div class="col-xs-6">
+        <div class="row">
+          {% if  profile.bus_has_driving_license = "False" %}
+            <span class="important">This bus still needs a driver!</span>
+          {% endif %}
+          {% if profile.bus_others_can_drive = "True" %}
+            <p>Other people can drive this bus too</p>
+          {% else %}
+            <p>This bus needs to be driven by {{ object.username }} only</p>
+          {% endif %}
+        </div>
+        <div class="row">
+          <span class="desc">{% trans "Maximum passengers this bus can take:" %}</span>{{ profile.bus_num_passengers }}
+        </div>
+        <div class="row">
+          <span class="desc">{% trans "fuel consumption" %}</span> {{ profile.bus_consumption }}l/100km
+        </div>
+      </div>
+    </div>
+  {% endif %}
+  <div class="row">
+    <div class="col-xs-12">
+      {% if object.organiser %}
+        <h2>{% trans "Organiser Roles" %}</h2>
+        <h3>{{ organiser.title }}</h3>
+        <p>{{ organiser.description }}</p>
+        <h3>Organisational Groups</h3>
+        {{ organiser.cosinnus_group_membership.group }}
       {% endif %}
-      {% if profile.bus_others_can_drive = "True" %}
-        <p>Other people can drive this bus too</p>
-      {% else %}
-        <p>This bus needs to be driven by {{ object.username }} only</p>
-      {% endif %}
     </div>
-    <div class="row">
-      <span class="desc">{% trans "Maximum passengers this bus can take:" %}</span>{{ profile.bus_num_passengers }}
-    </div>
-    <div class="row">
-      <span class="desc">{% trans "fuel consumption" %}</span> {{ profile.bus_consumption }}l/100km
-    </div>
-    {% endif %}
   </div>
 </div>
 
