@@ -242,9 +242,11 @@ class FindView(SearchView):
 
 # SearchView is no Django view, so no "find = FindView.as_view()"
 
+
 #############################################################################
 # organiser views
 #############################################################################
+
 
 class OrganiserListView(ListView):
     model = OrganiserRole

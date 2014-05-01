@@ -23,12 +23,11 @@ admin.site.register(EcobasaCommunityProfile, EcobasaCommunityProfileAdmin)
 class OrganiserRoleAdmin(admin.ModelAdmin):
     list_select_related = True
     list_display = ('__unicode__', 'title', 'get_user', 'get_group',)
-    list_filter= ('cosinnus_group_membership__group',)
+    list_filter = ('cosinnus_group_membership__group',)
 
     def get_user(self, obj):
         return obj.cosinnus_group_membership.user
     get_user.short_description = _('User')
-
 
     def get_group(self, obj):
         return obj.cosinnus_group_membership.group
