@@ -119,6 +119,12 @@ class PioneerDetailView(DetailView):
     def dispatch(self, *args, **kwargs):
         return super(PioneerDetailView, self).dispatch(*args, **kwargs)
 
+    def get_context_data(self, *args, **kwargs):
+        context = super(PioneerDetailView, self).get_context_data(
+            *args, **kwargs)
+        context['object'].organiser_roles = OrganiserRole.objects.for_user(
+            context['object'])
+        return context
 
 pioneer_detail = PioneerDetailView.as_view()
 

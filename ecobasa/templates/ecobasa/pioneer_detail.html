@@ -106,12 +106,14 @@
   {% endif %}
   <div class="row">
     <div class="col-xs-12">
-      {% if object.organiser %}
+      {% if object.organiser_roles %}
         <h2>{% trans "Organiser Roles" %}</h2>
-        <h3>{{ organiser.title }}</h3>
-        <p>{{ organiser.description }}</p>
-        <h3>Organisational Groups</h3>
-        {{ organiser.cosinnus_group_membership.group }}
+        {% for role in object.organiser_roles %}
+          <h3>{{ role.title }}</h3>
+          <p>{{ role.description }}</p>
+          <h3>Organisational Groups</h3>
+          <p>{{ role.cosinnus_group_membership.group }}</p>
+        {% endfor %}
       {% endif %}
     </div>
   </div>

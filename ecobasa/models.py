@@ -542,6 +542,12 @@ class EcobasaCommunityProfileSeed(models.Model):
     num = models.PositiveIntegerField(_('how many?'), blank=True, default=0)
 
 
+class OrganiserRoleManager(models.Manager):
+    def for_user(self, user):
+        qs = self.filter(cosinnus_group_membership__user=user)
+        return qs.select_related('cosinnus_group_membership__group')
+
+
 class OrganiserRole(models.Model):
     # links to user and group
     cosinnus_group_membership = models.ForeignKey(CosinnusGroupMembership,
@@ -551,6 +557,8 @@ class OrganiserRole(models.Model):
         max_length=255)
     description = models.TextField(
         verbose_name=_('Role description'))
+
+    objects = OrganiserRoleManager()
 
     class Meta:
         verbose_name = _('Organiser role')
