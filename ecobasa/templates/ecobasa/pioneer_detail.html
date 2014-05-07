@@ -1,5 +1,5 @@
 {% extends "cosinnus/base.html" %}
-{% load i18n thumbnail %}
+{% load i18n thumbnail ecobasa_organiser %}
 
 {% block page_title %}
   {% blocktrans with name=object.username %}Pioneer profile: {{ name }}{% endblocktrans %}
@@ -106,13 +106,18 @@
   {% endif %}
   <div class="row">
     <div class="col-xs-12">
-      {% if object.organiser_roles %}
+      {% get_organiser_roles_for_user object as grouped_roles %}
+      {% if grouped_roles %}
         <h2>{% trans "Organiser Roles" %}</h2>
-        {% for role in object.organiser_roles %}
-          <h3>{{ role.title }}</h3>
-          <p>{{ role.description }}</p>
-          <h3>Organisational Groups</h3>
-          <p>{{ role.cosinnus_group_membership.group }}</p>
+        {% for group, roles in grouped_roles.items %}
+          <h3>{% trans "Group" %}</h3>
+          <p>{{ group }}</p>
+
+          <h4>{% trans "Roles" %}</h4>
+          {% for role in roles %}
+            <h5>{{ role.title }}</h5>
+            <p>{{ role.description }}</p>
+          {% endfor %}
         {% endfor %}
       {% endif %}
     </div>
