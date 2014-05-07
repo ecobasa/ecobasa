@@ -1,0 +1,70 @@
+{% extends "cosinnus/base.html" %}
+{% load i18n thumbnail static %}
+
+{% block page_title %}{% trans "Organisers" %}{% endblock %}
+
+
+{% block extrahead %}
+  {{ block.super }}
+  <link rel="stylesheet" href="{% static "css/vendor/jquery.tablesorter.theme.bootstrap.css" %}" />
+{% endblock extrahead %}
+
+
+{% block content %}
+    <h1>{% trans "The Community-Tours organisers" %}</h1>
+    {% if object_list %}
+    <table id="organiser-list-table" class="table table-striped">
+        <thead>
+            <tr>
+                <th>{% trans "Organiser" %}</th>
+                <th>{% trans "Group" %}</th>
+                <th>{% trans "Role title" %}</th>
+                <th>{% trans "Role description" %}</th>
+            </tr>
+        </thead>
+        {% for organiser in object_list %}
+        {% with organiser.cosinnus_group_membership.user as cgm_user %}
+        <tr>
+            <td>
+                <a href="{% url 'pioneer-detail' username=cgm_user.username %}">
+                {% if cgm_user.cosinnus_profile.avatar %}
+                  <img class="avatar media-object" src="{% thumbnail cgm_user.cosinnus_profile.avatar "70x0" crop=1 upscale=1 %} "60x60" crop=1 upscale=1 %}">
+                {% else %}
+                  <img class="avatar media-object" src="http://placehold.it/30x30">
+                {% endif %}
+                {{ cgm_user.username }}
+                </a>
+            </td>
+            <td>{{ organiser.cosinnus_group_membership.group }}</td>
+            <td>{{ organiser.title }}</td>
+            <td>{{ organiser.description }}</td>
+        </tr>
+        {% endwith %}
+        {% endfor %}
+    </table>
+    {% else %}
+        {% trans "There are no organisers registered yet, " %}<a href="{% url 'register' %}">{% trans "join now!" %}</a>
+    {% endif %}
+{% endblock %}
+
+
+{% block extrafooter %}
+  {{ block.super }}
+  <script src="{% static "js/vendor/jquery.tablesorter.min.js" %}"></script>
+  <script src="{% static "js/vendor/jquery.tablesorter.widgets.min.js" %}"></script>
+  <script type="text/javascript">
+  $(function() {
+    $.extend($.tablesorter.themes.bootstrap, {
+      header     : '',
+      sortNone   : 'bootstrap-icon-unsorted',
+      sortAsc    : 'glyphicon glyphicon-chevron-up',
+      sortDesc   : 'glyphicon glyphicon-chevron-down',
+    });
+    $('#organiser-list-table').tablesorter({
+      theme : 'bootstrap',
+      headerTemplate : '{content} {icon}',
+      widgets : [ 'uitheme' ],
+    });
+  });
+  </script>
+{% endblock extrafooter %}

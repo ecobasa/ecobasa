@@ -1,0 +1,27 @@
+{% load i18n thumbnail ecobasa_organiser %}
+
+{% get_organiser_roles as grouped_roles %}
+{% if grouped_roles %}
+  <h2>{% trans "Organisers" %}</h2>
+  {% for username, roles in grouped_roles.items %}
+  <div class="row">
+    <div class="col-xs-3">
+      <h3>{% trans "Organiser" %}</h3>
+      {% with roles.0.cosinnus_group_membership.user.cosinnus_profile as profile %}
+      {% if profile.avatar %}<p><img src="{% thumbnail profile.avatar "200x0" crop=1 upscale=1 %}" /></p>{% endif %}
+      {% endwith %}
+      <p><a href="{% url 'pioneer-detail' username %}">{{ username }}</a></p>
+    </div>
+
+    <div class="col-xs-9">
+      <h4>{% trans "Roles" %}</h4>
+      {% for role in roles %}
+        {% with role.cosinnus_group_membership.group as group %}
+        <h5>{{ role.title }} (<a href="{% url 'cosinnus:group-detail' group.slug %}">{{ group.name }})</a></h5>
+        {% endwith %}
+        <p>{{ role.description }}</p>
+      {% endfor %}
+    </div>
+  </div>
+  {% endfor %}
+{% endif %}
