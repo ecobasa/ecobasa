@@ -11,63 +11,10 @@ from easy_thumbnails.fields import ThumbnailerImageField
 from six.moves import urllib
 from taggit.managers import TaggableManager
 from taggit.models import TaggedItemBase
-from cms.models import CMSPlugin
-from filer.fields.image import FilerImageField
 
-from cosinnus.models import (BaseUserProfile, BaseUserProfileManager,
-    CosinnusGroup, CosinnusGroupMembership)
+from cosinnus.models import (
+    BaseUserProfile, BaseUserProfileManager, CosinnusGroup)
 
-
-class SlideshowPlugin(CMSPlugin):
-    name = models.CharField(verbose_name=_("name"), max_length=100)
-
-    def __unicode__(self):
-        return u"%s" % (self.name,)
-
-    @property
-    def height(self):
-        max_height = 0
-        for image in self.images.all():
-            max_height = max(max_height, image.file.height)
-        return max_height
-
-    class Meta:
-        verbose_name = _("slide show")
-        verbose_name_plural = _("slide shows")
-
-    def copy_relations(self, oldinstance):
-        for image in oldinstance.images.all():
-            image.pk = None
-            image.slideshow = self
-            image.save()
-
-
-class Linkable(object):
-    @property
-    def link(self):
-        if self.link_url:
-            return self.link_url
-        elif self.link_page:
-            return self.link_page.get_absolute_url()
-        elif self.link_article:
-            return self.link_article.get_absolute_url()
-        return "#"
-
-
-class SlideshowImage(Linkable, models.Model):
-    slideshow = models.ForeignKey(SlideshowPlugin, verbose_name=_("slide show"), related_name="images")
-    file = FilerImageField(verbose_name=_("file"), null=True, blank=True)
-    title = models.CharField(verbose_name=_("title"), max_length=255, blank=True)
-    text = models.TextField(verbose_name=_("text"), max_length=255, blank=True, help_text=_("Text appearing on top of the image"))
-    order = models.PositiveSmallIntegerField(verbose_name=_("order"), default=0)
-
-    def __unicode__(self):
-        return u"%s slideshow image" % (self.slideshow,)
-
-    class Meta:
-        verbose_name = _("image")
-        verbose_name_plural = _("images")
-        ordering = ('order', 'id',)
 
 COUNTRY_CHOICES = (
     ('AD', _('Andorra')),
@@ -315,13 +262,22 @@ COUNTRY_CHOICES = (
 class TaggedInterest(TaggedItemBase):
     content_object = models.ForeignKey('EcobasaUserProfile')
 
+    class Meta:
+        app_label = 'ecobasa'
+
 
 class TaggedSkill(TaggedItemBase):
     content_object = models.ForeignKey('EcobasaUserProfile')
 
+    class Meta:
+        app_label = 'ecobasa'
+
 
 class TaggedProduct(TaggedItemBase):
     content_object = models.ForeignKey('EcobasaUserProfile')
+
+    class Meta:
+        app_label = 'ecobasa'
 
 
 class EcobasaUserProfile(BaseUserProfile):
@@ -390,17 +346,30 @@ class EcobasaUserProfile(BaseUserProfile):
 
     objects = BaseUserProfileManager()
 
+    class Meta:
+        app_label = 'ecobasa'
+
 
 class TaggedOffersService(TaggedItemBase):
     content_object = models.ForeignKey('EcobasaCommunityProfile')
+
+    class Meta:
+        app_label = 'ecobasa'
 
 
 class TaggedOffersSkill(TaggedItemBase):
     content_object = models.ForeignKey('EcobasaCommunityProfile')
 
+    class Meta:
+        app_label = 'ecobasa'
+
 
 class TaggedOffersCreation(TaggedItemBase):
     content_object = models.ForeignKey('EcobasaCommunityProfile')
+
+    class Meta:
+        app_label = 'ecobasa'
+
 
 
 @python_2_unicode_compatible
@@ -480,6 +449,9 @@ class EcobasaCommunityProfile(models.Model):
         choices=MEMBERSHIP_CHOICES,
         default=MEMBERSHIP_OPEN)
 
+    class Meta:
+        app_label = 'ecobasa'
+
     def __str__(self):
         return self.name
 
@@ -541,29 +513,5 @@ class EcobasaCommunityProfileSeed(models.Model):
         null=True)
     num = models.PositiveIntegerField(_('how many?'), blank=True, default=0)
 
-
-class OrganiserRoleManager(models.Manager):
-    def for_user(self, user):
-        qs = self.filter(cosinnus_group_membership__user=user)
-        return qs.select_related('cosinnus_group_membership__group')
-
-
-class OrganiserRole(models.Model):
-    # links to user and group
-    cosinnus_group_membership = models.ForeignKey(CosinnusGroupMembership,
-        verbose_name=_('Cosinnus group membership'))
-    title = models.CharField(
-        verbose_name=_('Role title'),
-        max_length=255)
-    description = models.TextField(
-        verbose_name=_('Role description'))
-
-    objects = OrganiserRoleManager()
-
     class Meta:
-        verbose_name = _('Organiser role')
-        verbose_name_plural = _('Organiser roles')
-
-    def __unicode__(self):
-        return '%s: %s' % (
-            self.cosinnus_group_membership.user.username, self.title)
+        app_label = 'ecobasa'
