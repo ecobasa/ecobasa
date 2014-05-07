@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-01 12:38+0200\n"
+"POT-Creation-Date: 2014-05-07 13:44+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,7 +21,8 @@ msgstr ""
 msgid "User"
 msgstr ""
 
-#: admin.py:35 templates/ecobasa/organiser_list.html:20
+#: admin.py:34 templates/ecobasa/organiser_list.html:20
+#: templates/ecobasa/pioneer_detail.html:113
 msgid "Group"
 msgstr ""
 
@@ -1251,27 +1252,27 @@ msgstr ""
 msgid "how many?"
 msgstr ""
 
-#: models.py:548
+#: models.py:554
 msgid "Cosinnus group membership"
 msgstr ""
 
-#: models.py:550 templates/ecobasa/organiser_list.html:21
+#: models.py:556 templates/ecobasa/organiser_list.html:21
 msgid "Role title"
 msgstr ""
 
-#: models.py:553 templates/ecobasa/organiser_list.html:22
+#: models.py:559 templates/ecobasa/organiser_list.html:22
 msgid "Role description"
 msgstr ""
 
-#: models.py:556
+#: models.py:564
 msgid "Organiser role"
 msgstr ""
 
-#: models.py:557
+#: models.py:565
 msgid "Organiser roles"
 msgstr ""
 
-#: views.py:87 views.py:148
+#: views.py:95 views.py:155
 msgid "The profile was successfully updated."
 msgstr ""
 
@@ -1397,7 +1398,6 @@ msgid "Add your bus"
 msgstr ""
 
 #: templates/ecobasa/bus_add.html:39
-#: templates/ecobasa/community_detail.html:179
 msgid "Add"
 msgstr ""
 
@@ -1463,8 +1463,6 @@ msgid "Export"
 msgstr ""
 
 #: templates/ecobasa/community_detail.html:27
-#: templates/ecobasa/community_detail.html:154
-#: templates/ecobasa/community_detail.html:180
 msgid "Delete"
 msgstr ""
 
@@ -1482,11 +1480,7 @@ msgstr ""
 msgid "Gift-economy Ambassadors"
 msgstr ""
 
-#: templates/ecobasa/community_detail.html:153
-msgid "Change"
-msgstr ""
-
-#: templates/ecobasa/community_detail.html:165
+#: templates/ecobasa/community_detail.html:161
 msgid "Pending users"
 msgstr ""
 
@@ -1555,14 +1549,16 @@ msgid "Register as a gift-economy ambassador for your community</a>"
 msgstr ""
 
 #: templates/ecobasa/organiser_list.html:4
+#: templates/ecobasa/includes/organisers.html:5
 msgid "Organisers"
 msgstr ""
 
 #: templates/ecobasa/organiser_list.html:14
-msgid "The gift-economy organisers"
+msgid "The Community-Tours organisers"
 msgstr ""
 
 #: templates/ecobasa/organiser_list.html:19
+#: templates/ecobasa/includes/organisers.html:9
 msgid "Organiser"
 msgstr ""
 
@@ -1609,6 +1605,15 @@ msgstr ""
 
 #: templates/ecobasa/pioneer_detail.html:102
 msgid "fuel consumption"
+msgstr ""
+
+#: templates/ecobasa/pioneer_detail.html:111
+msgid "Organiser Roles"
+msgstr ""
+
+#: templates/ecobasa/pioneer_detail.html:116
+#: templates/ecobasa/includes/organisers.html:17
+msgid "Roles"
 msgstr ""
 
 #: templates/ecobasa/pioneer_form.html:4

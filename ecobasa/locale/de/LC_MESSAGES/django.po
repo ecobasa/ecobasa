@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-05-01 12:38+0200\n"
+"POT-Creation-Date: 2014-05-07 13:44+0200\n"
 "PO-Revision-Date: 2014-05-01 12:40+0200\n"
 "Last-Translator: Sebastian Henschel <ecobasa@kodeaffe.de\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,7 +21,8 @@ msgstr ""
 msgid "User"
 msgstr "Nutzer"
 
-#: admin.py:35 templates/ecobasa/organiser_list.html:20
+#: admin.py:34 templates/ecobasa/organiser_list.html:20
+#: templates/ecobasa/pioneer_detail.html:113
 msgid "Group"
 msgstr ""
 
@@ -38,9 +39,8 @@ msgid "German"
 msgstr "Deutsch"
 
 #: default_settings.py:141
-#, fuzzy
 msgid "Hungarian"
-msgstr "Ungan"
+msgstr "Ungarisch"
 
 #: forms.py:159
 msgid "The two password fields didn't match."
@@ -1256,27 +1256,27 @@ msgstr "Was für Saatgut?"
 msgid "how many?"
 msgstr "Wieviele?"
 
-#: models.py:548
+#: models.py:554
 msgid "Cosinnus group membership"
 msgstr "Cosinnus-Gruppenmitgliedschaft"
 
-#: models.py:550 templates/ecobasa/organiser_list.html:21
+#: models.py:556 templates/ecobasa/organiser_list.html:21
 msgid "Role title"
 msgstr "Titel der Rolle"
 
-#: models.py:553 templates/ecobasa/organiser_list.html:22
+#: models.py:559 templates/ecobasa/organiser_list.html:22
 msgid "Role description"
 msgstr "Beschreibung der Rolle"
 
-#: models.py:556
+#: models.py:564
 msgid "Organiser role"
 msgstr "Organisator-Rolle"
 
-#: models.py:557
+#: models.py:565
 msgid "Organiser roles"
 msgstr "Organisator-Rollen"
 
-#: views.py:87 views.py:148
+#: views.py:95 views.py:155
 msgid "The profile was successfully updated."
 msgstr "Das Profil wurde erfolgreich aktualisiert."
 
@@ -1405,7 +1405,6 @@ msgid "Add your bus"
 msgstr "Deinen Bus hinzufügen"
 
 #: templates/ecobasa/bus_add.html:39
-#: templates/ecobasa/community_detail.html:179
 msgid "Add"
 msgstr "Hinzufügen"
 
@@ -1449,7 +1448,7 @@ msgstr "Registrieren"
 
 #: templates/ecobasa/bus_list.html:42
 msgid "and add one now."
-msgstr "und füge jetzt einen hinzu"
+msgstr "und füge jetzt einen hinzu."
 
 #: templates/ecobasa/community_detail.html:10
 #, python-format
@@ -1471,8 +1470,6 @@ msgid "Export"
 msgstr "Exportieren"
 
 #: templates/ecobasa/community_detail.html:27
-#: templates/ecobasa/community_detail.html:154
-#: templates/ecobasa/community_detail.html:180
 msgid "Delete"
 msgstr "Entfernen"
 
@@ -1490,13 +1487,9 @@ msgstr "Nutzer hinzufügen"
 msgid "Gift-economy Ambassadors"
 msgstr "Schenkökonomie Botschafter"
 
-#: templates/ecobasa/community_detail.html:153
-msgid "Change"
-msgstr "Ändern"
-
-#: templates/ecobasa/community_detail.html:165
+#: templates/ecobasa/community_detail.html:161
 msgid "Pending users"
-msgstr "Nutzer in der Schwebe"
+msgstr "Gruppen-Bewerber"
 
 #: templates/ecobasa/community_form.html:5
 #: templates/ecobasa/community_form.html:17
@@ -1563,14 +1556,16 @@ msgid "Register as a gift-economy ambassador for your community</a>"
 msgstr "Melde dich als Schenkökonomie Botschafter für deine Gemeinschaft an"
 
 #: templates/ecobasa/organiser_list.html:4
+#: templates/ecobasa/includes/organisers.html:5
 msgid "Organisers"
 msgstr ""
 
 #: templates/ecobasa/organiser_list.html:14
-msgid "The gift-economy organisers"
-msgstr "EinE organisatorIn der Schenkökonomie"
+msgid "The Community-Tours organisers"
+msgstr "EinE OrganisatorIn der Schenkökonomie"
 
 #: templates/ecobasa/organiser_list.html:19
+#: templates/ecobasa/includes/organisers.html:9
 msgid "Organiser"
 msgstr "OrganisatorIn"
 
@@ -1597,7 +1592,7 @@ msgstr "ein Pionier der Schenkökonomie"
 
 #: templates/ecobasa/pioneer_detail.html:21
 msgid "Tour"
-msgstr ""
+msgstr "Tour"
 
 #: templates/ecobasa/pioneer_detail.html:33
 msgid "Interests"
@@ -1618,6 +1613,15 @@ msgstr "Maximale Anzahl der Passagiere, die dieser Bus befördern kann:"
 #: templates/ecobasa/pioneer_detail.html:102
 msgid "fuel consumption"
 msgstr "Kraftstoffverbrauch"
+
+#: templates/ecobasa/pioneer_detail.html:111
+msgid "Organiser Roles"
+msgstr "Organisator-Rollen"
+
+#: templates/ecobasa/pioneer_detail.html:116
+#: templates/ecobasa/includes/organisers.html:17
+msgid "Roles"
+msgstr "Rollen"
 
 #: templates/ecobasa/pioneer_form.html:4
 msgid "Edit pioneer"
@@ -1646,17 +1650,16 @@ msgid "join the tours now!"
 msgstr "melde dich jetzt an!"
 
 #: templates/search/search.html:5 templates/search/search.html.py:9
-#, fuzzy
 msgid "Find communities"
-msgstr "Gemeinschaften"
+msgstr "Finde Gemeinschaften"
 
 #: templates/search/search.html:13
 msgid "Enter search term"
-msgstr ""
+msgstr "Suchbegriff eingeben"
 
 #: templates/search/search.html:15
 msgid "Find"
-msgstr ""
+msgstr "Finden"
 
 #: templates/search/search.html:21
 #, python-format
@@ -1674,11 +1677,11 @@ msgstr[1] ""
 #: templates/search/search.html:28
 #, python-format
 msgid "No results found for \"%(query)s\"."
-msgstr ""
+msgstr "Keine Ergebnisse gefunden für \"%(query)s\"."
 
 #: templates/search/search.html:30
 msgid "No search term given!"
-msgstr ""
+msgstr "Kein Suchbegriff eingegeben!"
 
 #: templates/userprofiles/registration.html:4
 #: templates/userprofiles/registration_community.html:4
@@ -1781,18 +1784,3 @@ msgstr "JA"
 #: templates/userprofiles/registration_member.html:138
 msgid "NO, Register"
 msgstr "NEIN, Registrieren"
-
-#~ msgid "Edit your profile"
-#~ msgstr "Profil bearbeiten"
-
-#~ msgid "Create Group"
-#~ msgstr "Erzeuge Gruppe"
-
-#~ msgid "Save profile"
-#~ msgstr "Profil speichern"
-
-#~ msgid "do you need seeds?"
-#~ msgstr "Braucht ihr Samen?"
-
-#~ msgid "There are no groups."
-#~ msgstr "Es gibt keine Gruppen"
