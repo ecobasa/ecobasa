@@ -21,6 +21,7 @@ class RegistrationMemberForm(RegistrationForm):
         fields_user = forms.fields_for_model(EcobasaUserProfile)
         self.fields.update(fields_user)
         self.fields['birth_date'].widget = DateL10nPicker()
+        self.fields['avatar'].required = True
 
         # has_bus is a boolean field, but is represented as a button in the
         # form. Form validation has to be told explicitly that this field is
