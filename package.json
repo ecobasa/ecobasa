@@ -1,0 +1,19 @@
+{
+  "name": "Community-Tours",
+  "version": "0.0.1",
+  "description": "A short description of the project.",
+  "main": "Gruntfile.js",
+  "author": "Sinnwerkstatt",
+  "license": "none",
+  "readmeFilename": "README.md",
+  "devDependencies": {
+    "grunt-contrib-watch": "~0.4.4",
+    "grunt-contrib-uglify": "~0.2.2",
+    "grunt-contrib-sass": "~0.3.0",
+    "matchdep": "~0.1.2",
+    "grunt-contrib-connect": "~0.3.0",
+    "grunt-open": "~0.2.0",
+    "grunt-contrib-concat": "~0.3.0",
+    "grunt": "^0.4.4"
+  }
+}

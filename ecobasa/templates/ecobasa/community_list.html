@@ -1,0 +1,103 @@
+{% extends "base.html" %}
+{% load i18n l10n cms_tags static cosinnus_tags sekizai_tags ecobasa_community %}
+
+{% block page_title %}{% trans "Communities" %}{% endblock %}
+
+{% block extrahead %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static "leaflet/leaflet.css" %}" />
+<link rel="stylesheet" href="{% static "css/vendor/jquery.tablesorter.theme.bootstrap.css" %}" />
+{% endblock %}
+
+{% block base_content %}
+<div id="community-map" class="community-map-large">
+  <div class="btn-group view-select">
+    <button type="button" class="btn btn-default active"><span class="glyphicon glyphicon-globe"></span> {% trans "Map" %}</button>
+    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#community-list"><span class="glyphicon glyphicon-list-alt"></span> {% trans "List" %}</button>
+  </div>
+</div>
+<div class="modal fade" id="community-list">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">{% trans "Community List" %}</h4>
+      </div>
+      <div class="modal-body">
+        {% if object_list %}
+    <table id="community-list-table" class="table table-bordered table-hover">
+      <thead>
+        <tr>
+          <th>{% trans "Community name" %}</th>
+          <th>{% trans "Size" %}</th>
+          <th>{% trans "Country" %}</th>
+          <th>{% trans "Status" %}</th>
+          <th class="sorter-false">{% trans "Skills" %}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for community in object_list %}
+          {% with community.profile as profile %}
+          <tr>
+              <td>
+                <a href="{% url 'community-detail' group=community.slug %}">{{ community.name }}</a>
+              </td>
+            <td>
+              {{ profile.basic_inhabitants }}
+            </td>
+
+            <td>
+              {{ profile.get_contact_country_display }}
+            </td>
+
+            <td>
+              {{ profile.basic_membership_status }}
+            </td>
+
+            <td>
+              <ul>{% for skill in profile.offers_skills.names %}
+                <li>{{ skill }}</li>
+              {% endfor %}</ul>
+            </td>
+          </tr>
+          {% endwith %}
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    {% trans "There are no communities, yet." %} <a href="{% url 'register-community' %}">{% trans "Register as a gift-economy ambassador for your community</a>" %}
+  {% endif %}
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+{% endblock %}
+
+{% block extrafooter %}
+  {{ block.super }}
+  <script src="{% static "leaflet/leaflet.js" %}"></script>
+  <script src="{% static "js/vendor/jquery.tablesorter.min.js" %}"></script>
+  <script src="{% static "js/vendor/jquery.tablesorter.widgets.min.js" %}"></script>
+  <script src="{% static "js/ecobasa_map.js" %}"></script>
+  <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.4"></script>
+  <script type="text/javascript">
+  {% get_community_locations as locations %}
+  $(function() {
+    EcobasaMap.init('community-map');
+    {% for l in locations %}
+    EcobasaMap.addMarker({{ l.lat|unlocalize }}, {{ l.lon|unlocalize }}, '<a href="{% url 'community-detail' group=l.slug %}">{{ l.name }}</a>');
+    {% endfor %}
+
+    $.extend($.tablesorter.themes.bootstrap, {
+      sortNone   : 'bootstrap-icon-unsorted',
+      sortAsc    : 'glyphicon glyphicon-chevron-up',
+      sortDesc   : 'glyphicon glyphicon-chevron-down',
+    });
+    $('#community-list-table').tablesorter({
+      theme : 'bootstrap',
+      headerTemplate : '{content} {icon}',
+      widgets : [ 'uitheme' ],
+    });
+  });
+  </script>
+{% endblock extrafooter %}

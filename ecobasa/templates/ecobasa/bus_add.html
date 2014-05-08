@@ -1,0 +1,44 @@
+{% extends "cosinnus/base.html" %}
+{% load i18n bootstrap3 %}
+
+{% block page_title %}{% trans "Add your bus" %}{% endblock %}
+
+{% block content %}
+<form action="" method="post" enctype="multipart/form-data" class="form-horizontal" role="form">
+  {% csrf_token %}
+  <input type="hidden" id="id_has_bus" name="has_bus" value="on" />
+
+  <div class="row">
+    <div class="col-xs-6">
+      {% bootstrap_field form.bus_image %}
+    </div>
+    <div class="col-xs-6">
+
+      <div class="row">
+        <div class="col-xs-6">
+          {% bootstrap_field form.bus_has_driving_license %}
+        </div>
+        <div class="col-xs-6">
+          {% bootstrap_field form.bus_others_can_drive %}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-9">{% bootstrap_label form.bus_num_passengers.label %}</div>
+        <div class="col-xs-3">{% bootstrap_field form.bus_num_passengers show_label=False %}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-9">{% bootstrap_label form.bus_consumption.label %}</div>
+        <div class="col-xs-3">{% bootstrap_field form.bus_consumption show_label=False %}</div>
+      </div>
+
+    </div>
+  </div>
+
+  {% trans "Add" as submit_label %}
+  {% trans "Cancel" as reset_label %}
+  {% url 'bus-list' as reset_link %}
+  {% buttons submit=submit_label reset=reset_label reset_link=reset_link %}{% endbuttons %}
+</form>
+{% endblock content %}

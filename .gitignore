@@ -1,4 +1,5 @@
 *.py[cod]
+.DS_Store
 
 # C extensions
 *.so
@@ -41,4 +42,12 @@ nosetests.xml
 /static/
 /media/
 
-ecobasa_uanoa/settings.py
+# local settings
+ecobasa/settings.py
+
+# npm and bower 
+bower_components/
+node_modules/
+
+# search
+whoosh_index/

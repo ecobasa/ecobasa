@@ -1,8 +1,12 @@
-<<<<<<< HEAD
-ecobasa_uanoa
-=============
+Ecobasa
+=======
 
 Relaunch of http://ecobasa.org
+
+Requirements
+------------
+
+	$ pip install -r requirements.txt
 
 
 Database
@@ -14,13 +18,20 @@ for a bit of setup info. Basically:
 
 	$ sudo su - postgres
 	$ createuser django -P # enter password, answer no to all questions
-	$ createdb -E utf8 -O django ecobasa_uanoa -T template0
+	$ createdb -E utf8 -O django ecobasa -T template0
 
 As user posgres, you might have to check /etc/postgresql/9.1/main/pg_hba.conf
-if the TYPE 'local' for USER 'all' has METHOD set to 'md5' . Afterwards you
-should be able to syncdb as your normal user:
+if the TYPE 'local' for USER 'all' has METHOD set to 'md5' .
 
-	$ ./manage.py syncdb
+Afterwards you should be able to bootstrap the database as your normal user:
+
+	$ ./manage.py syncdb --noinput
+	$ ./manage.py migrate
+	$ ./manage.py createsuperuser
+
+Note: Running `syncdb` with `--noinput` is important, as otherwise setting up
+the superuser will fail due to tables which would only be created at migration
+time.
 
 
 Running
@@ -36,9 +47,12 @@ which will collect all apps' static files into the directory static/ .
 Run it:
 
 	$ ./manage.py runserver
-=======
-ecobasa-UaNoa
-=============
 
-ecobasa 2.0
->>>>>>> c60d6f2057e0e24b6ce739f4bbc49d12f0bd28bf
+
+Set up your Django site
+-----------------------
+
+For some features, e.g. user registration to work properly, it is necessary to
+set up a Django site, go to http://localhost:8000/admin/sites/site/1/ and edit
+the appropriate domain and display name (use the super user account created
+earlier to log in).

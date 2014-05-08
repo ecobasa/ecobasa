@@ -1,0 +1,41 @@
+"""
+Local settings for ecobasa project
+"""
+
+from __future__ import unicode_literals
+from .default_settings import *
+
+
+DEBUG = True
+TEMPLATE_DEBUG = DEBUG
+
+ADMINS = (
+    # ('Your Name', 'your_email@example.com'),
+)
+MANAGERS = ADMINS
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'ecobasa',
+        'USER': 'django',
+        'PASSWORD': 'ecobasa',
+        'HOST': '',
+        'PORT': '',
+    }
+}
+
+# Hosts/domain names that are valid for this site; required if DEBUG is False
+# See https://docs.djangoproject.com/en/1.5/ref/settings/#allowed-hosts
+ALLOWED_HOSTS = []
+
+# Make this unique, and don't share it with anybody.
+SECRET_KEY = 'r(y6&k-^j^lz2_)bpt&89v2aqy=2c%f^ppff2v5fptk%a11*_!'
+
+
+# Django DebugToolbar
+if DEBUG:
+    MIDDLEWARE_CLASSES =\
+        ('debug_toolbar.middleware.DebugToolbarMiddleware',) +\
+        MIDDLEWARE_CLASSES
+    INSTALLED_APPS += ('debug_toolbar',)

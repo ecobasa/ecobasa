@@ -1,0 +1,169 @@
+{% extends "base.html" %}
+{% load i18n static bootstrap3 ecobasa_registration %}
+
+{% block page_title %}
+  {% blocktrans with name=object.name %}Edit community “{{ name }}”{% endblocktrans %}
+{% endblock %}
+
+{% block extrahead %}
+{{ block.super }}
+{{ form.media.css }}
+<link href="{% static "css/vendor/select2-bootstrap.css" %}" rel="stylesheet"/>
+<link href="{% static "css/vendor/select2.css" %}" rel="stylesheet"/>
+{% endblock extrahead %}
+
+
+{% block content %}
+<h1>{% blocktrans with name=object.name %}Edit community “{{ name }}”{% endblocktrans %}</h1>
+
+<form action="." method="post" enctype="multipart/form-data" novalidate="novalidate">
+{% csrf_token %}
+
+  <div class="row">
+    <div class="col-xs-3">{% bootstrap_label form.name.label %}</div>
+    <div class="col-xs-9">{% bootstrap_field form.name show_label=False %}</div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-3">{% bootstrap_label form.contact_telephone.label %}</div>
+    <div class="col-xs-9">{% bootstrap_field form.contact_telephone show_label=False %}</div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-3">{% bootstrap_label form.contact_street.label %}</div>
+    <div class="col-xs-9">{% bootstrap_field form.contact_street show_label=False %}</div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-3">{% bootstrap_label form.contact_zipcode.label %}</div>
+    <div class="col-xs-3">{% bootstrap_field form.contact_zipcode show_label=False %}</div>
+    <div class="col-xs-2">{% bootstrap_label form.contact_city.label %}</div>
+    <div class="col-xs-4">{% bootstrap_field form.contact_city show_label=False %}</div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-3">{% bootstrap_label form.contact_country.label %}</div>
+    <div class="col-xs-5">{% bootstrap_field form.contact_country show_label=False %}</div>
+    <div class="col-xs-4">{% bootstrap_field form.contact_show %}</div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-9">{% bootstrap_label form.visitors_num.label %}</div>
+    <div class="col-xs-3">{% bootstrap_field form.visitors_num show_label=False %}</div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">{% bootstrap_field form.visitors_accommodation %}</div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">{% bootstrap_field form.wishlist_materials %}</div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">{% bootstrap_field form.wishlist_tools %}</div>
+  </div>
+
+  <fieldset id="formset-{{ formset_seed.prefix }}">
+    <div class="row">
+      <div class="col-xs-12">
+        {{ formset_seed.management_form }}
+        <label class="control-label" for="">{% trans "Seeds" %}</label>
+      </div>
+    </div>
+
+    {% for inlineform in formset_seed.forms %}
+    <div class="control-group{% if inlineform.errors %} error{% endif %}">
+      <div class="controls form-inline">
+        {{ inlineform.id.as_widget }}
+        {{ inlineform.DELETE.as_widget }}
+        <div class="row">
+          <div class="col-xs-9">{% bootstrap_field inlineform.kind %}</div>
+          <div class="col-xs-3">{% bootstrap_field inlineform.num %}</div>
+        </div>
+       </div>
+    </div>
+    {% endfor %}
+  </fieldset>
+
+  <div class="row">
+    <div class="col-xs-12">{% bootstrap_field form.wishlist_special_needs %}</div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+      {% bootstrap_field form.offers_services %}
+      {% bootstrap_field form.offers_skills %}
+      {% bootstrap_field form.offers_creations %}
+
+      {% bootstrap_field form.offers_workshop_spaces %}
+      {% bootstrap_field form.offers_learning_seminars %}
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-9">{% bootstrap_label form.basic_inhabitants.label %}</div>
+    <div class="col-xs-3">{% bootstrap_field form.basic_inhabitants show_label=False %}</div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-9">{% bootstrap_label form.basic_inhabitants_underage.label %}</div>
+    <div class="col-xs-3">{% bootstrap_field form.basic_inhabitants_underage show_label=False %}</div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">{% bootstrap_field form.basic_brings_together %}</div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-9">{% bootstrap_label form.basic_membership_status.label %}</div>
+    <div class="col-xs-3">{% bootstrap_field form.basic_membership_status show_label=False %}</div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+    {% trans "Save" as submit_label %}
+    {% trans "Cancel" as reset_label %}
+    {% url 'community-detail' group=object.group.slug as reset_link %}
+    {% buttons submit=submit_label reset=reset_label reset_link=reset_link %}{% endbuttons %}
+    </div>
+  </div>
+</form>
+{% endblock content %}
+
+{% block extrafooter %}
+{{ block.super }}
+{{ form.media.js }}
+{% get_offers_services as offers_services %}
+{% get_offers_skills as offers_skills %}
+{% get_offers_creations as offers_creations %}
+<script src="{% static 'js/vendor/select2/select2.min.js' %}"></script>
+<script src="{% static 'js/ecobasa_profile.js' %}"></script>
+<script type="text/javascript">
+var tags = {
+  offersServices: {{ offers_services|safe }},
+  offersSkills: {{ offers_skills|safe }},
+  offersCreations: {{ offers_creations|safe }}
+};
+
+$(function() {
+  EcobasaProfile.initCommunity();
+});
+</script>
+{# for seeds #}
+<script type="text/javascript" src="{% static 'js/vendor/bootstrap.inline.js' %}"></script>
+<script type="text/javascript">
+  $(function() {
+    $('#formset-{{ formset_seed.prefix }} div.control-group').formset({
+      addCssClass: 'add-row btn pull-right',
+      addText: '<button type="button" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-plus"></span> {% trans "More seeds" %}</button>',
+      deleteCssClass: 'delete-row',
+      deleteText: '<span class="glyphicon glyphicon-remove"></span>',
+      insertAddInSelector: true,
+      insertDeleteAfter: 'div.controls.form-inline',
+      prefix: '{{ formset_seed.prefix }}',
+    });
+  });
+</script>
+
+{% endblock extrafooter %}

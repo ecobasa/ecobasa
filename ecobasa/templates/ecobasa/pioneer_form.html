@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+{% load i18n static bootstrap3 ecobasa_registration %}
+
+{% block page_title %}{% trans "Edit pioneer" %}{% endblock %}
+
+{% block extrahead %}
+{{ block.super }}
+{{ form.media.css }}
+<link href="{% static "css/vendor/select2-bootstrap.css" %}" rel="stylesheet"/>
+<link href="{% static "css/vendor/select2.css" %}" rel="stylesheet"/>
+{% endblock extrahead %}
+
+{% block content %}
+<h1>{% blocktrans with username=object.user.username %}Edit pioneer “{{ username }}”{% endblocktrans %}</h1>
+<form action="" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  <div class="row">
+    <div class="col-xs-4">
+      <div>
+        {% bootstrap_field form.avatar %}
+      </div>
+      <br />
+      <div>
+        {% bootstrap_field form.has_bus %}
+        {% bootstrap_field form.bus_image %}
+        {% bootstrap_field form.bus_has_driving_license %}
+        {% bootstrap_field form.bus_others_can_drive %}
+        {% bootstrap_field form.bus_num_passengers %}
+        {% bootstrap_field form.bus_consumption %}
+      </div>
+    </div>
+    <div class="col-xs-8">
+      <div>
+        {% bootstrap_field form.gender %}
+        {% bootstrap_field form.birth_date %}
+        {% bootstrap_field form.country %}
+        {% bootstrap_field form.city %}
+        {% bootstrap_field form.zipcode %}
+        {% bootstrap_field form.ecobasa_member %}
+
+        {% bootstrap_field form.tour_why %}
+        {% bootstrap_field form.tour_how %}
+
+        {% bootstrap_field form.interests %}
+        {% bootstrap_field form.skills %}
+        {% bootstrap_field form.products %}
+
+      </div>
+      <br />
+      <div>
+        {% bootstrap_field form.email %}
+        {% bootstrap_field form.old_password %}
+        {% bootstrap_field form.new_password1 %}
+        {% bootstrap_field form.new_password2 %}
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      {% trans "Save" as submit_label %}
+      {% trans "Cancel" as reset_label %}
+      {% url 'pioneer-detail' username=object.user.username as reset_link %}
+      {% buttons submit=submit_label reset=reset_label reset_link=reset_link %}{% endbuttons %}
+    </div>
+  </div>
+
+</form>
+{% endblock content %}
+
+
+{% block extrafooter %}
+{{ block.super }}
+{{ form.media.js }}
+<script src="{% static 'js/vendor/select2/select2.min.js' %}"></script>
+<script src="{% static 'js/ecobasa_profile.js' %}"></script>
+<script type="text/javascript">
+{% get_interests as interests %}
+{% get_products as products %}
+{% get_skills as skills %}
+var tags = {
+  interests: {{ interests|safe }},
+  skills: {{ skills|safe }},
+  products: {{ products|safe }}
+};
+
+$(function() {
+  EcobasaProfile.initMember();
+});
+</script>
+{% endblock extrafooter %}

@@ -1,0 +1,45 @@
+{% extends "cosinnus/base.html" %}
+{% load i18n thumbnail %}
+
+{% block page_title %}{% trans "Buses" %}{% endblock %}
+
+{% block content %}
+    <h1>The available buses for the Community-Tour</h1>
+    {% if user.is_authenticated and not user.cosinnus_profile.has_bus %}
+    <a class="btn btn-primary pull-right" href="{% url 'bus-add' %}">{% trans "Add a bus" %}</a>
+    {% endif %}
+
+    {% if object_list %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>{% trans "Bus" %}</th>
+                <th>{% trans "Owner" %}</th>
+                <th>{% trans "Capacity" %}</th>
+                <th>{% trans "Consumption" %}</th>
+                <th>{% trans "Needs a driver" %}</th>
+            </tr>
+        </thead>
+
+        {% for pioneer in user_list %}
+        {% with pioneer.cosinnus_profile as profile %}
+        <tr>
+            <th>{% if profile.bus_image %}<img src="{% thumbnail profile.bus_image "200x0" crop=1 upscale=1 %}" />{% endif %}</th>
+            <th><a href="{% url 'pioneer-detail' username=pioneer.username %}">{{ pioneer.username }}</a></th>
+            <th>{{ profile.bus_num_passengers }} people</th>
+            <th>{{ profile.bus_consumption }}l/100km</th>
+            <th>{% if not profile.bus_has_driving_license and profile.bus_others_can_drive %}YES{% else %}NO{% endif %}</th>
+        </tr>
+        {% endwith %}
+        {% endfor %}
+
+    </table>
+    {% else %}
+        {% trans "There are no buses, yet! " %}
+        {% if user.is_authenticated and not user.cosinnus_profile.has_bus %}
+            <a href="{% url 'bus-add' %}">{% trans "Add a bus" %}</a>
+        {% else %}
+            <a href="{% url 'register' %}">{% trans "Sign up" %}</a>{% trans "and add one now." %}
+        {% endif %}
+    {% endif %}
+{% endblock %}

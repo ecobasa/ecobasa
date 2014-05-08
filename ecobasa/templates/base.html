@@ -1,0 +1,12 @@
+{% extends 'cosinnus/base.html' %}
+{% load cms_tags sekizai_tags static %}
+
+{% block page_title %}Community-Tours: a gift-economy experience{% endblock page_title %}
+{% block content %}
+  {{ block.super }}
+  {% cms_toolbar %}
+	</div>
+  {% placeholder base_content %}
+  <div class="container">
+  {% block base_content %}{% endblock %}
+{% endblock content %}

@@ -1,0 +1,128 @@
+{% extends "cosinnus/base.html" %}
+{% load i18n thumbnail ecobasa_organiser %}
+
+{% block page_title %}
+  {% blocktrans with name=object.username %}Pioneer profile: {{ name }}{% endblocktrans %}
+{% endblock %}
+
+{% block body %}profile{% endblock body %}
+
+{% block content %}
+{% if user.is_superuser or user == object %}<a class="btn btn-primary pull-right" href="{% url 'pioneer-edit' username=object.username %}">{% trans "Edit profile" %}</a>{% endif %}
+<h1>{{ object.username }} - {% trans "a gift-economy pioneer" %}</h1>
+
+{% with object.cosinnus_profile as profile %}
+<div class="row">
+  <div class="col-xs-3">
+      {% if profile.avatar %}<img src="{% thumbnail profile.avatar "200x0" crop=1 upscale=1 %}" />{% endif %}
+      <a class="btn btn-smll" href="mailto:{{ profile.email }}"></a>
+  </div>
+  <div class="col-xs-6">
+    <h2>{% trans "Tour" %}</h2>
+    <h5>{% trans "Why do you want to take part in the tour?" %}</h5>
+    <p>{{ profile.tour_why }}</p>
+    <h5>{% trans "How do you want to take part in the tour?" %}</h5>
+    <p>{{ profile.tour_how }}</p>
+
+    <h2>{% trans "Skills" %}</h2>
+    <ul>
+      {% for tag in profile.skills.all %}
+      <li>{{ tag }}</li>
+      {% if not forloop.last %} {% endif %}{% endfor %}
+    </ul>
+    <h2>{% trans "Interests" %}</h2>
+    <ul>
+      {% for tag in profile.interests.all %}
+        <li>{{ tag }}</li>
+      {% if not forloop.last %} {% endif %}{% endfor %}
+    </ul>
+    <h2>{% trans "Products" %}</h2>
+    <ul>
+      {% for tag in profile.products.all %}
+      <li>{{ tag }}</li>
+      {% if not forloop.last %} {% endif %}{% endfor %}
+    </ul>
+  </div>
+  <div class="col-xs-3">
+    <div class="row">
+      <div class="col-xs-4">
+        <span class="desc">{% trans "gender" %}</span>
+      </div>
+      <div class="col-xs-8">
+        {{ profile.get_gender_display }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-4">
+        <span class="desc">{% trans "birth date" %}</span>
+      </div>
+      <div class="col-xs-8">
+        {{ profile.birth_date }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-4">
+        <span class="desc">{% trans "country" %}</span>
+      </div>
+      <div class="col-xs-8">
+        {{ profile.get_country_display }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-4">
+        <span class="desc">{% trans "city" %}</span>
+      </div>
+      <div class="col-xs-8">
+        {{ profile.zipcode }} {{ profile.city }}
+      </div>
+    </div>
+  </div>
+</div>
+  {% if profile.has_bus %}
+    <div class="row">
+      <h2>{% trans "Bus" %}</h2>
+      <div class="col-xs-3">
+        {% if profile.bus_image %}<img src="{% thumbnail profile.bus_image "200x0" crop=1 upscale=1 %}" />{% endif %}
+      </div>
+      <div class="col-xs-6">
+        <div class="row">
+          {% if  profile.bus_has_driving_license = "False" %}
+            <span class="important">This bus still needs a driver!</span>
+          {% endif %}
+          {% if profile.bus_others_can_drive = "True" %}
+            <p>Other people can drive this bus too</p>
+          {% else %}
+            <p>This bus needs to be driven by {{ object.username }} only</p>
+          {% endif %}
+        </div>
+        <div class="row">
+          <span class="desc">{% trans "Maximum passengers this bus can take:" %}</span>{{ profile.bus_num_passengers }}
+        </div>
+        <div class="row">
+          <span class="desc">{% trans "fuel consumption" %}</span> {{ profile.bus_consumption }}l/100km
+        </div>
+      </div>
+    </div>
+  {% endif %}
+  <div class="row">
+    <div class="col-xs-12">
+      {% get_organiser_roles_for_user object as grouped_roles %}
+      {% if grouped_roles %}
+        <h2>{% trans "Organiser Roles" %}</h2>
+        {% for group, roles in grouped_roles.items %}
+          <h3>{% trans "Group" %}</h3>
+          <p>{{ group }}</p>
+
+          <h4>{% trans "Roles" %}</h4>
+          {% for role in roles %}
+            <h5>{{ role.title }}</h5>
+            <p>{{ role.description }}</p>
+          {% endfor %}
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% endwith %}
+{% endblock content %}

@@ -1,0 +1,3 @@
+{{ object.interests.all }}
+{{ object.products.all }}
+{{ object.skills.all }}
