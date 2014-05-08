@@ -11,9 +11,9 @@
     <title>{% block page_title %}{% endblock page_title %}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
      <!-- social sharing metadata -->
-    <meta property="og:title" content="Community-Tours: a gift-economy experience" />
-    <meta property="og:description" content="The community-tours empower an alternative economy based on trust and sharing. By bringing spare resources and experts from one community to the next place where they are needed, a new culture of gift-economy is emerging!" />
-    <meta property="og:image" content="http://community-tours.org/static/img/community-tours_logo.png" />
+    <meta property="og:title" content="ecobasa.org - a gift-economy network for communities" />
+    <meta property="og:description" content="ecobasa is a directory of sustainable communities and ecovillages that connects them to individuals looking for alternative ways of living. The site offers the technology for communication, collaboration and the exchange of experiences, knowledge, skills, services and ressources" />
+    <meta property="og:image" content="http://ecobasa.org/static/img/ecobasa_logo.png" />
     {% if SETTINGS.DEBUG %}
       <link href="{% static "css/vendor/bootstrap.min.css" %}" rel="stylesheet">
       <script src="{% static "js/vendor/jquery-1.10.2.min.js" %}"></script>
@@ -38,35 +38,6 @@
     <div class="container content">
       {% bootstrap_messages %}
       {% block content %}{% endblock content %}
-      <div id="footer">
-        <div class="container">
-          <div class="col-xs-12">
-            <h2>{% trans "Our partner-network" %}</h2>
-            <div id="myCanvasContainer">
-              <canvas width="900" height="300" id="myCanvas">
-                <p>If this loks like a small static image, your browser does not support the
-              canvas tag. Please try again using a different browser, or try to imagine our massive cloud of partnerlogos
-              swirling around in response to the mouse position.</p>
-                <ul>
-                  <li><a href="http://alt.jugend-in-aktion.de/" target="blank"><img src="{% static 'img/eu.png' %}" />Youth in Action</a></li> 
-                  <li><a href="http://communitiesconvergence.org" target="blank"><img src="{% static 'img/cc.png' %}" />Communities-Convergence</a></li>
-                  <li><a href="http://ecobasa.org" target="blank"><img src="{% static 'img/ecobasa_logo.png' %}" />ecobasa</li></a>
-                  <li><a href="" target="blank"><img src="{% static 'img/cloud1.png' %}" /></a></li>
-                  <li><a href="http://gen-europe.org" target="blank"><img src="{% static 'img/gen.png' %}" />Global Ecovillage Network</a></li>
-                  <li><a href="http://communtierra.org" target="blank"><img src="{% static 'img/comuntera.png' %}" />Commun-Tierra</a></li>
-                  <li><a href="http://www.permaforum.hu/" target="blank"><img src="{% static 'img/permalom.png' %}" />Permalom</a></li>
-                  <li><a href="http://projectnuevomundo.org/odyssey" target="blank"><img src="{% static 'img/earthodyssey.png' %}" />Project Nuevo Mundo</a></li>
-                  <li><a href="" target="blank"><img src="{% static 'img/cloud2.png' %}" /></a></li>
-                  <li><a href="http://sinnwerkstatt.com" target="blank"><img src="{% static 'img/sinnwerkstatt.png' %}" /></a></li>
-                  <!-- <li><a href="http://" target="blank"><img src="{% static 'img/greenbustour.png' %}" /></a></li>
-                  <li><a href="http://" target="blank"><img src="{% static 'img/visioncaravan.png' %}" /></a></li> -->
-                  <li><a href="" target="blank"><img src="{% static 'img/cloud3.png' %}" /></a></li>
-                </ul>
-              </canvas>
-            </div>
-          </div>
-        </div>
-      </div>
     </div>
     <script type="text/javascript">var cosinnus_base_url = "{{ COSINNUS_BASE_URL|default:'/' }}";</script>
     <script src="{% static "js/cosinnus.js" %}"></script>
