@@ -141,7 +141,7 @@ h2 {
 	margin-bottom: 0px;
 	border-radius: 0px;
 	border: none;
-	z-index: 1;
+	z-index: 11;
 }
 
 .header {
@@ -219,12 +219,22 @@ body#start > .container {
 .description {
 	text-align: center;
 	height: 190px;
+	background: url('../img/background.jpg');
+	color: $secondary;
+	a {
+		color: $secondary;
+		&:hover {
+			text-decoration: none;
+			color: $third;
+		}
+	}
 	h1 {
 		font-size: 45px;
 		margin-bottom: 10px;
+		color: $secondary;
 	}
 	p {
-		font-size: 16px;
+		font-size: 18px;
 	}
 }
 
@@ -246,8 +256,13 @@ body#start > .container {
 		p {
 			margin-bottom: 50px;
 		}
+		&.static {
+			top: 90px;
+		}
 		.bus {
 			float: left;
+			position: absolute;
+			top: 20%;
 		}
 	}
 }
@@ -259,10 +274,17 @@ body#start > .container {
 	text-align: left;
 	left: 0px;
 	right: 0px;
-	top: 150px;
-	bottom: 150px;
+	top: 300px;
+	bottom: 280px;
 	padding-bottom: 0px;
-	background: rgba(0, 0, 0, 0.5);
+	background: rgba(0, 0, 0, 0.25);
+	a {
+		color: $secondary;
+		&:hover {
+			text-decoration: none;
+			color: $secondary;
+		}
+	}
 	h1, p {
 		position: absolute;
 		left: 20%;
@@ -272,15 +294,30 @@ body#start > .container {
 	h1 {
 		color: $secondary;
 		font-size: 45px;
+		margin-top: 15px;
 	}
 	p {
-		top: 130px;
-		font-size: 16px;
+		top: 105px;
+		font-size: 18px;
 	}
 }
 
 .carousel-control {
 	z-index: 10;
+	.arrow {
+		width: 59px;
+		height: 61px;
+		position: absolute;
+		top: 50%;
+		z-index: 5;
+		display: inline-block;
+	}
+	&.left .arrow {
+		background: url('../img/arrow-left.png') no-repeat;
+	}
+	&.right .arrow {
+		background: url('../img/arrow-right.png') no-repeat;
+	}
 }
 
 /************** About Page ***************/

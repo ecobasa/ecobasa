@@ -102,7 +102,7 @@ h2 {
   margin-bottom: 0px;
   border-radius: 0px;
   border: none;
-  z-index: 1;
+  z-index: 11;
 }
 
 .header .navbar-brand h1, .header .navbar-brand h2 {
@@ -174,13 +174,23 @@ body#start > .container {
 .description {
   text-align: center;
   height: 190px;
+  background: url("../img/background.jpg");
+  color: #f4ede3;
+}
+.description a {
+  color: #f4ede3;
+}
+.description a:hover {
+  text-decoration: none;
+  color: #b4502c;
 }
 .description h1 {
   font-size: 45px;
   margin-bottom: 10px;
+  color: #f4ede3;
 }
 .description p {
-  font-size: 16px;
+  font-size: 18px;
 }
 
 .caption-wrapper > img {
@@ -201,8 +211,13 @@ body#start > .container {
 .caption-wrapper .carousel-caption p {
   margin-bottom: 50px;
 }
+.caption-wrapper .carousel-caption.static {
+  top: 90px;
+}
 .caption-wrapper .carousel-caption .bus {
   float: left;
+  position: absolute;
+  top: 20%;
 }
 
 /*************** Slider *****************/
@@ -211,10 +226,17 @@ body#start > .container {
   text-align: left;
   left: 0px;
   right: 0px;
-  top: 150px;
-  bottom: 150px;
+  top: 300px;
+  bottom: 280px;
   padding-bottom: 0px;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.25);
+}
+.carousel-caption a {
+  color: #f4ede3;
+}
+.carousel-caption a:hover {
+  text-decoration: none;
+  color: #f4ede3;
 }
 .carousel-caption h1, .carousel-caption p {
   position: absolute;
@@ -225,14 +247,29 @@ body#start > .container {
 .carousel-caption h1 {
   color: #f4ede3;
   font-size: 45px;
+  margin-top: 15px;
 }
 .carousel-caption p {
-  top: 130px;
-  font-size: 16px;
+  top: 105px;
+  font-size: 18px;
 }
 
 .carousel-control {
   z-index: 10;
+}
+.carousel-control .arrow {
+  width: 59px;
+  height: 61px;
+  position: absolute;
+  top: 50%;
+  z-index: 5;
+  display: inline-block;
+}
+.carousel-control.left .arrow {
+  background: url("../img/arrow-left.png") no-repeat;
+}
+.carousel-control.right .arrow {
+  background: url("../img/arrow-right.png") no-repeat;
 }
 
 /************** About Page ***************/
