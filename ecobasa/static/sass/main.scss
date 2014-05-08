@@ -258,6 +258,7 @@ body#start > .container {
 		}
 		&.static {
 			top: 90px;
+			height: 100%;
 		}
 		.bus {
 			float: left;
@@ -274,8 +275,8 @@ body#start > .container {
 	text-align: left;
 	left: 0px;
 	right: 0px;
-	top: 300px;
-	bottom: 280px;
+	top: 40%;
+	height: 220px;
 	padding-bottom: 0px;
 	background: rgba(0, 0, 0, 0.25);
 	a {
