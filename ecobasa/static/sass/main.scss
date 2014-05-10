@@ -142,6 +142,8 @@ h2 {
 	border-radius: 0px;
 	border: none;
 	z-index: 11;
+    position: absolute;
+    width: 100%;
 }
 
 .header {
@@ -210,10 +212,6 @@ ul.dropdown-menu {
 
 body#start > .container {
 	padding-top: 0px;
-}
-
-#carousel-startpage {
-	margin-top: -52px;
 }
 
 .description {
