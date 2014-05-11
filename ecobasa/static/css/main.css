@@ -103,6 +103,8 @@ h2 {
   border-radius: 0px;
   border: none;
   z-index: 11;
+  position: absolute;
+  width: 100%;
 }
 
 .header .navbar-brand h1, .header .navbar-brand h2 {
@@ -165,10 +167,6 @@ ul.dropdown-menu > li > a:hover {
 /*********** Startpage ****************/
 body#start > .container {
   padding-top: 0px;
-}
-
-#carousel-startpage {
-  margin-top: -52px;
 }
 
 .description {
