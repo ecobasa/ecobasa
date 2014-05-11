@@ -4,7 +4,7 @@ from fabvenv import virtualenv
 
 def staging():
     env.hosts = ['ecobasa@server.sinnwerkstatt.com']
-    env.path = '/srv/ecobasa.sinnwerkstatt.com/ecobasa/'
+    env.path = '/srv/ecobasa.sinnwerkstatt.com/community-tours/'
     env.virtualenv_path = '/srv/ecobasa.sinnwerkstatt.com/ecobasaenv/'
     env.push_branch = 'tour'
     env.push_remote = 'origin'
@@ -12,8 +12,8 @@ def staging():
 
 def production():
     env.hosts = ['m1487@community-tours.org']
-    env.path = '~/ecobasa/'
-    env.virtualenv_path = '~/ecobasaenv/'
+    env.path = '~/community-tours/'
+    env.virtualenv_path = '~/community-toursenv/'
     env.push_branch = 'tour'
     env.push_remote = 'origin'
 
