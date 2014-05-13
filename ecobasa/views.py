@@ -9,7 +9,7 @@ from django.core.urlresolvers import reverse
 from django.shortcuts import get_object_or_404
 from django.utils.decorators import method_decorator
 from django.utils.translation import ugettext_lazy as _
-from django.views.generic import DetailView, UpdateView
+from django.views.generic import DetailView, UpdateView, ListView
 from cosinnus.models import CosinnusGroup
 from cosinnus.models.group import MEMBERSHIP_ADMIN
 from cosinnus.views.group import GroupListView
@@ -22,6 +22,7 @@ from userprofiles.views import RegistrationView
 
 from .forms import (CommunityProfileForm, PioneerProfileForm,
     RegistrationMemberForm, RegistrationCommunityForm)
+from .models import OrganiserRole
 
 
 class CommunityDetailView(DetailView):
@@ -117,7 +118,6 @@ class PioneerDetailView(DetailView):
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         return super(PioneerDetailView, self).dispatch(*args, **kwargs)
-
 
 pioneer_detail = PioneerDetailView.as_view()
 
@@ -234,3 +234,15 @@ class FindView(SearchView):
         return results
 
 # SearchView is no Django view, so no "find = FindView.as_view()"
+
+
+#############################################################################
+# organiser views
+#############################################################################
+
+
+class OrganiserListView(ListView):
+    model = OrganiserRole
+    template_name = 'ecobasa/organiser_list.html'
+
+organiser_list = OrganiserListView.as_view()

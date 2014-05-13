@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-04-26 10:51+0200\n"
-"PO-Revision-Date: 2014-04-26 10:52+0200\n"
+"POT-Creation-Date: 2014-05-01 12:38+0200\n"
+"PO-Revision-Date: 2014-05-01 12:40+0200\n"
 "Last-Translator: Sebastian Henschel <ecobasa@kodeaffe.de\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: de\n"
@@ -16,6 +16,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: admin.py:30
+msgid "User"
+msgstr "Nutzer"
+
+#: admin.py:35 templates/ecobasa/organiser_list.html:20
+msgid "Group"
+msgstr ""
 
 #: cms_plugins.py:17
 msgid "Slideshow"
@@ -28,6 +36,11 @@ msgstr "Englisch"
 #: default_settings.py:140
 msgid "German"
 msgstr "Deutsch"
+
+#: default_settings.py:141
+#, fuzzy
+msgid "Hungarian"
+msgstr "Ungan"
 
 #: forms.py:159
 msgid "The two password fields didn't match."
@@ -1243,7 +1256,27 @@ msgstr "Was für Saatgut?"
 msgid "how many?"
 msgstr "Wieviele?"
 
-#: views.py:86 views.py:147
+#: models.py:548
+msgid "Cosinnus group membership"
+msgstr "Cosinnus-Gruppenmitgliedschaft"
+
+#: models.py:550 templates/ecobasa/organiser_list.html:21
+msgid "Role title"
+msgstr "Titel der Rolle"
+
+#: models.py:553 templates/ecobasa/organiser_list.html:22
+msgid "Role description"
+msgstr "Beschreibung der Rolle"
+
+#: models.py:556
+msgid "Organiser role"
+msgstr "Organisator-Rolle"
+
+#: models.py:557
+msgid "Organiser roles"
+msgstr "Organisator-Rollen"
+
+#: views.py:87 views.py:148
 msgid "The profile was successfully updated."
 msgstr "Das Profil wurde erfolgreich aktualisiert."
 
@@ -1259,7 +1292,7 @@ msgstr "Als Botschafter anmelden"
 msgid "Register as a pioneer"
 msgstr "Als Pionier anmelden"
 
-#: templates/cosinnus/base.html:40
+#: templates/cosinnus/base.html:44
 msgid "Our partner-network"
 msgstr "Unser Partnernetzwerk"
 
@@ -1529,6 +1562,26 @@ msgstr "Es haben sich noch keine Gemeinschaften angemeldet!"
 msgid "Register as a gift-economy ambassador for your community</a>"
 msgstr "Melde dich als Schenkökonomie Botschafter für deine Gemeinschaft an"
 
+#: templates/ecobasa/organiser_list.html:4
+msgid "Organisers"
+msgstr ""
+
+#: templates/ecobasa/organiser_list.html:14
+msgid "The gift-economy organisers"
+msgstr "EinE organisatorIn der Schenkökonomie"
+
+#: templates/ecobasa/organiser_list.html:19
+msgid "Organiser"
+msgstr "OrganisatorIn"
+
+#: templates/ecobasa/organiser_list.html:46
+msgid "There are no organisers registered yet, "
+msgstr "Es gibt noch keine Organisatoren, die sich angemeldet haben, "
+
+#: templates/ecobasa/organiser_list.html:46
+msgid "join now!"
+msgstr "melde dich jetzt an!"
+
 #: templates/ecobasa/pioneer_detail.html:5
 #, python-format
 msgid "Pioneer profile: %(name)s"
@@ -1743,6 +1796,3 @@ msgstr "NEIN, Registrieren"
 
 #~ msgid "There are no groups."
 #~ msgstr "Es gibt keine Gruppen"
-
-#~ msgid "User"
-#~ msgstr "Nutzer"
