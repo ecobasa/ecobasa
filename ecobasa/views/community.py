@@ -53,7 +53,8 @@ class CommunityListView(GroupListView):
     template_name = 'ecobasa/community_list.html'
 
     def get_queryset(self):
-        return self.model.objects.all()
+        # a community is a group with a profile
+        return self.model.objects.filter(profile__isnull=False)
 
 community_list = CommunityListView.as_view()
 
