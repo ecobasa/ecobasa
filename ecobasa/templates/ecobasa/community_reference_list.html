@@ -1,0 +1,27 @@
+{% extends "cosinnus/base.html" %}
+{% load i18n bootstrap3 %}
+
+{% block page_title %}
+  {% blocktrans with name=community.name %}List references for {{ name }}{% endblocktrans %}
+{% endblock %}
+
+{% block body %}profile{% endblock body %}
+
+{% block content %}
+<h1>{% trans "References" %}</h1>
+<p>{% trans "Profile" %}:  <a href="{% url 'community-detail' community.slug %}">{{ community.name }}</a></p>
+
+<div class="row">
+  <div class="col-md-12">
+    <ul>{% for reference in object_list %}
+      <li>
+        <a href="{% url 'pioneer-detail' reference.giver.username %}">{{ reference.giver.username }}</a> {{ reference.date }}{% if user.is_superuser or  reference.giver == user %} <a href="{% url 'community-reference-edit' community.slug reference.pk %}">{% trans "Edit" %}</a>{% endif %}
+        <p>{{ reference.text }}</p>
+        <p>{% trans "Products:" %} {{ reference.products.all }}</p>
+        <p>{% trans "Services:" %} {{ reference.services.all }}</p>
+        <p>{% trans "Skills:" %} {{ reference.skills.all }}</p>
+      </li>
+    {% endfor %}</ul>
+  </div>
+</div>
+{% endblock content %}

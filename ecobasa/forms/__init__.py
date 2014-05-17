@@ -2,4 +2,5 @@
 
 from .community import *  # noqa
 from .pioneer import *  # noqa
+from .reference import *  # noqa
 from .registration import *  # noqa

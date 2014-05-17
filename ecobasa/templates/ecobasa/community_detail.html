@@ -134,6 +134,39 @@
       Telephone: {{ profile.contact_telephone }}
     </div>
     {% endif %}
+
+    <div class="row">
+      <div class="col-md-12">
+        <h3>{% trans "References" %}</h3>
+
+        <h4>{% trans "Tags" %}</h4>
+        <h5>{% trans "Products" %}</h5>
+        <ul class="list-inline">{% for tag_name, tag_data in references.tag_counts.products.items %}
+          <li><span class="label label-{{ tag_data.class }}">{{ tag_name }} <span class="badge">{{ tag_data.count }}</span></span></li>
+        {% endfor %}</ul>
+
+        <h5>{% trans "Services" %}</h5>
+        <ul class="list-inline">{% for tag_name, tag_data in references.tag_counts.services.items %}
+          <li><span class="label label-{{ tag_data.class }}">{{ tag_name }} <span class="badge">{{ tag_data.count }}</span></span></li>
+        {% endfor %}</ul>
+
+        <h5>{% trans "Skills" %}</h5>
+        <ul class="list-inline">{% for tag_name, tag_data in references.tag_counts.skills.items %}
+          <li><span class="label label-{{ tag_data.class }}">{{ tag_name }} <span class="badge">{{ tag_data.count }}</span></span></li>
+        {% endfor %}</ul>
+
+        <h4>{% trans "References" %}</h4>
+        <ul>{% for reference in references.references %}
+          <li>
+            <a href="{% url 'pioneer-detail' reference.giver.username %}">{{ reference.giver.username }}</a> {{ reference.date }}{% if user.is_superuser or  reference.giver == user %} <a href="{% url 'community-reference-edit' object.slug reference.pk %}">{% trans "Edit" %}</a>{% endif %}
+            <p>{{ reference.text }}</p>
+          </li>
+        {% endfor %}</ul>
+        {% if can_add_reference %}<a href="{% url 'community-reference-add' object.slug %}">{% trans "Add" %}</a> | {% endif %}
+        <a href="{% url 'community-reference-list' object.slug %}">{% trans "More" %}</a>
+      </div>
+    </div>
+
     <div class="row">
       <div class="col-md-12">
         <h3>{% trans "Gift-economy Ambassadors" %}</h3>
@@ -155,6 +188,7 @@
         </ul>
       </div>
     </div>
+
     {% if user.is_superuser or user|is_group_admin:object %}
     <div class="row">
       <div class="col-md-12">

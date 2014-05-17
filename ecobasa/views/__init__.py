@@ -5,4 +5,5 @@ from .community import *  # noqa
 from .find import *  # noqa
 from .organiser import *  # noqa
 from .pioneer import *  # noqa
+from .reference import *  # noqa
 from .registration import *  # noqa

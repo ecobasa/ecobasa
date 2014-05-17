@@ -5,7 +5,7 @@ from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 
 from .models import (EcobasaCommunityProfile, EcobasaCommunityProfileSeed,
-    OrganiserRole)
+    OrganiserRole, Reference)
 
 
 class SeedAdmin(admin.TabularInline):
@@ -34,3 +34,15 @@ class OrganiserRoleAdmin(admin.ModelAdmin):
     get_group.short_description = _('Group')
 
 admin.site.register(OrganiserRole, OrganiserRoleAdmin)
+
+
+class ReferenceAdmin(admin.ModelAdmin):
+    list_display = ('giver', 'receiver_pioneer', 'receiver_community', 'date',)
+    list_filter = ('giver', 'receiver_pioneer', 'receiver_community', 'date',)
+    search_fields = [
+        'giver__username',
+        'receiver_pioneer__username',
+        'receiver_community__name',
+        'text',
+    ]
+admin.site.register(Reference, ReferenceAdmin)
