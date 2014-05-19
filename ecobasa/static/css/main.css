@@ -124,6 +124,10 @@ body#start > .container {
   width: 580px;
 }
 
+.carousel-indicators {
+  bottom: -7px;
+}
+
 /************** About Page ***************/
 .about h1 {
   margin-top: 5px;
@@ -306,10 +310,4 @@ form#form-register-community {
   margin-right: auto;
   display: block;
   margin-top: 30px;
-}
-
-/************* Search ******************/
-.highlighted {
-  color: #da6137;
-  font-weight: bold;
 }
