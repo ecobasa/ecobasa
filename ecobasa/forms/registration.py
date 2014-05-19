@@ -30,8 +30,9 @@ class RegistrationMemberForm(RegistrationForm):
             required=False)
 
     def save_profile(self, new_user, *args, **kwargs):
-        # do not catch DoesNotExist: there must be something else wrong
-        profile = EcobasaUserProfile.objects.get(user=new_user)
+        # cosinnus should have created the profile already, but do _or_create
+        # just in case
+        profile, _ = EcobasaUserProfile.objects.get_or_create(user=new_user)
 
         profile.avatar = self.cleaned_data['avatar']
         profile.gender = self.cleaned_data['gender']
