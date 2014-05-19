@@ -26,6 +26,8 @@ class CommunityDetailView(DetailView):
     template_name = 'ecobasa/community_detail.html'
 
     def _can_add_reference(self):
+        if not self.request.user.is_authenticated():
+            return False
         qs = Reference.objects.filter(
             giver=self.request.user, receiver_community=self.object)
         return len(qs) == 0
