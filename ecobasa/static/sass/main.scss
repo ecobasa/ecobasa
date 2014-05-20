@@ -2,6 +2,7 @@ $primary: #da6137;
 $secondary: #f4ede3;
 $third: #b4502c;
 
+
 @font-face {
     font-family: 'archistico';
     src: url('../fonts/Archistico_Bold-webfont.eot');
@@ -236,10 +237,18 @@ body#start > .container {
 	}
 }
 
-.caption-wrapper {
+.image {
+	position: relative;
 	> img {
-		position: absolute;
+		width: 100%;
+		height: auto;
 	}
+}
+
+.caption-wrapper {
+	position: absolute;
+	top: 100px;
+	width: 100%;
 	.carousel-caption {
 		position: relative;
 		margin-bottom: 50px;
@@ -255,7 +264,6 @@ body#start > .container {
 			margin-bottom: 50px;
 		}
 		&.static {
-			top: 90px;
 			height: 100%;
 		}
 		.bus {
@@ -505,6 +513,16 @@ margin-top: 20px;
 		background: none;
 		color: $primary;
 	}
+}
+
+.footer.navbar {
+	position: relative;
+	margin-top: -50px;
+	background-color: rgba($primary, 0.7);
+	margin-bottom: 0px;
+	border-radius: 0px;
+	border: none;
+    width: 100%;
 }
 
 #myCanvas {

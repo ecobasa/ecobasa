@@ -191,8 +191,18 @@ body#start > .container {
   font-size: 18px;
 }
 
-.caption-wrapper > img {
+.image {
+  position: relative;
+}
+.image > img {
+  width: 100%;
+  height: auto;
+}
+
+.caption-wrapper {
   position: absolute;
+  top: 100px;
+  width: 100%;
 }
 .caption-wrapper .carousel-caption {
   position: relative;
@@ -210,7 +220,6 @@ body#start > .container {
   margin-bottom: 50px;
 }
 .caption-wrapper .carousel-caption.static {
-  top: 90px;
   height: 100%;
 }
 .caption-wrapper .carousel-caption .bus {
@@ -446,6 +455,16 @@ form#form-register-community {
   border: none;
   background: none;
   color: #da6137;
+}
+
+.footer.navbar {
+  position: relative;
+  margin-top: -50px;
+  background-color: rgba(218, 97, 55, 0.7);
+  margin-bottom: 0px;
+  border-radius: 0px;
+  border: none;
+  width: 100%;
 }
 
 #myCanvas {
