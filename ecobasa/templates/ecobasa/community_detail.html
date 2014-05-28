@@ -85,7 +85,11 @@
         <h3>Projects/Construction Sites</h3>
         <p>{{ profile.wishlist_projects }}</p>
         <h3>Experts/People with the following skills</h3>
-        <p>{{ profile.wishlist_skills }}</p>
+        <ul>
+          {% for wishlist_skill in profile.wishlist_skills.all %}
+          <li>{{ wishlist_skill }}</li>
+          {% endfor %}
+        </ul>
         <h3>Materials</h3>
         <p>{{ profile.wishlist_materials }}</p>
         <h3>Tools</h3>
