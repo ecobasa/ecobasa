@@ -35,6 +35,9 @@ def get_products():
 def get_offers_services():
     return get_tagnames(TaggedOffersService)
 
+@register.assignment_tag
+def get_wishlist_skills():
+    return get_tagnames(TaggedWishSkill)
 
 @register.assignment_tag
 def get_offers_skills():

@@ -371,6 +371,13 @@ class TaggedOffersCreation(TaggedItemBase):
         app_label = 'ecobasa'
 
 
+class TaggedWishSkill(TaggedItemBase):
+    content_object = models.ForeignKey('EcobasaCommunityProfile')
+
+    class Meta:
+        app_label = 'ecobasa'
+
+
 
 @python_2_unicode_compatible
 class EcobasaCommunityProfile(models.Model):
@@ -404,11 +411,17 @@ class EcobasaCommunityProfile(models.Model):
         blank=True, null=True)
 
     # wishlist
+    wishlist_projects = models.TextField(
+        _('Do you have any construction projects? List and describe them together with needed materials, tools, experts, time and knowledge.'),
+        blank=True, null=True)
     wishlist_materials = models.TextField(_('what materials do you need?'),
         blank=True, null=True)
     wishlist_tools = models.TextField(
         _('what tools or machines do you need?'),
         blank=True, null=True)
+    wishlist_skills = TaggableManager(_('Are you looking for some experts that could help you with a project or problem? Tag their desired skills here:'),
+        through=TaggedWishSkill,
+        related_name='_wish_skill', blank=True)
     wishlist_special_needs = models.TextField(
         _('special needs (knowledge, information)'), blank=True, null=True)
 

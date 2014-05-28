@@ -114,9 +114,10 @@
 
 
   <div id="slide-community-wishlist" class="slide hide">
-    {% bootstrap_field form.wishlist_materials %}
+    {% bootstrap_field form.wishlist_projects %}<br />
+    {% bootstrap_field form.wishlist_materials %}<br />
     {% bootstrap_field form.wishlist_tools %}<br />
-
+    {% bootstrap_field form.wishlist_skills %}<br />
 
     <fieldset id="formset-{{ formset_seed.prefix }}">
       <div class="row">
