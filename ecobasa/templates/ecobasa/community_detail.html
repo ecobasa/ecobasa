@@ -148,7 +148,7 @@
         <ul class="media-list">
           {% for amb in object.ambassadors %}
             <li class="media">
-              <a class="pull-left" href="{% url 'cosinnus:user-detail' username=amb.username %}">
+              <a class="pull-left" href="{% url 'pioneer-detail' username=amb.username %}">
                 {% if amb.cosinnus_profile.avatar %}
                   <img class="avatar" src="{% thumbnail amb.cosinnus_profile.avatar.url "60x60" crop=1 upscale=1 %}">
                 {% else %}
@@ -156,7 +156,7 @@
                 {% endif %}
               </a>
               <div class="media-body">
-                <a class="pull-left" href="{% url 'cosinnus:user-detail' username=amb.username %}">{{ amb.get_full_name|default:amb.username }}</a>
+                <a class="pull-left" href="{% url 'pioneer-detail' username=amb.username %}">{{ amb.get_full_name|default:amb.username }}</a>
               </div>
             </li>
           {% endfor %}
@@ -170,7 +170,7 @@
         <ul class="media-list">
           {% for pending in object.pending_members %}
             <li class="media">
-              <a class="pull-left" href="{% url 'cosinnus:user-detail' username=pending.username %}">
+              <a class="pull-left" href="{% url 'pioneer-detail' username=pending.username %}">
                 {% if pending.cosinnus_profile.avatar %}
                   <img class="avatar" src="{% thumbnail cosinnus_profile.avatar.url "60x60" crop=1 upscale=1 %}">
                 {% else %}
@@ -178,7 +178,7 @@
                 {% endif %}
               </a>
               <div class="media-body">
-                <a class="pull-left" href="{% url 'cosinnus:user-detail' username=pending.username %}">{{ pending.get_full_name|default:pending.username }}</a>
+                <a class="pull-left" href="{% url 'pioneer-detail' username=pending.username %}">{{ pending.get_full_name|default:pending.username }}</a>
               </div>
             </li>
           {% endfor %}
