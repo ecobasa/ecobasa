@@ -86,10 +86,10 @@
       </div>
       <div class="col-xs-6">
         <div class="row">
-          {% if  profile.bus_has_driving_license = "False" %}
+          {% if not profile.bus_has_driving_license %}
             <span class="important">This bus still needs a driver!</span>
           {% endif %}
-          {% if profile.bus_others_can_drive = "True" %}
+          {% if profile.bus_others_can_drive %}
             <p>Other people can drive this bus too</p>
           {% else %}
             <p>This bus needs to be driven by {{ object.username }} only</p>
