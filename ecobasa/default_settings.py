@@ -169,6 +169,7 @@ INSTALLED_APPS = (
     'taggit',
     'filer',
     'haystack',
+    'honeypot',
 
     # CMS
     'djangocms_text_ckeditor',
@@ -277,3 +278,6 @@ HAYSTACK_CONNECTIONS = {
 }
 HAYSTACK_SEARCH_RESULTS_PER_PAGE = 30
 HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
+
+# honeypot
+HONEYPOT_FIELD_NAME = 'body'
