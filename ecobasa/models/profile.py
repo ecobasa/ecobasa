@@ -324,9 +324,11 @@ class EcobasaUserProfile(BaseUserProfile):
         blank=True, null=True)
 
     skills = TaggableManager(_('knowledge/skills'),
-        through=TaggedSkill, related_name='_skill', blank=True)
+        through=TaggedSkill, related_name='_skill', blank=True,
+        help_text='What skills do you have? What can you do to help others? What can you teach someone?')
     products = TaggableManager(_('products'),
-        through=TaggedProduct, related_name='_product', blank=True)
+        through=TaggedProduct, related_name='_product', blank=True,
+        help_text='Can you manufacture any products, like jewelery, furniture, clothes, soap etc.. ?')
 
     # bus fields
     has_bus = models.BooleanField(
@@ -408,7 +410,8 @@ class EcobasaCommunityProfile(models.Model):
         _('maximum number of people you can host'),
         blank=True, default=0)
     visitors_accommodation = models.TextField(_('accommodation for guests'),
-        blank=True, null=True)
+        blank=True, null=True,
+        help_text='Where can your visitors sleep? Do you have space for a bus, tents? How is the indoor sleeping situation? Do you have matresses, a couch?')
 
     # wishlist
     wishlist_projects = models.TextField(
