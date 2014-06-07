@@ -99,6 +99,7 @@ TEMPLATE_CONTEXT_PROCESSORS = [
     'django.core.context_processors.media',
     'django.core.context_processors.static',
     'cosinnus.utils.context_processors.settings',
+    'cosinnus.utils.context_processors.cosinnus',
     'cms.context_processors.media',
     'sekizai.context_processors.sekizai',
 ]
