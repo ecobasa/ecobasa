@@ -258,6 +258,7 @@ FORMAT_MODULE_PATH = 'cosinnus.formats'
 # }
 
 COSINNUS_USER_PROFILE_MODEL = 'ecobasa.EcobasaUserProfile'
+COSINNUS_USER_PROFILE_SERIALIZER = 'ecobasa.models.serializers.EcobasaUserProfileSerializer'
 
 
 # Conflict between CMS and DebugToolbar resolved by following
