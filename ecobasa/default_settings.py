@@ -102,6 +102,7 @@ TEMPLATE_CONTEXT_PROCESSORS = [
     'cosinnus.utils.context_processors.cosinnus',
     'cms.context_processors.media',
     'sekizai.context_processors.sekizai',
+    'postman.context_processors.inbox',
 ]
 
 THUMBNAIL_PROCESSORS = (
@@ -162,6 +163,7 @@ INSTALLED_APPS = (
     # custom apps
     'ecobasa',
     'cosinnus',
+    'cosinnus_message',
     # 'skillshare',
     # 'references',
 
@@ -176,6 +178,7 @@ INSTALLED_APPS = (
     'filer',
     'haystack',
     'honeypot',
+    'postman',
 
     # CMS
     'djangocms_text_ckeditor',
@@ -291,3 +294,8 @@ HONEYPOT_FIELD_NAME = 'body'
 
 # select2
 AUTO_RENDER_SELECT2_STATICS = True
+
+# postman configuration for cosinnus-message
+POSTMAN_DISALLOW_ANONYMOUS = True  # No anonymous messaging
+POSTMAN_AUTO_MODERATE_AS = True  # Auto accept all messages
+POSTMAN_SHOW_USER_AS = 'username'
