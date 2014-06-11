@@ -144,6 +144,7 @@ LANGUAGES = (
 
 INSTALLED_APPS = (
     # Django Apps
+    'suit',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -152,7 +153,11 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'suit',
+    'django.contrib.webdesign',
+
+    # 'django_extensions',
+    'django_select2',
+    'widget_tweaks',
 
     # custom apps
     'ecobasa',
@@ -283,3 +288,6 @@ HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
 
 # honeypot
 HONEYPOT_FIELD_NAME = 'body'
+
+# select2
+AUTO_RENDER_SELECT2_STATICS = True
