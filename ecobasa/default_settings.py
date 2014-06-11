@@ -164,6 +164,7 @@ INSTALLED_APPS = (
     'ecobasa',
     'cosinnus',
     'cosinnus_message',
+    'cosinnus_todo',
     # 'skillshare',
     # 'references',
 
