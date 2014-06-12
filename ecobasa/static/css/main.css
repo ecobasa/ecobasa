@@ -133,7 +133,7 @@ nav.navbar.navbar-sub .menu-bus {
   height: 50px;
   width: 53px;
   border: 10px solid #b4502c;
-  border-radius: 20px;
+  border-radius: 23px;
   position: absolute;
   left: 20px;
   bottom: -19px;
@@ -331,6 +331,11 @@ form#form-register-community {
 }
 .sidebar .community-map-small {
   margin-top: 20px;
+}
+
+/*************** Dashboard **************/
+#dashboard .panel {
+  border: 1px dotted #da6137;
 }
 
 /************* Footer ******************/

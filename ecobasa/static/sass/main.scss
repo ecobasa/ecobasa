@@ -363,6 +363,15 @@ margin-top: 20px;
 }
 
 
+/*************** Dashboard **************/
+
+#dashboard {
+	.panel {
+		border: 1px dotted $primary;
+	}
+}
+
+
 /************* Footer ******************/
 
 #footer {
