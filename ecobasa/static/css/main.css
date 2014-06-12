@@ -52,6 +52,7 @@ h2 {
   margin-bottom: 0px;
   border-radius: 0px;
   border: none;
+  z-index: 1;
 }
 
 .header .navbar-brand h1, .header .navbar-brand h2 {
@@ -109,6 +110,45 @@ ul.dropdown-menu > .active > a:hover,
 ul.dropdown-menu > .active > a:focus,
 ul.dropdown-menu > li > a:hover {
   background-color: #f4ede3;
+  color: #da6137;
+}
+
+/*********** Sub Navigation ****************/
+nav.navbar.navbar-sub {
+  background-color: #b4502c;
+  min-height: 80px;
+  border-radius: 40px;
+  top: -40px;
+  margin-left: 80px;
+  display: table;
+  padding: 48px 40px 0px 40px;
+}
+nav.navbar.navbar-sub .menu-bus {
+  display: block;
+  float: left;
+  background: url("../img/bus-small.png") #b4502c;
+  height: 51px;
+  width: 52px;
+  border: 5px solid #b4502c;
+  height: 50px;
+  width: 53px;
+  border: 10px solid #b4502c;
+  border-radius: 20px;
+  position: absolute;
+  left: 20px;
+  bottom: -19px;
+}
+nav.navbar.navbar-sub ul {
+  list-style: none;
+}
+nav.navbar.navbar-sub ul > li {
+  display: inline;
+  margin-right: 20px;
+}
+nav.navbar.navbar-sub ul > li a {
+  color: #f4ede3;
+}
+nav.navbar.navbar-sub ul > li a:hover {
   color: #da6137;
 }
 
