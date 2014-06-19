@@ -166,6 +166,7 @@ INSTALLED_APPS = (
     'cosinnus_message',
     'cosinnus_todo',
     'cosinnus_etherpad',
+    'cosinnus_event',
     # 'skillshare',
     # 'references',
 
@@ -174,7 +175,7 @@ INSTALLED_APPS = (
     'bootstrap3',
     'bootstrap3_datetime',
     'easy_thumbnails',
-    # 'geoposition',
+    'geoposition',
     'south',
     'taggit',
     'filer',
@@ -260,12 +261,11 @@ USERPROFILES_USE_EMAIL_VERIFICATION = False
 # COSINNUS settings
 FORMAT_MODULE_PATH = 'cosinnus.formats'
 
-# COSINNUS_ATTACHABLE_OBJECTS = {
-#     'cosinnus_document.Document' : [
-#         'cosinnus_file.FileEntry',
-#         'cosinnus_document.Document',
-#     ],
-# }
+COSINNUS_ATTACHABLE_OBJECTS = {
+#    'cosinnus_event.Event' : [
+#        'cosinnus_todo.TodoEntry',
+#    ],
+}
 
 COSINNUS_USER_PROFILE_MODEL = 'ecobasa.EcobasaUserProfile'
 COSINNUS_USER_PROFILE_SERIALIZER = 'ecobasa.models.serializers.EcobasaUserProfileSerializer'
