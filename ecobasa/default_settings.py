@@ -171,6 +171,7 @@ INSTALLED_APPS = (
     # 'references',
 
     # third-party
+    'osm_field',
     'appconf',
     'bootstrap3',
     'bootstrap3_datetime',

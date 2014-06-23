@@ -8,6 +8,7 @@
 {{ form.media.css }}
 <link href="{% static "css/vendor/select2-bootstrap.css" %}" rel="stylesheet"/>
 <link href="{% static "css/vendor/select2.css" %}" rel="stylesheet"/>
+{{ form.media.js }}
 {% endblock extrahead %}
 
 {% block content %}
@@ -71,6 +72,13 @@
           <div class="col-xs-3">{% bootstrap_label form.name.label %}</div>
           <div class="col-xs-9">{% bootstrap_field form.name show_label=False %}</div>
         </div>
+
+    
+        <div class="row">
+          <div class="col-xs-3">{{ form.contact_location }}</div>
+        {{ form.contact_location_lat }}
+        {{ form.contact_location_lon }}
+      </div>
 
         <div class="row">
           <div class="col-xs-3">{% bootstrap_label form.contact_street.label %}</div>
