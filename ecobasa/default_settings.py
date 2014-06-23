@@ -167,6 +167,7 @@ INSTALLED_APPS = (
     'cosinnus_todo',
     'cosinnus_etherpad',
     'cosinnus_event',
+    'cosinnus_note',
     # 'skillshare',
     # 'references',
 
@@ -182,6 +183,7 @@ INSTALLED_APPS = (
     'haystack',
     'honeypot',
     'postman',
+    'embed_video',
 
     # CMS
     'djangocms_text_ckeditor',
