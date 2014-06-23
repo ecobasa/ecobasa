@@ -274,6 +274,8 @@ COSINNUS_USER_PROFILE_SERIALIZER = 'ecobasa.models.serializers.EcobasaUserProfil
 COSINNUS_ETHERPAD_BASE_URL = 'http://pad.sinnwerkstatt.com/api'
 COSINNUS_ETHERPAD_API_KEY = 'ksudJAWqzcglHCt9IZ6NDjiVaDCKinLH'
 
+# hide apps from automatic listing
+COSINNUS_HIDE_APPS = ('cosinnus_message',)
 
 # Conflict between CMS and DebugToolbar resolved by following
 # http://zerokspot.com/weblog/2013/12/25/django-cms-and-debug-toolbar/
