@@ -30,6 +30,28 @@
   <div class="clearfix"></div>
   <br />
 
+  <div class="big-calendar"></div>
+  <script type="application/javascript">
+    var eventColors = ['#da6137', '#b4502c'];
+    var eventColorsLen = eventColors.length;
+    var cosinnus_calendarEvents = [
+      {% for event in object_list %}
+          {% if event.from_date %}
+            {
+                title: '{{ event.title }}',
+                start: "{{ event.from_date|date:"c"}}",
+                {% if event.to_date %}
+                end: "{{ event.to_date|date:"c"}}",
+                {% endif %}
+                url: '{% url "cosinnus:event:entry-detail" group=group.slug slug=event.slug %}',
+                color: eventColors[{{ forloop.counter0 }} % eventColorsLen],
+            },
+            {% endif %}
+        {% endfor %}
+      ];
+  </script>
+
+{% comment %}
 {% if not future_events and not past_events %}
   {% trans "There are no events." %}
 {% else %}
@@ -105,6 +127,6 @@
 
   </div> <!-- end panel group -->
 {% endif %}
-
+{% endcomment %}
 </div>
 {% endblock content %}
