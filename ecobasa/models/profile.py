@@ -11,6 +11,7 @@ from easy_thumbnails.fields import ThumbnailerImageField
 from six.moves import urllib
 from taggit.managers import TaggableManager
 from taggit.models import TaggedItemBase
+from osm_field.fields import OSMField
 
 from cosinnus.models import (
     BaseUserProfile, BaseUserProfileManager, CosinnusGroup)
@@ -393,6 +394,7 @@ class EcobasaCommunityProfile(models.Model):
         max_length=255, blank=True, null=True)
     contact_street = models.CharField(_('street'),
         max_length=255, blank=True, null=True)
+    contact_location = OSMField(_('Location'), blank=True, null=True, geo_blank=True, geo_null=True)
     contact_city = models.CharField(_('city'),
         max_length=255, blank=True, null=True)
     contact_zipcode = models.CharField(_('zipcode'),

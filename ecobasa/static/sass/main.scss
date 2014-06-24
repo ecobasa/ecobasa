@@ -57,6 +57,8 @@ h2 {
 	background-repeat: no-repeat;
 }
 
+
+
 /************ Header ****************/
 
 .header.navbar {
@@ -64,6 +66,7 @@ h2 {
 	margin-bottom: 0px;
 	border-radius: 0px;
 	border: none;
+	z-index: 3;
 }
 
 .header {
@@ -125,6 +128,60 @@ ul.dropdown-menu {
 	> li > a:hover {
 		background-color: $secondary;
 		color: $primary;
+	}
+}
+
+/*********** Sub Navigation ****************/
+
+nav.navbar.navbar-sub {
+	background-color: $third;
+	min-height: 80px;
+	border-radius: 40px;
+	/*top: -1px;*/
+	top: 27px;
+	margin-left: 80px;
+	display: table;
+	padding: 48px 40px 0px 40px;
+	z-index: 2;
+	position: absolute;
+	/*&:hover {
+		-webkit-transition: top 300ms;
+    	transition: top 300ms;
+		top: 27px;
+		.menu-bus {
+			bottom: -19px;
+			-webkit-transition: bottom 300ms;
+    		transition: bottom 300ms;
+		}
+	}*/
+	.menu-bus {
+		display: block;
+		float: left;
+		background: url('../img/bus-small.png') $third;
+		height: 51px;
+		width: 52px;
+		border: 5px solid $third;
+		height: 50px;
+		width: 53px;
+		border: 10px solid #b4502c;
+		border-radius: 23px;
+		position: absolute;
+		left: 20px;
+		/*bottom: -29px;*/
+		bottom: -19px;
+	}
+	ul {
+		list-style: none;
+		& > li {
+			display: inline;
+			margin-right: 20px;
+			& a {
+				color: $secondary;
+				&:hover {
+					color: $primary;
+				}
+			} 
+		}
 	}
 }
 
@@ -204,6 +261,8 @@ a[data-toggle=tooltip] {
 
 #community-map {
 	z-index: 1;
+	position: absolute;
+	top: 67px;
 }
 
 .community-map-small { 
@@ -296,6 +355,38 @@ margin-top: 20px;
 	padding: 20px 36px;
 }
 
+input.osmfield-input {
+	display: block;
+	width: 100%;
+	height: 34px;
+	padding: 6px 12px;
+	font-size: 14px;
+	line-height: 1.428571429;
+	color: #555;
+	vertical-align: middle;
+	background-color: #fff;
+	background-image: none;
+	border: 1px solid #ccc;
+	border-radius: 4px;
+	-webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+	box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+	-webkit-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+	margin-bottom: 10px;
+}
+
+div.osmfield-map {
+  width: 350px;
+  height: 250px;
+  border: 1px solid black;
+  position:absolute;
+  left:0;
+  top:30px;
+  z-index:1000;
+}
+span.osmfield-wrapper {
+  position:relative;
+}
 
 /*************** Community-Profiles **************/
 
@@ -320,6 +411,41 @@ margin-top: 20px;
 		margin-top: 20px;
 	}
 }
+
+
+/*************** Dashboard **************/
+
+#dashboard {
+	padding-top: 40px;
+	.panel {
+		border: 1px dotted $primary;
+	}
+}
+
+.container.content {
+	padding-top: 70px;
+}
+
+ul#postman_menu {
+	list-style: none;
+	padding-left: 0px;
+	li {
+		display: inline;
+		background: $primary;
+		border-radius: 5px;
+		padding: 10px;
+		a {
+			color: $secondary;
+		}
+	}
+}
+
+span.mailcount {
+	background: $primary;
+	border-radius: 10px;
+	padding: 1px 5px;
+}
+
 
 
 /************* Footer ******************/

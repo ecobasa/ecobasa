@@ -1,0 +1,74 @@
+{% extends "cosinnus_note/base.html" %}
+{% load i18n cosinnus_tags %}
+{% block page_title %}{% trans "Notes" %}: {{group.name}} {% endblock %}
+
+{% block breadcrumbs %}
+    {{ block.super }}
+    <li class="active">{% trans "Note" %}</li>
+{% endblock %}
+
+{% block subnav_add_right %}
+<a href="{% url 'cosinnus:note:add' group=group.slug %}" class="btn">
+  {% trans "Create note" %}
+</a>
+{{ block.super }}
+{% endblock %}
+
+{% block content %}
+
+{% if user.is_superuser or user|is_group_member:group %}
+    <ul class="nav nav-pills pull-right">
+      <li class="active"><a href="{% url 'cosinnus:note:add' group=group.slug %}" class="btn"><span class="glyphicon glyphicon-plus"></span> {% trans "Add" %}</a></li>
+    </ul>
+{% endif %}
+
+{% if object_list %}
+
+{% if tags %}
+  {% for tag in tags %}
+    <a href="{% url 'cosinnus:note:list-filtered' group=group.slug tag=tag.slug %}"><span class="label">{{ tag.name }}</span></a>
+  {% endfor %}
+{% else %}
+  {% trans "No tags available." %}
+{% endif %}
+
+<table class="table table-striped">
+    <thead>
+        <td><a href="{{ request.path }}{{ sort_helper.get_sort_query_by_title }}">{% trans "Title" %}</a></td>
+        <td><a href="{{ request.path }}{{ sort_helper.get_sort_query_by_creator }}">{% trans "Author" %}</a></td>
+        <td><a href="{{ request.path }}{{ sort_helper.get_sort_query_by_created }}">{% trans "Created" %}</a></td>
+        <td>{% trans "Tags" %}</td>
+        <td>{% trans "Actions" %}</td>
+    </thead>
+    {% for object in object_list %}
+        <tr>
+            <td><a href="{{ object.get_absolute_url }}">{{ object.title }}</a></td>
+            <td>{{ object.creator.get_full_name }}</td>
+            <td>{{ object.created }}</td>
+            <td>
+                {% for tag in object.tags.all %}
+                    <a href="{% url 'cosinnus:note:list-filtered' group=group.slug tag=tag.slug %}"><span class="label">{{ tag.name }}</span></a>
+                {% empty %}
+                -
+                {% endfor %}
+            </td>
+            <td>
+                <div class="btn-group">
+                    <a class="btn btn-primary btn-mini" href="{{ object.get_absolute_url }}"><i class="icon-eye-open icon-white"></i> {% trans "Show" %}</a>
+                    {% if user.is_superuser or user|is_group_member:group %}
+                    <a class="btn btn-primary btn-mini dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'cosinnus:note:update' group=group.slug slug=object.slug %}"><i class="icon-pencil"></i> {% trans "Edit" %}</a></li>
+                        <li><a href="{% url 'cosinnus:note:delete' group=group.slug slug=object.slug %}"><i class="icon-trash"></i> {% trans "Delete" %}</a></li>
+                        <li><a href="{% url 'cosinnus:note:comment' group=group.slug slug=object.slug %}"><i class="icon-comment"></i> {% trans "Comment" %}</a></li>
+                    </ul>
+                    {% endif %}
+                </div>
+            </td>
+        </tr>
+    {% endfor %}
+</table>
+{% else %}
+    {% trans "There are no notes." %}
+{% endif %}
+{% endblock %}
