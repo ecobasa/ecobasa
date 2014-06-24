@@ -52,7 +52,7 @@ h2 {
   margin-bottom: 0px;
   border-radius: 0px;
   border: none;
-  z-index: 1;
+  z-index: 3;
 }
 
 .header .navbar-brand h1, .header .navbar-brand h2 {
@@ -118,10 +118,23 @@ nav.navbar.navbar-sub {
   background-color: #b4502c;
   min-height: 80px;
   border-radius: 40px;
-  top: -40px;
+  /*top: -1px;*/
+  top: 27px;
   margin-left: 80px;
   display: table;
   padding: 48px 40px 0px 40px;
+  z-index: 2;
+  position: absolute;
+  	/*&:hover {
+  		-webkit-transition: top 300ms;
+      	transition: top 300ms;
+  		top: 27px;
+  		.menu-bus {
+  			bottom: -19px;
+  			-webkit-transition: bottom 300ms;
+      		transition: bottom 300ms;
+  		}
+  	}*/
 }
 nav.navbar.navbar-sub .menu-bus {
   display: block;
@@ -136,6 +149,7 @@ nav.navbar.navbar-sub .menu-bus {
   border-radius: 23px;
   position: absolute;
   left: 20px;
+  /*bottom: -29px;*/
   bottom: -19px;
 }
 nav.navbar.navbar-sub ul {
@@ -223,6 +237,8 @@ a[data-toggle=tooltip] {
 /***************Communities**************/
 #community-map {
   z-index: 1;
+  position: absolute;
+  top: 67px;
 }
 
 .community-map-small {
@@ -348,8 +364,15 @@ span.osmfield-wrapper {
 }
 
 /*************** Dashboard **************/
+#dashboard {
+  padding-top: 40px;
+}
 #dashboard .panel {
   border: 1px dotted #da6137;
+}
+
+.container.content {
+  padding-top: 70px;
 }
 
 ul#postman_menu {
@@ -364,6 +387,12 @@ ul#postman_menu li {
 }
 ul#postman_menu li a {
   color: #f4ede3;
+}
+
+span.mailcount {
+  background: #da6137;
+  border-radius: 10px;
+  padding: 1px 5px;
 }
 
 /************* Footer ******************/

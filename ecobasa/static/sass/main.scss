@@ -66,7 +66,7 @@ h2 {
 	margin-bottom: 0px;
 	border-radius: 0px;
 	border: none;
-	z-index: 1;
+	z-index: 3;
 }
 
 .header {
@@ -137,10 +137,23 @@ nav.navbar.navbar-sub {
 	background-color: $third;
 	min-height: 80px;
 	border-radius: 40px;
-	top: -40px;
+	/*top: -1px;*/
+	top: 27px;
 	margin-left: 80px;
 	display: table;
 	padding: 48px 40px 0px 40px;
+	z-index: 2;
+	position: absolute;
+	/*&:hover {
+		-webkit-transition: top 300ms;
+    	transition: top 300ms;
+		top: 27px;
+		.menu-bus {
+			bottom: -19px;
+			-webkit-transition: bottom 300ms;
+    		transition: bottom 300ms;
+		}
+	}*/
 	.menu-bus {
 		display: block;
 		float: left;
@@ -154,6 +167,7 @@ nav.navbar.navbar-sub {
 		border-radius: 23px;
 		position: absolute;
 		left: 20px;
+		/*bottom: -29px;*/
 		bottom: -19px;
 	}
 	ul {
@@ -247,6 +261,8 @@ a[data-toggle=tooltip] {
 
 #community-map {
 	z-index: 1;
+	position: absolute;
+	top: 67px;
 }
 
 .community-map-small { 
@@ -380,9 +396,14 @@ span.osmfield-wrapper {
 /*************** Dashboard **************/
 
 #dashboard {
+	padding-top: 40px;
 	.panel {
 		border: 1px dotted $primary;
 	}
+}
+
+.container.content {
+	padding-top: 70px;
 }
 
 ul#postman_menu {
@@ -397,6 +418,12 @@ ul#postman_menu {
 			color: $secondary;
 		}
 	}
+}
+
+span.mailcount {
+	background: $primary;
+	border-radius: 10px;
+	padding: 1px 5px;
 }
 
 
