@@ -11,10 +11,11 @@ easy-thumbnails==1.4
 -e git+git://github.com/Markush2010/django-bootstrap3.git@develop#egg=django-bootstrap3
 -e git+git@git.sinnwerkstatt.com:cosinnus/cosinnus-core.git@133e65c5dcb6b7a43358177b1f977d54d8330173#egg=cosinnus
 -e git+git@git.sinnwerkstatt.com:cosinnus/cosinnus-message.git@da51110e98568b86d22b2b183cba38e65b4ad20c#egg=cosinnus-message
--e git+git@git.sinnwerkstatt.com:cosinnus/cosinnus-todo.git@eac3dc947f1b47df65dacf3beaddbe1cf8392cf9#egg=cosinnus-todo
+-e git+git@git.sinnwerkstatt.com:cosinnus/cosinnus-todo.git@37cc10b7c490e58e42af5c1bcd659ea495c0b043#egg=cosinnus-todo
 -e git+git@git.sinnwerkstatt.com:cosinnus/cosinnus-etherpad.git@8c0c952af7e2c842d7efef2e160c0aac079c9f06#egg=cosinnus-etherpad
 -e git+git@git.sinnwerkstatt.com:cosinnus/cosinnus-event.git@3040a052a255c1014779449200647d633e9f5bbb#egg=cosinnus-event
 -e git+git@github.com:sinnwerkstatt/django-osm-field.git#egg=django-osm-field
+-e git+git@git.sinnwerkstatt.com:cosinnus/cosinnus-note.git@c5998f8a33961536a39f5e04527ce980c305778c#egg=cosinnus-note
 django-sekizai==0.7
 django-suit==0.2.8
 django-filer==0.9.5

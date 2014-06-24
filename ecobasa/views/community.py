@@ -12,6 +12,7 @@ from cosinnus.models import CosinnusGroup
 from cosinnus.models.group import MEMBERSHIP_ADMIN, MEMBERSHIP_PENDING
 from cosinnus.views.group import GroupListView
 from cosinnus.views.widget import DashboardMixin
+from cosinnus_note.models import Note
 
 from ..forms import CommunityProfileForm
 
@@ -31,6 +32,7 @@ class CommunityDetailView(DetailView):
             context['object'].memberships.filter(status=MEMBERSHIP_ADMIN))
         context['object'].pending_members = map(lambda x: x.user,
             context['object'].memberships.filter(status=MEMBERSHIP_PENDING))
+        context['posts'] = Note.objects.filter(group=context['object'])
 
         return context
 

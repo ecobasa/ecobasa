@@ -65,6 +65,7 @@
           <li{% if app.active %} class="active"{% endif %}><a href="{{ app.url }}">{{ app.label }}</a></li>
         {% endfor %}
       {% endif %} 
+          <li><a href="{% url 'postman-index' %}">{% trans "Messages" %} ({{ postman_unread_count }})</a></li>
     </ul>
   </nav>
 {% endif %} 
