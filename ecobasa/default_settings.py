@@ -172,6 +172,7 @@ INSTALLED_APPS = (
     # 'references',
 
     # third-party
+    'osm_field',
     'appconf',
     'bootstrap3',
     'bootstrap3_datetime',
@@ -273,7 +274,7 @@ COSINNUS_USER_PROFILE_MODEL = 'ecobasa.EcobasaUserProfile'
 COSINNUS_USER_PROFILE_SERIALIZER = 'ecobasa.models.serializers.EcobasaUserProfileSerializer'
 
 # etherpad
-COSINNUS_ETHERPAD_BASE_URL = 'http://pad.sinnwerkstatt.com/api'
+COSINNUS_ETHERPAD_BASE_URL = 'http://pad.community-tours.com/api'
 COSINNUS_ETHERPAD_API_KEY = 'ksudJAWqzcglHCt9IZ6NDjiVaDCKinLH'
 
 # hide apps from automatic listing
