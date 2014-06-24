@@ -1,5 +1,5 @@
 {% extends "cosinnus_event/base.html" %}
-{% load i18n cosinnus_tags %}
+{% load i18n cosinnus_tags ecobasa_event %}
 
 {% block page_title %}
 {% trans "Events" %} {{ block.super }}
@@ -42,6 +42,9 @@
                 start: "{{ event.from_date|date:"c"}}",
                 {% if event.to_date %}
                 end: "{{ event.to_date|date:"c"}}",
+                allDay: {{ event|all_day }},
+                {% else %}
+                allDay: true,
                 {% endif %}
                 url: '{% url "cosinnus:event:entry-detail" group=group.slug slug=event.slug %}',
                 color: eventColors[{{ forloop.counter0 }} % eventColorsLen],

@@ -49,8 +49,9 @@
 				header: {
 					left: 'prev,next today',
 					center: 'title',
-					right: 'year,month,basicWeek,week' // basicDay
+					right: 'month,agendaWeek,agendaDay' // basicDay
 				},
+				defaultView: 'agendaWeek',
 
 				// cosinnus_calendarEvents is a global var containing the events
 				// set by the backend somewhere in the BODY.
