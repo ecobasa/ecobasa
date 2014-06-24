@@ -385,6 +385,21 @@ span.osmfield-wrapper {
 	}
 }
 
+ul#postman_menu {
+	list-style: none;
+	padding-left: 0px;
+	li {
+		display: inline;
+		background: $primary;
+		border-radius: 5px;
+		padding: 10px;
+		a {
+			color: $secondary;
+		}
+	}
+}
+
+
 
 /************* Footer ******************/
 

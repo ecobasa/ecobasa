@@ -352,6 +352,20 @@ span.osmfield-wrapper {
   border: 1px dotted #da6137;
 }
 
+ul#postman_menu {
+  list-style: none;
+  padding-left: 0px;
+}
+ul#postman_menu li {
+  display: inline;
+  background: #da6137;
+  border-radius: 5px;
+  padding: 10px;
+}
+ul#postman_menu li a {
+  color: #f4ede3;
+}
+
 /************* Footer ******************/
 #footer {
   margin-top: 50px;
