@@ -3,7 +3,6 @@ from __future__ import unicode_literals
 
 from haystack.utils import Highlighter
 from haystack.views import SearchView
-from six import string_types
 
 
 class FindView(SearchView):
@@ -19,9 +18,7 @@ class FindView(SearchView):
             for field in r.get_stored_fields():
                 value = getattr(r, field)
                 # assume search index field 'text' is document field
-                if isinstance(value, string_types) and\
-                        query in value.lower() and\
-                        field != 'text':
+                if query in value.lower() and field != 'text':
                     # assume search index field name == model field name
                     try:
                         name = r.object._meta.get_field(field).verbose_name

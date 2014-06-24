@@ -99,10 +99,8 @@ TEMPLATE_CONTEXT_PROCESSORS = [
     'django.core.context_processors.media',
     'django.core.context_processors.static',
     'cosinnus.utils.context_processors.settings',
-    'cosinnus.utils.context_processors.cosinnus',
     'cms.context_processors.media',
     'sekizai.context_processors.sekizai',
-    'postman.context_processors.inbox',
 ]
 
 THUMBNAIL_PROCESSORS = (
@@ -145,7 +143,6 @@ LANGUAGES = (
 
 INSTALLED_APPS = (
     # Django Apps
-    'suit',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -154,37 +151,25 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django.contrib.webdesign',
-
-    # 'django_extensions',
-    'django_select2',
-    'widget_tweaks',
+    'suit',
 
     # custom apps
     'ecobasa',
     'cosinnus',
-    'cosinnus_message',
-    'cosinnus_todo',
-    'cosinnus_etherpad',
-    'cosinnus_event',
-    'cosinnus_note',
     # 'skillshare',
     # 'references',
 
     # third-party
-    'osm_field',
     'appconf',
     'bootstrap3',
     'bootstrap3_datetime',
     'easy_thumbnails',
-    'geoposition',
+    # 'geoposition',
     'south',
     'taggit',
     'filer',
     'haystack',
     'honeypot',
-    'postman',
-    'embed_video',
 
     # CMS
     'djangocms_text_ckeditor',
@@ -264,21 +249,15 @@ USERPROFILES_USE_EMAIL_VERIFICATION = False
 # COSINNUS settings
 FORMAT_MODULE_PATH = 'cosinnus.formats'
 
-COSINNUS_ATTACHABLE_OBJECTS = {
-#    'cosinnus_event.Event' : [
-#        'cosinnus_todo.TodoEntry',
-#    ],
-}
+# COSINNUS_ATTACHABLE_OBJECTS = {
+#     'cosinnus_document.Document' : [
+#         'cosinnus_file.FileEntry',
+#         'cosinnus_document.Document',
+#     ],
+# }
 
 COSINNUS_USER_PROFILE_MODEL = 'ecobasa.EcobasaUserProfile'
-COSINNUS_USER_PROFILE_SERIALIZER = 'ecobasa.models.serializers.EcobasaUserProfileSerializer'
 
-# etherpad
-COSINNUS_ETHERPAD_BASE_URL = 'http://pad.sinnwerkstatt.com/api'
-COSINNUS_ETHERPAD_API_KEY = 'ksudJAWqzcglHCt9IZ6NDjiVaDCKinLH'
-
-# hide apps from automatic listing
-COSINNUS_HIDE_APPS = ('cosinnus_message',)
 
 # Conflict between CMS and DebugToolbar resolved by following
 # http://zerokspot.com/weblog/2013/12/25/django-cms-and-debug-toolbar/
@@ -302,11 +281,3 @@ HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
 
 # honeypot
 HONEYPOT_FIELD_NAME = 'body'
-
-# select2
-AUTO_RENDER_SELECT2_STATICS = True
-
-# postman configuration for cosinnus-message
-POSTMAN_DISALLOW_ANONYMOUS = True  # No anonymous messaging
-POSTMAN_AUTO_MODERATE_AS = True  # Auto accept all messages
-POSTMAN_SHOW_USER_AS = 'username'

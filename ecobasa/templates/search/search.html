@@ -45,9 +45,6 @@
           {{ result.context.field }}
           <div class="well">{{ result.context.value|safe }}</div>
         {% endifequal %}
-        {% ifequal result.model_name 'todoentry' %}
-          <a href="{% url 'cosinnus:todo:entry-detail' group=result.group_slug slug=result.slug %}">{{ result.title }}</a>
-        {% endifequal %}
       </li>
     {% endfor %}</ul>
 
