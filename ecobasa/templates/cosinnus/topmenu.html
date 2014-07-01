@@ -16,6 +16,7 @@
         <li><a href="{% url 'community-list' %}">{% trans "Communities" %}</a></li>
         <li><a href="{% url 'pioneer-list' %}">{% trans "Pioneers" %}</a></li>
         <li><a href="{% url 'bus-list' %}">{% trans "Buses" %}</a></li>
+        <li><a href="{% url 'caravan-list' %}">{% trans "Caravans" %}</a></li>
       </ul>
     </div>
     <ul class="nav navbar-nav navbar-right">
@@ -46,7 +47,7 @@
   <nav class="navbar navbar-sub" role="navigation">
     <div class="menu-bus"></div>
     <ul>
-      {% if groups %}
+      {% if groups %} {# only show dropdown if community #}
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% if groups >= 1 %}{% trans "My Communities" %}{% else %}{% trans "My Community" %}{% endif %}{% if group %} <strong>({{ group }})</strong>{% endif %} <b class="caret"></b></a>
           <ul class="dropdown-menu">
@@ -59,8 +60,13 @@
         </li>
       {% endif %}
       {% if group %}
+        {% if group.profile %}
           {% url 'community-dashboard' group=group.slug as dashboard_url %}
           <li {% ifequal dashboard_url request.path %} class="active"{% endifequal %}><a href="{{ dashboard_url }}">{% trans "Community Dashboard" %}</a></li>
+          {% else %}
+          {% url 'caravan-dashboard' group=group.slug as dashboard_url %}
+          <li {% ifequal dashboard_url request.path %} class="active"{% endifequal %}><a href="{{ dashboard_url }}">{% trans "Caravan Dashboard" %}</a></li>
+        {% endif %}
         {% for app in apps %}
           <li{% if app.active %} class="active"{% endif %}><a href="{{ app.url }}">{{ app.label }}</a></li>
         {% endfor %}
