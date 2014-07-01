@@ -1,0 +1,17 @@
+{% load i18n %}
+{% if rows %}
+  <table class="table table-striped table-hover table-condensed">
+    <tr>
+      <th>{% trans "Title" %}</th>
+      <th>{% trans "Start" %}</th>
+    </tr>
+    {% for row in rows %}
+      <tr>
+        <td><a href="{% url "cosinnus:event:entry-detail" group=row.group.slug slug=row.slug %}">{{ row.title }}</a></td>
+        <td>{{ row.from_date }}</td>
+      </tr>
+    {% endfor %}
+  </table>
+{% else %}
+  {{ no_data }}
+{% endif %}

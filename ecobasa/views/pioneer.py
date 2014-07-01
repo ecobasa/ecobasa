@@ -12,6 +12,7 @@ from django.views.generic import DetailView, UpdateView
 
 from cosinnus.models.group import MEMBERSHIP_ADMIN
 from cosinnus.views.user import UserListView, USER_MODEL
+from cosinnus_note.models import Note
 
 from ..forms import PioneerProfileForm
 
@@ -45,6 +46,12 @@ class PioneerDetailView(DetailView):
     @method_decorator(login_required)
     def dispatch(self, *args, **kwargs):
         return super(PioneerDetailView, self).dispatch(*args, **kwargs)
+
+    def get_context_data(self, *args, **kwargs):
+        context = super(PioneerDetailView, self).get_context_data(*args,
+                                                                  **kwargs)
+        context['posts'] = Note.objects.filter(creator=context['object'])
+        return context
 
 pioneer_detail = PioneerDetailView.as_view()
 

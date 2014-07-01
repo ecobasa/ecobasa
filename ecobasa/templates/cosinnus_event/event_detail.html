@@ -1,0 +1,109 @@
+{% extends "cosinnus_event/base.html" %}
+{% load i18n l10n static cosinnus_tags %}
+
+
+{% block page_title %}
+{{ object.title }} {{ block.super }}
+{% endblock page_title %}
+
+
+{% block extrahead %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'geoposition/geoposition.css' %}">
+{% endblock extrahead %}
+
+
+{% block content_title %}
+{{ group.name }}: {{ object.title }}
+{% endblock content_title %}
+
+
+{% block content %}
+<div class="cosinnus-event">
+  <div class="row">
+    <div class="col-md-6">
+      {% if object.from_date %}
+      <strong>{% trans "Start" %}</strong> {{ object.from_date|date:"d. F Y h:i" }}<br />
+      {% endif %}
+      {% if object.to_date %}
+      <strong>{% trans "End" %}</strong> {% if object.single_day %}{{ object.to_date|date:"h:i" }}{% else %}{{ object.to_date|date:"d. F Y h:i" }}{% endif %}<br />
+      {% endif %}
+      <strong>{% trans "Created by" %}</strong> {{ object.creator }}<br />
+      {% if object.state %}
+      <strong>{% trans "State" %}</strong> {{ object.get_state_display }}<br />
+      {% endif %}
+      {% if object.note %}
+      <strong>{% trans "Note" %}</strong><br />
+      <div class="well">{{ object.note|linebreaksbr }}</div>
+      {% endif %}
+      {% if object.image %}
+      <strong>{% trans "Image" %}</strong><br />
+      <img src="{{ object.image.url }}" />
+      {% endif %}
+    </div>
+    <div class="col-md-6">
+      {% if object.location %}
+      <strong>{% trans "Location" %}:</strong>
+      <div class="geoposition-widget" data-map-widget-height="{{ map_widget_height }}">
+          <input class="geoposition" value="{{ object.location.latitude|unlocalize }}">
+          <input class="geoposition" value="{{ object.location.longitude|unlocalize }}">
+      </div>
+      {% endif %}
+      {% if object.street %}
+      <strong>{% trans "Street" %}</strong> {{ object.street }}<br />
+      {% endif %}
+      {% if object.zipcode %}
+      <strong>{% trans "ZIP code" %}</strong> {{ object.zipcode }}<br/>
+      {% endif %}
+      {% if object.city %}
+      <strong>{% trans "City" %}</strong> {{ object.city }}<br />
+      {% endif %}
+    </div>
+  </div>
+
+  <hr />
+
+  <h3>{% trans "Suggestions" %}</h3>
+  <ul class="list-group">
+    {% for suggestion in object.suggestions.all %}
+    <li class="list-group-item">
+      {% if suggestion.single_day %}
+        {{ suggestion.from_date|date:"d. F Y h:i" }} - {{ suggestion.to_date|date:"h:i" }}
+      {% else %}
+        {{ suggestion.from_date|date:"d. F Y h:i" }} - {{ suggestion.to_date|date:"d. F Y h:i" }}
+      {% endif %}
+      {% if suggestion.votes.all %}
+        ({{ suggestion.count }})
+        {% for vote in suggestion.votes.all %}
+          {% if not forloop.first %}, {% endif %}{{ vote.voter }}
+        {% endfor %}
+      {% else %}
+        {% trans "No votes for this suggestion." %}
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+
+  <hr />
+
+  {% if user.is_superuser or user|is_group_member:group %}
+  <div class="btn-group">
+      <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">{% trans "Actions" %} <span class="caret"></span></a>
+      <ul class="dropdown-menu">
+          <li><a href="{% url 'cosinnus:event:entry-edit' group=group.slug slug=object.slug %}"><span class="glyphicon glyphicon-pencil"></span> {% trans "Edit" %}</a></li>
+          <li><a href="{% url 'cosinnus:event:entry-delete' group=group.slug slug=object.slug %}"><span class="glyphicon glyphicon-trash"></span> {% trans "Delete" %}</a></li>
+          <li class="divider"></li>
+          <li><a href="{% url 'cosinnus:event:entry-vote' group=group.slug slug=object.slug %}"><span class="glyphicon glyphicon-user"></span> {% trans "Vote" context "the verb" %}</a></li>
+      </ul>
+  </div>
+  {% endif %}
+
+
+{% endblock content %}
+
+
+{% block extrafooter %}
+{{ block.super }}
+<script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script src="{% static 'geoposition/geoposition.js' %}"></script>
+{% endblock extrafooter %}

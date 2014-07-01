@@ -30,6 +30,13 @@
   </div>
 
   <div class="row">
+    <div class="col-xs-3">{% bootstrap_label form.contact_location.label %}</div>
+    <div class="col-xs-3">{{ form.contact_location }}</div>
+    <div class="col-xs-3">{{ form.contact_location_lat }}</div>
+    <div class="col-xs-3">{{ form.contact_location_lon }}</div>
+  </div>
+
+  <div class="row">
     <div class="col-xs-3">{% bootstrap_label form.contact_street.label %}</div>
     <div class="col-xs-9">{% bootstrap_field form.contact_street show_label=False %}</div>
   </div>
