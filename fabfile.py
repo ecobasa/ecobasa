@@ -4,22 +4,19 @@ from fabvenv import virtualenv
 
 def staging():
     env.hosts = ['ecobasa@server.sinnwerkstatt.com']
-    env.path = '/srv/ecobasa.sinnwerkstatt.com/community-tours/'
+    env.path = '/srv/ecobasa.sinnwerkstatt.com/ecobasa/'
     env.virtualenv_path = '/srv/ecobasa.sinnwerkstatt.com/ecobasaenv/'
     env.push_branch = 'tour'
     env.push_remote = 'origin'
 
 
 def production():
-    env.hosts = ['m1487@community-tours.org']
+    #env.hosts = ['m1487@community-tours.org']
+    env.hosts = ['m1487@ct.web1.green-internet.net']
     env.path = '~/community-tours/'
     env.virtualenv_path = '~/community-toursenv/'
     env.push_branch = 'tour'
     env.push_remote = 'origin'
-
-
-def reload_webserver():
-    run("touch %(path)s/ecobasa/wsgi.py" % env)
 
 
 def update():
@@ -37,13 +34,10 @@ def migrate():
         run("%(path)s/manage.py migrate" % env)
 
 
-def production_deploy():
-    update()
-    migrate()
-    reload_webserver()
-
-
 def deploy():
     update()
     migrate()
-    run("supervisorctl reload ecobasa")
+    if env.tasks[0] == 'production':
+        run("touch %(path)s/ecobasa/wsgi.py" % env)
+    else:
+        run("supervisorctl reload ecobasa")
