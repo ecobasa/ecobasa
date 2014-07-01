@@ -4,7 +4,7 @@
 {% block page_title %}{% trans "Caravans" %}{% endblock %}
 
 {% block content %}
-    <h1>The available caravans for the Community-Tour</h1>
+    <h1>{% trans "The available caravans for the Community-Tour" %}</h1>
     {% if user.is_authenticated %}
     <a class="btn btn-primary pull-right" href="{% url 'caravan-add' %}">{% trans "Add a caravan" %}</a>
     {% endif %}
