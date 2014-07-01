@@ -9,12 +9,13 @@ register = template.Library()
 
 @register.assignment_tag
 def get_community_locations():
-    def mkloc(community):
+    def mkloc(com):
         return {
-            'lat': community.contact_lat,
-            'lon': community.contact_lon,
-            'name': community.name,
-            'slug': community.group.slug,
+            # be backwards compatible with old location field
+            'lat': com.contact_location_lat or com.contact_lat,
+            'lon': com.contact_location_lon or com.contact_lon,
+            'name': com.name,
+            'slug': com.group.slug,
         }
 
     qs = EcobasaCommunityProfile.objects.all().select_related('group')
