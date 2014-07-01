@@ -52,21 +52,26 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% if groups >= 1 %}{% trans "My Communities" %}{% else %}{% trans "My Community" %}{% endif %}{% if group %} <strong>({{ group }})</strong>{% endif %} <b class="caret"></b></a>
           <ul class="dropdown-menu">
             {% for g in groups %}
-              <li{% if g == group %} class="active"{% endif %}><a href="{% url 'community-dashboard' group=g.slug %}">{{ g.name }}</a></li>
+              {% if g.profile %}
+                {% url 'community-dashboard' group=g.slug as dashboard_url %}
+              {% else %}
+                {% url 'caravan-dashboard' group=g.slug as dashboard_url %}
+              {% endif %}
+              <li{% if g == group %} class="active"{% endif %}><a href="{{ dashboard_url }}">{{ g.name }}</a></li>
             {% endfor %}
             <li class="divider"></li>
             <li><a href="{% url 'community-list' %}">{% trans "List all communities" %}</a></li>
+            <li><a href="{% url 'caravan-list' %}">{% trans "List all caravans" %}</a></li>
           </ul>
         </li>
       {% endif %}
       {% if group %}
         {% if group.profile %}
           {% url 'community-dashboard' group=group.slug as dashboard_url %}
-          <li {% ifequal dashboard_url request.path %} class="active"{% endifequal %}><a href="{{ dashboard_url }}">{% trans "Community Dashboard" %}</a></li>
-          {% else %}
+        {% else %}
           {% url 'caravan-dashboard' group=group.slug as dashboard_url %}
-          <li {% ifequal dashboard_url request.path %} class="active"{% endifequal %}><a href="{{ dashboard_url }}">{% trans "Caravan Dashboard" %}</a></li>
         {% endif %}
+          <li {% ifequal dashboard_url request.path %} class="active"{% endifequal %}><a href="{{ dashboard_url }}">{% trans " Dashboard" %}</a></li>
         {% for app in apps %}
           <li{% if app.active %} class="active"{% endif %}><a href="{{ app.url }}">{{ app.label }}</a></li>
         {% endfor %}
