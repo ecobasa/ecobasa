@@ -310,9 +310,3 @@ AUTO_RENDER_SELECT2_STATICS = True
 POSTMAN_DISALLOW_ANONYMOUS = True  # No anonymous messaging
 POSTMAN_AUTO_MODERATE_AS = True  # Auto accept all messages
 POSTMAN_SHOW_USER_AS = 'username'
-
-
-# required for subclassing CosinnusGroup
-SOUTH_MIGRATION_MODULES = {
-    'taggit': 'taggit.south_migrations',
-}
