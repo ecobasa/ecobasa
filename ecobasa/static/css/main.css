@@ -165,6 +165,9 @@ nav.navbar.navbar-sub ul > li a {
 nav.navbar.navbar-sub ul > li a:hover {
   color: #da6137;
 }
+nav.navbar.navbar-sub ul.dropdown-menu {
+  width: auto;
+}
 
 /*********** Startpage ****************/
 body#start > .container {
