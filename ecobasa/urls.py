@@ -34,6 +34,15 @@ urlpatterns = i18n_patterns('',
     url(r'^buses/$', 'ecobasa.views.bus_list', name='bus-list'),
     url(r'^buses/add/$', 'ecobasa.views.bus_add', name='bus-add'),
 
+    url(r'^caravans/$', 'ecobasa.views.caravan_list', name='caravan-list'),
+    url(r'^caravans/add/$', 'ecobasa.views.caravan_add', name='caravan-add'),
+    url(r'^caravans/(?P<group>[^/]+)/$', 'ecobasa.views.caravan_dashboard', name='caravan-dashboard'),
+    url(r'^caravans/(?P<group>[^/]+)/details/$', 'ecobasa.views.caravan_detail', name='caravan-detail'),
+    url(r'^caravans/(?P<group>[^/]+)/edit/$', 'ecobasa.views.caravan_edit', name='caravan-edit'),
+    url(r'^caravans/(?P<group>[^/]+)/delete/$', 'ecobasa.views.caravan_delete', name='caravan-delete'),
+    url(r'^caravans/(?P<group>[^/]+)/join/$', 'ecobasa.views.caravan_join', name='caravan-join'),
+    url(r'^caravans/(?P<group>[^/]+)/leave/$', 'ecobasa.views.caravan_leave', name='caravan-leave'),
+
     url(r'^find/$', search_view_factory(view_class=FindView), name='find'),
 
     url(r'^organisers/$', 'ecobasa.views.organiser_list', name='organiser-list'),

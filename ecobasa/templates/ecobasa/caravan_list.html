@@ -1,0 +1,57 @@
+{% extends "cosinnus/base.html" %}
+{% load i18n thumbnail cosinnus_tags %}
+
+{% block page_title %}{% trans "Caravans" %}{% endblock %}
+
+{% block content %}
+    <h1>{% trans "The available caravans for the Community-Tour" %}</h1>
+    {% if user.is_authenticated %}
+    <a class="btn btn-primary pull-right" href="{% url 'caravan-add' %}">{% trans "Add a caravan" %}</a>
+    {% endif %}
+
+    {% if object_list %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>{% trans "Caravan" %}</th>
+                <th>{% trans "Description" %}</th>
+                <td>{% trans "Actions" %}</th>
+            </tr>
+        </thead>
+
+        {% for caravan in object_list %}
+        <tr>
+            <td><a href="{% url 'caravan-dashboard' caravan.slug %}">{{ caravan.name }}</a></td>
+            <td>{{ caravan.description }}</td>
+            <td>
+              <div class="btn-group">
+              {% if user|is_group_member:caravan %}
+                <a class="btn btn-primary" href="{% url 'caravan-leave' caravan.slug %}">{% trans "Leave" %}</a>
+              {% else %}
+                <a class="btn btn-primary" href="{% url 'caravan-join' caravan.slug %}">{% trans "Join" %}</a>
+              {% endif %}
+
+              {% if user.is_superuser or user|is_group_admin:caravan %}
+                <a class="btn btn-primary btn-mini dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li><a href="{% url 'caravan-edit' caravan.slug %}"><span class="glyphicon glyphicon-pencil"></span> {% trans "Edit" %}</a>
+                  {% if user.is_superuser %}
+                  <li><a href="{% url 'caravan-delete' caravan.slug %}"><span class="glyphicon glyphicon-trash"></span> {% trans "Delete" %}</a>
+                  {% endif %}
+                </ul>
+              {% endif %}
+              </div>
+          </td>
+        </tr>
+        {% endfor %}
+
+    </table>
+    {% else %}
+        {% trans "There are no caravans, yet! " %}
+        {% if user.is_authenticated %}
+            <a href="{% url 'caravan-add' %}">{% trans "Add a caravan" %}</a>
+        {% else %}
+            <a href="{% url 'register' %}">{% trans "Sign up" %}</a>{% trans "and add one now." %}
+        {% endif %}
+    {% endif %}
+{% endblock %}
