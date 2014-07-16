@@ -54,8 +54,10 @@
             {% for g in groups %}
               {% if g.profile %}
                 {% url 'community-dashboard' group=g.slug as dashboard_url %}
-              {% else %}
+              {% elif g.caravan %}
                 {% url 'caravan-dashboard' group=g.slug as dashboard_url %}
+              {% else %}
+                {% url 'cosinnus:group-dashboard' group=g.slug as dashboard_url %}
               {% endif %}
               <li{% if g == group %} class="active"{% endif %}><a href="{{ dashboard_url }}">{{ g.name }}</a></li>
             {% endfor %}
