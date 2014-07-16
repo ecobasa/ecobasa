@@ -22,13 +22,18 @@ class PioneerListView(UserListView):
 
     def get_queryset(self):
         users = super(PioneerListView, self).get_queryset()
-        # do not exclude superusers and staff anymore: #64
-        #users = users.exclude(is_superuser=True, is_staff=True)
-        # exclude ambassadors who are not organisers (kwarg queries are ANDed)
-        pioneers = users.exclude(
-            cosinnus_memberships__status=MEMBERSHIP_ADMIN,
-            cosinnus_memberships__organiserrole__isnull=True,
-        )
+        # exclude ambassadors, but include organisers (even if ambassador)
+        # you are welcome to get this into one query
+        # pioneers = users.exclude(
+        #            cosinnus_memberships__status=MEMBERSHIP_ADMIN,
+        #            cosinnus_memberships__organiserrole__isnull=True,
+        #        )
+        # didn't do it.
+        organisers = list(users.filter(
+            cosinnus_memberships__organiserrole__isnull=False).distinct())
+        non_ambassadors = list(users.exclude(
+            cosinnus_memberships__status=MEMBERSHIP_ADMIN))
+        pioneers = set(organisers + non_ambassadors)
         return pioneers
 
 pioneer_list = PioneerListView.as_view()
