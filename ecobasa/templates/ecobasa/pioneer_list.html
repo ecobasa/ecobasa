@@ -27,29 +27,31 @@
             </tr>
         </thead>
         {% for pioneer in object_list %}
+        {% with pioneer.cosinnus_profile as profile %}
         <tr>
             <th>
                 <a href="{% url 'pioneer-detail' username=pioneer.username %}">
-                {% if pioneer.cosinnus_profile.avatar %}
-                  <img class="avatar media-object" src="{% thumbnail pioneer.cosinnus_profile.avatar "70x0" crop=1 upscale=1 %} "60x60" crop=1 upscale=1 %}">
+                {% if profile.avatar %}
+                  <img class="avatar media-object" src="{% thumbnail profile.avatar "70x0" crop=1 upscale=1 %} "60x60" crop=1 upscale=1 %}">
                 {% else %}
                   <img class="avatar media-object" src="http://placehold.it/30x30">
                 {% endif %}
                 {{ pioneer.username }}
                 </a>
             </th>
-            <th>{% for tag in pioneer.cosinnus_profile.skills.all %}{{ tag }}{% if not forloop.last %}, {% endif %}{% endfor %}</th>
+            <th>{% for tag in profile.skills.all %}{{ tag }}{% if not forloop.last %}, {% endif %}{% endfor %}</th>
             <th>
-                {% if pioneer.cosinnus_profile.has_bus %}
-                {% if pioneer.cosinnus_profile.bus_image %}
-                    <img src="{% thumbnail object.bus_image "200x0" crop=1 upscale=1 %}" />
+                {% if profile.has_bus %}
+                {% if profile.bus_image %}
+                    <img src="{% thumbnail profile.bus_image "200x0" crop=1 upscale=1 %}" />
                 {% endif %}
                 {% endif %}
             </th>
             <th>
-                {{ pioneer.cosinnus_profile.get_country_display }}
+                {{ profile.get_country_display }}
             </th>
         </tr>
+        {% endwith %}
         {% endfor %}
     </table>
     {% else %}
