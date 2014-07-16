@@ -58,6 +58,10 @@ caravan_edit = CaravanEditView.as_view()
 
 class CaravanDetailView(GroupDetailView):
     model = Caravan
+    template_name = 'ecobasa/caravan_detail.html'
+
+    def get_filter(self):
+        return {'group_id': self.object.pk}
 
 caravan_detail = CaravanDetailView.as_view()
 
