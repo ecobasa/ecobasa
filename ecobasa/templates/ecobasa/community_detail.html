@@ -140,7 +140,7 @@
         <li><span class="data">Children:</span><span class="children">{{ profile.basic_inhabitants_underage }}</span></li>
         <li><span class="data">Membership status:</span><span class="members">{{ profile.get_basic_membership_status_display }}</span></li>
       </ul>
-      <button class="btn btn-primary btn-small">Connect to this community</button>
+      <a href="{% url 'postman_write' object.name %}"><button class="btn btn-primary btn-small">Write to this community</button></a>
     </div>
     <div id="community-map" class="community-map-small"></div>
     {% if user.is_authenticated and profile.contact_show %}
