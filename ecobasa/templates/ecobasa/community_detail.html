@@ -40,20 +40,20 @@
   <div class="col-xs-8">
     <div class="row">
       <div class="col-xs-12">
-        <h3>What brings this community together</h3>
+        <h3>{% trans "What brings this community together" %}</h3>
         <p>{{ profile.basic_brings_together }}</p>
-        <h3>What can you learn here</h3>
+        <h3>{% trans "What can you learn here" %}</h3>
         <ul>
           {% for offer_skill in profile.offers_skills.all %}
           <li>{{ offer_skill }}</li>
           {% endfor %}
         </ul>
-        <h3>Accomodation for guests</h3>
+        <h3>{% trans "Accomodation for guests" %}</h3>
         <p>{{ profile.visitors_accomodation }}</p>
       </div>
     </div>
     <div class="row">
-      <h2>Offers</h2>
+      <h2>{% trans "Offers" %}</h2>
       <div class="col-xs-6">
         <h3>Services</h3>
         <ul>
@@ -63,7 +63,7 @@
         </ul>
       </div>
       <div class="col-xs-6">
-        <h3>Products and Creations</h3>
+        <h3>{% trans "Products and Creations" %}</h3>
         <ul>
           {% for offer_creation in profile.offers_creations.all %}
           <li>{{ offer_creation }}</li>
@@ -73,28 +73,28 @@
     </div>
     <div class="row">
       <div class="col-xs-12">
-        <h3>Workshop and factoring spaces</h3>
+        <h3>{% trans "Workshop and factoring spaces" %}</h3>
         {{ profile.offers_workshop_spaces }}
-        <h3>Seminars</h3>
+        <h3>{% trans "Seminars" %}</h3>
         <p>{{ profile.offers_learning_seminars }}</p>
       </div>
     </div>
     <div class="row">
-      <h2>Needs</h2>
+      <h2>{% trans "Needs" %}</h2>
       <div class="col-xs-12">
         <h3>Projects/Construction Sites</h3>
         <p>{{ profile.wishlist_projects }}</p>
-        <h3>Experts/People with the following skills</h3>
+        <h3>{% trans "Experts/People with the following skills" %}</h3>
         <ul>
           {% for wishlist_skill in profile.wishlist_skills.all %}
           <li>{{ wishlist_skill }}</li>
           {% endfor %}
         </ul>
-        <h3>Materials</h3>
+        <h3>{% trans "Materials" %}</h3>
         <p>{{ profile.wishlist_materials }}</p>
-        <h3>Tools</h3>
+        <h3>{% trans "Tools" %}</h3>
         <p>{{ profile.wishlist_tools }}</p>
-        <h3>Seeds</h3>
+        <h3>{% trans "Seeds" %}</h3>
         <div class="table-responsive">
           <table class="table table-striped">
             <thead>
@@ -113,7 +113,7 @@
             </tbody>
           </table>
         </div>
-        <h3>Special Needs</h3>
+        <h3>{% trans "Special Needs" %}</h3>
         <p>{{ profile.wishlist_special_needs }}</p>
 
       <h3>{% trans "Posts" %}</h3>
