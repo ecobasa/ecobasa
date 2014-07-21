@@ -71,8 +71,10 @@
       {% if group %}
         {% if group.profile %}
           {% url 'community-dashboard' group=group.slug as dashboard_url %}
-        {% else %}
+        {% elif group.caravan %}
           {% url 'caravan-dashboard' group=group.slug as dashboard_url %}
+        {% else %}
+          {% url 'cosinnus:group-dashboard' group=group.slug as dashboard_url %}
         {% endif %}
           <li {% ifequal dashboard_url request.path %} class="active"{% endifequal %}><a href="{{ dashboard_url }}">{% trans " Dashboard" %}</a></li>
         {% for app in apps %}
