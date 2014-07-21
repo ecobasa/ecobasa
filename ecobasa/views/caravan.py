@@ -21,6 +21,8 @@ from cosinnus.views.group import GroupListView
 from cosinnus.views.widget import DashboardMixin
 from cosinnus_note.models import Note
 
+from ecobasa.views.bus import BusListView
+
 
 class CaravanListView(ListView):
     template_name = 'ecobasa/caravan_list.html'
