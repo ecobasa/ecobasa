@@ -15,6 +15,12 @@ from cosinnus.views.widget import DashboardMixin
 from ..forms import CaravanForm
 from ..models import Caravan
 
+from cosinnus.models import CosinnusGroup
+from cosinnus.models.group import MEMBERSHIP_ADMIN, MEMBERSHIP_PENDING
+from cosinnus.views.group import GroupListView
+from cosinnus.views.widget import DashboardMixin
+from cosinnus_note.models import Note
+
 
 class CaravanListView(ListView):
     template_name = 'ecobasa/caravan_list.html'
@@ -62,6 +68,10 @@ class CaravanDetailView(GroupDetailView):
 
     def get_filter(self):
         return {'group_id': self.object.pk}
+
+    def get_context_data(self, **kwargs):
+        context = super(CaravanDetailView, self).get_context_data(**kwargs)
+
 
 caravan_detail = CaravanDetailView.as_view()
 
