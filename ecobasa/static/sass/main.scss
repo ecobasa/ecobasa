@@ -445,6 +445,14 @@ span.mailcount {
 	padding: 1px 5px;
 }
 
+.label {
+	border-radius: 1.25em;
+	background: $primary;
+	&:hover {
+		background: $third;
+	}
+}
+
 
 
 /************* Footer ******************/

@@ -414,6 +414,14 @@ span.mailcount {
   padding: 1px 5px;
 }
 
+.label {
+  border-radius: 1.25em;
+  background: #da6137;
+}
+.label:hover {
+  background: #b4502c;
+}
+
 /************* Footer ******************/
 #footer {
   margin-top: 50px;
