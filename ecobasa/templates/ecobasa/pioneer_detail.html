@@ -15,7 +15,7 @@
 <div class="row">
   <div class="col-xs-3">
       {% if profile.avatar %}<img src="{% thumbnail profile.avatar "200x0" crop=1 upscale=1 %}" />{% endif %}
-      <a class="btn btn-smll" href="mailto:{{ profile.email }}">Send email</a>
+      <a class="email btn btn-primary btn-smll" href="mailto:{{ object.email }}"><span class="glyphicon glyphicon-envelope"></span> Send email</a>
   </div>
   <div class="col-xs-6">
     <h2>{% trans "Tour" %}</h2>

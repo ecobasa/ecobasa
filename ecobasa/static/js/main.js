@@ -268,3 +268,4 @@ $(document).ready(function() {
 
 $('#bus').tooltip(); 
 $('.container.about #progress_bar').tooltip();
+$('.email').tooltip();
