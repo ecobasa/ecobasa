@@ -91,7 +91,7 @@
   <div class="col-md-12">
   <h2>{% trans "Blog Posts" %}</h2>
   {% for post in posts %}
-    <h3>{{ post.title }}</h3>
+    <h3><a href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">{{ post.title }}</a></h3>
     <p>{{ post.text|linebreaksbr|safe }}</p>
   {% endfor %}
   <h3></h3>
