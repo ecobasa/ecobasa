@@ -47,7 +47,7 @@
       {% for post in posts %}
       <li>
         <h4><a href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">{{ post.title }}</a></h4>
-        <p>{{ post.text }}</p>
+        <p>{{ post.text|linebreaksbr|safe }}</p>
       </li>
       {% endfor %}
     </ul>
