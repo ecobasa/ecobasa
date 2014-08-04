@@ -387,6 +387,11 @@ a.email {
   margin-top: 20px;
 }
 
+/*************** Caravan-Profiles **************/
+body#profile img.avatar {
+  margin-bottom: 20px;
+}
+
 /*************** Dashboard **************/
 #dashboard {
   padding-top: 40px;
