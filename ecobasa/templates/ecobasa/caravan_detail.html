@@ -45,8 +45,8 @@
     <h3>{% trans "Members" %}</h3>
     <ul class="media-list">
       {% for member in members %}
-        <li class="media col-xs-3">
-          <a href="{% url 'cosinnus:user-detail' username=member.get_username %}">
+        <li class="media">
+          <a class="pull-left" href="{% url 'cosinnus:user-detail' username=member.get_username %}">
             {% if member.cosinnus_profile.avatar %}
               <img class="avatar" src="{% thumbnail member.cosinnus_profile.avatar "200x0" crop=1 upscale=1  %}">
             {% else %}
@@ -70,20 +70,23 @@
       <li>{{ tag }}</li>
       {% if not forloop.last %} {% endif %}{% endfor %}
     </ul>
-    {% for member in members %}
     <h3>{% trans "Skills" %}</h3>
       <ul>
+        {% for member in members %}
           {% for tag in member.cosinnus_profile.skills.all %}
           <li>{{ tag }}</li>
           {% if not forloop.last %} {% endif %}{% endfor %}
+        {% endfor %}
       </ul>
     <h3>{% trans "Products" %}</h3>
       <ul>
-        {% for tag in member.cosinnus_profile.products.all %}
-        <li>{{ tag }}</li>
-        {% if not forloop.last %} {% endif %}{% endfor %}
+        {% for member in members %}
+          {% for tag in member.cosinnus_profile.products.all %}
+          <li>{{ tag }}</li>
+          {% if not forloop.last %} {% endif %}{% endfor %}
+        {% endfor %}
       </ul>
-      {% endfor %}
+      
   </div>
 </div>
 
