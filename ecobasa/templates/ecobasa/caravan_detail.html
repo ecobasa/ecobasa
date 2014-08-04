@@ -47,27 +47,18 @@
       <li>{{ tag }}</li>
       {% if not forloop.last %} {% endif %}{% endfor %}
     </ul>
-    <h3>{% trans "Admins" %}</h3>
-    <ul class="media-list">
-      {% for admin in admins %}
-        <li class="media">
-          <a class="pull-left" href="{% url 'cosinnus:user-detail' username=admin.get_username %}">
-            {% if admin.cosinnus_profile.avatar %}
-              <img class="avatar" src="{% thumbnail admin.cosinnus_profile.avatar "200x0" crop=1 upscale=1 %}">
-            {% else %}
-              <img class="avatar" src="http://placehold.it/30x30">
-            {% endif %}
-          </a>
-          <div class="media-body">
-            <a class="pull-left" href="{% url 'cosinnus:user-detail' username=admin.get_username %}">{{ admin.get_full_name|default:admin.get_username }}</a>
-            <div class="btn-group btn-group-xs">
-              <a href="{% url 'cosinnus:group-user-edit' group=object.slug username=admin.get_username %}" class="btn btn-default">{% trans "Change" %}</a>
-              <a href="{% url 'cosinnus:group-user-delete' group=object.slug username=admin.get_username %}" class="btn btn-default">{% trans "Delete" %}</a>
-            </div>
-          </div>
-        </li>
-      {% endfor %}
-    </ul>
+    <h3>{% trans "Skills" %}</h3>
+      <ul>
+        {% for tag in member.cosinnus_profile.skills.all %}
+        <li>{{ tag }}</li>
+        {% if not forloop.last %} {% endif %}{% endfor %}
+      </ul>
+    <h3>{% trans "Products" %}</h3>
+      <ul>
+        {% for tag in member.cosinnus_profile.products.all %}
+        <li>{{ tag }}</li>
+        {% if not forloop.last %} {% endif %}{% endfor %}
+      </ul>
   </div>
 </div>
 <div class="row">
@@ -85,18 +76,6 @@
           </a>
           <div class="media-body">
             <a class="pull-left" href="{% url 'cosinnus:user-detail' username=member.get_username %}">{{ member.get_full_name|default:member.get_username }}</a>
-            <h4>{% trans "Skills" %}</h4>
-              <ul>
-                {% for tag in member.cosinnus_profile.skills.all %}
-                <li>{{ tag }}</li>
-                {% if not forloop.last %} {% endif %}{% endfor %}
-              </ul>
-            <h4>{% trans "Products" %}</h4>
-              <ul>
-                {% for tag in member.cosinnus_profile.products.all %}
-                <li>{{ tag }}</li>
-                {% if not forloop.last %} {% endif %}{% endfor %}
-              </ul>
             <div class="btn-group btn-group-xs">
               <a href="{% url 'cosinnus:group-user-edit' group=object.slug username=member.get_username %}" class="btn btn-default">{% trans "Change" %}</a>
               <a href="{% url 'cosinnus:group-user-delete' group=object.slug username=member.get_username %}" class="btn btn-default">{% trans "Delete" %}</a>
@@ -105,6 +84,17 @@
         </li>
       {% endfor %}
     </ul>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+  <h2>{% trans "Blog Posts" %}</h2>
+  {% for post in posts %}
+    <h3>{{ post.title }}</h3>
+    <p>{{ post.text|linebreaksbr|safe }}</p>
+  {% endfor %}
+  <h3></h3>
   </div>
 </div>
 <div class="row">
@@ -125,6 +115,31 @@
             <div class="btn-group btn-group-xs">
               <a href="{% url 'cosinnus:group-user-add' group=object.slug username=pending.get_username %}" class="btn btn-default">{% trans "Add" %}</a>
               <a href="{% url 'cosinnus:group-user-delete' group=object.slug username=pending.get_username %}" class="btn btn-default">{% trans "Delete" %}</a>
+            </div>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <h3>{% trans "Admins" %}</h3>
+    <ul class="media-list">
+      {% for admin in admins %}
+        <li class="media">
+          <a class="pull-left" href="{% url 'cosinnus:user-detail' username=admin.get_username %}">
+            {% if admin.cosinnus_profile.avatar %}
+              <img class="avatar" src="{% thumbnail admin.cosinnus_profile.avatar "200x0" crop=1 upscale=1 %}">
+            {% else %}
+              <img class="avatar" src="http://placehold.it/30x30">
+            {% endif %}
+          </a>
+          <div class="media-body">
+            <a class="pull-left" href="{% url 'cosinnus:user-detail' username=admin.get_username %}">{{ admin.get_full_name|default:admin.get_username }}</a>
+            <div class="btn-group btn-group-xs">
+              <a href="{% url 'cosinnus:group-user-edit' group=object.slug username=admin.get_username %}" class="btn btn-default">{% trans "Change" %}</a>
+              <a href="{% url 'cosinnus:group-user-delete' group=object.slug username=admin.get_username %}" class="btn btn-default">{% trans "Delete" %}</a>
             </div>
           </div>
         </li>
