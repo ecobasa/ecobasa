@@ -11,7 +11,7 @@ from ..models import Caravan
 class _CaravanForm(TagObjectForm):
 
     class Meta:
-        fields = ('name', 'slug', 'description', 'public',)
+        fields = ('name', 'slug', 'description', 'public')
         model = Caravan
 
     def __init__(self, *args, **kwargs):

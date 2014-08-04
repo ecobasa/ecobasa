@@ -5,6 +5,8 @@
   {% blocktrans with group_name=object.name %}Group “{{ group_name }}”{% endblocktrans %}
 {% endblock %}
 
+{% block body %}profile{% endblock body %}
+
 {% block content_title %}
   {% blocktrans with group_name=object.name %}
   “{{ group_name }}” Caravan
@@ -33,31 +35,30 @@
 {% endblock content_title %}
 
 {% block content %}
+{% with object.cosinnus_profile as profile %}
 <div class="row">
   <div class="col-md-12">
-    <h2>{{ object.name }}</h2>
-    <p>{{ object.description }}</p>
-    <h3>{% trans "Admins" %}</h3>
-    <ul class="media-list">
-      {% for admin in admins %}
-        <li class="media">
-          <a class="pull-left" href="{% url 'cosinnus:user-detail' username=admin.get_username %}">
-            {% if admin.cosinnus_profile.avatar %}
-              <img class="avatar" src="{% thumbnail admin.cosinnus_profile.avatar "200x0" crop=1 upscale=1 }}">
-            {% else %}
-              <img class="avatar" src="http://placehold.it/30x30">
-            {% endif %}
-          </a>
-          <div class="media-body">
-            <a class="pull-left" href="{% url 'cosinnus:user-detail' username=admin.get_username %}">{{ admin.get_full_name|default:admin.get_username }}</a>
-            <div class="btn-group btn-group-xs">
-              <a href="{% url 'cosinnus:group-user-edit' group=object.slug username=admin.get_username %}" class="btn btn-default">{% trans "Change" %}</a>
-              <a href="{% url 'cosinnus:group-user-delete' group=object.slug username=admin.get_username %}" class="btn btn-default">{% trans "Delete" %}</a>
-            </div>
-          </div>
-        </li>
-      {% endfor %}
+    {% if profile.avatar %}<img src="{% thumbnail profile.avatar "1920x700" crop=1 upscale=1 %}" alt="">{% endif %}
+    <h1>{{ object.name }} Caravan</h1>
+    <p>{{ object.description|linebreaksbr }}</p>
+    <h2>{% trans "Offers" %}</h2>
+    <ul>
+      {% for tag in profile.offers.all %}
+      <li>{{ tag }}</li>
+      {% if not forloop.last %} {% endif %}{% endfor %}
     </ul>
+    <h3>{% trans "Skills" %}</h3>
+      <ul>
+        {% for tag in member.cosinnus_profile.skills.all %}
+        <li>{{ tag }}</li>
+        {% if not forloop.last %} {% endif %}{% endfor %}
+      </ul>
+    <h3>{% trans "Products" %}</h3>
+      <ul>
+        {% for tag in member.cosinnus_profile.products.all %}
+        <li>{{ tag }}</li>
+        {% if not forloop.last %} {% endif %}{% endfor %}
+      </ul>
   </div>
 </div>
 <div class="row">
@@ -85,6 +86,17 @@
     </ul>
   </div>
 </div>
+
+<div class="row">
+  <div class="col-md-12">
+  <h2>{% trans "Blog Posts" %}</h2>
+  {% for post in posts %}
+    <h3><a href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">{{ post.title }}</a></h3>
+    <p>{{ post.text|linebreaksbr|safe }}</p>
+  {% endfor %}
+  <h3></h3>
+  </div>
+</div>
 <div class="row">
   <div class="col-md-12">
     <h3>{% trans "Pending users" %}</h3>
@@ -110,4 +122,30 @@
     </ul>
   </div>
 </div>
+<div class="row">
+  <div class="col-md-12">
+    <h3>{% trans "Admins" %}</h3>
+    <ul class="media-list">
+      {% for admin in admins %}
+        <li class="media">
+          <a class="pull-left" href="{% url 'cosinnus:user-detail' username=admin.get_username %}">
+            {% if admin.cosinnus_profile.avatar %}
+              <img class="avatar" src="{% thumbnail admin.cosinnus_profile.avatar "200x0" crop=1 upscale=1 %}">
+            {% else %}
+              <img class="avatar" src="http://placehold.it/30x30">
+            {% endif %}
+          </a>
+          <div class="media-body">
+            <a class="pull-left" href="{% url 'cosinnus:user-detail' username=admin.get_username %}">{{ admin.get_full_name|default:admin.get_username }}</a>
+            <div class="btn-group btn-group-xs">
+              <a href="{% url 'cosinnus:group-user-edit' group=object.slug username=admin.get_username %}" class="btn btn-default">{% trans "Change" %}</a>
+              <a href="{% url 'cosinnus:group-user-delete' group=object.slug username=admin.get_username %}" class="btn btn-default">{% trans "Delete" %}</a>
+            </div>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endwith %}
 {% endblock %}
