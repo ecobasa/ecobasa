@@ -26,6 +26,6 @@ def notify_user(sender, **kwargs):
         user = object.recipient
         parent = object.parent
         label = 'postman_reply' if (parent and parent.sender_id == object.recipient_id) else 'postman_message'
-        email('postman/email_user_subject.txt', 'email_user.txt', [user.email], object)
+        email('postman/email_user_subject.txt', 'postman/email_user.txt', [user.email], object)
 
 post_save.connect(notify_user, sender=Message)
