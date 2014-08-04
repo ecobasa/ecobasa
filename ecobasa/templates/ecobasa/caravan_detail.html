@@ -39,8 +39,8 @@
 <div class="row">
   <div class="col-md-12">
     {% if profile.avatar %}<img src="{% thumbnail profile.avatar "1920x700" crop=1 upscale=1 %}" alt="">{% endif %}
-    <h2>{{ object.name }}</h2>
-    <p>{{ object.description }}</p>
+    <h1>{{ object.name }} Caravan</h1>
+    <p>{{ object.description|linebreaksbr }}</p>
     <h2>{% trans "Offers" %}</h2>
     <ul>
       {% for tag in profile.offers.all %}
