@@ -16,7 +16,6 @@
                 <th>{% trans "Caravan" %}</th>
                 <th>{% trans "Description" %}</th>
                 <th>{% trans "Members" %}</th>
-                <th>{% trans "Offers" %}</th>
                 <th>{% trans "Busses" %}</th>
                 <td>{% trans "Actions" %}</th>
             </tr>
@@ -24,7 +23,7 @@
 
         {% for caravan in object_list %}
         <tr>
-            <td><a href="{% url 'caravan-dashboard' caravan.slug %}">{{ caravan.name }}</a></td>
+            <td><a href="{% url 'caravan-detail' caravan.slug %}">{{ caravan.name }}</a></td>
             <td>{{ caravan.description }}</td>
             <td>
               <ul>
@@ -41,13 +40,6 @@
                   </a>
                 </li>
                 {% endfor %}
-              </ul>
-            </td>
-            <td>
-              <ul>
-                {% for tag in caravan.cosinnus_profile.offers.all %}
-                <li>{{ tag }}</li>
-                {% if not forloop.last %} {% endif %}{% endfor %}
               </ul>
             </td>
             <td>
