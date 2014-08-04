@@ -7,3 +7,4 @@ from .find import *  # noqa
 from .organiser import *  # noqa
 from .pioneer import *  # noqa
 from .registration import *  # noqa
+from .about import * # noqa

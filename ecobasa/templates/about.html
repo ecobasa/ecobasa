@@ -7,8 +7,8 @@
   var blog_posts = [
     {% for post in posts %}
           {
+              date: new Date({{ post.created|date:"y, m, d" }}),
               title: '{{ post.title }}',
-              date: '{{ post.created|date:"d.m.y" }}',
               url: '{% url "cosinnus:note:note" group=post.group.slug slug=post.slug %}'
           },
       {% endfor %}
