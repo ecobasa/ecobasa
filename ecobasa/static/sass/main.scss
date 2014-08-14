@@ -427,6 +427,18 @@ body#profile {
 	}
 }
 
+.comment.tooltip {
+	margin-top: 5px;
+	.tooltip-inner {
+		background-color: $primary;
+		color: $secondary;
+		text-align: left;
+	}
+	&.right .tooltip-arrow {
+		border-right-color: $primary;
+	}
+}
+
 /*************** Dashboard **************/
 
 #dashboard {

@@ -392,6 +392,18 @@ body#profile img.avatar {
   margin-bottom: 20px;
 }
 
+.comment.tooltip {
+  margin-top: 5px;
+}
+.comment.tooltip .tooltip-inner {
+  background-color: #da6137;
+  color: #f4ede3;
+  text-align: left;
+}
+.comment.tooltip.right .tooltip-arrow {
+  border-right-color: #da6137;
+}
+
 /*************** Dashboard **************/
 #dashboard {
   padding-top: 40px;
