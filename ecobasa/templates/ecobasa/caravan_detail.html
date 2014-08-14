@@ -49,7 +49,7 @@
     <ul class="media-list">
       {% for member in members %}
         <li class="media">
-            <a class="pull-left" href="{% url 'cosinnus:user-detail' username=member.get_username %}">
+            <a class="pull-left" href="{% url 'pioneer-detail' username=member.get_username %}">
               {% if member.cosinnus_profile.avatar %}
                 <img class="avatar" src="{% thumbnail member.cosinnus_profile.avatar "200x0" crop=1 upscale=1  %}">
               {% else %}
@@ -57,7 +57,7 @@
               {% endif %}
             </a>
           <div class="media-body">
-              <a href="{% url 'cosinnus:user-detail' username=member.get_username %}">{{ member.get_full_name|default:member.get_username }}</a>
+              <a href="{% url 'pioneer-detail' username=member.get_username %}">{{ member.get_full_name|default:member.get_username }}</a>
               <div class="btn-group btn-group-xs">
                 <a href="{% url 'cosinnus:group-user-edit' group=object.slug username=member.get_username %}" class="btn btn-default">{% trans "Change" %}</a>
                 <a href="{% url 'cosinnus:group-user-delete' group=object.slug username=member.get_username %}" class="btn btn-default">{% trans "Delete" %}</a>
@@ -75,7 +75,7 @@
       {% for member in members %}
       {% with member.cosinnus_profile as profile %}
         <li class="media">
-          <a class="pull-left" href="{% url 'cosinnus:user-detail' username=member.get_username %}">
+          <a class="pull-left" href="{% url 'pioneer-detail' username=member.get_username %}">
             {% if profile.bus_image %}<img src="{% thumbnail profile.bus_image "200x0" crop=1 upscale=1 %}" />
             {% else %}
               <img class="avatar" src="http://placehold.it/30x30">
