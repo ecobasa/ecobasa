@@ -95,28 +95,35 @@
 <div class="row">
   <div class="col-md-12">
     <h2>{% trans "Offers" %}</h2>
-    <ul>
-      {% for tag in profile.offers.all %}
-      <li>{{ tag }}</li>
-      {% if not forloop.last %} {% endif %}{% endfor %}
-    </ul>
-    <h3>{% trans "Skills" %}</h3>
+    {% if profile.offers %}
+    <div class="col-xs-4">
       <ul>
-        {% for member in members %}
-          {% for tag in member.cosinnus_profile.skills.all %}
-          <li>{{ tag }}</li>
-          {% if not forloop.last %} {% endif %}{% endfor %}
-        {% endfor %}
+        {% for tag in profile.offers.all %}
+        <li>{{ tag }}</li>
+        {% if not forloop.last %} {% endif %}{% endfor %}
       </ul>
-    <h3>{% trans "Products" %}</h3>
-      <ul>
-        {% for member in members %}
-          {% for tag in member.cosinnus_profile.products.all %}
-          <li>{{ tag }}</li>
-          {% if not forloop.last %} {% endif %}{% endfor %}
-        {% endfor %}
-      </ul>
-      
+    </div>
+    {% endif %}
+    <div class="col-xs-4">
+      <h3>{% trans "Skills" %}</h3>
+        <ul>
+          {% for member in members %}
+            {% for tag in member.cosinnus_profile.skills.all %}
+            <li>{{ tag }}</li>
+            {% if not forloop.last %} {% endif %}{% endfor %}
+          {% endfor %}
+        </ul>
+      </div>
+    <div class="col-xs-4">
+      <h3>{% trans "Products" %}</h3>
+        <ul>
+          {% for member in members %}
+            {% for tag in member.cosinnus_profile.products.all %}
+            <li>{{ tag }}</li>
+            {% if not forloop.last %} {% endif %}{% endfor %}
+          {% endfor %}
+        </ul>
+    </div>
   </div>
 </div>
 
