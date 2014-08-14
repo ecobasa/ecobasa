@@ -429,13 +429,18 @@ body#profile {
 
 .comment.tooltip {
 	margin-top: 5px;
+	margin-bottom: 5px;
+	position: relative;
 	.tooltip-inner {
 		background-color: $primary;
 		color: $secondary;
 		text-align: left;
+		max-width: 100%;
+		position: relative;
 	}
 	&.right .tooltip-arrow {
 		border-right-color: $primary;
+		top: 20%;
 	}
 }
 
