@@ -42,15 +42,6 @@
         <li>{{ tag }}</li>
       {% if not forloop.last %} {% endif %}{% endfor %}
     </ul>
-    <h2>{% trans "Posts" %}</h2>
-    <ul>
-      {% for post in posts %}
-      <li>
-        <h4><a href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">{{ post.title }}</a></h4>
-        <p>{{ post.text|linebreaksbr|safe }}</p>
-      </li>
-      {% endfor %}
-    </ul>
   </div>
   <div class="col-xs-3">
     <div class="row">
@@ -113,6 +104,19 @@
       </div>
     </div>
   {% endif %}
+  <div class="row">
+    <div class="col-xs-12">
+      <h2>{% trans "Posts" %}</h2>
+      <ul>
+        {% for post in posts %}
+        <li>
+          <h4><a href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">{{ post.title }}</a></h4>
+          <p>{{ post.text|linebreaksbr|safe }}</p>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
   <div class="row">
     <div class="col-xs-12">
       {% get_organiser_roles_for_user object as grouped_roles %}
