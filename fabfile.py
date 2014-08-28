@@ -12,7 +12,7 @@ def staging():
 
 def production():
     #env.hosts = ['m1487@community-tours.org']
-    env.hosts = ['m1487@ct.web1.green-internet.net']
+    env.hosts = ['m1487@community-tours.org']
     env.path = '~/community-tours/'
     env.virtualenv_path = '~/community-toursenv/'
     env.push_branch = 'tour'
