@@ -471,6 +471,7 @@ class EcobasaCommunityProfile(models.Model):
         app_label = 'ecobasa'
 
     def __str__(self):
+        return str(self.get_location_info())
         return self.name
 
     def _get_lat_lon_params(self):
