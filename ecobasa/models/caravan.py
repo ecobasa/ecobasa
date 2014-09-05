@@ -30,4 +30,4 @@ class Caravan(CosinnusGroup):
     def __str__(self):
         return self.name
 
-from ecobasa.models import mail_patch_postman
+#from ecobasa.models import mail_patch_postman
