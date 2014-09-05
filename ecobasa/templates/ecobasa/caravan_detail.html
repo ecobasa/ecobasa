@@ -141,7 +141,8 @@
       <span class="details">
         written by <a href="{% url 'pioneer-detail' username=post.creator.get_username %}">{{ post.creator.get_full_name|default:post.creator.username }}</a> on {{ post.created }}
       </span>
-    <p>{{ post.text|linebreaksbr|safe }}</p>
+    {{ post.text|truncatewords:120|linebreaksbr|safe }}
+    <a class="more" href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">read more</a>
   </div>
   {% endfor %}
   </div>
