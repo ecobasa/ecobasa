@@ -54,6 +54,6 @@ $(function(){
         $(window).on('resize load', function(){
           calc_position({ objId: '#bus', contId: '#bus-container', type: 'div' });
           calc_position({ objId: '#progress_bar .progress-bar', type: 'progressbar' });
-          // add_tooltips(blog_posts, '#progress_bar_wrapper');
+          add_tooltips(blog_posts, '#progress_bar_wrapper');
         });
       });

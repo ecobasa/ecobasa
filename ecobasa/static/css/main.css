@@ -408,6 +408,23 @@ body#profile img.avatar {
   border-right-color: #da6137;
 }
 
+.post {
+  margin-bottom: 20px;
+  overflow: auto;
+}
+.post img {
+  float: left;
+  margin-right: 20px;
+}
+.post h3 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.post span.details {
+  margin-bottom: 10px;
+  display: block;
+}
+
 /*************** Dashboard **************/
 #dashboard {
   padding-top: 40px;

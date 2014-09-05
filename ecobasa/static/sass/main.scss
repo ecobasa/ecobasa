@@ -443,6 +443,24 @@ body#profile {
 	}
 }
 
+.post {
+	margin-bottom: 20px;
+	overflow: auto;
+	img {
+		float: left;
+		margin-right: 20px;
+	}
+	h3 {
+		margin-top: 0px;
+		margin-bottom: 0px;
+
+	}
+	span.details {
+		margin-bottom: 10px;
+		display: block;
+	}
+}
+
 /*************** Dashboard **************/
 
 #dashboard {
