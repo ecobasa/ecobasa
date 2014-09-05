@@ -140,7 +140,7 @@
         <li><span class="data">Children:</span><span class="children">{{ profile.basic_inhabitants_underage }}</span></li>
         <li><span class="data">Membership status:</span><span class="members">{{ profile.get_basic_membership_status_display }}</span></li>
       </ul>
-      <a href="mailto:{% for amb in object.ambassadors %}{{ amb.email }};{% endfor %}"><button class="email btn btn-primary btn-small" data-toggle="tooltip" data-placement="top" title="If you want to visit and volunteer at this communtiy"><span class="glyphicon glyphicon-envelope"></span> Write to this community</button></a>
+      <a href="{% url 'postman_write' recipients=object.name %}"><button class="email btn btn-primary btn-small" data-toggle="tooltip" data-placement="top" title="If you want to visit and volunteer at this communtiy"><span class="glyphicon glyphicon-envelope"></span> {% trans "Contact this community" %}</button></a>
     </div>
     <div id="community-map" class="community-map-small"></div>
     {% if user.is_authenticated and profile.contact_show %}

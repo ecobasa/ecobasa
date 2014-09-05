@@ -87,9 +87,11 @@ Refer to documentation.
 
 """
 from __future__ import unicode_literals
-from cosinnus_message.forms import CustomReplyForm, CustomWriteForm
-from cosinnus_message.views import UserSelect2View, CosinnusMessageView,\
-    CosinnusConversationView, ArchiveView, DeleteView, UndeleteView
+from cosinnus_message.forms import CustomReplyForm
+from .forms.cosinnus_message_fix import CustomWriteForm
+from cosinnus_message.views import (
+    UserSelect2View, CosinnusMessageView, CosinnusConversationView)
+from .views.cosinnus_message_fix import UserSelect2View
 
 try:
     from django.conf.urls import patterns, url  # django 1.4
@@ -99,7 +101,8 @@ from django.views.generic.base import RedirectView
 
 from postman import OPTIONS
 from postman.views import (InboxView, SentView, ArchivesView, TrashView,
-        WriteView, ReplyView)
+        WriteView, ReplyView, MessageView, ConversationView,
+        ArchiveView, DeleteView, UndeleteView)
 
 
 urlpatterns = patterns('',
@@ -108,9 +111,6 @@ urlpatterns = patterns('',
 
     url(r'^nachricht/(?P<message_id>[\d]+)/$', CosinnusMessageView.as_view(), name='postman_view'),
     url(r'^nachricht/t/(?P<thread_id>[\d]+)/$', CosinnusConversationView.as_view(), name='postman_view_conversation'),
-    url(r'^archiv/$', ArchiveView.as_view(), name='postman_archive'),
-    url(r'^loeschen/$', DeleteView.as_view(), name='postman_delete'),
-    url(r'^wiederherstellen/$', UndeleteView.as_view(), name='postman_undelete'),
 
     url(r'^posteingang/(?:(?P<option>'+OPTIONS+')/)?$', InboxView.as_view(), name='postman_inbox'),
     url(r'^gesendet/(?:(?P<option>'+OPTIONS+')/)?$', SentView.as_view(), name='postman_sent'),
@@ -118,10 +118,15 @@ urlpatterns = patterns('',
     url(r'^papierkorb/(?:(?P<option>'+OPTIONS+')/)?$', TrashView.as_view(), name='postman_trash'),
     #url(r'^neu/(?:(?P<recipients>[\w.@+-:]+)/)?$', WriteView.as_view(), name='postman_write'),
     #url(r'^reply/(?P<message_id>[\d]+)/$', ReplyView.as_view(), name='postman_reply'),
+
+    url(r'^archive/$', ArchiveView.as_view(), name='postman_archive'),
+    url(r'^delete/$', DeleteView.as_view(), name='postman_delete'),
+    url(r'^undelete/$', UndeleteView.as_view(), name='postman_undelete'),
+
     url(r'^antworten/(?P<message_id>[\d:]+)/$',
         ReplyView.as_view(form_class=CustomReplyForm),
         name='postman_reply'),
-    url(r'^neu/(?:(?P<recipients>[^/]+)/)?$',
+    url(r'^neu/(?:(?P<recipients>[\w.@+-:]+)/)?$',
         WriteView.as_view(form_classes=(CustomWriteForm, CustomWriteForm)),
         name='postman_write'),
 )
