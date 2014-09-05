@@ -120,6 +120,8 @@
       <ul>
         {% for post in posts %}
         <li>
+
+          <img src="{{ post.image|thumbnail_url:"note_medium" }}" alt="{% trans "Header" %}" />
           <h4>{{ post.title }}</h4>
           <p>{{ post.text }}</p>
         </li>

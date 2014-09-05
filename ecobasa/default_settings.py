@@ -112,6 +112,14 @@ THUMBNAIL_PROCESSORS = (
     #'filer.thumbnail_processors.scale_and_crop_with_subject_location',
     'easy_thumbnails.processors.filters',
 )
+THUMBNAIL_ALIASES = {
+    '': {
+        'note_large': {'size': (1200, 400), 'crop': True, 'upscale': True },
+        'note_medium': {'size': (120, 80), 'crop': True, 'upscale': True },
+        'avatar_medium': {'size': (64, 64), 'crop': True, 'upscale': True },
+        'avatar_small': {'size': (32, 32), 'crop': True, 'upscale': True },
+    },
+}
 
 ROOT_URLCONF = 'ecobasa.urls'
 
