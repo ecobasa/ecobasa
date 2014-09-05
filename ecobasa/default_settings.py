@@ -114,7 +114,7 @@ THUMBNAIL_PROCESSORS = (
 )
 THUMBNAIL_ALIASES = {
     '': {
-        'note_large': {'size': (1150, 400), 'crop': True, 'upscale': True },
+        'note_large': {'size': (1140, 400), 'crop': True, 'upscale': True },
         'note_medium': {'size': (250, 180), 'crop': True, 'upscale': True },
         'avatar_medium': {'size': (64, 64), 'crop': True, 'upscale': True },
         'avatar_small': {'size': (32, 32), 'crop': True, 'upscale': True },
