@@ -13,9 +13,4 @@ class NoteListView(ListView):
     template_name = 'about.html'
     queryset = Note.objects.all()
 
-    def get_context_data(self, **kwargs):
-        context = super(NoteListView, self).get_context_data(**kwargs)
-        context.update({'posts': Note.objects.all()})
-        return context
-
 note_list = NoteListView.as_view()

@@ -5,7 +5,7 @@
 
 <script type="application/javascript">
   var blog_posts = [
-    {% for post in posts %}
+    {% for post in object_list %}
           {
               date: new Date({{ post.created|date:"Y, m, d" }}),
               title: '{{ post.title }}',
