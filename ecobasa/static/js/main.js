@@ -1,4 +1,4 @@
-(function( $ ){
+$(document).ready(function() {
 	$.ecobasa = {
 		fullcalendar : function() {
 			// There are two kinds of calendar in cosinnus: big and small.
@@ -240,10 +240,7 @@
 			});
 		}
 	};
-})( jQuery );
 
-
-$(document).ready(function() {
 	var foobar = function() {
 		if( ! $('#myCanvas').tagcanvas({
 		     textColour : '#000',
