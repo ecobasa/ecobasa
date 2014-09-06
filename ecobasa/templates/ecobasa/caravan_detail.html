@@ -130,8 +130,10 @@
 </div>
 
 <div class="row">
-  <div class="col-md-12">
-  <h2>{% trans "Blog Posts" %}</h2>
+  <div class="posts col-md-12">
+  <h2>{% trans "Blog Posts" %} {% if user.is_superuser or user|is_group_admin:object %}
+    <a class="btn btn-primary pull-right" href="{% url 'cosinnus:note:add' group=group.slug %}">{% trans "Write a Blogpost" %}</a>
+  {% endif %}</h2>
   {% for post in posts %}
   <div class="post">
     {% if user.is_superuser or user|is_group_admin:object %}
