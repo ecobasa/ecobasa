@@ -1,6 +1,6 @@
 // be aware that the months are numbered 0 through 11 numerically in JS
-var progress_start = new Date(2014, 6, 7);
-var progress_end = new Date(2014, 7 , 18);
+var progress_start = new Date(2014, 7, 7);
+var progress_end = new Date(2014, 8 , 18);
 var today = new Date();
 var progress_position_pct = (today.getTime() - progress_start.getTime()) / (progress_end.getTime() - progress_start.getTime());
 // check boundaries (0 - 100%)
