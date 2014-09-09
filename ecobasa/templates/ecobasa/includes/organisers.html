@@ -17,7 +17,7 @@
       <h4>{% trans "Roles" %}</h4>
       {% for role in roles %}
         {% with role.cosinnus_group_membership.group as group %}
-        <h5>{{ role.title }} (<a href="{% url 'cosinnus:group-detail' group.slug %}">{{ group.name }})</a></h5>
+        <h5>{{ role.title }} (<a href="{% url 'cosinnus:group-dashboard' group.slug %}">{{ group.name }})</a></h5>
         {% endwith %}
         <p>{{ role.description }}</p>
       {% endfor %}
