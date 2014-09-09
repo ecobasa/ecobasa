@@ -10,13 +10,12 @@
 {% trans "Your correspondent has given you an answer." %}
 {% else %}{% blocktrans with object.sender.first_name as sender_first and object.sender.last_name as sender_last %}You have received a copy of a response from the user '{{ sender_first }} {{ sender_last }}'.{% endblocktrans %}
 {% endif %}
-{% else %}{% blocktrans with object.sender.first_name as sender_first and object.sender.last_name as sender_last %}You have received a message from the user '{{ sender_first }} {{ sender_last }}'.{% endblocktrans %}
+{% else %}{% blocktrans with object.sender.first_name as sender_first and object.sender.last_name as sender_last %}You have received a message from '{{ sender_first }} {{ sender_last }}'.{% endblocktrans %}
 {% endif %}
 
-{{ object.sender.first_name }}:
 {{ object.body }}
 
-{% trans "Follow this link to view the message on the site" %}: {{ site.domain }}{% if object.thread_id %}{% url 'postman_view_conversation' object.thread_id %}{% else %}{{object.get_absolute_url }}{% endif %}
+{% trans "Follow this link to view and reply to this message on the site" %}: http://{{ site.domain }}{% if object.thread_id %}{% url 'postman_view_conversation' object.thread_id %}{% else %}{{object.get_absolute_url }}{% endif %}
 
 {% endif %}{# 'acceptance' #}
 
