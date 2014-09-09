@@ -2,20 +2,6 @@
 {% load cms_tags static sekizai_tags ecobasa_about %}
 
 {% block base_content %}
-
-<script type="application/javascript">
-  var blog_posts = [
-    {% for post in object_list %}
-          {
-              date: new Date({{ post.created|date:"Y, m, d" }}),
-              title: '{{ post.title }}',
-              url: '{% url "cosinnus:note:note" group=post.group.slug slug=post.slug %}'
-          },
-      {% endfor %}
-    
-    ];
-</script>
-
   <div class="container about">
     <div class="row">
       <div class="col-xs-12">
@@ -61,10 +47,15 @@
 
 {% block extrafooter %}
   {{ block.super }}
-  <script type="text/javascript" src="{% static "js/bus.js" %}"></script>
-  <script type="text/javascript">
-//   var blog_posts = [
-// {date: new Date(2014, 4, 25), title: 'Blog Post 2', url: 'http://www.ccc.de'},
-// ];
+<script type="application/javascript">
+  var blog_posts = [
+    {% for post in object_list %}
+          {
+              date: new Date({{ post.created|date:"Y, m, d" }}),
+              title: '{{ post.title }}',
+              url: '{% url "cosinnus:note:note" group=post.group.slug slug=post.slug %}'
+          },
+      {% endfor %}
+    ];
 </script>
 {% endblock extrafooter %}
