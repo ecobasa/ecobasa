@@ -49,7 +49,7 @@ urlpatterns = i18n_patterns('',
     # url(r'^skillshare/', include('skillshare.urls', namespace='skillshare')),
     # url(r'^references/', include('references.urls', namespace='references')),
 
-    url(r'^messages/', include('ecobasa.cosinnus_message_urls')),
+    url(r'^messages/', include('cosinnus_message.postman_urls')),
 
     url(r'^$', 'cms.views.details', {'slug': ''}),
 
