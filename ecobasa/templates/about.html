@@ -47,6 +47,7 @@
 
 {% block extrafooter %}
   {{ block.super }}
+<script type="text/javascript" src="{% static "js/bus.js" %}"></script>
 <script type="application/javascript">
   var blog_posts = [
     {% for post in object_list %}
