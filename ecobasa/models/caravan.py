@@ -12,11 +12,7 @@ from cosinnus.models import (
     BaseUserProfile, BaseUserProfileManager, CosinnusGroup)
 
 
-class TaggedOffer(TaggedItemBase):
-    content_object = models.ForeignKey('Caravan')
 
-    class Meta:
-        app_label = 'ecobasa'
 
 @python_2_unicode_compatible
 class Caravan(CosinnusGroup):

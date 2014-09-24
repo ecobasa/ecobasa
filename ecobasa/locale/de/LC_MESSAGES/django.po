@@ -2203,7 +2203,11 @@ msgid_plural ""
 "        %(num)s results for \"%(query)s\".\n"
 "      "
 msgstr[0] ""
+"/n"
+"		%(num)s Ergebnis für \"%(query)s\".\n"
 msgstr[1] ""
+"/n"
+"		%(num)s Ergebnis für \"%(query)s\".\n"
 
 #: templates/search/search.html:28
 #, python-format

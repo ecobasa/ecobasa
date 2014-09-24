@@ -335,7 +335,7 @@ class EcobasaUserProfile(BaseUserProfile):
     has_bus = models.BooleanField(
         _('Do you have a bus or car that you want to take on the tour?'),
         default=False, blank=True)
-    bus_image = ThumbnailerImageField(_('bus image'),
+    bus_image = ThumbnailerImageField(_('bus_image'),
         upload_to='bus_images', null=True, blank=True)
     bus_has_driving_license = models.BooleanField(
         _('I have a driving license'), default=False, blank=True)
@@ -388,6 +388,13 @@ class EcobasaCommunityProfile(models.Model):
         editable=False, related_name='profile')
     # mandatory name!
     name = models.CharField(_('name of community'), max_length=255)
+    website = models.URLField(_('link of your communities website'), max_length=100)
+    image = ThumbnailerImageField(
+        verbose_name=_('image'),
+        help_text=_('Header image for the community-profile, minimum resolution 1200x400'),
+        upload_to='community_images',
+        null=True,
+        blank=True)
 
     # contact info
     contact_telephone = models.CharField(_('telephone'),

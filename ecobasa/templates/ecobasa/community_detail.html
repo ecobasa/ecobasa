@@ -17,8 +17,39 @@
 {% block body %}profile{% endblock body %}
 
 {% block content %}
+
+{% if profile.image %}
 <div class="row">
-  <h1>{{ object.name }}</h1>
+  <div id="carousel-community" class="carousel slide gradient" data-ride="carousel">
+    <!-- Indicators -->
+    <!-- <ol class="carousel-indicators">
+      <li data-target="#carousel-community" data-slide-to="0" class="active"></li>
+      <li data-target="#carousel-community" data-slide-to="1"></li>
+      <li data-target="#carousel-community" data-slide-to="2"></li>
+      <li data-target="#carousel-community" data-slide-to="3"></li>
+    </ol> -->
+
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <div class="item active">
+        <img src="{% thumbnail profile.image|thumbnail_url:"note_large"  "1920x700" crop=1 upscale=1 %}" alt="{{ object.name }}">
+        </div>
+      </div>
+    </div> 
+
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carousel-community" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#carousel-community" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+  </div>
+{% endif %}
+
+<div class="row">
+  <h1 class="community_name">{{ object.name }}</h1>
     {% if user.is_superuser or user|is_group_admin:object %}
     <div class="btn-group pull-right">
       <a href="{% url 'community-edit' group=object.slug %}" class="btn btn-primary">{% trans "Edit" %}</a>
@@ -152,9 +183,11 @@
       {{ profile.contact_zipcode }}
       {{ profile.contact_city }}</br>
       {{ profile.get_contact_country_display }}</br></br>
-      Telephone: {{ profile.contact_telephone }}
+      Telephone: {{ profile.contact_telephone }}      
     </div>
     {% endif %}
+    <h3>Website</h3>
+    <a href="{{ profile.website }}" target="_blank">{{ profile.website }}</a>
     <div class="row">
       <div class="col-md-12">
         <h3>{% trans "Gift-economy Ambassadors" %}</h3>
