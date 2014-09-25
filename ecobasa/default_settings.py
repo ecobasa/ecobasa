@@ -327,3 +327,7 @@ POSTMAN_SHOW_USER_AS = 'username'
 BOOTSTRAP3 = {
     'jquery_url': '//code.jquery.com/jquery-2.1.0.min.js',
 }
+
+# special group all pioneers are member of and whose posts are exposed
+# override in your local settings.py
+ECOBASA_SPECIAL_COSINNUS_GROUP = 1
