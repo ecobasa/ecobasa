@@ -16,7 +16,7 @@
     <a class="btn btn-primary pull-right" href="{% url 'cosinnus:user-add' %}">{% trans "Add user" %}</a>
     {% endif %}
     
-    {% if object_list %}
+    {% if pioneers %}
     <table id="pioneer-list-table" class="table table-striped">
         <thead>
             <tr>
@@ -26,7 +26,7 @@
                 <th>{% trans "Country" %}</th>
             </tr>
         </thead>
-        {% for pioneer in object_list %}
+        {% for pioneer in pioneers %}
         {% with pioneer.cosinnus_profile as profile %}
         <tr>
             <th>

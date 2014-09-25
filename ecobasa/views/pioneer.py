@@ -20,21 +20,28 @@ from ..forms import PioneerProfileForm
 class PioneerListView(UserListView):
     template_name = 'ecobasa/pioneer_list.html'
 
-    def get_queryset(self):
-        users = super(PioneerListView, self).get_queryset()
-        # exclude ambassadors, but include organisers (even if ambassador)
-        # you are welcome to get this into one query
-        # pioneers = users.exclude(
-        #            cosinnus_memberships__status=MEMBERSHIP_ADMIN,
-        #            cosinnus_memberships__organiserrole__isnull=True,
-        #        )
-        # didn't do it.
-        organisers = list(users.filter(
-            cosinnus_memberships__organiserrole__isnull=False).distinct())
-        non_ambassadors = list(users.exclude(
-            cosinnus_memberships__status=MEMBERSHIP_ADMIN))
-        pioneers = set(organisers + non_ambassadors)
-        return pioneers
+    def get_pioneers(self, users):
+        """
+        The list of pioneers should exclude ambassadors, but include organisers
+        even if ambassador
+        """
+        organisers = users.filter(
+            cosinnus_memberships__organiserrole__isnull=False,
+        ).distinct()
+        ambassadors = users.filter(
+            # a CosinnusGroup with profile means Community!
+            cosinnus_memberships__group__profile__isnull=False,
+            cosinnus_memberships__status=MEMBERSHIP_ADMIN,
+        ).distinct()
+        non_ambassadors = set(users) - set(ambassadors)
+
+        pioneers = set(list(organisers) + list(non_ambassadors))
+        return list(pioneers)
+
+    def get_context_data(self, **kwargs):
+        context = super(PioneerListView, self).get_context_data(**kwargs)
+        context['pioneers'] = self.get_pioneers(context['object_list'])
+        return context
 
 pioneer_list = PioneerListView.as_view()
 
