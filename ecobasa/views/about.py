@@ -11,6 +11,6 @@ from cosinnus_note.models import Note
 
 class NoteListView(ListView):
     template_name = 'about.html'
-    queryset = Note.objects.all()
+    queryset = Note.objects.filter(media_tag__public=True)
 
 note_list = NoteListView.as_view()
