@@ -32,7 +32,7 @@
             <th>
                 <a href="{% url 'pioneer-detail' username=pioneer.username %}">
                 {% if profile.avatar %}
-                  <img class="avatar media-object" src="{% thumbnail profile.avatar "70x0" crop=1 upscale=1 %} "60x60" crop=1 upscale=1 %}">
+                  <img class="avatar media-object" src="{{ profile.avatar|thumbnail_url:"avatar_medium" }}">
                 {% else %}
                   <img class="avatar media-object" src="http://placehold.it/30x30">
                 {% endif %}
@@ -43,7 +43,7 @@
             <th>
                 {% if profile.has_bus %}
                 {% if profile.bus_image %}
-                    <img src="{% thumbnail profile.bus_image "200x0" crop=1 upscale=1 %}" />
+                    <img src="{{ profile.bus_image|thumbnail_url:"bus_medium" }}" />
                 {% endif %}
                 {% endif %}
             </th>

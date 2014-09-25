@@ -31,7 +31,7 @@
                 <li>
                   <a class="pull-left" href="{% url 'pioneer-detail' username=amb.username %}">
                     {% if amb.cosinnus_profile.avatar %}
-                      <img class="avatar" src="{% thumbnail amb.cosinnus_profile.avatar.url "60x60" crop=1 upscale=1 %}" alt="{{ amb.get_full_name|default:amb.username }}" data-toggle="tooltip" data-placement="top" title="{{ amb.get_full_name|default:amb.username }}">
+                      <img class="avatar" src="{{ amb.cosinnus_profile.avatar|thumbnail_url:"avatar_medium" }}" alt="{{ amb.get_full_name|default:amb.username }}" data-toggle="tooltip" data-placement="top" title="{{ amb.get_full_name|default:amb.username }}">
                     {% else %}
                       <img class="avatar" src="http://placehold.it/30x30">
                     {% endif %}
@@ -41,7 +41,7 @@
               </ul>
             </td>
             <td>
-              {% if member.cosinnus_profile.bus_image %}<a href="{% url bus %}"></a><img src="{% thumbnail member.cosinnus_profile.bus_image "200x0" crop=1 upscale=1 %}" />{% endif %}
+              {% if member.cosinnus_profile.bus_image %}<a href="{% url bus %}"></a><img src="{{ member.cosinnus_profile.bus_image|thumbnail_url:"bus_medium" }}" />{% endif %}
             </td>
             <td>
               <div class="btn-group">

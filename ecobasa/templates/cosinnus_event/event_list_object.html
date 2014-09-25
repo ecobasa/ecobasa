@@ -1,6 +1,6 @@
 {% load i18n thumbnail cosinnus_tags %}
 <tr>
-    <td>{% if object.image %}<img src="{% thumbnail object.image "70x0" crop=1 upscale=1 %}" />{% endif %}</td>
+    <td>{% if object.image %}<img src="{{ object.image|thumbnail_url:"event" }}" />{% endif %}</td>
     <td><a href="{% url 'cosinnus:event:entry-detail' group=group.slug slug=object.slug %}">{{ object.title }}</a></td>
     <td>{{ object.from_date|date:"SHORT_DATE_FORMAT" }}</td>
     <td>{% if object.single_day %}{{ object.to_date|date:"h:i" }}{% else %}{{ object.to_date|date:"SHORT_DATE_FORMAT" }}{% endif %}</td>

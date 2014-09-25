@@ -163,7 +163,7 @@
             <li class="media">
               <a class="pull-left" href="{% url 'pioneer-detail' username=amb.username %}">
                 {% if amb.cosinnus_profile.avatar %}
-                  <img class="avatar" src="{% thumbnail amb.cosinnus_profile.avatar.url "60x60" crop=1 upscale=1 %}">
+                  <img class="avatar" src="{{ amb.cosinnus_profile.avatar|thumbnail_url:"avatar_medium" }}">
                 {% else %}
                   <img class="avatar" src="http://placehold.it/30x30">
                 {% endif %}
@@ -185,7 +185,7 @@
             <li class="media">
               <a class="pull-left" href="{% url 'pioneer-detail' username=pending.username %}">
                 {% if pending.cosinnus_profile.avatar %}
-                  <img class="avatar" src="{% thumbnail cosinnus_profile.avatar.url "60x60" crop=1 upscale=1 %}">
+                  <img class="avatar" src="{{ cosinnus_profile.avatar|thumbnail_url:"avatar_medium" }}">
                 {% else %}
                   <img class="avatar" src="http://placehold.it/30x30">
                 {% endif %}

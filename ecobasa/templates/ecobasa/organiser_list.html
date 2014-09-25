@@ -28,7 +28,7 @@
             <td>
                 <a href="{% url 'pioneer-detail' username=cgm_user.username %}">
                 {% if cgm_user.cosinnus_profile.avatar %}
-                  <img class="avatar media-object" src="{% thumbnail cgm_user.cosinnus_profile.avatar "70x0" crop=1 upscale=1 %} "60x60" crop=1 upscale=1 %}">
+                  <img class="avatar media-object" src="{{ cgm_user.cosinnus_profile.avatar|thumbnail_url:"avatar_medium" }}">
                 {% else %}
                   <img class="avatar media-object" src="http://placehold.it/30x30">
                 {% endif %}

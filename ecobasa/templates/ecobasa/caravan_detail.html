@@ -51,7 +51,7 @@
         <li class="media">
             <a class="pull-left" href="{% url 'pioneer-detail' username=member.get_username %}">
               {% if member.cosinnus_profile.avatar %}
-                <img class="avatar" src="{% thumbnail member.cosinnus_profile.avatar "200x0" crop=1 upscale=1  %}">
+                <img class="avatar" src="{{ member.cosinnus_profile.avatar|thumbnail_url:"avatar_medium" }}">
               {% else %}
                 <img class="avatar" src="http://placehold.it/30x30">
               {% endif %}
@@ -77,7 +77,7 @@
       {% if profile.has_bus %}
         <li class="media">
           <a class="pull-left" href="{% url 'pioneer-detail' username=member.get_username %}">
-            {% if profile.bus_image %}<img src="{% thumbnail profile.bus_image "200x0" crop=1 upscale=1 %}" />
+            {% if profile.bus_image %}<img src="{{ profile.bus_image|thumbnail_url:"bus_medium" }}" />
             {% else %}
               <img class="avatar" src="http://placehold.it/30x30">
             {% endif %}
@@ -168,7 +168,7 @@
         <li class="media">
           <a class="pull-left" href="{% url 'pioneer-detail' username=pending.get_username %}">
             {% if pending.cosinnus_profile.avatar %}
-              <img class="avatar" src="{% thumbnail pending.cosinnus_profile.avatar "200x0" crop=1 upscale=1 %}">
+              <img class="avatar" src="{{ pending.cosinnus_profile.avatar|thumbnail_url:"avatar_medium" }}">
             {% else %}
               <img class="avatar" src="http://placehold.it/30x30">
             {% endif %}
@@ -193,7 +193,7 @@
         <li class="media">
           <a class="pull-left" href="{% url 'cosinnus:user-detail' username=admin.get_username %}">
             {% if admin.cosinnus_profile.avatar %}
-              <img class="avatar" src="{% thumbnail admin.cosinnus_profile.avatar "200x0" crop=1 upscale=1 %}">
+              <img class="avatar" src="{{ admin.cosinnus_profile.avatar|thumbnail_url:"avatar_medium" }}">
             {% else %}
               <img class="avatar" src="http://placehold.it/30x30">
             {% endif %}

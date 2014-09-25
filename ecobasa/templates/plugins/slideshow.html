@@ -13,7 +13,7 @@
   <div class="carousel-inner">
     {% for image in slideshow.images.all %}
     <div class="item {% if forloop.first %}active{% endif %}">
-      <img src="{% thumbnail image.file "1920x700" crop=1 upscale=1 %}" alt="{{ image.title }}">
+      <img src="{{ image.file|thumbnail_url:"slideshow" }}" alt="{{ image.title }}">
       <div class="carousel-caption">
         {{ image.logo }}
         <h1>{{ image.title }}</h1>

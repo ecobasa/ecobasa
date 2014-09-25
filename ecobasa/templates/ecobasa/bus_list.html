@@ -24,7 +24,7 @@
         {% for pioneer in user_list %}
         {% with pioneer.cosinnus_profile as profile %}
         <tr>
-            <td>{% if profile.bus_image %}<img src="{% thumbnail profile.bus_image "200x0" crop=1 upscale=1 %}" />{% endif %}</td>
+            <td>{% if profile.bus_image %}<img src="{{ profile.bus_image|thumbnail_url:"bus_medium" }}" />{% endif %}</td>
             <td><a href="{% url 'pioneer-detail' username=pioneer.username %}">{{ pioneer.username }}</a></td>
             <td>{{ profile.bus_num_passengers }} people</td>
             <td>{{ profile.bus_consumption }}l/100km</td>
