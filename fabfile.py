@@ -34,10 +34,13 @@ def migrate():
         run("%(path)s/manage.py migrate" % env)
 
 
-def deploy():
-    update()
-    migrate()
+def reload():
     if env.tasks[0] == 'production':
         run("touch %(path)s/ecobasa/wsgi.py" % env)
     else:
         run("supervisorctl reload ecobasa")
+
+def deploy():
+    update()
+    migrate()
+    reload()
