@@ -85,9 +85,6 @@ class CommunityUpdateView(UpdateView):
 
     def form_valid(self, form):
         result = super(CommunityUpdateView, self).form_valid(form)
-        # copy profile name to cosinnus group name
-        self.group.name = form.instance.name
-        self.group.save()
         messages.success(self.request,
             _('The profile was successfully updated.'))
         return result

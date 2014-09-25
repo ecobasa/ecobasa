@@ -471,6 +471,9 @@ class EcobasaCommunityProfile(models.Model):
         return self.name
 
     def save(self, *args, **kwargs):
+        # copy profile name to cosinnus group name
+        self.group.name = self.name
+        self.group.save()
         return super(EcobasaCommunityProfile, self).save(*args, **kwargs)
 
 
