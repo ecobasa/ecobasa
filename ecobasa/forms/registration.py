@@ -76,6 +76,8 @@ class RegistrationCommunityForm(RegistrationForm):
         self.fields['birth_date'].widget = DateL10nPicker()
 
         fields_community = forms.fields_for_model(EcobasaCommunityProfile)
+        fields_community['contact_location_lat'].widget = forms.HiddenInput()
+        fields_community['contact_location_lon'].widget = forms.HiddenInput()
         self.fields.update(fields_community)
 
     def save_profile(self, new_user, *args, **kwargs):
