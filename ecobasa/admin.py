@@ -14,7 +14,7 @@ class SeedAdmin(admin.TabularInline):
 
 
 class EcobasaCommunityProfileAdmin(admin.ModelAdmin):
-    readonly_fields = ('contact_lat', 'contact_lon',)
+    readonly_fields = ('contact_location_lat', 'contact_location_lon',)
     inlines = [SeedAdmin]
 
 admin.site.register(EcobasaCommunityProfile, EcobasaCommunityProfileAdmin)

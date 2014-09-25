@@ -91,6 +91,9 @@ class RegistrationCommunityForm(RegistrationForm):
         profile.name = name
         profile.contact_telephone = self.cleaned_data['contact_telephone']
         profile.contact_street = self.cleaned_data['contact_street']
+        profile.contact_location = self.cleaned_data['contact_location']
+        profile.contact_location_lat = self.cleaned_data['contact_location_lat']
+        profile.contact_location_lon = self.cleaned_data['contact_location_lon']
         profile.contact_city = self.cleaned_data['contact_city']
         profile.contact_zipcode = self.cleaned_data['contact_zipcode']
         profile.contact_country = self.cleaned_data['contact_country']

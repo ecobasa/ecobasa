@@ -9,6 +9,8 @@ from ..models import EcobasaCommunityProfile, EcobasaCommunityProfileSeed
 class CommunityProfileForm(forms.ModelForm):
     SeedInlineFormSet = forms.models.inlineformset_factory(
         EcobasaCommunityProfile, EcobasaCommunityProfileSeed, extra=1)
+    contact_location_lat = forms.CharField(widget=forms.HiddenInput())
+    contact_location_lon = forms.CharField(widget=forms.HiddenInput())
 
     class Meta:
         model = EcobasaCommunityProfile
