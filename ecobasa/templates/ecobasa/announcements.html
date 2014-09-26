@@ -7,14 +7,20 @@
 	    <img src="{{ announcement.image|thumbnail_url:"note_medium" }}" alt="{% trans "Header" %}" />
 	  </div>
 
+	  <div class="col-xs-6">
+	    <h3>{{ announcement.title }}</h3>
+	    {{ announcement.text|linebreaksbr|urlize|safe }}
+	  </div>
+	  <div class="col-xs-3">
+	  	{{ announcement.created }} by <a href="{% url 'cosinnus:user-detail' username=announcement.creator.get_username %}">{{ announcement.creator.get_full_name|default:announcement.creator.username }}</a>
+	  </div>
+	{% else %}
 	  <div class="col-xs-9">
 	    <h3>{{ announcement.title }}</h3>
 	    {{ announcement.text|linebreaksbr|urlize|safe }}
 	  </div>
-	{% else %}
-	  <div class="col-xs-12">
-	    <h3>{{ announcement.title }}</h3>
-	    {{ announcement.text|linebreaksbr|urlize|safe }}
+	  <div class="col-xs-3">
+	  	{{ announcement.created }} by <a href="{% url 'cosinnus:user-detail' username=announcement.creator.get_username %}">{{ announcement.creator.get_full_name|default:announcement.creator.username }}</a>
 	  </div>
 	{% endif %}
 </div>
