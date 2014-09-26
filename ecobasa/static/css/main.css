@@ -178,6 +178,10 @@ div.announcements h3 {
   margin-top: 0px;
 }
 
+div.announcement {
+  margin-top: 50px;
+}
+
 /*************** Slider *****************/
 .carousel-caption {
   color: #f4ede3;

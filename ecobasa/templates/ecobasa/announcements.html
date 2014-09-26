@@ -1,7 +1,7 @@
 {% load i18n thumbnail %}
 <h2>{% trans "Announcements" %}</h2>
 {% for announcement in announcements %}
-<div class="row">
+<div class="row announcement">
 	{% if announcement.image %}
 	  <div class="col-xs-3">
 	    <img src="{{ announcement.image|thumbnail_url:"note_medium" }}" alt="{% trans "Header" %}" />
