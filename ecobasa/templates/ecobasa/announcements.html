@@ -9,12 +9,12 @@
 
 	  <div class="col-xs-9">
 	    <h3>{{ announcement.title }}</h3>
-	    {{ announcement.text|safe }}
+	    {{ announcement.text|linebreaksbr|urlize|safe }}
 	  </div>
 	{% else %}
 	  <div class="col-xs-12">
 	    <h3>{{ announcement.title }}</h3>
-	    {{ announcement.text|safe }}
+	    {{ announcement.text|linebreaksbr|urlize|safe }}
 	  </div>
 	{% endif %}
 </div>
