@@ -2,12 +2,20 @@
 <h2>{% trans "Announcements" %}</h2>
 {% for announcement in announcements %}
 <div class="row">
-  <div class="col-xs-3">
-    <img src="{{ announcement.image|thumbnail_url:"note_medium" }}" alt="{% trans "Header" %}" />
-  </div>
-  <div class="col-xs-9">
-    <h3>{{ announcement.title }}</h3>
-    {{ announcement.text|safe }}
-  </div>
+	{% if announcement.image %}
+	  <div class="col-xs-3">
+	    <img src="{{ announcement.image|thumbnail_url:"note_medium" }}" alt="{% trans "Header" %}" />
+	  </div>
+
+	  <div class="col-xs-9">
+	    <h3>{{ announcement.title }}</h3>
+	    {{ announcement.text|safe }}
+	  </div>
+	{% else %}
+	  <div class="col-xs-12">
+	    <h3>{{ announcement.title }}</h3>
+	    {{ announcement.text|safe }}
+	  </div>
+	{% endif %}
 </div>
 {% endfor %}
