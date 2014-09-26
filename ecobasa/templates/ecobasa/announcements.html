@@ -12,7 +12,7 @@
 	    {{ announcement.text|linebreaksbr|urlize|safe }}
 	  </div>
 	  <div class="col-xs-3">
-	  	{{ announcement.created }} by <a href="{% url 'cosinnus:user-detail' username=announcement.creator.get_username %}">{{ announcement.creator.get_full_name|default:announcement.creator.username }}</a>
+	  	{{ announcement.created }} by <a href="{% url 'pioneer-detail' username=announcement.creator.get_username %}">{{ announcement.creator.get_full_name|default:announcement.creator.username }}</a>
 	  </div>
 	{% else %}
 	  <div class="col-xs-9">
@@ -20,7 +20,7 @@
 	    {{ announcement.text|linebreaksbr|urlize|safe }}
 	  </div>
 	  <div class="col-xs-3">
-	  	{{ announcement.created }} by <a href="{% url 'cosinnus:user-detail' username=announcement.creator.get_username %}">{{ announcement.creator.get_full_name|default:announcement.creator.username }}</a>
+	  	{{ announcement.created }} by <a href="{% url 'pioneer-detail' username=announcement.creator.get_username %}">{{ announcement.creator.get_full_name|default:announcement.creator.username }}</a>
 	  </div>
 	{% endif %}
 </div>
