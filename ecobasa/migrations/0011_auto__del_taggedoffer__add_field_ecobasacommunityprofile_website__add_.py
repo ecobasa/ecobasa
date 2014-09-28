@@ -8,9 +8,12 @@ from django.db import models
 class Migration(SchemaMigration):
 
     def forwards(self, orm):
+        # Deleting model 'TaggedOffer'
+        db.delete_table(u'ecobasa_taggedoffer')
+
         # Adding field 'EcobasaCommunityProfile.website'
         db.add_column(u'ecobasa_ecobasacommunityprofile', 'website',
-                      self.gf('django.db.models.fields.URLField')(default='http://', max_length=100),
+                      self.gf('django.db.models.fields.URLField')(default='', max_length=100),
                       keep_default=False)
 
         # Adding field 'EcobasaCommunityProfile.image'
@@ -20,6 +23,14 @@ class Migration(SchemaMigration):
 
 
     def backwards(self, orm):
+        # Adding model 'TaggedOffer'
+        db.create_table(u'ecobasa_taggedoffer', (
+            ('content_object', self.gf('django.db.models.fields.related.ForeignKey')(to=orm['ecobasa.Caravan'])),
+            ('tag', self.gf('django.db.models.fields.related.ForeignKey')(related_name=u'ecobasa_taggedoffer_items', to=orm['taggit.Tag'])),
+            (u'id', self.gf('django.db.models.fields.AutoField')(primary_key=True)),
+        ))
+        db.send_create_signal(u'ecobasa', ['TaggedOffer'])
+
         # Deleting field 'EcobasaCommunityProfile.website'
         db.delete_column(u'ecobasa_ecobasacommunityprofile', 'website')
 
@@ -125,11 +136,9 @@ class Migration(SchemaMigration):
             'basic_membership_status': ('django.db.models.fields.CharField', [], {'default': "u'o'", 'max_length': '2', 'blank': 'True'}),
             'contact_city': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'}),
             'contact_country': ('django.db.models.fields.CharField', [], {'default': "u'ZZ'", 'max_length': '2', 'blank': 'True'}),
-            'contact_lat': ('django.db.models.fields.FloatField', [], {'default': '0.0', 'blank': 'True'}),
             'contact_location': ('osm_field.fields.OSMField', [], {'null': 'True', 'blank': 'True'}),
             u'contact_location_lat': ('osm_field.fields.LatitudeField', [], {'null': 'True', 'blank': 'True'}),
             u'contact_location_lon': ('osm_field.fields.LongitudeField', [], {'null': 'True', 'blank': 'True'}),
-            'contact_lon': ('django.db.models.fields.FloatField', [], {'default': '0.0', 'blank': 'True'}),
             'contact_show': ('django.db.models.fields.BooleanField', [], {'default': 'False'}),
             'contact_street': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'}),
             'contact_telephone': ('django.db.models.fields.CharField', [], {'max_length': '255', 'null': 'True', 'blank': 'True'}),
