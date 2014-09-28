@@ -1,5 +1,5 @@
 {% extends "cosinnus/base.html" %}
-{% load i18n l10n static cosinnus_tags thumbnail %}
+{% load i18n l10n static embed_video_tags cosinnus_tags thumbnail %}
 
 {% block extrahead %}
 {{ block.super }} 
@@ -67,6 +67,7 @@
     </div>
   {% endif %}
 </div>
+
 <div class="row">
   <div class="col-xs-8">
     <div class="row">
@@ -188,6 +189,18 @@
     {% endif %}
     <h3>Website</h3>
     <a href="{{ profile.website }}" target="_blank">{{ profile.website }}</a>
+
+    {% if profile.video %}
+    <div class="row">
+      <div class="col-md-12">
+        <h3>{% trans "Video" %}</h3>
+        {% video profile.video as my_video %}
+          {{ my_video|embed:'300x300' }}
+        {% endvideo %}
+      </div>
+    </div>
+    {% endif %}
+
     <div class="row">
       <div class="col-md-12">
         <h3>{% trans "Gift-economy Ambassadors" %}</h3>
@@ -209,6 +222,7 @@
         </ul>
       </div>
     </div>
+
     {% if user.is_superuser or user|is_group_admin:object %}
     <div class="row">
       <div class="col-md-12">

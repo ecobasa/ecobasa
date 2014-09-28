@@ -395,6 +395,12 @@ class EcobasaCommunityProfile(models.Model):
         upload_to='community_images',
         null=True,
         blank=True)
+    video = models.URLField(
+        verbose_name=_('Video'),
+        help_text=_('Link to a video showing your community'),
+        max_length=255,
+        blank=True,
+        null=True)
 
     # contact info
     contact_telephone = models.CharField(_('telephone'),
