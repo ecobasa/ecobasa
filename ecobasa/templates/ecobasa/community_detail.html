@@ -32,7 +32,7 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
       <div class="item active">
-        <img src="{% thumbnail profile.image|thumbnail_url:"note_large"  "1920x700" crop=1 upscale=1 %}" alt="{{ object.name }}">
+        <img src="{{ profile.image|thumbnail_url:"note_large" }}" alt="{{ object.name }}">
         </div>
       </div>
     </div> 
