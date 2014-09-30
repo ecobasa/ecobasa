@@ -9,6 +9,21 @@
     </button>
     {% include "cosinnus/brand.html" %}
   </div>
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+    <div class="col-md-5 pull-right">
+      <ul class="nav navbar-nav">
+        <li><a href="mailto:info@ecobasa.org"><span class="glyphicon glyphicon-envelope"></span>   {% trans "Contact" %}</a></li>
+        <li><a href="https://www.facebook.com/pages/ecobasaorg/140582879337656"><i class="fa fa-facebook"></i></a></li>
+        {% if group %}
+          {% url 'community-dashboard' group=group.slug as dashboard_url %}
+          <li {% ifequal dashboard_url request.path %} class="active"{% endifequal %}><a href="{{ dashboard_url }}">{% trans "Community Dashboard" %}</a></li>
+        {% endif %}
+        {% for app in apps %}
+          <li{% if app.active %} class="active"{% endif %}><a href="{{ app.url }}">{{ app.label }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
   <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
     <div class="col-md-5">
       <ul class="nav navbar-nav">

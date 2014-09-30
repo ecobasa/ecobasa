@@ -11,7 +11,7 @@ def staging():
 
 
 def production():
-    env.hosts = ['m1487@community-tours.org']
+    env.hosts = ['m1487@ecobasa.org']
     env.path = '~/ecobasa/'
     env.virtualenv_path = '~/ecobasaenv/'
     env.push_branch = 'master'
