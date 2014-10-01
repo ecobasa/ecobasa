@@ -21,7 +21,7 @@
 	  </div>
 	  <div class="col-xs-3">
 	  	<a href="{% url 'pioneer-detail' username=announcement.creator.get_username %}">
-        {% if member.cosinnus_profile.avatar %}
+        {% if announcement.creator.cosinnus_profile.avatar %}
           <img class="avatar" src="{{ announcement.creator.cosinnus_profile.avatar|thumbnail_url:"avatar_large" }}" alt="{{ announcement.creator.get_full_name|default:announcement.creator.username }}" />
         {% else %}
           <img class="avatar" src="http://placehold.it/200x200" alt="{{ announcement.creator.get_full_name|default:announcement.creator.username }}" />
@@ -32,7 +32,7 @@
 	{% else %}
 	<div class="col-xs-3">
 	  	<a href="{% url 'pioneer-detail' username=announcement.creator.get_username %}">
-        {% if member.cosinnus_profile.avatar %}
+        {% if announcement.creator.cosinnus_profile.avatar %}
           <img class="avatar" src="{{ announcement.creator.cosinnus_profile.avatar|thumbnail_url:"avatar_large" }}" alt="{{ announcement.creator.get_full_name|default:announcement.creator.username }}" />
         {% else %}
           <img class="avatar" src="http://placehold.it/200x200" alt="{{ announcement.creator.get_full_name|default:announcement.creator.username }}" />
