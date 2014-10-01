@@ -72,7 +72,7 @@
     <div class="row">
       <div class="col-xs-12">
         <h3>{% trans "What brings this community together" %}</h3>
-        <p>{{ profile.basic_brings_together }}</p>
+        <p>{{ profile.basic_brings_together|linebreaksbr|urlize|safe }}</p>
         <h3>{% trans "What can you learn here" %}</h3>
         <ul>
           {% for offer_skill in profile.offers_skills.all %}
@@ -80,7 +80,7 @@
           {% endfor %}
         </ul>
         <h3>{% trans "Accomodation for guests" %}</h3>
-        <p>{{ profile.visitors_accomodation }}</p>
+        <p>{{ profile.visitors_accomodation|linebreaksbr|urlize|safe }}</p>
       </div>
     </div>
     <div class="row">
@@ -105,16 +105,16 @@
     <div class="row">
       <div class="col-xs-12">
         <h3>{% trans "Workshop and factoring spaces" %}</h3>
-        {{ profile.offers_workshop_spaces }}
+        {{ profile.offers_workshop_spaces|linebreaksbr|urlize|safe }}
         <h3>{% trans "Seminars" %}</h3>
-        <p>{{ profile.offers_learning_seminars }}</p>
+        <p>{{ profile.offers_learning_seminars|linebreaksbr|urlize|safe }}</p>
       </div>
     </div>
     <div class="row">
       <h2>{% trans "Needs" %}</h2>
       <div class="col-xs-12">
         <h3>Projects/Construction Sites</h3>
-        <p>{{ profile.wishlist_projects }}</p>
+        <p>{{ profile.wishlist_projects|linebreaksbr|urlize|safe }}</p>
         <h3>{% trans "Experts/People with the following skills" %}</h3>
         <ul>
           {% for wishlist_skill in profile.wishlist_skills.all %}
@@ -122,9 +122,9 @@
           {% endfor %}
         </ul>
         <h3>{% trans "Materials" %}</h3>
-        <p>{{ profile.wishlist_materials }}</p>
+        <p>{{ profile.wishlist_materials|linebreaksbr|urlize|safe }}</p>
         <h3>{% trans "Tools" %}</h3>
-        <p>{{ profile.wishlist_tools }}</p>
+        <p>{{ profile.wishlist_tools|linebreaksbr|urlize|safe }}</p>
         <h3>{% trans "Seeds" %}</h3>
         <div class="table-responsive">
           <table class="table table-striped">
@@ -145,7 +145,7 @@
           </table>
         </div>
         <h3>{% trans "Special Needs" %}</h3>
-        <p>{{ profile.wishlist_special_needs }}</p>
+        <p>{{ profile.wishlist_special_needs|linebreaksbr|urlize|safe }}</p>
 
       <h3>{% trans "Posts" %}</h3>
       <ul>
@@ -154,7 +154,7 @@
 
           <img src="{{ post.image|thumbnail_url:"note_medium" }}" alt="{% trans "Header" %}" />
           <h4>{{ post.title }}</h4>
-          <p>{{ post.text }}</p>
+          <p>{{ post.text|linebreaksbr|urlize|safe }}</p>
         </li>
         {% endfor %}
       </ul>
