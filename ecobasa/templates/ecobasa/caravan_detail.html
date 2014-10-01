@@ -51,7 +51,7 @@
         <li class="media">
             <a class="pull-left" href="{% url 'pioneer-detail' username=member.get_username %}">
               {% if member.cosinnus_profile.avatar %}
-                <img class="avatar" src="{{ member.cosinnus_profile.avatar|thumbnail_url:"avatar_medium" }}">
+                <img class="avatar" src="{{ member.cosinnus_profile.avatar|thumbnail_url:"avatar_large" }}">
               {% else %}
                 <img class="avatar" src="http://placehold.it/30x30">
               {% endif %}
