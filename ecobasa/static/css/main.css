@@ -427,10 +427,11 @@ body#profile img.avatar {
 .comment.tooltip a:hover {
   color: #b4502c;
 }
-.comment.tooltip .created.pull-right {
+.comment.tooltip .created {
   font-size: 11px;
   margin-top: -10px;
   margin-right: -10px;
+  text-shadow: 0px -1px 0px #b4502c;
 }
 
 .posts > h2 a.btn {

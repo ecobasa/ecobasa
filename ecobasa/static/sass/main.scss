@@ -461,10 +461,11 @@ body#profile {
 			color: $third;
 		}
 	}
-	.created.pull-right {
+	.created {
 		font-size: 11px;
 		margin-top: -10px;
 		margin-right: -10px;
+		text-shadow: 0px -1px 0px $third;
 	}
 }
 
