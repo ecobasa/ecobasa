@@ -53,7 +53,7 @@
               {% if member.cosinnus_profile.avatar %}
                 <img class="avatar" src="{{ member.cosinnus_profile.avatar|thumbnail_url:"avatar_large" }}">
               {% else %}
-                <img class="avatar" src="http://placehold.it/30x30">
+                <img class="avatar" src="http://placehold.it/200x200">
               {% endif %}
             </a>
           <div class="media-body">
@@ -79,7 +79,7 @@
           <a class="pull-left" href="{% url 'pioneer-detail' username=member.get_username %}">
             {% if profile.bus_image %}<img src="{{ profile.bus_image|thumbnail_url:"bus_medium" }}" />
             {% else %}
-              <img class="avatar" src="http://placehold.it/30x30">
+              <img class="avatar" src="http://placehold.it/200x200">
             {% endif %}
           </a>
           <div class="media-body">
@@ -170,7 +170,7 @@
             {% if pending.cosinnus_profile.avatar %}
               <img class="avatar" src="{{ pending.cosinnus_profile.avatar|thumbnail_url:"avatar_medium" }}">
             {% else %}
-              <img class="avatar" src="http://placehold.it/30x30">
+              <img class="avatar" src="http://placehold.it/64x64">
             {% endif %}
           </a>
           <div class="media-body">
@@ -195,7 +195,7 @@
             {% if admin.cosinnus_profile.avatar %}
               <img class="avatar" src="{{ admin.cosinnus_profile.avatar|thumbnail_url:"avatar_medium" }}">
             {% else %}
-              <img class="avatar" src="http://placehold.it/30x30">
+              <img class="avatar" src="http://placehold.it/64x64">
             {% endif %}
           </a>
           <div class="media-body">
