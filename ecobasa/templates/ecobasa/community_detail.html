@@ -19,26 +19,24 @@
 {% block content %}
 
 {% if profile.image %}
+<img src="{{ profile.image|thumbnail_url:"note_large" }}" alt="{{ object.name }}">
+<!-- 
 <div class="row">
   <div id="carousel-community" class="carousel slide gradient" data-ride="carousel">
-    <!-- Indicators -->
-    <!-- <ol class="carousel-indicators">
+    <ol class="carousel-indicators">
       <li data-target="#carousel-community" data-slide-to="0" class="active"></li>
       <li data-target="#carousel-community" data-slide-to="1"></li>
       <li data-target="#carousel-community" data-slide-to="2"></li>
       <li data-target="#carousel-community" data-slide-to="3"></li>
-    </ol> -->
+    </ol>
 
-    <!-- Wrapper for slides -->
     <div class="carousel-inner">
       <div class="item active">
         <img src="{{ profile.image|thumbnail_url:"note_large" }}" alt="{{ object.name }}">
         </div>
       </div>
-    </div> 
+    </div>
 
-
-    <!-- Controls -->
     <a class="left carousel-control" href="#carousel-community" data-slide="prev">
       <span class="glyphicon glyphicon-chevron-left"></span>
     </a>
@@ -46,6 +44,7 @@
       <span class="glyphicon glyphicon-chevron-right"></span>
     </a>
   </div>
+  -->
 {% endif %}
 
 <div class="row">
