@@ -11,37 +11,41 @@
 	    <div class="comment tooltip fade left in">
 	    	<div class="tooltip-arrow left"></div>
         <div class="tooltip-inner">
+        	<div class="created pull-right">
+        		<a href="{% url 'pioneer-detail' username=announcement.creator.get_username %}">{{ announcement.creator.get_full_name|default:announcement.creator.username }}</a> at <span>{{ announcement.created }}</span>
+        	</div>
 			    <h3>{{ announcement.title }}</h3>
 			    {{ announcement.text|linebreaksbr|urlize|safe }}
 		    </div>
 			</div>
 	  </div>
 	  <div class="col-xs-3">
-	  	<a class="pull-right" href="{% url 'pioneer-detail' username=announcement.creator.get_username %}">
+	  	<a href="{% url 'pioneer-detail' username=announcement.creator.get_username %}">
         {% if member.cosinnus_profile.avatar %}
-          <img class="avatar" src="{{ announcement.creator.cosinnus_profile.avatar|thumbnail_url:"avatar_large" }}">
+          <img class="avatar" src="{{ announcement.creator.cosinnus_profile.avatar|thumbnail_url:"avatar_large" }}" alt="{{ announcement.creator.get_full_name|default:announcement.creator.username }}" />
         {% else %}
-          <img class="avatar" src="http://placehold.it/200x200">
+          <img class="avatar" src="http://placehold.it/200x200" alt="{{ announcement.creator.get_full_name|default:announcement.creator.username }}" />
         {% endif %}
       </a>
-	  	<a href="{% url 'pioneer-detail' username=announcement.creator.get_username %}">{{ announcement.creator.get_full_name|default:announcement.creator.username }}</a> at <span class="created">{{ announcement.created }}</span>
+    	</br>
 	  </div>
 	{% else %}
 	<div class="col-xs-3">
 	  	<a href="{% url 'pioneer-detail' username=announcement.creator.get_username %}">
         {% if member.cosinnus_profile.avatar %}
-          <img class="avatar" src="{{ announcement.creator.cosinnus_profile.avatar|thumbnail_url:"avatar_large" }}">
+          <img class="avatar" src="{{ announcement.creator.cosinnus_profile.avatar|thumbnail_url:"avatar_large" }}" alt="{{ announcement.creator.get_full_name|default:announcement.creator.username }}" />
         {% else %}
-          <img class="avatar" src="http://placehold.it/200x200">
+          <img class="avatar" src="http://placehold.it/200x200" alt="{{ announcement.creator.get_full_name|default:announcement.creator.username }}" />
         {% endif %}
       </a>
-    </br>
-	  	<a href="{% url 'pioneer-detail' username=announcement.creator.get_username %}">{{ announcement.creator.get_full_name|default:announcement.creator.username }}</a> at <span class="created">{{ announcement.created }}</span>
 	</div>
 	<div class="col-xs-9">
 	<div class="comment tooltip fade right in">
 	<div class="tooltip-arrow"></div>
     <div class="tooltip-inner">
+    	<div class="created pull-right">
+    		<a href="{% url 'pioneer-detail' username=announcement.creator.get_username %}">{{ announcement.creator.get_full_name|default:announcement.creator.username }}</a> at <span>{{ announcement.created }}</span>
+    	</div>
     	<h3>{{ announcement.title }}</h3>
 			{{ announcement.text|linebreaksbr|urlize|safe }}
 		</div>
