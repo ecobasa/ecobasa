@@ -1347,11 +1347,11 @@ msgstr "Dashboard"
 
 #: templates/cosinnus/dashboard.html:22 templates/cosinnus/dashboard.html:51
 msgid "Refresh"
-msgstr ""
+msgstr "Aktualisieren"
 
 #: templates/cosinnus/dashboard.html:24 templates/cosinnus/dashboard.html:52
 msgid "Configure"
-msgstr ""
+msgstr "Konfigurieren"
 
 #: templates/cosinnus/dashboard.html:25 templates/cosinnus/dashboard.html:53
 #: templates/cosinnus_etherpad/tree.html:18
@@ -2077,7 +2077,7 @@ msgstr "ein Pionier der Schenkökonomie"
 
 #: templates/ecobasa/pioneer_detail.html:18
 msgid "Send message"
-msgstr ""
+msgstr "Nachricht schicken"
 
 #: templates/ecobasa/pioneer_detail.html:21
 msgid "Tour"
