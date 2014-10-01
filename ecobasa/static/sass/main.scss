@@ -445,9 +445,26 @@ body#profile {
 		text-align: left;
 		max-width: 100%;
 		position: relative;
+		padding: 20px;
 	}
-	&.right .tooltip-arrow {
+	.tooltip-arrow {
 		border-right-color: $primary;
+		border-left-color: $primary;
+	}
+	.tooltip-inner h3 {
+		color: $secondary;
+		margin-bottom: 8px;
+	}
+	a {
+		color: $secondary;
+		&:hover {
+			color: $third;
+		}
+	}
+	.created.pull-right {
+		font-size: 11px;
+		margin-top: -10px;
+		margin-right: -10px;
 	}
 }
 

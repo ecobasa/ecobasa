@@ -411,9 +411,26 @@ body#profile img.avatar {
   text-align: left;
   max-width: 100%;
   position: relative;
+  padding: 20px;
 }
-.comment.tooltip.right .tooltip-arrow {
+.comment.tooltip .tooltip-arrow {
   border-right-color: #da6137;
+  border-left-color: #da6137;
+}
+.comment.tooltip .tooltip-inner h3 {
+  color: #f4ede3;
+  margin-bottom: 8px;
+}
+.comment.tooltip a {
+  color: #f4ede3;
+}
+.comment.tooltip a:hover {
+  color: #b4502c;
+}
+.comment.tooltip .created.pull-right {
+  font-size: 11px;
+  margin-top: -10px;
+  margin-right: -10px;
 }
 
 .posts > h2 a.btn {

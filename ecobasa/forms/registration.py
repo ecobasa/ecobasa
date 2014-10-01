@@ -91,6 +91,8 @@ class RegistrationCommunityForm(RegistrationForm):
         # set up profile
         profile = EcobasaCommunityProfile.objects.create(group=community)
         profile.name = name
+        profile.image = self.cleaned_data['image']
+        profile.website = self.cleaned_data['website']
         profile.contact_telephone = self.cleaned_data['contact_telephone']
         profile.contact_street = self.cleaned_data['contact_street']
         profile.contact_location = self.cleaned_data['contact_location']

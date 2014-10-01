@@ -18,11 +18,7 @@
 
   <div class="alert alert-info">
     {% if paginator.count %}
-      <p>{% blocktrans with query=query count num=paginator.count %}
-        {{ num }} result for "{{ query }}".
-        {% plural %}
-        {{ num }} results for "{{ query }}".
-      {% endblocktrans %}</p>
+      <p>{% blocktrans with query=query count num=paginator.count %}{{ num }} result for "{{ query }}".{% plural %}{{ num }} results for "{{ query }}".{% endblocktrans %}</p>
     {% else %}
       {% if query %}
         <p>{% blocktrans with query=query %}No results found for "{{ query }}".{% endblocktrans %}</p>
