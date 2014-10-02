@@ -61,11 +61,20 @@
   </div>
   <div>
     {% if group.caravan %}
-    <a href="{% url 'caravan-detail' group=group.slug %}">{{ group.name }} - Details</a>
+    <a href="{% url 'caravan-detail' group=group.slug %}" class="btn btn-primary">{% trans "Details" %}</a>
+      {% if user.is_superuser or user|is_group_admin:group %}
+      <a href="{% url 'caravan-edit' group=group.slug %}" class="btn btn-primary">{% trans "Edit" %}</a>
+      {% endif %}
     {% elif group.profile %}
-    <a href="{% url 'community-detail' group=group.slug %}">{{ group.name }} - Details</a>
+    <a href="{% url 'community-detail' group=group.slug %}" class="btn btn-primary">{% trans "Details" %}</a>
+      {% if user.is_superuser or user|is_group_admin:group %}
+      <a href="{% url 'community-edit' group=group.slug %}" class="btn btn-primary">{% trans "Edit" %}</a>
+      {% endif %}
     {% else %}
-    <a href="{% url 'cosinnus:group-detail' group=group.slug %}">{{ group.name }} - Details</a>
+    <a href="{% url 'cosinnus:group-detail' group=group.slug %}" class="btn btn-primary">{% trans "Details" %}</a>
+      {% if user.is_superuser or user|is_group_admin:group %}
+      <a href="{% url 'cosinnus:group-edit' group=object.slug %}" class="btn btn-primary">{% trans "Edit" %}</a>
+      {% endif %}
     {% endif %}
   </div>
 {% endblock %}
