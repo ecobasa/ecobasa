@@ -2,14 +2,23 @@
 from __future__ import unicode_literals
 
 from django import forms
+from django.conf import settings
 from userprofiles.forms import RegistrationForm
 
 from cosinnus.forms.widgets import DateL10nPicker
 from cosinnus.models import (CosinnusGroup, CosinnusGroupMembership,
-    MEMBERSHIP_ADMIN)
+    MEMBERSHIP_ADMIN, MEMBERSHIP_MEMBER)
 
 from ..models import (EcobasaUserProfile, EcobasaCommunityProfile,
     EcobasaCommunityProfileSeed)
+
+
+def add_to_special_group(user):
+    """Adds the given user to Ecobasa's special group."""
+    special_pk = settings.ECOBASA_SPECIAL_COSINNUS_GROUP
+    special_group = CosinnusGroup.objects.filter(pk=special_pk)[0]
+    CosinnusGroupMembership.objects.create(
+        user=user, group=special_group, status=MEMBERSHIP_MEMBER)
 
 
 class RegistrationMemberForm(RegistrationForm):
@@ -63,6 +72,9 @@ class RegistrationMemberForm(RegistrationForm):
             profile.products.add(tag)
 
         profile.save()
+
+        # add pioneer user to special group
+        add_to_special_group(new_user)
 
 
 class RegistrationCommunityForm(RegistrationForm):
@@ -138,3 +150,6 @@ class RegistrationCommunityForm(RegistrationForm):
         for formset in formsets:
             if formset.is_valid():
                 formset.save()
+
+        # add ambassador user to special group
+        add_to_special_group(new_user)
