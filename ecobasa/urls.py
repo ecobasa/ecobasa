@@ -53,7 +53,7 @@ urlpatterns = i18n_patterns('',
 
     url(r'^$', 'cms.views.details', {'slug': ''}),
 
-    url(r'^about/', 'ecobasa.views.note_list', name='about'),
+    url(r'^about/', 'ecobasa.views.about', name='about'),
 )
 
 

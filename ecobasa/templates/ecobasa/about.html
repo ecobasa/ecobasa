@@ -49,10 +49,13 @@
   {{ block.super }}
 <script type="text/javascript" src="{% static "js/bus.js" %}"></script>
 <script type="application/javascript">
+// be aware that the months are numbered 0 through 11 numerically in JS
+  var progress_start = new Date({{ tour_start.year }}, {{ tour_start.month }} - 1, {{ tour_start.day }});
+  var progress_end = new Date({{ tour_end.year }}, {{ tour_end.month }} - 1, {{ tour_end.day }});
   var blog_posts = [
     {% for post in object_list %}
           {
-              date: new Date({{ post.created|date:"Y, m, d" }}),
+              date: new Date({{ post.created.year }}, {{ post.created.month }} - 1, {{ post.created.day }}),
               title: '{{ post.title }}',
               url: '{% url "cosinnus:note:note" group=post.group.slug slug=post.slug %}'
           },
