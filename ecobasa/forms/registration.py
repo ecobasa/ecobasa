@@ -84,7 +84,7 @@ class RegistrationCommunityForm(RegistrationForm):
         name = self.cleaned_data['name']
 
         # set up cosinnus group and admin user
-        community = CosinnusGroup.objects.create(name=name, public=False)
+        community = CosinnusGroup.objects.create(name=name, public=True)
         CosinnusGroupMembership.objects.create(
             user=new_user, group=community, status=MEMBERSHIP_ADMIN)
 
