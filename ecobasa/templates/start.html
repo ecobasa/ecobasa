@@ -15,27 +15,27 @@
   <div class="gradient">
     <div class="container content">
     	<div class="row">
-    		<div class="col-xs-6">
+    		<div class="col-xs-12 col-md-6">
           {% placeholder description %}
     		</div>
-    		<div class="col-xs-6">
+    		<div class="col-xs-12 col-md-6">
     			<h2>{% trans "Communities that want to be visited" %}</h2>
     			<div id="community-map" class="community-map-middle"></div>
     		</div>
     	</div>
     		<div class="row">
-    			<div class="col-xs-6">
+    			<div class="col-xs-12 col-md-6">
             {% placeholder register_community %}
     			</div>
-    			<div class="col-xs-6">
+    			<div class="col-xs-12 col-md-6">
             {% placeholder register_individual %}
     			</div>
     		</div>
         <div class="row">
-          <div class="col-xs-6">
+          <div class="col-xs-12 col-md-6">
             <a href="{% url 'register-community' %}" class="register btn btn-primary btn-lg">{% trans "Register as an ambassador" %}</a>
           </div>
-          <div class="col-xs-6">
+          <div class="col-xs-12 col-md-6">
             <a href="{% url 'register-member' %}" class="register btn btn-primary btn-lg">{% trans "Register as a pioneer" %}</a>
           </div>
         </div>

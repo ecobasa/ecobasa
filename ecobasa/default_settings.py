@@ -120,7 +120,7 @@ THUMBNAIL_ALIASES = {
         'bus_medium': {'size': (200, 200), 'crop': True, 'upscale': True },
         'event': {'size': (70, 70), 'crop': True, 'upscale': True },
         'note_large': {'size': (1140, 400), 'crop': True, 'upscale': True },
-        'note_medium': {'size': (250, 180), 'crop': True, 'upscale': True },
+        'note_medium': {'size': (350, 250), 'crop': True, 'upscale': True },
         'slideshow': {'size': (1920, 700), 'crop': True, 'upscale': True },
     },
 }
@@ -146,7 +146,7 @@ TEMPLATE_DIRS = (
 
 CMS_TEMPLATES = (
     ('start.html', 'Startpage'),
-    ('about.html', 'About'),
+    ('ecobasa/about.html', 'About'),
 )
 
 LANGUAGES = (

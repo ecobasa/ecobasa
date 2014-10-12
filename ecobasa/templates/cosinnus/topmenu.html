@@ -10,7 +10,6 @@
     {% include "cosinnus/brand.html" %}
   </div>
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    <div class="col-md-6">
       <ul class="nav navbar-nav">
         <li><a href="{% url 'pages-details-by-slug' slug='about' %}">{% trans "About the tour" %}</a></li>
         <li><a href="{% url 'community-list' %}">{% trans "Communities" %}</a></li>
@@ -19,29 +18,27 @@
         <li><a href="{% url 'caravan-list' %}">{% trans "Caravans" %}</a></li>
         <li><a href="{% url 'find' %}"><span class="glyphicon glyphicon-search"></span></a></li>
       </ul>
-    </div>
-    <ul class="nav navbar-nav navbar-right">
-
-      <li id="language-chooser" class="dropdown">
-        {% language_chooser %}
-      </li>
-
-      {% if request.user.is_authenticated %}
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ request.user|full_name }} <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="{% url 'pioneer-detail' request.user.username %}"><span class="glyphicon glyphicon-user"></span> {% trans "Profile" %}</a></li>
-            <!-- <li><a href="{% url 'cosinnus:user-dashboard' %}">{% trans "Dashboard" %}</a></li> -->
-            <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-out"></span> {% trans "Logout" %}</a></li>
-          </ul>
+      <ul class="nav navbar-nav pull-right">
+        <li id="language-chooser" class="dropdown">
+          {% language_chooser %}
         </li>
-      {% else %}
-        <li class="dropdown">
-          <a href="{% url 'register' %}"><span class="glyphicon glyphicon-user"></span> {% trans "Register" context "the verb"  %}</a>
-        </li>
-        <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> {% trans "Login" %}</a></li>
-      {% endif %}
-    </ul>
+
+        {% if request.user.is_authenticated %}
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ request.user|full_name }} <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="{% url 'pioneer-detail' request.user.username %}"><span class="glyphicon glyphicon-user"></span> {% trans "Profile" %}</a></li>
+              <!-- <li><a href="{% url 'cosinnus:user-dashboard' %}">{% trans "Dashboard" %}</a></li> -->
+              <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-out"></span> {% trans "Logout" %}</a></li>
+            </ul>
+          </li>
+        {% else %}
+          <li class="dropdown">
+            <a href="{% url 'register' %}"><span class="glyphicon glyphicon-user"></span> {% trans "Register" context "the verb"  %}</a>
+          </li>
+          <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> {% trans "Login" %}</a></li>
+        {% endif %}
+      </ul>
   </div>
 </nav>
 {% if request.user.is_authenticated %}
