@@ -2,6 +2,7 @@ from django.conf import settings
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.conf.urls.i18n import i18n_patterns
+from django.utils.translation import ugettext_lazy as _
 from haystack.views import search_view_factory
 
 from .views import FindView
@@ -10,7 +11,7 @@ admin.autodiscover()
 
 
 urlpatterns = i18n_patterns('',
-    url(r'^about/', 'ecobasa.views.about', name='about'),
+    url(_(r'^about/'), 'ecobasa.views.about', name='about'),
     url(r'^accounts/register/$',
         'ecobasa.views.register', name='register'),
     url(r'^accounts/register/community',
