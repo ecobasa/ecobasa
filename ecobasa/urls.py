@@ -10,6 +10,7 @@ admin.autodiscover()
 
 
 urlpatterns = i18n_patterns('',
+    url(r'^about/', 'ecobasa.views.about', name='about'),
     url(r'^accounts/register/$',
         'ecobasa.views.register', name='register'),
     url(r'^accounts/register/community',
@@ -52,8 +53,6 @@ urlpatterns = i18n_patterns('',
     url(r'^messages/', include('cosinnus_message.postman_urls')),
 
     url(r'^$', 'cms.views.details', {'slug': ''}),
-
-    url(r'^about/', 'ecobasa.views.about', name='about'),
 )
 
 
