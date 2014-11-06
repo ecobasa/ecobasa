@@ -11,9 +11,10 @@ from django.views.generic import ListView, DetailView, RedirectView
 
 from cosinnus.models import CosinnusGroup
 from cosinnus_note.models import Note
+from cosinnus.views.mixins.tagged import TaggedListMixin
 
 
-class BlogView(ListView):
+class BlogView(ListView, TaggedListMixin):
     template_name = 'ecobasa/blog.html'
     model = Note
 

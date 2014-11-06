@@ -9,6 +9,19 @@
 
 {% block content %}
 <div class="row">
+  <div class="col-xs-12">
+    {% for post in object_list %}
+      {% if post.tags %}
+      {% for tag in tags %}
+        <a href="{% url 'cosinnus:note:list-filtered' group=group.slug tag=tag.slug %}"><span class="label">{{ tag.name }}</span></a>
+      {% endfor %}
+      {% else %}
+        {% trans "No tags available." %}
+      {% endif %}
+    {% endfor %}
+  </div>  
+</div>
+<div class="row">
   <div class="posts col-xs-12">
   <h2>{% trans "Blog Posts" %}</h2>
   {% for post in object_list %}
