@@ -10,27 +10,11 @@
     {% include "cosinnus/brand.html" %}
   </div>
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    <div class="col-md-5 pull-right">
+    <div class="col-md-5 col-md-offset-1">
       <ul class="nav navbar-nav">
-        <li><a href="mailto:info@ecobasa.org"><span class="glyphicon glyphicon-envelope"></span>   {% trans "Contact" %}</a></li>
-        <li><a href="https://www.facebook.com/pages/ecobasaorg/140582879337656"><i class="fa fa-facebook"></i></a></li>
-        {% if group %}
-          {% url 'community-dashboard' group=group.slug as dashboard_url %}
-          <li {% ifequal dashboard_url request.path %} class="active"{% endifequal %}><a href="{{ dashboard_url }}">{% trans "Community Dashboard" %}</a></li>
-        {% endif %}
-        {% for app in apps %}
-          <li{% if app.active %} class="active"{% endif %}><a href="{{ app.url }}">{{ app.label }}</a></li>
-        {% endfor %}
-      </ul>
-    </div>
-  </div>
-  <!-- <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    <div class="col-md-5">
-      <ul class="nav navbar-nav">
-        <li><a href="{% url 'pages-details-by-slug' slug='about' %}">{% trans "About the tour" %}</a></li>
-        <li><a href="{% url 'community-list' %}">{% trans "Communities" %}</a></li>
-        <li><a href="{% url 'pioneer-list' %}">{% trans "Pioneers" %}</a></li>
-        <li><a href="{% url 'bus-list' %}">{% trans "Buses" %}</a></li>
+        <li><a data-toggle="modal" data-target="#about" href="#"><span class="glyphicon glyphicon-info-sign"></span> {% trans "About the platform" %}</a></li>
+        <li><a href="http://blog.ecobasa.org/"><span class="glyphicon glyphicon-heart"></span> {% trans "Blog" %}</a></li>
+        <li><a data-toggle="modal" data-target="#newsletter" href="#"><span class="glyphicon glyphicon-envelope"></span> {% trans "Newsletter" %}</a></li>
         {% if group %}
           {% url 'community-dashboard' group=group.slug as dashboard_url %}
           <li {% ifequal dashboard_url request.path %} class="active"{% endifequal %}><a href="{{ dashboard_url }}">{% trans "Community Dashboard" %}</a></li>
@@ -46,7 +30,7 @@
         {% language_chooser %}
       </li>
 
-      {% if request.user.is_authenticated %}
+      <!-- {% if request.user.is_authenticated %}
         {% if groups %}
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">{% if groups >= 1 %}{% trans "My Communities" %}{% else %}{% trans "My Community" %}{% endif %}{% if group %} <strong>({{ group }})</strong>{% endif %} <b class="caret"></b></a>
@@ -63,8 +47,8 @@
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ request.user|full_name }} <b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li><a href="{% url 'pioneer-detail' request.user.username %}"><span class="glyphicon glyphicon-user"></span> {% trans "Profile" %}</a></li>
-            <!-- <li><a href="{% url 'cosinnus:user-dashboard' %}">{% trans "Dashboard" %}</a></li> -->
-            <!-- <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-out"></span> {% trans "Logout" %}</a></li>
+            <li><a href="{% url 'cosinnus:user-dashboard' %}">{% trans "Dashboard" %}</a></li>
+            <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-out"></span> {% trans "Logout" %}</a></li>
           </ul>
         </li>
       {% else %}
@@ -72,7 +56,7 @@
           <a href="{% url 'register' %}"><span class="glyphicon glyphicon-user"></span> {% trans "Register" context "the verb"  %}</a>
         </li>
         <li><a href="{% url 'login' %}"><span class="glyphicon glyphicon-log-in"></span> {% trans "Login" %}</a></li>
-      {% endif %}
+      {% endif %} -->
     </ul>
-  </div> -->
+  </div>
 </nav>
