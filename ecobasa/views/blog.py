@@ -9,12 +9,16 @@ from django.utils.decorators import method_decorator
 from django.utils.timezone import utc
 from django.views.generic import ListView, DetailView, RedirectView
 
+from extra_views import SortableListMixin
+
 from cosinnus.models import CosinnusGroup
 from cosinnus_note.models import Note
+from cosinnus.views.mixins.group import FilterGroupMixin
 from cosinnus.views.mixins.tagged import TaggedListMixin
 
 
-class BlogView(ListView, TaggedListMixin):
+class BlogView(FilterGroupMixin, TaggedListMixin,
+                   SortableListMixin, ListView):
     template_name = 'ecobasa/blog.html'
     model = Note
 
@@ -23,7 +27,9 @@ class BlogView(ListView, TaggedListMixin):
 
     def get_queryset(self):
         # only public notes
-        qs = self.model.objects.filter(media_tag__public=True)
+        qs = self.model.objects.filter(media_tag__public=True).prefetch_related('tags')
+        if self.tag:
+            qs = qs.filter(tags=self.tag)
         return qs
 
     def get_context_data(self, **kwargs):

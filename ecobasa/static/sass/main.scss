@@ -270,6 +270,12 @@ a[data-toggle=tooltip] {
 	top: -15px;
 }
 
+/*************** Blog *******************/
+
+.tags {
+	margin-bottom: 60px;
+}
+
 /***************Communities**************/
 
 .community-map-small { 
@@ -499,10 +505,6 @@ body#profile {
 	.panel {
 		border: 1px dotted $primary;
 	}
-}
-
-.container.content {
-	padding-top: 70px;
 }
 
 ul#postman_menu {

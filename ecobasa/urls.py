@@ -11,8 +11,9 @@ admin.autodiscover()
 
 
 urlpatterns = i18n_patterns('',
-    url(_(r'^about/'), 'ecobasa.views.about', name='about'),
-    url(r'^blog/', 'ecobasa.views.blog', name='blog'),
+    url(_(r'^about/$'), 'ecobasa.views.about', name='about'),
+    url(r'^blog/$', 'ecobasa.views.blog', name='blog'),
+    url(r'^blog/(?P<tag>[^/]+)/$', 'ecobasa.views.blog', name='blog_filtered'),
     url(r'^accounts/register/$',
         'ecobasa.views.register', name='register'),
     url(r'^accounts/register/community',

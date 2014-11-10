@@ -247,6 +247,11 @@ a[data-toggle=tooltip] {
   top: -15px;
 }
 
+/*************** Blog *******************/
+.tags {
+  margin-bottom: 60px;
+}
+
 /***************Communities**************/
 .community-map-small {
   height: 300px;
@@ -462,10 +467,6 @@ body#profile img.avatar {
 }
 #dashboard .panel {
   border: 1px dotted #da6137;
-}
-
-.container.content {
-  padding-top: 70px;
 }
 
 ul#postman_menu {
