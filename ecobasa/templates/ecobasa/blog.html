@@ -11,6 +11,9 @@
 <div class="row tags">
   <div class="col-xs-12">
     <h2>{% trans "Blog Posts" %}</h2>
+    {% if tag %}
+    <a href="/blog/"><span class="label">Show all blog-posts</span></a>
+    {% endif %}
     {% for post in object_list %}
       {% if post.tags %}
       {% for tag in post.tags.all %}
