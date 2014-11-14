@@ -1,5 +1,5 @@
 {% extends "cosinnus/base.html" %}
-{% load i18n thumbnail cosinnus_tags %}
+{% load i18n thumbnail cosinnus_tags embed_video_tags %}
 
 {% block page_title %}
   {% blocktrans %}Community-Tours Blog{% endblocktrans %}
@@ -29,6 +29,26 @@
   <div class="posts col-xs-12">
   {% for post in object_list %}
   <div class="post row">
+    {% if object.video %}
+    <!-- see http://django-embed-video.readthedocs.org/en/latest/examples.html#template-examples -->
+    <div class="col-xs-12 col-sm-4">
+      <a href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">
+        {% video post.video as my_video %}
+            {{ my_video|embed:'medium' }}
+        {% endvideo %}
+      </a>
+    </div>
+    <div class="col-xs-12 col-sm-8">
+      <a href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">
+        <h3>{{ post.title }}</h3>
+      </a>
+      <span class="details">
+        written by <a href="{% url 'pioneer-detail' username=post.creator.get_username %}">{{ post.creator.get_full_name|default:post.creator.username }}</a> on {{ post.created }} in <a href="{% url 'caravan-detail' group=post.group.slug %}">{{ post.group.slug }}</a>
+      </span>
+      {{ post.text|urlize|linebreaksbr|safe|truncatewords:80 }}</br>
+      <a class="more" href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">read more</a>
+    </div>
+    {% endif %}
     {% if post.image %}
         <div class="col-xs-12 col-sm-4">
           <a href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">
@@ -45,7 +65,6 @@
           {{ post.text|urlize|linebreaksbr|safe|truncatewords:80 }}</br>
           <a class="more" href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">read more</a>
         </div>
-      </a>
     {% else %}
         <div class="col-xs-12">
           <a href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">
@@ -57,7 +76,6 @@
           {{ post.text|urlize|linebreaksbr|safe|truncatewords:80 }}</br>
           <a class="more" href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">read more</a>
         </div>
-    </a>
     {% endif %}
   </div>
   {% endfor %}
