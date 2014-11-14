@@ -29,13 +29,15 @@
   <div class="posts col-xs-12">
   {% for post in object_list %}
   <div class="post row">
-    {% if object.video %}
+    {% if post.video %}
     <!-- see http://django-embed-video.readthedocs.org/en/latest/examples.html#template-examples -->
     <div class="col-xs-12 col-sm-4">
       <a href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">
-        {% video post.video as my_video %}
-            {{ my_video|embed:'medium' }}
-        {% endvideo %}
+        <div class="video-responsive">
+          {% video post.video as my_video %}
+              {{ my_video|embed:'tiny' }}
+          {% endvideo %}
+      </div>
       </a>
     </div>
     <div class="col-xs-12 col-sm-8">
@@ -48,8 +50,7 @@
       {{ post.text|urlize|linebreaksbr|safe|truncatewords:80 }}</br>
       <a class="more" href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">read more</a>
     </div>
-    {% endif %}
-    {% if post.image %}
+    {% elif post.image %}
         <div class="col-xs-12 col-sm-4">
           <a href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">
             <img src="{{ post.image|thumbnail_url:"note_medium" }}" alt="{{ post.title }}" width="100%"/>
