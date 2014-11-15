@@ -171,6 +171,10 @@ nav.navbar.navbar-sub ul.dropdown-menu {
   width: auto;
 }
 
+.container.content {
+  margin-top: 60px;
+}
+
 /*********** Startpage ****************/
 body#start > .container {
   padding-top: 0px;
