@@ -388,13 +388,14 @@ class EcobasaCommunityProfile(models.Model):
         editable=False, related_name='profile')
     # mandatory name!
     name = models.CharField(_('name of community'), max_length=255)
-    website = models.URLField(_('link of your communities website'), max_length=100)
+    website = models.URLField(_('link of your communities website'), max_length=100,
+        blank=True, null=True)
     image = ThumbnailerImageField(
         verbose_name=_('image'),
         help_text=_('Header image for the community-profile, minimum resolution 1200x400'),
         upload_to='community_images',
-        null=True,
-        blank=True)
+        blank=True,
+        null=True)
     video = models.URLField(
         verbose_name=_('Video'),
         help_text=_('Link to a video showing your community'),
