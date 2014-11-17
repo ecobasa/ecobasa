@@ -136,7 +136,28 @@
   {% endif %}</h2>
   {% for post in posts %}
   <div class="post row">
-    {% if post.image %}
+    {% if post.video %}
+    <!-- see http://django-embed-video.readthedocs.org/en/latest/examples.html#template-examples -->
+    <div class="col-xs-12 col-sm-4">
+      <a href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">
+        <div class="video-responsive">
+          {% video post.video as my_video %}
+              {{ my_video|embed:'tiny' }}
+          {% endvideo %}
+      </div>
+      </a>
+    </div>
+    <div class="col-xs-12 col-sm-8">
+      <a href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">
+        <h3>{{ post.title }}</h3>
+      </a>
+      <span class="details">
+        written by <a href="{% url 'pioneer-detail' username=post.creator.get_username %}">{{ post.creator.get_full_name|default:post.creator.username }}</a> on {{ post.created }} in <a href="{% url 'caravan-detail' group=post.group.slug %}">{{ post.group.slug }}</a>
+      </span>
+      {{ post.text|urlize|linebreaksbr|safe|truncatewords:80 }}</br>
+      <a class="more" href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">read more</a>
+    </div>
+    {% elif post.image %}
         <div class="col-xs-12 col-sm-4">
           <a href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">
             <img src="{{ post.image|thumbnail_url:"note_medium" }}" alt="{{ post.title }}" width="100%"/>
