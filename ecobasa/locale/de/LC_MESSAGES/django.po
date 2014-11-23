@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-23 15:04+0100\n"
-"PO-Revision-Date: 2014-11-23 15:05+0200\n"
+"POT-Creation-Date: 2014-11-23 18:08+0100\n"
+"PO-Revision-Date: 2014-11-23 18:07+0200\n"
 "Last-Translator: Sebastian Henschel <ecobasa@kodeaffe.de\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: de\n"
@@ -72,7 +72,7 @@ msgstr "Neues Passwort (Bestätigung)"
 msgid "Email"
 msgstr "Email"
 
-#: models/caravan.py:25 templates/ecobasa/caravan_detail.html:97
+#: models/caravan.py:25 templates/ecobasa/caravan_detail.html:100
 #: templates/ecobasa/community_detail.html:87
 msgid "Offers"
 msgstr "Angebote"
@@ -85,11 +85,19 @@ msgstr ""
 "Falls die Karawane auf dem Weg Dinge einsammelt, wissen die Gemeinschaften "
 "was mitgebracht wird."
 
-#: models/caravan.py:34 templates/ecobasa/caravan_list.html:16
+#: models/caravan.py:30 templates/cosinnus_event/event_detail.html:40
+msgid "Image"
+msgstr "Bild"
+
+#: models/caravan.py:31
+msgid "An image of the caravan."
+msgstr ""
+
+#: models/caravan.py:39 templates/ecobasa/caravan_list.html:16
 msgid "Caravan"
 msgstr "Karawane"
 
-#: models/caravan.py:35 templates/cosinnus/topmenu.html:25
+#: models/caravan.py:40 templates/cosinnus/topmenu.html:25
 #: templates/ecobasa/caravan_list.html:4
 msgid "Caravans"
 msgstr "Karawanen"
@@ -1381,12 +1389,12 @@ msgstr "Konfigurieren"
 #: templates/cosinnus_note/note_list.html:62
 #: templates/cosinnus_todo/todoentry_detail.html:86
 #: templates/cosinnus_todo/todoentry_list.html:81
-#: templates/ecobasa/caravan_detail.html:30
-#: templates/ecobasa/caravan_detail.html:61
-#: templates/ecobasa/caravan_detail.html:170
-#: templates/ecobasa/caravan_detail.html:193
-#: templates/ecobasa/caravan_detail.html:231
-#: templates/ecobasa/caravan_detail.html:256
+#: templates/ecobasa/caravan_detail.html:33
+#: templates/ecobasa/caravan_detail.html:64
+#: templates/ecobasa/caravan_detail.html:173
+#: templates/ecobasa/caravan_detail.html:196
+#: templates/ecobasa/caravan_detail.html:246
+#: templates/ecobasa/caravan_detail.html:271
 #: templates/ecobasa/caravan_list.html:59
 #: templates/ecobasa/community_detail.html:57
 msgid "Delete"
@@ -1415,9 +1423,9 @@ msgstr ""
 #: templates/cosinnus_note/note_list.html:61
 #: templates/cosinnus_todo/todoentry_detail.html:85
 #: templates/cosinnus_todo/todoentry_list.html:80
-#: templates/ecobasa/caravan_detail.html:27
-#: templates/ecobasa/caravan_detail.html:169
-#: templates/ecobasa/caravan_detail.html:192
+#: templates/ecobasa/caravan_detail.html:30
+#: templates/ecobasa/caravan_detail.html:172
+#: templates/ecobasa/caravan_detail.html:195
 #: templates/ecobasa/caravan_list.html:57
 #: templates/ecobasa/community_detail.html:54
 msgid "Edit"
@@ -1440,7 +1448,7 @@ msgid "Pioneers"
 msgstr "Pioniere"
 
 #: templates/cosinnus/topmenu.html:24 templates/ecobasa/bus_list.html:4
-#: templates/ecobasa/caravan_detail.html:71
+#: templates/ecobasa/caravan_detail.html:74
 #: templates/ecobasa/caravan_list.html:19
 msgid "Buses"
 msgstr "Busse"
@@ -1536,7 +1544,7 @@ msgstr "Keine Tags verfügbar"
 #: templates/cosinnus_etherpad/etherpad_list.html:31
 #: templates/cosinnus_event/event_list.html:27
 #: templates/cosinnus_todo/todoentry_list.html:27
-#: templates/ecobasa/caravan_detail.html:28
+#: templates/ecobasa/caravan_detail.html:31
 #: templates/ecobasa/community_detail.html:55
 msgctxt "the verb"
 msgid "Export"
@@ -1586,10 +1594,6 @@ msgstr "Status"
 msgid "Note"
 msgstr "Notiz"
 
-#: templates/cosinnus_event/event_detail.html:40
-msgid "Image"
-msgstr "Bild"
-
 #: templates/cosinnus_event/event_detail.html:53
 msgid "Street"
 msgstr "Strasse"
@@ -1616,8 +1620,8 @@ msgstr "Keine Stimmen für diesen Vorschlag"
 #: templates/cosinnus_note/note_list.html:41
 #: templates/cosinnus_todo/todoentry_detail.html:83
 #: templates/cosinnus_todo/todoentry_list.html:50
-#: templates/ecobasa/caravan_detail.html:167
-#: templates/ecobasa/caravan_detail.html:190
+#: templates/ecobasa/caravan_detail.html:170
+#: templates/ecobasa/caravan_detail.html:193
 #: templates/ecobasa/caravan_list.html:20
 msgid "Actions"
 msgstr "Aktionen"
@@ -1637,7 +1641,7 @@ msgstr "Veranstaltung hinzufügen"
 #: templates/cosinnus_event/event_list.html:26
 #: templates/cosinnus_note/note_list.html:21
 #: templates/cosinnus_todo/todoentry_list.html:26
-#: templates/ecobasa/bus_add.html:39 templates/ecobasa/caravan_detail.html:230
+#: templates/ecobasa/bus_add.html:39 templates/ecobasa/caravan_detail.html:245
 msgid "Add"
 msgstr "Hinzufügen"
 
@@ -1647,7 +1651,7 @@ msgid "Save"
 msgstr "Speichern"
 
 #: templates/cosinnus_event/event_form.html:93
-#: templates/ecobasa/bus_add.html:40 templates/ecobasa/caravan_form.html:52
+#: templates/ecobasa/bus_add.html:40 templates/ecobasa/caravan_form.html:57
 #: templates/ecobasa/community_form.html:159
 #: templates/ecobasa/pioneer_form.html:61
 msgid "Cancel"
@@ -1659,6 +1663,7 @@ msgstr "Vorschlag hinzufügen"
 
 #: templates/cosinnus_event/event_list.html:5
 #: templates/cosinnus_event/event_list.html:10
+#: templates/ecobasa/caravan_detail.html:220
 msgid "Events"
 msgstr "Veranstaltungen"
 
@@ -1681,8 +1686,8 @@ msgstr "Kopfelement"
 
 #: templates/cosinnus_note/note_detail.html:57
 #: templates/cosinnus_note/note_list.html:63
-#: templates/ecobasa/caravan_detail.html:172
-#: templates/ecobasa/caravan_detail.html:195
+#: templates/ecobasa/caravan_detail.html:175
+#: templates/ecobasa/caravan_detail.html:198
 msgid "Comment"
 msgstr "Kommentar"
 
@@ -1823,13 +1828,25 @@ msgid "Announcements"
 msgstr "Ankündigungen"
 
 #: templates/ecobasa/blog.html:5
-#, fuzzy
 msgid "Community-Tours Blog"
-msgstr "Community-Tours:"
+msgstr "Community-Tours Blog"
 
-#: templates/ecobasa/blog.html:13 templates/ecobasa/caravan_detail.html:132
+#: templates/ecobasa/blog.html:13 templates/ecobasa/caravan_detail.html:135
 msgid "Blog Posts"
 msgstr "Blog-Nachrichten"
+
+#: templates/ecobasa/blog.html:15
+msgid "Show all blog-posts"
+msgstr "Alle Blog-Nachrichten anzeigen"
+
+#: templates/ecobasa/blog_post.html:23
+#, python-format
+msgid ""
+"written by <a href=\"%(pioneer_detail)s\">%(pioneer_name)s</a> on "
+"%(created)s in <a href=\"%(group_url)s\">%(group_slug)s</a>"
+msgstr ""
+"geschrieben von <a href=\"%(pioneer_detail)s\">%(pioneer_name)s</a> am "
+"%(created)s in <a href=\"%(group_url)s\">%(group_slug)s</a>"
 
 #: templates/ecobasa/bus_add.html:4
 msgid "Add your bus"
@@ -1883,65 +1900,65 @@ msgstr "Karawane “%(group_name)s”"
 msgid "%(name)s"
 msgstr "%(name)s"
 
-#: templates/ecobasa/caravan_detail.html:19
+#: templates/ecobasa/caravan_detail.html:22
 #, python-format
 msgid "Caravan %(name)s"
 msgstr "Karawane “%(name)s”"
 
-#: templates/ecobasa/caravan_detail.html:22
+#: templates/ecobasa/caravan_detail.html:25
 #: templates/ecobasa/caravan_list.html:49
 msgid "Leave"
 msgstr "Verlassen"
 
-#: templates/ecobasa/caravan_detail.html:24
+#: templates/ecobasa/caravan_detail.html:27
 #: templates/ecobasa/caravan_list.html:51
 msgid "Join"
 msgstr "Beitreten"
 
-#: templates/ecobasa/caravan_detail.html:33
+#: templates/ecobasa/caravan_detail.html:36
 #: templates/ecobasa/community_detail.html:60
 #: templates/ecobasa/pioneer_list.html:4
 msgid "Users"
 msgstr "Nutzer"
 
-#: templates/ecobasa/caravan_detail.html:35
+#: templates/ecobasa/caravan_detail.html:38
 #: templates/ecobasa/community_detail.html:62
 #: templates/ecobasa/pioneer_list.html:16
 msgid "Add user"
 msgstr "Nutzer hinzufügen"
 
-#: templates/ecobasa/caravan_detail.html:46
+#: templates/ecobasa/caravan_detail.html:49
 #: templates/ecobasa/caravan_list.html:18
 msgid "Members"
 msgstr "Mitglieder"
 
-#: templates/ecobasa/caravan_detail.html:60
-#: templates/ecobasa/caravan_detail.html:255
+#: templates/ecobasa/caravan_detail.html:63
+#: templates/ecobasa/caravan_detail.html:270
 msgid "Change"
 msgstr "Ändern"
 
-#: templates/ecobasa/caravan_detail.html:108
+#: templates/ecobasa/caravan_detail.html:111
 #: templates/ecobasa/community_list.html:35
 #: templates/ecobasa/pioneer_detail.html:27
 #: templates/ecobasa/pioneer_list.html:24
 msgid "Skills"
 msgstr "Fertigkeiten"
 
-#: templates/ecobasa/caravan_detail.html:118
+#: templates/ecobasa/caravan_detail.html:121
 #: templates/ecobasa/pioneer_detail.html:33
 msgid "Products"
 msgstr "Produkte"
 
-#: templates/ecobasa/caravan_detail.html:133
+#: templates/ecobasa/caravan_detail.html:136
 msgid "Write a Blogpost"
 msgstr "Blogge eine Nachricht"
 
-#: templates/ecobasa/caravan_detail.html:216
+#: templates/ecobasa/caravan_detail.html:231
 #: templates/ecobasa/community_detail.html:230
 msgid "Pending users"
 msgstr "Gruppen-Bewerber"
 
-#: templates/ecobasa/caravan_detail.html:241
+#: templates/ecobasa/caravan_detail.html:256
 msgid "Admins"
 msgstr "Administratoren"
 
@@ -1951,7 +1968,7 @@ msgstr "Administratoren"
 msgid "Edit caravan “%(name)s”"
 msgstr "Karawane “%(name)s” bearbeiten"
 
-#: templates/ecobasa/caravan_form.html:51
+#: templates/ecobasa/caravan_form.html:56
 #: templates/ecobasa/community_form.html:158
 #: templates/ecobasa/pioneer_form.html:60
 msgid "Save"

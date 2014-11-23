@@ -20,7 +20,7 @@
       <h3>{{ post.title }}</h3>
     </a>
     <span class="details">
-      {% blocktrans with pioneer_url=pioneer_url pioneer_name=post.creator.get_full_name|default:post.creator.username created=post.created group_url=group_url group_slug=post.group.slug %}written by <a href="{{ pioneer_detail }}">{{ pioneer_name }}</a> on {{ post_created }} in <a href="{{ group_url }}">{{ group_slug }}</a>{% endblocktrans %}
+      {% blocktrans with pioneer_url=pioneer_url pioneer_name=post.creator.get_full_name|default:post.creator.username created=post.created group_url=group_url group_slug=post.group.slug %}written by <a href="{{ pioneer_detail }}">{{ pioneer_name }}</a> on {{ created }} in <a href="{{ group_url }}">{{ group_slug }}</a>{% endblocktrans %}
      </span>
      {{ post.text|urlize|linebreaksbr|safe|truncatewords:80 }}</br>
      <a class="more" href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">read more</a>
