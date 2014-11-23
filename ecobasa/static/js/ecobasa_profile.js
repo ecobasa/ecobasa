@@ -33,5 +33,8 @@ EcobasaProfile = {
 		$("#id_offers_creations").select2({
 			tags: tags.offersCreations, tokenSeparators: [","]
 		});
+		$("#id_wishlist_skills").select2({
+			tags: tags.wishlistSkills, tokenSeparators: [","]
+		});
 	}
 }
