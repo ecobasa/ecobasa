@@ -47,6 +47,11 @@
   </div>
 
   <div class="row">
+    <div class="col-xs-3">{% bootstrap_label form.forms.obj.image.label %}</div>
+    <div class="col-xs-9">{% bootstrap_field form.forms.obj.image show_label=False %}</div>
+  </div>
+
+  <div class="row">
     <div class="col-xs-12">
     {% trans "Save" as submit_label %}
     {% trans "Cancel" as reset_label %}

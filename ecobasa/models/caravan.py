@@ -26,7 +26,12 @@ class Caravan(CosinnusGroup):
         help_text=_('If the caravan collects something on the way for example, communities know what it is coming with.'),
         blank=True,
         through=TaggedOffers)
-
+    image = ThumbnailerImageField(
+        verbose_name=_('Image'),
+        help_text=_('An image of the caravan.'),
+        upload_to='caravans',
+        null=True,
+        blank=True)
 
     class Meta:
         app_label = 'ecobasa'
