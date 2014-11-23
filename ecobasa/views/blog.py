@@ -27,7 +27,8 @@ class BlogView(FilterGroupMixin, TaggedListMixin,
 
     def get_queryset(self):
         # only public notes
-        qs = self.model.objects.filter(media_tag__public=True).prefetch_related('tags')
+        qs = self.model.objects.filter(media_tag__public=True)
+        qs = qs.prefetch_related('tags')
         if self.tag:
             qs = qs.filter(tags=self.tag)
         return qs

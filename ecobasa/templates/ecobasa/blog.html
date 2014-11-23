@@ -1,18 +1,18 @@
 {% extends "cosinnus/base.html" %}
-{% load i18n thumbnail cosinnus_tags embed_video_tags %}
+{% load i18n cosinnus_tags ecobasa_blog %}
 
 {% block page_title %}
   {% blocktrans %}Community-Tours Blog{% endblocktrans %}
 {% endblock %}
 
-{% block body %}Blog{% endblock body %}
+{% block body %}blog{% endblock body %}
 
 {% block content %}
 <div class="row tags">
   <div class="col-xs-12">
     <h2>{% trans "Blog Posts" %}</h2>
     {% if tag %}
-    <a href="/blog/"><span class="label">Show all blog-posts</span></a>
+    <a href="{% url "blog" %}"><span class="label">{% trans "Show all blog-posts" %}</span></a>
     {% endif %}
     {% for post in object_list %}
       {% if post.tags %}
@@ -23,64 +23,11 @@
         {% trans "No tags available." %}
       {% endif %}
     {% endfor %}
-  </div>  
-</div>
-<div class="row">
-  <div class="posts col-xs-12">
-  {% for post in object_list %}
-  <div class="post row">
-    {% if post.video %}
-    <!-- see http://django-embed-video.readthedocs.org/en/latest/examples.html#template-examples -->
-    <div class="col-xs-12 col-sm-4">
-      <a href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">
-        <div class="video-responsive">
-          {% video post.video as my_video %}
-              {{ my_video|embed:'tiny' }}
-          {% endvideo %}
-      </div>
-      </a>
-    </div>
-    <div class="col-xs-12 col-sm-8">
-      <a href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">
-        <h3>{{ post.title }}</h3>
-      </a>
-      <span class="details">
-        written by <a href="{% url 'pioneer-detail' username=post.creator.get_username %}">{{ post.creator.get_full_name|default:post.creator.username }}</a> on {{ post.created }} in <a href="{% url 'caravan-detail' group=post.group.slug %}">{{ post.group.slug }}</a>
-      </span>
-      {{ post.text|urlize|linebreaksbr|safe|truncatewords:80 }}</br>
-      <a class="more" href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">read more</a>
-    </div>
-    {% elif post.image %}
-        <div class="col-xs-12 col-sm-4">
-          <a href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">
-            <img src="{{ post.image|thumbnail_url:"note_medium" }}" alt="{{ post.title }}" width="100%"/>
-          </a>
-        </div>
-        <div class="col-xs-12 col-sm-8">
-          <a href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">
-            <h3>{{ post.title }}</h3>
-          </a>
-          <span class="details">
-            written by <a href="{% url 'pioneer-detail' username=post.creator.get_username %}">{{ post.creator.get_full_name|default:post.creator.username }}</a> on {{ post.created }} in <a href="{% url 'caravan-detail' group=post.group.slug %}">{{ post.group.slug }}</a>
-          </span>
-          {{ post.text|urlize|linebreaksbr|safe|truncatewords:80 }}</br>
-          <a class="more" href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">read more</a>
-        </div>
-    {% else %}
-        <div class="col-xs-12">
-          <a href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">
-            <h3>{{ post.title }}</h3>
-          </a>
-          <span class="details">
-            written by <a href="{% url 'pioneer-detail' username=post.creator.get_username %}">{{ post.creator.get_full_name|default:post.creator.username }}</a> on {{ post.created }} in <a href="{% url 'caravan-detail' group=post.group.slug %}">{{ post.group.slug }}</a>
-          </span>
-          {{ post.text|urlize|linebreaksbr|safe|truncatewords:80 }}</br>
-          <a class="more" href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">read more</a>
-        </div>
-    {% endif %}
-  </div>
-  {% endfor %}
   </div>
 </div>
+
+{% for post in object_list %}
+  {% show_post post %}
+{% endfor %}
 
 {% endblock %}
