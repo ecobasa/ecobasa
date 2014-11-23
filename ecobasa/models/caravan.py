@@ -8,14 +8,25 @@ from easy_thumbnails.fields import ThumbnailerImageField
 from taggit.managers import TaggableManager
 from taggit.models import TaggedItemBase
 
-from cosinnus.models import (
-    BaseUserProfile, BaseUserProfileManager, CosinnusGroup)
+from cosinnus.models import CosinnusGroup
 
 
+
+class TaggedOffers(TaggedItemBase):
+    content_object = models.ForeignKey('Caravan')
+
+    class Meta:
+        app_label = 'ecobasa'
 
 
 @python_2_unicode_compatible
 class Caravan(CosinnusGroup):
+    offers = TaggableManager(
+        verbose_name=_('Offers'),
+        help_text=_('If the caravan collects something on the way for example, communities know what it is coming with.'),
+        blank=True,
+        through=TaggedOffers)
+
 
     class Meta:
         app_label = 'ecobasa'

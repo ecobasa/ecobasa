@@ -8,38 +8,36 @@
 {% block body %}profile{% endblock body %}
 
 {% block content_title %}
-  {% blocktrans with group_name=object.name %}
-  “{{ group_name }}” Caravan
-  {% endblocktrans %}
-  <div class="btn-group pull-right">
-    {% if user|is_group_member:caravan %}
-      <a class="btn btn-primary" href="{% url 'caravan-leave' object.slug %}">{% trans "Leave" %}</a>
-    {% elif user.is_authenticated %}
-      <a class="btn btn-primary" href="{% url 'caravan-join' object.slug %}">{% trans "Join" %}</a>
-    {% endif %}
-  {% if user.is_superuser or user|is_group_admin:object %}
-      <a href="{% url 'cosinnus:group-edit' group=object.slug %}" class="btn btn-primary">{% trans "Edit" %}</a>
-      <a href="{% url 'cosinnus:group-export' group=object.slug %}" class="btn btn-primary">{% trans "Export" context "the verb" %}</a>
-      {% if user.is_superuser %}
-        <a href="{% url 'cosinnus:group-delete' group=object.slug %}" class="btn btn-primary">{% trans "Delete" %}</a>
-      {% endif %}
-      <div class="btn-group">
-        <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">{% trans "Users" %} <span class="caret"></span></a>
-        <ul class="dropdown-menu pull-right" role="menu">
-          <li><a href="{% url 'cosinnus:group-user-add-generic' group=object.slug %}">{% trans "Add user" %}</a></li>
-        </ul>
-      </div>
-      
-    </div>
-  {% endif %}
+  {% blocktrans with name=object.name %}{{ name }}{% endblocktrans %}
 {% endblock content_title %}
 
+
 {% block content %}
-{% with object.cosinnus_profile as profile %}
+
 <div class="row">
   <div class="col-md-12">
-    
-    <h1>{{ object.name }} {% trans "Caravan" %}</h1>
+    <h1>{% blocktrans with name=object.name %}Caravan {{ name }}{% endblocktrans %}</h1>
+    <div class="btn-group pull-right">
+      {% if user|is_group_member:caravan %}
+        <a class="btn btn-primary" href="{% url 'caravan-leave' object.slug %}">{% trans "Leave" %}</a>
+      {% elif user.is_authenticated %}
+        <a class="btn btn-primary" href="{% url 'caravan-join' object.slug %}">{% trans "Join" %}</a>
+      {% endif %}
+      {% if user.is_superuser or user|is_group_admin:object %}
+        <a href="{% url 'caravan-edit' group=object.slug %}" class="btn btn-primary">{% trans "Edit" %}</a>
+        <a href="{% url 'cosinnus:group-export' group=object.slug %}" class="btn btn-primary">{% trans "Export" context "the verb" %}</a>
+        {% if user.is_superuser %}
+          <a href="{% url 'cosinnus:group-delete' group=object.slug %}" class="btn btn-primary">{% trans "Delete" %}</a>
+        {% endif %}
+        <div class="btn-group">
+          <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">{% trans "Users" %} <span class="caret"></span></a>
+          <ul class="dropdown-menu pull-right" role="menu">
+            <li><a href="{% url 'cosinnus:group-user-add-generic' group=object.slug %}">{% trans "Add user" %}</a></li>
+          </ul>
+        </div>
+      </div>
+    {% endif %}
+
     <p>{{ object.description|linebreaksbr }}</p>
   </div>
 </div>
@@ -97,10 +95,10 @@
 <div class="row">
   <div class="col-md-12">
     <h2>{% trans "Offers" %}</h2>
-    {% if profile.offers %}
+    {% if object.offers %}
     <div class="col-xs-4">
       <ul>
-        {% for tag in profile.offers.all %}
+        {% for tag in object.offers.all %}
         <li>{{ tag }}</li>
         {% if not forloop.last %} {% endif %}{% endfor %}
       </ul>
@@ -263,5 +261,4 @@
     </ul>
   </div>
 </div>
-{% endwith %}
 {% endblock %}

@@ -57,6 +57,10 @@ caravan_add = CaravanAddView.as_view()
 class CaravanEditView(GroupUpdateView):
     model = Caravan
     form_class = CaravanForm
+    template_name = 'ecobasa/caravan_form.html'
+
+    def get_object(self):
+        return self.group.caravan
 
     def get_success_url(self):
         return reverse('caravan-detail', kwargs={'group': self.object.slug})
@@ -70,6 +74,9 @@ class CaravanDetailView(GroupDetailView):
 
     def get_filter(self):
         return {'group_id': self.object.pk}
+
+    def get_object(self):
+        return self.group.caravan
 
     def get_context_data(self, **kwargs):
         context = super(CaravanDetailView, self).get_context_data(**kwargs)
