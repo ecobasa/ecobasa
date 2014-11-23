@@ -214,6 +214,18 @@
   {% endfor %}
   </div>
 </div>
+
+<div class="row">
+  <div class="events col-xs-12">
+  <h2>{% trans "Events" %}</h2>
+  <ul>
+  {% for event in events %}
+    <li><a href="{% url "cosinnus:event:entry-detail" group=object.slug slug=event.slug %}">{{ event.title }}</a>{% if event.from_date %}: {{ event.from_date }} {% if event.to_date %} - {{ event.to_date }}{% endif %}{% endif %}</li>
+  {% endfor %}
+  </ul>
+  </div>
+</div>
+
 <div class="row">
   <div class="col-md-12">
     <h3>{% trans "Pending users" %}</h3>

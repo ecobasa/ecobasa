@@ -80,7 +80,12 @@ class CaravanDetailView(GroupDetailView):
 
     def get_context_data(self, **kwargs):
         context = super(CaravanDetailView, self).get_context_data(**kwargs)
-        context.update({'posts': Note.objects.filter(group__slug=self.group.slug)})
+        events = self.object.cosinnus_event_event_set.all()
+        events = events.order_by('-from_date')
+        context.update({
+            'posts': Note.objects.filter(group__slug=self.group.slug),
+            'events': events,
+        })
         return context
 
 caravan_detail = CaravanDetailView.as_view()
