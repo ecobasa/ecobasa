@@ -1,0 +1,112 @@
+{% extends "cosinnus_todo/base.html" %}
+{% load i18n cosinnus_tags %}
+
+
+{% block page_title %}
+{{ object.title }} {{ block.super }}
+{% endblock page_title %}
+
+
+{% block content_title %}
+{{ group.name }}: {{ object.title }}
+{% endblock content_title %}
+
+
+{% block content %}
+
+<div class="row">
+  <div class="col-md-6">
+    <strong>{% trans "Created on" %}</strong>
+    {{ object.created|date:"DATETIME_FORMAT" }} {% trans "by"  context "done by someone" %} {{ object.creator }}
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+{% if object.due_date %}
+    <strong>{% trans "Due by" %}</strong>
+    {{ object.due_date|date:"DATETIME_FORMAT" }}
+{% else %}
+    <strong>{% trans "No due date" %}</strong>
+{% endif %}
+  </div>
+  <div class="col-md-6">
+{% if object.completed_date %}
+    <strong>{% trans "Completed on" %}</strong>
+    {{ object.completed_date|date:"DATETIME_FORMAT" }} {% trans "by" context "done by someone" %} {{ object.completed_by }}
+{% else %}
+    <strong>{% trans "Not completed" %}</strong>
+{% endif %}
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+{% if object.assigned_to %}
+    <strong>{% trans "Assigned to" %}</strong>
+    {{ object.assigned_to }}
+{% else %}
+    <strong>{% trans "Not assigned" %}</strong>
+{% endif %}
+  </div>
+  <div class="col-md-6">
+    <strong>{% trans "Priority" %}</strong>
+    {{ object.get_priority_display }}
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+{% if object.note %}
+    <strong>{% trans "Note" %}</strong><br />
+    <div class="well">{{ object.note|linebreaksbr }}</div>
+{% endif %}
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+{% if object.tags.all %}
+    <strong>{% trans "Tags" %}</strong><br />
+    {% for tag in object.tags.all %}
+    <a href="{% url 'cosinnus:todo:list-filtered' group=group.slug tag=tag.slug %}"><span class="label label-default">{{ tag.name }}</span></a>
+    {% empty %}
+        &nbsp;
+    {% endfor %}
+{% endif %}
+  </div>
+</div>
+
+{% if user.is_superuser or user|is_group_member:group %}
+<div class="row">
+  <div class="col-md-12 btn-group">
+    <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">{% trans "Actions" %} <span class="caret"></span></a>
+    <ul class="dropdown-menu">
+        <li><a href="{% url 'cosinnus:todo:entry-edit' group=group.slug slug=object.slug %}"><span class="glyphicon glyphicon-pencil"></span> {% trans "Edit" %}</a></li>
+        <li><a href="{% url 'cosinnus:todo:entry-delete' group=group.slug slug=object.slug %}"><span class="glyphicon glyphicon-trash"></span></i> {% trans "Delete" %}</a></li>
+        <li class="divider"></li>
+
+      {% if object.can_assign %}
+        {% if object.assigned_to == request.user %}
+            <li><a href="{% url 'cosinnus:todo:entry-unassign' group=group.slug slug=object.slug %}"><span class="glyphicon glyphicon-star-empty"></span> {% trans "Unassign" %}</a></li>
+            <li><a href="{% url 'cosinnus:todo:entry-assign' group=group.slug slug=object.slug %}"><i></i> {% trans "Assign someone else" %}</a></li>
+        {% elif object.assigned_to %}
+            <li><a href="{% url 'cosinnus:todo:entry-assign-me' group=group.slug slug=object.slug %}"><span class="glyphicon glyphicon-star"></span> {% trans "Assign to me" %}</a></li>
+            <li><a href="{% url 'cosinnus:todo:entry-unassign' group=group.slug slug=object.slug %}"><span class="glyphicon glyphicon-star-empty"></span> {% trans "Unassign" %}</a></li>
+        {% else %}
+            <li><a href="{% url 'cosinnus:todo:entry-assign-me' group=group.slug slug=object.slug %}"><span class="glyphicon glyphicon-star"></span> {% trans "Assign to me" %}</a></li>
+            <li><a href="{% url 'cosinnus:todo:entry-assign' group=group.slug slug=object.slug %}"><i></i> {% trans "Assign someone else" %}</a></li>
+        {% endif %}
+      {% endif %}
+
+        {% if object.is_completed %}
+            <li><a href="{% url 'cosinnus:todo:entry-incomplete' group=group.slug slug=object.slug %}"><span class="glyphicon glyphicon-remove"></span> {% trans "Mark incomplete" %}</a></li>
+        {% else %}
+            <li><a href="{% url 'cosinnus:todo:entry-complete-me' group=group.slug slug=object.slug %}"><span class="glyphicon glyphicon-ok"></span> {% trans "Finish yourself" %}</a></li>
+            <li><a href="{% url 'cosinnus:todo:entry-complete' group=group.slug slug=object.slug %}"> {% trans "Mark complete (other)" %}</a></li>
+        {% endif %}
+    </ul>
+  </div>
+</div>
+{% endif %}
+{% endblock %}

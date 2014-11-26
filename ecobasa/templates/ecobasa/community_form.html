@@ -18,6 +18,16 @@
 
 <form action="." method="post" enctype="multipart/form-data" novalidate="novalidate">
 {% csrf_token %}
+  
+  <div class="row">
+    <div class="col-xs-3">{% bootstrap_label form.image.label %}</div>
+    <div class="col-xs-9">{% bootstrap_field form.image show_label=False %}</div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-3">{% bootstrap_label form.video.label %}</div>
+    <div class="col-xs-9">{% bootstrap_field form.video show_label=False %}</div>
+  </div>
 
   <div class="row">
     <div class="col-xs-3">{% bootstrap_label form.name.label %}</div>
@@ -27,6 +37,21 @@
   <div class="row">
     <div class="col-xs-3">{% bootstrap_label form.contact_telephone.label %}</div>
     <div class="col-xs-9">{% bootstrap_field form.contact_telephone show_label=False %}</div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-3">{% bootstrap_label form.website.label %}</div>
+    <div class="col-xs-9">{% bootstrap_field form.website show_label=False %}</div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-3">{% bootstrap_label form.contact_location.label %}</div>
+    <div class="col-xs-9">
+       {% bootstrap_field form.contact_location show_label=False %}
+       {# hidden, but required fields #}
+       {{ form.contact_location_lat }}
+       {{ form.contact_location_lon }}
+    </div>
   </div>
 
   <div class="row">
@@ -57,11 +82,19 @@
   </div>
 
   <div class="row">
+    <div class="col-xs-12">{% bootstrap_field form.wishlist_projects %}</div>
+  </div>
+
+  <div class="row">
     <div class="col-xs-12">{% bootstrap_field form.wishlist_materials %}</div>
   </div>
 
   <div class="row">
     <div class="col-xs-12">{% bootstrap_field form.wishlist_tools %}</div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">{% bootstrap_field form.wishlist_skills %}</div>
   </div>
 
   <fieldset id="formset-{{ formset_seed.prefix }}">

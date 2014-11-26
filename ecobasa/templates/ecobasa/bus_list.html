@@ -24,11 +24,11 @@
         {% for pioneer in user_list %}
         {% with pioneer.cosinnus_profile as profile %}
         <tr>
-            <th>{% if profile.bus_image %}<img src="{% thumbnail profile.bus_image "200x0" crop=1 upscale=1 %}" />{% endif %}</th>
-            <th><a href="{% url 'pioneer-detail' username=pioneer.username %}">{{ pioneer.username }}</a></th>
-            <th>{{ profile.bus_num_passengers }} people</th>
-            <th>{{ profile.bus_consumption }}l/100km</th>
-            <th>{% if not profile.bus_has_driving_license and profile.bus_others_can_drive %}YES{% else %}NO{% endif %}</th>
+            <td>{% if profile.bus_image %}<img src="{{ profile.bus_image|thumbnail_url:"bus_medium" }}" />{% endif %}</td>
+            <td><a href="{% url 'pioneer-detail' username=pioneer.username %}">{{ pioneer.username }}</a></td>
+            <td>{{ profile.bus_num_passengers }} people</td>
+            <td>{{ profile.bus_consumption }}l/100km</td>
+            <td>{% if not profile.bus_has_driving_license and profile.bus_others_can_drive %}YES{% else %}NO{% endif %}</td>
         </tr>
         {% endwith %}
         {% endfor %}

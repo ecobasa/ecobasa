@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n static bootstrap3 ecobasa_registration %}
+{% load i18n static bootstrap3 honeypot ecobasa_registration %}
 
 {% block page_title %}{% trans "Registration" %}{% endblock %}
 
@@ -8,6 +8,7 @@
 {{ form.media.css }}
 <link href="{% static "css/vendor/select2-bootstrap.css" %}" rel="stylesheet"/>
 <link href="{% static "css/vendor/select2.css" %}" rel="stylesheet"/>
+{{ form.media.js }}
 {% endblock extrahead %}
 
 {% block content %}
@@ -32,6 +33,7 @@
     <div class="row">
       <div class="col-xs-12">
         <div class="row">
+          {% render_honeypot_field %}
           <div class="col-xs-3">{% bootstrap_label form.username.label %}</div>
           <div class="col-xs-9">{% bootstrap_field form.username show_label=False %}</div>
         </div>
@@ -62,13 +64,28 @@
         </div>
 
         <div class="row">
+          <div class="col-xs-3">{% bootstrap_label form.name.label %}</div>
+          <div class="col-xs-9">{% bootstrap_field form.name show_label=False %}</div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-3">{% bootstrap_label form.website.label %}</div>
+          <div class="col-xs-9">{% bootstrap_field form.website show_label=False %}</div>
+        </div>
+
+        <div class="row">
           <div class="col-xs-3">{% bootstrap_label form.contact_telephone.label %}</div>
           <div class="col-xs-9">{% bootstrap_field form.contact_telephone show_label=False %}</div>
         </div>
 
         <div class="row">
-          <div class="col-xs-3">{% bootstrap_label form.name.label %}</div>
-          <div class="col-xs-9">{% bootstrap_field form.name show_label=False %}</div>
+          <div class="col-xs-3">{% bootstrap_label form.contact_location.label %}</div>
+          <div class="col-xs-9">
+            {% bootstrap_field form.contact_location show_label=False %}
+            {# hidden, but required fields #}
+            {{ form.contact_location_lat }}
+            {{ form.contact_location_lon }}
+          </div>
         </div>
 
         <div class="row">
@@ -114,9 +131,10 @@
 
 
   <div id="slide-community-wishlist" class="slide hide">
-    {% bootstrap_field form.wishlist_materials %}
+    {% bootstrap_field form.wishlist_projects %}<br />
+    {% bootstrap_field form.wishlist_materials %}<br />
     {% bootstrap_field form.wishlist_tools %}<br />
-
+    {% bootstrap_field form.wishlist_skills %}<br />
 
     <fieldset id="formset-{{ formset_seed.prefix }}">
       <div class="row">

@@ -18,10 +18,6 @@ def production():
     env.push_remote = 'origin'
 
 
-def reload_webserver():
-    run("touch %(path)s/ecobasa/wsgi.py" % env)
-
-
 def update():
     with cd(env.path):
         run("git pull %(push_remote)s %(push_branch)s" % env)
@@ -37,13 +33,13 @@ def migrate():
         run("%(path)s/manage.py migrate" % env)
 
 
-def production_deploy():
-    update()
-    migrate()
-    reload_webserver()
-
+def reload():
+    if env.tasks[0] == 'production':
+        run("touch %(path)s/ecobasa/wsgi.py" % env)
+    else:
+        run("supervisorctl reload ecobasa")
 
 def deploy():
     update()
     migrate()
-    run("supervisorctl reload ecobasa")
+    reload()

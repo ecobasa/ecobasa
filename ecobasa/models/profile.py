@@ -11,63 +11,11 @@ from easy_thumbnails.fields import ThumbnailerImageField
 from six.moves import urllib
 from taggit.managers import TaggableManager
 from taggit.models import TaggedItemBase
-from cms.models import CMSPlugin
-from filer.fields.image import FilerImageField
+from osm_field.fields import OSMField
 
-from cosinnus.models import (BaseUserProfile, BaseUserProfileManager,
-    CosinnusGroup, CosinnusGroupMembership)
+from cosinnus.models import (
+    BaseUserProfile, BaseUserProfileManager, CosinnusGroup)
 
-
-class SlideshowPlugin(CMSPlugin):
-    name = models.CharField(verbose_name=_("name"), max_length=100)
-
-    def __unicode__(self):
-        return u"%s" % (self.name,)
-
-    @property
-    def height(self):
-        max_height = 0
-        for image in self.images.all():
-            max_height = max(max_height, image.file.height)
-        return max_height
-
-    class Meta:
-        verbose_name = _("slide show")
-        verbose_name_plural = _("slide shows")
-
-    def copy_relations(self, oldinstance):
-        for image in oldinstance.images.all():
-            image.pk = None
-            image.slideshow = self
-            image.save()
-
-
-class Linkable(object):
-    @property
-    def link(self):
-        if self.link_url:
-            return self.link_url
-        elif self.link_page:
-            return self.link_page.get_absolute_url()
-        elif self.link_article:
-            return self.link_article.get_absolute_url()
-        return "#"
-
-
-class SlideshowImage(Linkable, models.Model):
-    slideshow = models.ForeignKey(SlideshowPlugin, verbose_name=_("slide show"), related_name="images")
-    file = FilerImageField(verbose_name=_("file"), null=True, blank=True)
-    title = models.CharField(verbose_name=_("title"), max_length=255, blank=True)
-    text = models.TextField(verbose_name=_("text"), max_length=255, blank=True, help_text=_("Text appearing on top of the image"))
-    order = models.PositiveSmallIntegerField(verbose_name=_("order"), default=0)
-
-    def __unicode__(self):
-        return u"%s slideshow image" % (self.slideshow,)
-
-    class Meta:
-        verbose_name = _("image")
-        verbose_name_plural = _("images")
-        ordering = ('order', 'id',)
 
 COUNTRY_CHOICES = (
     ('AD', _('Andorra')),
@@ -315,13 +263,22 @@ COUNTRY_CHOICES = (
 class TaggedInterest(TaggedItemBase):
     content_object = models.ForeignKey('EcobasaUserProfile')
 
+    class Meta:
+        app_label = 'ecobasa'
+
 
 class TaggedSkill(TaggedItemBase):
     content_object = models.ForeignKey('EcobasaUserProfile')
 
+    class Meta:
+        app_label = 'ecobasa'
+
 
 class TaggedProduct(TaggedItemBase):
     content_object = models.ForeignKey('EcobasaUserProfile')
+
+    class Meta:
+        app_label = 'ecobasa'
 
 
 class EcobasaUserProfile(BaseUserProfile):
@@ -368,15 +325,17 @@ class EcobasaUserProfile(BaseUserProfile):
         blank=True, null=True)
 
     skills = TaggableManager(_('knowledge/skills'),
-        through=TaggedSkill, related_name='_skill', blank=True)
+        through=TaggedSkill, related_name='_skill', blank=True,
+        help_text='What skills do you have? What can you do to help others? What can you teach someone?')
     products = TaggableManager(_('products'),
-        through=TaggedProduct, related_name='_product', blank=True)
+        through=TaggedProduct, related_name='_product', blank=True,
+        help_text='Can you manufacture any products, like jewelery, furniture, clothes, soap etc.. ?')
 
     # bus fields
     has_bus = models.BooleanField(
         _('Do you have a bus or car that you want to take on the tour?'),
         default=False, blank=True)
-    bus_image = ThumbnailerImageField(_('bus image'),
+    bus_image = ThumbnailerImageField(_('bus_image'),
         upload_to='bus_images', null=True, blank=True)
     bus_has_driving_license = models.BooleanField(
         _('I have a driving license'), default=False, blank=True)
@@ -390,17 +349,37 @@ class EcobasaUserProfile(BaseUserProfile):
 
     objects = BaseUserProfileManager()
 
+    class Meta:
+        app_label = 'ecobasa'
+
 
 class TaggedOffersService(TaggedItemBase):
     content_object = models.ForeignKey('EcobasaCommunityProfile')
+
+    class Meta:
+        app_label = 'ecobasa'
 
 
 class TaggedOffersSkill(TaggedItemBase):
     content_object = models.ForeignKey('EcobasaCommunityProfile')
 
+    class Meta:
+        app_label = 'ecobasa'
+
 
 class TaggedOffersCreation(TaggedItemBase):
     content_object = models.ForeignKey('EcobasaCommunityProfile')
+
+    class Meta:
+        app_label = 'ecobasa'
+
+
+class TaggedWishSkill(TaggedItemBase):
+    content_object = models.ForeignKey('EcobasaCommunityProfile')
+
+    class Meta:
+        app_label = 'ecobasa'
+
 
 
 @python_2_unicode_compatible
@@ -409,21 +388,33 @@ class EcobasaCommunityProfile(models.Model):
         editable=False, related_name='profile')
     # mandatory name!
     name = models.CharField(_('name of community'), max_length=255)
+    website = models.URLField(_('link of your communities website'), max_length=100,
+        blank=True, null=True)
+    image = ThumbnailerImageField(
+        verbose_name=_('image'),
+        help_text=_('Header image for the community-profile, minimum resolution 1200x400'),
+        upload_to='community_images',
+        blank=True,
+        null=True)
+    video = models.URLField(
+        verbose_name=_('Video'),
+        help_text=_('Link to a video showing your community'),
+        max_length=255,
+        blank=True,
+        null=True)
 
     # contact info
     contact_telephone = models.CharField(_('telephone'),
         max_length=255, blank=True, null=True)
     contact_street = models.CharField(_('street'),
         max_length=255, blank=True, null=True)
+    contact_location = OSMField(_('Location'), blank=True, null=True, geo_blank=True, geo_null=True)
     contact_city = models.CharField(_('city'),
         max_length=255, blank=True, null=True)
     contact_zipcode = models.CharField(_('zipcode'),
         max_length=255, blank=True, null=True)
     contact_country = models.CharField(_('country'),
         max_length=2, blank=True, choices=COUNTRY_CHOICES, default='ZZ')
-    contact_lat = models.FloatField(_('latitude'), default=0., blank=True)
-    contact_lon = models.FloatField(_('longitude'), default=0., blank=True)
-
     contact_show = models.BooleanField(_('show address in profile'),
         default=False, blank=True)
 
@@ -432,14 +423,21 @@ class EcobasaCommunityProfile(models.Model):
         _('maximum number of people you can host'),
         blank=True, default=0)
     visitors_accommodation = models.TextField(_('accommodation for guests'),
-        blank=True, null=True)
+        blank=True, null=True,
+        help_text='Where can your visitors sleep? Do you have space for a bus, tents? How is the indoor sleeping situation? Do you have matresses, a couch?')
 
     # wishlist
+    wishlist_projects = models.TextField(
+        _('Do you have any construction projects? List and describe them together with needed materials, tools, experts, time and knowledge.'),
+        blank=True, null=True)
     wishlist_materials = models.TextField(_('what materials do you need?'),
         blank=True, null=True)
     wishlist_tools = models.TextField(
         _('what tools or machines do you need?'),
         blank=True, null=True)
+    wishlist_skills = TaggableManager(_('Are you looking for some experts that could help you with a project or problem? Tag their desired skills here:'),
+        through=TaggedWishSkill,
+        related_name='_wishlist_skill', blank=True)
     wishlist_special_needs = models.TextField(
         _('special needs (knowledge, information)'), blank=True, null=True)
 
@@ -480,52 +478,18 @@ class EcobasaCommunityProfile(models.Model):
         choices=MEMBERSHIP_CHOICES,
         default=MEMBERSHIP_OPEN)
 
+    class Meta:
+        app_label = 'ecobasa'
+
     def __str__(self):
         return self.name
 
-    def _get_lat_lon_params(self):
-        params = {
-            'format': 'jsonv2',
-            'limit': 1,
-        }
-        optional = {
-            'street': 'contact_street',
-            'city': 'contact_city',
-            'country': 'contact_country',
-            'postalcode': 'contact_zipcode',
-        }
-        for k, v in six.iteritems(optional):
-            attr = getattr(self, v, None)
-            if attr:
-                params[k] = attr
-        return params
-
-    def _get_lat_lon(self):
-        params = self._get_lat_lon_params()
-        data = urllib.parse.urlencode(params).encode('ascii')
-        url = 'http://nominatim.openstreetmap.org/search?' + data
-        timeout = 20
-
-        try:
-            response = urllib.request.urlopen(url, None, timeout).read()
-        except urllib.error.URLError:
-            response = None
-        if not response:
-            return 0., 0.
-
-        try:
-            result = json.loads(response.decode('utf-8'))[0]
-        except:
-            result = None
-        if not isinstance(result, dict):
-            return 0., 0.
-
-        lat = float(result.get('lat', 0.))
-        lon = float(result.get('lon', 0.))
-        return lat, lon
-
     def save(self, *args, **kwargs):
-        self.contact_lat, self.contact_lon = self._get_lat_lon()
+        # copy profile name to cosinnus group name
+        self.group.name = self.name
+        # ensure the CosinnusGroup is always public!
+        self.group.public = True
+        self.group.save()
         return super(EcobasaCommunityProfile, self).save(*args, **kwargs)
 
 
@@ -541,29 +505,5 @@ class EcobasaCommunityProfileSeed(models.Model):
         null=True)
     num = models.PositiveIntegerField(_('how many?'), blank=True, default=0)
 
-
-class OrganiserRoleManager(models.Manager):
-    def for_user(self, user):
-        qs = self.filter(cosinnus_group_membership__user=user)
-        return qs.select_related('cosinnus_group_membership__group')
-
-
-class OrganiserRole(models.Model):
-    # links to user and group
-    cosinnus_group_membership = models.ForeignKey(CosinnusGroupMembership,
-        verbose_name=_('Cosinnus group membership'))
-    title = models.CharField(
-        verbose_name=_('Role title'),
-        max_length=255)
-    description = models.TextField(
-        verbose_name=_('Role description'))
-
-    objects = OrganiserRoleManager()
-
     class Meta:
-        verbose_name = _('Organiser role')
-        verbose_name_plural = _('Organiser roles')
-
-    def __unicode__(self):
-        return '%s: %s' % (
-            self.cosinnus_group_membership.user.username, self.title)
+        app_label = 'ecobasa'

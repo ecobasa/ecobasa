@@ -99,8 +99,10 @@ TEMPLATE_CONTEXT_PROCESSORS = [
     'django.core.context_processors.media',
     'django.core.context_processors.static',
     'cosinnus.utils.context_processors.settings',
+    'cosinnus.utils.context_processors.cosinnus',
     'cms.context_processors.media',
     'sekizai.context_processors.sekizai',
+    'postman.context_processors.inbox',
 ]
 
 THUMBNAIL_PROCESSORS = (
@@ -110,6 +112,18 @@ THUMBNAIL_PROCESSORS = (
     'filer.thumbnail_processors.scale_and_crop_with_subject_location',
     'easy_thumbnails.processors.filters',
 )
+THUMBNAIL_ALIASES = {
+    '': {
+        'avatar_large': {'size': (200, 200), 'crop': True, 'upscale': True },
+        'avatar_medium': {'size': (64, 64), 'crop': True, 'upscale': True },
+        'avatar_small': {'size': (32, 32), 'crop': True, 'upscale': True },
+        'bus_medium': {'size': (200, 200), 'crop': True, 'upscale': True },
+        'event': {'size': (70, 70), 'crop': True, 'upscale': True },
+        'note_large': {'size': (1140, 400), 'crop': True, 'upscale': True },
+        'note_medium': {'size': (350, 250), 'crop': True, 'upscale': True },
+        'slideshow': {'size': (1920, 700), 'crop': True, 'upscale': True },
+    },
+}
 
 ROOT_URLCONF = 'ecobasa.urls'
 
@@ -132,7 +146,7 @@ TEMPLATE_DIRS = (
 
 CMS_TEMPLATES = (
     ('start.html', 'Startpage'),
-    ('about.html', 'About'),
+    ('ecobasa/about.html', 'About'),
 )
 
 LANGUAGES = (
@@ -143,6 +157,7 @@ LANGUAGES = (
 
 INSTALLED_APPS = (
     # Django Apps
+    'suit',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -151,24 +166,37 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'suit',
+    'django.contrib.webdesign',
+
+    # 'django_extensions',
+    'django_select2',
+    'widget_tweaks',
 
     # custom apps
     'ecobasa',
     'cosinnus',
+    'cosinnus_message',
+    'cosinnus_todo',
+    'cosinnus_etherpad',
+    'cosinnus_event',
+    'cosinnus_note',
     # 'skillshare',
     # 'references',
 
     # third-party
+    'osm_field',
     'appconf',
     'bootstrap3',
     'bootstrap3_datetime',
     'easy_thumbnails',
-    # 'geoposition',
+    'geoposition',
     'south',
     'taggit',
     'filer',
     'haystack',
+    'honeypot',
+    'postman',
+    'embed_video',
 
     # CMS
     'djangocms_text_ckeditor',
@@ -248,15 +276,21 @@ USERPROFILES_USE_EMAIL_VERIFICATION = False
 # COSINNUS settings
 FORMAT_MODULE_PATH = 'cosinnus.formats'
 
-# COSINNUS_ATTACHABLE_OBJECTS = {
-#     'cosinnus_document.Document' : [
-#         'cosinnus_file.FileEntry',
-#         'cosinnus_document.Document',
-#     ],
-# }
+COSINNUS_ATTACHABLE_OBJECTS = {
+#    'cosinnus_event.Event' : [
+#        'cosinnus_todo.TodoEntry',
+#    ],
+}
 
 COSINNUS_USER_PROFILE_MODEL = 'ecobasa.EcobasaUserProfile'
+COSINNUS_USER_PROFILE_SERIALIZER = 'ecobasa.models.serializers.EcobasaUserProfileSerializer'
 
+# etherpad
+COSINNUS_ETHERPAD_BASE_URL = 'http://pad.community-tours.org/api'
+COSINNUS_ETHERPAD_API_KEY = 'ksudJAWqzcglHCt9IZ6NDjiVaDCKinLH'
+
+# hide apps from automatic listing
+COSINNUS_HIDE_APPS = ('cosinnus_message',)
 
 # Conflict between CMS and DebugToolbar resolved by following
 # http://zerokspot.com/weblog/2013/12/25/django-cms-and-debug-toolbar/
@@ -277,3 +311,28 @@ HAYSTACK_CONNECTIONS = {
 }
 HAYSTACK_SEARCH_RESULTS_PER_PAGE = 30
 HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
+
+# honeypot
+HONEYPOT_FIELD_NAME = 'body'
+
+# select2
+AUTO_RENDER_SELECT2_STATICS = True
+
+# postman configuration for cosinnus-message
+POSTMAN_DISALLOW_ANONYMOUS = True  # No anonymous messaging
+POSTMAN_AUTO_MODERATE_AS = True  # Auto accept all messages
+POSTMAN_SHOW_USER_AS = 'username'
+
+# Override django-bootstrap's default jquery version
+BOOTSTRAP3 = {
+    'jquery_url': '//code.jquery.com/jquery-2.1.0.min.js',
+}
+
+# special group all pioneers are member of and whose posts are exposed
+# override in your local settings.py
+ECOBASA_SPECIAL_COSINNUS_GROUP = 1
+
+# used on about page for the tour progress bar
+# can't create timezone-aware datetimes here, hence the tuple
+ECOBASA_TOUR_START = (2014, 10, 1)
+ECOBASA_TOUR_END = (2014, 11, 10)

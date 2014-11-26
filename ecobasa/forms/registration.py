@@ -2,16 +2,23 @@
 from __future__ import unicode_literals
 
 from django import forms
-from django.utils.translation import ugettext_lazy as _
+from django.conf import settings
 from userprofiles.forms import RegistrationForm
 
-from cosinnus.forms.profile import UserProfileForm
 from cosinnus.forms.widgets import DateL10nPicker
 from cosinnus.models import (CosinnusGroup, CosinnusGroupMembership,
-    MEMBERSHIP_ADMIN)
+    MEMBERSHIP_ADMIN, MEMBERSHIP_MEMBER)
 
-from .models import (EcobasaUserProfile, EcobasaCommunityProfile,
+from ..models import (EcobasaUserProfile, EcobasaCommunityProfile,
     EcobasaCommunityProfileSeed)
+
+
+def add_to_special_group(user):
+    """Adds the given user to Ecobasa's special group."""
+    special_pk = settings.ECOBASA_SPECIAL_COSINNUS_GROUP
+    special_group = CosinnusGroup.objects.filter(pk=special_pk)[0]
+    CosinnusGroupMembership.objects.create(
+        user=user, group=special_group, status=MEMBERSHIP_MEMBER)
 
 
 class RegistrationMemberForm(RegistrationForm):
@@ -21,6 +28,7 @@ class RegistrationMemberForm(RegistrationForm):
         fields_user = forms.fields_for_model(EcobasaUserProfile)
         self.fields.update(fields_user)
         self.fields['birth_date'].widget = DateL10nPicker()
+        self.fields['avatar'].required = True
 
         # has_bus is a boolean field, but is represented as a button in the
         # form. Form validation has to be told explicitly that this field is
@@ -31,8 +39,9 @@ class RegistrationMemberForm(RegistrationForm):
             required=False)
 
     def save_profile(self, new_user, *args, **kwargs):
-        # do not catch DoesNotExist: there must be something else wrong
-        profile = EcobasaUserProfile.objects.get(user=new_user)
+        # cosinnus should have created the profile already, but do _or_create
+        # just in case
+        profile, _ = EcobasaUserProfile.objects.get_or_create(user=new_user)
 
         profile.avatar = self.cleaned_data['avatar']
         profile.gender = self.cleaned_data['gender']
@@ -64,6 +73,9 @@ class RegistrationMemberForm(RegistrationForm):
 
         profile.save()
 
+        # add pioneer user to special group
+        add_to_special_group(new_user)
+
 
 class RegistrationCommunityForm(RegistrationForm):
     SeedInlineFormSet = forms.models.inlineformset_factory(
@@ -76,21 +88,28 @@ class RegistrationCommunityForm(RegistrationForm):
         self.fields['birth_date'].widget = DateL10nPicker()
 
         fields_community = forms.fields_for_model(EcobasaCommunityProfile)
+        fields_community['contact_location_lat'].widget = forms.HiddenInput()
+        fields_community['contact_location_lon'].widget = forms.HiddenInput()
         self.fields.update(fields_community)
 
     def save_profile(self, new_user, *args, **kwargs):
         name = self.cleaned_data['name']
 
         # set up cosinnus group and admin user
-        community = CosinnusGroup.objects.create(name=name, public=False)
+        community = CosinnusGroup.objects.create(name=name, public=True)
         CosinnusGroupMembership.objects.create(
             user=new_user, group=community, status=MEMBERSHIP_ADMIN)
 
         # set up profile
         profile = EcobasaCommunityProfile.objects.create(group=community)
         profile.name = name
+        profile.image = self.cleaned_data['image']
+        profile.website = self.cleaned_data['website']
         profile.contact_telephone = self.cleaned_data['contact_telephone']
         profile.contact_street = self.cleaned_data['contact_street']
+        profile.contact_location = self.cleaned_data['contact_location']
+        profile.contact_location_lat = self.cleaned_data['contact_location_lat']
+        profile.contact_location_lon = self.cleaned_data['contact_location_lon']
         profile.contact_city = self.cleaned_data['contact_city']
         profile.contact_zipcode = self.cleaned_data['contact_zipcode']
         profile.contact_country = self.cleaned_data['contact_country']
@@ -132,80 +151,5 @@ class RegistrationCommunityForm(RegistrationForm):
             if formset.is_valid():
                 formset.save()
 
-
-class CommunityProfileForm(forms.ModelForm):
-    SeedInlineFormSet = forms.models.inlineformset_factory(
-        EcobasaCommunityProfile, EcobasaCommunityProfileSeed, extra=1)
-
-    class Meta:
-        model = EcobasaCommunityProfile
-
-    def save(self, commit=True):
-        formset = self.SeedInlineFormSet(self.data, instance=self.instance)
-        for form in formset:
-            if form.is_valid():
-                # is_valid populates cleaned_data
-                data = form.cleaned_data
-                if data and data['kind'] and data['num']:
-                    if data['DELETE']:
-                        data['id'].delete()
-                    else:
-                        form.save(commit)
-        return super(CommunityProfileForm, self).save(commit)
-
-
-class PioneerProfileForm(UserProfileForm):
-    error_messages = {
-        'password_mismatch': _("The two password fields didn't match."),
-        'password_incorrect': _('Your old password was entered incorrectly. '
-                                'Please enter it again.'),
-    }
-    old_password = forms.CharField(label=_('Old password'),
-                                   required=False,
-                                   widget=forms.PasswordInput)
-    new_password1 = forms.CharField(label=_('New password'),
-                                    required=False,
-                                    widget=forms.PasswordInput)
-    new_password2 = forms.CharField(label=_('New password confirmation'),
-                                    required=False,
-                                    widget=forms.PasswordInput)
-    email = forms.EmailField(label=_("Email"), max_length=254)
-
-    def __init__(self, *args, **kwargs):
-        super(PioneerProfileForm, self).__init__(*args, **kwargs)
-        self.fields['birth_date'].widget = DateL10nPicker()
-        self.fields['email'].initial = self.instance.user.email
-
-    def clean_old_password(self):
-        """
-        Validates that the old_password field is correct.
-        """
-        old_password = self.cleaned_data['old_password']
-        if old_password and not self.instance.user.check_password(old_password):
-            raise forms.ValidationError(
-                self.error_messages['password_incorrect'])
-        return old_password
-
-    def clean_new_password2(self):
-        """
-        Validates that the new password matches.
-        """
-        password1 = self.cleaned_data.get('new_password1')
-        password2 = self.cleaned_data.get('new_password2')
-        if password1 and password2:
-            if password1 != password2:
-                raise forms.ValidationError(
-                    self.error_messages['password_mismatch'])
-        return password2
-
-    def save(self, commit=True):
-        user = self.instance.user
-        user.email = self.cleaned_data['email']
-
-        new_password = self.cleaned_data['new_password1']
-        if new_password:
-            user.set_password(new_password)
-
-        if commit:
-            user.save()
-        return super(PioneerProfileForm, self).save(commit)
+        # add ambassador user to special group
+        add_to_special_group(new_user)

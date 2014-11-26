@@ -1,0 +1,279 @@
+{% extends "cosinnus/base.html" %}
+{% load i18n thumbnail cosinnus_tags embed_video_tags %}
+
+{% block page_title %}
+  {% blocktrans with group_name=object.name %}Caravan “{{ group_name }}”{% endblocktrans %}
+{% endblock %}
+
+{% block body %}profile{% endblock body %}
+
+{% block content_title %}
+  {% blocktrans with name=object.name %}{{ name }}{% endblocktrans %}
+{% endblock content_title %}
+
+
+{% block content %}
+{% if object.image %}
+<img src="{{ object.image|thumbnail_url:"note_large" }}" alt="{{ object.name }}">
+{% endif %}
+
+<div class="row">
+  <div class="col-md-12">
+    <h1>{% blocktrans with name=object.name %}Caravan {{ name }}{% endblocktrans %}</h1>
+    <div class="btn-group pull-right">
+      {% if user|is_group_member:caravan %}
+        <a class="btn btn-primary" href="{% url 'caravan-leave' object.slug %}">{% trans "Leave" %}</a>
+      {% elif user.is_authenticated %}
+        <a class="btn btn-primary" href="{% url 'caravan-join' object.slug %}">{% trans "Join" %}</a>
+      {% endif %}
+      {% if user.is_superuser or user|is_group_admin:object %}
+        <a href="{% url 'caravan-edit' group=object.slug %}" class="btn btn-primary">{% trans "Edit" %}</a>
+        <a href="{% url 'cosinnus:group-export' group=object.slug %}" class="btn btn-primary">{% trans "Export" context "the verb" %}</a>
+        {% if user.is_superuser %}
+          <a href="{% url 'cosinnus:group-delete' group=object.slug %}" class="btn btn-primary">{% trans "Delete" %}</a>
+        {% endif %}
+        <div class="btn-group">
+          <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">{% trans "Users" %} <span class="caret"></span></a>
+          <ul class="dropdown-menu pull-right" role="menu">
+            <li><a href="{% url 'cosinnus:group-user-add-generic' group=object.slug %}">{% trans "Add user" %}</a></li>
+          </ul>
+        </div>
+      </div>
+    {% endif %}
+
+    <p>{{ object.description|linebreaksbr }}</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-md-6">
+    <h3>{% trans "Members" %}</h3>
+    <ul class="media-list">
+      {% for member in members %}
+        <li class="media">
+            <a class="pull-left" href="{% url 'pioneer-detail' username=member.get_username %}">
+              {% if member.cosinnus_profile.avatar %}
+                <img class="avatar" src="{{ member.cosinnus_profile.avatar|thumbnail_url:"avatar_large" }}">
+              {% else %}
+                <img class="avatar" src="http://placehold.it/200x200">
+              {% endif %}
+            </a>
+          <div class="media-body">
+              <a href="{% url 'pioneer-detail' username=member.get_username %}">{{ member.get_full_name|default:member.get_username }}</a>
+              <div class="btn-group btn-group-xs">
+                <a href="{% url 'cosinnus:group-user-edit' group=object.slug username=member.get_username %}" class="btn btn-default">{% trans "Change" %}</a>
+                <a href="{% url 'cosinnus:group-user-delete' group=object.slug username=member.get_username %}" class="btn btn-default">{% trans "Delete" %}</a>
+              </div>
+              <div class="comment tooltip fade right in"><div class="tooltip-arrow"></div>
+              <div class="tooltip-inner">{{ member.cosinnus_profile.tour_why|linebreaksbr|safe }}</div></div>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+  <div class="col-xs-12 col-md-6">
+    <h3>{% trans "Buses" %}</h3>
+    <ul class="media-list">
+      {% for member in members %}
+      {% with member.cosinnus_profile as profile %}
+      {% if profile.has_bus %}
+        <li class="media">
+          <a class="pull-left" href="{% url 'pioneer-detail' username=member.get_username %}">
+            {% if profile.bus_image %}<img src="{{ profile.bus_image|thumbnail_url:"bus_medium" }}" />
+            {% else %}
+              <img class="avatar" src="http://placehold.it/200x200">
+            {% endif %}
+          </a>
+          <div class="media-body">
+            <p>This bus can take {{ profile.bus_num_passengers }} people</p>
+            <p>He drinks {{ profile.bus_consumption }}l on 100km</p>
+            {% if not profile.bus_has_driving_license and profile.bus_others_can_drive %}<p>This bus still needs a driver!</p>{% else %}{% endif %}
+          </div>
+        </li>
+      {% endif %}
+      {% endwith %}
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <h2>{% trans "Offers" %}</h2>
+    {% if object.offers %}
+    <div class="col-xs-4">
+      <ul>
+        {% for tag in object.offers.all %}
+        <li>{{ tag }}</li>
+        {% if not forloop.last %} {% endif %}{% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+    <div class="col-xs-4">
+      <h3>{% trans "Skills" %}</h3>
+        <ul>
+          {% for member in members %}
+            {% for tag in member.cosinnus_profile.skills.all %}
+            <li>{{ tag }}</li>
+            {% if not forloop.last %} {% endif %}{% endfor %}
+          {% endfor %}
+        </ul>
+      </div>
+    <div class="col-xs-4">
+      <h3>{% trans "Products" %}</h3>
+        <ul>
+          {% for member in members %}
+            {% for tag in member.cosinnus_profile.products.all %}
+            <li>{{ tag }}</li>
+            {% if not forloop.last %} {% endif %}{% endfor %}
+          {% endfor %}
+        </ul>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="posts col-xs-12">
+  <h2>{% trans "Blog Posts" %} {% if user.is_superuser or user|is_group_admin:object %}
+    <a class="btn btn-primary pull-right" href="{% url 'cosinnus:note:add' group=group.slug %}">{% trans "Write a Blogpost" %}</a>
+  {% endif %}</h2>
+  {% for post in posts %}
+  <div class="post row">
+    {% if post.video %}
+    <!-- see http://django-embed-video.readthedocs.org/en/latest/examples.html#template-examples -->
+    <div class="col-xs-12 col-sm-4">
+      <a href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">
+        <div class="video-responsive">
+          {% video post.video as my_video %}
+              {{ my_video|embed:'tiny' }}
+          {% endvideo %}
+      </div>
+      </a>
+    </div>
+    <div class="col-xs-12 col-sm-8">
+      <a href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">
+        <h3>{{ post.title }}</h3>
+      </a>
+      <span class="details">
+        written by <a href="{% url 'pioneer-detail' username=post.creator.get_username %}">{{ post.creator.get_full_name|default:post.creator.username }}</a> on {{ post.created }} in <a href="{% url 'caravan-detail' group=post.group.slug %}">{{ post.group.slug }}</a>
+      </span>
+      {{ post.text|urlize|linebreaksbr|safe|truncatewords:80 }}</br>
+      <a class="more" href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">read more</a>
+    </div>
+    {% elif post.image %}
+        <div class="col-xs-12 col-sm-4">
+          <a href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">
+            <img src="{{ post.image|thumbnail_url:"note_medium" }}" alt="{{ post.title }}" width="100%"/>
+          </a>
+        </div>
+        <div class="col-xs-12 col-sm-8">
+          {% if user.is_superuser or user|is_group_admin:object %}
+            <div class="btn-group pull-right">
+              <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">{% trans "Actions" %} <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                  <li><a href="{% url 'cosinnus:note:update' group=group.slug slug=post.slug %}"><span class="glyphicon glyphicon-pencil"></span> {% trans "Edit" %}</a></li>
+                  <li><a href="{% url 'cosinnus:note:delete' group=group.slug slug=post.slug %}"><span class="glyphicon glyphicon-trash"></span> {% trans "Delete" %}</a></li>
+                  <li class="divider"></li>
+                  <li><a href="{% url 'cosinnus:note:comment' group=group.slug slug=post.slug %}"><i class="icon-comment"></i> {% trans "Comment" %}</a></li>
+              </ul>
+            </div>
+          {% endif %}
+          <a href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">
+            <h3>{{ post.title }}</h3>
+          </a>
+          <span class="details">
+            written by <a href="{% url 'pioneer-detail' username=post.creator.get_username %}">{{ post.creator.get_full_name|default:post.creator.username }}</a> on {{ post.created }}
+          </span>
+          {{ post.text|linebreaksbr|safe|truncatewords:80 }}</br>
+          <a class="more" href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">read more</a>
+        </div>
+      </a>
+    {% else %}
+        <div class="col-xs-12">
+          {% if user.is_superuser or user|is_group_admin:object %}
+            <div class="btn-group pull-right">
+              <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">{% trans "Actions" %} <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                  <li><a href="{% url 'cosinnus:note:update' group=group.slug slug=post.slug %}"><span class="glyphicon glyphicon-pencil"></span> {% trans "Edit" %}</a></li>
+                  <li><a href="{% url 'cosinnus:note:delete' group=group.slug slug=post.slug %}"><span class="glyphicon glyphicon-trash"></span> {% trans "Delete" %}</a></li>
+                  <li class="divider"></li>
+                  <li><a href="{% url 'cosinnus:note:comment' group=group.slug slug=post.slug %}"><i class="icon-comment"></i> {% trans "Comment" %}</a></li>
+              </ul>
+            </div>
+          {% endif %}
+          <a href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">
+            <h3>{{ post.title }}</h3>
+          </a>
+          <span class="details">
+            written by <a href="{% url 'pioneer-detail' username=post.creator.get_username %}">{{ post.creator.get_full_name|default:post.creator.username }}</a> on {{ post.created }}
+          </span>
+          {{ post.text|linebreaksbr|safe|truncatewords:80 }}</br>
+          <a class="more" href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">read more</a>
+        </div>
+    </a>
+    {% endif %}
+  </div>
+  {% endfor %}
+  </div>
+</div>
+
+<div class="row">
+  <div class="events col-xs-12">
+  <h2>{% trans "Events" %}</h2>
+  <ul>
+  {% for event in events %}
+    <li><a href="{% url "cosinnus:event:entry-detail" group=object.slug slug=event.slug %}">{{ event.title }}</a>{% if event.from_date %}: {{ event.from_date }} {% if event.to_date %} - {{ event.to_date }}{% endif %}{% endif %}</li>
+  {% endfor %}
+  </ul>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <h3>{% trans "Pending users" %}</h3>
+    <ul class="media-list">
+      {% for pending in pendings %}
+        <li class="media">
+          <a class="pull-left" href="{% url 'pioneer-detail' username=pending.get_username %}">
+            {% if pending.cosinnus_profile.avatar %}
+              <img class="avatar" src="{{ pending.cosinnus_profile.avatar|thumbnail_url:"avatar_medium" }}">
+            {% else %}
+              <img class="avatar" src="http://placehold.it/64x64">
+            {% endif %}
+          </a>
+          <div class="media-body">
+            <a class="pull-left" href="{% url 'cosinnus:user-detail' username=pending.get_username %}">{{ pending.get_full_name|default:pending.get_username }}</a>
+            <div class="btn-group btn-group-xs">
+              <a href="{% url 'cosinnus:group-user-add' group=object.slug username=pending.get_username %}" class="btn btn-default">{% trans "Add" %}</a>
+              <a href="{% url 'cosinnus:group-user-delete' group=object.slug username=pending.get_username %}" class="btn btn-default">{% trans "Delete" %}</a>
+            </div>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <h3>{% trans "Admins" %}</h3>
+    <ul class="media-list">
+      {% for admin in admins %}
+        <li class="media">
+          <a class="pull-left" href="{% url 'cosinnus:user-detail' username=admin.get_username %}">
+            {% if admin.cosinnus_profile.avatar %}
+              <img class="avatar" src="{{ admin.cosinnus_profile.avatar|thumbnail_url:"avatar_medium" }}">
+            {% else %}
+              <img class="avatar" src="http://placehold.it/64x64">
+            {% endif %}
+          </a>
+          <div class="media-body">
+            <a class="pull-left" href="{% url 'cosinnus:user-detail' username=admin.get_username %}">{{ admin.get_full_name|default:admin.get_username }}</a>
+            <div class="btn-group btn-group-xs">
+              <a href="{% url 'cosinnus:group-user-edit' group=object.slug username=admin.get_username %}" class="btn btn-default">{% trans "Change" %}</a>
+              <a href="{% url 'cosinnus:group-user-delete' group=object.slug username=admin.get_username %}" class="btn btn-default">{% trans "Delete" %}</a>
+            </div>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endblock %}

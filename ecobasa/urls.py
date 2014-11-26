@@ -2,6 +2,7 @@ from django.conf import settings
 from django.conf.urls import patterns, include, url
 from django.contrib import admin
 from django.conf.urls.i18n import i18n_patterns
+from django.utils.translation import ugettext_lazy as _
 from haystack.views import search_view_factory
 
 from .views import FindView
@@ -10,6 +11,9 @@ admin.autodiscover()
 
 
 urlpatterns = i18n_patterns('',
+    url(_(r'^about/$'), 'ecobasa.views.about', name='about'),
+    url(r'^blog/$', 'ecobasa.views.blog', name='blog'),
+    url(r'^blog/(?P<tag>[^/]+)/$', 'ecobasa.views.blog', name='blog_filtered'),
     url(r'^accounts/register/$',
         'ecobasa.views.register', name='register'),
     url(r'^accounts/register/community',
@@ -34,11 +38,22 @@ urlpatterns = i18n_patterns('',
     url(r'^buses/$', 'ecobasa.views.bus_list', name='bus-list'),
     url(r'^buses/add/$', 'ecobasa.views.bus_add', name='bus-add'),
 
+    url(r'^caravans/$', 'ecobasa.views.caravan_list', name='caravan-list'),
+    url(r'^caravans/add/$', 'ecobasa.views.caravan_add', name='caravan-add'),
+    url(r'^caravans/(?P<group>[^/]+)/$', 'ecobasa.views.caravan_detail', name='caravan-detail'),
+    url(r'^caravans/(?P<group>[^/]+)/dashboard/$', 'ecobasa.views.caravan_dashboard', name='caravan-dashboard'),
+    url(r'^caravans/(?P<group>[^/]+)/edit/$', 'ecobasa.views.caravan_edit', name='caravan-edit'),
+    url(r'^caravans/(?P<group>[^/]+)/delete/$', 'ecobasa.views.caravan_delete', name='caravan-delete'),
+    url(r'^caravans/(?P<group>[^/]+)/join/$', 'ecobasa.views.caravan_join', name='caravan-join'),
+    url(r'^caravans/(?P<group>[^/]+)/leave/$', 'ecobasa.views.caravan_leave', name='caravan-leave'),
+
     url(r'^find/$', search_view_factory(view_class=FindView), name='find'),
 
     url(r'^organisers/$', 'ecobasa.views.organiser_list', name='organiser-list'),
     # url(r'^skillshare/', include('skillshare.urls', namespace='skillshare')),
     # url(r'^references/', include('references.urls', namespace='references')),
+
+    url(r'^messages/', include('cosinnus_message.postman_urls')),
 
     url(r'^$', 'cms.views.details', {'slug': ''}),
 )

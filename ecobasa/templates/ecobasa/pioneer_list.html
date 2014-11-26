@@ -16,7 +16,7 @@
     <a class="btn btn-primary pull-right" href="{% url 'cosinnus:user-add' %}">{% trans "Add user" %}</a>
     {% endif %}
     
-    {% if object_list %}
+    {% if pioneers %}
     <table id="pioneer-list-table" class="table table-striped">
         <thead>
             <tr>
@@ -26,30 +26,32 @@
                 <th>{% trans "Country" %}</th>
             </tr>
         </thead>
-        {% for pioneer in object_list %}
+        {% for pioneer in pioneers %}
+        {% with pioneer.cosinnus_profile as profile %}
         <tr>
             <th>
                 <a href="{% url 'pioneer-detail' username=pioneer.username %}">
-                {% if pioneer.cosinnus_profile.avatar %}
-                  <img class="avatar media-object" src="{% thumbnail pioneer.cosinnus_profile.avatar "70x0" crop=1 upscale=1 %} "60x60" crop=1 upscale=1 %}">
+                {% if profile.avatar %}
+                  <img class="avatar media-object" src="{{ profile.avatar|thumbnail_url:"avatar_medium" }}">
                 {% else %}
                   <img class="avatar media-object" src="http://placehold.it/30x30">
                 {% endif %}
                 {{ pioneer.username }}
                 </a>
             </th>
-            <th>{% for tag in pioneer.cosinnus_profile.skills.all %}{{ tag }}{% if not forloop.last %}, {% endif %}{% endfor %}</th>
+            <th>{% for tag in profile.skills.all %}{{ tag }}{% if not forloop.last %}, {% endif %}{% endfor %}</th>
             <th>
-                {% if pioneer.cosinnus_profile.has_bus %}
-                {% if pioneer.cosinnus_profile.bus_image %}
-                    <img src="{% thumbnail object.bus_image "200x0" crop=1 upscale=1 %}" />
+                {% if profile.has_bus %}
+                {% if profile.bus_image %}
+                    <img src="{{ profile.bus_image|thumbnail_url:"bus_medium" }}" />
                 {% endif %}
                 {% endif %}
             </th>
             <th>
-                {{ pioneer.cosinnus_profile.get_country_display }}
+                {{ profile.get_country_display }}
             </th>
         </tr>
+        {% endwith %}
         {% endfor %}
     </table>
     {% else %}
