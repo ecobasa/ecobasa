@@ -50,6 +50,7 @@
       </ul>
   </div>
 </nav>
+{% comment %}
 {% if request.user.is_authenticated %}
   <nav class="navbar navbar-sub" role="navigation">
     <div class="menu-bus"></div>
@@ -91,3 +92,4 @@
     </ul>
   </nav>
 {% endif %} 
+{% endcomment %}
