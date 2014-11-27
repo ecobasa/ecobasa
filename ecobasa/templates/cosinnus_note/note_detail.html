@@ -25,8 +25,17 @@
 {% endblock %}
 
 {% block content %}
-{% if object.image %}
-<img src="{{ object.image|thumbnail_url:"note_large" }}" alt="{% trans "Header" %}" />
+{% if object.image or object.video %}
+  {% if object.video %}
+  <div class="video-responsive">
+  <!-- see http://django-embed-video.readthedocs.org/en/latest/examples.html#template-examples -->
+  {% video object.video as my_video %}
+      {{ my_video|embed:'medium' }}
+  {% endvideo %}
+  </div>
+  {% else %}
+  <img src="{{ object.image|thumbnail_url:"note_large" }}" alt="{% trans "Header" %}" />
+  {% endif %}
 {% endif %}
 <h3>{{ object.title }}</h3>
 <div class="media">
@@ -58,17 +67,6 @@
     </ul>
 </div>
 {% endif %}
-
-{% if object.video %}
-<hr/>
-
-<!-- see http://django-embed-video.readthedocs.org/en/latest/examples.html#template-examples -->
-{% video object.video as my_video %}
-    {{ my_video|embed:'medium' }}
-{% endvideo %}
-
-{% endif %}
-
 
 {% if object.attached_objects.all %}
     {% cosinnus_render_attached_objects object %}
