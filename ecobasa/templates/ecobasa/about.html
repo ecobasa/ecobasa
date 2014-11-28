@@ -1,20 +1,18 @@
 {% extends "base.html" %}
-{% load cms_tags static sekizai_tags ecobasa_about %}
+{% load cms_tags static sekizai_tags %}
 
 {% block base_content %}
   <div class="container about">
     <div class="row">
       <div class="col-xs-12">
-        {% with '2014-06-24'|to_datetime|timeuntil as countdown %}
-        <div id="bus-container"><span id="bus" data-toggle="tooltip" data-placement="top" title="Countdown until the tour starts: {{ countdown }}"></span></div>
+        <div id="bus-container"><span id="bus"></span></div>
         <div id="progress_bar_wrapper">
-          <div class="progress progress-striped active" id="progress_bar" data-toggle="tooltip" data-placement="top" title="Countdown until the tour starts: {{ countdown }}">
+          <div class="progress progress-striped active" id="progress_bar">
             <div class="progress-bar progress-bar-warning"  role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
               <span class="sr-only">0% Complete</span>
             </div>
           </div>
         </div>
-        {% endwith %}
       </div>
     </div>
 
@@ -34,6 +32,12 @@
 
     <div class="row">
       <div class="col-xs-12">
+        {% placeholder bottom %}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
         {% include 'ecobasa/includes/organisers.html' %}
       </div>
     </div>
@@ -43,10 +47,19 @@
 
 {% block extrafooter %}
   {{ block.super }}
-  <script type="text/javascript" src="{% static "js/bus.js" %}"></script>
-  <script type="text/javascript">
-//   var blog_posts = [
-// {date: new Date(2014, 4, 25), title: 'Blog Post 2', url: 'http://www.ccc.de'},
-// ];
+<script type="text/javascript" src="{% static "js/bus.js" %}"></script>
+<script type="application/javascript">
+// be aware that the months are numbered 0 through 11 numerically in JS
+  var progress_start = new Date({{ tour_start.year }}, {{ tour_start.month }} - 1, {{ tour_start.day }});
+  var progress_end = new Date({{ tour_end.year }}, {{ tour_end.month }} - 1, {{ tour_end.day }});
+  var blog_posts = [
+    {% for post in object_list %}
+          {
+              date: new Date({{ post.created.year }}, {{ post.created.month }} - 1, {{ post.created.day }}),
+              title: '{{ post.title }}',
+              url: '{% url "cosinnus:note:note" group=post.group.slug slug=post.slug %}'
+          },
+      {% endfor %}
+    ];
 </script>
 {% endblock extrafooter %}

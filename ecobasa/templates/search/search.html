@@ -2,11 +2,11 @@
 {% load i18n bootstrap3 %}
 
 
-{% block page_title %}{% trans "Find communities" %}{% endblock page_title %}
+{% block page_title %}{% trans "Find everything you are looking for :)" %}{% endblock page_title %}
 
 
 {% block base_content %}
-  <h1>{% trans "Find communities" %}</h1>
+  <h1>{% trans "Find places, people, skills, products, materials, tools, workshops, everything you are looking for :)" %}</h1>
 
   <form method="get" action="." class="search form-inline" role="form">
     <div class="form-group">
@@ -18,11 +18,7 @@
 
   <div class="alert alert-info">
     {% if paginator.count %}
-      <p>{% blocktrans with query=query count num=paginator.count %}
-        {{ num }} result for "{{ query }}".
-        {% plural %}
-        {{ num }} results for "{{ query }}".
-      {% endblocktrans %}</p>
+      <p>{% blocktrans with query=query count num=paginator.count %}{{ num }} result for "{{ query }}".{% plural %}{{ num }} results for "{{ query }}".{% endblocktrans %}</p>
     {% else %}
       {% if query %}
         <p>{% blocktrans with query=query %}No results found for "{{ query }}".{% endblocktrans %}</p>
@@ -44,6 +40,9 @@
           <a href="{% url 'pioneer-detail' username=result.username %}">{{ result.username }}</a><br>
           {{ result.context.field }}
           <div class="well">{{ result.context.value|safe }}</div>
+        {% endifequal %}
+        {% ifequal result.model_name 'todoentry' %}
+          <a href="{% url 'cosinnus:todo:entry-detail' group=result.group_slug slug=result.slug %}">{{ result.title }}</a>
         {% endifequal %}
       </li>
     {% endfor %}</ul>

@@ -151,6 +151,7 @@ body#start > .container {
 
 .description {
   text-align: center;
+  padding-top: 2%;
   height: 190px;
   background: url("../img/background.jpg");
   color: #f4ede3;
@@ -166,6 +167,7 @@ body#start > .container {
   font-size: 45px;
   margin-bottom: 10px;
   color: #f4ede3;
+  margin-top: 20px;
 }
 .description p {
   font-size: 18px;
@@ -189,23 +191,38 @@ body#start > .container {
   margin-bottom: 50px;
 }
 .caption-wrapper .carousel-caption h1, .caption-wrapper .carousel-caption p {
-  padding-left: 200px;
   position: static;
   text-align: left;
 }
 .caption-wrapper .carousel-caption h1 {
   margin-top: 30px;
+  margin-bottom: 0px;
+}
+.caption-wrapper .carousel-caption h2 {
+  color: #f4ede3;
+  font-family: lato;
+  font-weight: bold;
+  margin-top: 0px;
+  margin-bottom: 0px;
 }
 .caption-wrapper .carousel-caption p {
+  margin-top: 15px;
   margin-bottom: 50px;
 }
 .caption-wrapper .carousel-caption.static {
   height: 100%;
 }
 .caption-wrapper .carousel-caption .bus {
-  float: left;
-  position: absolute;
-  top: 20%;
+  margin-top: 40%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+.caption-wrapper .carousel-caption .heart {
+  margin-top: 20%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 
 /*************** Slider *****************/
@@ -452,4 +469,60 @@ form#form-register-community {
   margin-right: auto;
   display: block;
   margin-top: 30px;
+}
+
+/******************** Responsive ***********************/
+@media (max-width: 992px) {
+  nav.header.navbar {
+    position: relative;
+    background-color: #da6137;
+  }
+
+  #carousel-startpage .carousel-caption {
+    position: relative;
+    display: block;
+    padding-bottom: 20px;
+    height: auto;
+  }
+  #carousel-startpage .carousel-caption h1, #carousel-startpage .carousel-caption h2, #carousel-startpage .carousel-caption p {
+    position: relative;
+  }
+  #carousel-startpage .carousel-caption h1 {
+    margin-top: 0px;
+    margin-bottom: 10px;
+    font-size: 30px;
+  }
+  #carousel-startpage .carousel-caption p {
+    top: 0px;
+    font-size: 16px;
+  }
+
+  .description {
+    height: 138px;
+  }
+  .description h1 {
+    font-size: 25px;
+  }
+  .description p {
+    font-size: 17px;
+  }
+
+  .caption-wrapper {
+    top: 20px;
+  }
+  .caption-wrapper .carousel-caption img.bus {
+    margin-top: 25px;
+  }
+  .caption-wrapper .carousel-caption img.heart {
+    margin-top: 25px;
+  }
+  .caption-wrapper .carousel-caption h1, .caption-wrapper .carousel-caption h2, .caption-wrapper .carousel-caption p {
+    text-align: center;
+  }
+  .caption-wrapper .carousel-caption h1 {
+    font-size: 35px;
+  }
+  .caption-wrapper .carousel-caption h2 {
+    font-size: 25px;
+  }
 }

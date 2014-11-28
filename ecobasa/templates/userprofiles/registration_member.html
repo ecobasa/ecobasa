@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n static bootstrap3 ecobasa_registration %}
+{% load i18n static bootstrap3 honeypot ecobasa_registration %}
 
 {% block page_title %}{% trans "Registration" %}{% endblock %}
 
@@ -37,6 +37,7 @@
         </div>
         <div class="col-xs-6">
           <div class="row">
+            {% render_honeypot_field %}
             <div class="col-xs-3">{% bootstrap_label form.username.label %}</div>
             <div class="col-xs-9">{% bootstrap_field form.username show_label=False %}</div>
           </div>

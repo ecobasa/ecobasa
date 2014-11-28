@@ -1,0 +1,68 @@
+{% load i18n cosinnus_tags %}
+
+<a class="pull-left" href="#">
+    <!-- enter js to collapse containers here. -->
+    <span class="glyphicon glyphicon-folder-open"></span>
+</a>
+
+{% if container.container_object %}
+<div class="media-body">
+  <!-- regular container -->
+  {% if user.is_superuser or user|is_group_admin:group %}
+  <div class="btn-group pull-right" >
+      <a class="btn btn-primary btn-mini" href="{% url 'cosinnus:etherpad:pad-add' group=group.slug slug=container.container_object.slug %}"><span class="glyphicon glyphicon-plus"></span> {% trans "Add etherpad" %}</a>
+      <a class="btn btn-primary btn-mini" href="{% url 'cosinnus:etherpad:container-add' group=group.slug slug=container.container_object.slug %}"><span class="glyphicon glyphicon-plus"></span> {% trans "Create container" %}</a>
+      <a class="btn btn-primary btn-mini dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+      <ul class="dropdown-menu">
+<!--          <li><a href="{% url 'cosinnus:etherpad:pad-edit' group=group.slug slug=container.container_object.slug %}"><span class="glyphicon glyphicon-pencil"></span> {% trans "Edit" %}</a></li>-->
+          <li><a href="{% url 'cosinnus:etherpad:pad-delete' group=group.slug slug=container.container_object.slug %}"><span class="glyphicon glyphicon-trash"></span> {% trans "Delete" %}</a></li>
+      </ul>
+  </div>
+  {% endif %}
+  <p>
+      {{ container.container_object.title }}
+  </p>
+{% else %}
+  <!-- root container -->
+  {% if user.is_superuser or user|is_group_admin:group %}
+  <div class="btn-group pull-right" >
+      <a class="btn btn-primary btn-mini" href="{% url 'cosinnus:etherpad:pad-add' group=group.slug %}"><span class="glyphicon glyphicon-plus"></span> {% trans "Add etherpad" %}</a>
+      <a class="btn btn-primary btn-mini" href="{% url 'cosinnus:etherpad:container-add' group=group.slug %}"><span class="glyphicon glyphicon-plus"></span> {% trans "Create container" %}</a>
+  </div>
+  {% endif %}
+  <p>
+      // {% trans "ROOT" %} //
+  </p>
+{% endif %}
+
+
+{% if node.containers %}
+  {% for container in node.containers %}
+  <div class="media">
+    {% with node=container %}
+      {% include tree_template %}
+    {% endwith %}
+  </div>
+  {% endfor %}
+{% endif %}
+
+{% if node.objects %}
+  {% for object in node.objects %}
+  <div class="media">
+    <a class="pull-left" href="{% url 'cosinnus:etherpad:pad-detail' group=group.slug slug=object.slug %}"><span class="glyphicon glyphicon-file"></span></a>
+
+    <span><a href="{% url 'cosinnus:etherpad:pad-detail' group=group.slug slug=object.slug %}" title="{{ object.title }}">{{ object.title }}</a></span>
+
+    <div class="btn-group pull-right">
+        <a class="btn btn-primary btn-mini" href="{% url 'cosinnus:etherpad:pad-detail' group=group.slug slug=object.slug %}"><span class="glyphicon glyphicon-eye-open"></span> {% trans "Show" %}</a>
+        {% if user.is_superuser or user|is_group_member:group %}
+        <a class="btn btn-primary btn-mini dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+        <ul class="dropdown-menu" role="menu">
+          <li><a href="{% url 'cosinnus:etherpad:pad-edit' group=group.slug slug=object.slug %}"><span class="glyphicon glyphicon-pencil"></span> {% trans "Edit" %}</a></li>
+          <li><a href="{% url 'cosinnus:etherpad:pad-delete' group=group.slug slug=object.slug %}"><span class="glyphicon glyphicon-trash"></span> {% trans "Delete" %}</a></li>
+        </ul>
+        {% endif %}
+    </div>
+  </div>
+  {% endfor %}
+{% endif %}

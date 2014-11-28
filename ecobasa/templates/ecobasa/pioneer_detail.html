@@ -14,8 +14,8 @@
 {% with object.cosinnus_profile as profile %}
 <div class="row">
   <div class="col-xs-3">
-      {% if profile.avatar %}<img src="{% thumbnail profile.avatar "200x0" crop=1 upscale=1 %}" />{% endif %}
-      <a class="btn btn-smll" href="mailto:{{ profile.email }}"></a>
+      {% if profile.avatar %}<img src="{{ profile.avatar|thumbnail_url:"avatar_large" }}" />{% endif %}
+      <a class="email btn btn-primary btn-smll" href="{% url 'postman_write' recipients=object.username %}"><span class="glyphicon glyphicon-envelope"></span> {% trans "Send message" %}</a>
   </div>
   <div class="col-xs-6">
     <h2>{% trans "Tour" %}</h2>
@@ -30,16 +30,16 @@
       <li>{{ tag }}</li>
       {% if not forloop.last %} {% endif %}{% endfor %}
     </ul>
-    <h2>{% trans "Interests" %}</h2>
-    <ul>
-      {% for tag in profile.interests.all %}
-        <li>{{ tag }}</li>
-      {% if not forloop.last %} {% endif %}{% endfor %}
-    </ul>
     <h2>{% trans "Products" %}</h2>
     <ul>
       {% for tag in profile.products.all %}
       <li>{{ tag }}</li>
+      {% if not forloop.last %} {% endif %}{% endfor %}
+    </ul>
+    <h2>{% trans "Interests" %}</h2>
+    <ul>
+      {% for tag in profile.interests.all %}
+        <li>{{ tag }}</li>
       {% if not forloop.last %} {% endif %}{% endfor %}
     </ul>
   </div>
@@ -82,14 +82,14 @@
     <div class="row">
       <h2>{% trans "Bus" %}</h2>
       <div class="col-xs-3">
-        {% if profile.bus_image %}<img src="{% thumbnail profile.bus_image "200x0" crop=1 upscale=1 %}" />{% endif %}
+        {% if profile.bus_image %}<img src="{{ profile.bus_image|thumbnail_url:"bus_medium" }}" />{% endif %}
       </div>
       <div class="col-xs-6">
         <div class="row">
-          {% if  profile.bus_has_driving_license = "False" %}
+          {% if not profile.bus_has_driving_license %}
             <span class="important">This bus still needs a driver!</span>
           {% endif %}
-          {% if profile.bus_others_can_drive = "True" %}
+          {% if profile.bus_others_can_drive %}
             <p>Other people can drive this bus too</p>
           {% else %}
             <p>This bus needs to be driven by {{ object.username }} only</p>
@@ -104,6 +104,19 @@
       </div>
     </div>
   {% endif %}
+  <div class="row">
+    <div class="col-xs-12">
+      <h2>{% trans "Posts" %}</h2>
+      <ul>
+        {% for post in posts %}
+        <li>
+          <h4><a href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">{{ post.title }}</a></h4>
+          <p>{{ post.text|linebreaksbr|safe }}</p>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
   <div class="row">
     <div class="col-xs-12">
       {% get_organiser_roles_for_user object as grouped_roles %}

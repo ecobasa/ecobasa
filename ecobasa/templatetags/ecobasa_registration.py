@@ -5,7 +5,8 @@ from django import template
 import json
 
 from ..models import (TaggedInterest, TaggedSkill, TaggedProduct,
-    TaggedOffersService, TaggedOffersSkill, TaggedOffersCreation)
+    TaggedOffersService, TaggedOffersSkill, TaggedOffersCreation,
+    TaggedWishSkill)
 
 register = template.Library()
 
@@ -37,6 +38,11 @@ def get_offers_services():
 
 
 @register.assignment_tag
+def get_wishlist_skills():
+    return get_tagnames(TaggedWishSkill)
+
+
+@register.assignment_tag
 def get_offers_skills():
     return get_tagnames(TaggedOffersSkill)
 
@@ -44,3 +50,7 @@ def get_offers_skills():
 @register.assignment_tag
 def get_offers_creations():
     return get_tagnames(TaggedOffersCreation)
+
+@register.assignment_tag
+def get_wishlist_skills():
+    return get_tagnames(TaggedWishSkill)

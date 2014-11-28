@@ -5,7 +5,7 @@ from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 
 from .models import (EcobasaCommunityProfile, EcobasaCommunityProfileSeed,
-    OrganiserRole)
+                     OrganiserRole, Caravan)
 
 
 class SeedAdmin(admin.TabularInline):
@@ -14,7 +14,6 @@ class SeedAdmin(admin.TabularInline):
 
 
 class EcobasaCommunityProfileAdmin(admin.ModelAdmin):
-    readonly_fields = ('contact_lat', 'contact_lon',)
     inlines = [SeedAdmin]
 
 admin.site.register(EcobasaCommunityProfile, EcobasaCommunityProfileAdmin)
@@ -34,3 +33,8 @@ class OrganiserRoleAdmin(admin.ModelAdmin):
     get_group.short_description = _('Group')
 
 admin.site.register(OrganiserRole, OrganiserRoleAdmin)
+
+
+class CaravanAdmin(admin.ModelAdmin):
+    pass
+admin.site.register(Caravan, CaravanAdmin)

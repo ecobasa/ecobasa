@@ -8,7 +8,7 @@
     <div class="col-xs-3">
       <h3>{% trans "Organiser" %}</h3>
       {% with roles.0.cosinnus_group_membership.user.cosinnus_profile as profile %}
-      {% if profile.avatar %}<p><img src="{% thumbnail profile.avatar "200x0" crop=1 upscale=1 %}" /></p>{% endif %}
+      {% if profile.avatar %}<p><img src="{{ profile.avatar|thumbnail_url:"avatar_large" }}" /></p>{% endif %}
       {% endwith %}
       <p><a href="{% url 'pioneer-detail' username %}">{{ username }}</a></p>
     </div>
@@ -17,7 +17,7 @@
       <h4>{% trans "Roles" %}</h4>
       {% for role in roles %}
         {% with role.cosinnus_group_membership.group as group %}
-        <h5>{{ role.title }} (<a href="{% url 'cosinnus:group-detail' group.slug %}">{{ group.name }})</a></h5>
+        <h5>{{ role.title }} (<a href="{% url 'cosinnus:group-dashboard' group.slug %}">{{ group.name }})</a></h5>
         {% endwith %}
         <p>{{ role.description }}</p>
       {% endfor %}

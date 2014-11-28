@@ -1,5 +1,5 @@
 {% extends "cosinnus/base.html" %}
-{% load i18n l10n static cosinnus_tags thumbnail %}
+{% load i18n l10n static embed_video_tags cosinnus_tags thumbnail %}
 
 {% block extrahead %}
 {{ block.super }} 
@@ -17,8 +17,38 @@
 {% block body %}profile{% endblock body %}
 
 {% block content %}
+
+{% if profile.image %}
+<img src="{{ profile.image|thumbnail_url:"note_large" }}" alt="{{ object.name }}">
+<!-- 
 <div class="row">
-  <h1>{{ object.name }}</h1>
+  <div id="carousel-community" class="carousel slide gradient" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carousel-community" data-slide-to="0" class="active"></li>
+      <li data-target="#carousel-community" data-slide-to="1"></li>
+      <li data-target="#carousel-community" data-slide-to="2"></li>
+      <li data-target="#carousel-community" data-slide-to="3"></li>
+    </ol>
+
+    <div class="carousel-inner">
+      <div class="item active">
+        <img src="{{ profile.image|thumbnail_url:"note_large" }}" alt="{{ object.name }}">
+        </div>
+      </div>
+    </div>
+
+    <a class="left carousel-control" href="#carousel-community" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#carousel-community" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+  </div>
+  -->
+{% endif %}
+
+<div class="row">
+  <h1 class="community_name">{{ object.name }}</h1>
     {% if user.is_superuser or user|is_group_admin:object %}
     <div class="btn-group pull-right">
       <a href="{% url 'community-edit' group=object.slug %}" class="btn btn-primary">{% trans "Edit" %}</a>
@@ -36,24 +66,25 @@
     </div>
   {% endif %}
 </div>
+
 <div class="row">
   <div class="col-xs-8">
     <div class="row">
       <div class="col-xs-12">
-        <h3>What brings this community together</h3>
-        <p>{{ profile.basic_brings_together }}</p>
-        <h3>What can you learn here</h3>
+        <h3>{% trans "What brings this community together" %}</h3>
+        <p>{{ profile.basic_brings_together|urlize|linebreaksbr|safe }}</p>
+        <h3>{% trans "What can you learn here" %}</h3>
         <ul>
           {% for offer_skill in profile.offers_skills.all %}
           <li>{{ offer_skill }}</li>
           {% endfor %}
         </ul>
-        <h3>Accomodation for guests</h3>
-        <p>{{ profile.visitors_accomodation }}</p>
+        <h3>{% trans "Accomodation for guests" %}</h3>
+        <p>{{ profile.visitors_accommodation|urlize|linebreaksbr|safe }}</p>
       </div>
     </div>
     <div class="row">
-      <h2>Offers</h2>
+      <h2>{% trans "Offers" %}</h2>
       <div class="col-xs-6">
         <h3>Services</h3>
         <ul>
@@ -63,7 +94,7 @@
         </ul>
       </div>
       <div class="col-xs-6">
-        <h3>Products and Creations</h3>
+        <h3>{% trans "Products and Creations" %}</h3>
         <ul>
           {% for offer_creation in profile.offers_creations.all %}
           <li>{{ offer_creation }}</li>
@@ -73,20 +104,28 @@
     </div>
     <div class="row">
       <div class="col-xs-12">
-        <h3>Workshop and factoring spaces</h3>
-        {{ profile.offers_workshop_spaces }}
-        <h3>Seminars</h3>
-        <p>{{ profile.offers_learning_seminars }}</p>
+        <h3>{% trans "Workshop and factoring spaces" %}</h3>
+        {{ profile.offers_workshop_spaces|urlize|linebreaksbr|safe }}
+        <h3>{% trans "Seminars" %}</h3>
+        <p>{{ profile.offers_learning_seminars|urlize|linebreaksbr|safe }}</p>
       </div>
     </div>
     <div class="row">
-      <h2>Needs</h2>
+      <h2>{% trans "Needs" %}</h2>
       <div class="col-xs-12">
-        <h3>Materials</h3>
-        <p>{{ profile.wishlist_materials }}</p>
-        <h3>Tools</h3>
-        <p>{{ profile.wishlist_tools }}</p>
-        <h3>Seeds</h3>
+        <h3>Projects/Construction Sites</h3>
+        <p>{{ profile.wishlist_projects|urlize|linebreaksbr|safe }}</p>
+        <h3>{% trans "Experts/People with the following skills" %}</h3>
+        <ul>
+          {% for wishlist_skill in profile.wishlist_skills.all %}
+          <li>{{ wishlist_skill }}</li>
+          {% endfor %}
+        </ul>
+        <h3>{% trans "Materials" %}</h3>
+        <p>{{ profile.wishlist_materials|urlize|linebreaksbr|safe }}</p>
+        <h3>{% trans "Tools" %}</h3>
+        <p>{{ profile.wishlist_tools|urlize|linebreaksbr|safe }}</p>
+        <h3>{% trans "Seeds" %}</h3>
         <div class="table-responsive">
           <table class="table table-striped">
             <thead>
@@ -105,8 +144,21 @@
             </tbody>
           </table>
         </div>
-        <h3>Special Needs</h3>
-        <p>{{ profile.wishlist_special_needs }}</p>
+        <h3>{% trans "Special Needs" %}</h3>
+        <p>{{ profile.wishlist_special_needs|urlize|linebreaksbr|safe }}</p>
+
+      <h3>{% trans "Posts" %}</h3>
+      <ul>
+        {% for post in posts %}
+        <li>
+
+          <img src="{{ post.image|thumbnail_url:"note_medium" }}" alt="{% trans "Header" %}" />
+          <h4>{{ post.title }}</h4>
+          <p>{{ post.text|urlize|linebreaksbr|safe }}</p>
+        </li>
+        {% endfor %}
+      </ul>
+
       </div>
       
     </div>
@@ -121,7 +173,7 @@
         <li><span class="data">Children:</span><span class="children">{{ profile.basic_inhabitants_underage }}</span></li>
         <li><span class="data">Membership status:</span><span class="members">{{ profile.get_basic_membership_status_display }}</span></li>
       </ul>
-      <button class="btn btn-primary btn-small">Connect to this community</button>
+      <a href="{% url 'postman_write' recipients=object.name %}"><button class="email btn btn-primary btn-small" data-toggle="tooltip" data-placement="top" title="If you want to visit and volunteer at this communtiy"><span class="glyphicon glyphicon-envelope"></span> {% trans "Contact this community" %}</button></a>
     </div>
     <div id="community-map" class="community-map-small"></div>
     {% if user.is_authenticated and profile.contact_show %}
@@ -131,30 +183,47 @@
       {{ profile.contact_zipcode }}
       {{ profile.contact_city }}</br>
       {{ profile.get_contact_country_display }}</br></br>
-      Telephone: {{ profile.contact_telephone }}
+      Telephone: {{ profile.contact_telephone }}      
     </div>
     {% endif %}
+    <h3>Website</h3>
+    <a href="{{ profile.website }}" target="_blank">{{ profile.website }}</a>
+
+    {% if profile.video %}
+    <div class="row">
+      <div class="col-md-12">
+        <h3>{% trans "Video" %}</h3>
+        <div class="video-responsive">
+          {% video profile.video as my_video %}
+            {{ my_video|embed:'small' }}
+          {% endvideo %}
+        </div>
+      </div>
+    </div>
+    {% endif %}
+
     <div class="row">
       <div class="col-md-12">
         <h3>{% trans "Gift-economy Ambassadors" %}</h3>
         <ul class="media-list">
           {% for amb in object.ambassadors %}
             <li class="media">
-              <a class="pull-left" href="{% url 'cosinnus:user-detail' username=amb.username %}">
+              <a class="pull-left" href="{% url 'pioneer-detail' username=amb.username %}">
                 {% if amb.cosinnus_profile.avatar %}
-                  <img class="avatar" src="{% thumbnail amb.cosinnus_profile.avatar.url "60x60" crop=1 upscale=1 %}">
+                  <img class="avatar" src="{{ amb.cosinnus_profile.avatar|thumbnail_url:"avatar_medium" }}">
                 {% else %}
                   <img class="avatar" src="http://placehold.it/30x30">
                 {% endif %}
               </a>
               <div class="media-body">
-                <a class="pull-left" href="{% url 'cosinnus:user-detail' username=amb.username %}">{{ amb.get_full_name|default:amb.username }}</a>
+                <a class="pull-left" href="{% url 'pioneer-detail' username=amb.username %}">{{ amb.get_full_name|default:amb.username }}</a>
               </div>
             </li>
           {% endfor %}
         </ul>
       </div>
     </div>
+
     {% if user.is_superuser or user|is_group_admin:object %}
     <div class="row">
       <div class="col-md-12">
@@ -162,15 +231,15 @@
         <ul class="media-list">
           {% for pending in object.pending_members %}
             <li class="media">
-              <a class="pull-left" href="{% url 'cosinnus:user-detail' username=pending.username %}">
+              <a class="pull-left" href="{% url 'pioneer-detail' username=pending.username %}">
                 {% if pending.cosinnus_profile.avatar %}
-                  <img class="avatar" src="{% thumbnail cosinnus_profile.avatar.url "60x60" crop=1 upscale=1 %}">
+                  <img class="avatar" src="{{ cosinnus_profile.avatar|thumbnail_url:"avatar_medium" }}">
                 {% else %}
                   <img class="avatar" src="http://placehold.it/30x30">
                 {% endif %}
               </a>
               <div class="media-body">
-                <a class="pull-left" href="{% url 'cosinnus:user-detail' username=pending.username %}">{{ pending.get_full_name|default:pending.username }}</a>
+                <a class="pull-left" href="{% url 'pioneer-detail' username=pending.username %}">{{ pending.get_full_name|default:pending.username }}</a>
               </div>
             </li>
           {% endfor %}
@@ -193,7 +262,7 @@
 
   $(function() {
     EcobasaMap.init('community-map');
-    {% with lat=profile.contact_lat|unlocalize lon=profile.contact_lon|unlocalize %}
+    {% with lat=profile.contact_location_lat|unlocalize lon=profile.contact_location_lon|unlocalize %}
     var location = new L.LatLng({{ lat }}, {{ lon }});
     EcobasaMap.addMarker({{ lat }}, {{ lon }}, "{{ object.name }}");
     EcobasaMap.map.setView(location, 10);

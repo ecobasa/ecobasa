@@ -56,3 +56,12 @@ For some features, e.g. user registration to work properly, it is necessary to
 set up a Django site, go to http://localhost:8000/admin/sites/site/1/ and edit
 the appropriate domain and display name (use the super user account created
 earlier to log in).
+
+
+Set up the special group
+------------------------
+
+Edit your local settings.py for ECOBASA_SPECIAL_COSINNUS_GROUP to point to the
+primary key of the special group every pioneer will become a member of and
+whose blog posts are exposed. You will have to do that after setting up the
+group in the admin interface.
