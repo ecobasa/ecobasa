@@ -189,6 +189,23 @@ ul.dropdown-menu {
 	}
 }
 
+li#language-chooser {
+	width: 90px;
+	a {
+		text-align: right;
+	}
+	ul.dropdown-menu {
+		li a {
+			color: $secondary;
+			&:hover {
+				color: $brown;
+			}
+		}
+		li.active a {
+			color: $brown;
+		}
+	}
+}
 
 /*********** Startpage ****************/
 

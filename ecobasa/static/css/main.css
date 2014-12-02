@@ -148,6 +148,22 @@ ul.dropdown-menu > li > a:hover {
   color: #da6137;
 }
 
+li#language-chooser {
+  width: 90px;
+}
+li#language-chooser a {
+  text-align: right;
+}
+li#language-chooser ul.dropdown-menu li a {
+  color: #f4ede3;
+}
+li#language-chooser ul.dropdown-menu li a:hover {
+  color: #452912;
+}
+li#language-chooser ul.dropdown-menu li.active a {
+  color: #452912;
+}
+
 /*********** Startpage ****************/
 body#start > .container {
   padding-top: 0px;
