@@ -51,7 +51,11 @@ body {
 }
 
 a {
-  color: #da6137;
+  color: #de7a08;
+}
+
+a:hover {
+  color: #452912;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -114,7 +118,7 @@ h2 {
   color: #f4ede3;
 }
 .navbar-default ul.navbar-nav > li > a:hover {
-  color: #b4502c;
+  color: #452912;
 }
 .navbar-default ul.navbar-nav .dropdown > a .caret {
   border-top-color: #f4ede3;
@@ -161,7 +165,7 @@ body#start > .container {
 }
 .description a:hover {
   text-decoration: none;
-  color: #b4502c;
+  color: #452912;
 }
 .description h1 {
   font-size: 45px;

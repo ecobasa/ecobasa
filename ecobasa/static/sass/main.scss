@@ -2,8 +2,11 @@ $primary: #da6137;
 $secondary: #f4ede3;
 $third: #b4502c;
 $yellow: #de7a08;
-$orange: #de7a08;
+$orange: #ff7800;
 $red: #e34a26;
+$brown: #452912;
+$purple: #80143b;
+
 
 
 @font-face {
@@ -82,7 +85,11 @@ body {
 }
 
 a {
-	color: $primary;
+	color: $yellow;
+}
+
+a:hover {
+	color: $brown;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -150,7 +157,7 @@ h2 {
 	& > li > a {
 		color: $secondary;
 		&:hover {
-			color: $third;
+			color: $brown;
 		}
 	}
 	.dropdown > a .caret {
@@ -199,7 +206,7 @@ body#start > .container {
 		color: $secondary;
 		&:hover {
 			text-decoration: none;
-			color: $third;
+			color: $brown;
 		}
 	}
 	h1 {
