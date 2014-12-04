@@ -49,11 +49,9 @@ class RegistrationMemberForm(RegistrationForm):
         profile.country = self.cleaned_data['country']
         profile.city = self.cleaned_data['city']
         profile.zipcode = self.cleaned_data['zipcode']
-
-        profile.ecobasa_member = self.cleaned_data['ecobasa_member']
-
-        profile.tour_why = self.cleaned_data['tour_why']
-        profile.tour_how = self.cleaned_data['tour_how']
+        profile.about = self.cleaned_data['about']
+        profile.world = self.cleaned_data['world']
+        profile.ecobasa_what = self.cleaned_data['ecobasa_what']
 
         profile.has_bus = self.cleaned_data['has_bus']
         profile.bus_consumption = self.cleaned_data['bus_consumption']

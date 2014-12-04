@@ -59,10 +59,12 @@ a:hover {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin-top: 50px;
-  margin-bottom: 30px;
   font-family: 'bree_serif', Courier, serif;
   color: #da6137;
+}
+
+h1 + h2 {
+  margin-top: -10px;
 }
 
 h2 {
@@ -85,12 +87,13 @@ h2 {
 
 /************ Header ****************/
 .header.navbar {
+  position: fixed;
+  top: 0px;
   background-color: rgba(218, 97, 55, 0.7);
   margin-bottom: 0px;
   border-radius: 0px;
   border: none;
   z-index: 11;
-  position: absolute;
   width: 100%;
 }
 
@@ -164,9 +167,20 @@ li#language-chooser ul.dropdown-menu li.active a {
   color: #452912;
 }
 
+/************* Content ***************/
+.container.content {
+  margin-top: 50px;
+}
+
 /*********** Startpage ****************/
 body#start > .container {
   padding-top: 0px;
+  margin-top: 0px;
+}
+
+body#start .footer.navbar {
+  position: relative;
+  margin-top: -50px;
 }
 
 .description {
@@ -246,6 +260,15 @@ body#start > .container {
 }
 
 .modal .moda-body > h1 {
+  margin-top: 0px;
+}
+
+div#video {
+  padding-top: 120px !important;
+  padding-bottom: 70px;
+  margin-top: -50px;
+}
+div#video h1 {
   margin-top: 0px;
 }
 
@@ -479,8 +502,8 @@ form#form-register-community {
 }
 
 .footer.navbar {
-  position: relative;
-  margin-top: -50px;
+  position: fixed;
+  bottom: 0px;
   background-color: rgba(218, 97, 55, 0.7);
   margin-bottom: 0px;
   border-radius: 0px;
