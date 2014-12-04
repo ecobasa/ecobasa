@@ -40,7 +40,7 @@
 <span class="details">
   {% blocktrans with pioneer_url=pioneer_url pioneer_name=object.creator.get_full_name|default:object.creator.username created=object.created group_url=group_url group_slug=object.group.slug %}written by <a href="{{ pioneer_detail }}">{{ pioneer_name }}</a> on {{ created }}{% endblocktrans %}
  </span>
-<p>{{ object.text|linebreaksbr|safe }}</p>
+<p>{{ object.text|urlize|linebreaksbr|safe }}</p>
 <div class="media">
   <a class="pull-left" href="{% url 'cosinnus:user-detail' username=object.creator.get_username %}">
     {% if object.creator.cosinnus_profile.avatar %}
