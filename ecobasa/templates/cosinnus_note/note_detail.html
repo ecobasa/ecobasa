@@ -25,12 +25,24 @@
 {% endblock %}
 
 {% block content %}
-{% if object.image %}
-<img src="{{ object.image|thumbnail_url:"note_large" }}" alt="{% trans "Header" %}" />
+{% if object.video or object.image %}
+  <!-- see http://django-embed-video.readthedocs.org/en/latest/examples.html#template-examples -->
+  {% video object.video as my_video %}
+  <div class="video-responsive">
+    {{ my_video|embed:'medium' }}
+  </div>
+  {% endvideo %}
+{% else %}
+  <img src="{{ object.image|thumbnail_url:"note_large" }}" />
 {% endif %}
-<h3>{{ object.title }}</h3>
+<h5 class="media-heading muted pull-right">{{ object.created }}</h5>
+<h2>{{ object.title }}</h2>
+<span class="details">
+  {% blocktrans with pioneer_url=pioneer_url pioneer_name=object.creator.get_full_name|default:object.creator.username created=object.created group_url=group_url group_slug=object.group.slug %}written by <a href="{{ pioneer_detail }}">{{ pioneer_name }}</a> on {{ created }}{% endblocktrans %}
+ </span>
+<p>{{ object.text|linebreaksbr|safe }}</p>
 <div class="media">
-  <a class="pull-left" href="#">
+  <a class="pull-left" href="{% url 'cosinnus:user-detail' username=object.creator.get_username %}">
     {% if object.creator.cosinnus_profile.avatar %}
       <img class="media-object avatar avatar-medium" src="{{ object.creator.cosinnus_profile.avatar|thumbnail_url:"avatar_medium" }}">
     {% else %}
@@ -38,12 +50,14 @@
     {% endif %}
   </a>
   <div class="media-body">
-    <h5 class="media-heading muted pull-right">{{ object.created }}</h5>
     <h4 class="media-heading"><a href="{% url 'cosinnus:user-detail' username=object.creator.get_username %}">{{ object.creator.get_full_name|default:object.creator.username }}</a></h4>
-    {{ object.text|linebreaksbr|safe }}
   </div>
 </div>
-
+</br>
+</br>
+<div class="back">
+  <a href="{% url "blog" %}"><span class="glyphicon glyphicon-arrow-left"></span> {% trans "Back to blog" %}</a>
+</div>
 
 <hr>
 
@@ -58,17 +72,6 @@
     </ul>
 </div>
 {% endif %}
-
-{% if object.video %}
-<hr/>
-
-<!-- see http://django-embed-video.readthedocs.org/en/latest/examples.html#template-examples -->
-{% video object.video as my_video %}
-    {{ my_video|embed:'medium' }}
-{% endvideo %}
-
-{% endif %}
-
 
 {% if object.attached_objects.all %}
     {% cosinnus_render_attached_objects object %}
