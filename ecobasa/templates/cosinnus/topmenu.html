@@ -10,11 +10,13 @@
     {% include "cosinnus/brand.html" %}
   </div>
   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-    <div class="col-xs-6 col-md-5 col-md-offset-1">
+    <div class="col-xs-8 col-md-8 col-md-offset-1">
       <ul class="nav navbar-nav">
         <li><a data-toggle="modal" data-target="#about-modal" href="#about"><span class="glyphicon glyphicon-info-sign"></span> {% trans "About the platform" %}</a></li>
+        <li><a href="/#video"><span class="glyphicon glyphicon-film"></span> {% trans "Video" %}</a></li>
         <li><a href="http://blog.ecobasa.org/"><span class="glyphicon glyphicon-heart"></span> {% trans "Blog" %}</a></li>
         <li><a data-toggle="modal" data-target="#newsletter-modal" href="#newsletter"><span class="glyphicon glyphicon-envelope"></span> {% trans "Newsletter" %}</a></li>
+        <li><a data-toggle="modal" data-target="#donate-modal" href="#donate"><span class="glyphicon glyphicon-gift"></span> {% trans "Donate" %}</a></li>
         {% if group %}
           {% url 'community-dashboard' group=group.slug as dashboard_url %}
           <li {% ifequal dashboard_url request.path %} class="active"{% endifequal %}><a href="{{ dashboard_url }}">{% trans "Community Dashboard" %}</a></li>

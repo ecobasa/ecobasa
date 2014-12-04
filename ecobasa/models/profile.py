@@ -312,16 +312,15 @@ class EcobasaUserProfile(BaseUserProfile):
     zipcode = models.CharField(_('zipcode'),
         max_length=255, blank=True, null=True)
 
-    ecobasa_member = models.BooleanField(
-        _('I also want to become a member of ecobasa.org later</br>(it will make this project permanently possible)'),
-        blank=True, default=False)
-
     interests = TaggableManager(_('interests'),
         through=TaggedInterest, related_name='_interest', blank=True,
         help_text='A comma-separated list of tags. You can type anything here. You can also chose from other users tags. Connect two words with a "-" to have one tag.')
-    tour_why = models.TextField(_('Why do you want to take part in the tour?'),
+    about = models.TextField(_('About you'),
+        blank=True,
+        null=True)
+    ecobasa_what = models.TextField(_('What would you like to use ecobasa mainly for?'),
         blank=True, null=True)
-    tour_how = models.TextField(_('How do you want to take part in the tour?'),
+    world = models.TextField(_('What do you do to make the world a better place?'),
         blank=True, null=True)
 
     skills = TaggableManager(_('knowledge/skills'),

@@ -19,7 +19,35 @@
       <div>
         {% bootstrap_field form.avatar %}
       </div>
+            <br />
+      <div>
+        {% bootstrap_field form.email %}
+        {% bootstrap_field form.old_password %}
+        {% bootstrap_field form.new_password1 %}
+        {% bootstrap_field form.new_password2 %}
+      </div>
+    </div>
+    <div class="col-xs-8">
+      <div>
+        {% bootstrap_field form.interests %}
+        {% bootstrap_field form.skills %}
+        {% bootstrap_field form.products %}
+      </div>
       <br />
+      <div>
+          {% bootstrap_field form.about %}
+          {% bootstrap_field form.world %}
+          {% bootstrap_field form.ecobasa_what %}
+      </div>
+      <br/>
+      <div>
+        {% bootstrap_field form.gender %}
+        {% bootstrap_field form.birth_date %}
+        {% bootstrap_field form.country %}
+        {% bootstrap_field form.city %}
+        {% bootstrap_field form.zipcode %}
+      </div>
+            <br />
       <div>
         {% bootstrap_field form.has_bus %}
         {% bootstrap_field form.bus_image %}
@@ -27,31 +55,6 @@
         {% bootstrap_field form.bus_others_can_drive %}
         {% bootstrap_field form.bus_num_passengers %}
         {% bootstrap_field form.bus_consumption %}
-      </div>
-    </div>
-    <div class="col-xs-8">
-      <div>
-        {% bootstrap_field form.gender %}
-        {% bootstrap_field form.birth_date %}
-        {% bootstrap_field form.country %}
-        {% bootstrap_field form.city %}
-        {% bootstrap_field form.zipcode %}
-        {% bootstrap_field form.ecobasa_member %}
-
-        {% bootstrap_field form.tour_why %}
-        {% bootstrap_field form.tour_how %}
-
-        {% bootstrap_field form.interests %}
-        {% bootstrap_field form.skills %}
-        {% bootstrap_field form.products %}
-
-      </div>
-      <br />
-      <div>
-        {% bootstrap_field form.email %}
-        {% bootstrap_field form.old_password %}
-        {% bootstrap_field form.new_password1 %}
-        {% bootstrap_field form.new_password2 %}
       </div>
     </div>
   </div>

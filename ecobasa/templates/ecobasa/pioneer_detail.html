@@ -9,20 +9,26 @@
 
 {% block content %}
 {% if user.is_superuser or user == object %}<a class="btn btn-primary pull-right" href="{% url 'pioneer-edit' username=object.username %}">{% trans "Edit profile" %}</a>{% endif %}
-<h1>{{ object.username }} - {% trans "a gift-economy pioneer" %}</h1>
+<h1>{{ object.username }}</h1>
+{% if group = "ecobasa" %}
+  {% for role in roles %}
+  <h2>{{ role.title }}</h2>
+  {% endfor %}
+{% endif %}
 
 {% with object.cosinnus_profile as profile %}
 <div class="row">
   <div class="col-xs-3">
-      {% if profile.avatar %}<img src="{{ profile.avatar|thumbnail_url:"avatar_large" }}" />{% endif %}
-      <a class="email btn btn-primary btn-smll" href="{% url 'postman_write' recipients=object.username %}"><span class="glyphicon glyphicon-envelope"></span> {% trans "Send message" %}</a>
+      {% if profile.avatar %}<img class="avatar" src="{{ profile.avatar|thumbnail_url:"avatar_large" }}" />{% endif %}
+      <a class="email btn btn-primary btn-smll pull-right" href="{% url 'postman_write' recipients=object.username %}"><span class="glyphicon glyphicon-envelope"></span> {% trans "Send message" %}</a>
   </div>
   <div class="col-xs-6">
-    <h2>{% trans "Tour" %}</h2>
-    <h5>{% trans "Why do you want to take part in the tour?" %}</h5>
-    <p>{{ profile.tour_why }}</p>
-    <h5>{% trans "How do you want to take part in the tour?" %}</h5>
-    <p>{{ profile.tour_how }}</p>
+    <h2>{% trans "About me" %}</h2>
+    <p>{{ profile.about }}</p>
+    <h5>{% trans "What do you do to make the world a better place?" %}</h5>
+    <p>{{ profile.world }}</p>
+    <h5>{% trans "What would you like to use ecobasa mainly for?" %}</h5>
+    <p>{{ profile.ecobasa_what }}</p>
 
     <h2>{% trans "Skills" %}</h2>
     <ul>
@@ -121,14 +127,11 @@
     <div class="col-xs-12">
       {% get_organiser_roles_for_user object as grouped_roles %}
       {% if grouped_roles %}
-        <h2>{% trans "Organiser Roles" %}</h2>
+        <h2>{% trans "Roles" %}</h2>
         {% for group, roles in grouped_roles.items %}
-          <h3>{% trans "Group" %}</h3>
-          <p>{{ group }}</p>
 
-          <h4>{% trans "Roles" %}</h4>
           {% for role in roles %}
-            <h5>{{ role.title }}</h5>
+            <h3>{{ role.title }}</h3>
             <p>{{ role.description }}</p>
           {% endfor %}
         {% endfor %}

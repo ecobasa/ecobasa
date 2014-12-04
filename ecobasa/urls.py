@@ -50,6 +50,7 @@ urlpatterns = i18n_patterns('',
     url(r'^find/$', search_view_factory(view_class=FindView), name='find'),
 
     url(r'^organisers/$', 'ecobasa.views.organiser_list', name='organiser-list'),
+    url(r'^team/$', 'ecobasa.views.organiser_list', name='organiser-list'),
     # url(r'^skillshare/', include('skillshare.urls', namespace='skillshare')),
     # url(r'^references/', include('references.urls', namespace='references')),
 

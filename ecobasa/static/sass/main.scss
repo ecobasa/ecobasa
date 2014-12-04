@@ -90,13 +90,16 @@ a {
 
 a:hover {
 	color: $brown;
+	text-decoration: none;
 }
 
 h1, h2, h3, h4, h5, h6 {
-	margin-top: 50px;
-	margin-bottom: 30px;
 	font-family: 'bree_serif', Courier, serif;
 	color: $primary;
+}
+
+h1 + h2 {
+	margin-top: -10px;
 }
 
 h2 {
@@ -120,12 +123,13 @@ h2 {
 /************ Header ****************/
 
 .header.navbar {
+	position: fixed;
+	top: 0px;
 	background-color: rgba($primary, 0.7);
 	margin-bottom: 0px;
 	border-radius: 0px;
 	border: none;
 	z-index: 11;
-    position: absolute;
     width: 100%;
 }
 
@@ -207,10 +211,25 @@ li#language-chooser {
 	}
 }
 
+/************* Content ***************/
+
+.container.content {
+	padding-top: 50px;
+	padding-bottom: 80px;
+}
+
 /*********** Startpage ****************/
 
 body#start > .container {
 	padding-top: 0px;
+	margin-top: -40px;
+}
+
+body#start {
+	.footer.navbar {
+		position: relative;
+		margin-top: -50px;
+	}
 }
 
 .description {
@@ -291,6 +310,14 @@ body#start > .container {
 
 .modal .moda-body {
 	& > h1 {
+		margin-top: 0px;
+	}
+}
+
+.container#video {
+	padding-top: 110px !important;
+	padding-bottom: 70px;
+	h1 {
 		margin-top: 0px;
 	}
 }
@@ -497,6 +524,41 @@ margin-top: 20px;
 	padding: 20px 36px;
 }
 
+/**************** Team Page *******************/
+
+.media-list {
+	margin-top: 50px;
+	h2.media-heading {
+		font-size: 40px;
+		margin-bottom: 10px;
+	}
+	li.media {
+		margin-bottom: 40px;
+	}
+}
+
+img.avatar {
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-moz-border-radius: 50%;
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px dashed;
+	padding: 5px;
+	margin-top: 37px;
+}
+
+.media>.pull-left {
+	margin-right: 60px;
+}
+
+span.role {
+	font-size: 20px;
+	margin-left: 20px;
+	color: $purple;
+}
 
 /*************** Community-Profiles **************/
 
@@ -522,6 +584,13 @@ margin-top: 20px;
 	}
 }
 
+/**************** Pioneer-Detail ******************/
+
+img.avatar {
+	margin-bottom: 20px;
+}
+
+
 
 /************* Footer ******************/
 
@@ -537,8 +606,8 @@ margin-top: 20px;
 }
 
 .footer.navbar {
-	position: relative;
-	margin-top: -50px;
+	position: fixed;
+	bottom: 0px;
 	background-color: rgba($primary, 0.7);
 	margin-bottom: 0px;
 	border-radius: 0px;
@@ -561,8 +630,8 @@ margin-top: 20px;
 	padding-bottom: 56.25%; 
 	padding-top: 30px; 
 	height: 0; 
-	overflow: 
-	hidden; 
+	overflow: hidden; 
+	margin-bottom: 20px;
 } 
  
 .video-responsive iframe, .video-responsive object, .video-responsive embed {
@@ -627,5 +696,9 @@ margin-top: 20px;
 				font-size: 25px;
 			}
 		}
+	}
+	.footer.navbar {
+		position: relative;
+		background-color: rgba(218, 97, 55, 1);
 	}
 }
