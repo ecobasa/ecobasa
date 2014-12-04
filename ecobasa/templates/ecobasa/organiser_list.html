@@ -1,7 +1,7 @@
 {% extends "cosinnus/base.html" %}
 {% load i18n thumbnail static %}
 
-{% block page_title %}{% trans "Organisers" %}{% endblock %}
+{% block page_title %}{% trans "The ecobasa team" %}{% endblock %}
 
 
 {% block extrahead %}
@@ -11,40 +11,44 @@
 
 
 {% block content %}
-    <h1>{% trans "The Community-Tours organisers" %}</h1>
+<div class="row">
+  <div class="col-xs-12">
+    <h1>{% trans "The ecobasa team" %}</h1>
+  </div>
+</div>
     {% if object_list %}
-    <table id="organiser-list-table" class="table table-striped">
-        <thead>
-            <tr>
-                <th>{% trans "Organiser" %}</th>
-                <th>{% trans "Group" %}</th>
-                <th>{% trans "Role title" %}</th>
-                <th>{% trans "Role description" %}</th>
-            </tr>
-        </thead>
-        {% for organiser in object_list %}
-        {% with organiser.cosinnus_group_membership.user as cgm_user %}
-        <tr>
-            <td>
+    <div class="row">
+      <div class="col-xs-12">
+        <ul class="media-list">
+            {% for organiser in object_list %}
+            {% with organiser.cosinnus_group_membership.user as cgm_user %}
+              <li class="media">
+                <div class="col-xs-12 col-md-3">
                 <a href="{% url 'pioneer-detail' username=cgm_user.username %}">
-                {% if cgm_user.cosinnus_profile.avatar %}
-                  <img class="avatar media-object" src="{{ cgm_user.cosinnus_profile.avatar|thumbnail_url:"avatar_medium" }}">
-                {% else %}
-                  <img class="avatar media-object" src="http://placehold.it/30x30">
-                {% endif %}
-                {{ cgm_user.username }}
+                  {% if cgm_user.cosinnus_profile.avatar %}
+                    <img class="avatar" src="{{ cgm_user.cosinnus_profile.avatar|thumbnail_url:"avatar_large" }}">
+                  {% else %}
+                    <img class="avatar media-object" src="http://placehold.it/30x30">
+                  {% endif %}
                 </a>
-            </td>
-            <td>{{ organiser.cosinnus_group_membership.group }}</td>
-            <td>{{ organiser.title }}</td>
-            <td>{{ organiser.description }}</td>
-        </tr>
-        {% endwith %}
-        {% endfor %}
-    </table>
+                </div>
+                <div class="col-xs-12 col-md-9">
+                  <h2 class="media-heading"><a href="{% url 'pioneer-detail' username=cgm_user.username %}">{{ cgm_user.username }}</a> <span class="role">{{ organiser.title }}</span></h2>
+                  <p>
+                    {{ organiser.description }}
+                  </p>
+                </div>
+              </li>
+            {% endwith %}
+            {% endfor %}
+          </ul>
+        </div>
+    </div>
     {% else %}
-        {% trans "There are no organisers registered yet, " %}<a href="{% url 'register' %}">{% trans "join now!" %}</a>
+      {% trans "There are no organisers registered yet, " %}<a href="{% url 'register' %}">{% trans "join now!" %}</a>
+      </div>
     {% endif %}
+</div>
 {% endblock %}
 
 

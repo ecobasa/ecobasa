@@ -56,6 +56,7 @@ a {
 
 a:hover {
   color: #452912;
+  text-decoration: none;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -470,6 +471,41 @@ form#form-register-community {
   padding: 20px 36px;
 }
 
+/**************** Team Page *******************/
+.media-list {
+  margin-top: 50px;
+}
+.media-list h2.media-heading {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+.media-list li.media {
+  margin-bottom: 40px;
+}
+
+img.avatar {
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px dashed;
+  padding: 5px;
+  margin-top: 37px;
+}
+
+.media > .pull-left {
+  margin-right: 60px;
+}
+
+span.role {
+  font-size: 20px;
+  margin-left: 20px;
+  color: #80143b;
+}
+
 /*************** Community-Profiles **************/
 #profile .content h2 {
   font-size: 20px;
@@ -487,6 +523,11 @@ form#form-register-community {
 }
 .sidebar .community-map-small {
   margin-top: 20px;
+}
+
+/**************** Pioneer-Detail ******************/
+img.avatar {
+  margin-bottom: 20px;
 }
 
 /************* Footer ******************/
@@ -588,5 +629,10 @@ form#form-register-community {
   }
   .caption-wrapper .carousel-caption h2 {
     font-size: 25px;
+  }
+
+  .footer.navbar {
+    position: relative;
+    background-color: #da6137;
   }
 }

@@ -19,8 +19,8 @@
 {% with object.cosinnus_profile as profile %}
 <div class="row">
   <div class="col-xs-3">
-      {% if profile.avatar %}<img src="{{ profile.avatar|thumbnail_url:"avatar_large" }}" />{% endif %}
-      <a class="email btn btn-primary btn-smll" href="{% url 'postman_write' recipients=object.username %}"><span class="glyphicon glyphicon-envelope"></span> {% trans "Send message" %}</a>
+      {% if profile.avatar %}<img class="avatar" src="{{ profile.avatar|thumbnail_url:"avatar_large" }}" />{% endif %}
+      <a class="email btn btn-primary btn-smll pull-right" href="{% url 'postman_write' recipients=object.username %}"><span class="glyphicon glyphicon-envelope"></span> {% trans "Send message" %}</a>
   </div>
   <div class="col-xs-6">
     <h2>{% trans "About me" %}</h2>
