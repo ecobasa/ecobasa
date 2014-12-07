@@ -33,7 +33,7 @@
                 </a>
                 </div>
                 <div class="col-xs-12 col-md-9">
-                  <h2 class="media-heading"><a href="{% url 'pioneer-detail' username=cgm_user.username %}">{{ cgm_user.username }}</a> <span class="role">{{ organiser.title }}</span></h2>
+                  <h2 class="media-heading">{{ cgm_user.username }} <span class="role">{{ organiser.title }}</span></h2>
                   <p>
                     {{ organiser.description|urlize|linebreaksbr|safe }}
                   </p>

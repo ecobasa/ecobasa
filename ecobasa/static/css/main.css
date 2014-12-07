@@ -485,8 +485,9 @@ form#form-register-community {
   margin-top: 50px;
 }
 .media-list h2.media-heading {
-  font-size: 40px;
+  font-size: 32px;
   margin-bottom: 10px;
+  color: #ff7800;
 }
 .media-list li.media {
   margin-bottom: 40px;
@@ -510,7 +511,7 @@ img.avatar {
 }
 
 span.role {
-  font-size: 20px;
+  font-size: 25px;
   margin-left: 20px;
   color: #80143b;
 }
