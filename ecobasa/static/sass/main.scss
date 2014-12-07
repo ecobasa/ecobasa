@@ -10,7 +10,7 @@ $purple: #80143b;
 
 
 @font-face {
-    font-family: 'bree_serif';
+    font-family: 'Bree Serif';
     src: url('../fonts/breeserif-regular-webfont.eot');
     src: url('../fonts/breeserif-regular-webfont.eot?#iefix') format('embedded-opentype'),
          url('../fonts/breeserif-regular-webfont.woff2') format('woff2'),
@@ -23,7 +23,7 @@ $purple: #80143b;
 }
 
 @font-face {
-    font-family: 'lato';
+    font-family: 'Lato';
     src: url('../fonts/lato-regular-webfont.eot');
     src: url('../fonts/lato-regular-webfont.eot?#iefix') format('embedded-opentype'),
          url('../fonts/lato-regular-webfont.woff') format('woff'),
@@ -35,7 +35,7 @@ $purple: #80143b;
 
 
 @font-face {
-    font-family: 'lato';
+    font-family: 'Lato';
     src: url('../fonts/lato-bold-webfont.eot');
     src: url('../fonts/lato-bold-webfont.eot?#iefix') format('embedded-opentype'),
          url('../fonts/lato-bold-webfont.woff') format('woff'),
@@ -47,7 +47,7 @@ $purple: #80143b;
 }
 
 @font-face {
-    font-family: 'lato';
+    font-family: 'Lato';
     src: url('../fonts/lato-italic-webfont.eot');
     src: url('../fonts/lato-italic-webfont.eot?#iefix') format('embedded-opentype'),
          url('../fonts/lato-italic-webfont.woff') format('woff'),
@@ -59,7 +59,7 @@ $purple: #80143b;
 }
 
 @font-face {
-    font-family: 'lato';
+    font-family: 'Lato';
     src: url('../fonts/lato-bolditalic-webfont.eot');
     src: url('../fonts/lato-bolditalic-webfont.eot?#iefix') format('embedded-opentype'),
          url('../fonts/lato-bolditalic-webfont.woff') format('woff'),
@@ -74,7 +74,8 @@ $purple: #80143b;
 
 body {
 	background: $secondary;
-	font-family: 'lato';
+	font-family: 'Lato';
+	color: $brown;
 }
 
 
@@ -89,13 +90,13 @@ a {
 }
 
 a:hover {
-	color: $brown;
+	color: $purple;
 	text-decoration: none;
 }
 
-h1, h2, h3, h4, h5, h6 {
-	font-family: 'bree_serif', Courier, serif;
-	color: $primary;
+h1, h2 {
+	font-family: 'Bree Serif', Courier, serif;
+	color: $orange;
 }
 
 h1 + h2 {
@@ -104,6 +105,13 @@ h1 + h2 {
 
 h2 {
 	font-size: 30px;
+	color: $purple;
+}
+
+h3, h4, h5, h6 {
+	font-family: 'Lato';
+	font-weight: bold;
+	color: $brown;
 }
 
 .gradient {
@@ -140,11 +148,11 @@ h2 {
 			font-size: 20px;
 			margin-top: 0px;
 			margin-bottom: 0px;
-			font-family: 'bree_serif';
+			font-family: 'Bree Serif';
 			font-weight: normal;
 		}
 		h2 {
-			font-family: "lato",Helvetica,Arial,sans-serif;
+			font-family: "Lato",Helvetica,Arial,sans-serif;
 			font-size: 16px;
 		}
 	}
@@ -281,7 +289,7 @@ body#start {
 		}
 		h2 {
 			color: $secondary;
-			font-family: lato;
+			font-family: Lato;
 			font-weight: bold;
 			margin-top: 0px;
 			margin-bottom: 0px;
@@ -530,8 +538,9 @@ margin-top: 20px;
 .media-list {
 	margin-top: 50px;
 	h2.media-heading {
-		font-size: 40px;
+		font-size: 32px;
 		margin-bottom: 10px;
+		color: $orange;
 	}
 	li.media {
 		margin-bottom: 40px;
@@ -556,7 +565,7 @@ img.avatar {
 }
 
 span.role {
-	font-size: 20px;
+	font-size: 25px;
 	margin-left: 20px;
 	color: $purple;
 }
