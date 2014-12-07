@@ -1,5 +1,5 @@
 @font-face {
-  font-family: 'bree_serif';
+  font-family: 'Bree Serif';
   src: url("../fonts/breeserif-regular-webfont.eot");
   src: url("../fonts/breeserif-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/breeserif-regular-webfont.woff2") format("woff2"), url("../fonts/breeserif-regular-webfont.woff") format("woff"), url("../fonts/breeserif-regular-webfont.ttf") format("truetype"), url("../fonts/breeserif-regular-webfont.svg#bree_serifregular") format("svg");
   font-weight: normal;
@@ -7,7 +7,7 @@
 }
 
 @font-face {
-  font-family: 'lato';
+  font-family: 'Lato';
   src: url("../fonts/lato-regular-webfont.eot");
   src: url("../fonts/lato-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/lato-regular-webfont.woff") format("woff"), url("../fonts/lato-regular-webfont.ttf") format("truetype"), url("../fonts/lato-regular-webfont.svg#latoregular") format("svg");
   font-weight: normal;
@@ -15,7 +15,7 @@
 }
 
 @font-face {
-  font-family: 'lato';
+  font-family: 'Lato';
   src: url("../fonts/lato-bold-webfont.eot");
   src: url("../fonts/lato-bold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/lato-bold-webfont.woff") format("woff"), url("../fonts/lato-bold-webfont.ttf") format("truetype"), url("../fonts/lato-bold-webfont.svg#latobold") format("svg");
   font-weight: bold;
@@ -23,7 +23,7 @@
 }
 
 @font-face {
-  font-family: 'lato';
+  font-family: 'Lato';
   src: url("../fonts/lato-italic-webfont.eot");
   src: url("../fonts/lato-italic-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/lato-italic-webfont.woff") format("woff"), url("../fonts/lato-italic-webfont.ttf") format("truetype"), url("../fonts/lato-italic-webfont.svg#latoitalic") format("svg");
   font-weight: normal;
@@ -31,7 +31,7 @@
 }
 
 @font-face {
-  font-family: 'lato';
+  font-family: 'Lato';
   src: url("../fonts/lato-bolditalic-webfont.eot");
   src: url("../fonts/lato-bolditalic-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/lato-bolditalic-webfont.woff") format("woff"), url("../fonts/lato-bolditalic-webfont.ttf") format("truetype"), url("../fonts/lato-bolditalic-webfont.svg#latobold_italic") format("svg");
   font-weight: bold;
@@ -41,7 +41,8 @@
 /*********** Default **************/
 body {
   background: #f4ede3;
-  font-family: 'lato';
+  font-family: 'Lato';
+  color: #452912;
 }
 
 .btn-primary {
@@ -55,13 +56,13 @@ a {
 }
 
 a:hover {
-  color: #452912;
+  color: #80143b;
   text-decoration: none;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'bree_serif', Courier, serif;
-  color: #da6137;
+h1, h2 {
+  font-family: 'Bree Serif', Courier, serif;
+  color: #ff7800;
 }
 
 h1 + h2 {
@@ -70,6 +71,13 @@ h1 + h2 {
 
 h2 {
   font-size: 30px;
+  color: #80143b;
+}
+
+h3, h4, h5, h6 {
+  font-family: 'Lato';
+  font-weight: bold;
+  color: #452912;
 }
 
 .gradient {
@@ -103,11 +111,11 @@ h2 {
   font-size: 20px;
   margin-top: 0px;
   margin-bottom: 0px;
-  font-family: 'bree_serif';
+  font-family: 'Bree Serif';
   font-weight: normal;
 }
 .header .navbar-brand h2 {
-  font-family: "lato",Helvetica,Arial,sans-serif;
+  font-family: "Lato",Helvetica,Arial,sans-serif;
   font-size: 16px;
 }
 
@@ -236,7 +244,7 @@ body#start .footer.navbar {
 }
 .caption-wrapper .carousel-caption h2 {
   color: #f4ede3;
-  font-family: lato;
+  font-family: Lato;
   font-weight: bold;
   margin-top: 0px;
   margin-bottom: 0px;
