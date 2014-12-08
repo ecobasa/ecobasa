@@ -17,6 +17,7 @@
         <li><a href="http://blog.ecobasa.org/"><span class="glyphicon glyphicon-heart"></span> {% trans "Blog" %}</a></li>
         <li><a data-toggle="modal" data-target="#newsletter-modal" href="#newsletter"><span class="glyphicon glyphicon-envelope"></span> {% trans "Newsletter" %}</a></li>
         <li><a data-toggle="modal" data-target="#donate-modal" href="#donate"><span class="glyphicon glyphicon-gift"></span> {% trans "Donate" %}</a></li>
+        {% comment %}
         {% if group %}
           {% url 'community-dashboard' group=group.slug as dashboard_url %}
           <li {% ifequal dashboard_url request.path %} class="active"{% endifequal %}><a href="{{ dashboard_url }}">{% trans "Community Dashboard" %}</a></li>
@@ -31,7 +32,6 @@
           {% language_chooser %}
         </li>
 
-      {% comment %}
       {% if request.user.is_authenticated %}
         {% if groups %}
           <li class="dropdown">
