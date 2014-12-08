@@ -46,7 +46,9 @@
     </div>
     {% endvideo %}
   {% else %}
+  <div class="headimage">
     <img src="{{ object.image|thumbnail_url:"note_large" }}" />
+  </div>
   {% endif %}
 {% endif %}
 <h5 class="media-heading muted pull-right">{{ object.created }}</h5>
