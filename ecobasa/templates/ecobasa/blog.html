@@ -15,26 +15,29 @@
 </div>
 <div class="row gradient">
   <div class="container content blog">
-<div class="row tags">
-  <div class="col-xs-12">
-    {% placeholder headlines %}
-    {% if tag %}
-    <a href="{% url "blog" %}"><span class="label">{% trans "Show all blog-posts" %}</span></a>
-    {% endif %}
-    {% for post in object_list %}
-      {% if post.tags %}
-      {% for tag in post.tags.all %}
-        <a href="{% url 'blog_filtered' tag=tag.slug %}"><span class="label">{{ tag }}</span></a>
+    <div class="row tags">
+      <div class="col-xs-12">
+        {% placeholder headlines %}
+        {% if tag %}
+          <a href="{% url "blog" %}"><span class="label">{% trans "Show all blog-posts" %}</span></a>
+        {% endif %}
+        {% for post in object_list %}
+          {% if post.tags %}
+            {% for tag in post.tags.all %}
+              <a href="{% url 'blog_filtered' tag=tag.slug %}"><span class="label">{{ tag }}</span></a>
+            {% endfor %}
+          {% else %}
+            {% trans "No tags available." %}
+          {% endif %}
+        {% endfor %}
+        </div>
+      </div>
+  <div class="row">
+    <div class="col-xs-12">
+      {% for post in object_list %}
+        {% show_post post %}
       {% endfor %}
-      {% else %}
-        {% trans "No tags available." %}
-      {% endif %}
-    {% endfor %}
   </div>
 </div>
-
-{% for post in object_list %}
-  {% show_post post %}
-{% endfor %}
-
+</div>
 {% endblock %}
