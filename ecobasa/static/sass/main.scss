@@ -448,10 +448,13 @@ a:hover span.label {
 	background: $purple;
 }
 
-body#blog .headimage img {
-	width: 100%;
-	height: auto;
-	margin-top: -160px;
+body#blog .headimage {
+	margin-bottom: 0px;
+	img {
+		width: 100%;
+		height: auto;
+		margin-top: -160px;
+	}
 }
 
 .headimage {

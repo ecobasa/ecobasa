@@ -396,6 +396,9 @@ a:hover span.label {
   background: #80143b;
 }
 
+body#blog .headimage {
+  margin-bottom: 0px;
+}
 body#blog .headimage img {
   width: 100%;
   height: auto;
