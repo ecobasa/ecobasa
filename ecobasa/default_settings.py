@@ -147,6 +147,7 @@ TEMPLATE_DIRS = (
 CMS_TEMPLATES = (
     ('start.html', 'Startpage'),
     ('ecobasa/about.html', 'About'),
+    ('ecobasa/blog.html', 'Blog'),
 )
 
 LANGUAGES = (
