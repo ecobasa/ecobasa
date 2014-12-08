@@ -38,14 +38,16 @@
 
 {% block content %}
 {% if object.video or object.image %}
-  <!-- see http://django-embed-video.readthedocs.org/en/latest/examples.html#template-examples -->
-  {% video object.video as my_video %}
-  <div class="video-responsive">
-    {{ my_video|embed:'medium' }}
-  </div>
-  {% endvideo %}
-{% else %}
-  <img src="{{ object.image|thumbnail_url:"note_large" }}" />
+  {% if object.video %}
+    {% video object.video as my_video %}
+    <!-- see http://django-embed-video.readthedocs.org/en/latest/examples.html#template-examples -->
+    <div class="video-responsive">
+      {{ my_video|embed:'medium' }}
+    </div>
+    {% endvideo %}
+  {% else %}
+    <img src="{{ object.image|thumbnail_url:"note_large" }}" />
+  {% endif %}
 {% endif %}
 <h5 class="media-heading muted pull-right">{{ object.created }}</h5>
 <h2>{{ object.title }}</h2>
