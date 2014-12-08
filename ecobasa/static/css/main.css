@@ -420,6 +420,17 @@ a:hover span.label {
   padding-top: 0px;
 }
 
+.tags {
+  margin-bottom: 30px;
+}
+
+.post {
+  margin-bottom: 30px;
+}
+.post h2 {
+  margin-top: 0px;
+}
+
 /***************Communities**************/
 #community-map {
   z-index: 1;
