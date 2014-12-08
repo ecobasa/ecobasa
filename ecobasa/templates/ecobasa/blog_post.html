@@ -17,7 +17,7 @@
   {% endif %}
   <div class="{% if post.video or post.image %}col-xs-8{% else %}col-xs-12{% endif %}">
     <a href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">
-      <h3>{{ post.title }}</h3>
+      <h2>{{ post.title }}</h2>
     </a>
      <p>{{ post.text|urlize|linebreaksbr|safe|truncatewords:80 }}... <a class="more" href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">read more <span class="glyphicon glyphicon-arrow-right"></span></a><p>
   </div>

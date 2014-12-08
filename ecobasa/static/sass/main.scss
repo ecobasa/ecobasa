@@ -222,7 +222,7 @@ li#language-chooser {
 /************* Content ***************/
 
 .container.content {
-	padding-top: 50px;
+	padding-top: 80px;
 	padding-bottom: 80px;
 }
 
@@ -435,6 +435,41 @@ a[data-toggle=tooltip] {
 	background-color:#000;
 	cursor: pointer;
 	top: -15px;
+}
+
+/*************** Blog **************/
+
+.label {
+	border-radius: 1.25em;
+	background: $yellow;
+}
+
+a:hover span.label {
+	background: $purple;
+}
+
+.headimage img {
+	width: 100%;
+	height: auto;
+	margin-top: -160px;
+}
+
+.gradient {
+	-webkit-box-shadow: inset 0 5px 10px -5px rgba(0, 0, 0, 0.4);
+	-moz-box-shadow: inset 0 5px 10px -5px rgba(0, 0, 0, 0.4);
+	box-shadow: inset 0 5px 10px -5px rgba(0, 0, 0, 0.4);
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e5e5e5), color-stop(100%, #f4ede3));
+	background-image: -webkit-linear-gradient(top, #e5e5e5, #f4ede3);
+	background-image: -moz-linear-gradient(top, #e5e5e5, #f4ede3);
+	background-image: -ms-linear-gradient(top, #e5e5e5, #f4ede3);
+	background-image: -o-linear-gradient(top, #e5e5e5, #f4ede3);
+	background-image: linear-gradient(top, #e5e5e5, #f4ede3);
+	background-size: 100% 52px;
+	background-repeat: no-repeat;
+}
+
+.container.content.blog {
+	padding-top: 0px;
 }
 
 /***************Communities**************/

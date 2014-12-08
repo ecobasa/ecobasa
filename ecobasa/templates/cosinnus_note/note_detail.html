@@ -24,6 +24,18 @@
     <li class="active">{{ object.title }}</li>
 {% endblock %}
 
+{% if user = object.creator %}
+<div class="btn-group">
+    <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">{% trans "Actions" %} <span class="caret"></span></a>
+    <ul class="dropdown-menu">
+        <li><a href="{% url 'cosinnus:note:update' group=group.slug slug=object.slug %}"><span class="glyphicon glyphicon-pencil"></span> {% trans "Edit" %}</a></li>
+        <li><a href="{% url 'cosinnus:note:delete' group=group.slug slug=object.slug %}"><span class="glyphicon glyphicon-trash"></span> {% trans "Delete" %}</a></li>
+        <li class="divider"></li>
+        <li><a href="{% url 'cosinnus:note:comment' group=group.slug slug=object.slug %}"><i class="icon-comment"></i> {% trans "Comment" %}</a></li>
+    </ul>
+</div>
+{% endif %}
+
 {% block content %}
 {% if object.video or object.image %}
   <!-- see http://django-embed-video.readthedocs.org/en/latest/examples.html#template-examples -->
@@ -41,37 +53,11 @@
   {% blocktrans with pioneer_url=pioneer_url pioneer_name=object.creator.get_full_name|default:object.creator.username created=object.created group_url=group_url group_slug=object.group.slug %}written by <a href="{{ pioneer_detail }}">{{ pioneer_name }}</a> on {{ created }}{% endblocktrans %}
  </span>
 <p>{{ object.text|urlize|linebreaksbr|safe }}</p>
-<div class="media">
-  <a class="pull-left" href="{% url 'cosinnus:user-detail' username=object.creator.get_username %}">
-    {% if object.creator.cosinnus_profile.avatar %}
-      <img class="media-object avatar avatar-medium" src="{{ object.creator.cosinnus_profile.avatar|thumbnail_url:"avatar_medium" }}">
-    {% else %}
-      <img class="media-object avatar avatar-medium" src="http://placehold.it/64x64">
-    {% endif %}
-  </a>
-  <div class="media-body">
-    <h4 class="media-heading"><a href="{% url 'cosinnus:user-detail' username=object.creator.get_username %}">{{ object.creator.get_full_name|default:object.creator.username }}</a></h4>
-  </div>
-</div>
-</br>
-</br>
 <div class="back">
   <a href="{% url "blog" %}"><span class="glyphicon glyphicon-arrow-left"></span> {% trans "Back to blog" %}</a>
 </div>
 
 <hr>
-
-{% if user = object.creator %}
-<div class="btn-group">
-    <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">{% trans "Actions" %} <span class="caret"></span></a>
-    <ul class="dropdown-menu">
-        <li><a href="{% url 'cosinnus:note:update' group=group.slug slug=object.slug %}"><span class="glyphicon glyphicon-pencil"></span> {% trans "Edit" %}</a></li>
-        <li><a href="{% url 'cosinnus:note:delete' group=group.slug slug=object.slug %}"><span class="glyphicon glyphicon-trash"></span> {% trans "Delete" %}</a></li>
-        <li class="divider"></li>
-        <li><a href="{% url 'cosinnus:note:comment' group=group.slug slug=object.slug %}"><i class="icon-comment"></i> {% trans "Comment" %}</a></li>
-    </ul>
-</div>
-{% endif %}
 
 {% if object.attached_objects.all %}
     {% cosinnus_render_attached_objects object %}
