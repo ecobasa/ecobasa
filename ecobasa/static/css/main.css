@@ -396,10 +396,14 @@ a:hover span.label {
   background: #80143b;
 }
 
-.headimage img {
+body#blog .headimage img {
   width: 100%;
   height: auto;
   margin-top: -160px;
+}
+
+.headimage {
+  margin-bottom: 30px;
 }
 
 .gradient {
