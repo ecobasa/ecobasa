@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load cms_tags static sekizai_tags %}
+
+{% block base_content %}
+  <div class="container about">
+    <div class="row">
+      <div class="col-xs-12">
+        <div id="bus-container"><span id="bus"></span></div>
+        <div id="progress_bar_wrapper">
+          <div class="progress progress-striped active" id="progress_bar">
+            <div class="progress-bar progress-bar-warning"  role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+              <span class="sr-only">0% Complete</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-3 urban-info">
+        <a href="http://communities-convergence.org" target="blank"><div class="urban cc_logo"></div></a>
+        {% placeholder left %}
+      </div>
+      <div class="col-xs-6 col-md-6">
+          {% placeholder center %}
+      </div>
+      <div class="col-xs-3 danube-info">
+        <a href="http://communities-convergence.org" target="blank"><div class="danube cc_logo"></div></a>
+        {% placeholder right %}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        {% placeholder bottom %}
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-xs-12">
+        {% include 'ecobasa/includes/organisers.html' %}
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block extrafooter %}
+  {{ block.super }}
+<script type="text/javascript" src="{% static "js/bus.js" %}"></script>
+<script type="application/javascript">
+// be aware that the months are numbered 0 through 11 numerically in JS
+  var progress_start = new Date({{ tour_start.year }}, {{ tour_start.month }} - 1, {{ tour_start.day }});
+  var progress_end = new Date({{ tour_end.year }}, {{ tour_end.month }} - 1, {{ tour_end.day }});
+  var blog_posts = [
+    {% for post in object_list %}
+          {
+              date: new Date({{ post.created.year }}, {{ post.created.month }} - 1, {{ post.created.day }}),
+              title: '{{ post.title }}',
+              url: '{% url "cosinnus:note:note" group=post.group.slug slug=post.slug %}'
+          },
+      {% endfor %}
+    ];
+</script>
+{% endblock extrafooter %}
