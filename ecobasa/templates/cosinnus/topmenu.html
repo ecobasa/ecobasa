@@ -15,8 +15,8 @@
         <li><a href="{% url "about" %}"><span class="glyphicon glyphicon-info-sign"></span> {% trans "About the platform" %}</a></li>
         <li><a href="/#video"><span class="glyphicon glyphicon-film"></span> {% trans "Video" %}</a></li>
         <li><a href="{% url "blog" %}"><span class="glyphicon glyphicon-heart"></span> {% trans "Blog" %}</a></li>
-        <li><a data-toggle="modal" data-target="#newsletter-modal" href="#newsletter"><span class="glyphicon glyphicon-envelope"></span> {% trans "Newsletter" %}</a></li>
-        <li><a data-toggle="modal" data-target="#donate-modal" href="#donate"><span class="glyphicon glyphicon-gift"></span> {% trans "Donate" %}</a></li>
+        <li><a data-toggle="modal" data-target="#newsletter-modal" href="#m-newsletter"><span class="glyphicon glyphicon-envelope"></span> {% trans "Newsletter" %}</a></li>
+        <li><a data-toggle="modal" data-target="#donate-modal" href="#m-donate"><span class="glyphicon glyphicon-gift"></span> {% trans "Donate" %}</a></li>
         {% comment %}
         {% if group %}
           {% url 'community-dashboard' group=group.slug as dashboard_url %}
