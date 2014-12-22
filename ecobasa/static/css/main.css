@@ -139,7 +139,8 @@ h3, h4, h5, h6 {
 .navbar-default ul.navbar-nav .open > a,
 .navbar-default ul.navbar-nav .open > a:hover,
 .navbar-default ul.navbar-nav .open > a:focus {
-  color: #da6137;
+  color: #452912;
+  background: #f4ede3;
 }
 
 ul.dropdown-menu {
@@ -251,10 +252,17 @@ body#start .footer.navbar {
 }
 .caption-wrapper .carousel-caption p {
   margin-top: 15px;
-  margin-bottom: 50px;
+  margin-bottom: 40px;
 }
 .caption-wrapper .carousel-caption.static {
   height: 100%;
+  background-color: rgba(14, 7, 0, 0.25);
+  bottom: auto;
+}
+.caption-wrapper .carousel-caption.static h1, .caption-wrapper .carousel-caption.static h2, .caption-wrapper .carousel-caption.static p {
+  margin-left: 0px;
+  margin-right: 0px;
+  text-align: left;
 }
 .caption-wrapper .carousel-caption .bus {
   margin-top: 40%;
@@ -285,13 +293,11 @@ body#start .footer.navbar {
 /*************** Slider *****************/
 .carousel-caption {
   color: #f4ede3;
-  text-align: left;
   left: 0px;
   right: 0px;
-  top: 40%;
-  height: 220px;
-  padding-bottom: 0px;
-  background: rgba(0, 0, 0, 0.25);
+  bottom: 100px;
+  padding-bottom: 20px;
+  background: rgba(14, 7, 0, 0.4);
 }
 .carousel-caption a {
   color: #f4ede3;
@@ -301,10 +307,8 @@ body#start .footer.navbar {
   color: #f4ede3;
 }
 .carousel-caption h1, .carousel-caption p {
-  position: absolute;
-  left: 20%;
-  right: 20%;
-  text-align: center;
+  margin-left: 20%;
+  margin-right: 20%;
 }
 .carousel-caption h1 {
   color: #f4ede3;
