@@ -25,13 +25,18 @@
         {% for app in apps %}
           <li{% if app.active %} class="active"{% endif %}><a href="{{ app.url }}">{{ app.label }}</a></li>
         {% endfor %}
+        {% endcomment %}
       </ul>
     </div>
-      <ul class="nav navbar-nav pull-right">
+    <div class="col-xs-1 pull-right">
+      <ul class="nav navbar-nav">
         <li id="language-chooser" class="dropdown">
           {% language_chooser %}
         </li>
-
+      </ul>
+    </div>
+  </nav>
+  {% comment %}
       {% if request.user.is_authenticated %}
         {% if groups %}
           <li class="dropdown">

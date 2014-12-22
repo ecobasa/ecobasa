@@ -5,6 +5,7 @@ $yellow: #de7a08;
 $orange: #ff7800;
 $red: #e34a26;
 $brown: #452912;
+$dark-brown: #0e0700;
 $purple: #80143b;
 
 
@@ -179,7 +180,8 @@ h3, h4, h5, h6 {
 	.open > a, 
 	.open > a:hover, 
 	.open > a:focus {
-		color: $primary;
+		color: $brown;
+		background: $secondary;
 	}
 }
 
@@ -296,10 +298,17 @@ body#start {
 		}
 		p {
 			margin-top: 15px;
-			margin-bottom: 50px;
+			margin-bottom: 40px;
 		}
 		&.static {
 			height: 100%;
+			background-color: rgba(14, 7, 0, 0.25);
+			bottom: auto;
+			h1, h2, p {
+				margin-left: 0px;
+				margin-right: 0px;
+				text-align: left;
+			}
 		}
 		.bus {
 			margin-top: 40%;
@@ -335,13 +344,11 @@ body#start {
 
 .carousel-caption {
 	color: $secondary;
-	text-align: left;
 	left: 0px;
 	right: 0px;
-	top: 40%;
-	height: 220px;
-	padding-bottom: 0px;
-	background: rgba(0, 0, 0, 0.25);
+	bottom: 100px;
+	padding-bottom: 20px;
+	background: rgba($dark-brown, 0.40);
 	a {
 		color: $secondary;
 		&:hover {
@@ -350,10 +357,8 @@ body#start {
 		}
 	}
 	h1, p {
-		position: absolute;
-		left: 20%;
-		right: 20%;
-		text-align: center;
+		margin-left: 20%;
+		margin-right: 20%;
 	}
 	h1 {
 		color: $secondary;
