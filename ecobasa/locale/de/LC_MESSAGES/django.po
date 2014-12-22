@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-22 14:41+0100\n"
+"POT-Creation-Date: 2014-12-22 17:57+0100\n"
 "PO-Revision-Date: 2014-11-23 18:07+0200\n"
 "Last-Translator: Sebastian Henschel <ecobasa@kodeaffe.de\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,19 +37,9 @@ msgstr "Englisch"
 msgid "German"
 msgstr "Deutsch"
 
-#: default_settings.py:156
-msgid "Hungarian"
-msgstr "Ungarisch"
-
-#: default_settings.py:157
-#, fuzzy
-msgid "French"
-msgstr "Französich Guyana"
-
 #: urls.py:14
-#, fuzzy
 msgid "^about/$"
-msgstr "^uber-die-tour/"
+msgstr "^info/$"
 
 #: forms/pioneer.py:13
 msgid "The two password fields didn't match."
@@ -95,7 +85,7 @@ msgstr "Bild"
 
 #: models/caravan.py:31
 msgid "An image of the caravan."
-msgstr ""
+msgstr "Ein Bild der Karawane"
 
 #: models/caravan.py:39 templates/ecobasa/caravan_list.html:16
 msgid "Caravan"
@@ -1124,17 +1114,16 @@ msgid "interests"
 msgstr "Interessen"
 
 #: models/profile.py:318
-#, fuzzy
 msgid "About you"
-msgstr "Über die Tour"
+msgstr "Über dich"
 
 #: models/profile.py:321 templates/ecobasa/pioneer_detail.html:30
 msgid "What would you like to use ecobasa mainly for?"
-msgstr ""
+msgstr "Wofür möchtest du ecobasa am meißten nutzen"
 
 #: models/profile.py:323 templates/ecobasa/pioneer_detail.html:28
 msgid "What do you do to make the world a better place?"
-msgstr ""
+msgstr "Was tust du um die Welt zu einem besseren Ort zu machen"
 
 #: models/profile.py:326
 msgid "knowledge/skills"
@@ -1384,7 +1373,7 @@ msgstr "Widget hinzufügen"
 #: templates/cosinnus/dashboard.html:64 templates/cosinnus/dashboard.html:69
 #: templates/cosinnus/dashboard.html:74
 msgid "Details"
-msgstr ""
+msgstr "Details"
 
 #: templates/cosinnus/dashboard.html:66 templates/cosinnus/dashboard.html:71
 #: templates/cosinnus/dashboard.html:76
@@ -1413,12 +1402,10 @@ msgid "Toggle navigation"
 msgstr "Navigation umschalten"
 
 #: templates/cosinnus/footermenu.html:15
-#, fuzzy
 msgid "Contact"
-msgstr "Kontakt-Info"
+msgstr "Kontakt"
 
 #: templates/cosinnus/footermenu.html:20
-#, fuzzy
 msgid "Community Dashboard"
 msgstr "Dashboard"
 
@@ -1454,21 +1441,20 @@ msgid "Login"
 msgstr "Anmelden"
 
 #: templates/cosinnus/topmenu.html:15
-#, fuzzy
 msgid "About the platform"
-msgstr "Über die Tour"
+msgstr "Über die Plattform"
 
 #: templates/cosinnus/topmenu.html:17
 msgid "Blog"
-msgstr ""
+msgstr "Blog"
 
 #: templates/cosinnus/topmenu.html:18
 msgid "Newsletter"
-msgstr ""
+msgstr "Newsletter"
 
 #: templates/cosinnus/topmenu.html:19
 msgid "Donate"
-msgstr ""
+msgstr "Spenden"
 
 #: templates/cosinnus/registration/login.html:12
 msgid "Lost password"
@@ -1652,9 +1638,8 @@ msgid "Title"
 msgstr "Titel"
 
 #: templates/cosinnus_note/note_detail.html:17
-#, fuzzy
 msgid "Write comment"
-msgstr "Kommentar"
+msgstr "Schreibe einen Kommentar"
 
 #: templates/cosinnus_note/note_detail.html:34
 #: templates/cosinnus_note/note_list.html:63
@@ -1664,16 +1649,16 @@ msgid "Comment"
 msgstr "Kommentar"
 
 #: templates/cosinnus_note/note_detail.html:57
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "written by <a href=\"%(pioneer_detail)s\">%(pioneer_name)s</a> on %(created)s"
 msgstr ""
 "geschrieben von <a href=\"%(pioneer_detail)s\">%(pioneer_name)s</a> am "
-"%(created)s in <a href=\"%(group_url)s\">%(group_slug)s</a>"
+"%(created)s"
 
 #: templates/cosinnus_note/note_detail.html:61
 msgid "Back to blog"
-msgstr ""
+msgstr "Zurück zum Blog"
 
 #: templates/cosinnus_note/note_list.html:3
 msgid "Notes"
@@ -1818,7 +1803,7 @@ msgstr "Kopfelement"
 
 #: templates/ecobasa/blog.html:5
 msgid "ecobasa.blog"
-msgstr ""
+msgstr "ecobasa.blog"
 
 #: templates/ecobasa/blog.html:22
 msgid "Show all blog-posts"
@@ -2094,9 +2079,8 @@ msgstr "Melde dich als Schenkökonomie Botschafter für deine Gemeinschaft an"
 
 #: templates/ecobasa/organiser_list.html:4
 #: templates/ecobasa/organiser_list.html:16
-#, fuzzy
 msgid "The ecobasa team"
-msgstr "Das Team von %(site_name)s"
+msgstr "Das ecobasa Team"
 
 #: templates/ecobasa/organiser_list.html:48
 msgid "There are no organisers registered yet, "
@@ -2120,9 +2104,8 @@ msgid "Send message"
 msgstr "Nachricht schicken"
 
 #: templates/ecobasa/pioneer_detail.html:26
-#, fuzzy
 msgid "About me"
-msgstr "Über die Tour"
+msgstr "Über mich"
 
 #: templates/ecobasa/pioneer_detail.html:45
 msgid "Interests"
@@ -2256,7 +2239,7 @@ msgid "Find"
 msgstr "Finden"
 
 #: templates/search/search.html:21
-#, fuzzy, python-format
+#, python-format
 msgid "%(num)s result for \"%(query)s\"."
 msgid_plural "%(num)s results for \"%(query)s\"."
 msgstr[0] "%(num)s Ergebnis für \"%(query)s\"."
@@ -2376,6 +2359,12 @@ msgstr "NEIN, Registrieren"
 #: views/community.py:89 views/pioneer.py:93
 msgid "The profile was successfully updated."
 msgstr "Das Profil wurde erfolgreich aktualisiert."
+
+#~ msgid "Hungarian"
+#~ msgstr "Ungarisch"
+
+#~ msgid "French"
+#~ msgstr "Französich"
 
 #~ msgid ""
 #~ "I also want to become a member of ecobasa.org later</br>(it will make "
