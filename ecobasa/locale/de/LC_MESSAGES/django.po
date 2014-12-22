@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-12-22 17:57+0100\n"
+"POT-Creation-Date: 2014-12-22 18:09+0100\n"
 "PO-Revision-Date: 2014-11-23 18:07+0200\n"
 "Last-Translator: Sebastian Henschel <ecobasa@kodeaffe.de\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -36,10 +36,6 @@ msgstr "Englisch"
 #: default_settings.py:155
 msgid "German"
 msgstr "Deutsch"
-
-#: urls.py:14
-msgid "^about/$"
-msgstr "^info/$"
 
 #: forms/pioneer.py:13
 msgid "The two password fields didn't match."
@@ -1439,6 +1435,10 @@ msgstr "Registrieren"
 #: templates/cosinnus/registration/login.html:11
 msgid "Login"
 msgstr "Anmelden"
+
+#: templates/cosinnus/topmenu.html:15
+msgid "about"
+msgstr "info"
 
 #: templates/cosinnus/topmenu.html:15
 msgid "About the platform"
