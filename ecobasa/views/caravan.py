@@ -34,6 +34,7 @@ caravan_list = CaravanListView.as_view()
 class CaravanAddView(GroupCreateView):
     model = Caravan
     form_class = CaravanForm
+    template_name = 'ecobasa/caravan_form.html'
 
     # enable any logged in user to create a caravan
     @method_decorator(login_required)
