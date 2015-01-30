@@ -30,6 +30,10 @@ body {
 
 a {
 	color: $primary;
+	&:hover,
+	&:focus {
+		color: $primary;
+	}
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -288,12 +292,14 @@ a[data-toggle=tooltip] {
 	hidden; 
 } 
  
-.video-responsive iframe, .video-responsive object, .video-responsive embed {
+.video-responsive iframe, 
+.video-responsive object, 
+.video-responsive embed {
 	position: absolute; 
 	top: 0; 
 	left: 0; 
 	width: 100%;
-	height: 100%; 
+	height: 100%;
 }
 
 /***************Communities**************/
@@ -524,6 +530,17 @@ body#profile {
 	padding-top: 40px;
 	.panel {
 		border: 1px dotted $primary;
+		background-color: $secondary;
+		&.panel-default>.panel-heading {
+			background-color: $primary;
+			h3.panel-title {
+				color: $secondary;
+			}
+		}
+		.table-striped>tbody>tr:nth-child(odd)>td, 
+		.table-striped>tbody>tr:nth-child(odd)>th {
+			background-color: #F9F1E7;
+		}
 	}
 }
 

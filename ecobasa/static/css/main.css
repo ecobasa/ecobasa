@@ -20,6 +20,9 @@ body {
 a {
   color: #da6137;
 }
+a:hover, a:focus {
+  color: #da6137;
+}
 
 h1, h2, h3, h4, h5, h6 {
   margin-top: 50px;
@@ -264,7 +267,9 @@ a[data-toggle=tooltip] {
   overflow: hidden;
 }
 
-.video-responsive iframe, .video-responsive object, .video-responsive embed {
+.video-responsive iframe,
+.video-responsive object,
+.video-responsive embed {
   position: absolute;
   top: 0;
   left: 0;
@@ -487,6 +492,17 @@ body#profile img.avatar {
 }
 #dashboard .panel {
   border: 1px dotted #da6137;
+  background-color: #f4ede3;
+}
+#dashboard .panel.panel-default > .panel-heading {
+  background-color: #da6137;
+}
+#dashboard .panel.panel-default > .panel-heading h3.panel-title {
+  color: #f4ede3;
+}
+#dashboard .panel .table-striped > tbody > tr:nth-child(odd) > td,
+#dashboard .panel .table-striped > tbody > tr:nth-child(odd) > th {
+  background-color: #F9F1E7;
 }
 
 ul#postman_menu {
