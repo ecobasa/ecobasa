@@ -254,6 +254,11 @@ a[data-toggle=tooltip] {
   top: -15px;
 }
 
+img.left {
+  float: left;
+  margin-right: 10px;
+}
+
 /*************** Blog *******************/
 .tags {
   margin-bottom: 60px;
