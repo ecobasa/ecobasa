@@ -334,5 +334,5 @@ ECOBASA_SPECIAL_COSINNUS_GROUP = 1
 
 # used on about page for the tour progress bar
 # can't create timezone-aware datetimes here, hence the tuple
-ECOBASA_TOUR_START = (2014, 10, 1)
-ECOBASA_TOUR_END = (2014, 11, 10)
+ECOBASA_TOUR_START = (2014, 7, 7)
+ECOBASA_TOUR_END = (2014, 8, 25)
