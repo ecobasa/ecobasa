@@ -4,6 +4,7 @@ from django.contrib import admin
 from django.conf.urls.i18n import i18n_patterns
 from django.utils.translation import ugettext_lazy as _
 from haystack.views import search_view_factory
+from django.views.generic.base import RedirectView
 
 from .views import FindView
 
@@ -11,7 +12,8 @@ admin.autodiscover()
 
 
 urlpatterns = i18n_patterns('',
-    url(_(r'^about/$'), 'ecobasa.views.about', name='about'),
+    #url(_(r'^about/$'), 'ecobasa.views.about', name='about'),
+    url(_(r'^about/$'), RedirectView.as_view(url='/info/'), name='about'),
     url(r'^blog/$', 'ecobasa.views.blog', name='blog'),
     url(r'^blog/(?P<tag>[^/]+)/$', 'ecobasa.views.blog', name='blog_filtered'),
     url(r'^accounts/register/$',
