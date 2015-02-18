@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-11-23 18:08+0100\n"
+"POT-Creation-Date: 2015-02-18 12:02+0100\n"
 "PO-Revision-Date: 2014-11-23 18:07+0200\n"
 "Last-Translator: Sebastian Henschel <ecobasa@kodeaffe.de\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -43,9 +43,8 @@ msgid "Hungarian"
 msgstr "Ungarisch"
 
 #: urls.py:14
-#, fuzzy
 msgid "^about/$"
-msgstr "^uber-die-tour/"
+msgstr "^uber-die-tour/$"
 
 #: forms/pioneer.py:13
 msgid "The two password fields didn't match."
@@ -1102,17 +1101,17 @@ msgstr "\"Geschlecht\""
 msgid "birth date"
 msgstr "Geburtsdatum"
 
-#: models/profile.py:308 models/profile.py:416
+#: models/profile.py:308 models/profile.py:418
 #: templates/ecobasa/pioneer_detail.html:65
 msgid "country"
 msgstr "Land"
 
-#: models/profile.py:310 models/profile.py:412
+#: models/profile.py:310 models/profile.py:414
 #: templates/ecobasa/pioneer_detail.html:73
 msgid "city"
 msgstr "Stadt"
 
-#: models/profile.py:312 models/profile.py:414
+#: models/profile.py:312 models/profile.py:416
 msgid "zipcode"
 msgstr "PLZ"
 
@@ -1205,19 +1204,19 @@ msgstr "Strasse"
 msgid "Location"
 msgstr "Ort"
 
-#: models/profile.py:418
+#: models/profile.py:420
 msgid "show address in profile"
 msgstr "Zeige Addresse im Profil"
 
-#: models/profile.py:423
+#: models/profile.py:425
 msgid "maximum number of people you can host"
 msgstr "Maximale Anzahl der Leute, die ihr unterbringen könnt"
 
-#: models/profile.py:425
+#: models/profile.py:427
 msgid "accommodation for guests"
 msgstr "Unterkunft für Gäste"
 
-#: models/profile.py:431
+#: models/profile.py:433
 msgid ""
 "Do you have any construction projects? List and describe them together with "
 "needed materials, tools, experts, time and knowledge."
@@ -1225,15 +1224,15 @@ msgstr ""
 "Habt ihr irgendwelche Bauprojekte? Liste sie auf und beschreibe was ihr "
 "dafür an Materialien, Werkzeugen, Experten, Zeit und Wissen benötigt"
 
-#: models/profile.py:433
+#: models/profile.py:435
 msgid "what materials do you need?"
 msgstr "Was für Materialien braucht ihr?"
 
-#: models/profile.py:436
+#: models/profile.py:438
 msgid "what tools or machines do you need?"
 msgstr "Welche Werkzeuge oder Maschinen braucht ihr?"
 
-#: models/profile.py:438
+#: models/profile.py:440
 msgid ""
 "Are you looking for some experts that could help you with a project or "
 "problem? Tag their desired skills here:"
@@ -1241,67 +1240,67 @@ msgstr ""
 "Sucht ihr Experten die euch mit bei einem Projekt oder Problem helfen "
 "können? Dann taggt ihre Fähigkeiten hier:"
 
-#: models/profile.py:442
+#: models/profile.py:444
 msgid "special needs (knowledge, information)"
 msgstr "Sonstige Bedürfnisse (Wissen, Information)"
 
-#: models/profile.py:445
+#: models/profile.py:447
 msgid "services"
 msgstr "Dienstleistungen"
 
-#: models/profile.py:448
+#: models/profile.py:450
 msgid "skills people can learn"
 msgstr "Fähigkeiten die Leute bei euch lernen können"
 
-#: models/profile.py:451
+#: models/profile.py:453
 msgid "creations/products"
 msgstr "Kreationen / Produkte"
 
-#: models/profile.py:454
+#: models/profile.py:456
 msgid "workshop spaces"
 msgstr "Werkstätten / Arbeitsplätze"
 
-#: models/profile.py:456
+#: models/profile.py:458
 msgid "learning seminars"
 msgstr "Lernseminare"
 
-#: models/profile.py:461
+#: models/profile.py:463
 msgid "how many people live in your community?"
 msgstr "Wieviele Leute leben in eurer Gemscheinschaft?"
 
-#: models/profile.py:464
+#: models/profile.py:466
 msgid "how many of them are under 18?"
 msgstr "Wieviele davon sind unter 18?"
 
-#: models/profile.py:466
+#: models/profile.py:468
 msgid "what brings your community together"
 msgstr "Was bringt eure Gemeinschaft zusammen"
 
-#: models/profile.py:471
+#: models/profile.py:473
 msgid "open to new members"
 msgstr "Offen für neue Mitglieder"
 
-#: models/profile.py:472
+#: models/profile.py:474
 msgid "looking for members"
 msgstr "Suchen nach Mitgliedern"
 
-#: models/profile.py:473
+#: models/profile.py:475
 msgid "closed for new members"
 msgstr "Geschlossen für neue Mitglieder"
 
-#: models/profile.py:475
+#: models/profile.py:477
 msgid "member status"
 msgstr "Mitgliederstatus"
 
-#: models/profile.py:498
+#: models/profile.py:500
 msgid "seeds"
 msgstr "samen"
 
-#: models/profile.py:502
+#: models/profile.py:504
 msgid "what kind of seeds?"
 msgstr "Was für Saatgut?"
 
-#: models/profile.py:506
+#: models/profile.py:508
 msgid "how many?"
 msgstr "Wieviele?"
 
@@ -1384,8 +1383,8 @@ msgstr "Konfigurieren"
 #: templates/cosinnus_event/event_detail.html:94
 #: templates/cosinnus_event/event_list_object.html:32
 #: templates/cosinnus_note/note_detail.html:14
-#: templates/cosinnus_note/note_detail.html:55
-#: templates/cosinnus_note/note_detail.html:95
+#: templates/cosinnus_note/note_detail.html:64
+#: templates/cosinnus_note/note_detail.html:93
 #: templates/cosinnus_note/note_list.html:62
 #: templates/cosinnus_todo/todoentry_detail.html:86
 #: templates/cosinnus_todo/todoentry_list.html:81
@@ -1418,8 +1417,8 @@ msgstr ""
 #: templates/cosinnus_event/event_form.html:28
 #: templates/cosinnus_event/event_list_object.html:31
 #: templates/cosinnus_note/note_detail.html:11
-#: templates/cosinnus_note/note_detail.html:54
-#: templates/cosinnus_note/note_detail.html:94
+#: templates/cosinnus_note/note_detail.html:63
+#: templates/cosinnus_note/note_detail.html:92
 #: templates/cosinnus_note/note_list.html:61
 #: templates/cosinnus_todo/todoentry_detail.html:85
 #: templates/cosinnus_todo/todoentry_list.html:80
@@ -1616,7 +1615,7 @@ msgid "No votes for this suggestion."
 msgstr "Keine Stimmen für diesen Vorschlag"
 
 #: templates/cosinnus_event/event_detail.html:91
-#: templates/cosinnus_note/note_detail.html:52
+#: templates/cosinnus_note/note_detail.html:61
 #: templates/cosinnus_note/note_list.html:41
 #: templates/cosinnus_todo/todoentry_detail.html:83
 #: templates/cosinnus_todo/todoentry_list.html:50
@@ -1651,7 +1650,7 @@ msgid "Save"
 msgstr "Speichern"
 
 #: templates/cosinnus_event/event_form.html:93
-#: templates/ecobasa/bus_add.html:40 templates/ecobasa/caravan_form.html:57
+#: templates/ecobasa/bus_add.html:40 templates/ecobasa/caravan_form.html:66
 #: templates/ecobasa/community_form.html:159
 #: templates/ecobasa/pioneer_form.html:61
 msgid "Cancel"
@@ -1678,13 +1677,13 @@ msgstr "Titel"
 msgid "Write comment"
 msgstr "Kommentar"
 
-#: templates/cosinnus_note/note_detail.html:29
+#: templates/cosinnus_note/note_detail.html:37
 #: templates/ecobasa/announcements.html:7
 #: templates/ecobasa/community_detail.html:155
 msgid "Header"
 msgstr "Kopfelement"
 
-#: templates/cosinnus_note/note_detail.html:57
+#: templates/cosinnus_note/note_detail.html:66
 #: templates/cosinnus_note/note_list.html:63
 #: templates/ecobasa/caravan_detail.html:175
 #: templates/ecobasa/caravan_detail.html:198
@@ -1962,17 +1961,17 @@ msgstr "Gruppen-Bewerber"
 msgid "Admins"
 msgstr "Administratoren"
 
-#: templates/ecobasa/caravan_form.html:5
-#: templates/ecobasa/caravan_form.html:17
+#: templates/ecobasa/caravan_form.html:6
+#: templates/ecobasa/caravan_form.html:23
 #, python-format
 msgid "Edit caravan “%(name)s”"
 msgstr "Karawane “%(name)s” bearbeiten"
 
-#: templates/ecobasa/caravan_form.html:56
-#: templates/ecobasa/community_form.html:158
-#: templates/ecobasa/pioneer_form.html:60
-msgid "Save"
-msgstr "Speichern"
+#: templates/ecobasa/caravan_form.html:8
+#: templates/ecobasa/caravan_form.html:25
+#, fuzzy
+msgid "Create Caravan"
+msgstr "Karawane"
 
 #: templates/ecobasa/caravan_list.html:7
 msgid "The available caravans for the Community-Tour"
@@ -2064,6 +2063,11 @@ msgstr "Schenkökonomie Botschafter"
 #, python-format
 msgid "Edit community “%(name)s”"
 msgstr "Gemeinschaft “%(name)s” bearbeiten"
+
+#: templates/ecobasa/community_form.html:158
+#: templates/ecobasa/pioneer_form.html:60
+msgid "Save"
+msgstr "Speichern"
 
 #: templates/ecobasa/community_form.html:194
 #: templates/userprofiles/registration_community.html:233
