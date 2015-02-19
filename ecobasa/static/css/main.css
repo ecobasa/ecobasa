@@ -343,6 +343,9 @@ button.continue {
   color: #555;
   background-color: #da6137;
 }
+.navbar.navbar-default.registration ul.navbar-nav > li > a:hover {
+  color: #da6137;
+}
 
 form#form-register-member,
 form#form-register-community {

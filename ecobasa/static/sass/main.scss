@@ -370,6 +370,9 @@ button.continue {
 		color: #555;
 		background-color: $primary;
 	}
+	ul.navbar-nav>li>a:hover {
+		color: $primary;
+	}
 }
 
 form#form-register-member,
