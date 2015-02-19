@@ -347,12 +347,17 @@ img.left {
 
 /*********** Registration **************/
 
+button.continue {
+	padding-left: 60px;
+	padding-right: 60px;
+}
+
 .register {
 	margin-top: 40px;
 	padding: 20px 36px;
 }
 
-.register.btn {
+.register .btn {
 	width: 100%;
 	padding: 10%;
 	margin: 5% auto;

@@ -15,6 +15,7 @@ $(function() {
 		$('.slide.show').removeClass('show').addClass('hide');
 		var slide = $(this).attr('href');
 		$(slide).removeClass('hide').addClass('show');
+		window.scrollTo(0, 140);
 
 		// FIXME: should be done more efficiently
 		if (slide != '#slide-member-bus-details') {
