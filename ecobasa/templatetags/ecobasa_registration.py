@@ -38,11 +38,6 @@ def get_offers_services():
 
 
 @register.assignment_tag
-def get_wishlist_skills():
-    return get_tagnames(TaggedWishSkill)
-
-
-@register.assignment_tag
 def get_offers_skills():
     return get_tagnames(TaggedOffersSkill)
 
