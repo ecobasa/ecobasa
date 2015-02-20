@@ -57,7 +57,8 @@ class Reference(models.Model):
         auto_now=True,
     )
     rating = models.BooleanField(
-        choices=RATING_CHOICES
+        choices=RATING_CHOICES,
+        default=True,
     )
     text = models.TextField(
         _('reference text'),
