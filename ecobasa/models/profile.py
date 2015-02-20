@@ -405,12 +405,22 @@ class EcobasaCommunityProfile(models.Model):
 
     # contact info
     contact_telephone = models.CharField(_('telephone'),
-        max_length=255, blank=True, null=True)
+        max_length=255, 
+        blank=True, 
+        null=True)
     contact_street = models.CharField(_('street'),
-        max_length=255, blank=True, null=True)
-    contact_location = OSMField(_('Location'), blank=True, null=True)
-    contact_location_lat = LatitudeField()
-    contact_location_lon = LongitudeField()
+        max_length=255, 
+        blank=True, 
+        null=True)
+    contact_location = OSMField(_('Location'),
+        blank=True, 
+        null=True)
+    contact_location_lat = LatitudeField(
+        blank=True, 
+        null=True)
+    contact_location_lon = LongitudeField(
+        blank=True, 
+        null=True)
     contact_city = models.CharField(_('city'),
         max_length=255, blank=True, null=True)
     contact_zipcode = models.CharField(_('zipcode'),
