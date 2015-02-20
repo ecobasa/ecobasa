@@ -44,11 +44,9 @@ def get_offers_skills():
 def get_offers_creations():
     return get_tagnames(TaggedOffersCreation)
 
-<<<<<<< HEAD:ecobasa/templatetags/ecobasa_registration.py
 @register.assignment_tag
 def get_wishlist_skills():
     return get_tagnames(TaggedWishSkill)
-=======
 
 @register.assignment_tag
 def get_reference_products():
@@ -63,4 +61,3 @@ def get_reference_services():
 @register.assignment_tag
 def get_reference_skills():
     return get_tagnames(TaggedReferenceSkill)
->>>>>>> feature/51:ecobasa/templatetags/ecobasa_tags.py
