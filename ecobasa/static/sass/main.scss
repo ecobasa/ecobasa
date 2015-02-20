@@ -466,6 +466,25 @@ span.osmfield-wrapper {
 	}
 }
 
+ul.references {
+	padding-left: 0px;
+	li {
+		list-style: none;
+		padding: 20px;
+		border: 2px dotted $primary;
+		border-radius: 10px;
+		margin-bottom: 20px;
+		> span {
+			font-weight: bold;
+			margin-bottom: 10px;
+		}
+		&.negative {
+			background: $third;
+			color: $secondary;
+		}
+	}
+}
+
 
 /*************** Pioneer-Profiles **************/
 

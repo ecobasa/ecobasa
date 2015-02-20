@@ -1,0 +1,54 @@
+{% extends "cosinnus/base.html" %}
+{% load static i18n bootstrap3 ecobasa_tags %}
+
+
+{% block page_title %}{{ page_title }}{% endblock %}
+
+
+{% block extrahead %}
+{{ block.super }}
+{{ form.media.css }}
+<link href="{% static "css/vendor/select2-bootstrap.css" %}" rel="stylesheet"/>
+<link href="{% static "css/vendor/select2.css" %}" rel="stylesheet"/>
+{% endblock extrahead %}
+
+
+{% block body %}profile{% endblock body %}
+
+
+{% block content %}
+<h1>{{ page_h1 }}</h1>
+<p>{% trans "Profile" %}:  <a href="{% url 'community-detail' community.slug %}">{{ community.name }}</a></p>
+
+<form method="POST" action="">
+  {% csrf_token %}
+  {% bootstrap_form form %}
+  {% buttons %}
+    <button type="submit" class="btn btn-primary">
+      {{ form_action }}
+    </button>
+   {% endbuttons %}
+</form>
+{% endblock content %}
+
+
+{% block extrafooter %}
+{{ block.super }}
+{{ form.media.js }}
+<script src="{% static 'js/vendor/select2/select2.min.js' %}"></script>
+<script src="{% static 'js/ecobasa_profile.js' %}"></script>
+<script type="text/javascript">
+{% get_reference_products as products %}
+{% get_reference_services as services %}
+{% get_reference_skills as skills %}
+var tags = {
+  services: {{ services|safe }},
+  skills: {{ skills|safe }},
+  products: {{ products|safe }}
+};
+
+$(function() {
+  EcobasaProfile.initReference();
+});
+</script>
+{% endblock extrafooter %}

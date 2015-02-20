@@ -35,6 +35,18 @@ EcobasaProfile = {
 		});
 		$("#id_wishlist_skills").select2({
 			tags: tags.wishlistSkills, tokenSeparators: [","]
+	},
+
+	initReference: function() {
+		$("#id_products").select2({
+			tags: tags.products, tokenSeparators: [","]
+		});
+		$("#id_services").select2({
+			tags: tags.services, tokenSeparators: [","]
+		});
+		$("#id_skills").select2({
+			tags: tags.skills, tokenSeparators: [","]
+>>>>>>> feature/51
 		});
 	}
 }
