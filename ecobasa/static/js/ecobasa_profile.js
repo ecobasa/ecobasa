@@ -46,7 +46,6 @@ EcobasaProfile = {
 		});
 		$("#id_skills").select2({
 			tags: tags.skills, tokenSeparators: [","]
->>>>>>> feature/51
 		});
 	}
 }
