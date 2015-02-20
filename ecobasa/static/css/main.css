@@ -329,7 +329,14 @@ button.continue {
   padding: 20px 36px;
 }
 
-.register .btn {
+.register.final .btn {
+  width: 100%;
+  padding: 10%;
+  margin: 5% auto;
+  font-size: xx-large;
+}
+
+.register.btn {
   width: 100%;
   padding: 10%;
   margin: 5% auto;

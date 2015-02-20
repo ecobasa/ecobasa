@@ -35,6 +35,7 @@ EcobasaProfile = {
 		});
 		$("#id_wishlist_skills").select2({
 			tags: tags.wishlistSkills, tokenSeparators: [","]
+		});
 	},
 
 	initReference: function() {
@@ -47,5 +48,5 @@ EcobasaProfile = {
 		$("#id_skills").select2({
 			tags: tags.skills, tokenSeparators: [","]
 		});
-	}
+	},
 }
