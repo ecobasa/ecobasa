@@ -31,6 +31,7 @@ class TaggedReferenceProduct(TaggedItemBase):
     class Meta:
         app_label = 'ecobasa'
 
+RATING_CHOICES = ((True, 'Positive'), (False, 'Negative'))
 
 class Reference(models.Model):
     giver = models.ForeignKey(settings.AUTH_USER_MODEL,
@@ -54,6 +55,9 @@ class Reference(models.Model):
     date = models.DateField(
         _('date'),
         auto_now=True,
+    )
+    rating = models.BooleanField(
+        choices=RATING_CHOICES
     )
     text = models.TextField(
         _('reference text'),

@@ -289,6 +289,25 @@ form#form-register-community {
   margin-top: 20px;
 }
 
+ul.references {
+  padding-left: 0px;
+}
+ul.references li {
+  list-style: none;
+  padding: 20px;
+  border: 2px dotted #da6137;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+ul.references li > span {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+ul.references li.negative {
+  background: #b4502c;
+  color: #f4ede3;
+}
+
 /************* Footer ******************/
 #footer {
   margin-top: 50px;
@@ -306,10 +325,4 @@ form#form-register-community {
   margin-right: auto;
   display: block;
   margin-top: 30px;
-}
-
-/************* Search ******************/
-.highlighted {
-  color: #da6137;
-  font-weight: bold;
 }
