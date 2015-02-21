@@ -302,30 +302,7 @@
 
     <div class="row">
       <div class="col-md-12">
-        {% if references.tag_counts.products.items or references.tag_counts.services.items or references.tag_counts.skills.items %}
-          <h3>{% trans "Gifts recieved from this community" %}</h3>
-          {% if references.tag_counts.products.items %}
-            <h4>{% trans "Products" %}</h4>
-            <ul class="list-inline">{% for tag_name, tag_data in references.tag_counts.products.items %}
-              <li><span class="label label-{{ tag_data.class }}">{{ tag_name }} <span class="badge">{{ tag_data.count }}</span></span></li>
-            {% endfor %}</ul>
-          {% endif %}
-
-          {% if references.tag_counts.services.items %}
-            <h4>{% trans "Services" %}</h4>
-            <ul class="list-inline">{% for tag_name, tag_data in references.tag_counts.services.items %}
-              <li><span class="label label-{{ tag_data.class }}">{{ tag_name }} <span class="badge">{{ tag_data.count }}</span></span></li>
-            {% endfor %}</ul>
-          {% endif %}
-
-          {% if references.tag_counts.skills.items %}
-            <h4>{% trans "Skills" %}</h4>
-            <ul class="list-inline">{% for tag_name, tag_data in references.tag_counts.skills.items %}
-              <li><span class="label label-{{ tag_data.class }}">{{ tag_name }} <span class="badge">{{ tag_data.count }}</span></span></li>
-            {% endfor %}</ul>
-          {% endif %}
-        {% endif %}
-        <h3>{% trans "References" %}</h3>
+        <h2>{% trans "References" %}</h2>
         <ul class="references">{% for reference in references.references %}
           <li{% if reference.rating %}{% else %} class="negative"{% endif %}>
             <span>{% if reference.rating %}Positive{% else %}Negative!{% endif %}</span></br>
