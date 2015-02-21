@@ -8,18 +8,42 @@
 {% block body %}profile{% endblock body %}
 
 {% block content %}
-<h1>{% trans "References" %}</h1>
-<p>{% trans "Profile" %}:  <a href="{% url 'pioneer-detail' pioneer.username %}">{{ pioneer.username }}</a></p>
+<h1><a href="{% url 'pioneer-detail' pioneer.username %}">{{ pioneer.username }}'s</a> {% trans "References" %}</h1>
+{% trans "Back to Profile of" %}  <a href="{% url 'pioneer-detail' pioneer.username %}">{{ pioneer.username }}</a>
 
 <div class="row">
   <div class="col-md-12">
-    <ul>{% for reference in object_list %}
-      <li>
+    <ul class="references">{% for reference in object_list %}
+      <li{% if reference.rating %}{% else %} class="negative"{% endif %}>
+        <span>{% if reference.rating %}Positive{% else %}Negative!{% endif %}</span></br>
         <a href="{% url 'pioneer-detail' reference.giver.username %}">{{ reference.giver.username }}</a> {{ reference.date }}{% if user.is_superuser or  reference.giver == user %} <a href="{% url 'pioneer-reference-edit' pioneer.username reference.pk %}">{% trans "Edit" %}</a>{% endif %}
-        <p>{{ reference.text }}</p>
-        <p>{% trans "Products:" %} {{ reference.products.all }}</p>
-        <p>{% trans "Services:" %} {{ reference.services.all }}</p>
-        <p>{% trans "Skills:" %} {{ reference.skills.all }}</p>
+        {% if reference.text %}
+          <p>{{ reference.text }}</p>
+        {% endif %}
+        {% if reference.products.all %}
+          <p>{% trans "Products:" %} 
+            <ul class="list-inline">
+              {% for tag_name in reference.products.all %}
+                <li><span class="label label-{{ tag_data.class }}">{{ tag_name }}</span></li>
+              {% endfor %}
+            </ul></p>
+        {% endif %}
+        {% if reference.services.all %}
+        <p>{% trans "Services:" %} 
+          <ul class="list-inline">
+            {% for tag_name in reference.services.all %}
+              <li><span class="label label-{{ tag_data.class }}">{{ tag_name }}</span></li>
+            {% endfor %}
+          </ul></p>
+        {% endif %}
+        {% if reference.skills.all %}
+        <p>{% trans "Skills:" %} 
+          <ul class="list-inline">
+            {% for tag_name in reference.skills.all %}
+              <li><span class="label label-{{ tag_data.class }}">{{ tag_name }}</span></li>
+            {% endfor %}
+          </ul></p>
+        {% endif %}
       </li>
     {% endfor %}</ul>
   </div>

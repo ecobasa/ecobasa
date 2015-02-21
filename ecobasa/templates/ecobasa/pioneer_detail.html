@@ -79,26 +79,27 @@
 
     <div class="row">
       <div class="col-md-12">
-        <h3>{% trans "References" %}</h3>
+        {% if references.tag_counts.products.items or references.tag_counts.services.items or references.tag_counts.skills.items %}
+          <h3>{% trans "References" %}</h3>
+          
+          <h4>{% trans "Tags" %}</h4>
+          <h5>{% trans "Products" %}</h5>
+          <ul class="list-inline">{% for tag_name, tag_data in references.tag_counts.products.items %}
+            <li><span class="label label-{{ tag_data.class }}">{{ tag_name }} <span class="badge">{{ tag_data.count }}</span></span></li>
+          {% endfor %}</ul>
 
-        <h4>{% trans "Tags" %}</h4>
-        <h5>{% trans "Products" %}</h5>
-        <ul class="list-inline">{% for tag_name, tag_data in references.tag_counts.products.items %}
-          <li><span class="label label-{{ tag_data.class }}">{{ tag_name }} <span class="badge">{{ tag_data.count }}</span></span></li>
-        {% endfor %}</ul>
+          <h5>{% trans "Services" %}</h5>
+          <ul class="list-inline">{% for tag_name, tag_data in references.tag_counts.services.items %}
+            <li><span class="label label-{{ tag_data.class }}">{{ tag_name }} <span class="badge">{{ tag_data.count }}</span></span></li>
+          {% endfor %}</ul>
 
-        <h5>{% trans "Services" %}</h5>
-        <ul class="list-inline">{% for tag_name, tag_data in references.tag_counts.services.items %}
-          <li><span class="label label-{{ tag_data.class }}">{{ tag_name }} <span class="badge">{{ tag_data.count }}</span></span></li>
-        {% endfor %}</ul>
-
-        <h5>{% trans "Skills" %}</h5>
-        <ul class="list-inline">{% for tag_name, tag_data in references.tag_counts.skills.items %}
-          <li><span class="label label-{{ tag_data.class }}">{{ tag_name }} <span class="badge">{{ tag_data.count }}</span></span></li>
-        {% endfor %}</ul>
-
+          <h5>{% trans "Skills" %}</h5>
+          <ul class="list-inline">{% for tag_name, tag_data in references.tag_counts.skills.items %}
+            <li><span class="label label-{{ tag_data.class }}">{{ tag_name }} <span class="badge">{{ tag_data.count }}</span></span></li>
+          {% endfor %}</ul>
+        {% endif %}
         <h4>{% trans "References" %}</h4>
-        <ul>{% for reference in references.references %}
+        <ul class="references">{% for reference in references.references %}
           <li>
             <a href="{% url 'pioneer-detail' reference.giver.username %}">{{ reference.giver.username }}</a> {{ reference.date }}{% if user.is_superuser or  reference.giver == user %} <a href="{% url 'pioneer-reference-edit' object.username reference.pk %}">{% trans "Edit" %}</a>{% endif %}
             <p>{{ reference.text }}</p>

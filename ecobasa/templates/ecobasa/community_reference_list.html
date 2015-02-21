@@ -8,8 +8,8 @@
 {% block body %}profile{% endblock body %}
 
 {% block content %}
-<h1>{% trans "References for" %} <a href="{% url 'community-detail' community.slug %}">{{ community.name }}</a></h1>
-<a href="{% url 'community-detail' community.slug %}">Back to Profile</a>
+<h1><a href="{% url 'community-detail' community.slug %}">{{ community.name }}'s</a> {% trans "References" %}</h1>
+{% trans "Back to Profile of" %}  <a href="{% url 'community-detail' community.slug %}">{{ community.name }}</a>
 
 <div class="row">
   <div class="col-md-12">
