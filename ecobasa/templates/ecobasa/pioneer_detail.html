@@ -137,6 +137,8 @@
       </div>
     </div>
   {% endif %}
+
+  {% if posts %}
   <div class="row">
     <div class="col-xs-12">
       <h2>{% trans "Posts" %}</h2>
@@ -150,6 +152,8 @@
       </ul>
     </div>
   </div>
+  {% endif %}
+  
   <div class="row">
     <div class="col-xs-12">
       {% get_organiser_roles_for_user object as grouped_roles %}
