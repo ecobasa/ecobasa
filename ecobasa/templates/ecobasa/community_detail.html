@@ -186,9 +186,10 @@
       Telephone: {{ profile.contact_telephone }}      
     </div>
     {% endif %}
+    {% if profile.website %}
     <h3>Website</h3>
     <a href="{{ profile.website }}" target="_blank">{{ profile.website }}</a>
-
+    {% endif %}
     {% if profile.video %}
     <div class="row">
       <div class="col-md-12">
@@ -202,46 +203,7 @@
     </div>
     {% endif %}
 
-    <div class="row">
-      <div class="col-md-12">
-        {% if references.tag_counts.products.items or references.tag_counts.services.items or references.tag_counts.skills.items %}
-          <h3>{% trans "Gifts recieved from this community" %}</h3>
-
-          <h4>{% trans "Products" %}</h4>
-          <ul class="list-inline">{% for tag_name, tag_data in references.tag_counts.products.items %}
-            <li><span class="label label-{{ tag_data.class }}">{{ tag_name }} <span class="badge">{{ tag_data.count }}</span></span></li>
-          {% endfor %}</ul>
-
-          <h4>{% trans "Services" %}</h4>
-          <ul class="list-inline">{% for tag_name, tag_data in references.tag_counts.services.items %}
-            <li><span class="label label-{{ tag_data.class }}">{{ tag_name }} <span class="badge">{{ tag_data.count }}</span></span></li>
-          {% endfor %}</ul>
-
-          <h4>{% trans "Skills" %}</h4>
-          <ul class="list-inline">{% for tag_name, tag_data in references.tag_counts.skills.items %}
-            <li><span class="label label-{{ tag_data.class }}">{{ tag_name }} <span class="badge">{{ tag_data.count }}</span></span></li>
-          {% endfor %}</ul>
-        {% endif %}
-        <h3>{% trans "References" %}</h3>
-        <ul class="references">{% for reference in references.references %}
-          <li{% if reference.rating %}{% else %} class="negative"{% endif %}>
-            <span>{% if reference.rating %}Positive{% else %}Negative!{% endif %}</span></br>
-            <a href="{% url 'pioneer-detail' reference.giver.username %}">
-              {% if reference.giver.cosinnus_profile.avatar %}
-                  <img class="avatar" src="{% thumbnail reference.giver.cosinnus_profile.avatar.url "200x0" crop=1 upscale=1 %}" />
-                {% else %}
-                  <img class="avatar" src="http://placehold.it/30x30">
-                {% endif %}
-                {{ reference.giver.username }}</a> {{ reference.date }}{% if user.is_superuser or  reference.giver == user %} <a href="{% url 'community-reference-edit' object.slug reference.pk %}">{% trans "Edit" %}</a>{% endif %}
-            <p>{{ reference.text }}</p>
-          </li>
-        {% endfor %}</ul>
-        {% if can_add_reference %}<a href="{% url 'community-reference-add' object.slug %}">{% trans "Add" %}</a> | {% endif %}
-        <a href="{% url 'community-reference-list' object.slug %}">{% trans "More" %}</a>
-      </div>
-    </div>
-
-    <div class="row">
+     <div class="row">
       <div class="col-md-12">
         <h3>{% trans "Gift-economy Ambassadors" %}</h3>
         <ul class="media-list">
@@ -263,31 +225,75 @@
       </div>
     </div>
 
-    {% if user.is_superuser or user|is_group_admin:object %}
+    {% if object.pending_members.pending and user.is_superuser or object.pending_members and user|is_group_admin:object %}
+      <div class="row">
+        <div class="col-md-12">
+          <h3>{% trans "Pending users" %}</h3>
+          <ul class="media-list">
+            {% for pending in object.pending_members %}
+              <li class="media">
+                <a class="pull-left" href="{% url 'pioneer-detail' username=pending.username %}">
+                  {% if pending.cosinnus_profile.avatar %}
+                    <img class="avatar" src="{{ cosinnus_profile.avatar|thumbnail_url:"avatar_medium" }}">
+                  {% else %}
+                    <img class="avatar" src="http://placehold.it/30x30">
+                  {% endif %}
+                </a>
+                <div class="media-body">
+                  <a class="pull-left" href="{% url 'pioneer-detail' username=pending.username %}">{{ pending.get_full_name|default:pending.username }}</a>
+                </div>
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </div>
+    {% endif %}
+    
     <div class="row">
       <div class="col-md-12">
-        <h3>{% trans "Pending users" %}</h3>
-        <ul class="media-list">
-          {% for pending in object.pending_members %}
-            <li class="media">
-              <a class="pull-left" href="{% url 'pioneer-detail' username=pending.username %}">
-                {% if pending.cosinnus_profile.avatar %}
-                  <img class="avatar" src="{{ cosinnus_profile.avatar|thumbnail_url:"avatar_medium" }}">
+        {% if references.tag_counts.products.items or references.tag_counts.services.items or references.tag_counts.skills.items %}
+          <h3>{% trans "Gifts recieved from this community" %}</h3>
+          {% if references.tag_counts.products.items %}
+            <h4>{% trans "Products" %}</h4>
+            <ul class="list-inline">{% for tag_name, tag_data in references.tag_counts.products.items %}
+              <li><span class="label label-{{ tag_data.class }}">{{ tag_name }} <span class="badge">{{ tag_data.count }}</span></span></li>
+            {% endfor %}</ul>
+          {% endif %}
+
+          {% if references.tag_counts.services.items %}
+            <h4>{% trans "Services" %}</h4>
+            <ul class="list-inline">{% for tag_name, tag_data in references.tag_counts.services.items %}
+              <li><span class="label label-{{ tag_data.class }}">{{ tag_name }} <span class="badge">{{ tag_data.count }}</span></span></li>
+            {% endfor %}</ul>
+          {% endif %}
+
+          {% if references.tag_counts.skills.items %}
+            <h4>{% trans "Skills" %}</h4>
+            <ul class="list-inline">{% for tag_name, tag_data in references.tag_counts.skills.items %}
+              <li><span class="label label-{{ tag_data.class }}">{{ tag_name }} <span class="badge">{{ tag_data.count }}</span></span></li>
+            {% endfor %}</ul>
+          {% endif %}
+        {% endif %}
+        <h3>{% trans "References" %}</h3>
+        <ul class="references">{% for reference in references.references %}
+          <li{% if reference.rating %}{% else %} class="negative"{% endif %}>
+            <span>{% if reference.rating %}Positive{% else %}Negative!{% endif %}</span></br>
+            <a href="{% url 'pioneer-detail' reference.giver.username %}">
+              {% if reference.giver.cosinnus_profile.avatar %}
+                  <img class="avatar" src="{% thumbnail reference.giver.cosinnus_profile.avatar.url "200x0" crop=1 upscale=1 %}" />
                 {% else %}
                   <img class="avatar" src="http://placehold.it/30x30">
                 {% endif %}
-              </a>
-              <div class="media-body">
-                <a class="pull-left" href="{% url 'pioneer-detail' username=pending.username %}">{{ pending.get_full_name|default:pending.username }}</a>
-              </div>
-            </li>
-          {% endfor %}
-        </ul>
+                {{ reference.giver.username }}</a> {{ reference.date }}{% if user.is_superuser or  reference.giver == user %} <a href="{% url 'community-reference-edit' object.slug reference.pk %}">{% trans "Edit" %}</a>{% endif %}
+            <p>{{ reference.text }}</p>
+          </li>
+        {% endfor %}</ul>
+        {% if can_add_reference %}<a href="{% url 'community-reference-add' object.slug %}">{% trans "Add" %}</a> | {% endif %}
+        <a href="{% url 'community-reference-list' object.slug %}">{% trans "More" %}</a>
       </div>
     </div>
   </div>
 </div>
-{% endif %}
 </div>
 </div>
 {% endblock %}
