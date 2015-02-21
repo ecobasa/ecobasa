@@ -49,7 +49,7 @@
   <div class="media-body">
     <h5 class="media-heading muted pull-right">{{ object.created }}</h5>
     <h4 class="media-heading"><a href="{% url 'cosinnus:user-detail' username=object.creator.get_username %}">{{ object.creator.get_full_name|default:object.creator.username }}</a></h4>
-    {{ object.text|linebreaksbr|safe }}
+    {{ object.text|urlize|linebreaksbr|safe }}
   </div>
 </div>
 

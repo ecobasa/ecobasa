@@ -34,7 +34,7 @@
       {% endif %}
       {% if object.note %}
       <strong>{% trans "Note" %}</strong><br />
-      <div class="well">{{ object.note|linebreaksbr }}</div>
+      <div class="well">{{ object.note|linebreaksbr|urlize|safe }}</div>
       {% endif %}
       {% if object.image %}
       <strong>{% trans "Image" %}</strong><br />
