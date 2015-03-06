@@ -199,11 +199,12 @@ INSTALLED_APPS = (
     'embed_video',
 
     # CMS
-    'djangocms_text_ckeditor',
     'cms',
+    'djangocms_text_ckeditor',
     'mptt',
     'menus',
     'cms.plugins.link',
+    'cms.plugins.video',
     'sekizai',
     'cmsplugin_filer_folder',
     'cmsplugin_filer_file',
