@@ -4,8 +4,7 @@ from __future__ import unicode_literals
 from django.contrib import admin
 from django.utils.translation import ugettext_lazy as _
 
-from .models import (EcobasaCommunityProfile, EcobasaCommunityProfileSeed,
-                     OrganiserRole, Caravan)
+from .models import (EcobasaCommunityProfile, EcobasaCommunityProfileSeed, OrganiserRole, Caravan, Reference)
 
 
 class SeedAdmin(admin.TabularInline):
@@ -35,6 +34,19 @@ class OrganiserRoleAdmin(admin.ModelAdmin):
 admin.site.register(OrganiserRole, OrganiserRoleAdmin)
 
 
+
 class CaravanAdmin(admin.ModelAdmin):
     pass
 admin.site.register(Caravan, CaravanAdmin)
+
+class ReferenceAdmin(admin.ModelAdmin):
+    list_display = ('giver', 'receiver_pioneer', 'receiver_community', 'date',)
+    list_filter = ('giver', 'receiver_pioneer', 'receiver_community', 'date',)
+    search_fields = [
+        'giver__username',
+        'receiver_pioneer__username',
+        'receiver_community__name',
+        'text',
+    ]
+admin.site.register(Reference, ReferenceAdmin)
+

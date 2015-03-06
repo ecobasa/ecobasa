@@ -4,6 +4,7 @@ from django.contrib import admin
 from django.conf.urls.i18n import i18n_patterns
 from django.utils.translation import ugettext_lazy as _
 from haystack.views import search_view_factory
+from django.views.generic.base import RedirectView
 
 from .views import FindView
 
@@ -30,10 +31,22 @@ urlpatterns = i18n_patterns('',
     url(r'^communities/(?P<group>[^/]+)/$', 'ecobasa.views.community_detail', name='community-detail'),
     url(r'^communities/(?P<group>[^/]+)/edit/$', 'ecobasa.views.community_update', name='community-edit'),
     url(r'^communities/(?P<group>[^/]+)/dashboard/$', 'ecobasa.views.community_dashboard', name='community-dashboard'),
+    url(r'^communities/(?P<group>[^/]+)/reference/$',
+        'ecobasa.views.community_reference_list', name='community-reference-list'),
+    url(r'^communities/(?P<group>[^/]+)/reference/add/$',
+        'ecobasa.views.community_reference_add', name='community-reference-add'),
+    url(r'^communities/(?P<group>[^/]+)/reference/(?P<pk>\d+)/edit/$',
+        'ecobasa.views.community_reference_edit', name='community-reference-edit'),
 
     url(r'^pioneers/$', 'ecobasa.views.pioneer_list', name='pioneer-list'),
     url(r'^pioneers/(?P<username>[^/]+)/$', 'ecobasa.views.pioneer_detail', name='pioneer-detail'),
     url(r'^pioneers/(?P<username>[^/]+)/edit/$', 'ecobasa.views.pioneer_update', name='pioneer-edit'),
+    url(r'^pioneers/(?P<username>[^/]+)/reference/$',
+        'ecobasa.views.pioneer_reference_list', name='pioneer-reference-list'),
+    url(r'^pioneers/(?P<username>[^/]+)/reference/add/$',
+        'ecobasa.views.pioneer_reference_add', name='pioneer-reference-add'),
+    url(r'^pioneers/(?P<username>[^/]+)/reference/(?P<pk>\d+)/edit/$',
+        'ecobasa.views.pioneer_reference_edit', name='pioneer-reference-edit'),
 
     url(r'^buses/$', 'ecobasa.views.bus_list', name='bus-list'),
     url(r'^buses/add/$', 'ecobasa.views.bus_add', name='bus-add'),
@@ -52,7 +65,6 @@ urlpatterns = i18n_patterns('',
     url(r'^organisers/$', 'ecobasa.views.organiser_list', name='organiser-list'),
     url(r'^team/$', 'ecobasa.views.organiser_list', name='organiser-list'),
     # url(r'^skillshare/', include('skillshare.urls', namespace='skillshare')),
-    # url(r'^references/', include('references.urls', namespace='references')),
 
     url(r'^messages/', include('cosinnus_message.postman_urls')),
 
