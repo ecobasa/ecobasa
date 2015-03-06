@@ -4,9 +4,7 @@ from __future__ import unicode_literals
 from django import template
 import json
 
-from ..models import (TaggedInterest, TaggedSkill, TaggedProduct,
-    TaggedOffersService, TaggedOffersSkill, TaggedOffersCreation,
-    TaggedWishSkill)
+from ..models import (TaggedInterest, TaggedSkill, TaggedProduct, TaggedOffersService, TaggedOffersSkill, TaggedOffersCreation, TaggedWishSkill, TaggedReferenceProduct, TaggedReferenceService, TaggedReferenceSkill)
 
 register = template.Library()
 
@@ -38,11 +36,6 @@ def get_offers_services():
 
 
 @register.assignment_tag
-def get_wishlist_skills():
-    return get_tagnames(TaggedWishSkill)
-
-
-@register.assignment_tag
 def get_offers_skills():
     return get_tagnames(TaggedOffersSkill)
 
@@ -54,3 +47,17 @@ def get_offers_creations():
 @register.assignment_tag
 def get_wishlist_skills():
     return get_tagnames(TaggedWishSkill)
+
+@register.assignment_tag
+def get_reference_products():
+    return get_tagnames(TaggedReferenceProduct)
+
+
+@register.assignment_tag
+def get_reference_services():
+    return get_tagnames(TaggedReferenceService)
+
+
+@register.assignment_tag
+def get_reference_skills():
+    return get_tagnames(TaggedReferenceSkill)

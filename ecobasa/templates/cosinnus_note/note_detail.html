@@ -24,6 +24,7 @@
     <li class="active">{{ object.title }}</li>
 {% endblock %}
 
+
 {% if user = object.creator %}
 <div class="btn-group">
     <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">{% trans "Actions" %} <span class="caret"></span></a>
@@ -47,7 +48,7 @@
     {% endvideo %}
   {% else %}
   <div class="headimage">
-    <img src="{{ object.image|thumbnail_url:"note_large" }}" />
+    <img src="{{ object.image|thumbnail_url:"note_large" }}" alt="{{ object.title }}"/>
   </div>
   {% endif %}
 {% endif %}

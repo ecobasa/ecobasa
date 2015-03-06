@@ -54,6 +54,9 @@ body {
 a {
   color: #de7a08;
 }
+a:hover, a:focus {
+  color: #ff7800;
+}
 
 a:hover {
   color: #80143b;
@@ -431,6 +434,11 @@ body#blog .headimage img {
   padding-top: 0px;
 }
 
+img.left {
+  float: left;
+  margin-right: 10px;
+}
+
 .tags {
   margin-bottom: 30px;
 }
@@ -440,6 +448,24 @@ body#blog .headimage img {
 }
 .post h2 {
   margin-top: 0px;
+}
+
+.video-responsive {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+}
+
+.video-responsive iframe,
+.video-responsive object,
+.video-responsive embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 /***************Communities**************/
@@ -481,9 +507,21 @@ body#blog .headimage img {
 }
 
 /*********** Registration **************/
+button.continue {
+  padding-left: 60px;
+  padding-right: 60px;
+}
+
 .register {
   margin-top: 40px;
   padding: 20px 36px;
+}
+
+.register.final .btn {
+  width: 100%;
+  padding: 10%;
+  margin: 5% auto;
+  font-size: xx-large;
 }
 
 .register.btn {
@@ -499,6 +537,9 @@ body#blog .headimage img {
 .navbar.navbar-default.registration .navbar-nav > .active > a {
   color: #555;
   background-color: #da6137;
+}
+.navbar.navbar-default.registration ul.navbar-nav > li > a:hover {
+  color: #da6137;
 }
 
 form#form-register-member,
@@ -594,6 +635,129 @@ span.role {
 /**************** Pioneer-Detail ******************/
 img.avatar {
   margin-bottom: 20px;
+}
+
+ul.references {
+  padding-left: 0px;
+  margin-top: 40px;
+}
+ul.references li {
+  list-style: none;
+  padding: 20px;
+  border: 2px dotted #da6137;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+ul.references li > span {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+ul.references li.negative {
+  background: #b4502c;
+  color: #f4ede3;
+}
+
+/*************** Pioneer-Profiles **************/
+a.email {
+  margin-top: 20px;
+}
+
+/*************** Caravan-Profiles **************/
+body#profile img.avatar {
+  margin-bottom: 20px;
+}
+
+.comment.tooltip {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  position: relative;
+}
+.comment.tooltip .tooltip-inner {
+  background-color: #da6137;
+  color: #f4ede3;
+  text-align: left;
+  max-width: 100%;
+  position: relative;
+  padding: 20px;
+}
+.comment.tooltip .tooltip-arrow {
+  border-right-color: #da6137;
+  border-left-color: #da6137;
+}
+.comment.tooltip .tooltip-inner h3 {
+  color: #f4ede3;
+  margin-bottom: 8px;
+}
+.comment.tooltip a {
+  color: #f4ede3;
+}
+.comment.tooltip a:hover {
+  color: #b4502c;
+}
+.comment.tooltip .created {
+  font-size: 11px;
+  margin-top: -10px;
+  margin-right: -10px;
+  text-shadow: 1px -1px 0px #b4502c;
+}
+
+.posts > h2 a.btn {
+  margin-top: -6px;
+}
+
+.post {
+  margin-bottom: 60px;
+  overflow: auto;
+}
+.post img {
+  margin-bottom: 20px;
+}
+.post h3 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.post span.details {
+  margin-bottom: 15px;
+  display: block;
+}
+
+/*************** Dashboard **************/
+#dashboard {
+  padding-top: 40px;
+}
+#dashboard .panel {
+  border: 1px dotted #da6137;
+  background-color: #f4ede3;
+}
+#dashboard .panel.panel-default > .panel-heading {
+  background-color: #da6137;
+}
+#dashboard .panel.panel-default > .panel-heading h3.panel-title {
+  color: #f4ede3;
+}
+#dashboard .panel .table-striped > tbody > tr:nth-child(odd) > td,
+#dashboard .panel .table-striped > tbody > tr:nth-child(odd) > th {
+  background-color: #F9F1E7;
+}
+
+ul#postman_menu {
+  list-style: none;
+  padding-left: 0px;
+}
+ul#postman_menu li {
+  display: inline;
+  background: #da6137;
+  border-radius: 5px;
+  padding: 10px;
+}
+ul#postman_menu li a {
+  color: #f4ede3;
+}
+
+span.mailcount {
+  background: #da6137;
+  border-radius: 10px;
+  padding: 1px 5px;
 }
 
 /************* Footer ******************/

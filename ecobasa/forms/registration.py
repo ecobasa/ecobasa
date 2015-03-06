@@ -121,6 +121,8 @@ class RegistrationCommunityForm(RegistrationForm):
         profile.wishlist_tools = self.cleaned_data['wishlist_tools']
         profile.wishlist_special_needs =\
             self.cleaned_data['wishlist_special_needs']
+        profile.wishlist_skills =\
+            self.cleaned_data['wishlist_skills']
 
         for tag in self.cleaned_data['offers_services']:
             profile.offers_services.add(tag)

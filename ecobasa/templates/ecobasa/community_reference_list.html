@@ -1,0 +1,51 @@
+{% extends "cosinnus/base.html" %}
+{% load i18n bootstrap3 cosinnus_tags %}
+
+{% block page_title %}
+  {% blocktrans with name=community.name %}List references for {{ name }}{% endblocktrans %}
+{% endblock %}
+
+{% block body %}profile{% endblock body %}
+
+{% block content %}
+<h1><a href="{% url 'community-detail' community.slug %}">{{ community.name }}'s</a> {% trans "References" %}</h1>
+{% trans "Back to Profile of" %}  <a href="{% url 'community-detail' community.slug %}">{{ community.name }}</a>
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="references">{% for reference in object_list %}
+      <li{% if reference.rating %}{% else %} class="negative"{% endif %}>
+        <span>{% if reference.rating %}Positive{% else %}Negative!{% endif %}</span></br>
+        <a href="{% url 'pioneer-detail' reference.giver.username %}">{{ reference.giver.username }}</a> {{ reference.date }}{% if user.is_superuser or  reference.giver == user %} <a href="{% url 'community-reference-edit' community.slug reference.pk %}">{% trans "Edit" %}</a>{% endif %}
+        {% if reference.text %}
+          <p>{{ reference.text }}</p>
+        {% endif %}
+        {% if reference.products.all %}
+          <p>{% trans "Products:" %} 
+            <ul class="list-inline">
+              {% for tag_name in reference.products.all %}
+                <li><span class="label label-{{ tag_data.class }}">{{ tag_name }}</span></li>
+              {% endfor %}
+            </ul></p>
+        {% endif %}
+        {% if reference.services.all %}
+        <p>{% trans "Services:" %} 
+          <ul class="list-inline">
+            {% for tag_name in reference.services.all %}
+              <li><span class="label label-{{ tag_data.class }}">{{ tag_name }}</span></li>
+            {% endfor %}
+          </ul></p>
+        {% endif %}
+        {% if reference.skills.all %}
+        <p>{% trans "Skills:" %} 
+          <ul class="list-inline">
+            {% for tag_name in reference.skills.all %}
+              <li><span class="label label-{{ tag_data.class }}">{{ tag_name }}</span></li>
+            {% endfor %}
+          </ul></p>
+        {% endif %}
+      </li>
+    {% endfor %}</ul>
+  </div>
+</div>
+{% endblock content %}

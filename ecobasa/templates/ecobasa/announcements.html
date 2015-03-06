@@ -4,7 +4,7 @@
 <div class="row announcement">
 	{% if announcement.image %}
 	  <div class="col-xs-12 col-md-3">
-	    <img src="{{ announcement.image|thumbnail_url:"note_medium" }}" alt="{% trans "Header" %}" />
+	    <img src="{{ announcement.image|thumbnail_url:"note_medium" }}" alt="{{ announcement.title }}" />
 	  </div>
 
 	  <div class="col-xs-8 col-md-6">

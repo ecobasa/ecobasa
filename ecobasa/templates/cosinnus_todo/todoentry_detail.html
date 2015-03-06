@@ -59,7 +59,7 @@
   <div class="col-md-12">
 {% if object.note %}
     <strong>{% trans "Note" %}</strong><br />
-    <div class="well">{{ object.note|linebreaksbr }}</div>
+    <div class="well">{{ object.note|urlize|linebreaksbr|safe }}</div>
 {% endif %}
   </div>
 </div>
