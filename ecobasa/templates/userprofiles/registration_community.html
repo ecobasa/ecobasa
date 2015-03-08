@@ -20,21 +20,22 @@
   <div id="navbar-community" class="show">
     <nav class="navbar navbar-default registration" role="navigation">
       <ul class="nav navbar-nav">
-          <li class="active"><a href="#slide-community-contact">{% trans "contact info" %}</a></li>
-          <li><a href="#slide-community-visitors">{% trans "visitors" %}</a></li>
-          <li><a href="#slide-community-wishlist">{% trans "wishlist" %}</a></li>
-          <li><a href="#slide-community-offers">{% trans "offers" %}</a></li>
-          <li><a href="#slide-community-basic">{% trans "basic info" %}</a></li>
+          <li class="active"><a href="#slide-user">{% trans "User" %}</a></li>
+          <li><a href="#slide-community-contact">{% trans "Community" %}</a></li>
+          <li><a href="#slide-community-visitors">{% trans "Visitors" %}</a></li>
+          <li><a href="#slide-community-wishlist">{% trans "Wishlist" %}</a></li>
+          <li><a href="#slide-community-offers">{% trans "Offers" %}</a></li>
+          <li><a href="#slide-community-basic">{% trans "Basic Info" %}</a></li>
       </ul>
     </nav>
   </div>
 
-  <div id="slide-community-contact" class="slide show">
+  <div id="slide-user" class="slide show">
     <div class="row">
       <div class="col-xs-12">
         <div class="row">
           {% render_honeypot_field %}
-          <div class="col-xs-3">{% bootstrap_label form.username.label %}</div>
+          <div class="col-xs-3 required">{% bootstrap_label form.username.label %}*</div>
           <div class="col-xs-9">{% bootstrap_field form.username show_label=False %}</div>
         </div>
 
@@ -49,33 +50,36 @@
         </div>
 
         <div class="row">
-          <div class="col-xs-3">{% bootstrap_label form.email.label %}</div>
+          <div class="col-xs-3 required">{% bootstrap_label form.email.label %}*</div>
           <div class="col-xs-9">{% bootstrap_field form.email show_label=False %}</div>
         </div>
 
         <div class="row">
-          <div class="col-xs-3">{% bootstrap_label form.password.label %}</div>
+          <div class="col-xs-3 required">{% bootstrap_label form.password.label %}*</div>
           <div class="col-xs-9">{% bootstrap_field form.password show_label=False %}</div>
         </div>
 
         <div class="row">
-          <div class="col-xs-3">{% bootstrap_label form.password_repeat.label %}</div>
+          <div class="col-xs-3 required">{% bootstrap_label form.password_repeat.label %}*</div>
           <div class="col-xs-9">{% bootstrap_field form.password_repeat show_label=False %}</div>
         </div>
 
+      </div>
+    </div>
+
+    <div class="row proceed">
+      <div class="col-xs-6"></div>
+      <div class="col-xs-6"><a class="pull-right" href="#slide-community-visitors"><button class="btn btn-primary btn-lg continue"><span class="glyphicon glyphicon-chevron-right"></span></button></a></div>
+    </div>
+  </div>
+
+  <div id="slide-community-contact" class="slide hide">
+    <div class="row">
+      <div class="col-xs-12">
+
         <div class="row">
-          <div class="col-xs-3">{% bootstrap_label form.name.label %}</div>
+          <div class="col-xs-3 required">{% bootstrap_label form.name.label %}*</div>
           <div class="col-xs-9">{% bootstrap_field form.name show_label=False %}</div>
-        </div>
-
-        <div class="row">
-          <div class="col-xs-3">{% bootstrap_label form.website.label %}</div>
-          <div class="col-xs-9">{% bootstrap_field form.website show_label=False %}</div>
-        </div>
-
-        <div class="row">
-          <div class="col-xs-3">{% bootstrap_label form.contact_telephone.label %}</div>
-          <div class="col-xs-9">{% bootstrap_field form.contact_telephone show_label=False %}</div>
         </div>
 
         <div class="row">
@@ -105,6 +109,37 @@
           <div class="col-xs-5">{% bootstrap_field form.contact_country show_label=False %}</div>
           <div class="col-xs-4">{% bootstrap_field form.contact_show %}</div>
         </div>
+
+        <div class="row">
+          <div class="col-xs-3">{% bootstrap_label form.website.label %}</div>
+          <div class="col-xs-9">{% bootstrap_field form.website show_label=False %}</div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-3">{% bootstrap_label form.contact_telephone.label %}</div>
+          <div class="col-xs-9">{% bootstrap_field form.contact_telephone show_label=False %}</div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-3">{% bootstrap_label form.basic_inhabitants.label %}</div>
+          <div class="col-xs-9">{% bootstrap_field form.basic_inhabitants show_label=False %}</div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-3">{% bootstrap_label form.basic_inhabitants_underage.label %}</div>
+          <div class="col-xs-9">{% bootstrap_field form.basic_inhabitants_underage show_label=False %}</div>
+        </div>
+
+         <div class="row">
+          <div class="col-xs-3">{% bootstrap_label form.basic_brings_together.label %}</div>
+          <div class="col-xs-9">{% bootstrap_field form.basic_brings_together show_label=False %}</div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-3">{% bootstrap_label form.basic_membership_status.label %}</div>
+          <div class="col-xs-9">{% bootstrap_field form.basic_membership_status show_label=False %}</div>
+        </div>    
+
       </div>
     </div>
 
@@ -181,27 +216,7 @@
 
 
   <div id="slide-community-basic" class="slide hide">
-    <div class="row">
-      <div class="col-xs-9">{% bootstrap_label form.basic_inhabitants.label %}</div>
-      <div class="col-xs-3">{% bootstrap_field form.basic_inhabitants show_label=False %}</div>
-    </div>
-
-    <div class="row">
-      <div class="col-xs-9">{% bootstrap_label form.basic_inhabitants_underage.label %}</div>
-      <div class="col-xs-3">{% bootstrap_field form.basic_inhabitants_underage show_label=False %}</div>
-    </div>
-
-    {% bootstrap_field form.basic_brings_together %}
-
-    <div class="row">
-      <div class="col-xs-9">{% bootstrap_label form.basic_membership_status.label %}</div>
-      <div class="col-xs-3">{% bootstrap_field form.basic_membership_status show_label=False %}</div>
-    </div>
-    <div class="row">
-      <div class="col-xs-12">
-        {% bootstrap_field form.ecobasa_member  %}
-      </div>
-    </div>
+    
 
     <div class="register final">
       {% trans "Register" as submit_label %}
