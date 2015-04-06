@@ -453,9 +453,9 @@ img.left {
 .video-responsive {
   position: relative;
   padding-bottom: 56.25%;
-  padding-top: 30px;
   height: 0;
   overflow: hidden;
+  max-width: 100%;
 }
 
 .video-responsive iframe,

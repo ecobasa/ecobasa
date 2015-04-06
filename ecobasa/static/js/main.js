@@ -249,9 +249,8 @@ $(document).ready(function() {
 		}
 	};
 
-	window.setTimeout(foobar, 1000);
 	$.ecobasa.fullcalendar();
 	$.ecobasa.calendarBig();
-//	$.ecobasa.calendarDayTimeChooser();
+	$.ecobasa.calendarDayTimeChooser();
 	$('.email').tooltip();
 });
