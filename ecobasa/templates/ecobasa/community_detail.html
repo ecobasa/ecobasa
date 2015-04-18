@@ -438,8 +438,12 @@
             <p>{{ reference.text }}</p>
           </li>
         {% endfor %}</ul>
+        {% if references.references %}
+          <a href="{% url 'community-reference-list' object.slug %}">{% trans "More" %}</a>
+        {% else %}
+          <p>There are no references for this community yet</p>
+        {% endif %}
         {% if can_add_reference %}<a href="{% url 'community-reference-add' object.slug %}">{% trans "Add" %}</a> | {% endif %}
-        <a href="{% url 'community-reference-list' object.slug %}">{% trans "More" %}</a>
       </div>
     </div>
   </div>
