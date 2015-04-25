@@ -64,7 +64,7 @@
                 <a href="{% url 'cosinnus:group-user-delete' group=object.slug username=member.get_username %}" class="btn btn-default">{% trans "Delete" %}</a>
               </div>
               <div class="comment tooltip fade right in"><div class="tooltip-arrow"></div>
-              <div class="tooltip-inner">{{ member.cosinnus_profile.tour_why|linebreaksbr|safe }}</div></div>
+              <div class="tooltip-inner">{{ member.cosinnus_profile.tour_why|urlize|linebreaksbr|safe }}</div></div>
           </div>
         </li>
       {% endfor %}
