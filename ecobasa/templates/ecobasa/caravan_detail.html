@@ -41,7 +41,7 @@
       </div>
     {% endif %}
 
-    <p>{{ object.description|linebreaksbr }}</p>
+    <p>{{ object.description|urlize|linebreaksbr|safe }}</p>
   </div>
 </div>
 <div class="row">
