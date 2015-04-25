@@ -58,6 +58,18 @@ the appropriate domain and display name (use the super user account created
 earlier to log in).
 
 
+If you don't have a site defined in your database and django wants to reference it, you will need to create one.
+
+From a python manage.py shell :
+
+	$ from django.contrib.sites.models import Site
+	$ new_site = Site.objects.create(domain='foo.com', name='foo.com')
+	$ print new_site.id
+
+Now set that site ID in your settings.py to SITE_ID
+
+
+
 Set up the special group
 ------------------------
 
