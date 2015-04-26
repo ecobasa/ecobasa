@@ -175,8 +175,6 @@
     </ul>
   </div>
 </div>
-{% endif %}
-
 {% if pendings %}
 <div class="row">
   <div class="col-md-12">
@@ -203,6 +201,7 @@
     </ul>
   </div>
 </div>
+{% endif %}
 {% endif %}
 
 {% if posts or user.is_superuser or user|is_group_admin:object %}
