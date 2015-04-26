@@ -149,6 +149,62 @@
   </div>
 </div>
 
+{% if user.is_superuser or user|is_group_admin:object %}
+<div class="row">
+  <div class="col-md-12">
+    <h2>{% trans "Admins" %}</h2>
+    <ul class="media-list">
+      {% for admin in admins %}
+        <li class="media">
+          <a class="pull-left" href="{% url 'cosinnus:user-detail' username=admin.get_username %}">
+            {% if admin.cosinnus_profile.avatar %}
+              <img class="avatar" src="{{ admin.cosinnus_profile.avatar|thumbnail_url:"avatar_medium" }}">
+            {% else %}
+              <img class="avatar" src="http://placehold.it/64x64">
+            {% endif %}
+          </a>
+          <div class="media-body">
+            <a class="pull-left" href="{% url 'cosinnus:user-detail' username=admin.get_username %}">{{ admin.get_full_name|default:admin.get_username }}</a>
+            <div class="btn-group btn-group-xs">
+              <a href="{% url 'cosinnus:group-user-edit' group=object.slug username=admin.get_username %}" class="btn btn-default">{% trans "Change" %}</a>
+              <a href="{% url 'cosinnus:group-user-delete' group=object.slug username=admin.get_username %}" class="btn btn-default">{% trans "Delete" %}</a>
+            </div>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endif %}
+
+{% if pendings %}
+<div class="row">
+  <div class="col-md-12">
+    <h2>{% trans "Applied for membership" %}</h2>
+    <ul class="media-list">
+      {% for pending in pendings %}
+        <li class="media">
+          <a class="pull-left" href="{% url 'pioneer-detail' username=pending.get_username %}">
+            {% if pending.cosinnus_profile.avatar %}
+              <img class="avatar" src="{{ pending.cosinnus_profile.avatar|thumbnail_url:"avatar_medium" }}">
+            {% else %}
+              <img class="avatar" src="http://placehold.it/64x64">
+            {% endif %}
+          </a>
+          <div class="media-body">
+            <a class="pull-left" href="{% url 'cosinnus:user-detail' username=pending.get_username %}">{{ pending.get_full_name|default:pending.get_username }}</a>
+            <div class="btn-group btn-group-xs">
+              <a href="{% url 'cosinnus:group-user-add' group=object.slug username=pending.get_username %}" class="btn btn-default">{% trans "Add" %}</a>
+              <a href="{% url 'cosinnus:group-user-delete' group=object.slug username=pending.get_username %}" class="btn btn-default">{% trans "Delete" %}</a>
+            </div>
+          </div>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+{% endif %}
+
 {% if posts or user.is_superuser or user|is_group_admin:object %}
   <div class="row">
     <div class="posts col-xs-12">
@@ -238,54 +294,4 @@
   </div>
 {% endif %}
 
-<div class="row">
-  <div class="col-md-12">
-    <h3>{% trans "Pending users" %}</h3>
-    <ul class="media-list">
-      {% for pending in pendings %}
-        <li class="media">
-          <a class="pull-left" href="{% url 'pioneer-detail' username=pending.get_username %}">
-            {% if pending.cosinnus_profile.avatar %}
-              <img class="avatar" src="{{ pending.cosinnus_profile.avatar|thumbnail_url:"avatar_medium" }}">
-            {% else %}
-              <img class="avatar" src="http://placehold.it/64x64">
-            {% endif %}
-          </a>
-          <div class="media-body">
-            <a class="pull-left" href="{% url 'cosinnus:user-detail' username=pending.get_username %}">{{ pending.get_full_name|default:pending.get_username }}</a>
-            <div class="btn-group btn-group-xs">
-              <a href="{% url 'cosinnus:group-user-add' group=object.slug username=pending.get_username %}" class="btn btn-default">{% trans "Add" %}</a>
-              <a href="{% url 'cosinnus:group-user-delete' group=object.slug username=pending.get_username %}" class="btn btn-default">{% trans "Delete" %}</a>
-            </div>
-          </div>
-        </li>
-      {% endfor %}
-    </ul>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-12">
-    <h3>{% trans "Admins" %}</h3>
-    <ul class="media-list">
-      {% for admin in admins %}
-        <li class="media">
-          <a class="pull-left" href="{% url 'cosinnus:user-detail' username=admin.get_username %}">
-            {% if admin.cosinnus_profile.avatar %}
-              <img class="avatar" src="{{ admin.cosinnus_profile.avatar|thumbnail_url:"avatar_medium" }}">
-            {% else %}
-              <img class="avatar" src="http://placehold.it/64x64">
-            {% endif %}
-          </a>
-          <div class="media-body">
-            <a class="pull-left" href="{% url 'cosinnus:user-detail' username=admin.get_username %}">{{ admin.get_full_name|default:admin.get_username }}</a>
-            <div class="btn-group btn-group-xs">
-              <a href="{% url 'cosinnus:group-user-edit' group=object.slug username=admin.get_username %}" class="btn btn-default">{% trans "Change" %}</a>
-              <a href="{% url 'cosinnus:group-user-delete' group=object.slug username=admin.get_username %}" class="btn btn-default">{% trans "Delete" %}</a>
-            </div>
-          </div>
-        </li>
-      {% endfor %}
-    </ul>
-  </div>
-</div>
 {% endblock %}
