@@ -5,7 +5,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
 @font-face {
   font-family: 'Lato';
   src: url("../fonts/lato-regular-webfont.eot");
@@ -13,7 +12,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
 @font-face {
   font-family: 'Lato';
   src: url("../fonts/lato-bold-webfont.eot");
@@ -21,7 +19,6 @@
   font-weight: bold;
   font-style: normal;
 }
-
 @font-face {
   font-family: 'Lato';
   src: url("../fonts/lato-italic-webfont.eot");
@@ -29,7 +26,6 @@
   font-weight: normal;
   font-style: italic;
 }
-
 @font-face {
   font-family: 'Lato';
   src: url("../fonts/lato-bolditalic-webfont.eot");
@@ -37,7 +33,6 @@
   font-weight: bold;
   font-style: italic;
 }
-
 /*********** Default **************/
 body {
   background: #f4ede3;
@@ -144,6 +139,9 @@ h3, h4, h5, h6 {
 .navbar-default ul.navbar-nav .open > a:focus {
   color: #452912;
   background: #f4ede3;
+}
+.navbar-default ul.navbar-nav li a span.glyphicon {
+  margin-right: 5px;
 }
 
 ul.dropdown-menu {
@@ -483,6 +481,7 @@ img.left {
 
 .community-map-large {
   position: absolute;
+  top: 52px;
   left: 0px;
   width: 100%;
   height: 100%;
@@ -866,3 +865,5 @@ span.mailcount {
     background-color: #da6137;
   }
 }
+
+/*# sourceMappingURL=main.css.map */
