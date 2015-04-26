@@ -72,27 +72,32 @@
   </div>
   <div class="col-xs-12 col-md-6">
     <h3>{% trans "Buses" %}</h3>
-    <ul class="media-list">
-      {% for member in members %}
-      {% with member.cosinnus_profile as profile %}
-      {% if profile.has_bus %}
-        <li class="media">
-          <a class="pull-left" href="{% url 'pioneer-detail' username=member.get_username %}">
-            {% if profile.bus_image %}<img src="{{ profile.bus_image|thumbnail_url:"bus_medium" }}" />
-            {% else %}
-              <img class="avatar" src="http://placehold.it/200x200">
-            {% endif %}
-          </a>
-          <div class="media-body">
-            <p>This bus can take {{ profile.bus_num_passengers }} people</p>
-            <p>He drinks {{ profile.bus_consumption }}l on 100km</p>
-            {% if not profile.bus_has_driving_license and profile.bus_others_can_drive %}<p>This bus still needs a driver!</p>{% else %}{% endif %}
-          </div>
-        </li>
-      {% endif %}
-      {% endwith %}
-      {% endfor %}
-    </ul>
+    {% if members.profile.has_bus %}
+      <ul class="media-list">
+        {% for member in members %}
+        {% with member.cosinnus_profile as profile %}
+        {% if profile.has_bus %}
+          <li class="media">
+            <a class="pull-left" href="{% url 'pioneer-detail' username=member.get_username %}">
+              {% if profile.bus_image %}<img src="{{ profile.bus_image|thumbnail_url:"bus_medium" }}" />
+              {% else %}
+                <img class="avatar" src="http://placehold.it/200x200">
+              {% endif %}
+            </a>
+            <div class="media-body">
+              <p>This bus can take {{ profile.bus_num_passengers }} people</p>
+              <p>He drinks {{ profile.bus_consumption }}l on 100km</p>
+              {% if not profile.bus_has_driving_license and profile.bus_others_can_drive %}<p>This bus still needs a driver!</p>{% else %}{% endif %}
+            </div>
+          </li>
+        {% endif %}
+        {% endwith %}
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p>{% trans "This tour doesnt have any buses, yet!" %}
+      {% if not user|is_group_admin:object %} <a href="{% url 'caravan-join' object.slug %}">{% trans "Apply for membership" %}</a>{% trans ", if you have a bus!" %}{% endif %}</p>
+    {% endif %}
   </div>
 </div>
 
