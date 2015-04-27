@@ -158,8 +158,7 @@ h3, h4, h5, h6 {
 ul.dropdown-menu {
   background: rgba(218, 97, 55, 0.8);
   color: #f4ede3;
-  width: 100%;
-  min-width: initial;
+  min-width: 100%;
 }
 ul.dropdown-menu > li > a {
   color: #f4ede3;
@@ -478,10 +477,9 @@ img.left {
 }
 
 /***************Communities**************/
-#community-map {
-  z-index: 1;
-}
-
+/*#community-map {
+	z-index: 0;
+}*/
 .community-map-small {
   height: 300px;
 }
@@ -492,7 +490,7 @@ img.left {
 
 .community-map-large {
   position: absolute;
-  top: 52px;
+  top: 0px;
   left: 0px;
   width: 100%;
   height: 100%;
@@ -501,7 +499,7 @@ img.left {
 .view-select {
   position: absolute;
   left: 45%;
-  top: 20px;
+  top: 60px;
   margin: 10px 10px 0 0;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.65);
   z-index: 7;
