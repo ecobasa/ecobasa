@@ -23,8 +23,8 @@
         <li><a href="{% url 'community-list' %}"><span class="glyphicon glyphicon-home"></span>{% trans "Communities" %}</a></li>
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-transfer"></span>{% trans "Community-Tours" %}</a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="{% url 'pages-details-by-slug' slug='Community-Tours' %}"><span class="glyphicon glyphicon-question-sign"></span>{% trans "What is this?" %}</a></li>
-            <li><a href="#"><span class="glyphicon glyphicon-globe"></span>{%trans "Tour Blogs" %}</a></li>
+            <li><a href="{% url 'pages-details-by-slug' slug='community-tours' %}"><span class="glyphicon glyphicon-question-sign"></span>{% trans "What is this?" %}</a></li>
+            <li><a href="{% url 'pages-details-by-slug' slug='community-tours/blog' %}"><span class="glyphicon glyphicon-globe"></span>{%trans "Tour Blogs" %}</a></li>
             <li><a href="{% url 'caravan-list' %}"><span class="glyphicon glyphicon-transfer"></span>{% trans "Go on tour!" %}</a></li>
             <li><a href="{% url 'bus-list' %}"><span class="glyphicon glyphicon-search"></span>{% trans "Find a Bus" %}</a></li>
             <li><a href="{% url 'pioneer-list' %}"><span class="glyphicon glyphicon-user"></span>{% trans "Pioneers" %}</a></li>

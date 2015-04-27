@@ -4,9 +4,9 @@
 {% block page_title %}{% trans "Buses" %}{% endblock %}
 
 {% block content %}
-    <h1>The available buses for the Community-Tour</h1>
+    <h1>{% trans "Available buses for your Community-Tour" %}</h1>
     {% if user.is_authenticated and not user.cosinnus_profile.has_bus %}
-    <a class="btn btn-primary pull-right" href="{% url 'bus-add' %}">{% trans "Add a bus" %}</a>
+    <a class="btn btn-primary pull-right" href="{% url 'bus-add' %}">{% trans "Add a bus to your profile" %}</a>
     {% endif %}
 
     {% if object_list %}
