@@ -179,6 +179,7 @@ h3, h4, h5, h6 {
 .navbar-default ul.navbar-nav {
 	& > li > a {
 		color: $secondary;
+		padding-bottom: 17px;
 		&:hover {
 			color: $brown;
 		}

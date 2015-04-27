@@ -137,6 +137,7 @@ h3, h4, h5, h6 {
 
 .navbar-default ul.navbar-nav > li > a {
   color: #f4ede3;
+  padding-bottom: 17px;
 }
 .navbar-default ul.navbar-nav > li > a:hover {
   color: #452912;
