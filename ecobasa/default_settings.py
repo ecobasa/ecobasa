@@ -152,6 +152,7 @@ CMS_TEMPLATES = (
     ('start.html', 'Startpage'),
     ('ecobasa/about.html', 'About'),
     ('ecobasa/blog.html', 'Blog'),
+    ('ecobasa/tour_blog.html', 'Tour Blog'),
 )
 
 LANGUAGES = (
