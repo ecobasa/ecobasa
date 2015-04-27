@@ -100,23 +100,29 @@ a:hover {
 }
 
 h1, h2 {
-	font-family: 'Bree Serif', Courier, serif;
-	color: $orange;
+  font-family: 'Bree Serif', Courier, serif;
+  color: #ff7800;
+  margin-top: 30px;
 }
 
 h1 + h2 {
-	margin-top: -10px;
+  margin-top: -10px;
+}
+
+h1 {
+  margin-bottom: 20px;
 }
 
 h2 {
-	font-size: 30px;
-	color: $purple;
+  font-size: 30px;
+  color: #80143b;
+  margin-bottom: 15px;
 }
 
 h3, h4, h5, h6 {
-	font-family: 'Lato';
-	font-weight: bold;
-	color: $brown;
+  font-family: 'Lato';
+  font-weight: bold;
+  color: #452912;
 }
 
 .gradient {
