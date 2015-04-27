@@ -102,15 +102,21 @@ a:hover {
 h1, h2 {
 	font-family: 'Bree Serif', Courier, serif;
 	color: $orange;
+	margin-top: 30px;
 }
 
 h1 + h2 {
 	margin-top: -10px;
 }
 
+h1 {
+	margin-bottom: 20px;
+}
+
 h2 {
 	font-size: 30px;
 	color: $purple;
+	margin-bottom: 15px;
 }
 
 h3, h4, h5, h6 {
