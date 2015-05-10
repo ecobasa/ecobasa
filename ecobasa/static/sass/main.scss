@@ -187,7 +187,11 @@ h3, h4, h5, h6 {
 		&:hover {
 			color: $brown;
 		}
-		span.glyphicon {
+	}
+	li.dropdown-header {
+		color: $brown;
+		white-space: nowrap;
+		> span.glyphicon {
 			margin-right: 7px;
 		}
 	}
@@ -202,7 +206,7 @@ h3, h4, h5, h6 {
 		background: $secondary;
 	}
 	li a span.glyphicon {
-		margin-right: 5px;
+		margin-right: 7px;
 	}
 }
 
@@ -823,10 +827,19 @@ body#profile {
 
 /*************** Dashboard **************/
 
-a.community {
+a#community {
 	font-family: 'Bree Serif';
-	color: $secondary;
-	font-size: 16px;
+	color: $brown;
+	font-size: 18px;
+	span.glyphicon {
+		font-size: 12px;
+	}
+}
+
+.navbar-default .navbar-nav>.active>a, 
+.navbar-default .navbar-nav>.active>a:hover, 
+.navbar-default .navbar-nav>.active>a:focus {
+	background-color: $secondary;
 }
 
 #dashboard {

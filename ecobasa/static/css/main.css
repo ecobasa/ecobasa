@@ -146,7 +146,11 @@ h3, h4, h5, h6 {
 .navbar-default ul.navbar-nav > li > a:hover {
   color: #452912;
 }
-.navbar-default ul.navbar-nav > li > a span.glyphicon {
+.navbar-default ul.navbar-nav li.dropdown-header {
+  color: #452912;
+  white-space: nowrap;
+}
+.navbar-default ul.navbar-nav li.dropdown-header > span.glyphicon {
   margin-right: 7px;
 }
 .navbar-default ul.navbar-nav .dropdown > a .caret {
@@ -160,7 +164,7 @@ h3, h4, h5, h6 {
   background: #f4ede3;
 }
 .navbar-default ul.navbar-nav li a span.glyphicon {
-  margin-right: 5px;
+  margin-right: 7px;
 }
 
 ul.dropdown-menu {
@@ -749,10 +753,19 @@ body#profile img.avatar {
 }
 
 /*************** Dashboard **************/
-a.community {
+a#community {
   font-family: 'Bree Serif';
-  color: #f4ede3;
-  font-size: 16px;
+  color: #452912;
+  font-size: 18px;
+}
+a#community span.glyphicon {
+  font-size: 12px;
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  background-color: #f4ede3;
 }
 
 #dashboard {
