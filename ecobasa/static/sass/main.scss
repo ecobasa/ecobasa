@@ -187,6 +187,9 @@ h3, h4, h5, h6 {
 		&:hover {
 			color: $brown;
 		}
+		span.glyphicon {
+			margin-right: 7px;
+		}
 	}
 	.dropdown > a .caret {
 		border-top-color: $secondary;

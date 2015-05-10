@@ -146,6 +146,9 @@ h3, h4, h5, h6 {
 .navbar-default ul.navbar-nav > li > a:hover {
   color: #452912;
 }
+.navbar-default ul.navbar-nav > li > a span.glyphicon {
+  margin-right: 7px;
+}
 .navbar-default ul.navbar-nav .dropdown > a .caret {
   border-top-color: #f4ede3;
   border-bottom-color: #f4ede3;

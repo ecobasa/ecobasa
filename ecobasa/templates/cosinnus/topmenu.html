@@ -29,8 +29,8 @@
             <li><a href="{% url 'pioneer-list' %}"><span class="glyphicon glyphicon-user"></span>{% trans "Pioneers" %}</a></li>
           </ul>
         </li>
-        <li><a data-toggle="modal" data-target="#newsletter-modal" href="#m-newsletter"><span class="glyphicon glyphicon-envelope"></span> {% trans "Newsletter" %}</a></li>
-        <li><a data-toggle="modal" data-target="#donate-modal" href="#m-donate"><span class="glyphicon glyphicon-gift"></span> {% trans "Donate" %}</a></li>
+        <li><a data-toggle="modal" data-target="#newsletter-modal" href="#m-newsletter"><span class="glyphicon glyphicon-envelope"></span>{% trans "Newsletter" %}</a></li>
+        <li><a data-toggle="modal" data-target="#donate-modal" href="#m-donate"><span class="glyphicon glyphicon-gift"></span>{% trans "Donate" %}</a></li>
       </ul>
           <ul class="nav navbar-nav navbar-right">
             <li id="language-chooser" class="dropdown">
@@ -65,7 +65,7 @@
                   <ul class="dropdown-menu">
                     <li><a href="{% url 'pioneer-detail' request.user.username %}"><span class="glyphicon glyphicon-user"></span> {% trans "Profile" %}</a></li>
                     <!-- <li><a href="{% url 'cosinnus:user-dashboard' %}">{% trans "Dashboard" %}</a></li> -->
-                    <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-out"></span> {% trans "Logout" %}</a></li>
+                    <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-out"></span>{% trans "Logout" %}</a></li>
                   </ul>
                 </li>
               {% else %}
