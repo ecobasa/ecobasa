@@ -192,6 +192,14 @@ ul.dropdown-menu > li > a:hover {
     color: #f4ede3;
   }
 }
+nav.navbar-sub {
+  margin-bottom: 0px;
+  border-top: 1px solid #f4ede3;
+}
+nav.navbar-sub ul li a {
+  float: left;
+}
+
 /************* Content ***************/
 .container.content {
   padding-top: 80px;
@@ -738,6 +746,12 @@ body#profile img.avatar {
 }
 
 /*************** Dashboard **************/
+a.community {
+  font-family: 'Bree Serif';
+  color: #f4ede3;
+  font-size: 16px;
+}
+
 #dashboard {
   padding-top: 40px;
 }

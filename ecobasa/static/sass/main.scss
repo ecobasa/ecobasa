@@ -238,6 +238,14 @@ ul.dropdown-menu {
 	}
 }
 
+nav.navbar-sub {
+	margin-bottom: 0px;
+	border-top: 1px solid $secondary;
+	ul li a {
+		float: left;
+	}
+}
+
 
 /************* Content ***************/
 
@@ -811,6 +819,12 @@ body#profile {
 }
 
 /*************** Dashboard **************/
+
+a.community {
+	font-family: 'Bree Serif';
+	color: $secondary;
+	font-size: 16px;
+}
 
 #dashboard {
 	padding-top: 40px;

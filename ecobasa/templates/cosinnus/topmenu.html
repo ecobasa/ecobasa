@@ -31,15 +31,6 @@
         </li>
         <li><a data-toggle="modal" data-target="#newsletter-modal" href="#m-newsletter"><span class="glyphicon glyphicon-envelope"></span> {% trans "Newsletter" %}</a></li>
         <li><a data-toggle="modal" data-target="#donate-modal" href="#m-donate"><span class="glyphicon glyphicon-gift"></span> {% trans "Donate" %}</a></li>
-        {% comment %}
-        {% if group %}
-          {% url 'community-dashboard' group=group.slug as dashboard_url %}
-          <li {% ifequal dashboard_url request.path %} class="active"{% endifequal %}><a href="{{ dashboard_url }}">{% trans "Community Dashboard" %}</a></li>
-        {% endif %}
-        {% for app in apps %}
-          <li{% if app.active %} class="active"{% endif %}><a href="{{ app.url }}">{{ app.label }}</a></li>
-        {% endfor %}
-        {% endcomment %}
       </ul>
           <ul class="nav navbar-nav navbar-right">
             <li id="language-chooser" class="dropdown">
@@ -90,6 +81,7 @@
       <div class="col-xs-12">
         <nav class="navbar navbar-sub" role="navigation">
           <ul class="nav navbar-nav">
+            <li><a class="community" href="{% url 'community-detail' group=group.slug %}"><span class="glyphicon glyphicon-home"></span> {{ group }}</a></li>
               {% if group.profile %}
                 {% url 'community-dashboard' group=group.slug as dashboard_url %}
               {% elif group.caravan %}
