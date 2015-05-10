@@ -511,7 +511,7 @@ img.left {
 }
 
 .leaflet-top {
-  top: 20px;
+  top: 60px !important;
 }
 
 #community-map button {
