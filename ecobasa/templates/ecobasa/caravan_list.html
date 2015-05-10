@@ -6,7 +6,7 @@
 {% block content %}
     <h1>{% trans "Join a Community-Tour!" %}</h1>
     {% if user.is_authenticated %}
-    <a class="btn btn-primary pull-right" href="{% url 'caravan-add' %}">{% trans "Add a Tour" %}</a>
+    <a class="btn btn-primary pull-right" href="{% url 'caravan-add' %}"><span class="glyphicon glyphicon-plus"></span> {% trans "Add a caravan" %}</a>
     {% endif %}
 
     {% if object_list %}
@@ -17,7 +17,7 @@
                 <th>{% trans "Description" %}</th>
                 <th>{% trans "Members" %}</th>
                 <th>{% trans "Buses" %}</th>
-                <td>{% trans "Actions" %}</th>
+                <th>{% trans "Actions" %}</th>
             </tr>
         </thead>
 
