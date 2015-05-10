@@ -869,6 +869,7 @@ span.mailcount {
 	border-radius: 0px;
 	border: none;
     width: 100%;
+    z-index: 9999;
 }
 
 #myCanvas {
@@ -963,7 +964,12 @@ span.mailcount {
 		}
 	}
 	.footer.navbar {
-		position: relative;
 		background-color: rgba(218, 97, 55, 1);
+		.nav li {
+			float: left;
+		}
+		ul {
+			margin: 0px;
+		}
 	}
 }
