@@ -540,7 +540,11 @@ button.continue {
   width: 100%;
   padding: 10%;
   margin: 5% auto;
-  font-size: xx-large;
+  font-size: 30px;
+  white-space: normal;
+}
+.register.btn span.glyphicon {
+  font-size: 80px;
 }
 
 .navbar.navbar-default.registration {
