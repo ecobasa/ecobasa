@@ -14,8 +14,8 @@
       <ul class="nav navbar-nav">
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="{% trans "/about" %}"><span class="glyphicon glyphicon-info-sign"></span>{% trans "About" %}</a>
           <ul class="dropdown-menu" role="menu">
-            <li><a href="{% trans "/about" %}"><span class="glyphicon glyphicon-info-sign"></span>{% trans "The Platform" %}</a></li>
-            <li><a href="{% trans "/about" %}"><span class="glyphicon glyphicon-info-sign"></span>{% trans "The Network" %}</a></li>
+            <li><a href="{% url 'pages-details-by-slug' slug='about-the-platform' %}"><span class="glyphicon glyphicon-info-sign"></span>{% trans "The Platform" %}</a></li>
+            <li><a href="{% url 'pages-details-by-slug' slug='about-the-network' %}"><span class="glyphicon glyphicon-info-sign"></span>{% trans "The Network" %}</a></li>
             <li><a href="{% url 'organiser-list' %}"><span class="glyphicon glyphicon-user"></span>Team</a></li>
             <li><a href="{% url 'blog' %}"><span class="glyphicon glyphicon-heart"></span>ecobasa Blog</a></li>
           </ul>
