@@ -77,6 +77,10 @@ h1 {
   margin-bottom: 20px;
 }
 
+h1 {
+  margin-bottom: 20px;
+}
+
 h2 {
   font-size: 30px;
   color: #80143b;
@@ -173,22 +177,21 @@ ul.dropdown-menu > li > a:hover {
   color: #da6137;
 }
 
-li#language-chooser {
-  width: 90px;
-}
-li#language-chooser a {
-  text-align: right;
-}
-li#language-chooser ul.dropdown-menu li a {
+.navbar-collapse ul.dropdown-menu > li > a {
   color: #f4ede3;
 }
-li#language-chooser ul.dropdown-menu li a:hover {
+.navbar-collapse ul.dropdown-menu > li > a:hover {
   color: #452912;
 }
-li#language-chooser ul.dropdown-menu li.active a {
+.navbar-collapse ul.dropdown-menu li.active a {
   color: #452912;
 }
 
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #f4ede3;
+  }
+}
 /************* Content ***************/
 .container.content {
   padding-top: 80px;
@@ -816,10 +819,19 @@ span.mailcount {
   height: 100%;
 }
 
+@media (min-width: 768px) {
+  .navbar-right {
+    float: right !important;
+  }
+}
 @media (max-width: 992px) {
   nav.header.navbar {
     position: relative;
     background-color: #da6137;
+  }
+
+  .navbar-collapse ul.nav li#language-chooser {
+    border-top: 1px solid #f4ede3;
   }
 
   #carousel-startpage .carousel-caption {

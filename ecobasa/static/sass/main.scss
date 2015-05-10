@@ -220,23 +220,24 @@ ul.dropdown-menu {
 	}
 }
 
-li#language-chooser {
-	width: 90px;
-	a {
-		text-align: right;
-	}
-	ul.dropdown-menu {
-		li a {
-			color: $secondary;
-			&:hover {
-				color: $brown;
-			}
-		}
-		li.active a {
+.navbar-collapse ul.dropdown-menu {
+	> li > a {
+		color: $secondary;
+		&:hover {
 			color: $brown;
 		}
 	}
+	li.active a {
+		color: $brown;
+	}
 }
+
+@media (max-width: 767px) {
+	.navbar-default .navbar-nav .open .dropdown-menu>li>a {
+		color: $secondary;
+	}
+}
+
 
 /************* Content ***************/
 
@@ -897,11 +898,20 @@ span.mailcount {
 	height: 100%; 
 }
 
+@media (min-width: 768px) {
+	.navbar-right {
+	  float: right !important;
+	}
+}
+
 @media (max-width: 992px) { 
 	nav.header.navbar {
 		position: relative;
 		background-color: rgba(218, 97, 55, 1);
 	}
+	.navbar-collapse ul.nav li#language-chooser {
+  		border-top: 1px solid $secondary;
+  	}
 	#carousel-startpage {
 		.carousel-caption {
 			position: relative;
