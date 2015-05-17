@@ -1,9 +1,12 @@
-Ecobasa
-=======
+![ecobasa logo](http://cloud.ecobasa.org/public.php?service=files&t=976069b03a5d7f4153c5cfc16e7ab309&download)
+Repository of http://ecobasa.org
 
-Relaunch of http://ecobasa.org
+# Requisites
+* Django (Python)
+* PostgreSQL
+* LESS (use node.js Grunt or Compass to compile CSS)
 
-Requirements
+Environment Requirements
 ------------
 
 	$ pip install -r requirements.txt
