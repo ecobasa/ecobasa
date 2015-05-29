@@ -167,6 +167,7 @@ INSTALLED_APPS = (
     'suit',
     'django.contrib.admin',
     'django.contrib.auth',
+    'django_browserid',  # Load after auth
     'django.contrib.contenttypes',
     'django.contrib.humanize',
     'django.contrib.sessions',
@@ -253,6 +254,14 @@ LOGGING = {
             'propagate': True,
         },
     }
+}
+
+
+AUTHENTICATION_BACKENDS = {
+
+   'django.contrib.auth.backends.ModelBackend',
+   'django_browserid.auth.BrowserIDBackend',
+
 }
 
 

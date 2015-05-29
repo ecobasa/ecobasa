@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n static bootstrap3 honeypot ecobasa_registration ecobasa_tags %}
+{% load i18n static bootstrap3 honeypot ecobasa_registration ecobasa_tags browserid %}
 
 {% block page_title %}{% trans "Registration" %}{% endblock %}
 
@@ -8,11 +8,19 @@
 {{ form.media.css }}
 <link href="{% static "css/vendor/select2-bootstrap.css" %}" rel="stylesheet"/>
 <link href="{% static "css/vendor/select2.css" %}" rel="stylesheet"/>
+{% browserid_css %}
 {% endblock extrahead %}
 
 {% block content %}
 <div class="row">
   <div class="col-xs-12">
+    {% browserid_info %}
+    {% if user.is_authenticated %}
+      <p>Current user: {{ user.email }}</p>
+      {% browserid_logout text='Logout' %}
+    {% else %}
+      {% browserid_login text='Login' color='dark' %}
+    {% endif %}
     <form id="form-register-member" action="{% url 'register-member' %}" method="post" enctype="multipart/form-data" novalidate="novalidate">
       {% csrf_token %}
       {{ form.has_bus }}
@@ -175,6 +183,7 @@
 {% block extrafooter %}
 {{ block.super }}
 {{ form.media.js }}
+{% browserid_js %}
 <script src="{% static 'js/vendor/select2/select2.min.js' %}"></script>
 <script src="{% static 'js/ecobasa_profile.js' %}"></script>
 <script src="{% static 'js/ecobasa_register.js' %}"></script>
