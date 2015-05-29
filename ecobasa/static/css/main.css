@@ -688,9 +688,13 @@ ul.references li.negative {
   color: #f4ede3;
 }
 
-/*************** Pioneer-Profiles **************/
 a.email {
   margin-top: 20px;
+}
+
+/*************** Pioneer-List **************/
+.name {
+  text-align: center;
 }
 
 /*************** Caravan-Profiles **************/
