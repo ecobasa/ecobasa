@@ -16,7 +16,7 @@
   <div class="col-xs-6">
     {% browserid_info %}
     {% if user.is_authenticated %}
-      <p>Current user: {{ user.email }}</p>
+      <p>{% trans "Current user" %}: {{ user.email }}</p>
       {% browserid_logout text='Logout' %}
     {% else %}
       {% browserid_login text='Login' color='dark' %}
@@ -49,21 +49,21 @@
   </div>
   <div class="row">
     <div class="col-xs-12">
-      <p>As you might know, this is a gift-economy Network, by signing up on this website, you become a member of the gift-economy network for communities. For the gift-economy to work, we need some information. This is the most important thing and you should really take your time to fill out your profile, so other people can find your skills and start interacting with you. This is the most sustainable investment of time that you can do today!</p>
+      <p>{% trans "As you might know, this is a gift-economy Network, by signing up on this website, you become a member of the gift-economy network for communities. For the gift-economy to work, we need some information. This is the most important thing and you should really take your time to fill out your profile, so other people can find your skills and start interacting with you. This is the most sustainable investment of time that you can do today!" %}</p>
     </div>
   </div>
   <div class="row">
     <div class="col-xs-6 registration">
       <a class="profile" href="#profile">
         <button type="button" class="btn btn-primary btn-lg pull-right">
-          <span class="glyphicon glyphicon-pencil"></span> Fill out your profile
+          <span class="glyphicon glyphicon-pencil"></span> {% trans "Fill out your profile" %}
         </button>
       </a>
     </div>
     <div class="col-xs-6 registration">
       <div class="form-group">
         <button type="submit" class="btn btn-primary btn-lg center">
-          <span class="glyphicon glyphicon-log-in"></span> No, just register</br>
+          <span class="glyphicon glyphicon-log-in"></span> {% trans "No, just register" %}</br>
           I will do it later, i promise!
         </button>
       </div>
@@ -74,7 +74,7 @@
     <div id="profile" class="slide hide">
       <div class="row">
         <div class="col-xs-12">
-          <center><h2>Profile</h2></center>
+          <center><h2>{%trans "Profile" %}</h2></center>
         </div>
       </div>
       <div class="row">
