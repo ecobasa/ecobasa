@@ -13,14 +13,18 @@
 
 {% block content %}
 <div class="row">
-  <div class="col-xs-6">
+  <div class="col-xs-12">
     {% browserid_info %}
     {% if user.is_authenticated %}
-      <p>{% trans "Current user" %}: {{ user.email }}</p>
+      <p>{% trans "Already signed in as" %}: {{ user.email }}</p>
       {% browserid_logout text='Logout' %}
     {% else %}
       {% browserid_login text='Login' color='dark' %}
     {% endif %}
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-md-6">
     <form id="form-register-member" action="{% url 'register-member' %}" method="post" enctype="multipart/form-data" novalidate="novalidate">
       {% csrf_token %}
       {{ form.has_bus }}
@@ -43,7 +47,7 @@
         <div class="col-xs-9">{% bootstrap_field form.password_repeat show_label=False %}</div>
       </div>
     </div>
-    <div class="col-xs-6">
+    <div class="col-xs-12 col-md-6 avatar">
       {% bootstrap_field form.avatar %}
     </div>
   </div>
@@ -78,6 +82,15 @@
         </div>
       </div>
       <div class="row">
+        <div class="col-xs-3">{% bootstrap_label form.first_name.label %}</div>
+        <div class="col-xs-9">{% bootstrap_field form.first_name show_label=False %}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-3">{% bootstrap_label form.last_name.label %}</div>
+        <div class="col-xs-9">{% bootstrap_field form.last_name show_label=False %}</div>
+      </div>
+      <div class="row">
         <div class="col-xs-3">{% bootstrap_label form.about.label %}</div>
         <div class="col-xs-9">{% bootstrap_field form.about show_label=False %}</div>
       </div>
@@ -93,25 +106,26 @@
          <div class="col-xs-12">{% bootstrap_field form.interests %}</div>
       </div>
       <div class="row">
-        <div class="col-xs-3">{% bootstrap_label form.country.label %}</div>
-        <div class="col-xs-9">{% bootstrap_field form.country show_label=False %}</div>
-      </div>
-      <div class="row">
         <div class="col-xs-12">
           {% bootstrap_field form.skills %}<br />
           {% bootstrap_field form.products %}
         </div>
       </div>
       <div class="row">
+        <div class="col-xs-3">{% bootstrap_label form.country.label %}</div>
+        <div class="col-xs-9">{% bootstrap_field form.country show_label=False %}</div>
+      </div>
+      <div class="row">
         <div class="col-xs-12 registration2">
           <h2>{% bootstrap_label form.has_bus.label %}</h2>
-          <h3>{% trans "You can also add a bus later, it would be great if you could ask around among your friends if they want to join us with their bus!" %}</h3>
+          <p>{% trans "You can also add a bus later, it would be great if you could ask around among your friends if they want to join us with their bus!" %}</p>
         </div>
         <div class="row registration2">
-          <div class="col-xs-6"><a class="profile register btn btn-default bus" href="#slide-member-bus-details">{% trans "YES" %}</a></div>
+          <div class="col-xs-6"><a class="profile btn btn-primary btn-lg pull-right bus" href="#slide-member-bus-details">{% trans "YES" %}</a></div>
           <div class="col-xs-6">
-            {% trans "NO, just register me!" as submit_label %}
-            {% buttons submit=submit_label %}{% endbuttons %}
+            <div class="form-group">
+              <button type="submit" class="profile btn btn-primary btn-lg">{% trans "NO, just register me!" %}</button>
+            </div>
           </div>
         </div>
       </div>

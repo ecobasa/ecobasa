@@ -7,6 +7,15 @@ $(window).load( function() {
 });
 
 $(document).ready(function() {
+	$('.email').tooltip();
+	
+	$('#accordion_registration .collapse').on('shown.bs.collapse', function () {
+       $(this).parent().find('.glyphicon-chevron-right').removeClass('glyphicon-chevron-right').addClass('glyphicon-chevron-down');
+    });
+    $('#accordion_registration .collapse').on('hidden.bs.collapse', function () {
+    	$(this).parent().find('.glyphicon-chevron-down').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-right');
+    });
+    
 	$.ecobasa = {
 		fullcalendar : function() {
 			// There are two kinds of calendar in cosinnus: big and small.
@@ -252,5 +261,4 @@ $(document).ready(function() {
 	$.ecobasa.fullcalendar();
 	$.ecobasa.calendarBig();
 	$.ecobasa.calendarDayTimeChooser();
-	$('.email').tooltip();
 });

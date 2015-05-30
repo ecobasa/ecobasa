@@ -7,6 +7,7 @@ $red: #e34a26;
 $brown: #452912;
 $dark-brown: #0e0700;
 $purple: #80143b;
+$green: #5A5527;
 
 
 
@@ -84,6 +85,12 @@ body {
 	background-color: $primary;
 	border-color: $third;
 	color: $secondary;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
+  color: $secondary;
+  background-color: $red;
+  border-color: $third;
 }
 
 a {
@@ -593,6 +600,26 @@ img.left {
 
 /*********** Registration **************/
 
+.panel-default .panel-heading {
+	color: $purple;
+	background-color: $primary;
+	border-color: $third;
+}
+
+a.collapsed h2.panel-title {
+	color: $secondary;
+}
+
+.panel-default a,
+.panel-default a:focus {
+	text-decoration: none;
+	color: $purple;
+}
+
+h2.panel-title {
+	font-size: 30px;
+}
+
 button.continue {
 	padding-left: 60px;
 	padding-right: 60px;
@@ -632,11 +659,6 @@ button.continue {
 	}
 }
 
-form#form-register-member,
-form#form-register-community {
-margin-top: 20px;
-}
-
 #slide-member-bus-ask .btn {
   font-size: large;
 }
@@ -664,6 +686,28 @@ margin-top: 20px;
 	font-size: xx-large;
 	margin-top: 40px;
 	padding: 20px 36px;
+}
+
+.has-error .form-control,
+.avatar .form-group.has-error {
+	border: 1px dotted $red;
+	border-radius: 4px;
+}
+
+.avatar .form-group.has-error {
+	padding: 15px;
+}
+
+.has-error .help-block, .has-error .control-label, .has-error .radio, .has-error .checkbox, .has-error .radio-inline, .has-error .checkbox-inline {
+	color: $red;
+}
+
+.has-success .form-control {
+	border: 1px dotted $green;
+}
+
+.has-success .help-block, .has-success .control-label, .has-success .radio, .has-success .checkbox, .has-success .radio-inline, .has-success .checkbox-inline {
+	color: $green;
 }
 
 /**************** Team Page *******************/

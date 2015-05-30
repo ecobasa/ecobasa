@@ -13,223 +13,218 @@
 
 {% block content %}
 <div class="row">
-  <form id="form-register-community" action="{% url 'register-community' %}" method="post" enctype="multipart/form-data" novalidate="novalidate">
-    {% csrf_token %}
-
-
-  <div id="navbar-community" class="show">
-    <nav class="navbar navbar-default registration" role="navigation">
-      <ul class="nav navbar-nav">
-          <li class="active"><a href="#slide-user">{% trans "User" %}</a></li>
-          <li><a href="#slide-community-contact">{% trans "Community" %}</a></li>
-          <li><a href="#slide-community-visitors">{% trans "Visitors" %}</a></li>
-          <li><a href="#slide-community-wishlist">{% trans "Wishlist" %}</a></li>
-          <li><a href="#slide-community-offers">{% trans "Offers" %}</a></li>
-          <li><a href="#slide-community-basic">{% trans "Basic Info" %}</a></li>
-      </ul>
-    </nav>
-  </div>
-
-  <div id="slide-user" class="slide show">
-    <div class="row">
-      <div class="col-xs-12">
-        <div class="row">
-          {% render_honeypot_field %}
-          <div class="col-xs-3 required">{% bootstrap_label form.username.label %}*</div>
-          <div class="col-xs-9">{% bootstrap_field form.username show_label=False %}</div>
-        </div>
-
-        <div class="row">
-          <div class="col-xs-3">{% bootstrap_label form.first_name.label %}</div>
-          <div class="col-xs-9">{% bootstrap_field form.first_name show_label=False %}</div>
-        </div>
-
-        <div class="row">
-          <div class="col-xs-3">{% bootstrap_label form.last_name.label %}</div>
-          <div class="col-xs-9">{% bootstrap_field form.last_name show_label=False %}</div>
-        </div>
-
-        <div class="row">
-          <div class="col-xs-3 required">{% bootstrap_label form.email.label %}*</div>
-          <div class="col-xs-9">{% bootstrap_field form.email show_label=False %}</div>
-        </div>
-
-        <div class="row">
-          <div class="col-xs-3 required">{% bootstrap_label form.password.label %}*</div>
-          <div class="col-xs-9">{% bootstrap_field form.password show_label=False %}</div>
-        </div>
-
-        <div class="row">
-          <div class="col-xs-3 required">{% bootstrap_label form.password_repeat.label %}*</div>
-          <div class="col-xs-9">{% bootstrap_field form.password_repeat show_label=False %}</div>
-        </div>
-
-      </div>
-    </div>
-
-    <div class="row proceed">
-      <div class="col-xs-6"></div>
-      <div class="col-xs-6"><a class="pull-right" href="#slide-community-visitors"><button class="btn btn-primary btn-lg continue"><span class="glyphicon glyphicon-chevron-right"></span></button></a></div>
-    </div>
-  </div>
-
-  <div id="slide-community-contact" class="slide hide">
-    <div class="row">
-      <div class="col-xs-12">
-
-        <div class="row">
-          <div class="col-xs-3 required">{% bootstrap_label form.name.label %}*</div>
-          <div class="col-xs-9">{% bootstrap_field form.name show_label=False %}</div>
-        </div>
-
-        <div class="row">
-          <div class="col-xs-3">{% bootstrap_label form.contact_location.label %}</div>
-          <div class="col-xs-9">
-            {% bootstrap_field form.contact_location show_label=False %}
-            {# hidden, but required fields #}
-            {{ form.contact_location_lat }}
-            {{ form.contact_location_lon }}
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-xs-3">{% bootstrap_label form.contact_street.label %}</div>
-          <div class="col-xs-9">{% bootstrap_field form.contact_street show_label=False %}</div>
-        </div>
-
-        <div class="row">
-          <div class="col-xs-3">{% bootstrap_label form.contact_zipcode.label %}</div>
-          <div class="col-xs-3">{% bootstrap_field form.contact_zipcode show_label=False %}</div>
-          <div class="col-xs-2">{% bootstrap_label form.contact_city.label %}</div>
-          <div class="col-xs-4">{% bootstrap_field form.contact_city show_label=False %}</div>
-        </div>
-
-        <div class="row">
-          <div class="col-xs-3">{% bootstrap_label form.contact_country.label %}</div>
-          <div class="col-xs-5">{% bootstrap_field form.contact_country show_label=False %}</div>
-          <div class="col-xs-4">{% bootstrap_field form.contact_show %}</div>
-        </div>
-
-        <div class="row">
-          <div class="col-xs-3">{% bootstrap_label form.website.label %}</div>
-          <div class="col-xs-9">{% bootstrap_field form.website show_label=False %}</div>
-        </div>
-
-        <div class="row">
-          <div class="col-xs-3">{% bootstrap_label form.contact_telephone.label %}</div>
-          <div class="col-xs-9">{% bootstrap_field form.contact_telephone show_label=False %}</div>
-        </div>
-
-        <div class="row">
-          <div class="col-xs-3">{% bootstrap_label form.basic_inhabitants.label %}</div>
-          <div class="col-xs-9">{% bootstrap_field form.basic_inhabitants show_label=False %}</div>
-        </div>
-
-        <div class="row">
-          <div class="col-xs-3">{% bootstrap_label form.basic_inhabitants_underage.label %}</div>
-          <div class="col-xs-9">{% bootstrap_field form.basic_inhabitants_underage show_label=False %}</div>
-        </div>
-
-         <div class="row">
-          <div class="col-xs-3">{% bootstrap_label form.basic_brings_together.label %}</div>
-          <div class="col-xs-9">{% bootstrap_field form.basic_brings_together show_label=False %}</div>
-        </div>
-
-        <div class="row">
-          <div class="col-xs-3">{% bootstrap_label form.basic_membership_status.label %}</div>
-          <div class="col-xs-9">{% bootstrap_field form.basic_membership_status show_label=False %}</div>
-        </div>    
-
-      </div>
-    </div>
-
-    <div class="row proceed">
-      <div class="col-xs-6"></div>
-      <div class="col-xs-6"><a class="pull-right" href="#slide-community-visitors"><button class="btn btn-primary btn-lg continue"><span class="glyphicon glyphicon-chevron-right"></span></button></a></div>
-    </div>
-  </div>
-
-
-  <div id="slide-community-visitors" class="slide hide">
-    <div class="row">
-      <div class="col-xs-9">{% bootstrap_label form.visitors_num.label %}</div>
-      <div class="col-xs-3">{% bootstrap_field form.visitors_num show_label=False %}</div>
-    </div>
-
-    {% bootstrap_field form.visitors_accommodation %}
-
-    <div class="row proceed">
-      <div class="col-xs-6"><a href="#slide-community-contact"><button class="btn btn-primary btn-lg continue"><span class="glyphicon glyphicon-chevron-left"></span></button></a></div>
-      <div class="col-xs-6"><a class="pull-right" href="#slide-community-wishlist"><button class="btn btn-primary btn-lg continue"><span class="glyphicon glyphicon-chevron-right"></span></button></a></div>
-    </div>
-  </div>
-
-
-  <div id="slide-community-wishlist" class="slide hide">
-    {% bootstrap_field form.wishlist_projects %}<br />
-    {% bootstrap_field form.wishlist_materials %}<br />
-    {% bootstrap_field form.wishlist_tools %}<br />
-    {% bootstrap_field form.wishlist_skills %}<br />
-
-    <fieldset id="formset-{{ formset_seed.prefix }}">
+  <div class="col-xs-12">
+    <h1>Community Ambassador Registration</h1>
+    <p>{% trans "Please take some time to think, ask around and fill out as much information as possible! It can be a fun group process, like collecting the whishes – you might inspire each other! You dont need to do it all now, you can always edit your profile later. For the start we only need your contact information!" %}</p>
+    <form id="form-register-community" action="{% url 'register-community' %}" method="post" enctype="multipart/form-data" novalidate="novalidate">
+      {% csrf_token %}
+      
       <div class="row">
         <div class="col-xs-12">
-          {{ formset_seed.management_form }}
-          <label class="control-label" for="">{% trans "Seeds" %}</label>
+          <h2>{% trans "Log In" %}</h2>
         </div>
       </div>
 
-      {% for inlineform in formset_seed.forms %}
-      <div class="control-group{% if inlineform.errors %} error{% endif %}">
-        <div class="controls form-inline">
-          <div class="row">
-            <div class="col-xs-9">{% bootstrap_field inlineform.kind %}</div>
-            <div class="col-xs-3">{% bootstrap_field inlineform.num %}</div>
-          </div>
-         </div>
+      <div class="row">
+        <div class="col-xs-3 required">{% bootstrap_label form.name.label %}*</div>
+        <div class="col-xs-9">{% bootstrap_field form.name show_label=False %}</div>
       </div>
-      {% endfor %}
-    </fieldset>
 
-    {% bootstrap_field form.wishlist_special_needs %}
+      <div class="row">
+        {% render_honeypot_field %}
+        <div class="col-xs-3 required">{% bootstrap_label form.username.label %}*</div>
+        <div class="col-xs-9">{% bootstrap_field form.username show_label=False %}</div>
+      </div>
 
-    <div class="row proceed">
-      <div class="col-xs-6"><a href="#slide-community-visitors"><button class="btn btn-primary btn-lg continue"><span class="glyphicon glyphicon-chevron-left"></span></button></a></div>
-      <div class="col-xs-6"><a class="pull-right" href="#slide-community-offers"><button class="btn btn-primary btn-lg continue"><span class="glyphicon glyphicon-chevron-right"></span></button></a></div>
-    </div>
+      <div class="row">
+        <div class="col-xs-3">{% bootstrap_label form.first_name.label %}</div>
+        <div class="col-xs-9">{% bootstrap_field form.first_name show_label=False %}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-3">{% bootstrap_label form.last_name.label %}</div>
+        <div class="col-xs-9">{% bootstrap_field form.last_name show_label=False %}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-3 required">{% bootstrap_label form.email.label %}*</div>
+        <div class="col-xs-9">{% bootstrap_field form.email show_label=False %}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-3 required">{% bootstrap_label form.password.label %}*</div>
+        <div class="col-xs-9">{% bootstrap_field form.password show_label=False %}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-3 required">{% bootstrap_label form.password_repeat.label %}*</div>
+        <div class="col-xs-9">{% bootstrap_field form.password_repeat show_label=False %}</div>
+      </div>
+
+      <div class="panel-group" id="accordion_registration" role="tablist" aria-multiselectable="true">
+        <div class="panel panel-default">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapseZero" aria-expanded="true" aria-controls="collapseOne">
+            <div class="panel-heading" role="tab" id="headingZero">
+              <h2 class="panel-title">
+                  {% trans "Community Contact Information" %} <span class="glyphicon glyphicon-chevron-down pull-right"></span>
+              </h2>
+            </div>
+          </a>
+          <div id="collapseZero" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingZero">
+            <div class="panel-body">
+
+            <div class="row">
+              <div class="col-xs-3">{% bootstrap_label form.contact_location.label %}</div>
+              <div class="col-xs-9">
+                {% bootstrap_field form.contact_location show_label=False %}
+                {# hidden, but required fields #}
+                {{ form.contact_location_lat }}
+                {{ form.contact_location_lon }}
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-3">{% bootstrap_label form.contact_street.label %}</div>
+              <div class="col-xs-9">{% bootstrap_field form.contact_street show_label=False %}</div>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-3">{% bootstrap_label form.contact_zipcode.label %}</div>
+              <div class="col-xs-3">{% bootstrap_field form.contact_zipcode show_label=False %}</div>
+              <div class="col-xs-2">{% bootstrap_label form.contact_city.label %}</div>
+              <div class="col-xs-4">{% bootstrap_field form.contact_city show_label=False %}</div>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-3">{% bootstrap_label form.contact_country.label %}</div>
+              <div class="col-xs-5">{% bootstrap_field form.contact_country show_label=False %}</div>
+              <div class="col-xs-4">{% bootstrap_field form.contact_show %}</div>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-3">{% bootstrap_label form.contact_telephone.label %}</div>
+              <div class="col-xs-9">{% bootstrap_field form.contact_telephone show_label=False %}</div>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-3">{% bootstrap_label form.website.label %}</div>
+              <div class="col-xs-9">{% bootstrap_field form.website show_label=False %}</div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      
+        <div class="panel panel-default">
+          <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            <div class="panel-heading" role="tab" id="headingOne">
+              <h2 class="panel-title">
+                  {% trans "Statistics" %} {% trans "(Click to expand)" %}<span class="glyphicon glyphicon-chevron-right pull-right"></span>
+              </h2>
+            </div>
+          </a>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body">
+
+              <div class="row">
+                <div class="col-xs-3">{% bootstrap_label form.basic_inhabitants.label %}</div>
+                <div class="col-xs-9">{% bootstrap_field form.basic_inhabitants show_label=False %}</div>
+              </div>
+
+              <div class="row">
+                <div class="col-xs-3">{% bootstrap_label form.basic_inhabitants_underage.label %}</div>
+                <div class="col-xs-9">{% bootstrap_field form.basic_inhabitants_underage show_label=False %}</div>
+              </div>
+
+              <div class="row">
+                <div class="col-xs-9">{% bootstrap_label form.visitors_num.label %}</div>
+                <div class="col-xs-3">{% bootstrap_field form.visitors_num show_label=False %}</div>
+              </div>
+
+               <div class="row">
+                <div class="col-xs-3">{% bootstrap_label form.basic_brings_together.label %}</div>
+                <div class="col-xs-9">{% bootstrap_field form.basic_brings_together show_label=False %}</div>
+              </div>
+
+              <div class="row">
+                <div class="col-xs-3">{% bootstrap_label form.basic_membership_status.label %}</div>
+                <div class="col-xs-9">{% bootstrap_field form.basic_membership_status show_label=False %}</div>
+              </div> 
+
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+            <div class="panel-heading" role="tab" id="headingTwo">
+              <h2 class="panel-title">
+                  {% trans "Whishes" %} {% trans "(Click to expand)" %}<span class="glyphicon glyphicon-chevron-right pull-right"></span>
+              </h2>
+            </div>
+          </a>
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+            <div class="panel-body">
+
+            {% bootstrap_field form.wishlist_projects %}<br />
+            {% bootstrap_field form.wishlist_materials %}<br />
+            {% bootstrap_field form.wishlist_tools %}<br />
+            {% bootstrap_field form.wishlist_skills %}<br />
+
+            <fieldset id="formset-{{ formset_seed.prefix }}">
+              <div class="row">
+                <div class="col-xs-12">
+                  {{ formset_seed.management_form }}
+                  <label class="control-label" for="">{% trans "Seeds" %}</label>
+                </div>
+              </div>
+
+              {% for inlineform in formset_seed.forms %}
+              <div class="control-group{% if inlineform.errors %} error{% endif %}">
+                <div class="controls form-inline">
+                  <div class="row">
+                    <div class="col-xs-9">{% bootstrap_field inlineform.kind %}</div>
+                    <div class="col-xs-3">{% bootstrap_field inlineform.num %}</div>
+                  </div>
+                 </div>
+              </div>
+              {% endfor %}
+            </fieldset>
+
+            {% bootstrap_field form.wishlist_special_needs %}
+
+            </div>
+          </div>
+        </div>
+
+        <div class="panel panel-default">
+          <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            <div class="panel-heading" role="tab" id="headingThree">
+              <h2 class="panel-title">
+                  {% trans "Offers" %} {% trans "(Click to expand)" %}<span class="glyphicon glyphicon-chevron-right pull-right"></span>
+              </h2>
+            </div>
+          </a>
+          <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+            <div class="panel-body">
+              {% bootstrap_field form.visitors_accommodation %}
+              {% bootstrap_field form.offers_services %}
+              {% bootstrap_field form.offers_skills %}
+              {% bootstrap_field form.offers_creations %}
+
+              {% bootstrap_field form.offers_workshop_spaces %}
+              {% bootstrap_field form.offers_learning_seminars %}
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="register final">
+        {% trans "Register" as submit_label %}
+        {% buttons submit=submit_label %}{% endbuttons %}
+      </div>
+    </form>
   </div>
-
-
-  <div id="slide-community-offers" class="slide hide">
-    {% bootstrap_field form.offers_services %}
-    {% bootstrap_field form.offers_skills %}
-    {% bootstrap_field form.offers_creations %}
-
-    {% bootstrap_field form.offers_workshop_spaces %}
-    {% bootstrap_field form.offers_learning_seminars %}
-
-    <div class="row proceed">
-      <div class="col-xs-6"><a href="#slide-community-wishlist"><button class="btn btn-primary btn-lg continue"><span class="glyphicon glyphicon-chevron-left"></span></button></a></div>
-      <div class="col-xs-6"><a class="pull-right" href="#slide-community-basic"><button class="btn btn-primary btn-lg continue"><span class="glyphicon glyphicon-chevron-right"></span></button></a></div>
-    </div>
-  </div>
-
-
-  <div id="slide-community-basic" class="slide hide">
-    
-
-    <div class="register final">
-      {% trans "Register" as submit_label %}
-      {% buttons submit=submit_label %}{% endbuttons %}
-    </div>
-
-    <div class="row proceed">
-      <div class="col-xs-6"><a href="#slide-community-offers"><button class="btn btn-primary btn-lg continue"><span class="glyphicon glyphicon-chevron-left"></span></button></a></div>
-    </div>
-
-  </div>
-
-  </form>
 </div>
 {% endblock content %}
 
