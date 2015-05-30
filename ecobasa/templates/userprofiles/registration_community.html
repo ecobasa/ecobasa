@@ -127,6 +127,11 @@
             <div class="panel-body">
 
               <div class="row">
+                <div class="col-xs-3">{% bootstrap_label form.basic_membership_status.label %}</div>
+                <div class="col-xs-9">{% bootstrap_field form.basic_membership_status show_label=False %}</div>
+              </div> 
+
+              <div class="row">
                 <div class="col-xs-3">{% bootstrap_label form.basic_inhabitants.label %}</div>
                 <div class="col-xs-9">{% bootstrap_field form.basic_inhabitants show_label=False %}</div>
               </div>
@@ -137,19 +142,14 @@
               </div>
 
               <div class="row">
-                <div class="col-xs-9">{% bootstrap_label form.visitors_num.label %}</div>
-                <div class="col-xs-3">{% bootstrap_field form.visitors_num show_label=False %}</div>
+                <div class="col-xs-3">{% bootstrap_label form.visitors_num.label %}</div>
+                <div class="col-xs-9">{% bootstrap_field form.visitors_num show_label=False %}</div>
               </div>
 
                <div class="row">
                 <div class="col-xs-3">{% bootstrap_label form.basic_brings_together.label %}</div>
                 <div class="col-xs-9">{% bootstrap_field form.basic_brings_together show_label=False %}</div>
               </div>
-
-              <div class="row">
-                <div class="col-xs-3">{% bootstrap_label form.basic_membership_status.label %}</div>
-                <div class="col-xs-9">{% bootstrap_field form.basic_membership_status show_label=False %}</div>
-              </div> 
 
             </div>
           </div>

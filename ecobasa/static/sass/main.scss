@@ -600,10 +600,26 @@ img.left {
 
 /*********** Registration **************/
 
+.panel {
+	background: $secondary;
+}
+
+.panel-default {
+	border: none;
+}
+
+.panel-body {
+	border: 1px dotted $third;
+	border-radius: 4px;
+	border-top: none;
+	border-top-right-radius: 0px;
+	border-top-left-radius: 0px;
+}
+
 .panel-default .panel-heading {
 	color: $purple;
 	background-color: $primary;
-	border-color: $third;
+	border: 1px solid $third;
 }
 
 a.collapsed h2.panel-title {

@@ -540,10 +540,26 @@ img.left {
 }
 
 /*********** Registration **************/
+.panel {
+  background: #f4ede3;
+}
+
+.panel-default {
+  border: none;
+}
+
+.panel-body {
+  border: 1px dotted #b4502c;
+  border-radius: 4px;
+  border-top: none;
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
+}
+
 .panel-default .panel-heading {
   color: #80143b;
   background-color: #da6137;
-  border-color: #b4502c;
+  border: 1px solid #b4502c;
 }
 
 a.collapsed h2.panel-title {
