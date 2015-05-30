@@ -667,6 +667,12 @@ button.continue {
   color: #5a5527;
 }
 
+.form-control:focus {
+  border-color: #ff7800;
+  webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(227, 74, 38, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(227, 74, 38, 0.6);
+}
+
 /**************** Team Page *******************/
 .media-list {
   margin-top: 50px;
