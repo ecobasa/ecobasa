@@ -7,7 +7,7 @@ def staging():
     env.path = '/srv/ecobasa.sinnwerkstatt.com/ecobasa/'
     env.virtualenv_path = '/srv/ecobasa.sinnwerkstatt.com/ecobasaenv/'
     env.push_branch = 'community-tours_goes_ecobasa'
-    env.push_remote = 'origin'
+    env.push_remote = 'github'
 
 
 def production():
