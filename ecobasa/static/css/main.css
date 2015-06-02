@@ -501,6 +501,20 @@ img.left {
   height: 100%;
 }
 
+body#Community-Tours-Blog .container.content {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+body#Community-Tours-Blog .container.content.blog {
+  padding-bottom: 80px;
+}
+body#Community-Tours-Blog .headimage {
+  margin-bottom: 0px;
+}
+body#Community-Tours-Blog .row.gradient {
+  padding-top: 50px;
+}
+
 /***************Communities**************/
 /*#community-map {
 	z-index: 0;

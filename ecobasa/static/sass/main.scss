@@ -557,6 +557,22 @@ img.left {
 	height: 100%;
 }
 
+body#Community-Tours-Blog {
+	.container.content {
+		padding-top: 0px;
+		padding-bottom: 0px;
+	}
+	.container.content.blog {
+		padding-bottom: 80px;
+	}
+	.headimage {
+		margin-bottom: 0px;
+	}
+	.row.gradient {
+		padding-top: 50px;
+	}
+}
+
 /***************Communities**************/
 
 /*#community-map {
