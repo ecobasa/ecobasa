@@ -113,6 +113,10 @@ h3, h4, h5, h6 {
   background-repeat: no-repeat;
 }
 
+.btn > span.glyphicon {
+  margin-right: 7px;
+}
+
 /************ Header ****************/
 .header.navbar {
   position: fixed;
