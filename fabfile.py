@@ -6,7 +6,7 @@ def staging():
     env.hosts = ['ecobasa@server.sinnwerkstatt.com']
     env.path = '/srv/ecobasa.sinnwerkstatt.com/ecobasa/'
     env.virtualenv_path = '/srv/ecobasa.sinnwerkstatt.com/ecobasaenv/'
-    env.push_branch = 'community-tours_goes_ecobasa'
+    env.push_branch = 'master'
     env.push_remote = 'origin'
 
 
