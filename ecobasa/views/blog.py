@@ -22,19 +22,19 @@ class BlogView(FilterGroupMixin, TaggedListMixin,
     template_name = 'ecobasa/blog.html'
     model = Note
 
-    def __init__(self, *args, **kwargs):
-        super(BlogView, self).__init__(*args, **kwargs)
-
     def get_queryset(self):
         # only public notes
-        qs = self.model.objects.filter(media_tag__public=True)
+        pk = getattr(settings, 'ECOBASA_SPECIAL_COSINNUS_GROUP', 1)
+        try:
+            group = CosinnusGroup.objects.filter(pk=pk)[0]
+        except IndexError:
+            return self.model.objects.none()
+        else:
+            qs = self.model.objects.filter(
+                group=group, media_tag__public=True)
         qs = qs.prefetch_related('tags')
         if self.tag:
             qs = qs.filter(tags=self.tag)
         return qs
-
-    def get_context_data(self, **kwargs):
-        context = super(BlogView, self).get_context_data(**kwargs)
-        return context
 
 blog = BlogView.as_view()

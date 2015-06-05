@@ -1,19 +1,19 @@
 {% extends "cosinnus/base.html" %}
 {% load i18n thumbnail cosinnus_tags %}
 
-{% block page_title %}{% trans "Caravans" %}{% endblock %}
+{% block page_title %}{% trans "Community-Tours" %}{% endblock %}
 
 {% block content %}
-    <h1>{% trans "The available caravans for the Community-Tour" %}</h1>
+    <h1>{% trans "Join a Community-Tour!" %}</h1>
     {% if user.is_authenticated %}
-    <a class="btn btn-primary pull-right" href="{% url 'caravan-add' %}"><span class="glyphicon glyphicon-plus"></span> {% trans "Add a caravan" %}</a>
+    <a class="btn btn-primary pull-right" href="{% url 'caravan-add' %}"><span class="glyphicon glyphicon-plus"></span> {% trans "Create a new Tour" %}</a>
     {% endif %}
 
     {% if object_list %}
     <table class="table table-striped">
         <thead>
             <tr>
-                <th>{% trans "Caravan" %}</th>
+                <th>{% trans "Tour" %}</th>
                 <th>{% trans "Description" %}</th>
                 <th>{% trans "Members" %}</th>
                 <th>{% trans "Buses" %}</th>

@@ -51,6 +51,12 @@ body {
   color: #f4ede3;
 }
 
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
+  color: #f4ede3;
+  background-color: #e34a26;
+  border-color: #b4502c;
+}
+
 a {
   color: #de7a08;
 }
@@ -71,6 +77,10 @@ h1, h2 {
 
 h1 + h2 {
   margin-top: -10px;
+}
+
+h1 {
+  margin-bottom: 20px;
 }
 
 h1 {
@@ -101,6 +111,10 @@ h3, h4, h5, h6 {
   background-image: linear-gradient(top, #e5e5e5, #f4ede3);
   background-size: 100% 52px;
   background-repeat: no-repeat;
+}
+
+.btn > span.glyphicon {
+  margin-right: 7px;
 }
 
 /************ Header ****************/
@@ -137,9 +151,17 @@ h3, h4, h5, h6 {
 
 .navbar-default ul.navbar-nav > li > a {
   color: #f4ede3;
+  padding-bottom: 17px;
 }
 .navbar-default ul.navbar-nav > li > a:hover {
   color: #452912;
+}
+.navbar-default ul.navbar-nav li.dropdown-header {
+  color: #452912;
+  white-space: nowrap;
+}
+.navbar-default ul.navbar-nav li.dropdown-header > span.glyphicon {
+  margin-right: 7px;
 }
 .navbar-default ul.navbar-nav .dropdown > a .caret {
   border-top-color: #f4ede3;
@@ -151,12 +173,14 @@ h3, h4, h5, h6 {
   color: #452912;
   background: #f4ede3;
 }
+.navbar-default ul.navbar-nav li a span.glyphicon {
+  margin-right: 7px;
+}
 
 ul.dropdown-menu {
   background: rgba(218, 97, 55, 0.8);
   color: #f4ede3;
-  width: 100%;
-  min-width: initial;
+  min-width: 100%;
 }
 ul.dropdown-menu > li > a {
   color: #f4ede3;
@@ -170,20 +194,27 @@ ul.dropdown-menu > li > a:hover {
   color: #da6137;
 }
 
-li#language-chooser {
-  width: 90px;
-}
-li#language-chooser a {
-  text-align: right;
-}
-li#language-chooser ul.dropdown-menu li a {
+.navbar-collapse ul.dropdown-menu > li > a {
   color: #f4ede3;
 }
-li#language-chooser ul.dropdown-menu li a:hover {
+.navbar-collapse ul.dropdown-menu > li > a:hover {
   color: #452912;
 }
-li#language-chooser ul.dropdown-menu li.active a {
+.navbar-collapse ul.dropdown-menu li.active a {
   color: #452912;
+}
+
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #f4ede3;
+  }
+}
+nav.navbar-sub {
+  margin-bottom: 0px;
+  border-top: 1px solid #f4ede3;
+}
+nav.navbar-sub ul li a {
+  float: left;
 }
 
 /************* Content ***************/
@@ -474,11 +505,24 @@ img.left {
   height: 100%;
 }
 
-/***************Communities**************/
-#community-map {
-  z-index: 1;
+body#Community-Tours-Blog .container.content {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+body#Community-Tours-Blog .container.content.blog {
+  padding-bottom: 80px;
+}
+body#Community-Tours-Blog .headimage {
+  margin-bottom: 0px;
+}
+body#Community-Tours-Blog .row.gradient {
+  padding-top: 50px;
 }
 
+/***************Communities**************/
+/*#community-map {
+	z-index: 0;
+}*/
 .community-map-small {
   height: 300px;
 }
@@ -489,6 +533,7 @@ img.left {
 
 .community-map-large {
   position: absolute;
+  top: 0px;
   left: 0px;
   width: 100%;
   height: 100%;
@@ -497,7 +542,7 @@ img.left {
 .view-select {
   position: absolute;
   left: 45%;
-  top: 20px;
+  top: 60px;
   margin: 10px 10px 0 0;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.65);
   z-index: 7;
@@ -505,7 +550,7 @@ img.left {
 }
 
 .leaflet-top {
-  top: 20px;
+  top: 60px !important;
 }
 
 #community-map button {
@@ -513,6 +558,42 @@ img.left {
 }
 
 /*********** Registration **************/
+.panel {
+  background: #f4ede3;
+}
+
+.panel-default {
+  border: none;
+}
+
+.panel-body {
+  border: 1px dotted #b4502c;
+  border-radius: 4px;
+  border-top: none;
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
+}
+
+.panel-default .panel-heading {
+  color: #80143b;
+  background-color: #da6137;
+  border: 1px solid #b4502c;
+}
+
+a.collapsed h2.panel-title {
+  color: #f4ede3;
+}
+
+.panel-default a,
+.panel-default a:focus {
+  text-decoration: none;
+  color: #80143b;
+}
+
+h2.panel-title {
+  font-size: 30px;
+}
+
 button.continue {
   padding-left: 60px;
   padding-right: 60px;
@@ -534,7 +615,11 @@ button.continue {
   width: 100%;
   padding: 10%;
   margin: 5% auto;
-  font-size: xx-large;
+  font-size: 30px;
+  white-space: normal;
+}
+.register.btn span.glyphicon {
+  font-size: 80px;
 }
 
 .navbar.navbar-default.registration {
@@ -546,11 +631,6 @@ button.continue {
 }
 .navbar.navbar-default.registration ul.navbar-nav > li > a:hover {
   color: #da6137;
-}
-
-form#form-register-member,
-form#form-register-community {
-  margin-top: 20px;
 }
 
 #slide-member-bus-ask .btn {
@@ -581,6 +661,34 @@ form#form-register-community {
   font-size: xx-large;
   margin-top: 40px;
   padding: 20px 36px;
+}
+
+.has-error .form-control,
+.avatar .form-group.has-error {
+  border: 1px dotted #e34a26;
+  border-radius: 4px;
+}
+
+.avatar .form-group.has-error {
+  padding: 15px;
+}
+
+.has-error .help-block, .has-error .control-label, .has-error .radio, .has-error .checkbox, .has-error .radio-inline, .has-error .checkbox-inline {
+  color: #e34a26;
+}
+
+.has-success .form-control {
+  border: 1px dotted #5a5527;
+}
+
+.has-success .help-block, .has-success .control-label, .has-success .radio, .has-success .checkbox, .has-success .radio-inline, .has-success .checkbox-inline {
+  color: #5a5527;
+}
+
+.form-control:focus {
+  border-color: #ff7800;
+  webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(227, 74, 38, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(227, 74, 38, 0.6);
 }
 
 /**************** Team Page *******************/
@@ -663,9 +771,13 @@ ul.references li.negative {
   color: #f4ede3;
 }
 
-/*************** Pioneer-Profiles **************/
 a.email {
   margin-top: 20px;
+}
+
+/*************** Pioneer-List **************/
+.name {
+  text-align: center;
 }
 
 /*************** Caravan-Profiles **************/
@@ -728,6 +840,21 @@ body#profile img.avatar {
 }
 
 /*************** Dashboard **************/
+a#community {
+  font-family: 'Bree Serif';
+  color: #452912;
+  font-size: 18px;
+}
+a#community span.glyphicon {
+  font-size: 12px;
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  background-color: #f4ede3;
+}
+
 #dashboard {
   padding-top: 40px;
 }
@@ -786,6 +913,7 @@ span.mailcount {
   border-radius: 0px;
   border: none;
   width: 100%;
+  z-index: 9999;
 }
 
 #myCanvas {
@@ -813,10 +941,19 @@ span.mailcount {
   height: 100%;
 }
 
+@media (min-width: 768px) {
+  .navbar-right {
+    float: right !important;
+  }
+}
 @media (max-width: 992px) {
   nav.header.navbar {
     position: relative;
     background-color: #da6137;
+  }
+
+  .navbar-collapse ul.nav li#language-chooser {
+    border-top: 1px solid #f4ede3;
   }
 
   #carousel-startpage .carousel-caption {
@@ -868,7 +1005,12 @@ span.mailcount {
   }
 
   .footer.navbar {
-    position: relative;
     background-color: #da6137;
+  }
+  .footer.navbar .nav li {
+    float: left;
+  }
+  .footer.navbar ul {
+    margin: 0px;
   }
 }

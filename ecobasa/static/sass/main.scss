@@ -7,6 +7,7 @@ $red: #e34a26;
 $brown: #452912;
 $dark-brown: #0e0700;
 $purple: #80143b;
+$green: #5A5527;
 
 
 
@@ -86,6 +87,12 @@ body {
 	color: $secondary;
 }
 
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
+  color: $secondary;
+  background-color: $red;
+  border-color: $third;
+}
+
 a {
 	color: $yellow;
 	&:hover,
@@ -100,9 +107,9 @@ a:hover {
 }
 
 h1, h2 {
-  font-family: 'Bree Serif', Courier, serif;
-  color: #ff7800;
-  margin-top: 30px;
+	font-family: 'Bree Serif', Courier, serif;
+	color: $orange;
+	margin-top: 30px;
 }
 
 h1 + h2 {
@@ -113,10 +120,14 @@ h1 {
   margin-bottom: 20px;
 }
 
+h1 {
+	margin-bottom: 20px;
+}
+
 h2 {
-  font-size: 30px;
-  color: #80143b;
-  margin-bottom: 15px;
+	font-size: 30px;
+	color: $purple;
+	margin-bottom: 15px;
 }
 
 h3, h4, h5, h6 {
@@ -137,6 +148,10 @@ h3, h4, h5, h6 {
 	background-image: linear-gradient(top,#e5e5e5, $secondary);
 	background-size: 100% 52px;
 	background-repeat: no-repeat;
+}
+
+.btn > span.glyphicon {
+	margin-right: 7px;
 }
 
 /************ Header ****************/
@@ -179,8 +194,16 @@ h3, h4, h5, h6 {
 .navbar-default ul.navbar-nav {
 	& > li > a {
 		color: $secondary;
+		padding-bottom: 17px;
 		&:hover {
 			color: $brown;
+		}
+	}
+	li.dropdown-header {
+		color: $brown;
+		white-space: nowrap;
+		> span.glyphicon {
+			margin-right: 7px;
 		}
 	}
 	.dropdown > a .caret {
@@ -193,13 +216,15 @@ h3, h4, h5, h6 {
 		color: $brown;
 		background: $secondary;
 	}
+	li a span.glyphicon {
+		margin-right: 7px;
+	}
 }
 
 ul.dropdown-menu {
 	background: rgba($primary, .8);
 	color: $secondary;
-	width: 100%;
-	min-width: initial;
+	min-width: 100%;
 	> li > a {
 		color: $secondary;
 		padding: 3px 11px;
@@ -213,23 +238,32 @@ ul.dropdown-menu {
 	}
 }
 
-li#language-chooser {
-	width: 90px;
-	a {
-		text-align: right;
-	}
-	ul.dropdown-menu {
-		li a {
-			color: $secondary;
-			&:hover {
-				color: $brown;
-			}
-		}
-		li.active a {
+.navbar-collapse ul.dropdown-menu {
+	> li > a {
+		color: $secondary;
+		&:hover {
 			color: $brown;
 		}
 	}
+	li.active a {
+		color: $brown;
+	}
 }
+
+@media (max-width: 767px) {
+	.navbar-default .navbar-nav .open .dropdown-menu>li>a {
+		color: $secondary;
+	}
+}
+
+nav.navbar-sub {
+	margin-bottom: 0px;
+	border-top: 1px solid $secondary;
+	ul li a {
+		float: left;
+	}
+}
+
 
 /************* Content ***************/
 
@@ -527,11 +561,27 @@ img.left {
 	height: 100%;
 }
 
+body#Community-Tours-Blog {
+	.container.content {
+		padding-top: 0px;
+		padding-bottom: 0px;
+	}
+	.container.content.blog {
+		padding-bottom: 80px;
+	}
+	.headimage {
+		margin-bottom: 0px;
+	}
+	.row.gradient {
+		padding-top: 50px;
+	}
+}
+
 /***************Communities**************/
 
-#community-map {
-	z-index: 1;
-}
+/*#community-map {
+	z-index: 0;
+}*/
 
 .community-map-small { 
 	height: 300px; 
@@ -543,6 +593,7 @@ img.left {
 
 .community-map-large {
 	position: absolute;
+	top: 0px;
 	left: 0px;
 	width: 100%;
 	height: 100%;
@@ -551,7 +602,7 @@ img.left {
 .view-select {
 	position: absolute;
 	left: 45%;
-	top: 20px;
+	top: 60px;
 	margin: 10px 10px 0 0;
 	box-shadow: 0 1px 5px rgba(0,0,0,0.65);
 	z-index: 7;
@@ -559,7 +610,7 @@ img.left {
 }
 
 .leaflet-top {
-	top: 20px;
+	top: 60px !important;
 }
 
 #community-map button {
@@ -568,6 +619,42 @@ img.left {
 
 
 /*********** Registration **************/
+
+.panel {
+	background: $secondary;
+}
+
+.panel-default {
+	border: none;
+}
+
+.panel-body {
+	border: 1px dotted $third;
+	border-radius: 4px;
+	border-top: none;
+	border-top-right-radius: 0px;
+	border-top-left-radius: 0px;
+}
+
+.panel-default .panel-heading {
+	color: $purple;
+	background-color: $primary;
+	border: 1px solid $third;
+}
+
+a.collapsed h2.panel-title {
+	color: $secondary;
+}
+
+.panel-default a,
+.panel-default a:focus {
+	text-decoration: none;
+	color: $purple;
+}
+
+h2.panel-title {
+	font-size: 30px;
+}
 
 button.continue {
 	padding-left: 60px;
@@ -590,7 +677,11 @@ button.continue {
 	width: 100%;
 	padding: 10%;
 	margin: 5% auto;
-	font-size: xx-large;
+	font-size: 30px;
+	white-space: normal;
+	span.glyphicon {
+		font-size: 80px;
+	}
 }
 
 .navbar.navbar-default.registration {
@@ -602,11 +693,6 @@ button.continue {
 	ul.navbar-nav>li>a:hover {
 		color: $primary;
 	}
-}
-
-form#form-register-member,
-form#form-register-community {
-margin-top: 20px;
 }
 
 #slide-member-bus-ask .btn {
@@ -636,6 +722,34 @@ margin-top: 20px;
 	font-size: xx-large;
 	margin-top: 40px;
 	padding: 20px 36px;
+}
+
+.has-error .form-control,
+.avatar .form-group.has-error {
+	border: 1px dotted $red;
+	border-radius: 4px;
+}
+
+.avatar .form-group.has-error {
+	padding: 15px;
+}
+
+.has-error .help-block, .has-error .control-label, .has-error .radio, .has-error .checkbox, .has-error .radio-inline, .has-error .checkbox-inline {
+	color: $red;
+}
+
+.has-success .form-control {
+	border: 1px dotted $green;
+}
+
+.has-success .help-block, .has-success .control-label, .has-success .radio, .has-success .checkbox, .has-success .radio-inline, .has-success .checkbox-inline {
+	color: $green;
+}
+
+.form-control:focus {
+	border-color: $orange;
+	webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(227,74,38,0.6);
+  	box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(227,74,38,0.6);
 }
 
 /**************** Team Page *******************/
@@ -726,11 +840,14 @@ ul.references {
 	}
 }
 
-
-/*************** Pioneer-Profiles **************/
-
 a.email {
 	margin-top: 20px;
+}
+
+/*************** Pioneer-List **************/
+
+.name {
+	text-align: center;
 }
 
 
@@ -799,6 +916,21 @@ body#profile {
 
 /*************** Dashboard **************/
 
+a#community {
+	font-family: 'Bree Serif';
+	color: $brown;
+	font-size: 18px;
+	span.glyphicon {
+		font-size: 12px;
+	}
+}
+
+.navbar-default .navbar-nav>.active>a, 
+.navbar-default .navbar-nav>.active>a:hover, 
+.navbar-default .navbar-nav>.active>a:focus {
+	background-color: $secondary;
+}
+
 #dashboard {
 	padding-top: 40px;
 	.panel {
@@ -860,6 +992,7 @@ span.mailcount {
 	border-radius: 0px;
 	border: none;
     width: 100%;
+    z-index: 9999;
 }
 
 #myCanvas {
@@ -889,11 +1022,20 @@ span.mailcount {
 	height: 100%; 
 }
 
+@media (min-width: 768px) {
+	.navbar-right {
+	  float: right !important;
+	}
+}
+
 @media (max-width: 992px) { 
 	nav.header.navbar {
 		position: relative;
 		background-color: rgba(218, 97, 55, 1);
 	}
+	.navbar-collapse ul.nav li#language-chooser {
+  		border-top: 1px solid $secondary;
+  	}
 	#carousel-startpage {
 		.carousel-caption {
 			position: relative;
@@ -945,7 +1087,12 @@ span.mailcount {
 		}
 	}
 	.footer.navbar {
-		position: relative;
 		background-color: rgba(218, 97, 55, 1);
+		.nav li {
+			float: left;
+		}
+		ul {
+			margin: 0px;
+		}
 	}
 }

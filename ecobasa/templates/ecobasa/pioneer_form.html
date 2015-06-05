@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n static bootstrap3 ecobasa_tags %}
+{% load i18n static bootstrap3 ecobasa_tags thumbnail %}
 
 {% block page_title %}{% trans "Edit pioneer" %}{% endblock %}
 
@@ -17,6 +17,7 @@
   <div class="row">
     <div class="col-xs-4">
       <div>
+        <img class="avatar" src="{{ object.user.cosinnus_profile.avatar|thumbnail_url:"avatar_large" }}" alt="{{ object.user.username }}">
         {% bootstrap_field form.avatar %}
       </div>
             <br />
