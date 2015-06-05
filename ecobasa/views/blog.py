@@ -37,8 +37,4 @@ class BlogView(FilterGroupMixin, TaggedListMixin,
             qs = qs.filter(tags=self.tag)
         return qs
 
-    def get_context_data(self, **kwargs):
-        context = super(BlogView, self).get_context_data(**kwargs)
-        return context
-
 blog = BlogView.as_view()
