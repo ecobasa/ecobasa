@@ -217,6 +217,31 @@ nav.navbar-sub ul li a {
   float: left;
 }
 
+#searchbar {
+  padding: 15px 15px 6px 10px;
+  white-space: nowrap;
+  color: #f4ede3;
+  font-size: 1.1em;
+}
+#searchbar ul {
+  width: 350px;
+  padding: 10px 20px 20px;
+  margin-top: 9px;
+  left: 0px;
+}
+#searchbar input {
+  display: inline;
+}
+#searchbar.expanded input {
+  width: 125px;
+  transition: all 500ms linear 0s;
+  color: #333;
+  box-shadow: none;
+}
+#searchbar i.fa-search {
+  cursor: pointer;
+}
+
 /************* Content ***************/
 .container.content {
   padding-top: 80px;

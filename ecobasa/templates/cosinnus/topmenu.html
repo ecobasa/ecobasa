@@ -33,6 +33,15 @@
         <li><a data-toggle="modal" data-target="#donate-modal" href="#m-donate"><span class="glyphicon glyphicon-gift"></span>{% trans "Donate" %}</a></li>
       </ul>
           <ul class="nav navbar-nav navbar-right">
+            <li id="searchbar" class="dropdown">
+                  <i class="fa fa-search" onclick="$('#cosinnus_search_form').submit();"></i>
+              <ul class="dropdown-menu">
+                {% trans "Find everything you need" %}
+                <form id="cosinnus_search_form" action="/find/" method="GET">
+                  <input class="form-control" placeholder="{% trans "What are you looking for?" %}" value="" name="q">
+                </form>
+              </ul>
+            </li>
             <li id="language-chooser" class="dropdown">
               {% language_chooser %}
             </li>

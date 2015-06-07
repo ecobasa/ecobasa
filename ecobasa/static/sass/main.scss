@@ -264,6 +264,31 @@ nav.navbar-sub {
 	}
 }
 
+#searchbar {
+    padding: 15px 15px 6px 10px;
+    white-space: nowrap;
+    color: $secondary;
+    font-size: 1.1em;
+    ul {
+    	width: 350px;
+		padding: 10px 20px 20px;
+		margin-top: 9px;
+		left: 0px;
+    }
+    input {
+	    display: inline;
+	}
+	&.expanded input {
+	    width: 125px;
+	    transition: all 500ms linear 0s;
+	    color: #333;
+	    box-shadow: none;
+	}
+	i.fa-search {
+	    cursor: pointer;
+	}
+}
+
 
 /************* Content ***************/
 
