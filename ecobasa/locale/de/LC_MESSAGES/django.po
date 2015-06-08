@@ -1554,7 +1554,7 @@ msgstr "/info"
 
 #: templates/cosinnus/topmenu.html:14 templates/ecobasa/pioneer_list.html:24
 msgid "About"
-msgstr "Über mich"
+msgstr "Info"
 
 #: templates/cosinnus/topmenu.html:16
 msgid "The Platform"
