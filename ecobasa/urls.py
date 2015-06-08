@@ -72,6 +72,9 @@ urlpatterns = i18n_patterns('',
     url(r'^messages/', include('cosinnus_message.postman_urls')),
 
     url(r'^$', 'cms.views.details', {'slug': ''}),
+
+    url(_(r'^about/$'), RedirectView.as_view(url='/about-the-platform/'), name='about'),
+    url(_(r'^info/$'), RedirectView.as_view(url='/about-the-platform/'), name='about'),
 )
 
 
