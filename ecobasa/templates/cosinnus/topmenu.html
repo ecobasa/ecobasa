@@ -15,7 +15,7 @@
           <ul class="dropdown-menu" role="menu">
             <li><a href="{% url 'pages-details-by-slug' slug='about-the-platform' %}"><span class="glyphicon glyphicon-info-sign"></span>{% trans "The Platform" %}</a></li>
             <li><a href="{% url 'pages-details-by-slug' slug='about-the-network' %}"><span class="glyphicon glyphicon-info-sign"></span>{% trans "The Network" %}</a></li>
-            <li><a href="{% url 'organiser-list' %}"><span class="glyphicon glyphicon-user"></span>Team</a></li>
+            <li><a href="{% url 'organiser-list' %}"><span class="glyphicon glyphicon-user"></span>{% trans "Team" %}</a></li>
             <li><a href="{% url 'blog' %}"><span class="glyphicon glyphicon-heart"></span>ecobasa Blog</a></li>
           </ul>
         </li>
@@ -23,7 +23,7 @@
         <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-transfer"></span>{% trans "Community-Tours" %}</a>
           <ul class="dropdown-menu" role="menu">
             <li><a href="{% url 'pages-details-by-slug' slug='community-tours' %}"><span class="glyphicon glyphicon-question-sign"></span>{% trans "What is this?" %}</a></li>
-            <li><a href="{% url 'pages-details-by-slug' slug='community-tours/blog' %}"><span class="glyphicon glyphicon-globe"></span>{%trans "Tour Blogs" %}</a></li>
+            <li><a href="{% url 'pages-details-by-slug' slug='community-tours/blog' %}"><span class="glyphicon glyphicon-globe"></span>{% trans "Tour Blogs" %}</a></li>
             <li><a href="{% url 'caravan-list' %}"><span class="glyphicon glyphicon-transfer"></span>{% trans "Go on tour!" %}</a></li>
             <li><a href="{% url 'bus-list' %}"><span class="glyphicon glyphicon-search"></span>{% trans "Find a Bus" %}</a></li>
             <li><a href="{% url 'pioneer-list' %}"><span class="glyphicon glyphicon-user"></span>{% trans "Pioneers" %}</a></li>
@@ -109,7 +109,7 @@
               {% else %}
                 {% url 'cosinnus:group-dashboard' group=group.slug as dashboard_url %}
               {% endif %}
-                <li {% ifequal dashboard_url request.path %} class="active"{% endifequal %}><a href="{{ dashboard_url }}"><span class="glyphicon glyphicon-th"></span>{% trans " Dashboard" %}</a></li>
+                <li {% ifequal dashboard_url request.path %} class="active"{% endifequal %}><a href="{{ dashboard_url }}"><span class="glyphicon glyphicon-th"></span>{% trans "Dashboard" %}</a></li>
               {% for app in apps %}
                 <li{% if app.active %} class="active"{% endif %}><a href="{{ app.url }}">
                 {% if app.label = "Notes" %}

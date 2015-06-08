@@ -67,9 +67,9 @@
 
     </table>
     {% else %}
-        {% trans "There are no caravans, yet! " %}
+        {% trans "There are no tours, yet! " %}
         {% if user.is_authenticated %}
-            <a href="{% url 'caravan-add' %}">{% trans "Add a caravan" %}</a>
+            <a href="{% url 'caravan-add' %}">{% trans "Add a tour" %}</a>
         {% else %}
             <a href="{% url 'register' %}">{% trans "Sign up" %}</a>{% trans "and add one now." %}
         {% endif %}
