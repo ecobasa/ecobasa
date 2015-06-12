@@ -1513,9 +1513,8 @@ msgid "Follow us on facebook"
 msgstr "Folge uns auf facebook"
 
 #: templates/cosinnus/footermenu.html:8
-#, fuzzy
 msgid "Watch ecobasa.tv"
-msgstr "Das ecobasa Team"
+msgstr "Schaue ecobasa.tv"
 
 #: templates/cosinnus/footermenu.html:9
 msgid "Code on github"
@@ -2089,7 +2088,6 @@ msgid "Change"
 msgstr "Ändern"
 
 #: templates/ecobasa/caravan_detail.html:76
-#, fuzzy
 msgid "Find a bus"
 msgstr "Finde einen Bus"
 
@@ -2183,9 +2181,8 @@ msgid "There are no tours, yet! "
 msgstr "Es gibt noch keine Touren!"
 
 #: templates/ecobasa/caravan_list.html:72
-#, fuzzy
 msgid "Add a tour"
-msgstr "Einen Bus hinzufügen"
+msgstr "Eine Tour hinzufügen"
 
 #: templates/ecobasa/community_detail.html:10
 #, python-format
@@ -2656,7 +2653,6 @@ msgid "Welcome on board"
 msgstr "Willkommen an Bord"
 
 #: templates/userprofiles/registration_complete.html:10
-#, fuzzy
 msgid "You are now a full part of the gift-economy network!"
 msgstr "Du bist jetzt ein vollwertiges Mitglied des Schenk-Ökonomie Netzwerks!"
 
@@ -2703,12 +2699,10 @@ msgstr "Dieses Netzwerk wird durch seine Mitglieder geschaffen und am Leben geha
 "Es kann keine Schenkökonomie geben ohne ein bisschen Schenkökonomie :)"
 
 #: templates/userprofiles/registration_complete.html:15
-#, fuzzy
 msgid "Thank you, see you around! The rest of the ecobasa team."
-msgstr "Bis bald, der Rest des Community-Tours Teams."
+msgstr "Bis bald, wir sehen uns! Der Rest des ecobasa Teams."
 
 #: templates/userprofiles/registration_complete.html:17
-#, fuzzy
 msgid "Welcome to the gift-economy network!"
 msgstr "Wilkomen im Schenkökonomie Netzwerk"
 
@@ -2717,8 +2711,8 @@ msgid ""
 "As your communities gift-ambassador it is on you to spread the idea and "
 "function of a gift-economy network among other members of your community, "
 "they can sign up as pioneers and join your community-group"
-msgstr "Als der Schenk-Botschafter deiner Gemeinschaft, liegt es an dir die Idee und Funktion des Schenk-Ökonomie"
-"Netzwerks unter den anderen Mitgliedern deiner Gemeinschaft zu verbreiten"
+msgstr "Als der Schenk-Botschafter deiner Gemeinschaft, liegt es an dir die Idee und Funktion des Schenk-Ökonomie "
+"Netzwerks unter den anderen Mitgliedern deiner Gemeinschaft zu verbreiten. "
 "Sie können sich als Pioniere anmelden und dann Mitglied der Gemeinschaftsgruppe werden"
 
 #: templates/userprofiles/registration_complete.html:19
@@ -2745,7 +2739,7 @@ msgid ""
 "doodle for available times, write texts and assign tasks and of course "
 "network with the other communities!"
 msgstr "Ihr könnt die Tools dieser Websiete für eure Gemeinschaft benutzen! Ihr könnt Veranstaltungen "
-"organisieren, nach verfügbaren Zeiten doodlen, gemeinsam Texte verfassen, und Aufgaben verteilen."
+"organisieren, nach verfügbaren Zeiten doodlen, gemeinsam Texte verfassen, und Aufgaben verteilen. "
 "Und natürlich mit anderen Gemeinschaften Netzwerken!"
 
 #: templates/userprofiles/registration_complete.html:24
