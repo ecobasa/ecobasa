@@ -4,14 +4,23 @@
 {% block title %}{% trans "Registration" %}{% endblock %}
 
 {% block content %}
-  <div class="jumbotron">
-    <h1>{% trans "Welcome on board" %}</h1>
-    <p>{% trans "and thank you for joining us!" %}</p>
-  </div>
+	{% if user.is_authenticated %}
+	    <h1>{% trans "Welcome on board" %}</h1>
 
-  <p>{% trans "You are now a full part of our team! We need your help to organise this tour." %}</p>
-  <p>{% trans "You can contact communities that you know or that you would like to visit and tell them to sign up on this website, so we have their information." %}</p>
-  <p>{% trans "Then we can send them the experts and resources they wish for." %}</p>
-  <p>{% trans "We will contact you soon for any news and meetups!" %}</p>
-  <p>{% trans "See you soon, the rest of the Community Tours team." %}</p>
+		<p>{% trans "You are now a full part of the gift-economy network!" %}</p>
+		<p>{% trans "If you want to go on Community-Tours with other people, invite them to join this network. You can create a new Tour and use the tools of this website to communicate, organize and network!" %}</p>
+		<p>{% trans "You can contact communities that you know or that you would like to visit and tell them to sign up on this website, so we have their information." %}</p>
+		<p>{% trans "Then we can send them the experts and resources they wish for." %}</p>
+		<p>{% trans "This network is grown and maintained by its members, as we dont get many donations, we can not provide much of a service, so please contribute feedback, your skills (design, programming, communcation, networking, etc..) Just get in contact with us! Alternatively you can also give a donation, can be even really small, that helps us to pay the server costs and develop the site professionaly! There can be no gift-economy without a little gift-economy :)" %}</p>
+		<p>{% trans "Thank you, see you around! The rest of the ecobasa team." %}</p>
+	{% else %}
+		<h1>{% trans "Welcome to the gift-economy network!" %}</h1>
+		<p>{% trans "As your communities gift-ambassador it is on you to spread the idea and function of a gift-economy network among other members of your community, they can sign up as pioneers and join your community-group" %}</p>
+		<p>{% trans "For now, it is your job to post offers and needs the community has to the profile, so it stays up to date. Without wishing, things cannot come to you :)" %}</p>
+		<p>{% trans "You can contact other communities that you would like to recieve goods and services from and tell them to sign up on this website, so we can connect them to the network." %}</p>
+		
+		<p>{% trans "You can use this websites tools for your community! You can organize events, doodle for available times, write texts and assign tasks and of course network with the other communities!" %}</p>
+		<p>{% trans "This network is grown and maintained by its members, as we dont get many donations, we can not provide much of a service, so please contribute feedback, your skills (design, programming, communcation, networking, etc..) Just get in contact with us! Alternatively you can also give a donation, can be even really small, that helps us to pay the server costs and develop the site professionaly! There can be no gift-economy without a little gift-economy :)" %}</p>
+		<p>{% trans "See you soon, the rest of the ecobasa team." %}</p>
+	{% endif %}
 {% endblock %}
