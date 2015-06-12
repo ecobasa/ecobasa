@@ -2623,10 +2623,10 @@ msgid ""
 "as possible! It can be a fun group process, like collecting the whishes – "
 "you might inspire each other! You dont need to do it all now, you can always "
 "edit your profile later. For the start we only need your contact information!"
-msgstr "Bitte nimm dir etwas Zeit um nachzudenken, herumzufragen und so viel Informationen wie möglich auszufüllen!"
+msgstr "Bitte nimm dir etwas Zeit um nachzudenken, herumzufragen und so viel Informationen wie möglich auszufüllen! "
 "Es kann ein lustiger Gruppenprozess sein, die Wünsche von allen einzusammeln - "
-"Ihr inspiriert euch bestimmt gegenseitig! Du musst jetzt nicht alles ausfüllen," 
-"ihr könnt immer noch jederzeit euer Profil bearbeiten"
+"Ihr inspiriert euch bestimmt gegenseitig! Du musst jetzt nicht alles ausfüllen, " 
+"ihr könnt immer noch jederzeit euer Profil bearbeiten. "
 "Für den Anfang benötigen wir nur eure Kontaktinformationen, damit wir euch helfen können"
 
 #: templates/userprofiles/registration_community.html:24
