@@ -1,5 +1,5 @@
 {% extends "cosinnus/base.html" %}
-{% load i18n l10n static embed_video_tags cosinnus_tags thumbnail %}
+{% load i18n l10n static embed_video_tags cosinnus_tags ecobasa_tags thumbnail %}
 
 {% block extrahead %}
 {{ block.super }} 
@@ -210,8 +210,10 @@
             <a href="{% url 'community-edit' group=object.slug %}#s2id_id_wishlist_skills" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Tell people with special skills to come" %}</a>
           {% endif %}
         {% endif %}
-        {% if profile.whishlist_materials or user|is_group_admin:object %}
+        {% if profile.whishlist_materials or profile.whishlist_materials_info or user|is_group_admin:object %}
           <h3>{% trans "Materials" %}</h3>
+        {% endif %}
+        {% if profile.whishlist_materials or user|is_group_admin:object %}
           <ul class="list-inline">
             {% for whishlist_material in profile.whishlist_materials.all %}
             <li><span class="label label-{{ whish_material }}">{{ whishlist_material }}</span></li>
@@ -230,8 +232,10 @@
             <a href="{% url 'community-edit' group=object.slug %}#id_wishlist_materials" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add a description" %}</a>
           {% endif %}
         {% endif %}
-        {% if profile.wishlist_tools or user|is_group_admin:object %}
+        {% if profile.wishlist_tools or profile.wishlist_tools_info or user|is_group_admin:object %}
           <h3>{% trans "Tools" %}</h3>
+        {% endif %}
+          {% if profile.wishlist_tools or user|is_group_admin:object %}
           <ul class="list-inline">
             {% for whishlist_tool in profile.whishlist_tools.all %}
             <li><span class="label label-{{ whish_tool }}">{{ whishlist_tool }}</span></li>
