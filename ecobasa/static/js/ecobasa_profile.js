@@ -33,8 +33,20 @@ EcobasaProfile = {
 		$("#id_offers_creations").select2({
 			tags: tags.offersCreations, tokenSeparators: [","]
 		});
+		$("#id_offers_materials").select2({
+			tags: tags.offersMaterials, tokenSeparators: [","]
+		});
+		$("#id_offers_tools").select2({
+			tags: tags.offersTools, tokenSeparators: [","]
+		});
 		$("#id_wishlist_skills").select2({
 			tags: tags.wishlistSkills, tokenSeparators: [","]
+		});
+		$("#id_wishlist_materials").select2({
+			tags: tags.wishlistMaterials, tokenSeparators: [","]
+		});
+		$("#id_wishlist_tools").select2({
+			tags: tags.wishlistTools, tokenSeparators: [","]
 		});
 	},
 
