@@ -468,6 +468,8 @@ class EcobasaCommunityProfile(models.Model):
         blank=True, null=True)
 
     # basic info
+    basic_description = models.TextField(
+        _('Describe your community'), blank=True, null=True)
     basic_inhabitants = models.PositiveIntegerField(
         _('how many people live in your community?'),
         null=True, blank=True, default=0)

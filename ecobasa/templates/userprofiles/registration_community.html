@@ -115,15 +115,52 @@
         </div>
       </div>
       
+
         <div class="panel panel-default">
           <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
             <div class="panel-heading" role="tab" id="headingOne">
+              <h2 class="panel-title">
+                  {% trans "Info" %} {% trans "(Click to expand)" %}<span class="glyphicon glyphicon-chevron-right pull-right"></span>
+              </h2>
+            </div>
+          </a>
+          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body">
+
+              <div class="row">
+                <div class="col-xs-3">{% bootstrap_label form.basic_description.label %}</div>
+                <div class="col-xs-9">{% bootstrap_field form.basic_description show_label=False %}</div>
+              </div>
+
+               <div class="row">
+                <div class="col-xs-3">{% bootstrap_label form.basic_brings_together.label %}</div>
+                <div class="col-xs-9">{% bootstrap_field form.basic_brings_together show_label=False %}</div>
+              </div>
+
+              <div class="row">
+                <div class="col-xs-3">{% bootstrap_label form.image.label %}</div>
+                <div class="col-xs-9">{% bootstrap_field form.image show_label=False %}</div>
+              </div>
+
+              <div class="row">
+                <div class="col-xs-3">{% bootstrap_label form.video.label %}</div>
+                <div class="col-xs-9">{% bootstrap_field form.video show_label=False %}</div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+
+        <div class="panel panel-default">
+          <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+            <div class="panel-heading" role="tab" id="headingTwo">
               <h2 class="panel-title">
                   {% trans "Statistics" %} {% trans "(Click to expand)" %}<span class="glyphicon glyphicon-chevron-right pull-right"></span>
               </h2>
             </div>
           </a>
-          <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
             <div class="panel-body">
 
               <div class="row">
@@ -146,23 +183,20 @@
                 <div class="col-xs-9">{% bootstrap_field form.visitors_num show_label=False %}</div>
               </div>
 
-               <div class="row">
-                <div class="col-xs-3">{% bootstrap_label form.basic_brings_together.label %}</div>
-                <div class="col-xs-9">{% bootstrap_field form.basic_brings_together show_label=False %}</div>
-              </div>
-
             </div>
           </div>
         </div>
+
+
         <div class="panel panel-default">
-          <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-            <div class="panel-heading" role="tab" id="headingTwo">
+          <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+            <div class="panel-heading" role="tab" id="headingThree">
               <h2 class="panel-title">
                   {% trans "Whishes" %} {% trans "(Click to expand)" %}<span class="glyphicon glyphicon-chevron-right pull-right"></span>
               </h2>
             </div>
           </a>
-          <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
             <div class="panel-body">
 
             {% bootstrap_field form.wishlist_projects %}<br />
@@ -197,14 +231,14 @@
         </div>
 
         <div class="panel panel-default">
-          <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-            <div class="panel-heading" role="tab" id="headingThree">
+          <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+            <div class="panel-heading" role="tab" id="headingFour">
               <h2 class="panel-title">
                   {% trans "Offers" %} {% trans "(Click to expand)" %}<span class="glyphicon glyphicon-chevron-right pull-right"></span>
               </h2>
             </div>
           </a>
-          <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
             <div class="panel-body">
               {% bootstrap_field form.visitors_accommodation %}
               {% bootstrap_field form.offers_services %}

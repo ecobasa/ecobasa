@@ -19,139 +19,207 @@
 <form action="." method="post" enctype="multipart/form-data" novalidate="novalidate">
 {% csrf_token %}
   
-  <div class="row">
-    <div class="col-xs-3">{% bootstrap_label form.image.label %}</div>
-    <div class="col-xs-9">{% bootstrap_field form.image show_label=False %}</div>
-  </div>
+<div class="panel-group" id="accordion_registration" role="tablist" aria-multiselectable="true">
+      <div class="panel panel-default">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseZero" aria-expanded="true" aria-controls="collapseOne">
+          <div class="panel-heading" role="tab" id="headingZero">
+            <h2 class="panel-title">
+                {% trans "Community Contact Information" %} <span class="glyphicon glyphicon-chevron-down pull-right"></span>
+            </h2>
+          </div>
+        </a>
+        <div id="collapseZero" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingZero">
+          <div class="panel-body">
 
-  <div class="row">
-    <div class="col-xs-3">{% bootstrap_label form.video.label %}</div>
-    <div class="col-xs-9">{% bootstrap_field form.video show_label=False %}</div>
-  </div>
+          <div class="row">
+            <div class="col-xs-3">{% bootstrap_label form.contact_location.label %}</div>
+            <div class="col-xs-9">
+              {% bootstrap_field form.contact_location show_label=False %}
+              {# hidden, but required fields #}
+              {{ form.contact_location_lat }}
+              {{ form.contact_location_lon }}
+            </div>
+          </div>
 
-  <div class="row">
-    <div class="col-xs-3">{% bootstrap_label form.name.label %}</div>
-    <div class="col-xs-9">{% bootstrap_field form.name show_label=False %}</div>
-  </div>
+          <div class="row">
+            <div class="col-xs-3">{% bootstrap_label form.contact_street.label %}</div>
+            <div class="col-xs-9">{% bootstrap_field form.contact_street show_label=False %}</div>
+          </div>
 
-  <div class="row">
-    <div class="col-xs-3">{% bootstrap_label form.contact_telephone.label %}</div>
-    <div class="col-xs-9">{% bootstrap_field form.contact_telephone show_label=False %}</div>
-  </div>
+          <div class="row">
+            <div class="col-xs-3">{% bootstrap_label form.contact_zipcode.label %}</div>
+            <div class="col-xs-3">{% bootstrap_field form.contact_zipcode show_label=False %}</div>
+            <div class="col-xs-2">{% bootstrap_label form.contact_city.label %}</div>
+            <div class="col-xs-4">{% bootstrap_field form.contact_city show_label=False %}</div>
+          </div>
 
-  <div class="row">
-    <div class="col-xs-3">{% bootstrap_label form.website.label %}</div>
-    <div class="col-xs-9">{% bootstrap_field form.website show_label=False %}</div>
-  </div>
+          <div class="row">
+            <div class="col-xs-3">{% bootstrap_label form.contact_country.label %}</div>
+            <div class="col-xs-5">{% bootstrap_field form.contact_country show_label=False %}</div>
+            <div class="col-xs-4">{% bootstrap_field form.contact_show %}</div>
+          </div>
 
-  <div class="row">
-    <div class="col-xs-3">{% bootstrap_label form.contact_location.label %}</div>
-    <div class="col-xs-9">
-       {% bootstrap_field form.contact_location show_label=False %}
-       {# hidden, but required fields #}
-       {{ form.contact_location_lat }}
-       {{ form.contact_location_lon }}
-    </div>
-  </div>
+          <div class="row">
+            <div class="col-xs-3">{% bootstrap_label form.contact_telephone.label %}</div>
+            <div class="col-xs-9">{% bootstrap_field form.contact_telephone show_label=False %}</div>
+          </div>
 
-  <div class="row">
-    <div class="col-xs-3">{% bootstrap_label form.contact_street.label %}</div>
-    <div class="col-xs-9">{% bootstrap_field form.contact_street show_label=False %}</div>
-  </div>
+          <div class="row">
+            <div class="col-xs-3">{% bootstrap_label form.website.label %}</div>
+            <div class="col-xs-9">{% bootstrap_field form.website show_label=False %}</div>
+          </div>
 
-  <div class="row">
-    <div class="col-xs-3">{% bootstrap_label form.contact_zipcode.label %}</div>
-    <div class="col-xs-3">{% bootstrap_field form.contact_zipcode show_label=False %}</div>
-    <div class="col-xs-2">{% bootstrap_label form.contact_city.label %}</div>
-    <div class="col-xs-4">{% bootstrap_field form.contact_city show_label=False %}</div>
-  </div>
-
-  <div class="row">
-    <div class="col-xs-3">{% bootstrap_label form.contact_country.label %}</div>
-    <div class="col-xs-5">{% bootstrap_field form.contact_country show_label=False %}</div>
-    <div class="col-xs-4">{% bootstrap_field form.contact_show %}</div>
-  </div>
-
-  <div class="row">
-    <div class="col-xs-9">{% bootstrap_label form.visitors_num.label %}</div>
-    <div class="col-xs-3">{% bootstrap_field form.visitors_num show_label=False %}</div>
-  </div>
-
-  <div class="row">
-    <div class="col-xs-12">{% bootstrap_field form.visitors_accommodation %}</div>
-  </div>
-
-  <div class="row">
-    <div class="col-xs-12">{% bootstrap_field form.wishlist_projects %}</div>
-  </div>
-
-  <div class="row">
-    <div class="col-xs-12">{% bootstrap_field form.wishlist_materials %}</div>
-  </div>
-
-  <div class="row">
-    <div class="col-xs-12">{% bootstrap_field form.wishlist_tools %}</div>
-  </div>
-
-  <div class="row">
-    <div class="col-xs-12">{% bootstrap_field form.wishlist_skills %}</div>
-  </div>
-
-  <fieldset id="formset-{{ formset_seed.prefix }}">
-    <div class="row">
-      <div class="col-xs-12">
-        {{ formset_seed.management_form }}
-        <label class="control-label" for="">{% trans "Seeds" %}</label>
+        </div>
       </div>
     </div>
+    
 
-    {% for inlineform in formset_seed.forms %}
-    <div class="control-group{% if inlineform.errors %} error{% endif %}">
-      <div class="controls form-inline">
-        {{ inlineform.id.as_widget }}
-        {{ inlineform.DELETE.as_widget }}
-        <div class="row">
-          <div class="col-xs-9">{% bootstrap_field inlineform.kind %}</div>
-          <div class="col-xs-3">{% bootstrap_field inlineform.num %}</div>
+      <div class="panel panel-default">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+          <div class="panel-heading" role="tab" id="headingOne">
+            <h2 class="panel-title">
+                {% trans "Info" %} {% trans "(Click to expand)" %}<span class="glyphicon glyphicon-chevron-right pull-right"></span>
+            </h2>
+          </div>
+        </a>
+        <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+          <div class="panel-body">
+
+            <div class="row">
+              <div class="col-xs-3 required">{% bootstrap_label form.basic_description %}*</div>
+              <div class="col-xs-9">{% bootstrap_field form.basic_description show_label=False %}</div>
+            </div>
+
+             <div class="row">
+              <div class="col-xs-3">{% bootstrap_label form.basic_brings_together.label %}</div>
+              <div class="col-xs-9">{% bootstrap_field form.basic_brings_together show_label=False %}</div>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-3">{% bootstrap_label form.image.label %}</div>
+              <div class="col-xs-9">{% bootstrap_field form.image show_label=False %}</div>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-3">{% bootstrap_label form.video.label %}</div>
+              <div class="col-xs-9">{% bootstrap_field form.video show_label=False %}</div>
+            </div>
+
+          </div>
         </div>
-       </div>
+      </div>
+
+
+      <div class="panel panel-default">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          <div class="panel-heading" role="tab" id="headingTwo">
+            <h2 class="panel-title">
+                {% trans "Statistics" %} {% trans "(Click to expand)" %}<span class="glyphicon glyphicon-chevron-right pull-right"></span>
+            </h2>
+          </div>
+        </a>
+        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+          <div class="panel-body">
+
+            <div class="row">
+              <div class="col-xs-3 required">{% bootstrap_label form.basic_description %}*</div>
+              <div class="col-xs-9">{% bootstrap_field form.basic_description show_label=False %}</div>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-3">{% bootstrap_label form.basic_membership_status.label %}</div>
+              <div class="col-xs-9">{% bootstrap_field form.basic_membership_status show_label=False %}</div>
+            </div> 
+
+            <div class="row">
+              <div class="col-xs-3">{% bootstrap_label form.basic_inhabitants.label %}</div>
+              <div class="col-xs-9">{% bootstrap_field form.basic_inhabitants show_label=False %}</div>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-3">{% bootstrap_label form.basic_inhabitants_underage.label %}</div>
+              <div class="col-xs-9">{% bootstrap_field form.basic_inhabitants_underage show_label=False %}</div>
+            </div>
+
+            <div class="row">
+              <div class="col-xs-3">{% bootstrap_label form.visitors_num.label %}</div>
+              <div class="col-xs-9">{% bootstrap_field form.visitors_num show_label=False %}</div>
+            </div>
+
+             <div class="row">
+              <div class="col-xs-3">{% bootstrap_label form.basic_brings_together.label %}</div>
+              <div class="col-xs-9">{% bootstrap_field form.basic_brings_together show_label=False %}</div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+      <div class="panel panel-default">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          <div class="panel-heading" role="tab" id="headingThree">
+            <h2 class="panel-title">
+                {% trans "Whishes" %} {% trans "(Click to expand)" %}<span class="glyphicon glyphicon-chevron-right pull-right"></span>
+            </h2>
+          </div>
+        </a>
+        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
+          <div class="panel-body">
+
+          {% bootstrap_field form.wishlist_projects %}<br />
+          {% bootstrap_field form.wishlist_materials %}<br />
+          {% bootstrap_field form.wishlist_tools %}<br />
+          {% bootstrap_field form.wishlist_skills %}<br />
+
+          <fieldset id="formset-{{ formset_seed.prefix }}">
+            <div class="row">
+              <div class="col-xs-12">
+                {{ formset_seed.management_form }}
+                <label class="control-label" for="">{% trans "Seeds" %}</label>
+              </div>
+            </div>
+
+            {% for inlineform in formset_seed.forms %}
+            <div class="control-group{% if inlineform.errors %} error{% endif %}">
+              <div class="controls form-inline">
+                <div class="row">
+                  <div class="col-xs-9">{% bootstrap_field inlineform.kind %}</div>
+                  <div class="col-xs-3">{% bootstrap_field inlineform.num %}</div>
+                </div>
+               </div>
+            </div>
+            {% endfor %}
+          </fieldset>
+
+          {% bootstrap_field form.wishlist_special_needs %}
+
+          </div>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+          <div class="panel-heading" role="tab" id="headingFour">
+            <h2 class="panel-title">
+                {% trans "Offers" %} {% trans "(Click to expand)" %}<span class="glyphicon glyphicon-chevron-right pull-right"></span>
+            </h2>
+          </div>
+        </a>
+        <div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
+          <div class="panel-body">
+            {% bootstrap_field form.visitors_accommodation %}
+            {% bootstrap_field form.offers_services %}
+            {% bootstrap_field form.offers_skills %}
+            {% bootstrap_field form.offers_creations %}
+
+            {% bootstrap_field form.offers_workshop_spaces %}
+            {% bootstrap_field form.offers_learning_seminars %}
+
+          </div>
+        </div>
+      </div>
     </div>
-    {% endfor %}
-  </fieldset>
-
-  <div class="row">
-    <div class="col-xs-12">{% bootstrap_field form.wishlist_special_needs %}</div>
-  </div>
-
-  <div class="row">
-    <div class="col-xs-12">
-      {% bootstrap_field form.offers_services %}
-      {% bootstrap_field form.offers_skills %}
-      {% bootstrap_field form.offers_creations %}
-
-      {% bootstrap_field form.offers_workshop_spaces %}
-      {% bootstrap_field form.offers_learning_seminars %}
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-xs-9">{% bootstrap_label form.basic_inhabitants.label %}</div>
-    <div class="col-xs-3">{% bootstrap_field form.basic_inhabitants show_label=False %}</div>
-  </div>
-
-  <div class="row">
-    <div class="col-xs-9">{% bootstrap_label form.basic_inhabitants_underage.label %}</div>
-    <div class="col-xs-3">{% bootstrap_field form.basic_inhabitants_underage show_label=False %}</div>
-  </div>
-
-  <div class="row">
-    <div class="col-xs-12">{% bootstrap_field form.basic_brings_together %}</div>
-  </div>
-
-  <div class="row">
-    <div class="col-xs-9">{% bootstrap_label form.basic_membership_status.label %}</div>
-    <div class="col-xs-3">{% bootstrap_field form.basic_membership_status show_label=False %}</div>
-  </div>
 
   <div class="row">
     <div class="col-xs-12">
