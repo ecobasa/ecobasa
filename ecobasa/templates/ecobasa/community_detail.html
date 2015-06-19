@@ -225,7 +225,7 @@
         {% endif %}
         {% if profile.wishlist_materials_info or user|is_group_admin:object %}
           <h4>{% trans "Aditional info about Materials" %}</h4>
-          <p>{{ profile.wishlist_materials|urlize|linebreaksbr|safe }}</p>
+          <p>{{ profile.wishlist_materials_info|urlize|linebreaksbr|safe }}</p>
           {% if user|is_group_admin:object %}
             <a href="{% url 'community-edit' group=object.slug %}#id_wishlist_materials" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add a description" %}</a>
           {% endif %}
@@ -237,13 +237,13 @@
             <li><span class="label label-{{ whish_tool }}">{{ whishlist_tool }}</span></li>
             {% endfor %}
           </ul>
-          {% if profile.wishlist_tools_info and user|is_group_admin:object %}
+          {% if profile.wishlist_tools and user|is_group_admin:object %}
             <a href="{% url 'community-edit' group=object.slug %}#id_wishlist_tools" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Ask for more tools" %}</a>
           {% elif user|is_group_admin:object %}
             <a href="{% url 'community-edit' group=object.slug %}#id_wishlist_materials" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Ask for tools" %}</a>
           {% endif %}
           <h4>Additional info about tools</h4>
-          <p>{{ profile.wishlist_tools|urlize|linebreaksbr|safe }}</p>
+          <p>{{ profile.wishlist_tools_info|urlize|linebreaksbr|safe }}</p>
           {% if user|is_group_admin:object %}
             <a href="{% url 'community-edit' group=object.slug %}#id_wishlist_tools" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add a description" %}</a>
         {% endif %}
