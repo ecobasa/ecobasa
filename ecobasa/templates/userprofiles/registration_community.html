@@ -292,12 +292,20 @@ var registerAs = 'community';
 {% get_offers_services as offers_services %}
 {% get_offers_skills as offers_skills %}
 {% get_offers_creations as offers_creations %}
+{% get_offers_materials as offers_materials %}
+{% get_offers_tools as offers_tools %}
 {% get_wishlist_skills as wishlist_skills %}
+{% get_wishlist_materials as wishlist_materials %}
+{% get_wishlist_tools as wishlist_tools %}
 var tags = {
   offersServices: {{ offers_services|safe }},
   offersSkills: {{ offers_skills|safe }},
   offersCreations: {{ offers_creations|safe }},
+  offersMaterials: {{ offers_materials|safe }},
+  offersTools: {{ offers_tools|safe }},
   wishlistSkills: {{ wishlist_skills|safe }},
+  wishlistTools: {{ wishlist_tools|safe }},
+  wishlistMaterials: {{ wishlist_materials|safe }},
 };
 </script>
 {% endblock extrafooter %}
