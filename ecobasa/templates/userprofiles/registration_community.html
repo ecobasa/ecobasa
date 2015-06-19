@@ -201,7 +201,9 @@
 
             {% bootstrap_field form.wishlist_projects %}<br />
             {% bootstrap_field form.wishlist_materials %}<br />
+            {% bootstrap_field form.wishlist_materials_info %}
             {% bootstrap_field form.wishlist_tools %}<br />
+            {% bootstrap_field form.wishlist_tools_info %}<br />
             {% bootstrap_field form.wishlist_skills %}<br />
 
             <fieldset id="formset-{{ formset_seed.prefix }}">
@@ -244,6 +246,8 @@
               {% bootstrap_field form.offers_services %}
               {% bootstrap_field form.offers_skills %}
               {% bootstrap_field form.offers_creations %}
+              {% bootstrap_field form.offers_materials %}
+              {% bootstrap_field form.offers_tools %}
 
               {% bootstrap_field form.offers_workshop_spaces %}
               {% bootstrap_field form.offers_learning_seminars %}

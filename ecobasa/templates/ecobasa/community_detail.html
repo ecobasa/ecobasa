@@ -151,6 +151,22 @@
             </ul>
           </div>
         {% endif %}
+        {% if profile.offers_materials %}
+          <h3>Materials</h3>
+          <ul class="list-inline">
+            {% for offer_material in profile.offers_materials.all %}
+            <li><span class="label label-{{ offer_material }}">{{ offer_material }}</span></li>
+            {% endfor %}
+          </ul>
+        {% endif %}
+        {% if profile.offers_tools %}
+          <h3>Tools</h3>
+          <ul class="list-inline">
+            {% for offer_tool in profile.offers_tools.all %}
+            <li><span class="label label-{{ offer_tool }}">{{ offer_tool }}</span></li>
+            {% endfor %}
+          </ul>
+        {% endif %}
       </div>
 
       {% if profile.offers_workshop_spaces %}
@@ -194,22 +210,42 @@
             <a href="{% url 'community-edit' group=object.slug %}#s2id_id_wishlist_skills" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Tell people with special skills to come" %}</a>
           {% endif %}
         {% endif %}
-        {% if profile.wishlist_materials or user|is_group_admin:object %}
+        {% if profile.whishlist_materials or user|is_group_admin:object %}
           <h3>{% trans "Materials" %}</h3>
-          <p>{{ profile.wishlist_materials|urlize|linebreaksbr|safe }}</p>
-          {% if profile.wishlist_materials and user|is_group_admin:object %}
+          <ul class="list-inline">
+            {% for whishlist_material in profile.whishlist_materials.all %}
+            <li><span class="label label-{{ whish_material }}">{{ whishlist_material }}</span></li>
+            {% endfor %}
+          </ul>
+          {% if profile.wishlist_materials_info and user|is_group_admin:object %}
             <a href="{% url 'community-edit' group=object.slug %}#id_wishlist_materials" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Ask for more materials" %}</a>
           {% elif user|is_group_admin:object %}
             <a href="{% url 'community-edit' group=object.slug %}#id_wishlist_materials" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Ask for materials" %}</a>
           {% endif %}
         {% endif %}
+        {% if profile.wishlist_materials_info or user|is_group_admin:object %}
+          <h4>{% trans "Aditional info about Materials" %}</h4>
+          <p>{{ profile.wishlist_materials|urlize|linebreaksbr|safe }}</p>
+          {% if user|is_group_admin:object %}
+            <a href="{% url 'community-edit' group=object.slug %}#id_wishlist_materials" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add a description" %}</a>
+          {% endif %}
+        {% endif %}
         {% if profile.wishlist_tools or user|is_group_admin:object %}
           <h3>{% trans "Tools" %}</h3>
-          <p>{{ profile.wishlist_tools|urlize|linebreaksbr|safe }}</p>
-          {% if profile.wishlist_tools and user|is_group_admin:object %}
-            <a href="{% url 'community-edit' group=object.slug %}#id_wishlist_tools" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Ask for tools" %}</a>
+          <ul class="list-inline">
+            {% for whishlist_tool in profile.whishlist_tools.all %}
+            <li><span class="label label-{{ whish_tool }}">{{ whishlist_tool }}</span></li>
+            {% endfor %}
+          </ul>
+          {% if profile.wishlist_tools_info and user|is_group_admin:object %}
+            <a href="{% url 'community-edit' group=object.slug %}#id_wishlist_tools" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Ask for more tools" %}</a>
           {% elif user|is_group_admin:object %}
-            <a href="{% url 'community-edit' group=object.slug %}#id_wishlist_tools" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Ask for tools" %}</a>
+            <a href="{% url 'community-edit' group=object.slug %}#id_wishlist_materials" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Ask for tools" %}</a>
+          {% endif %}
+          <h4>Additional info about tools</h4>
+          <p>{{ profile.wishlist_tools|urlize|linebreaksbr|safe }}</p>
+          {% if user|is_group_admin:object %}
+            <a href="{% url 'community-edit' group=object.slug %}#id_wishlist_tools" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add a description" %}</a>
         {% endif %}
         {% endif %}
         {% if profile.wishlist_seeds or user|is_group_admin:object %}
