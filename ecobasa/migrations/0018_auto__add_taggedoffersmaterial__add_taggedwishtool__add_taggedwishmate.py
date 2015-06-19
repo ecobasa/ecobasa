@@ -40,21 +40,11 @@ class Migration(SchemaMigration):
         ))
         db.send_create_signal(u'ecobasa', ['TaggedOffersTool'])
 
-        # Deleting field 'EcobasaCommunityProfile.wishlist_materials'
+        # Renaming field 'EcobasaCommunityProfile.wishlist_materials'
         db.rename_column(u'ecobasa_ecobasacommunityprofile', 'wishlist_materials', 'wishlist_materials_info')
 
-        # Deleting field 'EcobasaCommunityProfile.wishlist_tools'
+        # Renaming field 'EcobasaCommunityProfile.wishlist_tools'
         db.rename_column(u'ecobasa_ecobasacommunityprofile', 'wishlist_tools', 'wishlist_tools_info')
-
-        # Adding field 'EcobasaCommunityProfile.wishlist_materials_info'
-        db.add_column(u'ecobasa_ecobasacommunityprofile', 'wishlist_materials_info',
-                      self.gf('django.db.models.fields.TextField')(null=True, blank=True),
-                      keep_default=False)
-
-        # Adding field 'EcobasaCommunityProfile.wishlist_tools_info'
-        db.add_column(u'ecobasa_ecobasacommunityprofile', 'wishlist_tools_info',
-                      self.gf('django.db.models.fields.TextField')(null=True, blank=True),
-                      keep_default=False)
 
         # Adding field 'EcobasaCommunityProfile.basic_description'
         db.add_column(u'ecobasa_ecobasacommunityprofile', 'basic_description',
@@ -86,10 +76,10 @@ class Migration(SchemaMigration):
                       self.gf('django.db.models.fields.TextField')(null=True, blank=True),
                       keep_default=False)
 
-        # Deleting field 'EcobasaCommunityProfile.wishlist_materials_info'
+        # Renaming field 'EcobasaCommunityProfile.wishlist_materials_info'
         db.rename_column(u'ecobasa_ecobasacommunityprofile', 'wishlist_materials_info', 'wishlist_materials')
 
-        # Deleting field 'EcobasaCommunityProfile.wishlist_tools_info'
+        # Renaming field 'EcobasaCommunityProfile.wishlist_tools_info'
         db.rename_column(u'ecobasa_ecobasacommunityprofile', 'wishlist_tools_info', 'whishlist_tools')
 
         # Deleting field 'EcobasaCommunityProfile.basic_description'
