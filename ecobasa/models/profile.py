@@ -471,12 +471,12 @@ class EcobasaCommunityProfile(models.Model):
         blank=True, null=True)
     wishlist_materials = TaggableManager(_('What materials do you need?'),
         through=TaggedWishMaterial,
-        related_name='_wishlist_materials', blank=True)
+        related_name='_wishlist_material', blank=True)
     wishlist_materials_info = models.TextField(_('Do you have any additional info about materials, or details to your request (like condition, when you need them)?'),
         blank=True, null=True)
     wishlist_tools = TaggableManager(_('What tools or machines do you need?'),
         through=TaggedWishTool,
-        related_name='_wishlist_tools', blank=True)
+        related_name='_wishlist_tool', blank=True)
     wishlist_tools_info = models.TextField(
         _('Do you have any additional info about materials, or details to your request (like condition, when you need them) ?'),
         blank=True, null=True)
@@ -498,10 +498,10 @@ class EcobasaCommunityProfile(models.Model):
         related_name='_offers_creation', blank=True)
     offers_materials = TaggableManager(_('Do you have any materials that you produce or that you dont need anymore?'),
         through=TaggedOffersMaterial,
-        related_name='_offers_materials', blank=True)
+        related_name='_offers_material', blank=True)
     offers_tools = TaggableManager(_('Do you have any tools that you produce or that you dont need anymore?'),
         through=TaggedOffersTool,
-        related_name='_offers_tools', blank=True)
+        related_name='_offers_tool', blank=True)
     offers_workshop_spaces = models.TextField(_('Do you have workshop spaces, where people can build/construct/manufacture things?'),
         blank=True, null=True)
     offers_learning_seminars = models.TextField(_('Do you offer any seminars that visitors could attend?'),
