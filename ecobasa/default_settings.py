@@ -205,6 +205,7 @@ INSTALLED_APPS = (
     'honeypot',
     'postman',
     'embed_video',
+    'contact_form',
 
     # CMS
     'cms',
