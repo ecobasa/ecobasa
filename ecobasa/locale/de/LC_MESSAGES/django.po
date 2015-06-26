@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-26 08:50+0200\n"
+"POT-Creation-Date: 2015-06-26 09:16+0200\n"
 "PO-Revision-Date: 2014-11-23 18:07+0200\n"
 "Last-Translator: Sebastian Henschel <ecobasa@kodeaffe.de\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -73,7 +73,7 @@ msgstr "Email"
 #: models/caravan.py:25 templates/ecobasa/caravan_detail.html:123
 #: templates/ecobasa/community_detail.html:97
 #: templates/ecobasa/community_form.html:199
-#: templates/userprofiles/registration_community.html:246
+#: templates/userprofiles/registration_community.html:248
 msgid "Offers"
 msgstr "Angebote"
 
@@ -1670,7 +1670,7 @@ msgid "Lost password"
 msgstr "Passwort verloren"
 
 #: templates/cosinnus/registration/login.html:24
-#: templates/userprofiles/registration_community.html:268
+#: templates/userprofiles/registration_community.html:270
 #: templates/userprofiles/registration_member.html:166
 msgid "Register"
 msgstr "Registrieren"
@@ -2332,7 +2332,7 @@ msgstr "Frage nach Werkzeugen"
 
 #: templates/ecobasa/community_detail.html:258
 #: templates/ecobasa/community_form.html:171
-#: templates/userprofiles/registration_community.html:218
+#: templates/userprofiles/registration_community.html:220
 msgid "Seeds"
 msgstr "Saatgut"
 
@@ -2376,12 +2376,12 @@ msgid "Edit community “%(name)s”"
 msgstr "Gemeinschaft “%(name)s” bearbeiten"
 
 #: templates/ecobasa/community_form.html:27
-#: templates/userprofiles/registration_community.html:74
+#: templates/userprofiles/registration_community.html:76
 msgid "Community Contact Information"
 msgstr "Kontakt Informationen für die Gemeinschaft"
 
 #: templates/ecobasa/community_form.html:81
-#: templates/userprofiles/registration_community.html:128
+#: templates/userprofiles/registration_community.html:130
 msgid "Info"
 msgstr ""
 
@@ -2389,20 +2389,20 @@ msgstr ""
 #: templates/ecobasa/community_form.html:117
 #: templates/ecobasa/community_form.html:153
 #: templates/ecobasa/community_form.html:199
-#: templates/userprofiles/registration_community.html:128
-#: templates/userprofiles/registration_community.html:164
-#: templates/userprofiles/registration_community.html:200
-#: templates/userprofiles/registration_community.html:246
+#: templates/userprofiles/registration_community.html:130
+#: templates/userprofiles/registration_community.html:166
+#: templates/userprofiles/registration_community.html:202
+#: templates/userprofiles/registration_community.html:248
 msgid "(Click to expand)"
 msgstr "(zum Öffnen klicken)"
 
 #: templates/ecobasa/community_form.html:117
-#: templates/userprofiles/registration_community.html:164
+#: templates/userprofiles/registration_community.html:166
 msgid "Statistics"
 msgstr "Status"
 
 #: templates/ecobasa/community_form.html:153
-#: templates/userprofiles/registration_community.html:200
+#: templates/userprofiles/registration_community.html:202
 msgid "Whishes"
 msgstr "Wünsche"
 
@@ -2412,7 +2412,7 @@ msgid "Save"
 msgstr "Speichern"
 
 #: templates/ecobasa/community_form.html:266
-#: templates/userprofiles/registration_community.html:288
+#: templates/userprofiles/registration_community.html:290
 msgid "More seeds"
 msgstr "Mehr Saatgut"
 
@@ -2699,16 +2699,29 @@ msgstr ""
 "Helfer sein, die eure Gemeinschaft besuchen wollenund eure Wünsche erfüllen. "
 "Du kannst diese Rolle dann aber auch an andere abgeben"
 
+#: templates/userprofiles/registration_community.html:16
+msgid "Community Ambassador Registration"
+msgstr "Gemeinschafts-Botschafter Anmeldung"
+
 #: templates/userprofiles/registration_community.html:17
 msgid ""
 "Please take some time to think, ask around and fill out as much information "
 "as possible! It can be a fun group process, like collecting the whishes – "
 "you might inspire each other! You dont need to do it all now, you can always "
 "edit your profile later. For the start we only need your contact "
-"information, to help you!\n"
-"\n"
-"    It is useful just to have a look at different hosts and study their way "
-"of describing the help they need. It will save you a lot of wasted energy on "
+"information, to help you!"
+msgstr ""
+"Bitte nimm dir etwas Zeit um nachzudenken, herumzufragen und so viel "
+"Informationen wie möglich auszufüllen! Es kann ein lustiger Gruppenprozess "
+"sein, die Wünsche von allen einzusammeln - Ihr inspiriert euch bestimmt "
+"gegenseitig! Du musst jetzt nicht alles ausfüllen, ihr könnt immer noch "
+"jederzeit euer Profil bearbeiten. Für den Anfang benötigen wir nur eure "
+"Kontaktinformationen, damit wir euch helfen können"
+
+#: templates/userprofiles/registration_community.html:20
+msgid ""
+"It is useful just to have a look at different hosts and study their way of "
+"describing the help they need. It will save you a lot of wasted energy on "
 "volunteers who are not suited for your situation.\n"
 "    Define your situation, describe the work that is expected from "
 "volunteers, and discourage people who just want to hang around or look for a "
@@ -2718,30 +2731,30 @@ msgid ""
 "    It helps also if you set a minimum period for staying with you, so you "
 "do not lose lots of time by introducing new guests. And yes, volunteers are "
 "guests. Treat them like that and share as much with them as possible and you "
-"will be blessed (as a rule)!\n"
-"\n"
-"    Hosting volunteers is fun, if you organize it well. So enjoy, because "
-"life is meant to be fun!"
-msgstr "Bitte nehmt euch Zeit um nachzudenken, herumzufragen und so viel Informationen wie möglich "
-"auszufüllen! Das kann auch ein lustiger Gruppenprozess sein, indem Wünsche gesammelt werden - "
-"ihr werdet euch warscheinlich gegenseitig inspirieren! Ihr braucht das jetzt nicht alles machen, "
-"ihr könnt euer Profil auch später immernoch bearbeiten! Für den Anfang brauchen wir nur eure Kontaktinformationen"
-", um euch zu helfen"
-"/n"
-"Es ist hilfreich sich andere Gemeinschaften anzuschauen und zu sehen, wie sie die Hilfe beschreiben"
-", die sie brauchen. Es wird euch einiges and verschwendeter Energie sparen, wenn Leute kommen"
-", die für eure Situation passen./n"
-"Beschreibt eure Situation, die Arbeit die ihr von Freiwilligen erwartet und macht klar, das ihr "
-"keine Leute wollt, die einfach nur rumhängen oder eine kostenlose Unterkunft suchen (sagt das einfach so)./n"
-"Und seid fair, erwartet nicht das Freiwillige 10 Stunden pro Tag arbeiten, nur weil ihr das so macht./n"
-"Es hilft auch eine Mindestaufenthaltsdauer in eurer Gemeinschaft festzulegen, dann verliert ihr nicht so "
-"viel Zeit damit, neue Gäste einzuweisen. Und ja, Freiwillige sind Gäste. Behandelt sie auch so und teilt "
-"so viel wie möglich mit ihnen und ihr werdet vielfach beschenkt (das ist ein universelles Gesetz)!/n"
-"/n"
-"Freiwillige zu empfangen macht Spaß, wenn ihr das gut organisiert. Also genießt es, den das Leben "
-"ist dafür gemacht!"
+"will be blessed (as a rule)!"
+msgstr ""
+"Es ist hilfreich sich andere Gemeinschaften anzuschauen und zu sehen, wie "
+"sie die Hilfe beschreiben, die sie brauchen. Es wird euch einiges and "
+"verschwendeter Energie sparen, wenn Leute kommen, die für eure Situation "
+"passen./nBeschreibt eure Situation, die Arbeit die ihr von Freiwilligen "
+"erwartet und macht klar, das ihr keine Leute wollt, die einfach nur "
+"rumhängen oder eine kostenlose Unterkunft suchen (sagt das einfach so). Und "
+"seid fair, erwartet nicht das Freiwillige 10 Stunden pro Tag arbeiten, nur "
+"weil ihr das so macht./nEs hilft auch eine Mindestaufenthaltsdauer in eurer "
+"Gemeinschaft festzulegen, dann verliert ihr nicht so viel Zeit damit, neue "
+"Gäste einzuweisen. Und ja, Freiwillige sind Gäste. Behandelt sie auch so und "
+"teilt so viel wie möglich mit ihnen und ihr werdet vielfach beschenkt (das "
+"ist ein universelles Gesetz)!"
 
-#: templates/userprofiles/registration_community.html:29
+#: templates/userprofiles/registration_community.html:26
+msgid ""
+"Hosting volunteers is fun, if you organize it well. So enjoy, because life "
+"is meant to be fun!"
+msgstr ""
+"Freiwillige zu empfangen macht Spaß, wenn ihr das gut organisiert. Also "
+"genießt es, den das Leben ist dafür gemacht!"
+
+#: templates/userprofiles/registration_community.html:31
 msgid "Log In"
 msgstr "Einloggen"
 
@@ -2950,20 +2963,6 @@ msgstr "Bewertung für %(pioneer)s bearbeiten"
 
 #~ msgid "learning seminars"
 #~ msgstr "Lernseminare"
-
-#~ msgid ""
-#~ "Please take some time to think, ask around and fill out as much "
-#~ "information as possible! It can be a fun group process, like collecting "
-#~ "the whishes – you might inspire each other! You dont need to do it all "
-#~ "now, you can always edit your profile later. For the start we only need "
-#~ "your contact information!"
-#~ msgstr ""
-#~ "Bitte nimm dir etwas Zeit um nachzudenken, herumzufragen und so viel "
-#~ "Informationen wie möglich auszufüllen! Es kann ein lustiger "
-#~ "Gruppenprozess sein, die Wünsche von allen einzusammeln - Ihr inspiriert "
-#~ "euch bestimmt gegenseitig! Du musst jetzt nicht alles ausfüllen, ihr "
-#~ "könnt immer noch jederzeit euer Profil bearbeiten. Für den Anfang "
-#~ "benötigen wir nur eure Kontaktinformationen, damit wir euch helfen können"
 
 #~ msgid "Add a caravan"
 #~ msgstr "Karawane hinzufügen"
