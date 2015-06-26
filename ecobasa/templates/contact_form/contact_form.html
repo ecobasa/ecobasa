@@ -1,12 +1,24 @@
 {% extends "base.html" %}
+{% load i18n %}
 
 {% block content %}
-  <h2>{% trans "Contact the ecobasa team" %}</h2>
-  <p>{% trans "Please enter your message and your contact information here, so we can get back to you!" %}</p>
-  <form method="post">{% csrf_token %}
-    <p>{% trans "Name: " %}<input type="text" name="name"></p>
-    <p>{% trans "Your e-mail: " %}<input type="text" name="email"></p>
-    <p>{% trans "Message: " %}<textarea name="body" rows="10" cols="50"></textarea></p>
-    <input type="submit" value="Submit">
-  </form>
+<div class="row">
+	<div class="col-xs-12">
+	  <h2>{% trans "Contact the ecobasa team" %}</h2>
+	  <p>{% trans "Please enter your message and your contact information here, so we can get back to you!" %}</p>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-12">
+		<form method="post">{% csrf_token %}
+			<p>{% trans "Name: " %}</p>
+			<p><input type="text" name="name"></p>
+			<p>{% trans "Your e-mail: " %}</p>
+			<p><input type="text" name="email"></p>
+			<p>{% trans "Message: " %}</p>
+			<p><textarea name="body" rows="10" cols="50"></textarea></p>
+			<p><input class="btn btn-primary" type="submit" value="Send">
+		</form>
+	 </div>
+ </div>
 {% endblock content %}
