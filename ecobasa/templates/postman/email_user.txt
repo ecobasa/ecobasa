@@ -1,5 +1,5 @@
 {% load i18n %}{% autoescape off %}
-{% blocktrans with object.recipient.first_name as recipient_first and object.recipient.username as recipient_username %} Dear {% if recipient_first %}{{ recipient_first }}{% else %}{{recipient_username}}{% endif %},
+{% blocktrans with object.recipient as recipient %} Dear {{recipient}},
 {% endblocktans %}
 {% if action == 'rejection' %}
 {% blocktrans with object.sent_at|date:"DATETIME_FORMAT" as date and object.obfuscated_recipient as recipient %}On {{ date }}, you asked to send a message to the user '{{ recipient }}'.{% endblocktrans %}
