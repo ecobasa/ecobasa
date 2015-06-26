@@ -15,7 +15,7 @@ easy-thumbnails==1.4
 -e git+git@git.sinnwerkstatt.com:cosinnus/cosinnus-etherpad.git@ecobasa#egg=cosinnus-etherpad
 -e git+git@git.sinnwerkstatt.com:cosinnus/cosinnus-event.git@3040a052a255c1014779449200647d633e9f5bbb#egg=cosinnus-event
 -e git+git@git.sinnwerkstatt.com:cosinnus/cosinnus-note.git@ecobasa#egg=cosinnus-note
--e git+git://github.com/sinnwerkstatt/django-osm-field.git@master#egg=django-osm-field
+-e git+git://github.com/sinnwerkstatt/django-osm-field.git@gh-pages#egg=django-osm-field
 django-sekizai==0.7
 django-suit==0.2.8
 django-filer==0.9.5
