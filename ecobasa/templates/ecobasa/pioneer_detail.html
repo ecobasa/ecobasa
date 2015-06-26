@@ -168,8 +168,10 @@
         {% for group, roles in grouped_roles.items %}
 
           {% for role in roles %}
-            <h3>{{ role.title }}</h3>
+          {% with role.cosinnus_group_membership.group as group %}
+            <h3>{{ role.title }} {% trans "of" %} <a href="{% url 'cosinnus:group-dashboard' group.slug %}">{{ group.name }}</a></h3>
             <p>{{ role.description }}</p>
+           {% endwith %}
           {% endfor %}
         {% endfor %}
       {% endif %}
