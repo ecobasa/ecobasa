@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-26 09:16+0200\n"
+"POT-Creation-Date: 2015-06-26 12:03+0200\n"
 "PO-Revision-Date: 2014-11-23 18:07+0200\n"
 "Last-Translator: Sebastian Henschel <ecobasa@kodeaffe.de\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,11 +37,11 @@ msgstr "Englisch"
 msgid "German"
 msgstr "Deutsch"
 
-#: urls.py:76
+#: urls.py:78
 msgid "^about/$"
 msgstr "^uber-die-tour/$"
 
-#: urls.py:77
+#: urls.py:79
 msgid "^info/$"
 msgstr "^info/$"
 
@@ -70,7 +70,7 @@ msgstr "Neues Passwort (Bestätigung)"
 msgid "Email"
 msgstr "Email"
 
-#: models/caravan.py:25 templates/ecobasa/caravan_detail.html:123
+#: models/caravan.py:25 templates/ecobasa/caravan_detail.html:177
 #: templates/ecobasa/community_detail.html:97
 #: templates/ecobasa/community_form.html:199
 #: templates/userprofiles/registration_community.html:248
@@ -1441,6 +1441,29 @@ msgstr "Position"
 msgid "images"
 msgstr "Bilder"
 
+#: templates/contact_form/contact_form.html:4
+msgid "Contact the ecobasa team"
+msgstr "Kontaktiere das ecobasa Team"
+
+#: templates/contact_form/contact_form.html:5
+msgid ""
+"Please enter your message and your contact information here, so we can get "
+"back to you!"
+msgstr ""
+"Bitte gib deine Nachricht und deine Kontaktinformationen hier ein"
+
+#: templates/contact_form/contact_form.html:7
+msgid "Name: "
+msgstr "Name: "
+
+#: templates/contact_form/contact_form.html:8
+msgid "Your e-mail: "
+msgstr "Deine e-mail: "
+
+#: templates/contact_form/contact_form.html:9
+msgid "Message: "
+msgstr "Nachricht: "
+
 #: templates/cosinnus/dashboard.html:5 templates/cosinnus/dashboard.html:11
 #: templates/cosinnus/footermenu.html:40 templates/cosinnus/topmenu.html:57
 #: templates/cosinnus/topmenu.html:112
@@ -1468,10 +1491,10 @@ msgstr "Konfigurieren"
 #: templates/cosinnus_todo/todoentry_list.html:81
 #: templates/ecobasa/caravan_detail.html:33
 #: templates/ecobasa/caravan_detail.html:64
-#: templates/ecobasa/caravan_detail.html:178
-#: templates/ecobasa/caravan_detail.html:204
-#: templates/ecobasa/caravan_detail.html:258
-#: templates/ecobasa/caravan_detail.html:281
+#: templates/ecobasa/caravan_detail.html:92
+#: templates/ecobasa/caravan_detail.html:118
+#: templates/ecobasa/caravan_detail.html:257
+#: templates/ecobasa/caravan_detail.html:280
 #: templates/ecobasa/caravan_list.html:59
 #: templates/ecobasa/community_detail.html:62
 #: templates/ecobasa/community_detail.html:337
@@ -1529,8 +1552,8 @@ msgstr "Details"
 #: templates/cosinnus_todo/todoentry_detail.html:85
 #: templates/cosinnus_todo/todoentry_list.html:80
 #: templates/ecobasa/caravan_detail.html:30
-#: templates/ecobasa/caravan_detail.html:257
-#: templates/ecobasa/caravan_detail.html:280
+#: templates/ecobasa/caravan_detail.html:256
+#: templates/ecobasa/caravan_detail.html:279
 #: templates/ecobasa/caravan_list.html:57
 #: templates/ecobasa/community_detail.html:59
 #: templates/ecobasa/community_detail.html:336
@@ -1793,8 +1816,8 @@ msgstr "Keine Stimmen für diesen Vorschlag"
 #: templates/cosinnus_note/note_list.html:41
 #: templates/cosinnus_todo/todoentry_detail.html:83
 #: templates/cosinnus_todo/todoentry_list.html:50
-#: templates/ecobasa/caravan_detail.html:255
-#: templates/ecobasa/caravan_detail.html:278
+#: templates/ecobasa/caravan_detail.html:254
+#: templates/ecobasa/caravan_detail.html:277
 #: templates/ecobasa/caravan_list.html:20
 #: templates/ecobasa/community_detail.html:334
 #: templates/ecobasa/community_detail.html:357
@@ -1816,7 +1839,7 @@ msgstr "Veranstaltung hinzufügen"
 #: templates/cosinnus_event/event_list.html:26
 #: templates/cosinnus_note/note_list.html:21
 #: templates/cosinnus_todo/todoentry_list.html:26
-#: templates/ecobasa/bus_add.html:39 templates/ecobasa/caravan_detail.html:203
+#: templates/ecobasa/bus_add.html:39 templates/ecobasa/caravan_detail.html:117
 #: templates/ecobasa/community_detail.html:491
 #: templates/ecobasa/pioneer_detail.html:114 views/community.py:134
 #: views/pioneer.py:140
@@ -1856,8 +1879,8 @@ msgstr "Schreibe einen Kommentar"
 
 #: templates/cosinnus_note/note_detail.html:35
 #: templates/cosinnus_note/note_list.html:63
-#: templates/ecobasa/caravan_detail.html:260
-#: templates/ecobasa/caravan_detail.html:283
+#: templates/ecobasa/caravan_detail.html:259
+#: templates/ecobasa/caravan_detail.html:282
 #: templates/ecobasa/community_detail.html:339
 #: templates/ecobasa/community_detail.html:362
 msgid "Comment"
@@ -2023,7 +2046,7 @@ msgstr "Alle Blog-Nachrichten anzeigen"
 msgid "Add your bus"
 msgstr "Deinen Bus hinzufügen"
 
-#: templates/ecobasa/bus_list.html:4 templates/ecobasa/caravan_detail.html:74
+#: templates/ecobasa/bus_list.html:4 templates/ecobasa/caravan_detail.html:128
 #: templates/ecobasa/caravan_list.html:19
 msgid "Buses"
 msgstr "Busse"
@@ -2118,68 +2141,68 @@ msgid "Members"
 msgstr "Mitglieder"
 
 #: templates/ecobasa/caravan_detail.html:63
-#: templates/ecobasa/caravan_detail.html:177
+#: templates/ecobasa/caravan_detail.html:91
 msgid "Change"
 msgstr "Ändern"
 
-#: templates/ecobasa/caravan_detail.html:76
+#: templates/ecobasa/caravan_detail.html:77
+msgid "Admins"
+msgstr "Administratoren"
+
+#: templates/ecobasa/caravan_detail.html:103
+msgid "Applied for membership"
+msgstr "Mitgliedschaft beantragt"
+
+#: templates/ecobasa/caravan_detail.html:130
 msgid "Find a bus"
 msgstr "Finde einen Bus"
 
-#: templates/ecobasa/caravan_detail.html:101
+#: templates/ecobasa/caravan_detail.html:155
 msgid "This tour doesnt have any buses, yet!"
 msgstr "Es gibt noch keine Busse für diese Tour!"
 
-#: templates/ecobasa/caravan_detail.html:102
+#: templates/ecobasa/caravan_detail.html:156
 msgid "Apply for membership"
 msgstr "Schließ dich der Karawane an"
 
-#: templates/ecobasa/caravan_detail.html:102
+#: templates/ecobasa/caravan_detail.html:156
 msgid ", if you have a bus!"
 msgstr ", wenn du einen Bus hast!"
 
-#: templates/ecobasa/caravan_detail.html:109
+#: templates/ecobasa/caravan_detail.html:163
 msgid "Visiting these Places"
 msgstr "Diese Orte werden/wurden besucht"
 
-#: templates/ecobasa/caravan_detail.html:111
+#: templates/ecobasa/caravan_detail.html:165
 msgid "Add Community visit"
 msgstr "Gemeinschaftsaufenthalt hinzufügen"
 
-#: templates/ecobasa/caravan_detail.html:125
+#: templates/ecobasa/caravan_detail.html:179
 #: templates/ecobasa/community_list.html:35
 #: templates/ecobasa/pioneer_detail.html:33
 #: templates/ecobasa/pioneer_list.html:25
 msgid "Skills"
 msgstr "Fertigkeiten"
 
-#: templates/ecobasa/caravan_detail.html:135
+#: templates/ecobasa/caravan_detail.html:189
 #: templates/ecobasa/pioneer_detail.html:45
 msgid "Products"
 msgstr "Produkte"
 
-#: templates/ecobasa/caravan_detail.html:146
+#: templates/ecobasa/caravan_detail.html:200
 msgid "Ressources"
 msgstr "Ressourcen"
 
-#: templates/ecobasa/caravan_detail.html:153
+#: templates/ecobasa/caravan_detail.html:207
 msgid "Add a ressource"
 msgstr "Füge eine Ressource hinzu"
 
-#: templates/ecobasa/caravan_detail.html:163
-msgid "Admins"
-msgstr "Administratoren"
-
-#: templates/ecobasa/caravan_detail.html:189
-msgid "Applied for membership"
-msgstr "Mitgliedschaft beantragt"
-
-#: templates/ecobasa/caravan_detail.html:218
+#: templates/ecobasa/caravan_detail.html:217
 #: templates/ecobasa/community_detail.html:297
 msgid "Blog Posts"
 msgstr "Blog-Nachrichten"
 
-#: templates/ecobasa/caravan_detail.html:220
+#: templates/ecobasa/caravan_detail.html:219
 #: templates/ecobasa/community_detail.html:299
 msgid "Write a Blogpost"
 msgstr "Blogge eine Nachricht"
@@ -2567,61 +2590,80 @@ msgstr "Organisatoren"
 msgid "Organiser"
 msgstr "OrganisatorIn"
 
-#: templates/postman/email_user.txt:1
-msgid "Dear user,"
-msgstr "Liebe_r Nutzer_in"
+#: templates/postman/email_user.txt:2
+#, python-format
+msgid ""
+"\n"
+"Dear %(recipient)s,\n"
+msgstr ""
 
-#: templates/postman/email_user.txt:3
+#: templates/postman/email_user.txt:6
 #, python-format
 msgid "On %(date)s, you asked to send a message to the user '%(recipient)s'."
 msgstr ""
 "Am %(date)s, wolltest du eine Nachricht an '%(recipient)s' verschicken."
 
-#: templates/postman/email_user.txt:5
+#: templates/postman/email_user.txt:8
 msgid "Your message has been rejected by the moderator"
 msgstr "Deine Nachricht wurde vom Moderator abgelehnt"
 
-#: templates/postman/email_user.txt:5
+#: templates/postman/email_user.txt:8
 msgid ", for the following reason:"
 msgstr ", aus folgenden Gründen:"
 
-#: templates/postman/email_user.txt:9
+#: templates/postman/email_user.txt:12
 #, python-format
 msgid "On %(date)s, you sent a message to the user '%(sender)s'."
 msgstr "Am %(date)s, hast du eine Nachrich an '%(sender)s' versendet."
 
-#: templates/postman/email_user.txt:10
+#: templates/postman/email_user.txt:13
 msgid "Your correspondent has given you an answer."
 msgstr "Dein Gesprächspartner hat geantwortet."
 
-#: templates/postman/email_user.txt:11
-#, python-format
+#: templates/postman/email_user.txt:14
+#, fuzzy, python-format
 msgid ""
-"You have received a copy of a response from the user '%(sender_first)s "
-"%(sender_last)s'."
+"You have received a copy of a response from "
+"'%(sender_username)s' (%(sender_first)s %(sender_last)s)."
 msgstr ""
 "Du hast eine Kopie der Antwort von '%(sender_first)s erhalten, "
 "%(sender_last)s'."
 
-#: templates/postman/email_user.txt:13
-#, python-format
-msgid "You have received a message from '%(sender_first)s %(sender_last)s'."
+#: templates/postman/email_user.txt:16
+#, fuzzy, python-format
+msgid ""
+"You have received a message from '%(sender_username)s' (%(sender_first)s "
+"%(sender_last)s)."
 msgstr ""
 "Du hast eine Nachricht von '%(sender_first)s %(sender_last)s' erhalten."
 
-#: templates/postman/email_user.txt:18
+#: templates/postman/email_user.txt:21
 msgid "Follow this link to view and reply to this message on the site"
 msgstr ""
 "Folge diesem Link um die Nachricht auf der Seite zu sehen und sie zu "
 "beantworten"
 
-#: templates/postman/email_user.txt:22
+#: templates/postman/email_user.txt:25
 msgid ""
 "Note: This message is issued by an automated system.\n"
 "Do not reply, this would not be taken into account."
 msgstr ""
 "Achtung: Diese Nachricht wurde automatisch erzeugt.\n"
 "Eine Antwort darauf würde nicht beachtet werden."
+
+#: templates/postman/email_user.txt:27
+msgid ""
+"\n"
+"Have a nice day!\n"
+"This service is provided as a gift by ecobasa.org, please support us with a "
+"small donation!\n"
+"https://www.betterplace.org/en/projects/11742-ecobasa-org\n"
+msgstr ""
+
+#: templates/postman/email_user_subject.txt:1
+#, python-format
+msgid "Message \"%(subject)s\" on %(sitename)s"
+msgstr ""
 
 #: templates/search/search.html:5
 msgid "Find everything you are looking for :)"
@@ -2951,6 +2993,9 @@ msgstr "Bewertung für %(pioneer)s hinzufügen"
 #, python-format
 msgid "Edit reference for %(pioneer)s"
 msgstr "Bewertung für %(pioneer)s bearbeiten"
+
+#~ msgid "Dear user,"
+#~ msgstr "Liebe_r Nutzer_in"
 
 #~ msgid "services"
 #~ msgstr "Dienstleistungen"
