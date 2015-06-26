@@ -460,7 +460,7 @@ class EcobasaCommunityProfile(models.Model):
     # visitors
     visitors_num = models.PositiveIntegerField(
         _('maximum number of people you can host'),
-        blank=True, default=0)
+        blank=True, null=True, default=0)
     visitors_accommodation = models.TextField(_('accommodation for guests'),
         blank=True, null=True,
         help_text='Where can your visitors sleep? Do you have space for a bus, tents? How is the indoor sleeping situation? Do you have matresses, a couch?')
