@@ -71,7 +71,7 @@ urlpatterns = i18n_patterns('',
 
     url(r'^messages/', include('cosinnus_message.postman_urls')),
 
-    url(r'^contact/', include('contact_form.urls'), name='contact'),
+    url(r'^contact/', include('contact_form.urls')),
 
     url(r'^$', 'cms.views.details', {'slug': ''}),
 
