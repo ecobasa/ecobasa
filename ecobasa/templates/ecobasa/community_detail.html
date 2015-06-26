@@ -77,8 +77,10 @@
   <div class="col-xs-8">
     <div class="row">
       <div class="col-xs-12">
-        {% if profile.basic_description %}
+        {% if profile.basic_description or user|is_group_admin:object %}
           <p>{{ profile.basic_description|urlize|linebreaksbr|safe }}</p>
+        {% elif user|is_group_admin:object %}
+          <a href="{% url 'community-edit' group=object.slug %}#id_wishlist_materials" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add a description" %}</a>
         {% endif %}
         {% if profile.basic_brings_together %}
           <h3>{% trans "What brings this community together" %}</h3>
@@ -90,7 +92,7 @@
         {% endif %}
       </div>
     </div>
-    {% if profile.offers_skills or references.tag_counts.skills.items or profile.offers_services or profile.offers_creations %}
+    {% if profile.offers_skills or references.tag_counts.skills.items or profile.offers_services or profile.offers_creations or user|is_group_admin:object %}
       <div class="row">
         <h2>{% trans "Offers" %}</h2>
         <div class="col-xs-6">

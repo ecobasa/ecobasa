@@ -346,7 +346,7 @@ BOOTSTRAP3 = {
 
 # special group all pioneers are member of and whose posts are exposed
 # override in your local settings.py
-ECOBASA_SPECIAL_COSINNUS_GROUP = 1
+ECOBASA_SPECIAL_COSINNUS_GROUP = 8
 
 # used on about page for the tour progress bar
 # can't create timezone-aware datetimes here, hence the tuple

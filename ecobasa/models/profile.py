@@ -496,7 +496,7 @@ class EcobasaCommunityProfile(models.Model):
     offers_creations = TaggableManager(_('Creations/Products'),
         through=TaggedOffersCreation,
         related_name='_offers_creation', blank=True)
-    offers_materials = TaggableManager(_('Do you have any materials that you produce or that you dont need anymore?'),
+    offers_materials = TaggableManager(_('Do you have any materials that you produce or that you dont need anymore? (What you throw away, might be useful to somebody else..)'),
         through=TaggedOffersMaterial,
         related_name='_offers_material', blank=True)
     offers_tools = TaggableManager(_('Do you have any tools that you produce or that you dont need anymore?'),
