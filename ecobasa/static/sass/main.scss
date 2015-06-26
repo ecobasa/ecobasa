@@ -1065,6 +1065,10 @@ span.mailcount {
 	.navbar-collapse ul.nav li#language-chooser {
   		border-top: 1px solid $secondary;
   	}
+  	.container.content {
+		padding-top: 0px;
+		padding-bottom: 40px;
+	}
 	#carousel-startpage {
 		.carousel-caption {
 			position: relative;
@@ -1117,6 +1121,7 @@ span.mailcount {
 	}
 	.footer.navbar {
 		background-color: rgba(218, 97, 55, 1);
+		position: relative;
 		.nav li {
 			float: left;
 		}

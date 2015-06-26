@@ -985,6 +985,11 @@ span.mailcount {
     border-top: 1px solid #f4ede3;
   }
 
+  .container.content {
+    padding-top: 0px;
+    padding-bottom: 40px;
+  }
+
   #carousel-startpage .carousel-caption {
     position: relative;
     display: block;
@@ -1035,6 +1040,7 @@ span.mailcount {
 
   .footer.navbar {
     background-color: #da6137;
+    position: relative;
   }
   .footer.navbar .nav li {
     float: left;
