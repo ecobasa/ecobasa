@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-26 12:03+0200\n"
+"POT-Creation-Date: 2015-06-26 16:40+0200\n"
 "PO-Revision-Date: 2014-11-23 18:07+0200\n"
 "Last-Translator: Sebastian Henschel <ecobasa@kodeaffe.de\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1441,28 +1441,34 @@ msgstr "Position"
 msgid "images"
 msgstr "Bilder"
 
-#: templates/contact_form/contact_form.html:4
+#: templates/contact_form/contact_form.html:7
 msgid "Contact the ecobasa team"
 msgstr "Kontaktiere das ecobasa Team"
 
-#: templates/contact_form/contact_form.html:5
+#: templates/contact_form/contact_form.html:8
 msgid ""
 "Please enter your message and your contact information here, so we can get "
 "back to you!"
-msgstr ""
-"Bitte gib deine Nachricht und deine Kontaktinformationen hier ein"
+msgstr "Bitte gib deine Nachricht und deine Kontaktinformationen hier ein"
 
-#: templates/contact_form/contact_form.html:7
-msgid "Name: "
+#: templates/contact_form/contact_form.html:12
+#, fuzzy
+msgid "Name"
 msgstr "Name: "
 
-#: templates/contact_form/contact_form.html:8
-msgid "Your e-mail: "
+#: templates/contact_form/contact_form.html:16
+#, fuzzy
+msgid "Your e-mail"
 msgstr "Deine e-mail: "
 
-#: templates/contact_form/contact_form.html:9
-msgid "Message: "
+#: templates/contact_form/contact_form.html:20
+#, fuzzy
+msgid "Message"
 msgstr "Nachricht: "
+
+#: templates/contact_form/contact_form.html:24
+msgid "Send"
+msgstr ""
 
 #: templates/cosinnus/dashboard.html:5 templates/cosinnus/dashboard.html:11
 #: templates/cosinnus/footermenu.html:40 templates/cosinnus/topmenu.html:57
@@ -2555,6 +2561,10 @@ msgstr "Posts"
 #: templates/ecobasa/includes/organisers.html:17
 msgid "Roles"
 msgstr "Rollen"
+
+#: templates/ecobasa/pioneer_detail.html:172
+msgid "of"
+msgstr "von"
 
 #: templates/ecobasa/pioneer_form.html:4
 msgid "Edit pioneer"
