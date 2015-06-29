@@ -24,7 +24,7 @@ class BlogView(FilterGroupMixin, TaggedListMixin,
 
     def get_queryset(self):
         # only public notes
-        pk = getattr(settings, 'ECOBASA_SPECIAL_COSINNUS_GROUP', 1)
+        pk = getattr(settings, 'ECOBASA_GROUP', 1)
         try:
             group = CosinnusGroup.objects.filter(pk=pk)[0]
         except IndexError:

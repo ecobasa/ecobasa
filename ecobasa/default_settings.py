@@ -345,6 +345,10 @@ BOOTSTRAP3 = {
     'jquery_url': '//code.jquery.com/jquery-2.1.0.min.js',
 }
 
+# special group for the platform itself (For the teammembers and Internal Blog)
+# override in your local settings.py
+ECOBASA_GROUP = 1
+
 # special group all pioneers are member of and whose posts are exposed
 # override in your local settings.py
 ECOBASA_SPECIAL_COSINNUS_GROUP = 8
