@@ -147,9 +147,9 @@ h3, h4, h5, h6 {
 }
 
 .navbar-default .navbar-brand {
-  background: url("../img/ecobasa_flower.png") no-repeat right;
+  background: url("../img/ecobasa_flower.png") no-repeat left;
   background-size: 16%;
-  padding-right: 34px;
+  padding-left: 34px;
   color: #f4ede3;
 }
 
