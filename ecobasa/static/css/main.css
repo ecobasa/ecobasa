@@ -136,7 +136,7 @@ h3, h4, h5, h6 {
 .header .navbar-brand h1, .header .navbar-brand h2 {
   color: #f4ede3;
   font-size: 20px;
-  margin-top: 0px;
+  margin-top: -3px;
   margin-bottom: 0px;
   font-family: 'Bree Serif';
   font-weight: normal;
