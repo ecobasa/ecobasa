@@ -18,7 +18,7 @@
 
 <form action="." method="post" enctype="multipart/form-data" novalidate="novalidate">
 {% csrf_token %}
-  {{ form.errors }}
+
 <div class="panel-group" id="accordion_registration" role="tablist" aria-multiselectable="true">
   <div class="panel panel-default">
     <a data-toggle="collapse" data-parent="#accordion" href="#collapseZero" aria-expanded="true" aria-controls="collapseOne">
@@ -178,7 +178,6 @@
         </div>
 
         {% for inlineform in formset_seed.forms %}
-        {{ inlineform.errors }}
         <div class="control-group{% if inlineform.errors %} error{% endif %}">
           <div class="controls form-inline">
             {{ inlineform.id.as_widget }}
