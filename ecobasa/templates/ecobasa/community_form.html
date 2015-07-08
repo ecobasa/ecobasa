@@ -18,7 +18,7 @@
 
 <form action="." method="post" enctype="multipart/form-data" novalidate="novalidate">
 {% csrf_token %}
-  
+  {{ form.errors }}
 <div class="panel-group" id="accordion_registration" role="tablist" aria-multiselectable="true">
   <div class="panel panel-default">
     <a data-toggle="collapse" data-parent="#accordion" href="#collapseZero" aria-expanded="true" aria-controls="collapseOne">
@@ -30,6 +30,11 @@
     </a>
     <div id="collapseZero" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingZero">
       <div class="panel-body">
+
+      <div class="row">
+        <div class="col-xs-3 required">{% bootstrap_label form.name.label %}*</div>
+        <div class="col-xs-9">{% bootstrap_field form.name show_label=False %}</div>
+      </div>
 
       <div class="row">
         <div class="col-xs-3">{% bootstrap_label form.contact_location.label %}</div>
@@ -173,6 +178,7 @@
         </div>
 
         {% for inlineform in formset_seed.forms %}
+        {{ inlineform.errors }}
         <div class="control-group{% if inlineform.errors %} error{% endif %}">
           <div class="controls form-inline">
             {{ inlineform.id.as_widget }}
