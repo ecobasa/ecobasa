@@ -2,14 +2,21 @@
 {% load i18n l10n thumbnail cms_tags static cosinnus_tags sekizai_tags ecobasa_community %}
 
 
-{% block body %}about{% endblock body %}
+{% block body %}slideshow{% endblock body %}
 
-</div>
-{% placeholder fullwidth_slider %}
 {% block content %}
-<div class="row">
-  <div class="col-xs-12">
-    {% placeholder page %}
-  </div>
+</div>
+</div>
+<div class="headimage">
+{% placeholder head_image %}
+</div>
+<div class="row gradient">
+	<div class="container content">
+		<div class="row">
+		  <div class="col-xs-12">
+		    {% placeholder page %}
+		  </div>
+		</div>
+	</div>
 </div>
 {% endblock %}
