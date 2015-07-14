@@ -117,11 +117,8 @@ h1 + h2 {
 }
 
 h1 {
-  margin-bottom: 20px;
-}
-
-h1 {
 	margin-bottom: 20px;
+	font-size: 38px;
 }
 
 h2 {
@@ -297,8 +294,14 @@ nav.navbar-sub {
 /************* Content ***************/
 
 .container.content {
-	padding-top: 80px;
+	padding-top: 50px;
 	padding-bottom: 80px;
+}
+
+.alert-success {
+  color: $green;
+  background-color: lighten($green, 40%);
+  border-color: $green;
 }
 
 /*********** Startpage ****************/
@@ -590,7 +593,7 @@ img.left {
 	height: 100%;
 }
 
-body#Community-Tours-Blog {
+body#slideshow {
 	.container.content {
 		padding-top: 0px;
 		padding-bottom: 0px;
@@ -602,7 +605,7 @@ body#Community-Tours-Blog {
 		margin-bottom: 0px;
 	}
 	.row.gradient {
-		padding-top: 50px;
+		padding-top: 10px;
 	}
 }
 
