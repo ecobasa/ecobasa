@@ -1,22 +1,38 @@
 {% extends "base.html" %}
-{% load i18n l10n thumbnail cms_tags static cosinnus_tags sekizai_tags ecobasa_community %}
+{% load i18n l10n thumbnail cms_tags static cosinnus_tags sekizai_tags ecobasa_community cms_placeholder_check %}
 
 
-{% block body %}slideshow{% endblock body %}
+{% get_placeholder "head_image" as head_image %}
+
+	{% block body %}{% if head_image %}slideshow{% endif %}{% endblock body %}
+
+
 
 {% block content %}
-</div>
-</div>
-<div class="headimage">
-{% placeholder head_image %}
-</div>
-<div class="row gradient">
-	<div class="container content">
-		<div class="row">
-		  <div class="col-xs-12">
-		    {% placeholder page %}
-		  </div>
+
+	{% if head_image %}
+
+	</div>
+	</div>
+	<div class="headimage">
+		{% placeholder head_image %}
+	</div>
+	<div class="row gradient">
+		<div class="container content">
+			<div class="row">
+			  <div class="col-xs-12">
+			    {% placeholder page %}
+			  </div>
+			</div>
 		</div>
 	</div>
-</div>
+{% else %}
+	
+	<div class="row">
+		<div class="col-xs-12">
+			{% placeholder page %}
+		</div>
+	</div>
+
+	{% endif %}
 {% endblock %}
