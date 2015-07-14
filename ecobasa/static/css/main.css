@@ -551,6 +551,7 @@ body#slideshow .headimage {
 }
 body#slideshow .row.gradient {
   padding-top: 10px;
+  padding-bottom: 80px;
 }
 
 /***************Communities**************/
