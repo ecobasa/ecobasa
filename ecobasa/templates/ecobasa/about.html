@@ -2,14 +2,14 @@
 {% load i18n l10n thumbnail cms_tags static cosinnus_tags sekizai_tags ecobasa_community cms_placeholder_check %}
 
 
+{% block body %}
 {% get_placeholder "head_image" as head_image %}
-
-	{% block body %}{% if head_image %}slideshow{% endif %}{% endblock body %}
-
+{% if head_image %}slideshow{% endif %}
+{% endblock body %}
 
 
 {% block content %}
-
+{% get_placeholder "head_image" as head_image %}
 	{% if head_image %}
 
 	</div>
