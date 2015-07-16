@@ -6,6 +6,8 @@
 
 {% block page_title %}{{ object.title }}{% endblock %}
 
+{% block body %}note-detail{% endblock body %}
+
 {% block subnav_add_right %}
 <a href="{% url 'cosinnus:note:update' group=group.slug slug=note.slug %}" class="btn">
   {% trans "Edit" %}

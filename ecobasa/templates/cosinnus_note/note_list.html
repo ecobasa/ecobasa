@@ -2,6 +2,8 @@
 {% load i18n cosinnus_tags %}
 {% block page_title %}{% trans "Notes" %}: {{group.name}} {% endblock %}
 
+{% block body %}note-list{% endblock body %}
+
 {% block breadcrumbs %}
     {{ block.super }}
     <li class="active">{% trans "Note" %}</li>

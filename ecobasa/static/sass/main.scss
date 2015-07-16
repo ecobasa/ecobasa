@@ -612,6 +612,18 @@ body#slideshow {
 	}
 }
 
+body#note-detail {
+	.container.content {
+		margin-top: 56px;
+	}
+}
+
+body#note-list {
+	.container.content {
+		padding-top: 130px;
+	}
+}
+
 /***************Communities**************/
 
 /*#community-map {
