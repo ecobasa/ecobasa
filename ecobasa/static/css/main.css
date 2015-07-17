@@ -481,10 +481,9 @@ body#blog .headimage img {
   margin-top: -160px;
 }
 
-.headimage {
-  margin-bottom: 30px;
+.headimage img {
   width: 100%;
-  height: 100%;
+  height: auto;
 }
 
 .gradient {
