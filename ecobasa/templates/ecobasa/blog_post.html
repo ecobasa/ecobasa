@@ -1,7 +1,7 @@
 {% load i18n embed_video_tags thumbnail %}
 <div class="row post">
   {% if post.video or post.image %}
-  <div class="col-xs-4">
+  <div class="col-md-4 col-xs-12">
     <a href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">
       {% if post.video %}
       <div class="video-responsive">
@@ -15,7 +15,7 @@
     </a>
   </div>
   {% endif %}
-  <div class="{% if post.video or post.image %}col-xs-8{% else %}col-xs-12{% endif %}">
+  <div class="{% if post.video or post.image %}col-md-8{% else %}col-xs-12{% endif %}">
     <a href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">
       <h2>{{ post.title }}</h2>
     </a>
