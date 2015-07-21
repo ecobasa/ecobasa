@@ -822,6 +822,10 @@ ul.references li.negative {
   color: #f4ede3;
 }
 
+.badge {
+  border: 1px solid;
+}
+
 a.email {
   margin-top: 20px;
 }
