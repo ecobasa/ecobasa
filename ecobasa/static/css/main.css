@@ -147,9 +147,13 @@ h3, h4, h5, h6 {
   background: url("../img/ecobasa_flower.png") no-repeat left;
   background-size: 16%;
   padding-left: 34px;
+  margin-left: 15px;
   color: #f4ede3;
 }
 
+.navbar-default ul.navbar-nav {
+  margin-left: 15px;
+}
 .navbar-default ul.navbar-nav > li > a {
   color: #f4ede3;
   padding-bottom: 17px;
@@ -205,11 +209,10 @@ ul.dropdown-menu > li > a:hover {
   color: #452912;
 }
 
-@media (max-width: 767px) {
-  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-    color: #f4ede3;
-  }
+.navbar-right {
+  float: right !important;
 }
+
 nav.navbar-sub {
   margin-bottom: 0px;
   border-top: 1px solid #f4ede3;
@@ -219,7 +222,7 @@ nav.navbar-sub ul li a {
 }
 
 #searchbar {
-  padding: 15px 15px 6px 10px;
+  padding: 15px 10px 6px 10px;
   white-space: nowrap;
   color: #f4ede3;
   font-size: 1.1em;
@@ -945,7 +948,7 @@ ul#postman_menu li a {
 span.mailcount {
   background: #da6137;
   border-radius: 10px;
-  padding: 1px 5px;
+  padding: 1px 0px;
 }
 
 body.group {
@@ -965,6 +968,7 @@ body.group {
 }
 
 .footer.navbar {
+  position: fixed;
   bottom: 0px;
   background-color: rgba(218, 97, 55, 0.7);
   margin-bottom: 0px;
@@ -999,9 +1003,9 @@ body.group {
   height: 100%;
 }
 
-@media (min-width: 768px) {
-  .navbar-right {
-    float: right !important;
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #f4ede3;
   }
 }
 @media (max-width: 992px) {
@@ -1010,8 +1014,12 @@ body.group {
     background-color: #da6137;
   }
 
-  .navbar-collapse ul.nav li#language-chooser {
-    border-top: 1px solid #f4ede3;
+  .navbar-collapse ul.nav {
+    float: left;
+    margin-left: 0px;
+  }
+  .navbar-collapse ul.nav > li > a {
+    padding: 15px 10px;
   }
 
   .container.content {
