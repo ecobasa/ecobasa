@@ -599,6 +599,15 @@ body#note-list .container.content {
   z-index: 7;
 }
 
+body#communities .footer.navbar {
+  position: fixed;
+}
+@media (max-width: 992px) {
+  body#communities .footer.navbar {
+    display: none;
+  }
+}
+
 /*********** Registration **************/
 .panel {
   background: #f4ede3;

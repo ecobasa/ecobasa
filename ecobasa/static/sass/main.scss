@@ -663,6 +663,17 @@ body#note-list {
 	z-index: 7;
 }
 
+body#communities {
+	.footer.navbar {
+		position: fixed;
+	}
+	@media (max-width: 992px) {
+		.footer.navbar {
+			display: none;
+		}
+	}
+}
+
 
 /*********** Registration **************/
 
