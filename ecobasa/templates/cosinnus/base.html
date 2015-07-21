@@ -36,7 +36,7 @@
     {% include 'cosinnus/extrahead.html' %}
     {% block extrahead %}{% endblock extrahead %}
   </head>
-  <body id="{% block body %}{% endblock body %}" class="{% if group %}group{% endif %}">
+  <body id="{% block body %}{% endblock body %}"{% if group %} class="group"{% endif %}>
     {% cosinnus_menu "cosinnus/topmenu.html" %}
     <div class="container content">
       {% bootstrap_messages %}

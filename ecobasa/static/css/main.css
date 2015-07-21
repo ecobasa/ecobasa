@@ -952,7 +952,6 @@ body.group {
 }
 
 .footer.navbar {
-  position: fixed;
   bottom: 0px;
   background-color: rgba(218, 97, 55, 0.7);
   margin-bottom: 0px;
