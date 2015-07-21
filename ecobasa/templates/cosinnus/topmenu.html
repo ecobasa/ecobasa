@@ -55,7 +55,7 @@
                     <a href="{% url 'pioneer-detail' request.user.username %}"><span class="glyphicon glyphicon-user"></span> {% trans "My Profile" %}</a>
                   </li>
                   <!-- <li><a href="{% url 'cosinnus:user-dashboard' %}">{% trans "Dashboard" %}</a></li> -->
-                  {% if groups %} {# only show dropdown if community #}
+                  {% if groups %} {# only show dropdown if user is in group #}
                     <li class="divider"></li>
                     <li class="dropdown-header">
                       <span class="glyphicon glyphicon-home"></span>{% if groups >= 1 %}{% trans "My Communities" %}{% else %}{% trans "My Community" %}{% endif %}
