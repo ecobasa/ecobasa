@@ -18,6 +18,25 @@ $(document).ready(function() {
     
 	$.ecobasa = {
 
+		// searchbar in top fixed navigation
+		searchbar : function() {
+			$('#searchbar').hover( function() {
+				$(this).addClass('open');
+				$(this).addClass('mouseover');
+			}, function() {
+				if (!$(this).find('input').is(':focus'))
+					$(this).removeClass('expanded');
+				$(this).removeClass('mouseover');
+			});
+			$('#searchbar').find('input').blur( function() {
+				if(!$(this).parent().hasClass('mouseover'))
+					$(this).parent().removeClass('expanded');
+			});
+			$('#searchbar').click( function() {
+				$(this).addClass('open');
+			});
+		},
+  
 		fullcalendar : function() {
 			// There are two kinds of calendar in cosinnus: big and small.
 			// The .big-calendar fills the content and shows events.
