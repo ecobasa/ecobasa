@@ -11,7 +11,7 @@ def staging():
 
 
 def production():
-    env.hosts = ['m1487@ecobasa.org']
+    env.hosts = ['ecobasa@ecobasa.org']
     env.path = '~/ecobasa/'
     env.virtualenv_path = '~/ecobasaenv/'
     env.push_branch = 'master'
@@ -34,9 +34,6 @@ def migrate():
 
 
 def reload():
-    if env.tasks[0] == 'production':
-        run("touch %(path)s/ecobasa/wsgi.py" % env)
-    else:
         run("supervisorctl reload ecobasa")
 
 def deploy():
