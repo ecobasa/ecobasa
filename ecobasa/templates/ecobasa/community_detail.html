@@ -324,9 +324,7 @@
       <div class="col-md-12">
         <h3>{% trans "Video" %}</h3>
         <div class="video-responsive">
-          {% video profile.video as my_video %}
-            {{ my_video 'small' }}
-          {% endvideo %}
+          {% video profile.video "small" %}
         </div>
       </div>
     </div>
@@ -507,9 +505,7 @@
       <div class="col-xs-12 col-sm-4">
         <a href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">
           <div class="video-responsive">
-            {% video post.video as my_video %}
-                {{ my_video 'tiny' }}
-            {% endvideo %}
+            {% video post.video "small" %}
         </div>
         </a>
       </div>
