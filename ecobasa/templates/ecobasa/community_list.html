@@ -9,6 +9,8 @@
 <link rel="stylesheet" href="{% static "css/vendor/jquery.tablesorter.theme.bootstrap.css" %}" />
 {% endblock %}
 
+{% block body %}communities{% endblock body %}
+
 {% block base_content %}
 <div id="community-map" class="community-map-large">
   <div class="btn-group view-select">
@@ -79,7 +81,7 @@
   <script src="{% static "js/vendor/jquery.tablesorter.min.js" %}"></script>
   <script src="{% static "js/vendor/jquery.tablesorter.widgets.min.js" %}"></script>
   <script src="{% static "js/ecobasa_map.js" %}"></script>
-  <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.4"></script>
+  <script type="text/javascript" src="https://stamen-maps.a.ssl.fastly.net/js/tile.stamen.js?v1.2.4"></script>
   <script type="text/javascript">
   {% get_community_locations as locations %}
   $(function() {

@@ -5,13 +5,23 @@
 
 {% block content %}
 <div class="row">
-  <div class="col-xs-12">
-    <a href="{% url 'register-member' %}" class="register btn btn-primary btn-lg">{% trans "Join as a gift-economy pioneer" %}</a>
+  <div class="col-xs-6">
+    <a href="{% url 'register-member' %}" class="register btn btn-primary btn-lg">
+    	<span class="glyphicon glyphicon-user"></span>
+    	</br>
+    	{% trans "Pioneer" %}</a>
+      <p>
+        {% trans "This is the standard sign-up for all users. Every person is a pioneer in the gift-economy network, as we beginn to walk new (ancient) paths of sustainability." %}
+      </p>
   </div>
-</div>
-<div class="row">
-  <div class="col-xs-12">
-    <a href="{% url 'register-community' %}" class="register btn btn-primary btn-lg">{% trans "Join as your communities gift-economy ambassador" %}</a>
+  <div class="col-xs-6">
+    <a href="{% url 'register-community' %}" class="register btn btn-primary btn-lg">
+    	<span class="glyphicon glyphicon-home"></span>
+    	</br>
+    	{% trans "Community Gift-Ambassador" %}</a>
+      <p>
+        {% trans "If you live in a community click here. With your pioneer profile we will create a community profile where you can whish for everything that your community needs. You will be the manager of this community on this website and other people from your community can sign up as pioneers and become members of the community-group later. You will be the contact person for volunteers that want to visit your community and help with your whishes, you can assign this role to someone else later!" %}
+      </p>
   </div>
 </div>
 {% endblock content %}

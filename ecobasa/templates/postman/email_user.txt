@@ -1,4 +1,7 @@
-{% load i18n %}{% autoescape off %}{% trans "Dear user," %}
+{% load i18n %}{% autoescape off %}
+{% blocktrans with object.recipient as recipient %}
+Dear {{recipient}},
+{% endblocktrans %}
 {% if action == 'rejection' %}
 {% blocktrans with object.sent_at|date:"DATETIME_FORMAT" as date and object.obfuscated_recipient as recipient %}On {{ date }}, you asked to send a message to the user '{{ recipient }}'.{% endblocktrans %}
 
@@ -8,9 +11,9 @@
 {% else %}{# 'acceptance' #}
 {% if object.parent_id %}{% if object.parent.sender_id == object.recipient_id %}{% blocktrans with object.parent.sent_at|date:"DATETIME_FORMAT" as date and object.obfuscated_sender as sender %}On {{ date }}, you sent a message to the user '{{ sender }}'.{% endblocktrans %}
 {% trans "Your correspondent has given you an answer." %}
-{% else %}{% blocktrans with object.sender.first_name as sender_first and object.sender.last_name as sender_last %}You have received a copy of a response from the user '{{ sender_first }} {{ sender_last }}'.{% endblocktrans %}
+{% else %}{% blocktrans with object.sender.first_name as sender_first and object.sender.last_name as sender_last %}You have received a copy of a response from '{{ sender_username }}' ({{ sender_first }} {{ sender_last }}).{% endblocktrans %}
 {% endif %}
-{% else %}{% blocktrans with object.sender.first_name as sender_first and object.sender.last_name as sender_last %}You have received a message from '{{ sender_first }} {{ sender_last }}'.{% endblocktrans %}
+{% else %}{% blocktrans with object.sender.first_name as sender_first and object.sender.last_name as sender_last and object.sender.username as sender_username %}You have received a message from '{{ sender_username }}' ({{ sender_first }} {{ sender_last }}).{% endblocktrans %}
 {% endif %}
 
 {{ object.body }}
@@ -20,4 +23,10 @@
 {% endif %}{# 'acceptance' #}
 
 {% blocktrans %}Note: This message is issued by an automated system.
-Do not reply, this would not be taken into account.{% endblocktrans %}{% endautoescape %}
+Do not reply, this would not be taken into account.{% endblocktrans %}
+{% blocktrans %}
+Have a nice day!
+This service is provided as a gift by ecobasa.org, please support us with a small donation!
+https://www.betterplace.org/en/projects/11742-ecobasa-org
+{% endblocktrans %}
+{% endautoescape %}

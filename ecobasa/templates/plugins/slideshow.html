@@ -14,12 +14,14 @@
     {% for image in slideshow.images.all %}
     <div class="item {% if forloop.first %}active{% endif %}">
       <img src="{{ image.file|thumbnail_url:"slideshow" }}" alt="{{ image.title }}">
+      {% if image.title %}
       <div class="carousel-caption">
         {{ image.logo }}
         <h1>{{ image.title }}</h1>
         <p>{{ image.text }}</p>
         <div class="caption-back"></div>
       </div>
+      {% endif %}
     </div>
     {% endfor %}
   </div>

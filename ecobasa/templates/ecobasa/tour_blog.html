@@ -1,8 +1,8 @@
 {% extends "cosinnus/base.html" %}
-{% load i18n cosinnus_tags ecobasa_blog cms_tags %}
+{% load i18n cosinnus_tags ecobasa_tour_blog cms_tags %}
 
 {% block page_title %}
-  {% blocktrans %}ecobasa.blog{% endblocktrans %}
+  {% blocktrans %}community-tours.blog{% endblocktrans %}
 {% endblock %}
 
 {% block body %}slideshow{% endblock body %}
@@ -11,13 +11,13 @@
 </div>
 </div>
 <div class="headimage">
-{% placeholder head_image %}
+{% placeholder tour_head_image %}
 </div>
 <div class="row gradient">
   <div class="container content blog">
     <div class="row tags">
       <div class="col-xs-12">
-        {% placeholder headlines %}
+        {% placeholder tour_headlines %}
         {% if tag %}
           <a href="{% url "blog" %}"><span class="label">{% trans "Show all blog-posts" %}</span></a>
         {% endif %}
@@ -34,10 +34,8 @@
       </div>
   <div class="row">
     <div class="col-xs-12">
-      {% for post in object_list %}
-        {% show_post post %}
-      {% endfor %}
-  </div>
+      {% show_posts tags=request.query.tags %}
+    </div>
 </div>
 </div>
 {% endblock %}

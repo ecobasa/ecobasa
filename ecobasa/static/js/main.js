@@ -7,7 +7,36 @@ $(window).load( function() {
 });
 
 $(document).ready(function() {
+	$('.email').tooltip();
+	
+	$('#accordion_registration .collapse').on('shown.bs.collapse', function () {
+       $(this).parent().find('.glyphicon-chevron-right').removeClass('glyphicon-chevron-right').addClass('glyphicon-chevron-down');
+    });
+    $('#accordion_registration .collapse').on('hidden.bs.collapse', function () {
+    	$(this).parent().find('.glyphicon-chevron-down').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-right');
+    });
+    
 	$.ecobasa = {
+
+		// searchbar in top fixed navigation
+		searchbar : function() {
+			$('#searchbar').hover( function() {
+				$(this).addClass('open');
+				$(this).addClass('mouseover');
+			}, function() {
+				if (!$(this).find('input').is(':focus'))
+					$(this).removeClass('expanded');
+				$(this).removeClass('mouseover');
+			});
+			$('#searchbar').find('input').blur( function() {
+				if(!$(this).parent().hasClass('mouseover'))
+					$(this).parent().removeClass('expanded');
+			});
+			$('#searchbar').click( function() {
+				$(this).addClass('open');
+			});
+		},
+  
 		fullcalendar : function() {
 			// There are two kinds of calendar in cosinnus: big and small.
 			// The .big-calendar fills the content and shows events.
@@ -252,5 +281,5 @@ $(document).ready(function() {
 	$.ecobasa.fullcalendar();
 	$.ecobasa.calendarBig();
 	$.ecobasa.calendarDayTimeChooser();
-	$('.email').tooltip();
+	$.ecobasa.searchbar();
 });

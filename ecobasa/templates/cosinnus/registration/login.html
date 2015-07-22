@@ -1,10 +1,21 @@
 {% extends "cosinnus/base.html" %}
-{% load i18n bootstrap3 %}
+{% load i18n bootstrap3 browserid %}
 
 {% block page_title %}{% trans "Login" %}{% endblock %}
 
+{% block extrahead %}
+{% browserid_css %}
+{% endblock extrahead %}
+
 {% block content %}
-  <form action="" method="post" class="form-horizontal register" role="form">
+    {% browserid_info %}
+    {% if user.is_authenticated %}
+      <p>Current user: {{ user.email }}</p>
+      {% browserid_logout text='Logout' %}
+    {% else %}
+      {% browserid_login text='Login' color='dark' %}
+    {% endif %}
+    <form action="" method="post" class="form-horizontal register" role="form">
     {% csrf_token %}
     <input type="hidden" name="next" value="{% url 'cosinnus:index' %}">
     {% bootstrap_form form layout="horizontal" %}
@@ -15,7 +26,11 @@
     {% url 'register' as register_link %}
 
     {% buttons submit=submit_label reset=reset_label reset_link=reset_link layout='horizontal' %}
-	<a class="btn btn-default None" href="{{ register_link }}">{{ register_label }}</a>
+    <a class="btn btn-default None" href="{{ register_link }}">{{ register_label }}</a>
     {% endbuttons %}
-  </form>
+    </form>
 {% endblock content %}
+
+{% block extrafooter %}
+{% browserid_js %}
+{% endblock extrafooter %}

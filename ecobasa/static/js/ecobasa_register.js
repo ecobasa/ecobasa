@@ -11,11 +11,11 @@ $(function() {
 		EcobasaProfile.initCommunity();
 	}
 
-	$('.proceed a').click(function(ev) {
-		$('.slide.show').removeClass('show').addClass('hide');
+	$('a.profile').click(function(ev) {
+		// $('.slide.show').removeClass('show').addClass('hide');
 		var slide = $(this).attr('href');
 		$(slide).removeClass('hide').addClass('show');
-		window.scrollTo(0, 140);
+		$('.registration').addClass('hide');
 
 		// FIXME: should be done more efficiently
 		if (slide != '#slide-member-bus-details') {
@@ -26,6 +26,13 @@ $(function() {
 		ev.preventDefault();
 	});
 
+	$('a.bus.profile').click(function(ev) {
+		var slide = $(this).attr('href');
+		$(slide).removeClass('hide').addClass('show');
+		$('.registration2').addClass('hide');
+
+	ev.preventDefault();
+});
 
 	$('.container .navbar-nav a').click(function(ev) {
 		var slide = $(this).attr('href');

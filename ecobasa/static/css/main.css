@@ -51,6 +51,12 @@ body {
   color: #f4ede3;
 }
 
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
+  color: #f4ede3;
+  background-color: #e34a26;
+  border-color: #b4502c;
+}
+
 a {
   color: #de7a08;
 }
@@ -75,6 +81,7 @@ h1 + h2 {
 
 h1 {
   margin-bottom: 20px;
+  font-size: 38px;
 }
 
 h2 {
@@ -103,6 +110,14 @@ h3, h4, h5, h6 {
   background-repeat: no-repeat;
 }
 
+.btn > span.glyphicon {
+  margin-right: 7px;
+}
+
+.fa {
+  margin-right: 7px;
+}
+
 /************ Header ****************/
 .header.navbar {
   position: fixed;
@@ -118,7 +133,7 @@ h3, h4, h5, h6 {
 .header .navbar-brand h1, .header .navbar-brand h2 {
   color: #f4ede3;
   font-size: 20px;
-  margin-top: 0px;
+  margin-top: -3px;
   margin-bottom: 0px;
   font-family: 'Bree Serif';
   font-weight: normal;
@@ -129,17 +144,29 @@ h3, h4, h5, h6 {
 }
 
 .navbar-default .navbar-brand {
-  background: url("../img/ecobasa_flower.png") no-repeat right;
+  background: url("../img/ecobasa_flower.png") no-repeat left;
   background-size: 16%;
-  padding-right: 34px;
+  padding-left: 34px;
+  margin-left: 15px;
   color: #f4ede3;
 }
 
+.navbar-default ul.navbar-nav {
+  margin-left: 15px;
+}
 .navbar-default ul.navbar-nav > li > a {
   color: #f4ede3;
+  padding-bottom: 17px;
 }
 .navbar-default ul.navbar-nav > li > a:hover {
   color: #452912;
+}
+.navbar-default ul.navbar-nav li.dropdown-header {
+  color: #452912;
+  white-space: nowrap;
+}
+.navbar-default ul.navbar-nav li.dropdown-header > span.glyphicon {
+  margin-right: 7px;
 }
 .navbar-default ul.navbar-nav .dropdown > a .caret {
   border-top-color: #f4ede3;
@@ -151,12 +178,14 @@ h3, h4, h5, h6 {
   color: #452912;
   background: #f4ede3;
 }
+.navbar-default ul.navbar-nav li a span.glyphicon {
+  margin-right: 7px;
+}
 
 ul.dropdown-menu {
   background: rgba(218, 97, 55, 0.8);
   color: #f4ede3;
-  width: 100%;
-  min-width: initial;
+  min-width: 100%;
 }
 ul.dropdown-menu > li > a {
   color: #f4ede3;
@@ -170,26 +199,63 @@ ul.dropdown-menu > li > a:hover {
   color: #da6137;
 }
 
-li#language-chooser {
-  width: 90px;
-}
-li#language-chooser a {
-  text-align: right;
-}
-li#language-chooser ul.dropdown-menu li a {
+.navbar-collapse ul.dropdown-menu > li > a {
   color: #f4ede3;
 }
-li#language-chooser ul.dropdown-menu li a:hover {
+.navbar-collapse ul.dropdown-menu > li > a:hover {
   color: #452912;
 }
-li#language-chooser ul.dropdown-menu li.active a {
+.navbar-collapse ul.dropdown-menu li.active a {
   color: #452912;
+}
+
+.navbar-right {
+  float: right !important;
+}
+
+nav.navbar-sub {
+  margin-bottom: 0px;
+  border-top: 1px solid #f4ede3;
+}
+nav.navbar-sub ul li a {
+  float: left;
+}
+
+#searchbar {
+  padding: 15px 10px 6px 10px;
+  white-space: nowrap;
+  color: #f4ede3;
+  font-size: 1.1em;
+}
+#searchbar ul {
+  width: 260px;
+  padding: 10px 20px 20px;
+  margin-top: 9px;
+  left: 0px;
+}
+#searchbar input {
+  display: inline;
+}
+#searchbar.expanded input {
+  width: 125px;
+  transition: all 500ms linear 0s;
+  color: #333;
+  box-shadow: none;
+}
+#searchbar i.fa-search {
+  cursor: pointer;
 }
 
 /************* Content ***************/
 .container.content {
-  padding-top: 80px;
+  padding-top: 50px;
   padding-bottom: 80px;
+}
+
+.alert-success {
+  color: #5a5527;
+  background-color: #c9c384;
+  border-color: #5a5527;
 }
 
 /*********** Startpage ****************/
@@ -418,8 +484,9 @@ body#blog .headimage img {
   margin-top: -160px;
 }
 
-.headimage {
-  margin-bottom: 30px;
+.headimage img {
+  width: 100%;
+  height: auto;
 }
 
 .gradient {
@@ -474,11 +541,33 @@ img.left {
   height: 100%;
 }
 
-/***************Communities**************/
-#community-map {
-  z-index: 1;
+body#slideshow .container.content {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+body#slideshow .container.content.blog {
+  padding-bottom: 80px;
+}
+body#slideshow .headimage {
+  margin-bottom: 0px;
+}
+body#slideshow .row.gradient {
+  padding-top: 10px;
+  padding-bottom: 80px;
 }
 
+body#note-detail .container.content {
+  margin-top: 56px;
+}
+
+body#note-list .container.content {
+  padding-top: 130px;
+}
+
+/***************Communities**************/
+/*#community-map {
+	z-index: 0;
+}*/
 .community-map-small {
   height: 300px;
 }
@@ -489,6 +578,7 @@ img.left {
 
 .community-map-large {
   position: absolute;
+  top: 0px;
   left: 0px;
   width: 100%;
   height: 100%;
@@ -497,7 +587,7 @@ img.left {
 .view-select {
   position: absolute;
   left: 45%;
-  top: 20px;
+  top: 60px;
   margin: 10px 10px 0 0;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.65);
   z-index: 7;
@@ -505,14 +595,59 @@ img.left {
 }
 
 .leaflet-top {
-  top: 20px;
+  top: 60px !important;
 }
 
 #community-map button {
   z-index: 7;
 }
 
+body#communities .footer.navbar {
+  position: fixed;
+}
+@media (max-width: 992px) {
+  body#communities .footer.navbar {
+    display: none;
+  }
+}
+
 /*********** Registration **************/
+.panel {
+  background: #f4ede3;
+}
+
+.panel-default {
+  border: none;
+}
+
+.panel-body {
+  border: 1px dotted #b4502c;
+  border-radius: 4px;
+  border-top: none;
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
+}
+
+.panel-default .panel-heading {
+  color: #80143b;
+  background-color: #da6137;
+  border: 1px solid #b4502c;
+}
+
+a.collapsed h2.panel-title {
+  color: #f4ede3;
+}
+
+.panel-default a,
+.panel-default a:focus {
+  text-decoration: none;
+  color: #80143b;
+}
+
+h2.panel-title {
+  font-size: 30px;
+}
+
 button.continue {
   padding-left: 60px;
   padding-right: 60px;
@@ -534,7 +669,11 @@ button.continue {
   width: 100%;
   padding: 10%;
   margin: 5% auto;
-  font-size: xx-large;
+  font-size: 30px;
+  white-space: normal;
+}
+.register.btn span.glyphicon {
+  font-size: 80px;
 }
 
 .navbar.navbar-default.registration {
@@ -546,11 +685,6 @@ button.continue {
 }
 .navbar.navbar-default.registration ul.navbar-nav > li > a:hover {
   color: #da6137;
-}
-
-form#form-register-member,
-form#form-register-community {
-  margin-top: 20px;
 }
 
 #slide-member-bus-ask .btn {
@@ -581,6 +715,34 @@ form#form-register-community {
   font-size: xx-large;
   margin-top: 40px;
   padding: 20px 36px;
+}
+
+.has-error .form-control,
+.avatar .form-group.has-error {
+  border: 1px dotted #e34a26;
+  border-radius: 4px;
+}
+
+.avatar .form-group.has-error {
+  padding: 15px;
+}
+
+.has-error .help-block, .has-error .control-label, .has-error .radio, .has-error .checkbox, .has-error .radio-inline, .has-error .checkbox-inline {
+  color: #e34a26;
+}
+
+.has-success .form-control {
+  border: 1px dotted #5a5527;
+}
+
+.has-success .help-block, .has-success .control-label, .has-success .radio, .has-success .checkbox, .has-success .radio-inline, .has-success .checkbox-inline {
+  color: #5a5527;
+}
+
+.form-control:focus {
+  border-color: #ff7800;
+  webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(227, 74, 38, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(227, 74, 38, 0.6);
 }
 
 /**************** Team Page *******************/
@@ -647,25 +809,33 @@ ul.references {
   padding-left: 0px;
   margin-top: 40px;
 }
-ul.references li {
+ul.references > li {
   list-style: none;
   padding: 20px;
   border: 2px dotted #da6137;
   border-radius: 10px;
   margin-bottom: 20px;
 }
-ul.references li > span {
+ul.references > li > span {
   font-weight: bold;
   margin-bottom: 10px;
 }
-ul.references li.negative {
+ul.references > li.negative {
   background: #b4502c;
   color: #f4ede3;
 }
 
-/*************** Pioneer-Profiles **************/
+.badge {
+  border: 1px solid;
+}
+
 a.email {
   margin-top: 20px;
+}
+
+/*************** Pioneer-List **************/
+.name {
+  text-align: center;
 }
 
 /*************** Caravan-Profiles **************/
@@ -728,6 +898,21 @@ body#profile img.avatar {
 }
 
 /*************** Dashboard **************/
+a#community {
+  font-family: 'Bree Serif';
+  color: #452912;
+  font-size: 18px;
+}
+a#community span.glyphicon {
+  font-size: 12px;
+}
+
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  background-color: #f4ede3;
+}
+
 #dashboard {
   padding-top: 40px;
 }
@@ -763,7 +948,11 @@ ul#postman_menu li a {
 span.mailcount {
   background: #da6137;
   border-radius: 10px;
-  padding: 1px 5px;
+  padding: 1px 0px;
+}
+
+body.group {
+  padding-top: 80px;
 }
 
 /************* Footer ******************/
@@ -786,6 +975,7 @@ span.mailcount {
   border-radius: 0px;
   border: none;
   width: 100%;
+  z-index: 9999;
 }
 
 #myCanvas {
@@ -813,10 +1003,28 @@ span.mailcount {
   height: 100%;
 }
 
+@media (max-width: 767px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #f4ede3;
+  }
+}
 @media (max-width: 992px) {
   nav.header.navbar {
     position: relative;
     background-color: #da6137;
+  }
+
+  .navbar-collapse ul.nav {
+    float: left;
+    margin-left: 0px;
+  }
+  .navbar-collapse ul.nav > li > a {
+    padding: 15px 10px;
+  }
+
+  .container.content {
+    padding-top: 0px;
+    padding-bottom: 40px;
   }
 
   #carousel-startpage .carousel-caption {
@@ -868,7 +1076,13 @@ span.mailcount {
   }
 
   .footer.navbar {
-    position: relative;
     background-color: #da6137;
+    position: relative;
+  }
+  .footer.navbar .nav li {
+    float: left;
+  }
+  .footer.navbar ul {
+    margin: 0px;
   }
 }

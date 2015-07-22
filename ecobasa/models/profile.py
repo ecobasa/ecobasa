@@ -373,7 +373,35 @@ class TaggedOffersCreation(TaggedItemBase):
         app_label = 'ecobasa'
 
 
+class TaggedOffersMaterial(TaggedItemBase):
+    content_object = models.ForeignKey('EcobasaCommunityProfile')
+
+    class Meta:
+        app_label = 'ecobasa'
+
+
+class TaggedOffersTool(TaggedItemBase):
+    content_object = models.ForeignKey('EcobasaCommunityProfile')
+
+    class Meta:
+        app_label = 'ecobasa'
+
+
 class TaggedWishSkill(TaggedItemBase):
+    content_object = models.ForeignKey('EcobasaCommunityProfile')
+
+    class Meta:
+        app_label = 'ecobasa'
+
+
+class TaggedWishMaterial(TaggedItemBase):
+    content_object = models.ForeignKey('EcobasaCommunityProfile')
+
+    class Meta:
+        app_label = 'ecobasa'
+
+
+class TaggedWishTool(TaggedItemBase):
     content_object = models.ForeignKey('EcobasaCommunityProfile')
 
     class Meta:
@@ -432,7 +460,7 @@ class EcobasaCommunityProfile(models.Model):
     # visitors
     visitors_num = models.PositiveIntegerField(
         _('maximum number of people you can host'),
-        blank=True, default=0)
+        blank=True, null=True, default=0)
     visitors_accommodation = models.TextField(_('accommodation for guests'),
         blank=True, null=True,
         help_text='Where can your visitors sleep? Do you have space for a bus, tents? How is the indoor sleeping situation? Do you have matresses, a couch?')
@@ -441,33 +469,47 @@ class EcobasaCommunityProfile(models.Model):
     wishlist_projects = models.TextField(
         _('Do you have any construction projects? List and describe them together with needed materials, tools, experts, time and knowledge.'),
         blank=True, null=True)
-    wishlist_materials = models.TextField(_('what materials do you need?'),
+    wishlist_materials = TaggableManager(_('What materials do you need?'),
+        through=TaggedWishMaterial,
+        related_name='_wishlist_material', blank=True)
+    wishlist_materials_info = models.TextField(_('Do you have any additional info about materials, or details to your request (like condition, when you need them)?'),
         blank=True, null=True)
-    wishlist_tools = models.TextField(
-        _('what tools or machines do you need?'),
+    wishlist_tools = TaggableManager(_('What tools or machines do you need?'),
+        through=TaggedWishTool,
+        related_name='_wishlist_tool', blank=True)
+    wishlist_tools_info = models.TextField(
+        _('Do you have any additional info about materials, or details to your request (like condition, when you need them) ?'),
         blank=True, null=True)
     wishlist_skills = TaggableManager(_('Are you looking for some experts that could help you with a project or problem? Tag their desired skills here:'),
         through=TaggedWishSkill,
         related_name='_wishlist_skill', blank=True)
     wishlist_special_needs = models.TextField(
-        _('special needs (knowledge, information)'), blank=True, null=True)
+        _('Special needs (knowledge, information)'), blank=True, null=True)
 
     # offers
-    offers_services = TaggableManager(_('services'),
+    offers_services = TaggableManager(_('Services offered in your community'),
         through=TaggedOffersService,
         related_name='_offers_service', blank=True)
-    offers_skills = TaggableManager(_('skills people can learn'),
+    offers_skills = TaggableManager(_('Skills people can learn in your community'),
         through=TaggedOffersSkill,
         related_name='_offers_skill', blank=True)
-    offers_creations = TaggableManager(_('creations/products'),
+    offers_creations = TaggableManager(_('Creations/Products'),
         through=TaggedOffersCreation,
         related_name='_offers_creation', blank=True)
-    offers_workshop_spaces = models.TextField(_('workshop spaces'),
+    offers_materials = TaggableManager(_('Do you have any materials that you produce or that you dont need anymore? (What you throw away, might be useful to somebody else..)'),
+        through=TaggedOffersMaterial,
+        related_name='_offers_material', blank=True)
+    offers_tools = TaggableManager(_('Do you have any tools that you produce or that you dont need anymore?'),
+        through=TaggedOffersTool,
+        related_name='_offers_tool', blank=True)
+    offers_workshop_spaces = models.TextField(_('Do you have workshop spaces, where people can build/construct/manufacture things?'),
         blank=True, null=True)
-    offers_learning_seminars = models.TextField(_('learning seminars'),
+    offers_learning_seminars = models.TextField(_('Do you offer any seminars that visitors could attend?'),
         blank=True, null=True)
 
     # basic info
+    basic_description = models.TextField(
+        _('Describe your community'), blank=True, null=True)
     basic_inhabitants = models.PositiveIntegerField(
         _('how many people live in your community?'),
         null=True, blank=True, default=0)

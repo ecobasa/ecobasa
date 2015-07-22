@@ -1,14 +1,38 @@
 {% extends "base.html" %}
-{% load i18n l10n thumbnail cms_tags static cosinnus_tags sekizai_tags ecobasa_community %}
+{% load i18n l10n thumbnail cms_tags static cosinnus_tags sekizai_tags ecobasa_community cms_placeholder_check %}
 
+{% block page_title %}
+{% page_attribute "page_title" %}
+{% endblock %}
 
-{% block body %}about{% endblock body %}
+{% block body %}{% get_placeholder "head_image" as head_image %}{% if head_image %}slideshow{% endif %}{% endblock body %}
 
 
 {% block content %}
-<div class="row">
-  <div class="col-xs-12">
-    {% placeholder page %}
-  </div>
-</div>
+{% get_placeholder "head_image" as head_image %}
+	{% if head_image %}
+
+	</div>
+	</div>
+	<div class="headimage">
+		{% placeholder head_image %}
+	</div>
+	<div class="row gradient">
+		<div class="container content">
+			<div class="row">
+			  <div class="col-xs-12">
+			    {% placeholder page %}
+			  </div>
+			</div>
+		</div>
+	</div>
+{% else %}
+	
+	<div class="row">
+		<div class="col-xs-12">
+			{% placeholder page %}
+		</div>
+	</div>
+
+	{% endif %}
 {% endblock %}

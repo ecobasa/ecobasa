@@ -7,6 +7,7 @@ $red: #e34a26;
 $brown: #452912;
 $dark-brown: #0e0700;
 $purple: #80143b;
+$green: #5A5527;
 
 
 
@@ -86,6 +87,12 @@ body {
 	color: $secondary;
 }
 
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
+  color: $secondary;
+  background-color: $red;
+  border-color: $third;
+}
+
 a {
 	color: $yellow;
 	&:hover,
@@ -100,9 +107,9 @@ a:hover {
 }
 
 h1, h2 {
-  font-family: 'Bree Serif', Courier, serif;
-  color: #ff7800;
-  margin-top: 30px;
+	font-family: 'Bree Serif', Courier, serif;
+	color: $orange;
+	margin-top: 30px;
 }
 
 h1 + h2 {
@@ -110,13 +117,14 @@ h1 + h2 {
 }
 
 h1 {
-  margin-bottom: 20px;
+	margin-bottom: 20px;
+	font-size: 38px;
 }
 
 h2 {
-  font-size: 30px;
-  color: #80143b;
-  margin-bottom: 15px;
+	font-size: 30px;
+	color: $purple;
+	margin-bottom: 15px;
 }
 
 h3, h4, h5, h6 {
@@ -139,6 +147,14 @@ h3, h4, h5, h6 {
 	background-repeat: no-repeat;
 }
 
+.btn > span.glyphicon {
+	margin-right: 7px;
+}
+
+.fa {
+	margin-right: 7px;
+}
+
 /************ Header ****************/
 
 .header.navbar {
@@ -157,7 +173,7 @@ h3, h4, h5, h6 {
 		h1, h2 {
 			color: $secondary;
 			font-size: 20px;
-			margin-top: 0px;
+			margin-top: -3px;
 			margin-bottom: 0px;
 			font-family: 'Bree Serif';
 			font-weight: normal;
@@ -170,17 +186,27 @@ h3, h4, h5, h6 {
 }
 
 .navbar-default .navbar-brand {
-	background: url('../img/ecobasa_flower.png') no-repeat right;
+	background: url('../img/ecobasa_flower.png') no-repeat left;
 	background-size: 16%;
-	padding-right: 34px;
+	padding-left: 34px;
+	margin-left: 15px;
 	color: $secondary;
 }
 
 .navbar-default ul.navbar-nav {
+	margin-left: 15px;
 	& > li > a {
 		color: $secondary;
+		padding-bottom: 17px;
 		&:hover {
 			color: $brown;
+		}
+	}
+	li.dropdown-header {
+		color: $brown;
+		white-space: nowrap;
+		> span.glyphicon {
+			margin-right: 7px;
 		}
 	}
 	.dropdown > a .caret {
@@ -193,13 +219,15 @@ h3, h4, h5, h6 {
 		color: $brown;
 		background: $secondary;
 	}
+	li a span.glyphicon {
+		margin-right: 7px;
+	}
 }
 
 ul.dropdown-menu {
 	background: rgba($primary, .8);
 	color: $secondary;
-	width: 100%;
-	min-width: initial;
+	min-width: 100%;
 	> li > a {
 		color: $secondary;
 		padding: 3px 11px;
@@ -213,29 +241,67 @@ ul.dropdown-menu {
 	}
 }
 
-li#language-chooser {
-	width: 90px;
-	a {
-		text-align: right;
-	}
-	ul.dropdown-menu {
-		li a {
-			color: $secondary;
-			&:hover {
-				color: $brown;
-			}
-		}
-		li.active a {
+.navbar-collapse ul.dropdown-menu {
+	> li > a {
+		color: $secondary;
+		&:hover {
 			color: $brown;
 		}
 	}
+	li.active a {
+		color: $brown;
+	}
 }
+
+.navbar-right {
+	float: right !important;
+}
+
+nav.navbar-sub {
+	margin-bottom: 0px;
+	border-top: 1px solid $secondary;
+	ul li a {
+		float: left;
+	}
+}
+
+#searchbar {
+    padding: 15px 10px 6px 10px;
+    white-space: nowrap;
+    color: $secondary;
+    font-size: 1.1em;
+    ul {
+    	width: 260px;
+		padding: 10px 20px 20px;
+		margin-top: 9px;
+		left: 0px;
+    }
+    input {
+	    display: inline;
+	}
+	&.expanded input {
+	    width: 125px;
+	    transition: all 500ms linear 0s;
+	    color: #333;
+	    box-shadow: none;
+	}
+	i.fa-search {
+	    cursor: pointer;
+	}
+}
+
 
 /************* Content ***************/
 
 .container.content {
-	padding-top: 80px;
+	padding-top: 50px;
 	padding-bottom: 80px;
+}
+
+.alert-success {
+  color: $green;
+  background-color: lighten($green, 40%);
+  border-color: $green;
 }
 
 /*********** Startpage ****************/
@@ -472,8 +538,9 @@ body#blog .headimage {
 	}
 }
 
-.headimage {
-	margin-bottom: 30px;
+.headimage img {
+	width: 100%;
+  	height: auto;
 }
 
 .gradient {
@@ -527,11 +594,40 @@ img.left {
 	height: 100%;
 }
 
+body#slideshow {
+	.container.content {
+		padding-top: 0px;
+		padding-bottom: 0px;
+	}
+	.container.content.blog {
+		padding-bottom: 80px;
+	}
+	.headimage {
+		margin-bottom: 0px;
+	}
+	.row.gradient {
+		padding-top: 10px;
+		padding-bottom: 80px;
+	}
+}
+
+body#note-detail {
+	.container.content {
+		margin-top: 56px;
+	}
+}
+
+body#note-list {
+	.container.content {
+		padding-top: 130px;
+	}
+}
+
 /***************Communities**************/
 
-#community-map {
-	z-index: 1;
-}
+/*#community-map {
+	z-index: 0;
+}*/
 
 .community-map-small { 
 	height: 300px; 
@@ -543,6 +639,7 @@ img.left {
 
 .community-map-large {
 	position: absolute;
+	top: 0px;
 	left: 0px;
 	width: 100%;
 	height: 100%;
@@ -551,7 +648,7 @@ img.left {
 .view-select {
 	position: absolute;
 	left: 45%;
-	top: 20px;
+	top: 60px;
 	margin: 10px 10px 0 0;
 	box-shadow: 0 1px 5px rgba(0,0,0,0.65);
 	z-index: 7;
@@ -559,15 +656,62 @@ img.left {
 }
 
 .leaflet-top {
-	top: 20px;
+	top: 60px !important;
 }
 
 #community-map button {
 	z-index: 7;
 }
 
+body#communities {
+	.footer.navbar {
+		position: fixed;
+	}
+	@media (max-width: 992px) {
+		.footer.navbar {
+			display: none;
+		}
+	}
+}
+
 
 /*********** Registration **************/
+
+.panel {
+	background: $secondary;
+}
+
+.panel-default {
+	border: none;
+}
+
+.panel-body {
+	border: 1px dotted $third;
+	border-radius: 4px;
+	border-top: none;
+	border-top-right-radius: 0px;
+	border-top-left-radius: 0px;
+}
+
+.panel-default .panel-heading {
+	color: $purple;
+	background-color: $primary;
+	border: 1px solid $third;
+}
+
+a.collapsed h2.panel-title {
+	color: $secondary;
+}
+
+.panel-default a,
+.panel-default a:focus {
+	text-decoration: none;
+	color: $purple;
+}
+
+h2.panel-title {
+	font-size: 30px;
+}
 
 button.continue {
 	padding-left: 60px;
@@ -590,7 +734,11 @@ button.continue {
 	width: 100%;
 	padding: 10%;
 	margin: 5% auto;
-	font-size: xx-large;
+	font-size: 30px;
+	white-space: normal;
+	span.glyphicon {
+		font-size: 80px;
+	}
 }
 
 .navbar.navbar-default.registration {
@@ -602,11 +750,6 @@ button.continue {
 	ul.navbar-nav>li>a:hover {
 		color: $primary;
 	}
-}
-
-form#form-register-member,
-form#form-register-community {
-margin-top: 20px;
 }
 
 #slide-member-bus-ask .btn {
@@ -636,6 +779,34 @@ margin-top: 20px;
 	font-size: xx-large;
 	margin-top: 40px;
 	padding: 20px 36px;
+}
+
+.has-error .form-control,
+.avatar .form-group.has-error {
+	border: 1px dotted $red;
+	border-radius: 4px;
+}
+
+.avatar .form-group.has-error {
+	padding: 15px;
+}
+
+.has-error .help-block, .has-error .control-label, .has-error .radio, .has-error .checkbox, .has-error .radio-inline, .has-error .checkbox-inline {
+	color: $red;
+}
+
+.has-success .form-control {
+	border: 1px dotted $green;
+}
+
+.has-success .help-block, .has-success .control-label, .has-success .radio, .has-success .checkbox, .has-success .radio-inline, .has-success .checkbox-inline {
+	color: $green;
+}
+
+.form-control:focus {
+	border-color: $orange;
+	webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(227,74,38,0.6);
+  	box-shadow: inset 0 1px 1px rgba(0,0,0,0.075),0 0 8px rgba(227,74,38,0.6);
 }
 
 /**************** Team Page *******************/
@@ -709,7 +880,7 @@ img.avatar {
 ul.references {
 	padding-left: 0px;
 	margin-top: 40px;
-	li {
+	> li {
 		list-style: none;
 		padding: 20px;
 		border: 2px dotted $primary;
@@ -726,11 +897,18 @@ ul.references {
 	}
 }
 
-
-/*************** Pioneer-Profiles **************/
+.badge {
+	border: 1px solid;
+}
 
 a.email {
 	margin-top: 20px;
+}
+
+/*************** Pioneer-List **************/
+
+.name {
+	text-align: center;
 }
 
 
@@ -799,6 +977,21 @@ body#profile {
 
 /*************** Dashboard **************/
 
+a#community {
+	font-family: 'Bree Serif';
+	color: $brown;
+	font-size: 18px;
+	span.glyphicon {
+		font-size: 12px;
+	}
+}
+
+.navbar-default .navbar-nav>.active>a, 
+.navbar-default .navbar-nav>.active>a:hover, 
+.navbar-default .navbar-nav>.active>a:focus {
+	background-color: $secondary;
+}
+
 #dashboard {
 	padding-top: 40px;
 	.panel {
@@ -834,7 +1027,11 @@ ul#postman_menu {
 span.mailcount {
 	background: $primary;
 	border-radius: 10px;
-	padding: 1px 5px;
+	padding: 1px 0px;
+}
+
+body.group {
+	padding-top: 80px;
 }
 
 
@@ -860,6 +1057,7 @@ span.mailcount {
 	border-radius: 0px;
 	border: none;
     width: 100%;
+    z-index: 9999;
 }
 
 #myCanvas {
@@ -889,10 +1087,27 @@ span.mailcount {
 	height: 100%; 
 }
 
+@media (max-width: 767px) {
+	.navbar-default .navbar-nav .open .dropdown-menu>li>a {
+		color: $secondary;
+	}
+}
+
 @media (max-width: 992px) { 
 	nav.header.navbar {
 		position: relative;
 		background-color: rgba(218, 97, 55, 1);
+	}
+	.navbar-collapse ul.nav {
+		float: left;
+		margin-left: 0px;
+		> li > a {
+			padding: 15px 10px;
+		}
+  	}
+  	.container.content {
+		padding-top: 0px;
+		padding-bottom: 40px;
 	}
 	#carousel-startpage {
 		.carousel-caption {
@@ -945,7 +1160,13 @@ span.mailcount {
 		}
 	}
 	.footer.navbar {
-		position: relative;
 		background-color: rgba(218, 97, 55, 1);
+		position: relative;
+		.nav li {
+			float: left;
+		}
+		ul {
+			margin: 0px;
+		}
 	}
 }

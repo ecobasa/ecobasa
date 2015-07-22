@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n static bootstrap3 honeypot ecobasa_registration ecobasa_tags %}
+{% load i18n static bootstrap3 honeypot ecobasa_tags browserid %}
 
 {% block page_title %}{% trans "Registration" %}{% endblock %}
 
@@ -8,70 +8,88 @@
 {{ form.media.css }}
 <link href="{% static "css/vendor/select2-bootstrap.css" %}" rel="stylesheet"/>
 <link href="{% static "css/vendor/select2.css" %}" rel="stylesheet"/>
+{% browserid_css %}
 {% endblock extrahead %}
 
 {% block content %}
 <div class="row">
   <div class="col-xs-12">
+    {% browserid_info %}
+    {% if user.is_authenticated %}
+      <p>{% trans "Already signed in as" %}: {{ user.email }}</p>
+      {% browserid_logout text='Logout' %}
+    {% else %}
+      {% browserid_login text='Login' color='dark' %}
+    {% endif %}
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12 col-md-6">
     <form id="form-register-member" action="{% url 'register-member' %}" method="post" enctype="multipart/form-data" novalidate="novalidate">
       {% csrf_token %}
       {{ form.has_bus }}
     
-    
-    <div id="navbar-member" class="show">
-      <nav class="navbar navbar-default registration" role="navigation">
-        <ul class="nav navbar-nav">
-            <li class="active"><a href="#slide-member-personal">{% trans "personal" %}</a></li>
-            <li><a href="#slide-member-interests">{% trans "interests" %}</a></li>
-            <li><a href="#slide-member-skills-products">{% trans "skills" %}</a></li>
-            <li><a href="#slide-member-bus-ask">{% trans "bus" %}</a></li>
-        </ul>
-      </nav>
-    </div>
-    
-    
-    <div id="slide-member-personal" class="slide show">
       <div class="row">
-        <div class="col-xs-6">
-          {% bootstrap_field form.avatar %}
-        </div>
-        <div class="col-xs-6">
-          <div class="row">
-            {% render_honeypot_field %}
-            <div class="col-xs-3">{% bootstrap_label form.username.label %}</div>
-            <div class="col-xs-9">{% bootstrap_field form.username show_label=False %}</div>
-          </div>
-    
-          <div class="row">
-            <div class="col-xs-3">{% bootstrap_label form.country.label %}</div>
-            <div class="col-xs-9">{% bootstrap_field form.country show_label=False %}</div>
-          </div>
-
-          <div class="row">
-            <div class="col-xs-3">{% bootstrap_label form.email.label %}</div>
-            <div class="col-xs-9">{% bootstrap_field form.email show_label=False %}</div>
-          </div>
-
-          <div class="row">
-            <div class="col-xs-3">{% bootstrap_label form.password.label %}</div>
-            <div class="col-xs-9">{% bootstrap_field form.password show_label=False %}</div>
-          </div>
-    
-          <div class="row">
-            <div class="col-xs-3">{% bootstrap_label form.password_repeat.label %}</div>
-            <div class="col-xs-9">{% bootstrap_field form.password_repeat show_label=False %}</div>
-          </div>
-        </div>
+        {% render_honeypot_field %}
+        <div class="col-xs-3">{% bootstrap_label form.username.label %}</div>
+        <div class="col-xs-9">{% bootstrap_field form.username show_label=False %}</div>
       </div>
-    
-      <div class="row proceed">
-        <div class="col-xs-6"></div>
-        <div class="col-xs-6"><a class="pull-right" href="#slide-member-interests"><span class="glyphicon glyphicon-chevron-right"></span></a></div>
+      <div class="row">
+        <div class="col-xs-3">{% bootstrap_label form.email.label %}</div>
+        <div class="col-xs-9">{% bootstrap_field form.email show_label=False %}</div>
+      </div>
+      <div class="row">
+        <div class="col-xs-3">{% bootstrap_label form.password.label %}</div>
+        <div class="col-xs-9">{% bootstrap_field form.password show_label=False %}</div>
+      </div>
+      <div class="row">
+        <div class="col-xs-3">{% bootstrap_label form.password_repeat.label %}</div>
+        <div class="col-xs-9">{% bootstrap_field form.password_repeat show_label=False %}</div>
       </div>
     </div>
+    <div class="col-xs-12 col-md-6 avatar">
+      {% bootstrap_field form.avatar %}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <p>{% trans "As you might know, this is a gift-economy Network, by signing up on this website, you become a member of the gift-economy network for communities. For the gift-economy to work, we need some information. This is the most important thing and you should really take your time to fill out your profile, so other people can find your skills and start interacting with you. This is the most sustainable investment of time that you can do today!" %}</p>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-6 registration">
+      <a class="profile" href="#profile">
+        <button type="button" class="btn btn-primary btn-lg pull-right">
+          <span class="glyphicon glyphicon-pencil"></span> {% trans "Fill out your profile" %}
+        </button>
+      </a>
+    </div>
+    <div class="col-xs-6 registration">
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-lg center">
+          <span class="glyphicon glyphicon-log-in"></span> {% trans "No, just register" %}</br>
+          I will do it later, i promise!
+        </button>
+      </div>
+    </div>
+  </div>
     
     
-    <div id="slide-member-interests" class="slide hide">
+    <div id="profile" class="slide hide">
+      <div class="row">
+        <div class="col-xs-12">
+          <center><h2>{%trans "Profile" %}</h2></center>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-3">{% bootstrap_label form.first_name.label %}</div>
+        <div class="col-xs-9">{% bootstrap_field form.first_name show_label=False %}</div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-3">{% bootstrap_label form.last_name.label %}</div>
+        <div class="col-xs-9">{% bootstrap_field form.last_name show_label=False %}</div>
+      </div>
       <div class="row">
         <div class="col-xs-3">{% bootstrap_label form.about.label %}</div>
         <div class="col-xs-9">{% bootstrap_field form.about show_label=False %}</div>
@@ -87,44 +105,30 @@
       <div class="row">
          <div class="col-xs-12">{% bootstrap_field form.interests %}</div>
       </div>
-
-      <div class="row proceed">
-        <div class="col-xs-6"><a href="#slide-member-personal"><span class="glyphicon glyphicon-chevron-left"></span></a></div>
-        <div class="col-xs-6"><a class="pull-right" href="#slide-member-skills-products"><span class="glyphicon glyphicon-chevron-right"></span></a></div>
+      <div class="row">
+        <div class="col-xs-12">
+          {% bootstrap_field form.skills %}<br />
+          {% bootstrap_field form.products %}
+        </div>
       </div>
-    </div>
-    
-    <div id="slide-member-skills-products" class="slide hide">
-      {% bootstrap_field form.skills %}<br />
-      {% bootstrap_field form.products %}
-    
-      <div class="row proceed">
-        <div class="col-xs-6"><a href="#slide-member-interests"><span class="glyphicon glyphicon-chevron-left"></span></a></div>
-        <div class="col-xs-6-right"><a class="pull-right" href="#slide-member-bus-ask"><span class="glyphicon glyphicon-chevron-right"></span></a></div>
+      <div class="row">
+        <div class="col-xs-3">{% bootstrap_label form.country.label %}</div>
+        <div class="col-xs-9">{% bootstrap_field form.country show_label=False %}</div>
       </div>
-    </div>
-    
-    
-    <div id="slide-member-bus-ask" class="slide hide">
-      <div class="centered">
-        <h2>{% bootstrap_label form.has_bus.label %}</h2>
-        <h3>{% trans "You can also add a bus later, it would be great if you could ask around among your friends if they want to join us with their bus!" %}</h3>
-        <div class="row proceed">
-          <div class="col-xs-6"><a class="register btn btn-default" href="#slide-member-bus-details">{% trans "YES" %}</a></div>
+      <div class="row">
+        <div class="col-xs-12 registration2">
+          <h2>{% bootstrap_label form.has_bus.label %}</h2>
+          <p>{% trans "You can also add a bus later, it would be great if you could ask around among your friends if they want to join us with their bus!" %}</p>
+        </div>
+        <div class="row registration2">
+          <div class="col-xs-6"><a class="profile btn btn-primary btn-lg pull-right bus" href="#slide-member-bus-details">{% trans "YES" %}</a></div>
           <div class="col-xs-6">
-            {% trans "NO, Register" as submit_label %}
-            {% buttons submit=submit_label %}{% endbuttons %}
+            <div class="form-group">
+              <button type="submit" class="profile btn btn-primary btn-lg">{% trans "NO, just register me!" %}</button>
+            </div>
           </div>
         </div>
-        <br />
       </div>
-    
-      <div class="row proceed">
-        <div class="col-xs-6"><a href="#slide-member-skills-products"><span class="glyphicon glyphicon-chevron-left"></span></a></div>
-        <div class="col-xs-6"><a class="pull-right" href="#slide-member-bus-details"><span class="glyphicon glyphicon-chevron-right"></span></a></div>
-      </div>
-    </div>
-    
     
     <div id="slide-member-bus-details" class="slide hide">
       <div class="row">
@@ -155,13 +159,13 @@
         </div>
       </div>
     
-      <div class="row proceed">
-        <div class="col-xs-6"><a href="#slide-member-bus-ask"><span class="glyphicon glyphicon-chevron-left"></span></a></div>
-      </div>
     
       <div class="register">
-        {% trans "Register" as submit_label %}
-        {% buttons submit=submit_label %}{% endbuttons %}
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary btn-lg center">
+            <span class="glyphicon glyphicon-log-in"></span> {% trans "Register" %}
+          </button>
+        </div>
       </div>
     </div>
     
@@ -175,6 +179,7 @@
 {% block extrafooter %}
 {{ block.super }}
 {{ form.media.js }}
+{% browserid_js %}
 <script src="{% static 'js/vendor/select2/select2.min.js' %}"></script>
 <script src="{% static 'js/ecobasa_profile.js' %}"></script>
 <script src="{% static 'js/ecobasa_register.js' %}"></script>

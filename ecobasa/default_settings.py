@@ -152,6 +152,7 @@ CMS_TEMPLATES = (
     ('start.html', 'Startpage'),
     ('ecobasa/about.html', 'About'),
     ('ecobasa/blog.html', 'Blog'),
+    ('ecobasa/tour_blog.html', 'Tour Blog'),
 )
 
 LANGUAGES = (
@@ -166,6 +167,7 @@ INSTALLED_APPS = (
     'suit',
     'django.contrib.admin',
     'django.contrib.auth',
+    'django_browserid',  # Load after auth
     'django.contrib.contenttypes',
     'django.contrib.humanize',
     'django.contrib.sessions',
@@ -203,6 +205,7 @@ INSTALLED_APPS = (
     'honeypot',
     'postman',
     'embed_video',
+    'contact_form',
 
     # CMS
     'cms',
@@ -255,6 +258,14 @@ LOGGING = {
 }
 
 
+AUTHENTICATION_BACKENDS = {
+
+   'django.contrib.auth.backends.ModelBackend',
+   'django_browserid.auth.BrowserIDBackend',
+
+}
+
+
 # userprofile settings
 USERPROFILES_CHECK_UNIQUE_EMAIL = True
 USERPROFILES_DOUBLE_CHECK_EMAIL = False
@@ -292,7 +303,7 @@ COSINNUS_USER_PROFILE_MODEL = 'ecobasa.EcobasaUserProfile'
 COSINNUS_USER_PROFILE_SERIALIZER = 'ecobasa.models.serializers.EcobasaUserProfileSerializer'
 
 # etherpad
-COSINNUS_ETHERPAD_BASE_URL = 'http://pad.community-tours.org/api'
+COSINNUS_ETHERPAD_BASE_URL = 'http://pad.ecobasa.org/api'
 COSINNUS_ETHERPAD_API_KEY = 'ksudJAWqzcglHCt9IZ6NDjiVaDCKinLH'
 
 # hide apps from automatic listing
@@ -334,9 +345,13 @@ BOOTSTRAP3 = {
     'jquery_url': '//code.jquery.com/jquery-2.1.0.min.js',
 }
 
+# special group for the platform itself (For the teammembers and Internal Blog)
+# override in your local settings.py
+ECOBASA_GROUP = 1
+
 # special group all pioneers are member of and whose posts are exposed
 # override in your local settings.py
-ECOBASA_SPECIAL_COSINNUS_GROUP = 1
+ECOBASA_SPECIAL_COSINNUS_GROUP = 8
 
 # used on about page for the tour progress bar
 # can't create timezone-aware datetimes here, hence the tuple

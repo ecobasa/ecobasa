@@ -11,7 +11,7 @@
 
 
 {% block content %}
-    <h1>{% trans "The gift-economy pioneers, taking part in the first Community-Tour" %}</h1>
+    <h1>{% trans "Gift-economy pioneers making the world a better place" %}</h1>
     {% if user.is_superuser %}
     <a class="btn btn-primary pull-right" href="{% url 'cosinnus:user-add' %}">{% trans "Add user" %}</a>
     {% endif %}
@@ -21,9 +21,9 @@
         <thead>
             <tr>
                 <th>{% trans "Pioneer" %}</th>
+                <th class="sorter-false">{% trans "About" %}</th>
                 <th class="sorter-false">{% trans "Skills" %}</th>
                 <th class="sorter-false">{% trans "Bus" %}</th>
-                <th>{% trans "Country" %}</th>
             </tr>
         </thead>
         {% for pioneer in pioneers %}
@@ -36,8 +36,11 @@
                 {% else %}
                   <img class="avatar media-object" src="http://placehold.it/30x30">
                 {% endif %}
-                {{ pioneer.username }}
+                <div class="name">{{ pioneer.username }}</div>
                 </a>
+            </th>
+            <th>
+                {{ profile.about }}
             </th>
             <th>{% for tag in profile.skills.all %}{{ tag }}{% if not forloop.last %}, {% endif %}{% endfor %}</th>
             <th>
@@ -46,9 +49,6 @@
                     <img src="{{ profile.bus_image|thumbnail_url:"bus_medium" }}" />
                 {% endif %}
                 {% endif %}
-            </th>
-            <th>
-                {{ profile.get_country_display }}
             </th>
         </tr>
         {% endwith %}

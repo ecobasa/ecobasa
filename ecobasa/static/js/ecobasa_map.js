@@ -4,7 +4,7 @@ EcobasaMap = {
 	attrib: 'Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
 	minZoom: 8,
 	maxZoom: 13,
-	defaultZoom: 5,
+	defaultZoom: 2,
 	tms: true,
 
 	addMarker: function(lat, lon, community) {

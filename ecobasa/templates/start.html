@@ -16,7 +16,7 @@
 <div class="description">
   <div class="container">
     <div class="col-xs-12">
-      <a href="http://old.ecobasa.org">{% placeholder text %}</a>
+      <a href="/accounts/register/">{% placeholder text %}</a>
     </div>
   </div>
 </div>
@@ -34,7 +34,7 @@
     <div class="carousel-caption static">
       <div class="container">
         <div class="col-xs-12 col-md-10 col-md-offset-1">
-          <a href="http://community-tours.org">
+          <a href="{% url 'pages-details-by-slug' slug='community-tours' %}">
             <div class="col-xs-12 col-md-3">
               <img class="bus" src="{% static "img/start-bus.png" %}" alt="Community-Tours: a gift-economy experience">
             </div>
