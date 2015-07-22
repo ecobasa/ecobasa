@@ -19,10 +19,10 @@ EcobasaMap = {
 			maxZoom: EcobasaMap.maxZoom,
 			attribution: EcobasaMap.attrib
 		});
-
-		var layer1 = new L.StamenTileLayer("watercolor", {
+		var url = "https://stamen-tiles.a.ssl.fastly.net/"
+		var layer1 = new L.TileLayer("https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.png", {
 		});
-		var layer2 = new L.StamenTileLayer("toner-lite", {
+		var layer2 = new L.TileLayer("https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.png", {
 			opacity: 0.1,
 		});
 		EcobasaMap.map.addLayer(layer);
