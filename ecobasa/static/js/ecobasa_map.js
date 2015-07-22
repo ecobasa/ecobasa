@@ -1,6 +1,6 @@
 EcobasaMap = {
 	map: null,
-	mapUrl: "http://otile1.mqcdn.com/tiles/1.0.0/sat/{z}/{x}/{y}.png",
+	mapUrl: "https://stamen-tiles.a.ssl.fastly.net/tiles/1.0.0/sat/{z}/{x}/{y}.png",
 	attrib: 'Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
 	minZoom: 8,
 	maxZoom: 13,
