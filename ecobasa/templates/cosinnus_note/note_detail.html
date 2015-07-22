@@ -42,12 +42,10 @@
 {% block content %}
 {% if object.video or object.image %}
   {% if object.video %}
-    {% video object.video as my_video %}
     <!-- see http://django-embed-video.readthedocs.org/en/latest/examples.html#template-examples -->
     <div class="video-responsive">
-      {{ my_video|embed:'medium' }}
+      {% video object.video "medium" %}
     </div>
-    {% endvideo %}
   {% else %}
   <div class="headimage">
     <img src="{{ object.image|thumbnail_url:"note_large" }}" alt="{{ object.title }}"/>
