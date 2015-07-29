@@ -463,7 +463,7 @@ class EcobasaCommunityProfile(models.Model):
         blank=True, null=True, default=0)
     visitors_accommodation = models.TextField(_('accommodation for guests'),
         blank=True, null=True,
-        help_text='Where can your visitors sleep? Do you have space for a bus, tents? How is the indoor sleeping situation? Do you have matresses, a couch?')
+        help_text=_('Where can your visitors sleep? Do you have space for a bus, tents? How is the indoor sleeping situation? Do you have matresses, a couch? Do you have a donations or a pricing model? Required daily working amount or epxeriences?')
 
     # wishlist
     wishlist_projects = models.TextField(
@@ -478,7 +478,7 @@ class EcobasaCommunityProfile(models.Model):
         through=TaggedWishTool,
         related_name='_wishlist_tool', blank=True)
     wishlist_tools_info = models.TextField(
-        _('Do you have any additional info about materials, or details to your request (like condition, when you need them) ?'),
+        _('Do you have any additional info about tools, or details to your request (like condition, when you need them) ?'),
         blank=True, null=True)
     wishlist_skills = TaggableManager(_('Are you looking for some experts that could help you with a project or problem? Tag their desired skills here:'),
         through=TaggedWishSkill,
