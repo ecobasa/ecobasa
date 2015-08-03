@@ -2,7 +2,7 @@
 {% load i18n cosinnus_tags ecobasa_tour_blog cms_tags %}
 
 {% block page_title %}
-  {% blocktrans %}community-tours.blog{% endblocktrans %}
+  {% blocktrans %}Community-Tours Blog{% endblocktrans %}
 {% endblock %}
 
 {% block body %}slideshow{% endblock body %}
@@ -22,7 +22,7 @@
       </div>
   <div class="row">
     <div class="col-xs-12">
-      {% show_posts tags=request.query.tags %}
+      {% show_posts tag=request.GET.tag %}
     </div>
 </div>
 </div>
