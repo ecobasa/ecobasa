@@ -314,7 +314,7 @@ class EcobasaUserProfile(BaseUserProfile):
 
     interests = TaggableManager(_('interests'),
         through=TaggedInterest, related_name='_interest', blank=True,
-        help_text='A comma-separated list of tags. You can type anything here. You can also chose from other users tags. Connect two words with a "-" to have one tag.')
+        help_text=_('A comma-separated list of tags. You can type anything here. You can also chose from other users tags. Connect two words with a "-" to have one tag.'))
     about = models.TextField(_('About you'),
         blank=True,
         null=True)
@@ -325,10 +325,10 @@ class EcobasaUserProfile(BaseUserProfile):
 
     skills = TaggableManager(_('knowledge/skills'),
         through=TaggedSkill, related_name='_skill', blank=True,
-        help_text='What skills do you have? What can you do to help others? What can you teach someone?')
+	help_text=_('What skills do you have? What can you do to help others? What can you teach someone?'))
     products = TaggableManager(_('products'),
         through=TaggedProduct, related_name='_product', blank=True,
-        help_text='Can you manufacture any products, like jewelery, furniture, clothes, soap etc.. ?')
+        help_text=_('Can you manufacture any products, like jewelery, furniture, clothes, soap etc.. ?'))
 
     # bus fields
     has_bus = models.BooleanField(
@@ -463,7 +463,7 @@ class EcobasaCommunityProfile(models.Model):
         blank=True, null=True, default=0)
     visitors_accommodation = models.TextField(_('accommodation for guests'),
         blank=True, null=True,
-        help_text=_('Where can your visitors sleep? Do you have space for a bus, tents? How is the indoor sleeping situation? Do you have matresses, a couch? Do you have a donations or a pricing model? Required daily working amount or epxeriences?')
+        help_text=_('Where can your visitors sleep? Do you have space for a bus, tents? How is the indoor sleeping situation? Do you have matresses, a couch? Do you have a donations or a pricing model? Required daily working amount or epxeriences?'))
 
     # wishlist
     wishlist_projects = models.TextField(

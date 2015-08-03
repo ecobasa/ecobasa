@@ -8,18 +8,17 @@ register = template.Library()
 
 
 @register.inclusion_tag('ecobasa/blog_post_list.html', takes_context=True)
-def show_posts(context, tags):
-    
+def show_posts(context, tag):
     # only public notes
     qs = Note.objects.filter(media_tag__public=True)
     qs = qs.prefetch_related('tags')
-    if tags:
-        qs = qs.filter(tags=tags)
+    if tag:
+        qs = qs.filter(tags__slug=tag)
 
-    bloglist = []
-    for n in qs.select_related('group', 'group__caravan'):
-        if hasattr(n.group, 'caravan'):
-           bloglist.append(n)
-    context['object_list'] = bloglist
+    posts = []
+    for post in qs.select_related('group', 'group__caravan'):
+        if hasattr(post.group, 'caravan'):
+           posts.append(post)
+    context['object_list'] = posts
 
     return context
