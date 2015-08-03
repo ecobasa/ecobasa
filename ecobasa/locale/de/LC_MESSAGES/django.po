@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-07-29 14:52+0200\n"
+"POT-Creation-Date: 2015-08-03 11:43+0200\n"
 "PO-Revision-Date: 2014-11-23 18:07+0200\n"
 "Last-Translator: Sebastian Henschel <ecobasa@kodeaffe.de\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1760,7 +1760,7 @@ msgstr "Pads"
 #: templates/cosinnus_event/event_list.html:21
 #: templates/cosinnus_note/note_list.html:34
 #: templates/cosinnus_todo/todoentry_list.html:21
-#: templates/ecobasa/blog.html:30 templates/ecobasa/tour_blog.html:30
+#: templates/ecobasa/blog.html:30
 msgid "No tags available."
 msgstr "Keine Tags verfügbar"
 
@@ -2069,9 +2069,13 @@ msgstr "Ankündigungen"
 msgid "ecobasa.blog"
 msgstr "ecobasa.blog"
 
-#: templates/ecobasa/blog.html:22 templates/ecobasa/tour_blog.html:22
+#: templates/ecobasa/blog.html:22
 msgid "Show all blog-posts"
 msgstr "Alle Blog-Nachrichten anzeigen"
+
+#: templates/ecobasa/blog_post.html:29
+msgid "read more <span class=\"glyphicon glyphicon-arrow-right\"></span>"
+msgstr "weiterlesen <span class=\"glyphicon glyphicon-arrow-right\"></span>"
 
 #: templates/ecobasa/bus_add.html:4
 msgid "Add your bus"
