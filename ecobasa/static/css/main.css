@@ -164,6 +164,8 @@ h3, h4, h5, h6 {
 .navbar-default ul.navbar-nav li.dropdown-header {
   color: #452912;
   white-space: nowrap;
+  margin-top: -5px;
+  padding-top: 0px;
 }
 .navbar-default ul.navbar-nav li.dropdown-header > span.glyphicon {
   margin-right: 7px;
@@ -898,12 +900,12 @@ body#profile img.avatar {
 }
 
 /*************** Dashboard **************/
-a#community {
+a#group {
   font-family: 'Bree Serif';
   color: #452912;
   font-size: 18px;
 }
-a#community span.glyphicon {
+a#group span.glyphicon {
   font-size: 12px;
 }
 
