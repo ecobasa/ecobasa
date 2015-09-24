@@ -125,6 +125,7 @@ THUMBNAIL_ALIASES = {
         'event': {'size': (70, 70), 'crop': True, 'upscale': True },
         'note_large': {'size': (1140, 400), 'crop': True, 'upscale': True },
         'note_medium': {'size': (350, 250), 'crop': True, 'upscale': True },
+        'note_small': {'size': (175, 125), 'crop': True, 'upscale': True },
         'slideshow': {'size': (1920, 700), 'crop': True, 'upscale': True },
     },
 }
