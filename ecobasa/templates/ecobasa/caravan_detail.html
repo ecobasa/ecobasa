@@ -1,5 +1,10 @@
 {% extends "cosinnus/base.html" %}
-{% load i18n thumbnail cosinnus_tags embed_video_tags %}
+{% load static l10n i18n thumbnail cosinnus_tags embed_video_tags %}
+
+{% block extrahead %}
+{{ block.super }} 
+<link rel="stylesheet" href="{% static "leaflet/leaflet.css" %}" />
+{% endblock %}
 
 {% block page_title %}
   {% blocktrans with group_name=object.name %}Caravan “{{ group_name }}”{% endblocktrans %}
@@ -160,15 +165,33 @@
 
 <div class="row">
   <div class="events col-xs-12">
-  <h2>{% trans "Visiting these Places" %}</h2>
-  {% if user.is_superuser or user|is_group_member:object %}
-    <a href="{% url 'cosinnus:event:entry-add' group=object.slug %}" class="btn btn-primary btn-lrg"><span class="glyphicon glyphicon-plus"></span> {% trans "Add Community visit" %}</a></br>
-  {% endif %}
-  <ul>
-  {% for event in events %}
-    <li><a href="{% url "cosinnus:event:entry-detail" group=object.slug slug=event.slug %}">{{ event.title }}</a>{% if event.from_date %}: {{ event.from_date }} {% if event.to_date %} - {{ event.to_date }}{% endif %}{% endif %}</li>
-  {% endfor %}
-  </ul>
+    <h2>{% trans "Visiting these Places" %}</h2>
+    {% if user.is_superuser or user|is_group_member:object %}
+      <a href="{% url 'cosinnus:event:entry-add' group=object.slug %}" class="btn btn-primary btn-lrg"><span class="glyphicon glyphicon-plus"></span> {% trans "Add Community visit" %}</a></br>
+    {% endif %}
+
+    {% if events %}
+    <div id="tour-map" class="community-map-small"></div>
+
+    <table id="location-table" class="table table-striped">
+      <thead>
+        <tr>
+            <th>{% trans "Image" %}
+            <th>{% trans "Name" %}</th>
+            <th class="sorter-false">{% trans "Description" %}</th>
+            <th class="sorter-false">{% trans "Time" %}</th>
+        </tr>
+      </thead>
+    {% for event in events reversed %}
+    <tr>
+      <th>{% if event.image %}<img src="{{ event.image|thumbnail_url:"note_small" }}" alt="{{ event.title }}"/>{% endif %}</th>
+      <th><a href="{% url "cosinnus:event:entry-detail" group=object.slug slug=event.slug %}">{{ event.title }}</a></th>
+      <th>{{ event.note|urlize|linebreaksbr|safe }}</th>
+      <th>{% if event.from_date %}{{ event.from_date }}{% endif %} - {% if event.to_date %}{{ event.to_date }}{% endif %}</th>
+    </tr>
+    {% endfor %}
+    </table>
+    {% endif %}
   </div>
 </div>
 
@@ -299,3 +322,30 @@
 {% endif %}
 
 {% endblock %}
+
+{% block extrafooter %}
+  {{ block.super }}
+  <script src="{% static "leaflet/leaflet.js" %}"></script>
+  <script src="{% static "js/ecobasa_map.js" %}"></script>
+  <script src="{% static "leaflet/leaflet-routeboxer.js" %}"></script>
+  <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.4"></script>
+  <script type="text/javascript">
+
+  $(function() {
+    EcobasaMap.init('tour-map');
+    {% for event in events %}
+    {% with lat=event.location.latitude|unlocalize lon=event.location.longitude|unlocalize %}
+    EcobasaMap.addMarker({{ lat }}, {{ lon }}, '<a href="{% url "cosinnus:event:entry-detail" group=object.slug slug=event.slug %}">{{ event.title }}</a>');
+    {% endwith %}
+    {% endfor %}
+    var area = [
+    {% for event in events %}
+    {% with lat=event.location.latitude|unlocalize lon=event.location.longitude|unlocalize %}
+    [{{ lat }}, {{ lon }}],
+    {% endwith %}
+    {% endfor %}
+    ];
+    EcobasaMap.map.fitBounds(area);
+  });
+  </script>
+{% endblock extrafooter %}
