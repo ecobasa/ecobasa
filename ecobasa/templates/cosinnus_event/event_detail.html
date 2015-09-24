@@ -67,45 +67,45 @@
       {% endif %}
     </div>
   </div>
-
-  <hr />
-
-  <h3>{% trans "Suggestions" %}</h3>
-  <ul class="list-group">
-    {% for suggestion in object.suggestions.all %}
-    <li class="list-group-item">
-      {% if suggestion.single_day %}
-        {{ suggestion.from_date|date:"d. F Y h:i" }} - {{ suggestion.to_date|date:"h:i" }}
-      {% else %}
-        {{ suggestion.from_date|date:"d. F Y h:i" }} - {{ suggestion.to_date|date:"d. F Y h:i" }}
-      {% endif %}
-      {% if suggestion.votes.all %}
-        ({{ suggestion.count }})
-        {% for vote in suggestion.votes.all %}
-          {% if not forloop.first %}, {% endif %}{{ vote.voter }}
+  <div class="row">
+    <div class="col-md12">
+      <h3>{% trans "Suggestions" %}</h3>
+      <ul class="list-group">
+        {% for suggestion in object.suggestions.all %}
+        <li class="list-group-item">
+          {% if suggestion.single_day %}
+            {{ suggestion.from_date|date:"d. F Y h:i" }} - {{ suggestion.to_date|date:"h:i" }}
+          {% else %}
+            {{ suggestion.from_date|date:"d. F Y h:i" }} - {{ suggestion.to_date|date:"d. F Y h:i" }}
+          {% endif %}
+          {% if suggestion.votes.all %}
+            ({{ suggestion.count }})
+            {% for vote in suggestion.votes.all %}
+              {% if not forloop.first %}, {% endif %}{{ vote.voter }}
+            {% endfor %}
+          {% else %}
+            {% trans "No votes for this suggestion." %}
+          {% endif %}
+        </li>
         {% endfor %}
-      {% else %}
-        {% trans "No votes for this suggestion." %}
-      {% endif %}
-    </li>
-    {% endfor %}
-  </ul>
-
-  <hr />
-
-  {% if user.is_superuser or user|is_group_member:group %}
-  <div class="btn-group">
-      <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">{% trans "Actions" %} <span class="caret"></span></a>
-      <ul class="dropdown-menu">
-          <li><a href="{% url 'cosinnus:event:entry-edit' group=group.slug slug=object.slug %}"><span class="glyphicon glyphicon-pencil"></span> {% trans "Edit" %}</a></li>
-          <li><a href="{% url 'cosinnus:event:entry-delete' group=group.slug slug=object.slug %}"><span class="glyphicon glyphicon-trash"></span> {% trans "Delete" %}</a></li>
-          <li class="divider"></li>
-          <li><a href="{% url 'cosinnus:event:entry-vote' group=group.slug slug=object.slug %}"><span class="glyphicon glyphicon-user"></span> {% trans "Vote" context "the verb" %}</a></li>
       </ul>
-  </div>
-  {% endif %}
 
+      <hr />
 
+      {% if user.is_superuser or user|is_group_member:group %}
+        <div class="btn-group">
+          <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">{% trans "Actions" %} <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+              <li><a href="{% url 'cosinnus:event:entry-edit' group=group.slug slug=object.slug %}"><span class="glyphicon glyphicon-pencil"></span> {% trans "Edit" %}</a></li>
+              <li><a href="{% url 'cosinnus:event:entry-delete' group=group.slug slug=object.slug %}"><span class="glyphicon glyphicon-trash"></span> {% trans "Delete" %}</a></li>
+              <li class="divider"></li>
+              <li><a href="{% url 'cosinnus:event:entry-vote' group=group.slug slug=object.slug %}"><span class="glyphicon glyphicon-user"></span> {% trans "Vote" context "the verb" %}</a></li>
+          </ul>
+        </div>
+      {% endif %}
+    </div><!--col-->
+  </div><!--row-->
+</div><!--cosinnus-event-->
 {% endblock content %}
 
 
