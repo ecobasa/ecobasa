@@ -1,5 +1,5 @@
 {% extends "cosinnus_event/base.html" %}
-{% load i18n l10n static cosinnus_tags %}
+{% load i18n l10n static cosinnus_tags thumbnail %}
 
 
 {% block page_title %}
@@ -20,8 +20,23 @@
 
 {% block content %}
 <div class="cosinnus-event">
+  {% if object.image %}
+  <div class="row">
+    <div class="col-md-12 headimage">
+      <img src="{{ object.image|thumbnail_url:"note_large" }}" alt="{{ object.title }}"/>
+    </div>
+  </div>
+  {% endif %}
+  <div class="row">
+    <div class="col-xs-12">
+      <h2>{{ object.title }}</h2>
+    </div>
+  </div>
   <div class="row">
     <div class="col-md-6">
+      {% if object.note %}
+      <p>{{ object.note|linebreaksbr|urlize|safe }}</p>
+      {% endif %}
       {% if object.from_date %}
       <strong>{% trans "Start" %}</strong> {{ object.from_date|date:"d. F Y h:i" }}<br />
       {% endif %}
@@ -31,14 +46,6 @@
       <strong>{% trans "Created by" %}</strong> {{ object.creator }}<br />
       {% if object.state %}
       <strong>{% trans "State" %}</strong> {{ object.get_state_display }}<br />
-      {% endif %}
-      {% if object.note %}
-      <strong>{% trans "Note" %}</strong><br />
-      <div class="well">{{ object.note|linebreaksbr|urlize|safe }}</div>
-      {% endif %}
-      {% if object.image %}
-      <strong>{% trans "Image" %}</strong><br />
-      <img src="{{ object.image.url }}" />
       {% endif %}
     </div>
     <div class="col-md-6">
