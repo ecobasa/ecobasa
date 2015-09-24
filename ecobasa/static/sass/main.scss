@@ -205,6 +205,8 @@ h3, h4, h5, h6 {
 	li.dropdown-header {
 		color: $brown;
 		white-space: nowrap;
+	    margin-top: -5px;
+    	padding-top: 0px;
 		> span.glyphicon {
 			margin-right: 7px;
 		}
@@ -977,7 +979,7 @@ body#profile {
 
 /*************** Dashboard **************/
 
-a#community {
+a#group {
 	font-family: 'Bree Serif';
 	color: $brown;
 	font-size: 18px;
