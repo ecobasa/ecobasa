@@ -226,7 +226,7 @@
       </thead>
     {% for event in events reversed %}
     <tr>
-      <th>{% if event.image %}<img src="{{ event.image|thumbnail_url:"note_small" }}" alt="{{ event.title }}"/>{% endif %}</th>
+      <th>{% if event.image %}<img src="{{ event.image|thumbnail_url:'note_small' }}" alt="{{ event.title }}"/>{% endif %}</th>
       <th><a href="{% url "cosinnus:event:entry-detail" group=object.slug slug=event.slug %}">{{ event.title }}</a></th>
       <th>{{ event.note|urlize|linebreaksbr|safe|truncatewords_html:60 }}</th>
       <th>{% if event.from_date %}<span>{{ event.from_date }}</span>{% endif %} -<br>{% if event.to_date %}<span>{{ event.to_date }}</span>{% endif %}</th>
