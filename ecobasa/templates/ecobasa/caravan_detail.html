@@ -180,14 +180,28 @@
             <th>{% trans "Name" %}</th>
             <th class="sorter-false">{% trans "Description" %}</th>
             <th class="sorter-false">{% trans "Time" %}</th>
+            {% if user.is_superuser or user|is_group_member:group %}<th class="sorter-false">{% trans "Actions" %}</th>{% endif %}
         </tr>
       </thead>
     {% for event in events reversed %}
     <tr>
       <th>{% if event.image %}<img src="{{ event.image|thumbnail_url:"note_small" }}" alt="{{ event.title }}"/>{% endif %}</th>
       <th><a href="{% url "cosinnus:event:entry-detail" group=object.slug slug=event.slug %}">{{ event.title }}</a></th>
-      <th>{{ event.note|urlize|linebreaksbr|safe }}</th>
+      <th>{{ event.note|urlize|linebreaksbr|safe|truncatewords_html:100 }}</th>
       <th>{% if event.from_date %}{{ event.from_date }}{% endif %} - {% if event.to_date %}{{ event.to_date }}{% endif %}</th>
+      {% if user.is_superuser or user|is_group_member:group %}
+      <th>
+        <div class="btn-group">
+          <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">{% trans "Actions" %} <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+              <li><a href="{% url 'cosinnus:event:entry-edit' group=group.slug slug=event.slug %}"><span class="glyphicon glyphicon-pencil"></span> {% trans "Edit" %}</a></li>
+              <li><a href="{% url 'cosinnus:event:entry-delete' group=group.slug slug=event.slug %}"><span class="glyphicon glyphicon-trash"></span> {% trans "Delete" %}</a></li>
+              <li class="divider"></li>
+              <li><a href="{% url 'cosinnus:event:entry-vote' group=group.slug slug=event.slug %}"><span class="glyphicon glyphicon-user"></span> {% trans "Vote" context "the verb" %}</a></li>
+          </ul>
+        </div>
+      </th>
+  {% endif %}
     </tr>
     {% endfor %}
     </table>
