@@ -170,13 +170,15 @@ h3, h4, h5, h6 {
 
 .header {
 	.navbar-brand {
+		padding-top: 11px;
 		h1, h2 {
 			color: $secondary;
 			font-size: 20px;
-			margin-top: -3px;
-			margin-bottom: 0px;
 			font-family: 'Bree Serif';
 			font-weight: normal;
+    		float: left;
+    		margin-top: 0px;
+    		margin-bottom: 0px;
 		}
 		h2 {
 			font-family: "Lato",Helvetica,Arial,sans-serif;
@@ -185,12 +187,10 @@ h3, h4, h5, h6 {
 	}
 }
 
-.navbar-default .navbar-brand {
-	background: url('../img/ecobasa_flower.png') no-repeat left;
-	background-size: 16%;
-	padding-left: 34px;
-	margin-left: 15px;
-	color: $secondary;
+.navbar-default .navbar-brand #logo {
+	float: left;
+    height: 27px;
+    margin-right: 4px;
 }
 
 .navbar-default ul.navbar-nav {
@@ -461,9 +461,11 @@ body#start {
 	}
 	&.left .arrow {
 		background: url('../img/arrow-left.png') no-repeat;
+		left: 20%;
 	}
 	&.right .arrow {
 		background: url('../img/arrow-right.png') no-repeat;
+		right: 20%;
 	}
 }
 
@@ -1089,17 +1091,29 @@ body.group {
 	height: 100%; 
 }
 
-@media (max-width: 767px) {
+@media (max-width: 768px) {
 	.navbar-default .navbar-nav .open .dropdown-menu>li>a {
 		color: $secondary;
 	}
 }
 
-@media (max-width: 992px) { 
+@media (max-width: 832px) {
+	.header .navbar-brand h1 {
+		display: none;
+	}
+}
+
+@media (max-width: 768px) {
+	.header .navbar-brand h1 {
+		display: block;
+	}
 	nav.header.navbar {
 		position: relative;
 		background-color: rgba(218, 97, 55, 1);
 	}
+}
+
+@media (max-width: 992px) { 
 	.navbar-collapse ul.nav {
 		float: left;
 		margin-left: 0px;
