@@ -1,4 +1,5 @@
 {% load i18n menu_tags cosinnus_tags %}
+{% get_current_language as LANGUAGE_CODE %}
 <nav class="footer navbar navbar-default" role="navigation">
   <div class="navbar-footer">
     <div class="col-md-12">
@@ -102,7 +103,7 @@
         <h4 class="modal-title" id="myModalLabel">Happy giving!</h4>
       </div>
       <div class="modal-body">
-        <p><strong><a href="https://www.betterplace.org/en/projects/11742-ecobasa-org">
+        <p><strong><a href="https://www.betterplace.org/en/projects/11742-ecobasa-org" target="_blank">
           On betterplace.org you can see how to support us!
         </a></strong></p>
 
@@ -114,15 +115,15 @@
 
         <p>Thank you!</p>
 
-        <p>Because gift economy is not tax-deductible by German law, we can&#39;t register ecobasa as a non-profit organization. Thats why we use a dedicated free bank account from the Ethikbank.</p>
+        <p>Because gift economy is not tax-deductible by German law, we can&#39;t register ecobasa as a non-profit organization. Thats why we use a dedicated free private bank account from the Ethikbank.</p>
         <script type="text/javascript">
           /* Configure at https://www.betterplace.org/de/projects/11742-ecobasa-org/manage/iframe_donation_form */
           var _bp_iframe         = _bp_iframe || {};
           _bp_iframe.project_id  = 11742; /* REQUIRED */
-          _bp_iframe.lang        = 'en'; /* Language of the form */
+          _bp_iframe.lang        = '{{ LANGUAGE_CODE }}'; /* Language of the form */
           /* Remove "//" for further customization but *only* if you really need to! */
           //_bp_iframe.width  = 600;  /* Custom iframe-tag-width, integer, minimum 450px */
-          //_bp_iframe.color  = '6c9c2e'; /* Button and banderole color, hex without "#" */
+          _bp_iframe.color  = 'da6137'; /* Button and banderole color, hex without "#" */
           //_bp_iframe.background_color = 'fff'; /* Background-color, hex without "#" */
           //_bp_iframe.default_amount   = 50;    /* Donation-amount, integer 1-99 */
           (function() {
