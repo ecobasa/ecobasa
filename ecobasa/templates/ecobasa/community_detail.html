@@ -397,7 +397,8 @@
         {% else %}
           <p>There are no references for this community yet</p>
         {% endif %}
-        {% if can_add_reference %}<a href="{% url 'community-reference-add' object.slug %}">{% trans "Add" %}</a> | {% endif %}
+        {% if can_add_reference %}<a class="btn btn-primary" href="{% url 'community-reference-add' object.slug %}"><span class="glyphicon glyphicon-plus"></span> {% trans "Add" %}</a>{% endif %}
+        <a class="btn btn-primary pull-right" href="{% url 'community-reference-list' object.slug %}">{% trans "More" %}</a>
       </div>
     </div>
   </div><!-- sidebar -->
