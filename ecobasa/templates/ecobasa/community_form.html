@@ -169,27 +169,27 @@
       {% bootstrap_field form.wishlist_tools_info %}<br />
       {% bootstrap_field form.wishlist_skills %}<br />
 
-      <fieldset id="formset-{{ formset_seed.prefix }}">
-        <div class="row">
-          <div class="col-xs-12">
+      <div class="row">
+        <div class="col-xs-12">
+          <fieldset id="formset-{{ formset_seed.prefix }}">
             {{ formset_seed.management_form }}
             <label class="control-label" for="">{% trans "Seeds" %}</label>
-          </div>
-        </div>
 
-        {% for inlineform in formset_seed.forms %}
-        <div class="control-group{% if inlineform.errors %} error{% endif %}">
-          <div class="controls form-inline">
-            {{ inlineform.id.as_widget }}
-            {{ inlineform.DELETE.as_widget }}
-            <div class="row">
-              <div class="col-xs-9">{% bootstrap_field inlineform.kind %}</div>
-              <div class="col-xs-3">{% bootstrap_field inlineform.num %}</div>
+            {% for inlineform in formset_seed.forms %}
+            <div class="control-group{% if inlineform.errors %} error{% endif %}">
+              <div class="controls form-inline">
+                {{ inlineform.id.as_widget }}
+                {{ inlineform.DELETE.as_widget }}
+                <div class="row">
+                  <div class="col-xs-9">{% bootstrap_field inlineform.kind %}</div>
+                  <div class="col-xs-3">{% bootstrap_field inlineform.num %}</div>
+                </div>
+              </div>
             </div>
-           </div>
-        </div>
-        {% endfor %}
+            {% endfor %}
       </fieldset>
+    </div>
+  </div>
 
       {% bootstrap_field form.wishlist_special_needs %}
 
