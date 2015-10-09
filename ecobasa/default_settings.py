@@ -310,11 +310,7 @@ COSINNUS_ETHERPAD_API_KEY = 'ksudJAWqzcglHCt9IZ6NDjiVaDCKinLH'
 # hide apps from automatic listing
 COSINNUS_HIDE_APPS = ('cosinnus_message',)
 
-# Conflict between CMS and DebugToolbar resolved by following
-# http://zerokspot.com/weblog/2013/12/25/django-cms-and-debug-toolbar/
-# http://django-debug-toolbar.readthedocs.org/en/1.0/installation.html#explicit-setup
-DEBUG_TOOLBAR_PATCH_SETTINGS = False
-INTERNAL_IPS = ('127.0.0.1', '::1', 'localhost',)
+#INTERNAL_IPS = ('127.0.0.1', '::1', 'localhost',)
 
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
