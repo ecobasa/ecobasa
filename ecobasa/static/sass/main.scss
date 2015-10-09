@@ -895,8 +895,14 @@ ul.references {
 			margin-bottom: 10px;
 		}
 		&.negative {
-			background: $third;
+			background: rgba($third, 0.5);
 			color: $secondary;
+			> a {
+				color: $purple;
+				&:hover {
+					color: $primary;
+				}
+			}
 		}
 	}
 }
