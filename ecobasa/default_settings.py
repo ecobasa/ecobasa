@@ -16,6 +16,7 @@ if 'test' in sys.argv:
 
 SOUTH_MIGRATION_MODULES = {
     'taggit': 'taggit.south_migrations',
+    'djangocms_text_ckeditor': 'djangocms_text_ckeditor.migrations',
 }
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
@@ -316,6 +317,16 @@ COSINNUS_HIDE_APPS = ('cosinnus_message',)
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
 
+CKEDITOR_SETTINGS = {
+    'language': '{{ language }}',
+    'width': '100%',
+    'toolbar_HTMLField': [
+        ['Undo', 'Redo'],
+        ['ShowBlocks'],
+        ['Format', 'Styles'],
+    ],
+    'skin': 'moono',
+}
 
 # Search
 HAYSTACK_CONNECTIONS = {

@@ -17,6 +17,6 @@
     <a href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">
       <h2>{{ post.title }}</h2>
     </a>
-     <p>{{ post.text|urlize|linebreaksbr|safe|truncatewords:80 }}... <a class="more" href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">read more <span class="glyphicon glyphicon-arrow-right"></span></a><p>
+     <p>{% autoescape off %}{{ post.text|urlize|linebreaks|truncatewords:80 }}{% endautoescape %}... <a class="more" href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">read more <span class="glyphicon glyphicon-arrow-right"></span></a><p>
   </div>
 </div>
