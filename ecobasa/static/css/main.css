@@ -56,10 +56,6 @@ a {
   color: #de7a08;
 }
 a:hover, a:focus {
-  color: #ff7800;
-}
-
-a:hover {
   color: #80143b;
   text-decoration: none;
 }
@@ -610,6 +606,17 @@ body#communities .footer.navbar {
   body#communities .footer.navbar {
     display: none;
   }
+}
+
+.leaflet-popup-content h5 {
+  font-family: 'Bree Serif';
+}
+.leaflet-popup-content a {
+  color: #de7a08 !important;
+}
+.leaflet-popup-content a:hover, .leaflet-popup-content a:focus {
+  color: #80143b !important;
+  text-decoration: none;
 }
 
 /*********** Registration **************/

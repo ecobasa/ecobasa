@@ -97,13 +97,9 @@ a {
 	color: $yellow;
 	&:hover,
 	&:focus {
-		color: $orange;
+		color: $purple;
+		text-decoration: none;
 	}
-}
-
-a:hover {
-	color: $purple;
-	text-decoration: none;
 }
 
 h1, h2 {
@@ -678,6 +674,19 @@ body#communities {
 	}
 }
 
+.leaflet-popup-content{
+	h5 {
+	    font-family: 'Bree Serif';
+	}
+	a {
+		color: $yellow !important;
+		&:hover,
+		&:focus {
+			color: $purple !important;
+			text-decoration: none;
+		}
+	}
+}
 
 /*********** Registration **************/
 
