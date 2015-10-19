@@ -19,6 +19,8 @@ def get_community_locations():
             'lon': com.contact_location_lon,
             'name': com.name,
             'slug': com.group.slug,
+            'image': com.image,
+            'text': com.basic_description,
         }
 
     qs = EcobasaCommunityProfile.objects.all().select_related('group')
