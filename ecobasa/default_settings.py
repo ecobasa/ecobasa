@@ -307,7 +307,7 @@ COSINNUS_USER_PROFILE_SERIALIZER = 'ecobasa.models.serializers.EcobasaUserProfil
 
 # etherpad
 COSINNUS_ETHERPAD_BASE_URL = 'http://pad.ecobasa.org/api'
-COSINNUS_ETHERPAD_API_KEY = 'ksudJAWqzcglHCt9IZ6NDjiVaDCKinLH'
+COSINNUS_ETHERPAD_API_KEY = '30e6027d19afd4bbdbea69b1370c55552505e8f8d2edf4eb60f7e49fc1e48f04'
 
 # hide apps from automatic listing
 COSINNUS_HIDE_APPS = ('cosinnus_message',)
