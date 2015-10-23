@@ -11,7 +11,7 @@
 <meta property="og:image:height" content="250" />
 <meta property="og:description" content="{{ object.text|linebreaks|truncatewords:80 }}" />
 <meta property="og:type" content="article" />
-<meta property="article:author" content="{{ object.creator.get_full_name|default:object.creator.username }}" />
+<meta property="article:author" content="{% url 'cosinnus:user-detail' username=object.creator.get_username %}" />
 {% endblock extrahead %}
 
 {% block page_title %}{{ object.title }}{% endblock %}
@@ -93,7 +93,8 @@
       <h2>{{ object.title }}</h2>
       <h5 class="media-heading muted pull-right">{{ object.created }}</h5>
       <span class="details">
-        {% blocktrans with pioneer_url=pioneer_url pioneer_name=object.creator.get_full_name|default:object.creator.username created=object.created group_url=group_url group_slug=object.group.slug %}written by <a href="{{ pioneer_detail }}">{{ pioneer_name }}</a> on {{ created }}{% endblocktrans %}
+        {% url 'cosinnus:user-detail' username=object.creator.get_username as pioneer_url %}
+        {% blocktrans with username=object.author.get_username pioneer_name=object.creator.get_full_name|default:object.creator.username created=object.created group_url=group_url group_slug=object.group.slug %}written by <a href="{{ pioneer_url }}">{{ pioneer_name }}</a> on {{ created }}{% endblocktrans %}
        </span>
       <p>{% autoescape off %}{{ object.text|urlize|linebreaks }}{% endautoescape %}</p>
       <div class="back">
