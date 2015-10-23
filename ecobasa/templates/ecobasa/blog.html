@@ -15,9 +15,13 @@
 </div>
 <div class="row gradient">
   <div class="container content blog">
-    <div class="row tags">
+    <div class="row">
       <div class="col-xs-12">
         {% placeholder headlines %}
+      </div>
+    </div>
+    <div class="row tags">
+      <div class="col-xs-12">
         {% if tag %}
           <a href="{% url "blog" %}"><span class="label">{% trans "Show all blog-posts" %}</span></a>
         {% endif %}
