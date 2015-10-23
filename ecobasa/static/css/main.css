@@ -546,7 +546,8 @@ body#slideshow .container.content {
 body#slideshow .container.content.blog {
   padding-bottom: 80px;
 }
-body#slideshow .headimage {
+body#slideshow > .container.content.blog
+.headimage {
   margin-bottom: 0px;
 }
 body#slideshow .row.gradient {
@@ -1077,6 +1078,7 @@ span.mailcount {
   }
   body#note-detail section#header .carousel-inner .carousel-caption h1 {
     margin-bottom: 15px;
+    font-size: 20px;
   }
 }
 @media (max-width: 992px) {
