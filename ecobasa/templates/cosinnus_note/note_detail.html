@@ -36,13 +36,22 @@
       {% video object.video "medium" %}
     </div>
   {% else %}
-  <div class="headimage">
-    <img src="{{ object.image|thumbnail_url:"note_large" }}" alt="{{ object.title }}"/>
+  <section id="header" data-type="background" data-speed="2" style="background: url({{ object.image|thumbnail_url:"slideshow" }}) 50% 0 no-repeat fixed;">
+    <div class="carousel-inner" data-type="text" data-speed="3.3">
+    <div class="carousel-caption">
+    <h1>{{ object.title }}</h1>
+    <div class="caption-back"></div>
+    </div>
   </div>
+  </section>
+  <!-- <div class="headimage">
+    <img src="{{ object.image|thumbnail_url:"note_large" }}" alt="{{ object.title }}"/>
+  </div> -->
   {% endif %}
 {% endif %}
 
 <div class="gradient">
+<section id="content" data-type="background" data-speed="10">
   <div class="container content blog">
     <div class="row tags">
       <div class="col-xs-12">      
@@ -114,5 +123,6 @@
       {% endfor %}
       </div>
     </div>
+  <section id="header" data-type="background" data-speed="10">
   </div>
   {% endblock %}
