@@ -11,7 +11,7 @@
 <meta property="og:image:height" content="250" />
 <meta property="og:description" content="{{ object.text|linebreaks|truncatewords:80 }}" />
 <meta property="og:type" content="article" />
-<meta property="article:author" content="{% url 'cosinnus:user-detail' username=object.creator.get_username %}" />
+<meta property="article:author" content="{{ request.get_host }}{% url 'cosinnus:user-detail' username=object.creator.get_username %}" />
 {% endblock extrahead %}
 
 {% block page_title %}{{ object.title }}{% endblock %}
