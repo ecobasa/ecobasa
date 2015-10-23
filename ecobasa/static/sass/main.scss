@@ -603,6 +603,7 @@ body#slideshow {
 	.container.content.blog {
 		padding-bottom: 80px;
 	}
+	>.container.content.blog
 	.headimage {
 		margin-bottom: 0px;
 	}
@@ -1162,6 +1163,7 @@ span.mailcount {
 				bottom: 0px;
 				h1 {
 					margin-bottom: 15px;
+				    font-size: 20px;
 				}
 			}
 		}
