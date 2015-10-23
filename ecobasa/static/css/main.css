@@ -554,7 +554,11 @@ body#slideshow .row.gradient {
 }
 
 body#note-detail .container.content {
-  margin-top: 56px;
+  padding-top: 27px;
+  padding-bottom: 0px;
+}
+body#note-detail .blogpost {
+  padding-bottom: 80px;
 }
 
 body#note-list .container.content {

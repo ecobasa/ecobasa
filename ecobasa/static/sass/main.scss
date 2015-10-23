@@ -613,7 +613,11 @@ body#slideshow {
 
 body#note-detail {
 	.container.content {
-		margin-top: 56px;
+		padding-top: 27px;
+		padding-bottom: 0px;
+	}
+	.blogpost {
+		padding-bottom: 80px;
 	}
 }
 
