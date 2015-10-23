@@ -936,6 +936,10 @@ body#profile img.avatar {
 }
 
 /*************** Dashboard **************/
+body.group .container.content {
+  padding-top: 130px;
+}
+
 a#group {
   font-family: 'Bree Serif';
   color: #452912;

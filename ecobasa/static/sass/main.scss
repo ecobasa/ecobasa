@@ -1020,6 +1020,10 @@ body#profile {
 
 /*************** Dashboard **************/
 
+body.group .container.content {
+	padding-top: 130px;
+}
+
 a#group {
 	font-family: 'Bree Serif';
 	color: $brown;
