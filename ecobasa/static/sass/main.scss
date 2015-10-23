@@ -618,13 +618,23 @@ body#note-detail {
 	}
 	section#header {
 		margin-top: 0px;
-		width: 100%;
-		height: 700px; 
 		position: relative;
-		.carousel-inner {
-			height: 220px;
-			top: 400px;
+		z-index: -1;
+		img {
+		width: 100%;
+		height: auto;
 		}
+		.carousel-inner {
+			position: absolute;
+			height: 124px;
+			bottom: 20%;
+			.carousel-caption {
+				bottom: 0px;
+			}
+		}
+	}
+	section#content {
+		background: $secondary;
 	}
 	.blogpost {
 		padding-bottom: 100px;
@@ -1115,12 +1125,6 @@ span.mailcount {
 	height: 100%; 
 }
 
-@media (max-width: 768px) {
-	.navbar-default .navbar-nav .open .dropdown-menu>li>a {
-		color: $secondary;
-	}
-}
-
 @media (max-width: 832px) {
 	.header .navbar-brand h1 {
 		display: none;
@@ -1128,12 +1132,31 @@ span.mailcount {
 }
 
 @media (max-width: 768px) {
+	.navbar-default .navbar-nav .open .dropdown-menu>li>a {
+		color: $secondary;
+	}
 	.header .navbar-brand h1 {
 		display: block;
 	}
 	nav.header.navbar {
 		position: relative;
 		background-color: rgba(218, 97, 55, 1);
+	}
+	body#note-detail section#header {
+		.carousel-inner {
+			height: 70px;
+			top: 30%;
+			.carousel-caption {
+				display: block;
+				padding-bottom: 0px;
+				padding-top: 0px;
+				height: auto;
+				bottom: 0px;
+				h1 {
+					margin-bottom: 15px;
+				}
+			}
+		}
 	}
 }
 

@@ -559,13 +559,23 @@ body#note-detail .container.content.blog {
 }
 body#note-detail section#header {
   margin-top: 0px;
-  width: 100%;
-  height: 700px;
   position: relative;
+  z-index: -1;
+}
+body#note-detail section#header img {
+  width: 100%;
+  height: auto;
 }
 body#note-detail section#header .carousel-inner {
-  height: 220px;
-  top: 400px;
+  position: absolute;
+  height: 124px;
+  bottom: 20%;
+}
+body#note-detail section#header .carousel-inner .carousel-caption {
+  bottom: 0px;
+}
+body#note-detail section#content {
+  background: #f4ede3;
 }
 body#note-detail .blogpost {
   padding-bottom: 100px;
@@ -1027,17 +1037,16 @@ span.mailcount {
   height: 100%;
 }
 
-@media (max-width: 768px) {
-  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
-    color: #f4ede3;
-  }
-}
 @media (max-width: 832px) {
   .header .navbar-brand h1 {
     display: none;
   }
 }
 @media (max-width: 768px) {
+  .navbar-default .navbar-nav .open .dropdown-menu > li > a {
+    color: #f4ede3;
+  }
+
   .header .navbar-brand h1 {
     display: block;
   }
@@ -1045,6 +1054,21 @@ span.mailcount {
   nav.header.navbar {
     position: relative;
     background-color: #da6137;
+  }
+
+  body#note-detail section#header .carousel-inner {
+    height: 70px;
+    top: 30%;
+  }
+  body#note-detail section#header .carousel-inner .carousel-caption {
+    display: block;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    height: auto;
+    bottom: 0px;
+  }
+  body#note-detail section#header .carousel-inner .carousel-caption h1 {
+    margin-bottom: 15px;
   }
 }
 @media (max-width: 992px) {
