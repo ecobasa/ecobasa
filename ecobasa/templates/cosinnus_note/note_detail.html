@@ -42,7 +42,7 @@
   {% endif %}
 {% endif %}
 
-<div class="row gradient">
+<div class="gradient">
   <div class="container content blog">
     <div class="row tags">
       <div class="col-xs-12">      
@@ -67,52 +67,52 @@
 
       </div>
     </div>
-<div class="row">
-  <div class="col-xs-12 blogpost">
+    <div class="row">
+      <div class="col-xs-12 blogpost">
 
-  <h2>{{ object.title }}</h2>
-  <h5 class="media-heading muted pull-right">{{ object.created }}</h5>
-  <span class="details">
-    {% blocktrans with pioneer_url=pioneer_url pioneer_name=object.creator.get_full_name|default:object.creator.username created=object.created group_url=group_url group_slug=object.group.slug %}written by <a href="{{ pioneer_detail }}">{{ pioneer_name }}</a> on {{ created }}{% endblocktrans %}
-   </span>
-  <p>{% autoescape off %}{{ object.text|urlize|linebreaks }}{% endautoescape %}</p>
-  <div class="back">
-    <a href="{% url "blog" %}"><span class="glyphicon glyphicon-arrow-left"></span> {% trans "Back to blog" %}</a>
-  </div>
+      <h2>{{ object.title }}</h2>
+      <h5 class="media-heading muted pull-right">{{ object.created }}</h5>
+      <span class="details">
+        {% blocktrans with pioneer_url=pioneer_url pioneer_name=object.creator.get_full_name|default:object.creator.username created=object.created group_url=group_url group_slug=object.group.slug %}written by <a href="{{ pioneer_detail }}">{{ pioneer_name }}</a> on {{ created }}{% endblocktrans %}
+       </span>
+      <p>{% autoescape off %}{{ object.text|urlize|linebreaks }}{% endautoescape %}</p>
+      <div class="back">
+        <a href="{% url "blog" %}"><span class="glyphicon glyphicon-arrow-left"></span> {% trans "Back to blog" %}</a>
+      </div>
 
-  <hr>
+      <hr>
 
-  {% if object.attached_objects.all %}
-      {% cosinnus_render_attached_objects object %}
-  {% endif %}
-  <hr/>
+      {% if object.attached_objects.all %}
+          {% cosinnus_render_attached_objects object %}
+      {% endif %}
+      <hr/>
 
-  {% for comment in object.comments.all %}
-    <div class="media media-indent-small" id="comment-{{ comment.pk }}">
-      <a class="pull-left" href="#">
-        {% if comment.author.cosinnus_profile.avatar %}
-          <img class="media-object avatar avatar-small" src="{{ comment.author.cosinnus_profile.avatar|thumbnail_url:"avatar_small" }}">
-        {% else %}
-          <img class="media-object avatar avatar-small" src="http://placehold.it/32x32">
-        {% endif %}
-      </a>
-      <div class="media-body">
-        <h5 class="media-heading muted pull-right">{{ comment.created_on }}</h5>
-        <h4 class="media-heading">
-          <a href="{% url 'cosinnus:user-detail' username=comment.author.get_username %}">{{ comment.author.get_full_name|default:comment.author.username }}</a>
-        </h4>
-        {{ comment.text }}
-        <div class="btn-group pull-right">
-          <a class="btn btn-mini" href="{% url 'cosinnus:note:comment-update' group=group.slug pk=comment.pk %}"><i class="icon-pencil"></i> {% trans "Edit" %}</a>
-          <a class="btn btn-mini" href="{% url 'cosinnus:note:comment-delete' group=group.slug pk=comment.pk %}"><i class="icon-trash"></i> {% trans "Delete" %}</a>
+      {% for comment in object.comments.all %}
+        <div class="media media-indent-small" id="comment-{{ comment.pk }}">
+          <a class="pull-left" href="#">
+            {% if comment.author.cosinnus_profile.avatar %}
+              <img class="media-object avatar avatar-small" src="{{ comment.author.cosinnus_profile.avatar|thumbnail_url:"avatar_small" }}">
+            {% else %}
+              <img class="media-object avatar avatar-small" src="http://placehold.it/32x32">
+            {% endif %}
+          </a>
+          <div class="media-body">
+            <h5 class="media-heading muted pull-right">{{ comment.created_on }}</h5>
+            <h4 class="media-heading">
+              <a href="{% url 'cosinnus:user-detail' username=comment.author.get_username %}">{{ comment.author.get_full_name|default:comment.author.username }}</a>
+            </h4>
+            {{ comment.text }}
+            <div class="btn-group pull-right">
+              <a class="btn btn-mini" href="{% url 'cosinnus:note:comment-update' group=group.slug pk=comment.pk %}"><i class="icon-pencil"></i> {% trans "Edit" %}</a>
+              <a class="btn btn-mini" href="{% url 'cosinnus:note:comment-delete' group=group.slug pk=comment.pk %}"><i class="icon-trash"></i> {% trans "Delete" %}</a>
+            </div>
+          </div>
         </div>
+        {% if not forloop.last %}
+          <hr class="media-indent-small">
+        {% endif %}
+      {% endfor %}
       </div>
     </div>
-    {% if not forloop.last %}
-      <hr class="media-indent-small">
-    {% endif %}
-  {% endfor %}
-</div>
-</div>
-</div>
+  </div>
   {% endblock %}
