@@ -10,32 +10,34 @@ $(document).ready(function() {
 	// Cache the Window object
 	$window = $(window);
 
-	$('section[data-type="background"]').each(function(){
-      var $bgobj = $(this); // assigning the object
-      
-      $(window).scroll(function() {
-            var yPos = -($window.scrollTop() / $bgobj.data('speed')); 
-            
-            // Put together our final background position
-            var coords = '50% '+ yPos + 'px';
+    $('section[data-type="parallax"]').each(function(){
+    	var windowsize = $window.width();
+		var $bgobj = $(this); // assigning the object
+		if (windowsize > 440) {
+			$(window).scroll(function() {
+			    var yPos = ($window.scrollTop() / $bgobj.data('speed')); 
+			    
+			    // Put together our final background position
+			    var coords = yPos + 'px';
 
-            // Move the background
-            $bgobj.css({ backgroundPosition: coords });
-        }); 
+			    // Move the background
+			    $bgobj.css({ top: coords });
+			}); 
+		}
     });
 
-    $('div[data-type="text"]').each(function(){
-      var $bgobj = $(this); // assigning the object
+    $('div[data-type="parallax"]').each(function(){
+      var $obj = $(this); // assigning the object
       
       $(window).scroll(function() {
-            var yPos = ($window.scrollTop() / $bgobj.data('speed')); 
+            var yPos = ($window.scrollTop() / $obj.data('speed')); 
+            var top = $obj.position().top;
             
             // Put together our final background position
-            var coords = 400 + yPos + 'px';
+            var coords = 20 + yPos + '%';
 
             // Move the background
-            $bgobj.css({ top: coords });
-            console.log(coords);
+            $obj.css({ bottom: coords });
         }); 
     });
 
