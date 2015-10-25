@@ -95,7 +95,7 @@
         {% url 'pioneer-detail' username=object.creator.get_username as pioneer_url %}
         {% blocktrans with username=object.author.get_username pioneer_name=object.creator.get_full_name|default:object.creator.username created=object.created group_url=group_url group_slug=object.group.slug %}written by <a href="{{ pioneer_url }}">{{ pioneer_name }}</a> on {{ created }}{% endblocktrans %}
       </span><br />
-      <p>{% autoescape off %}{{ object.text|urlize|linebreaks }}{% endautoescape %}</p>
+      <p>{% autoescape off %}{{ object.text|urlize }}{% endautoescape %}</p>
       <div class="back">
         <a href="{% url "blog" %}"><span class="glyphicon glyphicon-arrow-left"></span> {% trans "Back to blog" %}</a>
       </div>
