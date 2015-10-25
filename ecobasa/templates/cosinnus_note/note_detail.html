@@ -12,6 +12,9 @@
 <meta property="og:description" content="{{ object.text|striptags|truncatewords:80 }}" />
 <meta property="og:type" content="article" />
 <meta property="article:author" content="http://{{ request.get_host }}{% url 'pioneer-detail' username=object.creator.get_username %}" />
+<script type="text/javascript">var switchTo5x=true;</script>
+<script type="text/javascript" src="http://ws.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript">stLight.options({publisher: "7473edfc-d7e5-4411-95a2-60744b6afc04", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
 {% endblock extrahead %}
 
 {% block page_title %}{{ object.title }}{% endblock %}
@@ -96,16 +99,27 @@
         {% blocktrans with username=object.author.get_username pioneer_name=object.creator.get_full_name|default:object.creator.username created=object.created group_url=group_url group_slug=object.group.slug %}written by <a href="{{ pioneer_url }}">{{ pioneer_name }}</a> on {{ created }}{% endblocktrans %}
       </span><br />
       <p>{% autoescape off %}{{ object.text|urlize }}{% endautoescape %}</p>
+
+      {% if object.attached_objects.all %}
+      <hr>
+          {% cosinnus_render_attached_objects object %}
+      <hr/>
+      {% endif %}
+
+      <hr>
+      <div class="sharing_buttons">
+        <span class='st_facebook_large' displayText='Facebook'></span>
+        <span class='st_twitter_large' displayText='Tweet'></span>
+        <span class='st_googleplus_large' displayText='Google +'></span>
+        <span class='st_linkedin_large' displayText='LinkedIn'></span>
+        <span class='st_pinterest_large' displayText='Pinterest'></span>
+        <span class='st_email_large' displayText='Email'></span>
+      </div>
+      </hr>
       <div class="back">
         <a href="{% url "blog" %}"><span class="glyphicon glyphicon-arrow-left"></span> {% trans "Back to blog" %}</a>
       </div>
 
-      <hr>
-
-      {% if object.attached_objects.all %}
-          {% cosinnus_render_attached_objects object %}
-      {% endif %}
-      <hr/>
 
       {% for comment in object.comments.all %}
         <div class="media media-indent-small" id="comment-{{ comment.pk }}">
@@ -134,6 +148,4 @@
       {% endfor %}
       </div>
     </div>
-  <section id="header" data-type="background" data-speed="10">
-  </div>
   {% endblock %}
