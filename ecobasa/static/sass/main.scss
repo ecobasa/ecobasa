@@ -1086,12 +1086,16 @@ span.mailcount {
 
 div.cosinnus-event {
 	.panel-primary {
-		border-color: darken($yellow, 10%);
+		border: none;
 		> .panel-heading {
 			background-color: $yellow;
-			border-color: darken($yellow, 10%);
+			border: 1px solid darken($yellow, 10%);
+			+.panel-collapse .panel-body {
+				border-top: none;
+			}
 		}
 	}
+	.panel-primary>.panel-heading+.panel-collapse .panel-body {}
 	h4.panel-title > a {
 		color: $secondary;
 		&:hover {
