@@ -1004,6 +1004,13 @@ span.mailcount {
 }
 
 /************* Cosinus-Event ******************/
+div.cosinnus-event .panel-primary {
+  border-color: #ad5f06;
+}
+div.cosinnus-event .panel-primary > .panel-heading {
+  background-color: #de7a08;
+  border-color: #ad5f06;
+}
 div.cosinnus-event h4.panel-title > a {
   color: #f4ede3;
 }
