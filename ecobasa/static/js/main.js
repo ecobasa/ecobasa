@@ -43,10 +43,10 @@ $(document).ready(function() {
 
 	$('.email').tooltip();
 	
-	$('#accordion_registration .collapse').on('shown.bs.collapse', function () {
+	$('#accordion .collapse').on('shown.bs.collapse', function () {
        $(this).parent().find('.glyphicon-chevron-right').removeClass('glyphicon-chevron-right').addClass('glyphicon-chevron-down');
     });
-    $('#accordion_registration .collapse').on('hidden.bs.collapse', function () {
+    $('#accordion .collapse').on('hidden.bs.collapse', function () {
     	$(this).parent().find('.glyphicon-chevron-down').removeClass('glyphicon-chevron-down').addClass('glyphicon-chevron-right');
     });
     
