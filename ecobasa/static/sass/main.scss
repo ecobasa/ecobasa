@@ -1082,6 +1082,28 @@ span.mailcount {
 	padding: 1px 0px;
 }
 
+/************* Cosinus-Event ******************/
+
+div.cosinnus-event {
+	h4.panel-title > a {
+		color: $secondary;
+		&:hover {
+			color: $purple;
+		}
+	}
+	.big-calendar {
+		margin-top: 50px;
+	}
+}
+
+.nav-pills>li.active>a {
+	background-color: $primary;
+	&:hover, 
+	&:focus {
+		background-color: $red;
+	}
+}
+
 
 /************* Footer ******************/
 
