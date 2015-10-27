@@ -1085,6 +1085,13 @@ span.mailcount {
 /************* Cosinus-Event ******************/
 
 div.cosinnus-event {
+	.panel-primary {
+		border-color: darken($yellow, 10%);
+		> .panel-heading {
+			background-color: $yellow;
+			border-color: darken($yellow, 10%);
+		}
+	}
 	h4.panel-title > a {
 		color: $secondary;
 		&:hover {
