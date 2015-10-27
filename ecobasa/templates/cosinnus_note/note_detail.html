@@ -13,7 +13,7 @@
 <meta property="og:type" content="article" />
 <meta property="article:author" content="http://{{ request.get_host }}{% url 'pioneer-detail' username=object.creator.get_username %}" />
 <script type="text/javascript">var switchTo5x=true;</script>
-<script type="text/javascript" src="http://ws.sharethis.com/button/buttons.js"></script>
+<script type="text/javascript" src="https://ws.sharethis.com/button/buttons.js"></script>
 <script type="text/javascript">stLight.options({publisher: "7473edfc-d7e5-4411-95a2-60744b6afc04", doNotHash: false, doNotCopy: false, hashAddressBar: false});</script>
 {% endblock extrahead %}
 
@@ -58,9 +58,6 @@
     </div>
   </div>
   </section>
-  <!-- <div class="headimage">
-    <img src="{{ object.image|thumbnail_url:"note_large" }}" alt="{{ object.title }}"/>
-  </div> -->
   {% endif %}
 {% endif %}
 
