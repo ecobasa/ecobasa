@@ -24,6 +24,7 @@
   </p>
 {% else %}
   <!-- root container -->
+  <div class="media-body">
   {% if user.is_superuser or user|is_group_admin:group %}
   <div class="btn-group pull-right" >
       <a class="btn btn-primary btn-mini" href="{% url 'cosinnus:etherpad:pad-add' group=group.slug %}"><span class="glyphicon glyphicon-plus"></span> {% trans "Add etherpad" %}</a>
@@ -33,7 +34,6 @@
   <p>
       // {% trans "ROOT" %} //
   </p>
-</div>
 {% endif %}
 
 
@@ -67,3 +67,4 @@
   </div>
   {% endfor %}
 {% endif %}
+</div>
