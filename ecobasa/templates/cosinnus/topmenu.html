@@ -99,7 +99,7 @@
             {% elif group.caravan %}
               {% url 'caravan-detail' group=group.slug as profile_url %}
             {% else %}
-              {% url 'cosinnus:group-detail' group=group.slug as profile_url %}
+              {# {% url 'cosinnus:group-detail' group=group.slug as profile_url %} #}
             {% endif %}
             <li><a id="group" href="{{ profile_url}}">
               {% if group.profile %}
