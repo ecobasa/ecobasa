@@ -6,19 +6,19 @@
 	<div class="col-xs-12 col-md-6">
 	  <h2>{% trans "Contact the ecobasa team" %}</h2>
 	  <p>{% trans "Please enter your message and your contact information here, so we can get back to you!" %}</p>
-		<form>
+		<form method="post">
 			{% csrf_token %}
 			<div class="form-group">
-			    <label for="inputName">{% trans "Name" %}</label>
-			    <input type="text" class="form-control" id="inputName" placeholder="Name">
+				{{ form.name.label_tag }}
+			    <input type="text" class="form-control" id="id_name" placeholder="Name" name="name" >
 			</div>
 			<div class="form-group">
-				<label for="inputEmail">{% trans "Your e-mail" %}</label>
-				 <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+				{{ form.email.label_tag }}
+				 <input type="email" class="form-control" id="id_email" placeholder="Email" name="email">
 			</div>
 			<div class="form-group">
-				<label for="inputMessage">{% trans "Message" %}</label>
-				<textarea class="form-control" id="inputMessage" rows="8" placeholder="Message"></textarea>
+				{{ form.body.label_tag }}
+				<textarea class="form-control" id="id_body" rows="8" placeholder="Message" name="body" ></textarea>
 			</div>
 			<div class="form-group">
 				<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-envelope"></span>{% trans "Send" %}</button>
