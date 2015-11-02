@@ -10,3 +10,4 @@ from .reference import *  # noqa
 from .registration import *  # noqa
 from .about import * # noqa
 from .blog import * #noqa
+from .contact import * #noqa

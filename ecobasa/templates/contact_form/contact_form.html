@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% load i18n honeypot %}
 
 {% block content %}
 <div class="row">
@@ -8,6 +8,15 @@
 	  <p>{% trans "Please enter your message and your contact information here, so we can get back to you!" %}</p>
 		<form method="post">
 			{% csrf_token %}
+			{% render_honeypot_field %}
+			<div class="form-group">
+				{{ form.concern.label_tag }}
+				<select class="form-control" id="id_concern" name="concern" >
+					<option value="support">Support</option>
+					<option value="feedback">Feedback</option>
+					<option value="delete">Account deletion</option>
+				</select>
+			</div>
 			<div class="form-group">
 				{{ form.name.label_tag }}
 			    <input type="text" class="form-control" id="id_name" placeholder="Name" name="name" >
@@ -20,6 +29,13 @@
 				{{ form.body.label_tag }}
 				<textarea class="form-control" id="id_body" rows="8" placeholder="Message" name="body" ></textarea>
 			</div>
+			<div class="form-group">
+				<div class="checkbox">
+					{{ form.cc_myself.label_tag }}
+					<input id="id_cc_myself" name="cc_myself" type="checkbox">
+				</div>
+			</div>
+			
 			<div class="form-group">
 				<button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-envelope"></span>{% trans "Send" %}</button>
 			</div>

@@ -5,6 +5,7 @@ from django.conf.urls.i18n import i18n_patterns
 from django.utils.translation import ugettext_lazy as _
 from haystack.views import search_view_factory
 from django.views.generic.base import RedirectView
+from django.views.generic import TemplateView
 
 from .views import FindView
 
@@ -71,7 +72,12 @@ urlpatterns = i18n_patterns('',
 
     url(r'^messages/', include('cosinnus_message.postman_urls')),
 
-    url(r'^contact/', include('contact_form.urls')),
+    url(r'^contact/', 'ecobasa.views.contact', name='contact'),
+    url(r'^contact/sent/$',
+                           TemplateView.as_view(
+                               template_name='contact_form/contact_form_sent.html'
+                               ),
+                           name='contact_form_sent'),
 
     url(r'^$', 'cms.views.details', {'slug': ''}),
 
