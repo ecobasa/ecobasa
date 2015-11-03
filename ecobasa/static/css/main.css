@@ -643,6 +643,12 @@ body#communities .footer.navbar {
   }
 }
 
+.leaflet-popup-content-wrapper,
+.leaflet-popup-tip {
+  background: url("../img/back.jpg") repeat;
+  background-color: #f4ede3;
+}
+
 .leaflet-popup-content h5 {
   font-family: 'Bree Serif';
 }
