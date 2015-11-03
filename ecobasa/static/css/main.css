@@ -1009,6 +1009,17 @@ span.mailcount {
   padding: 1px 0px;
 }
 
+.nav-pills > li.active > a {
+  background-color: rgba(218, 97, 55, 0.8);
+}
+.nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
+  background-color: #da6137;
+}
+
+.btn-group > .btn + .dropdown-toggle {
+  padding-bottom: 7px;
+}
+
 /************* Cosinus-Event ******************/
 div.cosinnus-event .panel-primary {
   border: none;
@@ -1028,13 +1039,6 @@ div.cosinnus-event h4.panel-title > a:hover {
 }
 div.cosinnus-event .big-calendar {
   margin-top: 50px;
-}
-
-.nav-pills > li.active > a {
-  background-color: rgba(218, 97, 55, 0.8);
-}
-.nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
-  background-color: #da6137;
 }
 
 /************* Footer ******************/

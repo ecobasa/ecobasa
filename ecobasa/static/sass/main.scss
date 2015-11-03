@@ -1092,6 +1092,18 @@ span.mailcount {
 	padding: 1px 0px;
 }
 
+.nav-pills > li.active > a {
+	background-color: rgba($primary, 0.8);
+	&:hover, 
+	&:focus {
+		background-color: $primary;
+	}
+}
+
+.btn-group>.btn+.dropdown-toggle {
+	padding-bottom: 7px;
+}
+
 /************* Cosinus-Event ******************/
 
 div.cosinnus-event {
@@ -1114,14 +1126,6 @@ div.cosinnus-event {
 	}
 	.big-calendar {
 		margin-top: 50px;
-	}
-}
-
-.nav-pills > li.active > a {
-	background-color: rgba($primary, 0.8);
-	&:hover, 
-	&:focus {
-		background-color: $primary;
 	}
 }
 
