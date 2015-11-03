@@ -46,14 +46,18 @@ body#note-detail section#content {
 }
 
 .btn-primary {
-  background-color: #da6137;
+  background-color: rgba(218, 97, 55, 0.8);
   border-color: #b4502c;
   color: #f4ede3;
 }
 
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active,
+.open .dropdown-toggle.btn-primary {
   color: #f4ede3;
-  background-color: #e34a26;
+  background-color: #da6137;
   border-color: #b4502c;
 }
 
@@ -257,6 +261,11 @@ nav.navbar-sub ul li a {
   color: #5A5527;
   background-color: #c9c384;
   border-color: #5A5527;
+}
+
+.table-striped > tbody > tr:nth-child(odd) > td,
+.table-striped > tbody > tr:nth-child(odd) > th {
+  background-color: rgba(244, 237, 227, 0.3);
 }
 
 /*********** Startpage ****************/
@@ -1022,10 +1031,10 @@ div.cosinnus-event .big-calendar {
 }
 
 .nav-pills > li.active > a {
-  background-color: #da6137;
+  background-color: rgba(218, 97, 55, 0.8);
 }
 .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
-  background-color: #e34a26;
+  background-color: #da6137;
 }
 
 /************* Footer ******************/
