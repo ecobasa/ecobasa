@@ -645,8 +645,8 @@ body#communities .footer.navbar {
 
 .leaflet-popup-content-wrapper,
 .leaflet-popup-tip {
-  background: url("../img/back.jpg") repeat;
-  background-color: #f4ede3;
+  background: url("../img/back.jpg") repeat !important;
+  background-color: #f4ede3 !important;
 }
 
 .leaflet-popup-content h5 {

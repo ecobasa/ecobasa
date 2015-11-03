@@ -710,8 +710,8 @@ body#communities {
 
 .leaflet-popup-content-wrapper, 
 .leaflet-popup-tip {
-	background: url('../img/back.jpg') repeat;
-	background-color: $secondary;
+	background: url('../img/back.jpg') repeat !important;
+	background-color: $secondary !important;
 }
 
 .leaflet-popup-content {
