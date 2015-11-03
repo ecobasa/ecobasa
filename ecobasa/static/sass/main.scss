@@ -75,11 +75,15 @@ $green: #5A5527;
 /*********** Default **************/
 
 body {
-	background: $secondary;
+	background: url('../img/back.jpg') repeat;
+	background-color: $secondary;
 	font-family: 'Lato';
 	color: $brown;
 }
 
+body#note-detail section#content {
+	background: url('../img/back.jpg') repeat;
+}
 
 .btn-primary {
 	background-color: $primary;
@@ -637,9 +641,6 @@ body#note-detail {
 				bottom: 0px;
 			}
 		}
-	}
-	section#content {
-		background: $secondary;
 	}
 	.blogpost {
 		padding-bottom: 100px;
