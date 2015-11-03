@@ -311,26 +311,6 @@ nav.navbar-sub {
   border-color: $green;
 }
 
-.table-striped>tbody>tr:nth-child(odd)>td, 
-.table-striped>tbody>tr:nth-child(odd)>th {
-	background-color: rgba(#fff, 0.25);
-}
-
-.table>thead>tr>td.warning,
-.table>tbody>tr>td.warning,
-.table>tfoot>tr>td.warning,
-.table>thead>tr>th.warning,
-.table>tbody>tr>th.warning,
-.table>tfoot>tr>th.warning,
-.table>thead>tr.warning>td,
-.table>tbody>tr.warning>td,
-.table>tfoot>tr.warning>td,
-.table>thead>tr.warning>th,
-.table>tbody>tr.warning>th,
-.table>tfoot>tr.warning>th {
-	background-color: rgba($red, 0.15);
-}
-
 /*********** Startpage ****************/
 
 body#start > .container {
@@ -1073,16 +1053,15 @@ a#group {
 	padding-top: 40px;
 	.panel {
 		border: 1px dotted $primary;
-		background-color: $secondary;
+		background-color: rgba(#fff, 0.2);
+		.panel-body {
+			border: none;
+		}
 		&.panel-default>.panel-heading {
 			background-color: $primary;
 			h3.panel-title {
 				color: $secondary;
 			}
-		}
-		.table-striped>tbody>tr:nth-child(odd)>td, 
-		.table-striped>tbody>tr:nth-child(odd)>th {
-			background-color: #F9F1E7;
 		}
 	}
 }
@@ -1117,6 +1096,26 @@ span.mailcount {
 
 .btn-group>.btn+.dropdown-toggle {
 	padding-bottom: 7px;
+}
+
+.table-striped>tbody>tr:nth-child(odd)>td, 
+.table-striped>tbody>tr:nth-child(odd)>th {
+	background-color: rgba(#fff, 0.25);
+}
+
+.table>thead>tr>td.warning,
+.table>tbody>tr>td.warning,
+.table>tfoot>tr>td.warning,
+.table>thead>tr>th.warning,
+.table>tbody>tr>th.warning,
+.table>tfoot>tr>th.warning,
+.table>thead>tr.warning>td,
+.table>tbody>tr.warning>td,
+.table>tfoot>tr.warning>td,
+.table>thead>tr.warning>th,
+.table>tbody>tr.warning>th,
+.table>tfoot>tr.warning>th {
+	background-color: rgba($red, 0.15);
 }
 
 /************* Cosinus-Event ******************/
