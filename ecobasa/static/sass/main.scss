@@ -86,14 +86,18 @@ body#note-detail section#content {
 }
 
 .btn-primary {
-	background-color: $primary;
+	background-color: rgba($primary, 0.8);
 	border-color: $third;
 	color: $secondary;
 }
 
-.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open .dropdown-toggle.btn-primary {
+.btn-primary:hover, 
+.btn-primary:focus, 
+.btn-primary:active, 
+.btn-primary.active, 
+.open .dropdown-toggle.btn-primary {
   color: $secondary;
-  background-color: $red;
+  background-color: $primary;
   border-color: $third;
 }
 
@@ -305,6 +309,11 @@ nav.navbar-sub {
   color: $green;
   background-color: lighten($green, 40%);
   border-color: $green;
+}
+
+.table-striped>tbody>tr:nth-child(odd)>td, 
+.table-striped>tbody>tr:nth-child(odd)>th {
+	background-color: rgba($secondary, 0.3);
 }
 
 /*********** Startpage ****************/
@@ -1108,11 +1117,11 @@ div.cosinnus-event {
 	}
 }
 
-.nav-pills>li.active>a {
-	background-color: $primary;
+.nav-pills > li.active > a {
+	background-color: rgba($primary, 0.8);
 	&:hover, 
 	&:focus {
-		background-color: $red;
+		background-color: $primary;
 	}
 }
 
