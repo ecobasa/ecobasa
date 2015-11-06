@@ -270,6 +270,17 @@
         </a>
       </div>
       <div class="col-xs-12 col-sm-8">
+        {% if user.is_superuser or user|is_group_admin:object %}
+          <div class="btn-group pull-right">
+            <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">{% trans "Actions" %} <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href="{% url 'cosinnus:note:update' group=group.slug slug=post.slug %}"><span class="glyphicon glyphicon-pencil"></span> {% trans "Edit" %}</a></li>
+                <li><a href="{% url 'cosinnus:note:delete' group=group.slug slug=post.slug %}"><span class="glyphicon glyphicon-trash"></span> {% trans "Delete" %}</a></li>
+                <li class="divider"></li>
+                <li><a href="{% url 'cosinnus:note:comment' group=group.slug slug=post.slug %}"><i class="icon-comment"></i> {% trans "Comment" %}</a></li>
+            </ul>
+          </div>
+        {% endif %}
         <a href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">
           <h3>{{ post.title }}</h3>
         </a>
