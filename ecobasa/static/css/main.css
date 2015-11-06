@@ -524,10 +524,27 @@ img.left {
 }
 
 .post {
-  margin-bottom: 30px;
+  margin-bottom: 60px;
+  overflow: auto;
+}
+.post img {
+  margin-bottom: 20px;
 }
 .post h2 {
   margin-top: 0px;
+  margin-bottom: 0px;
+}
+.post h3 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+.post span.details {
+  font-size: 12px;
+  color: rgba(69, 41, 18, 0.35);
+}
+
+.posts > h2 a.btn {
+  margin-top: -6px;
 }
 
 .video-responsive {
@@ -930,26 +947,6 @@ body#profile img.avatar {
   margin-top: -10px;
   margin-right: -10px;
   text-shadow: 1px -1px 0px #b4502c;
-}
-
-.posts > h2 a.btn {
-  margin-top: -6px;
-}
-
-.post {
-  margin-bottom: 60px;
-  overflow: auto;
-}
-.post img {
-  margin-bottom: 20px;
-}
-.post h3 {
-  margin-top: 0px;
-  margin-bottom: 0px;
-}
-.post span.details {
-  margin-bottom: 15px;
-  display: block;
 }
 
 /*************** Dashboard **************/
