@@ -915,6 +915,9 @@ a.email {
 body#profile img.avatar {
   margin-bottom: 20px;
 }
+body#profile #tour-map {
+  margin-top: 20px;
+}
 
 .comment.tooltip {
   margin-top: 5px;
