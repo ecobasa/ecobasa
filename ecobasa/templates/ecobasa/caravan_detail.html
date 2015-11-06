@@ -228,7 +228,7 @@
     <tr>
       <th>{% if event.image %}<img src="{{ event.image|thumbnail_url:'note_small' }}" alt="{{ event.title }}"/>{% endif %}</th>
       <th><a href="{% url "cosinnus:event:entry-detail" group=object.slug slug=event.slug %}">{{ event.title }}</a></th>
-      <th>{{ event.note|urlize|linebreaksbr|safe|truncatewords_html_html:60 }}</th>
+      <th>{{ event.note|urlize|linebreaksbr|safe|truncatewords_html:60 }}</th>
       <th>{% if event.from_date %}<span>{{ event.from_date }}</span>{% endif %} -<br>{% if event.to_date %}<span>{{ event.to_date }}</span>{% endif %}</th>
       {% if user.is_superuser or user|is_group_member:group %}
       <th>
