@@ -4,6 +4,10 @@ $(window).load( function() {
         var modalName = window.location.hash.substring(3);
         $('#'+modalName+'-modal').modal('show');
     }
+    $('.modal-trigger').click(function () {
+    	var modalName = $(this).attr("href").substring(3);
+    	$('#'+modalName+'-modal').modal('show');
+    	});
 });
 
 $(document).ready(function() {
