@@ -357,8 +357,9 @@ body#start .footer.navbar {
   display: block;
 }
 
-.modal .moda-body > h1 {
-  margin-top: 0px;
+.modal .modal-content {
+  background: url("../img/back.jpg") repeat;
+  background-color: #f4ede3;
 }
 
 .container#video {
@@ -368,6 +369,17 @@ body#start .footer.navbar {
 }
 .container#video h1 {
   margin-top: 0px;
+}
+
+#newsletter-modal input {
+  border-radius: 3px;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+#newsletter-modal input#mc-embedded-subscribe {
+  background-color: rgba(218, 97, 55, 0.8);
+}
+#newsletter-modal input#mc-embedded-subscribe:hover {
+  background-color: #da6137;
 }
 
 /*************** Slider *****************/

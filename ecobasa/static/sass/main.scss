@@ -408,10 +408,9 @@ body#start {
 	}
 }
 
-.modal .moda-body {
-	& > h1 {
-		margin-top: 0px;
-	}
+.modal .modal-content {
+	background: url('../img/back.jpg') repeat;
+	background-color: $secondary;
 }
 
 .container#video {
@@ -420,6 +419,21 @@ body#start {
 	margin-top: -53px !important;
 	h1 {
 		margin-top: 0px;
+	}
+}
+
+
+
+#newsletter-modal {
+	input {
+		border-radius: 3px;
+		background-color: rgba(255, 255, 255, 0.3);
+	}
+	input#mc-embedded-subscribe {
+	    background-color: rgba($primary, 0.8);
+	    &:hover {
+	    	background-color: $primary;
+	    }
 	}
 }
 
