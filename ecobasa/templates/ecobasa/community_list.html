@@ -42,10 +42,12 @@
           {% with community.profile as profile %}
           <tr>
               <td>
+                {% if profile.image %}
                 <a class="community-image" href="{% url 'community-detail' group=community.slug %}">
-                  {% thumbnail profile.image 220x120 upscale crop as thumb %}
+                  {% thumbnail profile.image 130x80 upscale crop as thumb %}
                     <img src="{{ thumb.url }}" alt="{{ community.name }}" width="{{ thumb.width }}" />
                 </a>
+                {% endif %}
                 <a href="{% url 'community-detail' group=community.slug %}">{{ community.name }}</a>
               </td>
             <td>
