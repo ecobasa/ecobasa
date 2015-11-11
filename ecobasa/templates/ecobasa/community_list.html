@@ -63,7 +63,7 @@
             </td>
 
             <td>
-              <ul>{% for skill in profile.offers_skills.names %}
+              <ul>{% for skill in profile.offers_skills.names|slice:":5" %}
                 <li>{{ skill }}</li>
               {% endfor %}</ul>
             </td>
