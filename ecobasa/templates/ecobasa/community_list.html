@@ -30,7 +30,7 @@
     <table id="community-list-table" class="table table-bordered table-hover table-curved">
       <thead>
         <tr>
-          <th>{% trans "Community name" %}</th>
+          <th>{% trans "Community" %}</th>
           <th>{% trans "Size" %}</th>
           <th>{% trans "Country" %}</th>
           <th>{% trans "Status" %}</th>
@@ -42,6 +42,10 @@
           {% with community.profile as profile %}
           <tr>
               <td>
+                <a class="community-image" href="{% url 'community-detail' group=community.slug %}">
+                  {% thumbnail profile.image 220x120 upscale crop as thumb %}
+                    <img src="{{ thumb.url }}" alt="{{ community.name }}" width="{{ thumb.width }}" />
+                </a>
                 <a href="{% url 'community-detail' group=community.slug %}">{{ community.name }}</a>
               </td>
             <td>
