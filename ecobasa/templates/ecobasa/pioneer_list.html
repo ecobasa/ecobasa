@@ -17,7 +17,7 @@
     {% endif %}
     
     {% if pioneers %}
-    <table id="pioneer-list-table" class="table table-striped">
+    <table id="pioneer-list-table" class="table table-striped table-curved">
         <thead>
             <tr>
                 <th>{% trans "Pioneer" %}</th>
@@ -29,7 +29,7 @@
         {% for pioneer in pioneers %}
         {% with pioneer.cosinnus_profile as profile %}
         <tr>
-            <th>
+            <td>
                 <a href="{% url 'pioneer-detail' username=pioneer.username %}">
                 {% if profile.avatar %}
                   <img class="avatar media-object" src="{{ profile.avatar|thumbnail_url:"avatar_medium" }}">
@@ -38,18 +38,18 @@
                 {% endif %}
                 <div class="name">{{ pioneer.username }}</div>
                 </a>
-            </th>
-            <th>
-                {{ profile.about }}
-            </th>
-            <th>{% for tag in profile.skills.all %}{{ tag }}{% if not forloop.last %}, {% endif %}{% endfor %}</th>
-            <th>
+            </td>
+            <td>
+                {{ profile.about|linebreaks|truncatewords_html:80 }}
+            </td>
+            <td>{% for tag in profile.skills.all %}{{ tag }}{% if not forloop.last %}, {% endif %}{% endfor %}</td>
+            <td>
                 {% if profile.has_bus %}
                 {% if profile.bus_image %}
                     <img src="{{ profile.bus_image|thumbnail_url:"bus_medium" }}" />
                 {% endif %}
                 {% endif %}
-            </th>
+            </td>
         </tr>
         {% endwith %}
         {% endfor %}

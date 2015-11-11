@@ -879,6 +879,50 @@ span.role {
   margin-top: 20px;
 }
 
+/**************** Pioneer-List ******************/
+.table-curved {
+  border-collapse: separate;
+  border: solid #da6137 2px dotted;
+  border-radius: 10px;
+  border-left: 0px;
+}
+.table-curved thead {
+  color: #452912;
+}
+.table-curved thead tr th:first-child {
+  border-radius: 10px 0 0 0;
+}
+.table-curved thead tr th:last-child {
+  border-radius: 0 10px 0 0;
+}
+.table-curved td, .table-curved th {
+  border-left: 1px solid #da6137;
+  border-top: 1px solid #da6137;
+}
+.table-curved th {
+  border-top: none;
+}
+.table-curved th:only-child {
+  border-radius: 0 0 10px 10px;
+}
+.table-curved tr:last-child td:first-child {
+  border-radius: 0 0 0 10px;
+}
+.table-curved tr:last-child td:last-child {
+  border-radius: 0 0 10px 0;
+}
+
+.tablesorter-bootstrap .tablesorter-header,
+.tablesorter-bootstrap tfoot th,
+.tablesorter-bootstrap tfoot td {
+  background-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+.table-hover > tbody > tr:hover > td,
+.table-hover > tbody > tr:hover > th {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
 /**************** Pioneer-Detail ******************/
 img.avatar {
   margin-bottom: 20px;

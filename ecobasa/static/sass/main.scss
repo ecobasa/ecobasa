@@ -956,6 +956,64 @@ span.role {
 	}
 }
 
+/**************** Pioneer-List ******************/
+
+//  Added Rounded Corner Tables 
+
+$table-radius: 10px;
+$table-border-color: $primary;
+
+.table-curved {
+  border-collapse: separate;
+  border: solid $table-border-color 2px dotted;
+  border-radius: $table-radius;
+  border-left:0px;
+
+  	thead {
+  	color: $brown;
+  	 tr {
+	  	th:first-child {
+		    border-radius: $table-radius 0 0 0;
+		}
+
+		th:last-child {
+		    border-radius: 0 $table-radius 0 0;
+		}
+	}
+}
+
+    td, th {
+      border-left: 1px solid $table-border-color;
+      border-top: 1px solid $table-border-color;
+    }
+
+    th {
+      border-top: none;
+    }
+
+    th:only-child {
+      border-radius: 0 0 $table-radius $table-radius;
+    }
+
+    tr:last-child td:first-child {
+      border-radius: 0 0 0 $table-radius;
+    }
+
+    tr:last-child td:last-child {
+      border-radius: 0 0 $table-radius 0;
+    }
+}
+
+.tablesorter-bootstrap .tablesorter-header, 
+.tablesorter-bootstrap tfoot th, 
+.tablesorter-bootstrap tfoot td {
+	background-color: rgba(#fff, 0.5) !important;
+}
+
+.table-hover>tbody>tr:hover>td, 
+.table-hover>tbody>tr:hover>th {
+	background-color: rgba(#fff, 0.5);
+}
 
 /**************** Pioneer-Detail ******************/
 
