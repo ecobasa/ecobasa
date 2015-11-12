@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-12 11:58+0100\n"
+"POT-Creation-Date: 2015-11-12 13:05+0100\n"
 "PO-Revision-Date: 2014-11-23 18:07+0200\n"
 "Last-Translator: Sebastian Henschel <ecobasa@kodeaffe.de\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1125,7 +1125,10 @@ msgstr "Interessen"
 msgid ""
 "A comma-separated list of tags. You can type anything here. You can also "
 "chose from other users tags. Connect two words with a \"-\" to have one tag."
-msgstr "Eine Liste von Tags, durch Kommata getrennt. Du kannst hier alles schreiben, oder aus Tags von anderen Benutzern wählen. Verbinde zwei Wörter mit einem \"-\" um einen ganzen Tag zu erhalten"
+msgstr ""
+"Eine Liste von Tags, durch Kommata getrennt. Du kannst hier alles schreiben, "
+"oder aus Tags von anderen Benutzern wählen. Verbinde zwei Wörter mit einem "
+"\"-\" um einen ganzen Tag zu erhalten"
 
 #: models/profile.py:318
 msgid "About you"
@@ -1148,8 +1151,8 @@ msgid ""
 "What skills do you have? What can you do to help others? What can you teach "
 "someone?"
 msgstr ""
-"Was für Fähigkeiten hast du? Wobei kannst du anderen hilfreich sein? Was könntest du jemandem "
-"anders beibringen?"
+"Was für Fähigkeiten hast du? Wobei kannst du anderen hilfreich sein? Was "
+"könntest du jemandem anders beibringen?"
 
 #: models/profile.py:329
 msgid "products"
@@ -1160,7 +1163,8 @@ msgid ""
 "Can you manufacture any products, like jewelery, furniture, clothes, soap "
 "etc.. ?"
 msgstr ""
-"Kannst du irgendwelche Produkte herstellen, so wie Schmuck, Möbel, Kleider oder Seife?"
+"Kannst du irgendwelche Produkte herstellen, so wie Schmuck, Möbel, Kleider "
+"oder Seife?"
 
 #: models/profile.py:335
 msgid "Do you have a bus or car that you want to take on the tour?"
@@ -1241,9 +1245,10 @@ msgid ""
 "the indoor sleeping situation? Do you have matresses, a couch? Do you have a "
 "donations or a pricing model? Required daily working amount or epxeriences?"
 msgstr ""
-"Wo können Gäste schlafen? Habt ihr Platz für einen Bus oder Zelte? Wie ist die "
-"überdachte Schlafsituation? Habt ihr Matratzen, eine Couch? Habt ihr ein Spenden "
-"oder Preis-Modell? Was erwartet ihr and täglicher Arbeitszeit und Vorerfahrungen?"
+"Wo können Gäste schlafen? Habt ihr Platz für einen Bus oder Zelte? Wie ist "
+"die überdachte Schlafsituation? Habt ihr Matratzen, eine Couch? Habt ihr ein "
+"Spenden oder Preis-Modell? Was erwartet ihr and täglicher Arbeitszeit und "
+"Vorerfahrungen?"
 
 #: models/profile.py:470
 msgid ""
@@ -1262,8 +1267,8 @@ msgid ""
 "Do you have any additional info about materials, or details to your request "
 "(like condition, when you need them)?"
 msgstr ""
-"Habt ihr zusätzliche Informationen über die benötigten Materialion, Details wie "
-"Zustand oder wann sie benötigt werden?"
+"Habt ihr zusätzliche Informationen über die benötigten Materialion, Details "
+"wie Zustand oder wann sie benötigt werden?"
 
 #: models/profile.py:477
 msgid "What tools or machines do you need?"
@@ -1272,10 +1277,10 @@ msgstr "Welche Werkzeuge oder Maschinen braucht ihr?"
 #: models/profile.py:481
 msgid ""
 "Do you have any additional info about tools, or details to your request "
-"(like condition, when you need them) ?"
+"(like condition, when you need them)?"
 msgstr ""
-"Habt ihr zusätzliche Informationen über die benötigten Werkzeuge, Details wie "
-"Zustand oder wann sie benötigt werden?"
+"Habt ihr zusätzliche Informationen über die benötigten Werkzeuge, Details "
+"wie Zustand oder wann sie benötigt werden?"
 
 #: models/profile.py:483
 msgid ""
@@ -1319,12 +1324,12 @@ msgid ""
 "Do you have workshop spaces, where people can build/construct/manufacture "
 "things?"
 msgstr ""
-"Habt ihr Werkstätten in denen Leute basteln, bauen oder Dinge herstellen können?"
+"Habt ihr Werkstätten in denen Leute basteln, bauen oder Dinge herstellen "
+"können?"
 
 #: models/profile.py:507
 msgid "Do you offer any seminars that visitors could attend?"
-msgstr ""
-"Bietet ihr Seminare an, an denen Besucher teilnehmen können?"
+msgstr "Bietet ihr Seminare an, an denen Besucher teilnehmen können?"
 
 #: models/profile.py:512
 msgid "Describe your community"
@@ -1347,14 +1352,12 @@ msgid "looking for members"
 msgstr "Suchen nach Mitgliedern"
 
 #: models/profile.py:525
-#, fuzzy
 msgid "looking for volunteers"
-msgstr "Suchen nach Mitgliedern"
+msgstr "Suchen nach Helfern"
 
 #: models/profile.py:526
-#, fuzzy
 msgid "closed for the moment"
-msgstr "Geschlossen für neue Mitglieder"
+msgstr "Im Moment Geschlossen"
 
 #: models/profile.py:528
 msgid "member status"
@@ -1711,9 +1714,8 @@ msgid "Pioneers"
 msgstr "Pioniere"
 
 #: templates/cosinnus/topmenu.html:32
-#, fuzzy
 msgid "Communities-Convergence"
-msgstr "Gemeinschaften"
+msgstr "Communities-Convergence"
 
 #: templates/cosinnus/topmenu.html:33
 msgid "Donate"
@@ -1944,9 +1946,8 @@ msgid "No events to show"
 msgstr "Keine Termine zum Anzeigen"
 
 #: templates/cosinnus_event/event_list.html:76
-#, fuzzy
 msgid "Past events"
-msgstr "Veranstaltung hinzufügen"
+msgstr "Vergangene Veranstaltungen"
 
 #: templates/cosinnus_note/note_detail.html:32
 msgid "Write comment"
@@ -1969,11 +1970,11 @@ msgid "Comment"
 msgstr "Kommentar"
 
 #: templates/cosinnus_note/note_detail.html:96
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "written by <a href=\"%(pioneer_url)s\">%(pioneer_name)s</a> on %(created)s"
 msgstr ""
-"geschrieben von <a href=\"%(pioneer_detail)s\">%(pioneer_name)s</a> am "
+"geschrieben von <a href=\"%(pioneer_url)s\">%(pioneer_name)s</a> am "
 "%(created)s"
 
 #: templates/cosinnus_note/note_detail.html:117
@@ -2269,9 +2270,8 @@ msgid "Add Community visit"
 msgstr "Gemeinschaftsaufenthalt hinzufügen"
 
 #: templates/ecobasa/caravan_detail.html:224
-#, fuzzy
 msgid "Name"
-msgstr "Name: "
+msgstr "Name"
 
 #: templates/ecobasa/caravan_detail.html:225
 #: templates/ecobasa/caravan_list.html:17
@@ -2284,9 +2284,8 @@ msgid "Time"
 msgstr "Zeit"
 
 #: templates/ecobasa/caravan_detail.html:228
-#, fuzzy
 msgid "Admin"
-msgstr "Administratoren"
+msgstr "Admin"
 
 #: templates/ecobasa/caravan_detail.html:261
 #: templates/ecobasa/community_detail.html:411
@@ -2544,25 +2543,28 @@ msgid "Community List"
 msgstr "Gemeinschafts-Liste"
 
 #: templates/ecobasa/community_list.html:33
-#, fuzzy
 msgid "Community"
-msgstr "Gemeinschaft %s"
+msgstr "Gemeinschaft"
 
 #: templates/ecobasa/community_list.html:35
 msgid "Country"
 msgstr "Land"
 
-#: templates/ecobasa/community_list.html:65
-#: templates/ecobasa/community_list.html:103
-#, fuzzy
-msgid "see profile"
-msgstr "Profil bearbeiten"
+#: templates/ecobasa/community_list.html:68
+#: templates/ecobasa/community_list.html:110
+msgid "What brings us together:"
+msgstr "Was uns zusammen bringt:"
 
-#: templates/ecobasa/community_list.html:83
+#: templates/ecobasa/community_list.html:70
+#: templates/ecobasa/community_list.html:110
+msgid "see profile"
+msgstr "Profil ansehen"
+
+#: templates/ecobasa/community_list.html:90
 msgid "There are no communities, yet."
 msgstr "Es haben sich noch keine Gemeinschaften angemeldet!"
 
-#: templates/ecobasa/community_list.html:83
+#: templates/ecobasa/community_list.html:90
 msgid "Register as a gift-economy ambassador for your community</a>"
 msgstr "Melde dich als Schenkökonomie Botschafter für deine Gemeinschaft an"
 
@@ -2682,9 +2684,8 @@ msgid "join the tours now!"
 msgstr "melde dich jetzt an!"
 
 #: templates/ecobasa/tour_blog.html:5
-#, fuzzy
 msgid "community-tours.blog"
-msgstr "Community-Tours"
+msgstr "community-tours.blog"
 
 #: templates/ecobasa/includes/organisers.html:5
 msgid "Organisers"
@@ -2727,21 +2728,22 @@ msgid "Your correspondent has given you an answer."
 msgstr "Dein Gesprächspartner hat geantwortet."
 
 #: templates/postman/email_user.txt:14
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "You have received a copy of a response from "
 "'%(sender_username)s' (%(sender_first)s %(sender_last)s)."
 msgstr ""
-"Du hast eine Kopie der Antwort von '%(sender_first)s erhalten, "
-"%(sender_last)s'."
+"Du hast eine Kopie der Antwort von '%(sender_username)s' "
+"(%(sender_first)s %(sender_last)s) erhalten"
+
 
 #: templates/postman/email_user.txt:16
-#, fuzzy, python-format
+#, python-format
 msgid ""
 "You have received a message from '%(sender_username)s' (%(sender_first)s "
 "%(sender_last)s)."
 msgstr ""
-"Du hast eine Nachricht von '%(sender_first)s %(sender_last)s' erhalten."
+"Du hast eine Nachricht von '%(sender_username)s' (%(sender_first)s %(sender_last)s) erhalten."
 
 #: templates/postman/email_user.txt:21
 msgid "Follow this link to view and reply to this message on the site"
@@ -2767,8 +2769,8 @@ msgid ""
 msgstr ""
 "\n"
 "Hab einen schönen Tag!\n"
-"Dieser Service wird als Geschenk von ecobasa.org angeboten, bitte unterstütze uns mit "
-"einer kleinen Spende!\n"
+"Dieser Service wird als Geschenk von ecobasa.org angeboten, bitte "
+"unterstütze uns mit einer kleinen Spende!\n"
 "https://www.betterplace.org/de/projects/11742-ecobasa-org\n"
 
 #: templates/postman/email_user_subject.txt:1
@@ -3108,13 +3110,11 @@ msgstr "Bewertung für %(pioneer)s bearbeiten"
 #~ msgid "open to new members"
 #~ msgstr "Offen für neue Mitglieder"
 
-#, fuzzy
 #~ msgid "Your e-mail"
-#~ msgstr "Deine e-mail: "
+#~ msgstr "Deine e-mail"
 
-#, fuzzy
 #~ msgid "Message"
-#~ msgstr "Nachricht: "
+#~ msgstr "Nachricht"
 
 #~ msgid "Community name"
 #~ msgstr "Name der Gemeinschaft"
