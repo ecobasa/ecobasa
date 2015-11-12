@@ -62,10 +62,7 @@
             </td>
 
             <td>
-              {% if profile.basic_description != "None" %}
-                {{ profile.basic_description|urlize|safe|truncatewords:25 }}
-              {% else %}
-              {% endif %}
+                {{ profile.basic_description|default_if_none:""|urlize|safe|truncatewords:25 }}
             </td>
 
             <td>
