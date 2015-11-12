@@ -691,6 +691,9 @@ a.community-image {
   margin-bottom: 10px;
 }
 
+table#community-list-table a.community-image > img {
+  border-radius: 5px;
+}
 table#community-list-table h5 {
   font-family: 'Bree Serif';
   margin-bottom: 5px;
