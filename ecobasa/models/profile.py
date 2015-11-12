@@ -521,9 +521,9 @@ class EcobasaCommunityProfile(models.Model):
     MEMBERSHIP_LOOKING = 'l'
     MEMBERSHIP_CLOSED = 'c'
     MEMBERSHIP_CHOICES = (
-        (MEMBERSHIP_OPEN, _('open to new members')),
-        (MEMBERSHIP_LOOKING, _('looking for members')),
-        (MEMBERSHIP_CLOSED, _('closed for new members')),
+        (MEMBERSHIP_OPEN, _('looking for members')),
+        (MEMBERSHIP_LOOKING, _('looking for volunteers')),
+        (MEMBERSHIP_CLOSED, _('closed for the moment')),
     )
     basic_membership_status = models.CharField(_('member status'),
         max_length=2,
