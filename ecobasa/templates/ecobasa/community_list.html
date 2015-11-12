@@ -62,7 +62,7 @@
             </td>
 
             <td>
-              {{ profile.basic_description }}
+              {{ profile.basic_description|urlize|safe|truncatewords:50 }}
             </td>
 
             <td>
