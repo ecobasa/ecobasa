@@ -478,7 +478,7 @@ class EcobasaCommunityProfile(models.Model):
         through=TaggedWishTool,
         related_name='_wishlist_tool', blank=True)
     wishlist_tools_info = models.TextField(
-        _('Do you have any additional info about materials, or details to your request (like condition, when you need them) ?'),
+        _('Do you have any additional info about tools, or details to your request (like condition, when you need them)?'),
         blank=True, null=True)
     wishlist_skills = TaggableManager(_('Are you looking for some experts that could help you with a project or problem? Tag their desired skills here:'),
         through=TaggedWishSkill,

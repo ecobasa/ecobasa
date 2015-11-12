@@ -62,7 +62,7 @@
             </td>
 
             <td>
-                {{ profile.basic_description|default_if_none:""|urlize|safe|truncatewords:25 }}
+                {{ profile.basic_description|default_if_none:""|urlize|safe|truncatewords:25 }}<a href="{% url 'community-detail' group=l.slug %}">{% trans "see profile" %}</a>
             </td>
 
             <td>
@@ -100,7 +100,7 @@
   $(function() {
     EcobasaMap.init('community-map');
     {% for l in locations %}
-    EcobasaMap.addMarker({{ l.lat|unlocalize }}, {{ l.lon|unlocalize }}, '{% if l.image %}{% thumbnail l.image 300x120 upscale crop as thumb %}<img src="{{ thumb.url }}" alt="{{ l.name }}" width="{{ thumb.width }}" /><br />{% endif %}<h5><a href="{% url 'community-detail' group=l.slug %}">{{ l.name }}</a></h5>{% if l.text %}<span>{{l.text|urlize|safe|truncatewords:50 }}</span><a href="{% url 'community-detail' group=l.slug %}">see profile</a>{% endif %}');
+    EcobasaMap.addMarker({{ l.lat|unlocalize }}, {{ l.lon|unlocalize }}, '{% if l.image %}{% thumbnail l.image 300x120 upscale crop as thumb %}<img src="{{ thumb.url }}" alt="{{ l.name }}" width="{{ thumb.width }}" /><br />{% endif %}<h5><a href="{% url 'community-detail' group=l.slug %}">{{ l.name }}</a></h5>{% if l.text %}<span>{{l.text|default_if_none:""|urlize|safe|truncatewords:50 }}</span><a href="{% url 'community-detail' group=l.slug %}">{%trans "see profile" %}</a>{% endif %}');
     {% endfor %}
 
     $.extend($.tablesorter.themes.bootstrap, {
