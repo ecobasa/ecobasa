@@ -31,9 +31,8 @@
       <thead>
         <tr>
           <th>{% trans "Community" %}</th>
-          <th>{% trans "Size" %}</th>
+          <th class="sorter-false">{% trans "Description" %}</th>
           <th>{% trans "Country" %}</th>
-          <th>{% trans "Status" %}</th>
           <th class="sorter-false">{% trans "Skills" %}</th>
         </tr>
       </thead>
@@ -41,25 +40,33 @@
         {% for community in object_list %}
           {% with community.profile as profile %}
           <tr>
-              <td>
-                {% if profile.image %}
-                <a class="community-image" href="{% url 'community-detail' group=community.slug %}">
-                  {% thumbnail profile.image 130x80 upscale crop as thumb %}
-                    <img src="{{ thumb.url }}" alt="{{ community.name }}" width="{{ thumb.width }}" />
-                </a>
-                {% endif %}
-                <a href="{% url 'community-detail' group=community.slug %}">{{ community.name }}</a>
-              </td>
             <td>
-              {{ profile.basic_inhabitants }}
+              {% if profile.image %}
+              <a class="community-image" href="{% url 'community-detail' group=community.slug %}">
+                {% thumbnail profile.image 130x80 upscale crop as thumb %}
+                  <img src="{{ thumb.url }}" alt="{{ community.name }}" width="{{ thumb.width }}" />
+              </a>
+              {% endif %}
+              <h5><a href="{% url 'community-detail' group=community.slug %}">{{ community.name }}</a></h5>
+              <span class="community-details">
+                <a href="#" data-toggle="tooltip" title="{{ profile.basic_inhabitants }} people live there"><i class="fa fa-users"></i>{{ profile.basic_inhabitants }}</a> 
+                <a href="#" data-toggle="tooltip" title="They can host up to {{ profile.visitors_num }} people"><i class="fa fa-bed"></i>{{ profile.visitors_num }}</a>
+                {% if profile.basic_membership_status = 'l' %}
+                  <a href="#" data-toggle="tooltip" title="Looking for volunteers"><i class="fa fa-hand-rock-o"></i></a>
+                {% elif profile.basic_membership_status = 'c' %}
+                  <a href="#" data-toggle="tooltip" title="Closed at the moment"><i class="fa fa-hand-stop-o"></i></a>
+                {% elif profile.basic_membership_status = 'o' %}
+                  <a href="#" data-toggle="tooltip" title="Looking for members"><i class="fa fa-user-plus"></i></a>
+                {% endif %}
+              </span>
+            </td>
+
+            <td>
+              {{ profile.basic_description }}
             </td>
 
             <td>
               {{ profile.get_contact_country_display }}
-            </td>
-
-            <td>
-              {{ profile.basic_membership_status }}
             </td>
 
             <td>

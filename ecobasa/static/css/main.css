@@ -5,6 +5,7 @@
   font-weight: normal;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'Lato';
   src: url("../fonts/lato-regular-webfont.eot");
@@ -12,6 +13,7 @@
   font-weight: normal;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'Lato';
   src: url("../fonts/lato-bold-webfont.eot");
@@ -19,6 +21,7 @@
   font-weight: bold;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'Lato';
   src: url("../fonts/lato-italic-webfont.eot");
@@ -26,6 +29,7 @@
   font-weight: normal;
   font-style: italic;
 }
+
 @font-face {
   font-family: 'Lato';
   src: url("../fonts/lato-bolditalic-webfont.eot");
@@ -33,6 +37,7 @@
   font-weight: bold;
   font-style: italic;
 }
+
 /*********** Default **************/
 body {
   background: url("../img/back.jpg") repeat;
@@ -258,9 +263,9 @@ nav.navbar-sub ul li a {
 }
 
 .alert-success {
-  color: #5A5527;
+  color: #5a5527;
   background-color: #c9c384;
-  border-color: #5A5527;
+  border-color: #5a5527;
 }
 
 /*********** Startpage ****************/
@@ -475,15 +480,6 @@ body#start .footer.navbar {
   background-size: contain;
 }
 
-a[data-toggle=tooltip] {
-  width: 5px;
-  height: 15px;
-  position: absolute;
-  background-color: #000;
-  cursor: pointer;
-  top: -15px;
-}
-
 /*************** Blog **************/
 .label {
   border-radius: 1.25em;
@@ -695,6 +691,26 @@ a.community-image {
   margin-bottom: 10px;
 }
 
+table#community-list-table h5 {
+  font-family: 'Bree Serif';
+  margin-bottom: 5px;
+}
+table#community-list-table a {
+  color: #de7a08;
+}
+table#community-list-table a:hover, table#community-list-table a:focus {
+  color: #80143b !important;
+  text-decoration: none;
+}
+table#community-list-table span.community-details a[data-toggle=tooltip] {
+  color: #452912;
+  margin-left: 10px;
+  margin-right: 2px;
+}
+table#community-list-table span.community-details a[data-toggle=tooltip]:first-child {
+  margin-left: 0px;
+}
+
 /*********** Registration **************/
 .panel {
   background: #f4ede3;
@@ -816,11 +832,11 @@ button.continue {
 }
 
 .has-success .form-control {
-  border: 1px dotted #5A5527;
+  border: 1px dotted #5a5527;
 }
 
 .has-success .help-block, .has-success .control-label, .has-success .radio, .has-success .checkbox, .has-success .radio-inline, .has-success .checkbox-inline {
-  color: #5A5527;
+  color: #5a5527;
 }
 
 .form-control:focus {
@@ -1279,5 +1295,3 @@ div.cosinnus-event .big-calendar {
     margin: 0px;
   }
 }
-
-/*# sourceMappingURL=main.css.map */

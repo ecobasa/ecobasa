@@ -532,15 +532,6 @@ body#start {
 	background-size: contain;
 }
 
-a[data-toggle=tooltip] {
-	width:5px;
-	height:15px;
-	position:absolute;
-	background-color:#000;
-	cursor: pointer;
-	top: -15px;
-}
-
 /*************** Blog **************/
 
 .label {
@@ -764,6 +755,31 @@ body#communities {
 a.community-image {
 	display: block;
 	margin-bottom: 10px;
+}
+
+table#community-list-table {
+	h5 {
+	    font-family: 'Bree Serif';
+	    margin-bottom: 5px;
+	}
+	a {
+		color: $yellow;
+		&:hover,
+		&:focus {
+			color: $purple !important;
+			text-decoration: none;
+		}
+	}
+	span.community-details {
+		a[data-toggle=tooltip] {
+			color: $brown;
+			margin-left: 10px;
+			margin-right: 2px;
+			&:first-child {
+				margin-left: 0px;
+			}
+		}
+	}
 }
 
 /*********** Registration **************/

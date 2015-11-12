@@ -45,7 +45,8 @@ $(document).ready(function() {
         }); 
     });
 
-	$('.email').tooltip();
+    $('[data-toggle="tooltip"]').tooltip();
+	// $('.email').tooltip();
 	
 	$('#accordion .collapse').on('shown.bs.collapse', function () {
        $(this).parent().find('.glyphicon-chevron-right').removeClass('glyphicon-chevron-right').addClass('glyphicon-chevron-down');
