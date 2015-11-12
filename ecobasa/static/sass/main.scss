@@ -748,6 +748,9 @@ body#communities {
 }
 
 .leaflet-popup-content {
+	> img {
+		border-radius: 5px;
+	}
 	h5 {
 	    font-family: 'Bree Serif';
 	    font-size: 18px;

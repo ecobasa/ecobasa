@@ -683,6 +683,9 @@ body#communities .footer.navbar {
   text-decoration: none;
 }
 
+.leaflet-popup-content > img {
+  border-radius: 5px;
+}
 .leaflet-popup-content h5 {
   font-family: 'Bree Serif';
   font-size: 18px;
