@@ -738,9 +738,20 @@ body#communities {
 	background-color: $secondary !important;
 }
 
+.leaflet-container a {
+	color: $yellow;
+	&:hover,
+	&:focus {
+		color: $purple;
+		text-decoration: none;
+	}
+}
+
 .leaflet-popup-content {
 	h5 {
 	    font-family: 'Bree Serif';
+	    font-size: 18px;
+	    margin-bottom: 2px;
 	}
 	a {
 		color: $yellow !important;
@@ -748,6 +759,18 @@ body#communities {
 		&:focus {
 			color: $purple !important;
 			text-decoration: none;
+		}
+	}
+	span.community-details {
+		display: block;
+		margin-bottom: 10px;
+		a[data-toggle=tooltip] {
+			color: $brown !important;
+			margin-left: 10px;
+			margin-right: 2px;
+			&:first-child {
+				margin-left: 0px;
+			}
 		}
 	}
 }

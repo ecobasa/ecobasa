@@ -21,6 +21,10 @@ def get_community_locations():
             'slug': com.group.slug,
             'image': com.image,
             'text': com.basic_description,
+            'text2': com.basic_brings_together,
+            'members': com.basic_inhabitants,
+            'visitors': com.visitors_num,
+            'status': com.basic_membership_status,
         }
 
     qs = EcobasaCommunityProfile.objects.all().select_related('group')
