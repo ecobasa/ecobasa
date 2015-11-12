@@ -806,6 +806,13 @@ table#community-list-table {
 			}
 		}
 	}
+	ul {
+		padding-left: 0px;
+		li {
+			padding-left: 0px;
+			list-style: none;
+		}
+	}
 }
 
 /*********** Registration **************/

@@ -735,6 +735,13 @@ table#community-list-table span.community-details a[data-toggle=tooltip] {
 table#community-list-table span.community-details a[data-toggle=tooltip]:first-child {
   margin-left: 0px;
 }
+table#community-list-table ul {
+  padding-left: 0px;
+}
+table#community-list-table ul li {
+  padding-left: 0px;
+  list-style: none;
+}
 
 /*********** Registration **************/
 .panel {
