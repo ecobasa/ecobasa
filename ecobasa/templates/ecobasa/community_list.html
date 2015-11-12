@@ -33,7 +33,7 @@
           <th>{% trans "Community" %}</th>
           <th class="sorter-false">{% trans "Description" %}</th>
           <th>{% trans "Country" %}</th>
-          <th class="sorter-false">{% trans "Skills" %}</th>
+          <th class="sorter-false">{% trans "Teaching" %}</th>
         </tr>
       </thead>
       <tbody>
@@ -78,7 +78,7 @@
 
             <td>
               <ul>{% for skill in profile.offers_skills.names|slice:":5" %}
-                <li>{{ skill }}</li>
+                <li><a href="{% url 'community-detail' group=community.slug %}"><span class="label label-{{ skill }}">{{ skill }}</span></a></li>
               {% endfor %}</ul>
             </td>
           </tr>
