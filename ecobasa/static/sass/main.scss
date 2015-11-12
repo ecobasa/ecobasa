@@ -758,6 +758,9 @@ a.community-image {
 }
 
 table#community-list-table {
+	a.community-image > img {
+		border-radius: 5px;
+	}
 	h5 {
 	    font-family: 'Bree Serif';
 	    margin-bottom: 5px;
