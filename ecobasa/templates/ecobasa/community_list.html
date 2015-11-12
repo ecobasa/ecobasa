@@ -62,7 +62,7 @@
             </td>
 
             <td>
-                {{ profile.basic_description|default_if_none:""|urlize|safe|truncatewords:25 }}<a href="{% url 'community-detail' group=l.slug %}">{% trans "see profile" %}</a>
+                {{ profile.basic_description|default_if_none:""|urlize|safe|truncatewords:25 }}<a href="{% url 'community-detail' group=community.slug %}">{% trans "see profile" %}</a>
             </td>
 
             <td>
