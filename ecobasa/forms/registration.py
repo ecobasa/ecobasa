@@ -20,6 +20,13 @@ def add_to_special_group(user):
     CosinnusGroupMembership.objects.create(
         user=user, group=special_group, status=MEMBERSHIP_MEMBER)
 
+def add_to_community_group(user):
+    """Adds the given user to Ecobasa's special group."""
+    special_pk = settings.ECOBASA_COMMUNITY_GROUP
+    special_group = CosinnusGroup.objects.filter(pk=special_pk)[0]
+    CosinnusGroupMembership.objects.create(
+        user=user, group=special_group, status=MEMBERSHIP_MEMBER)
+
 
 class RegistrationMemberForm(RegistrationForm):
 
@@ -28,7 +35,7 @@ class RegistrationMemberForm(RegistrationForm):
         fields_user = forms.fields_for_model(EcobasaUserProfile)
         self.fields.update(fields_user)
         self.fields['birth_date'].widget = DateL10nPicker()
-        self.fields['avatar'].required = True
+        self.fields['avatar'].required = False
 
         # has_bus is a boolean field, but is represented as a button in the
         # form. Form validation has to be told explicitly that this field is
@@ -84,6 +91,7 @@ class RegistrationCommunityForm(RegistrationForm):
         fields_user = forms.fields_for_model(EcobasaUserProfile)
         self.fields.update(fields_user)
         self.fields['birth_date'].widget = DateL10nPicker()
+        self.fields['avatar'].required = False
 
         fields_community = forms.fields_for_model(EcobasaCommunityProfile)
         fields_community['contact_location_lat'].widget = forms.HiddenInput()
@@ -99,6 +107,9 @@ class RegistrationCommunityForm(RegistrationForm):
             user=new_user, group=community, status=MEMBERSHIP_ADMIN)
 
         # set up profile
+        userprofile, _ = EcobasaUserProfile.objects.get_or_create(user=new_user)
+        userprofile.avatar = self.cleaned_data['avatar']
+
         profile = EcobasaCommunityProfile.objects.create(group=community)
         profile.name = name
         profile.image = self.cleaned_data['image']
@@ -144,6 +155,7 @@ class RegistrationCommunityForm(RegistrationForm):
             self.cleaned_data['basic_membership_status']
 
         profile.save()
+        userprofile.save()
 
         # seed stuff
         formsets = self.SeedInlineFormSet(self.data, instance=profile)
@@ -153,3 +165,4 @@ class RegistrationCommunityForm(RegistrationForm):
 
         # add ambassador user to special group
         add_to_special_group(new_user)
+        add_to_community_group(new_user)

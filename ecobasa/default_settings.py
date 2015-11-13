@@ -363,6 +363,11 @@ ECOBASA_GROUP = 1
 # override in your local settings.py
 ECOBASA_SPECIAL_COSINNUS_GROUP = 8
 
+# special group all community ambassadors are member of
+# override in your local settings.py
+
+ECOBASA_COMMUNITY_GROUP = 90
+
 # used on about page for the tour progress bar
 # can't create timezone-aware datetimes here, hence the tuple
 ECOBASA_TOUR_START = (2014, 7, 7)

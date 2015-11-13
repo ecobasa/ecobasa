@@ -33,14 +33,10 @@
       {% csrf_token %}
 
       <div class="row">
-        <div class="col-xs-3 required">{% bootstrap_label form.name.label %}*</div>
-        <div class="col-xs-9">{% bootstrap_field form.name show_label=False %}</div>
-      </div>
-
-      <div class="row">
         {% render_honeypot_field %}
         <div class="col-xs-3 required">{% bootstrap_label form.username.label %}*</div>
-        <div class="col-xs-9">{% bootstrap_field form.username show_label=False %}</div>
+        <div class="col-xs-6">{% bootstrap_field form.username show_label=False %}</div>
+        <div class="col-xs-3 avatar">{% bootstrap_field form.avatar %}</div>
       </div>
 
       <div class="row">
@@ -79,6 +75,11 @@
           </a>
           <div id="collapseZero" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingZero">
             <div class="panel-body">
+
+            <div class="row">
+              <div class="col-xs-3 required">{% bootstrap_label form.name.label %}*</div>
+              <div class="col-xs-9">{% bootstrap_field form.name show_label=False %}</div>
+            </div>
 
             <div class="row">
               <div class="col-xs-3">{% bootstrap_label form.contact_location.label %}</div>
