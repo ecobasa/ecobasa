@@ -698,16 +698,17 @@ body#communities .footer.navbar {
   color: #80143b !important;
   text-decoration: none;
 }
-.leaflet-popup-content span.community-details {
+
+span.community-details {
   display: block;
   margin-bottom: 10px;
 }
-.leaflet-popup-content span.community-details a[data-toggle=tooltip] {
+span.community-details a[data-toggle=tooltip] {
   color: #452912 !important;
   margin-left: 10px;
   margin-right: 2px;
 }
-.leaflet-popup-content span.community-details a[data-toggle=tooltip]:first-child {
+span.community-details a[data-toggle=tooltip]:first-child {
   margin-left: 0px;
 }
 
@@ -747,6 +748,21 @@ table#community-list-table ul {
 }
 table#community-list-table ul li {
   padding-left: 0px;
+  list-style: none;
+}
+
+/*********** Community-Detail **************/
+a.ambassador {
+  font-family: "Bree Serif";
+  text-align: center;
+  display: block;
+  font-size: 20px;
+}
+
+.visitor-info ul {
+  padding-left: 0px;
+}
+.visitor-info ul li {
   list-style: none;
 }
 
