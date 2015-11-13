@@ -1030,6 +1030,7 @@ a.email {
 /*************** Caravan-Profiles **************/
 body#profile img.avatar {
   margin-bottom: 20px;
+  width: 100%;
 }
 body#profile #tour-map {
   margin-top: 20px;
