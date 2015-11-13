@@ -17,7 +17,11 @@
   <div class="row">
     <div class="col-xs-4">
       <div>
-        <img class="avatar" src="{{ object.user.cosinnus_profile.avatar|thumbnail_url:"avatar_large" }}" alt="{{ object.user.username }}">
+        {% if object.user.cosinnus_profile.avatar %}
+          <img class="avatar" src="{{ object.user.cosinnus_profile.avatar|thumbnail_url:"avatar_large" }}" alt="{{ object.user.username }}">
+        {% else %}
+          <img class="avatar" src="{% static "img/avatar.png" %}" alt="No Photo">
+        {% endif %} 
         {% bootstrap_field form.avatar %}
       </div>
             <br />
