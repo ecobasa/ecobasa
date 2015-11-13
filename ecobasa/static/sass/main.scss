@@ -764,16 +764,17 @@ body#communities {
 			text-decoration: none;
 		}
 	}
-	span.community-details {
-		display: block;
-		margin-bottom: 10px;
-		a[data-toggle=tooltip] {
-			color: $brown !important;
-			margin-left: 10px;
-			margin-right: 2px;
-			&:first-child {
-				margin-left: 0px;
-			}
+}
+
+span.community-details {
+	display: block;
+	margin-bottom: 10px;
+	a[data-toggle=tooltip] {
+		color: $brown !important;
+		margin-left: 10px;
+		margin-right: 2px;
+		&:first-child {
+			margin-left: 0px;
 		}
 	}
 }
@@ -819,6 +820,22 @@ table#community-list-table {
 			padding-left: 0px;
 			list-style: none;
 		}
+	}
+}
+
+/*********** Community-Detail **************/
+
+a.ambassador {
+	font-family: "Bree Serif";
+	text-align: center;
+	display: block;
+	font-size: 20px;
+}
+
+.visitor-info ul {
+	padding-left: 0px;
+	li {
+		list-style: none;
 	}
 }
 

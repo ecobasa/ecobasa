@@ -74,7 +74,7 @@
 </div>
 
 <div class="row">
-  <div class="col-xs-8">
+  <div class="col-xs-12 col-md-8">
     <div class="row">
       <div class="col-xs-12">
         {% if profile.basic_description or user|is_group_admin:object %}
@@ -292,17 +292,24 @@
     </div><!-- Row -->
 
   </div>
-  <div class="col-xs-4 sidebar">
+  <div class="col-xs-12 col-md-4 sidebar">
     <div class="visitor-info">
-      <h3>Visitor Info</h3>
-      <ul>
-        <li><span class="data">Maximum Guests:</span><span class="guests">{{ profile.visitors_num }}</span></li>
-        <li><span class="data">Country:</span><span class="country">{{ profile.get_contact_country_display }}</span></li>
-        <li><span class="data">Size:</span><span class="size">{{ profile.basic_inhabitants }} people</span></li>
-        <li><span class="data">Children:</span><span class="children">{{ profile.basic_inhabitants_underage }}</span></li>
-        <li><span class="data">Membership status:</span><span class="members">{{ profile.get_basic_membership_status_display }}</span></li>
+      <h2>Visitor Info</h2>
+      <span class="community-details">
+        <a href="#" data-toggle="tooltip" title="{{ profile.basic_inhabitants }} people live there"><i class="fa fa-users"></i>{{ profile.basic_inhabitants }}</a>
+        <a href="#" data-toggle="tooltip" title="{{ profile.basic_inhabitants_underage }} children"><i class="fa fa-child"></i>{{ profile.basic_inhabitants_underage }}
+        <a href="#" data-toggle="tooltip" title="They can host up to {{ profile.visitors_num }} people"><i class="fa fa-bed"></i>{{ profile.visitors_num }}</a>
+        
+          {% if profile.basic_membership_status = 'l' %}
+            <a href="#" data-toggle="tooltip" title="Looking for volunteers"><i class="fa fa-hand-rock-o"></i></a>
+          {% elif profile.basic_membership_status = 'c' %}
+            <a href="#" data-toggle="tooltip" title="Closed at the moment"><i class="fa fa-hand-stop-o"></i></a>
+          {% elif profile.basic_membership_status = 'o' %}
+            <a href="#" data-toggle="tooltip" title="Looking for members"><i class="fa fa-user-plus"></i></a>
+          {% endif %}
+        </span>
       </ul>
-      <a href="{% url 'postman_write' recipients=object.name %}"><button class="email btn btn-primary btn-small" data-toggle="tooltip" data-placement="top" title="If you want to visit and volunteer at this communtiy"><span class="glyphicon glyphicon-envelope"></span> {% trans "Contact this community" %}</button></a>
+      <a href="{% url 'postman_write' recipients=object.name %}"><button class="email btn btn-primary btn-lg" data-toggle="tooltip" data-placement="top" title="If you want to visit and volunteer at this communtiy"><span class="glyphicon glyphicon-envelope"></span> {% trans "Contact this community" %}</button></a>
     </div>
     <div id="community-map" class="community-map-small"></div>
     {% if user.is_authenticated and profile.contact_show %}
@@ -336,15 +343,15 @@
         <ul class="media-list">
           {% for amb in object.ambassadors %}
             <li class="media">
-              <a class="pull-left" href="{% url 'pioneer-detail' username=amb.username %}">
+              <a href="{% url 'pioneer-detail' username=amb.username %}">
                 {% if amb.cosinnus_profile.avatar %}
                   <img class="avatar" src="{{ amb.cosinnus_profile.avatar|thumbnail_url:"avatar_medium" }}">
                 {% else %}
-                  <img class="avatar" src="http://placehold.it/30x30">
+                  <img class="avatar" src="{% static "img/avatar.png" %}">
                 {% endif %}
               </a>
               <div class="media-body">
-                <a class="pull-left" href="{% url 'pioneer-detail' username=amb.username %}">{{ amb.get_full_name|default:amb.username }}</a>
+                <a class="ambassador" href="{% url 'pioneer-detail' username=amb.username %}">{{ amb.get_full_name|default:amb.username }}</a>
               </div>
             </li>
           {% endfor %}
