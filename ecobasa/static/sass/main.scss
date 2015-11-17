@@ -1093,6 +1093,12 @@ $table-border-color: $primary;
 	background-color: rgba(#fff, 0.5);
 }
 
+table#pioneer-list-table {
+	img.avatar {
+		width: 76px;
+	}
+}
+
 /**************** Pioneer-Detail ******************/
 
 img.avatar {
