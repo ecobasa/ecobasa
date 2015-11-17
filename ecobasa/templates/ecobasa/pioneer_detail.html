@@ -1,5 +1,5 @@
 {% extends "cosinnus/base.html" %}
-{% load i18n thumbnail static ecobasa_organiser %}
+{% load i18n l10n thumbnail static ecobasa_organiser %}
 
 {% block page_title %}
   {% blocktrans with name=object.username %}Pioneer profile: {{ name }}{% endblocktrans %}
@@ -19,11 +19,13 @@
 {% with object.cosinnus_profile as profile %}
 <div class="row">
   <div class="col-xs-12 col-md-3">
+    {% if user.is_superuser or user == object %}<a href="{% url 'pioneer-edit' username=object.username %}">{% endif %}
       {% if profile.avatar %}
-        <img class="avatar" src="{{ profile.avatar|thumbnail_url:"avatar_large" }}" />
+        <img class="avatar" src="{{ profile.avatar|thumbnail_url:"avatar_large" }}" {% if user.is_superuser or user == object %}alt="{%trans "Edit profile" %}{% else %}alt="{{ object.get_full_name|default:object.username }}"{% endif %} data-toggle="tooltip" data-placement="top" {% if user.is_superuser or user == object %}alt="{%trans "Edit profile" %}{% else %}title="{{ object.get_full_name|default:object.username }}"{% endif %}/>
       {% else %}
-        <img class="avatar" src="{% static "img/avatar.png" %}" alt="{{ object.get_full_name|default:object.username }}" data-toggle="tooltip" data-placement="top" title="{{ object.get_full_name|default:object.username }}">
+        <img class="avatar" src="{% static "img/avatar.png" %}" alt="{{ object.get_full_name|default:object.username }}" data-toggle="tooltip" data-placement="top" title="{{ object.get_full_name|default:object.username }}"/>
       {% endif %}
+      {% if user.is_superuser or user == object %}</a>{% endif %}
       <a class="email btn btn-primary btn-smll pull-right" href="{% url 'postman_write' recipients=object.username %}"><span class="glyphicon glyphicon-envelope"></span>{% trans "Send message" %}</a>
   </div>
   <div class="col-xs-12 col-md-6">
