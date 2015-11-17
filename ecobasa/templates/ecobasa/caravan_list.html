@@ -1,5 +1,5 @@
 {% extends "cosinnus/base.html" %}
-{% load i18n thumbnail cosinnus_tags %}
+{% load i18n thumbnail static cosinnus_tags %}
 
 {% block page_title %}{% trans "Community-Tours" %}{% endblock %}
 
@@ -27,15 +27,9 @@
             <td>{{ caravan.description|linebreaksbr|safe }}</td>
             <td>
               <ul>
-                {% for amb in object.ambassadors %}
+                {% for member in members %}
                 <li>
-                  <a class="pull-left" href="{% url 'pioneer-detail' username=amb.username %}">
-                    {% if amb.cosinnus_profile.avatar %}
-                      <img class="avatar" src="{{ amb.cosinnus_profile.avatar|thumbnail_url:"avatar_medium" }}" alt="{{ amb.get_full_name|default:amb.username }}" data-toggle="tooltip" data-placement="top" title="{{ amb.get_full_name|default:amb.username }}">
-                    {% else %}
-                      <img class="avatar" src="http://placehold.it/30x30">
-                    {% endif %}
-                  </a>
+                  <a class="pull-left" href="{% url 'pioneer-detail' username=member.username %}">{{ member.get_full_name|default:member.username }}</a>
                 </li>
                 {% endfor %}
               </ul>

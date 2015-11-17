@@ -347,7 +347,7 @@
                 {% if amb.cosinnus_profile.avatar %}
                   <img class="avatar" src="{{ amb.cosinnus_profile.avatar|thumbnail_url:"avatar_medium" }}">
                 {% else %}
-                  <img class="avatar" src="{% static "img/avatar.png" %}">
+                  <img class="avatar" src="{% static "img/avatar.png" %}" alt="{{ amb.get_full_name|default:amb.username }}" data-toggle="tooltip" data-placement="top" title="{{ amb.get_full_name|default:amb.username }}">
                 {% endif %}
               </a>
               <div class="media-body">
@@ -370,7 +370,7 @@
                   {% if pending.cosinnus_profile.avatar %}
                     <img class="avatar" src="{{ cosinnus_profile.avatar|thumbnail_url:"avatar_medium" }}">
                   {% else %}
-                    <img class="avatar" src="http://placehold.it/30x30">
+                    <img class="avatar" src="{% static "img/avatar.png" %}">
                   {% endif %}
                 </a>
                 <div class="media-body">
@@ -394,7 +394,7 @@
                 {% if reference.giver.cosinnus_profile.avatar %}
                     <img class="avatar" src="{% thumbnail reference.giver.cosinnus_profile.avatar.url "200x0" crop=1 upscale=1 %}" />
                   {% else %}
-                    <img class="avatar" src="http://placehold.it/30x30">
+                    <img class="avatar" src="{% static "img/avatar.png" %}">
                   {% endif %}
                   {{ reference.giver.username }}</a> {{ reference.date }}{% if user.is_superuser or  reference.giver == user %} <a href="{% url 'community-reference-edit' object.slug reference.pk %}">{% trans "Edit" %}</a>{% endif %}
               <p>{{ reference.text }}</p>

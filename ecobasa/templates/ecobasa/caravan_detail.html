@@ -63,7 +63,7 @@
               {% if member.cosinnus_profile.avatar %}
                 <img class="avatar" src="{{ member.cosinnus_profile.avatar|thumbnail_url:"avatar_large" }}">
               {% else %}
-                <img class="avatar" src="http://placehold.it/200x200">
+                <img class="avatar" src="{% static "img/avatar.png" %}" alt="{{ member.get_full_name|default:member.username }}" data-toggle="tooltip" data-placement="top" title="{{ member.get_full_name|default:member.username }}">
               {% endif %}
             </a>
           <div class="media-body">
