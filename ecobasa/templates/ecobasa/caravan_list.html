@@ -20,7 +20,9 @@
       <thead>
           <th>{% trans "Tour" %}</th>
           <th>{% trans "Description" %}</th>
-          <th>{% trans "Actions" %}</th>
+          {% if user.is_authenticated %}
+            <th>{% trans "Actions" %}</th>
+          {% endif %}
       </thead>
       {% for caravan in object_list %}
         <tr>
@@ -30,25 +32,26 @@
               {% endif %}
               <a class="name" href="{% url 'caravan-detail' caravan.slug %}">{{ caravan.name }}</a></td>
             <td>{{ caravan.description|linebreaksbr|safe }}</td>
-            <td>
-              <div class="btn-group">
-              {% if user|is_group_member:caravan %}
-                <a class="btn btn-primary" href="{% url 'caravan-leave' caravan.slug %}">{% trans "Leave" %}</a>
-              {% elif user.is_authenticated %}
-                <a class="btn btn-primary" href="{% url 'caravan-join' caravan.slug %}">{% trans "Join" %}</a>
-              {% endif %}
-
-              {% if user.is_superuser or user|is_group_admin:caravan %}
-                <a class="btn btn-primary btn-mini dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li><a href="{% url 'caravan-edit' caravan.slug %}"><span class="glyphicon glyphicon-pencil"></span> {% trans "Edit" %}</a>
-                  {% if user.is_superuser %}
-                  <li><a href="{% url 'caravan-delete' caravan.slug %}"><span class="glyphicon glyphicon-trash"></span> {% trans "Delete" %}</a>
-                  {% endif %}
-                </ul>
-              {% endif %}
-              </div>
-          </td>
+            {% if user.is_authenticated %}
+              <td>
+                <div class="btn-group">
+                {% if user|is_group_member:caravan %}
+                  <a class="btn btn-primary" href="{% url 'caravan-leave' caravan.slug %}">{% trans "Leave" %}</a>
+                {% elif user.is_authenticated %}
+                  <a class="btn btn-primary" href="{% url 'caravan-join' caravan.slug %}">{% trans "Join" %}</a>
+                {% endif %}
+                {% if user.is_superuser or user|is_group_admin:caravan %}
+                  <a class="btn btn-primary btn-mini dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><a href="{% url 'caravan-edit' caravan.slug %}"><span class="glyphicon glyphicon-pencil"></span> {% trans "Edit" %}</a>
+                    {% if user.is_superuser %}
+                    <li><a href="{% url 'caravan-delete' caravan.slug %}"><span class="glyphicon glyphicon-trash"></span> {% trans "Delete" %}</a>
+                    {% endif %}
+                  </ul>
+                {% endif %}
+                </div>
+              </td>
+            {% endif %}
         </tr>
       {% endfor %}
   </table>
