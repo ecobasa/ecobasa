@@ -318,7 +318,7 @@
           <span class="details">
             written by <a href="{% url 'pioneer-detail' username=post.creator.get_username %}">{{ post.creator.get_full_name|default:post.creator.username }}</a> on {{ post.created }}
           </span>
-          <div class="article">{% autoescape off %}{{ post.text|urlize|linebreaks|truncatewords_html:80 }}{% endautoescape %}</div>
+          <div class="article">{{ post.text|linebreaks|truncatewords:80 }}</div>
           <a class="more" href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">read more</a>
         </div>
       {% else %}
@@ -340,7 +340,7 @@
             <span class="details">
               written by <a href="{% url 'pioneer-detail' username=post.creator.get_username %}">{{ post.creator.get_full_name|default:post.creator.username }}</a> on {{ post.created }}
             </span>
-            <div class="article">{% autoescape off %}{{ post.text|urlize|linebreaks|truncatewords_html:80 }}{% endautoescape %}</div>
+            <div class="article">{{ post.text|striptags|linebreaks|safe|truncatewords_html:80 }}</div>
             <a class="more" href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">read more</a>
           </div>
       </a>
