@@ -20,7 +20,7 @@
     <span class="details">
       written by <a href="{% url 'pioneer-detail' username=post.creator.get_username %}">{{ post.creator.get_full_name|default:post.creator.username }}</a> on {{ post.created }} in <a href="{% url 'caravan-detail' group=post.group.slug %}">{{ post.group.slug }}</a>
     </span>
-     <div class="article">{{ post.text|linebreaks|truncatewords_html:80 }}</div>
+     <div class="article">{{ post.text|striptags|linebreaks|safe|truncatewords_html:80 }}</div>
      <a class="more" href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">read more <span class="glyphicon glyphicon-arrow-right"></span></a>
   </div>
 </div>
