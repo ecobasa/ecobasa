@@ -84,7 +84,7 @@ class CaravanDetailView(GroupDetailView):
         events = self.object.cosinnus_event_event_set.all()
         events = events.order_by('-from_date')
         context.update({
-            'posts': Note.objects.filter(group__slug=self.group.slug),
+            'posts': Note.objects.filter(group__slug=self.group.slug, media_tag__public=True),
             'events': events,
         })
         return context
