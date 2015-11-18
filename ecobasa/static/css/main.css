@@ -1042,6 +1042,12 @@ a.email {
   text-align: center;
 }
 
+/*************** Caravan-List **************/
+table.caravans a.name {
+  font-family: 'Bree Serif';
+  font-size: 18px;
+}
+
 /*************** Caravan-Profiles **************/
 body#profile img.avatar {
   margin-bottom: 20px;
