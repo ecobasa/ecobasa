@@ -919,10 +919,7 @@ img.avatar {
   border: 1px dashed;
   padding: 5px;
   margin-top: 37px;
-}
-
-.media > .pull-left {
-  margin-right: 60px;
+  width: 100%;
 }
 
 span.role {
@@ -932,7 +929,7 @@ span.role {
 }
 
 /*************** Community-Profiles **************/
-#profile .content h2 {
+body#profile .content h2 {
   font-size: 20px;
   padding: 10px;
   background: #da6137;
@@ -1049,6 +1046,11 @@ table.caravans a.name {
 }
 
 /*************** Caravan-Profiles **************/
+body#profile a.pioneer {
+  font-family: 'Bree Serif';
+  font-size: 18px;
+  text-align: center;
+}
 body#profile img.avatar {
   margin-bottom: 20px;
   width: 100%;

@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="{% static "css/vendor/jquery.tablesorter.theme.bootstrap.css" %}" />
 {% endblock extrahead %}
 
+{% block body %}team{% endblock body %}
 
 {% block content %}
 <div class="row">
@@ -28,7 +29,7 @@
                   {% if cgm_user.cosinnus_profile.avatar %}
                     <img class="avatar" src="{{ cgm_user.cosinnus_profile.avatar|thumbnail_url:"avatar_large" }}">
                   {% else %}
-                    <img class="avatar media-object" src="http://placehold.it/30x30">
+                    <img class="avatar" src="{% static "img/avatar.png" %}" alt="{{ cgm_user.get_full_name|default:cgm_user.username }}" data-toggle="tooltip" data-placement="top" title="{{ cgm_user.get_full_name|default:cgm_user.username }}">
                   {% endif %}
                 </a>
                 </div>
