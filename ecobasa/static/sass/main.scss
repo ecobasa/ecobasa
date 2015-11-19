@@ -1102,6 +1102,12 @@ body#profile {
 	a:hover img.avatar {
 		
 	}
+	a.email {
+		margin-left: auto;
+		margin-right: auto;
+		display: block;
+		margin-top: 20px;
+	}
 }
 img.avatar {
 	margin-bottom: 20px;
@@ -1135,10 +1141,6 @@ ul.references {
 
 .badge {
 	border: 1px solid;
-}
-
-a.email {
-	margin-top: 20px;
 }
 
 /*************** Pioneer-List **************/
