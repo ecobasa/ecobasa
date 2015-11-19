@@ -15,7 +15,7 @@
 {% endblock %}
 
 {% block page_title %}
-  {% blocktrans with group_name=object.name %}Caravan “{{ group_name }}”{% endblocktrans %}
+  {% blocktrans with group_name=object.name %}{{ group_name }} - Community-Tour | ecobasa.org{% endblocktrans %}
 {% endblock %}
 
 {% block body %}profile{% endblock body %}
@@ -32,7 +32,7 @@
 
 <div class="row">
   <div class="col-md-12">
-    <h1>{% blocktrans with name=object.name %}Caravan {{ name }}{% endblocktrans %}</h1>
+    <h1>{% blocktrans with name=object.name %}{{ name }}{% endblocktrans %}</h1>
     {% if user|is_group_member:caravan or user|is_group_admin:object or user.is_superuser %}
     <div class="btn-group pull-right">
       {% if user|is_group_member:caravan %}
