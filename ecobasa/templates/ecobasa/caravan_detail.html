@@ -3,6 +3,14 @@
 
 {% block extrahead %}
 {{ block.super }} 
+<meta property="og:title" content="{{ object.name }} - Community-Tour" />
+<meta property="og:type" content="profile" />
+<meta property="og:url" content="http://{{ request.get_host }}{% url 'caravan-detail' object.slug %}" />
+<meta property=“og:image” content=“{{ object.image|thumbnail_url:"note_medium" }}” />
+<meta property="og:image:width" content="350" />
+<meta property="og:image:height" content="250" />
+<meta property="og:description" content="{{ object.description|striptags|truncatewords:80 }}" />
+<meta property="og:site_name" content="ecobasa.org" />
 <link rel="stylesheet" href="{% static "leaflet/leaflet.css" %}" />
 {% endblock %}
 
@@ -91,7 +99,7 @@
                   {% if admin.cosinnus_profile.avatar %}
                     <img class="avatar" src="{{ admin.cosinnus_profile.avatar|thumbnail_url:"avatar_medium" }}">
                   {% else %}
-                    <img class="avatar" src="http://placehold.it/64x64">
+                    <img class="avatar" src="{% static "img/avatar.png" %}" alt="{{ member.get_full_name|default:member.username }}" data-toggle="tooltip" data-placement="top" title="{{ member.get_full_name|default:member.username }}">
                   {% endif %}
                 </a>
                 <div class="media-body">
