@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-19 18:52+0100\n"
+"POT-Creation-Date: 2015-11-19 19:19+0100\n"
 "PO-Revision-Date: 2014-11-23 18:07+0200\n"
 "Last-Translator: Sebastian Henschel <ecobasa@kodeaffe.de\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -2132,7 +2132,7 @@ msgstr "Vorhandene Busse für deine Community-Tour"
 msgid "Add a bus to your profile"
 msgstr "Füge deinem Profil einen Bus hinzu"
 
-#: templates/ecobasa/bus_list.html:16 templates/ecobasa/pioneer_detail.html:128
+#: templates/ecobasa/bus_list.html:16 templates/ecobasa/pioneer_detail.html:129
 #: templates/ecobasa/pioneer_list.html:26
 msgid "Bus"
 msgstr "Bus"
@@ -2614,10 +2614,13 @@ msgid "Pioneer profile: %(name)s"
 msgstr "Pionier-Profil: %(name)s"
 
 #: templates/ecobasa/pioneer_detail.html:11
-#: templates/ecobasa/pioneer_detail.html:24
-#: templates/ecobasa/pioneer_detail.html:26
 msgid "Edit profile"
 msgstr "Profil bearbeiten"
+
+#: templates/ecobasa/pioneer_detail.html:24
+#: templates/ecobasa/pioneer_detail.html:26
+msgid "Change Picture"
+msgstr "Bild ändern"
 
 #: templates/ecobasa/pioneer_detail.html:29
 msgid "Send message"
@@ -2639,24 +2642,24 @@ msgstr "Interessen"
 msgid "gender"
 msgstr "\"Geschlecht\""
 
-#: templates/ecobasa/pioneer_detail.html:144
+#: templates/ecobasa/pioneer_detail.html:142
 msgid "Maximum passengers this bus can take:"
 msgstr "Maximale Anzahl der Passagiere, die dieser Bus befördern kann:"
 
-#: templates/ecobasa/pioneer_detail.html:147
+#: templates/ecobasa/pioneer_detail.html:143
 msgid "fuel consumption"
 msgstr "Kraftstoffverbrauch"
 
-#: templates/ecobasa/pioneer_detail.html:156
+#: templates/ecobasa/pioneer_detail.html:152
 msgid "Posts"
 msgstr "Posts"
 
-#: templates/ecobasa/pioneer_detail.html:173
+#: templates/ecobasa/pioneer_detail.html:169
 #: templates/ecobasa/includes/organisers.html:17
 msgid "Roles"
 msgstr "Rollen"
 
-#: templates/ecobasa/pioneer_detail.html:178
+#: templates/ecobasa/pioneer_detail.html:174
 msgid "of"
 msgstr "von"
 

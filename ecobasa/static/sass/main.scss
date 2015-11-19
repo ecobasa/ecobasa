@@ -1099,8 +1099,8 @@ table#pioneer-list-table {
 /**************** Pioneer-Detail ******************/
 
 body#profile {
-	a:hover img.avatar {
-		
+	a:hover div.edit {
+		content: "\270f";
 	}
 	a.email {
 		margin-left: auto;
