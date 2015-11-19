@@ -69,18 +69,18 @@
     <ul class="media-list">
       {% for member in members %}
         <li class="media">
-            <a class="pull-left" href="{% url 'pioneer-detail' username=member.get_username %}">
+            <a class="pioneer pull-left" href="{% url 'pioneer-detail' username=member.get_username %}">
               {% if member.cosinnus_profile.avatar %}
                 <img class="avatar" src="{{ member.cosinnus_profile.avatar|thumbnail_url:"avatar_large" }}">
               {% else %}
                 <img class="avatar" src="{% static "img/avatar.png" %}" alt="{{ member.get_full_name|default:member.username }}" data-toggle="tooltip" data-placement="top" title="{{ member.get_full_name|default:member.username }}">
               {% endif %}
+              {{ member.get_full_name|default:member.get_username }}
             </a>
           <div class="media-body">
-              <a href="{% url 'pioneer-detail' username=member.get_username %}">{{ member.get_full_name|default:member.get_username }}</a>
               <div class="btn-group btn-group-xs">
-                <a href="{% url 'cosinnus:group-user-edit' group=object.slug username=member.get_username %}" class="btn btn-default">{% trans "Change" %}</a>
-                <a href="{% url 'cosinnus:group-user-delete' group=object.slug username=member.get_username %}" class="btn btn-default">{% trans "Delete" %}</a>
+                <a href="{% url 'cosinnus:group-user-edit' group=object.slug username=member.get_username %}" class="btn btn-primary">{% trans "Change Status" %}</a>
+                <a href="{% url 'cosinnus:group-user-delete' group=object.slug username=member.get_username %}" class="btn btn-primary">{% trans "Kick Out" %}</a>
               </div>
               <div class="comment tooltip fade right in"><div class="tooltip-arrow"></div>
               <div class="tooltip-inner">{{ member.cosinnus_profile.about|urlize|linebreaksbr|safe }}</div></div>
@@ -97,18 +97,18 @@
           <ul class="media-list">
             {% for admin in admins %}
               <li class="media">
-                <a class="pull-left" href="{% url 'cosinnus:user-detail' username=admin.get_username %}">
+                <a class="pull-left pioneer" href="{% url 'pioneer-detail' username=admin.get_username %}">
                   {% if admin.cosinnus_profile.avatar %}
                     <img class="avatar" src="{{ admin.cosinnus_profile.avatar|thumbnail_url:"avatar_medium" }}">
                   {% else %}
                     <img class="avatar" src="{% static "img/avatar.png" %}" alt="{{ admin.get_full_name|default:admin.username }}" data-toggle="tooltip" data-placement="top" title="{{ admin.get_full_name|default:admin.username }}">
                   {% endif %}
+                  {{ admin.get_full_name|default:admin.get_username }}
                 </a>
                 <div class="media-body">
-                  <a class="pull-left" href="{% url 'cosinnus:user-detail' username=admin.get_username %}">{{ admin.get_full_name|default:admin.get_username }}</a>
                   <div class="btn-group btn-group-xs">
-                    <a href="{% url 'cosinnus:group-user-edit' group=object.slug username=admin.get_username %}" class="btn btn-default">{% trans "Change" %}</a>
-                    <a href="{% url 'cosinnus:group-user-delete' group=object.slug username=admin.get_username %}" class="btn btn-default">{% trans "Delete" %}</a>
+                    <a href="{% url 'cosinnus:group-user-edit' group=object.slug username=admin.get_username %}" class="btn btn-primary">{% trans "Change Status" %}</a>
+                    <a href="{% url 'cosinnus:group-user-delete' group=object.slug username=admin.get_username %}" class="btn btn-primary">{% trans "Kick Out" %}</a>
                   </div>
                 </div>
               </li>
@@ -123,18 +123,18 @@
           <ul class="media-list">
             {% for pending in pendings %}
               <li class="media">
-                <a class="pull-left" href="{% url 'pioneer-detail' username=pending.get_username %}">
+                <a class="pull-left pioneer" href="{% url 'pioneer-detail' username=pending.get_username %}">
                   {% if pending.cosinnus_profile.avatar %}
                     <img class="avatar" src="{{ pending.cosinnus_profile.avatar|thumbnail_url:"avatar_medium" }}">
                   {% else %}
-                    <img class="avatar" src="http://placehold.it/64x64">
+                     <img class="avatar" src="{% static "img/avatar.png" %}" alt="{{ pending.get_full_name|default:pending.username }}" data-toggle="tooltip" data-placement="top" title="{{ pending.get_full_name|default:pending.username }}">
                   {% endif %}
+                 {{ pending.get_full_name|default:pending.get_username }}
                 </a>
                 <div class="media-body">
-                  <a class="pull-left" href="{% url 'cosinnus:user-detail' username=pending.get_username %}">{{ pending.get_full_name|default:pending.get_username }}</a>
                   <div class="btn-group btn-group-xs">
-                    <a href="{% url 'cosinnus:group-user-add' group=object.slug username=pending.get_username %}" class="btn btn-default">{% trans "Add" %}</a>
-                    <a href="{% url 'cosinnus:group-user-delete' group=object.slug username=pending.get_username %}" class="btn btn-default">{% trans "Delete" %}</a>
+                    <a href="{% url 'cosinnus:group-user-add' group=object.slug username=pending.get_username %}" class="btn btn-primary">{% trans "Add to Tour" %}</a>
+                    <a href="{% url 'cosinnus:group-user-delete' group=object.slug username=pending.get_username %}" class="btn btn-primary">{% trans "Kick Out" %}</a>
                   </div>
                 </div>
               </li>
