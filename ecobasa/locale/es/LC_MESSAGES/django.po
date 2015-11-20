@@ -1,0 +1,2996 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-11-20 14:16+0100\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: admin.py:28
+msgid "User"
+msgstr "Usuario"
+
+#: admin.py:32
+msgid "Group"
+msgstr "Grupo"
+
+#: cms_plugins.py:17
+msgid "Slideshow"
+msgstr "Diapositivas"
+
+#: default_settings.py:163
+msgid "English"
+msgstr "Inglés"
+
+#: default_settings.py:164
+msgid "German"
+msgstr "alemán"
+
+#: urls.py:78
+msgid "^about/$"
+msgstr "^ sobre / $"
+
+#: urls.py:79
+msgid "^info/$"
+msgstr "^ info / $"
+
+#: forms/pioneer.py:13
+msgid "The two password fields didn't match."
+msgstr "Los dos campos de contraseña no coinciden."
+
+#: forms/pioneer.py:14
+msgid "Your old password was entered incorrectly. Please enter it again."
+msgstr "Su contraseña anterior se ha introducido de forma incorrecta. Por favor, introduzca de nuevo."
+
+#: forms/pioneer.py:17
+msgid "Old password"
+msgstr "Contraseña anterior"
+
+#: forms/pioneer.py:20
+msgid "New password"
+msgstr "Nueva contraseña"
+
+#: forms/pioneer.py:23
+msgid "New password confirmation"
+msgstr "Nueva confirmación de contraseña"
+
+#: forms/pioneer.py:26
+msgid "Email"
+msgstr "Email"
+
+#: models/caravan.py:25 templates/ecobasa/caravan_detail.html:183
+#: templates/ecobasa/community_detail.html:97
+#: templates/ecobasa/community_form.html:204
+#: templates/userprofiles/registration_community.html:249
+msgid "Offers"
+msgstr "Ofertas"
+
+#: models/caravan.py:26
+msgid ""
+"If the caravan collects something on the way for example, communities know "
+"what it is coming with."
+msgstr "Si la caravana recoge algo en el camino, por ejemplo, las comunidades saben lo que viene con."
+
+#: models/caravan.py:30 templates/cosinnus_event/event_list.html:52
+#: templates/cosinnus_event/event_list.html:85
+#: templates/ecobasa/caravan_detail.html:233
+msgid "Image"
+msgstr "Imagen"
+
+#: models/caravan.py:31
+msgid "An image of the caravan."
+msgstr "Una imagen de la caravana."
+
+#: models/caravan.py:39
+msgid "Caravan"
+msgstr "Caravana"
+
+#: models/caravan.py:40
+msgid "Caravans"
+msgstr "Caravanas"
+
+#: models/organiser.py:19
+msgid "Cosinnus group membership"
+msgstr "Pertenencia a grupos Cosinnus"
+
+#: models/organiser.py:21
+msgid "Role title"
+msgstr "Título de Papel"
+
+#: models/organiser.py:24
+msgid "Role description"
+msgstr "Descripción Papel"
+
+#: models/organiser.py:30
+msgid "Organiser role"
+msgstr "Papel Organizador"
+
+#: models/organiser.py:31
+msgid "Organiser roles"
+msgstr "Funciones del organizador"
+
+#: models/profile.py:21
+msgid "Andorra"
+msgstr "Andorra"
+
+#: models/profile.py:22
+msgid "United Arab Emirates"
+msgstr "Emiratos Árabes Unidos"
+
+#: models/profile.py:23
+msgid "Afghanistan"
+msgstr "Afganistán"
+
+#: models/profile.py:24
+msgid "Antigua & Barbuda"
+msgstr "Antigua y Barbuda"
+
+#: models/profile.py:25
+msgid "Anguilla"
+msgstr "Anguila"
+
+#: models/profile.py:26
+msgid "Albania"
+msgstr "Albania"
+
+#: models/profile.py:27
+msgid "Armenia"
+msgstr "Armenia"
+
+#: models/profile.py:28
+msgid "Netherlands Antilles"
+msgstr "Antillas Holandesas"
+
+#: models/profile.py:29
+msgid "Angola"
+msgstr "Angola"
+
+#: models/profile.py:30
+msgid "Antarctica"
+msgstr "Antártida"
+
+#: models/profile.py:31
+msgid "Argentina"
+msgstr "Argentina"
+
+#: models/profile.py:32
+msgid "American Samoa"
+msgstr "Samoa Americana"
+
+#: models/profile.py:33
+msgid "Austria"
+msgstr "Austria"
+
+#: models/profile.py:34
+msgid "Australia"
+msgstr "Australia"
+
+#: models/profile.py:35
+msgid "Aruba"
+msgstr "Aruba"
+
+#: models/profile.py:36
+msgid "Azerbaijan"
+msgstr "Azerbaiyán"
+
+#: models/profile.py:37
+msgid "Bosnia and Herzegovina"
+msgstr "Bosnia y Herzegovina"
+
+#: models/profile.py:38
+msgid "Barbados"
+msgstr "Barbados"
+
+#: models/profile.py:39
+msgid "Bangladesh"
+msgstr "Bangladesh"
+
+#: models/profile.py:40
+msgid "Belgium"
+msgstr "Bélgica"
+
+#: models/profile.py:41
+msgid "Burkina Faso"
+msgstr "Burkina Faso"
+
+#: models/profile.py:42
+msgid "Bulgaria"
+msgstr "Bulgaria"
+
+#: models/profile.py:43
+msgid "Bahrain"
+msgstr "Bahrein"
+
+#: models/profile.py:44
+msgid "Burundi"
+msgstr "Burundi"
+
+#: models/profile.py:45
+msgid "Benin"
+msgstr "Benin"
+
+#: models/profile.py:46
+msgid "Bermuda"
+msgstr "islas Bermudas"
+
+#: models/profile.py:47
+msgid "Brunei Darussalam"
+msgstr "Brunei Darussalam"
+
+#: models/profile.py:48
+msgid "Bolivia"
+msgstr "Bolivia"
+
+#: models/profile.py:49
+msgid "Brazil"
+msgstr "Brasil"
+
+#: models/profile.py:50
+msgid "Bahama"
+msgstr "Bahama"
+
+#: models/profile.py:51
+msgid "Bhutan"
+msgstr "Bhután"
+
+#: models/profile.py:52
+msgid "Bouvet Island"
+msgstr "Isla Bouvet"
+
+#: models/profile.py:53
+msgid "Botswana"
+msgstr "Botswana"
+
+#: models/profile.py:54
+msgid "Belarus"
+msgstr "Bielorrusia"
+
+#: models/profile.py:55
+msgid "Belize"
+msgstr "Belice"
+
+#: models/profile.py:56
+msgid "Canada"
+msgstr "Canadá"
+
+#: models/profile.py:57
+msgid "Cocos (Keeling) Islands"
+msgstr "Cocos (Keeling)"
+
+#: models/profile.py:58
+msgid "Central African Republic"
+msgstr "República Centroafricana"
+
+#: models/profile.py:59
+msgid "Congo"
+msgstr "Congo"
+
+#: models/profile.py:60
+msgid "Switzerland"
+msgstr "Suiza"
+
+#: models/profile.py:61
+msgid "Ivory Coast"
+msgstr "Costa de Marfil"
+
+#: models/profile.py:62
+msgid "Cook Iislands"
+msgstr "Cocine Iislands"
+
+#: models/profile.py:63
+msgid "Chile"
+msgstr "Chile"
+
+#: models/profile.py:64
+msgid "Cameroon"
+msgstr "Camerún"
+
+#: models/profile.py:65
+msgid "China"
+msgstr "China"
+
+#: models/profile.py:66
+msgid "Colombia"
+msgstr "Colombia"
+
+#: models/profile.py:67
+msgid "Costa Rica"
+msgstr "Costa Rica"
+
+#: models/profile.py:68
+msgid "Cuba"
+msgstr "Cuba"
+
+#: models/profile.py:69
+msgid "Cape Verde"
+msgstr "Cabo Verde"
+
+#: models/profile.py:70
+msgid "Christmas Island"
+msgstr "Isla de Navidad"
+
+#: models/profile.py:71
+msgid "Cyprus"
+msgstr "Chipre"
+
+#: models/profile.py:72
+msgid "Czech Republic"
+msgstr "República Checa"
+
+#: models/profile.py:73
+msgid "Germany"
+msgstr "Alemania"
+
+#: models/profile.py:74
+msgid "Djibouti"
+msgstr "Djibouti"
+
+#: models/profile.py:75
+msgid "Denmark"
+msgstr "Dinamarca"
+
+#: models/profile.py:76
+msgid "Dominica"
+msgstr "Dominica"
+
+#: models/profile.py:77
+msgid "Dominican Republic"
+msgstr "República Dominicana"
+
+#: models/profile.py:78
+msgid "Algeria"
+msgstr "Argelia"
+
+#: models/profile.py:79
+msgid "Ecuador"
+msgstr "Ecuador"
+
+#: models/profile.py:80
+msgid "Estonia"
+msgstr "Estonia"
+
+#: models/profile.py:81
+msgid "Egypt"
+msgstr "Egipto"
+
+#: models/profile.py:82
+msgid "Western Sahara"
+msgstr "Sahara Occidental"
+
+#: models/profile.py:83
+msgid "Eritrea"
+msgstr "Eritrea"
+
+#: models/profile.py:84
+msgid "Spain"
+msgstr "España"
+
+#: models/profile.py:85
+msgid "Ethiopia"
+msgstr "Etiopía"
+
+#: models/profile.py:86
+msgid "Finland"
+msgstr "Finlandia"
+
+#: models/profile.py:87
+msgid "Fiji"
+msgstr "Fiji"
+
+#: models/profile.py:88
+msgid "Falkland Islands (Malvinas)"
+msgstr "Islas Malvinas (Falkland)"
+
+#: models/profile.py:89
+msgid "Micronesia"
+msgstr "Micronesia"
+
+#: models/profile.py:90
+msgid "Faroe Islands"
+msgstr "Islas Faroe"
+
+#: models/profile.py:91
+msgid "France"
+msgstr "Francia"
+
+#: models/profile.py:92
+msgid "France, Metropolitan"
+msgstr "Francia, Metropolitana"
+
+#: models/profile.py:93
+msgid "Gabon"
+msgstr "Gabón"
+
+#: models/profile.py:94
+msgid "United Kingdom (Great Britain)"
+msgstr "Reino Unido (Gran Bretaña)"
+
+#: models/profile.py:95
+msgid "Grenada"
+msgstr "Granada"
+
+#: models/profile.py:96
+msgid "Georgia"
+msgstr "Georgia"
+
+#: models/profile.py:97
+msgid "French Guiana"
+msgstr "Guiana francés"
+
+#: models/profile.py:98
+msgid "Ghana"
+msgstr "Ghana"
+
+#: models/profile.py:99
+msgid "Gibraltar"
+msgstr "Gibraltar"
+
+#: models/profile.py:100
+msgid "Greenland"
+msgstr "Tierra Verde"
+
+#: models/profile.py:101
+msgid "Gambia"
+msgstr "Gambia"
+
+#: models/profile.py:102
+msgid "Guinea"
+msgstr "Guinea"
+
+#: models/profile.py:103
+msgid "Guadeloupe"
+msgstr "Guadalupe"
+
+#: models/profile.py:104
+msgid "Equatorial Guinea"
+msgstr "Guinea Ecuatorial"
+
+#: models/profile.py:105
+msgid "Greece"
+msgstr "Grecia"
+
+#: models/profile.py:106
+msgid "South Georgia and the South Sandwich Islands"
+msgstr "Georgia del Sur y las Islas Sandwich del Sur"
+
+#: models/profile.py:107
+msgid "Guatemala"
+msgstr "Guatemala"
+
+#: models/profile.py:108
+msgid "Guam"
+msgstr "Guam"
+
+#: models/profile.py:109
+msgid "Guinea-Bissau"
+msgstr "Guinea-Bissau"
+
+#: models/profile.py:110
+msgid "Guyana"
+msgstr "Guayana"
+
+#: models/profile.py:111
+msgid "Hong Kong"
+msgstr "Hong Kong"
+
+#: models/profile.py:112
+msgid "Heard & McDonald Islands"
+msgstr "Heard y McDonald Islas"
+
+#: models/profile.py:113
+msgid "Honduras"
+msgstr "Honduras"
+
+#: models/profile.py:114
+msgid "Croatia"
+msgstr "Croacia"
+
+#: models/profile.py:115
+msgid "Haiti"
+msgstr "Haití"
+
+#: models/profile.py:116
+msgid "Hungary"
+msgstr "Hungría"
+
+#: models/profile.py:117
+msgid "Indonesia"
+msgstr "Indonesia"
+
+#: models/profile.py:118
+msgid "Ireland"
+msgstr "Irlanda"
+
+#: models/profile.py:119
+msgid "Israel"
+msgstr "Israel"
+
+#: models/profile.py:120
+msgid "India"
+msgstr "India"
+
+#: models/profile.py:121
+msgid "British Indian Ocean Territory"
+msgstr "Territorio Británico del Océano Índico"
+
+#: models/profile.py:122
+msgid "Iraq"
+msgstr "Irak"
+
+#: models/profile.py:123
+msgid "Islamic Republic of Iran"
+msgstr "República Islámica de Irán"
+
+#: models/profile.py:124
+msgid "Iceland"
+msgstr "Islandia"
+
+#: models/profile.py:125
+msgid "Italy"
+msgstr "Italia"
+
+#: models/profile.py:126
+msgid "Jamaica"
+msgstr "Jamaica"
+
+#: models/profile.py:127
+msgid "Jordan"
+msgstr "Jordán"
+
+#: models/profile.py:128
+msgid "Japan"
+msgstr "Japón"
+
+#: models/profile.py:129
+msgid "Kenya"
+msgstr "Kenia"
+
+#: models/profile.py:130
+msgid "Kyrgyzstan"
+msgstr "Kirguistán"
+
+#: models/profile.py:131
+msgid "Cambodia"
+msgstr "Camboya"
+
+#: models/profile.py:132
+msgid "Kiribati"
+msgstr "Kiribati"
+
+#: models/profile.py:133
+msgid "Comoros"
+msgstr "Comoras"
+
+#: models/profile.py:134
+msgid "St. Kitts and Nevis"
+msgstr "Saint Kitts y Nevis"
+
+#: models/profile.py:135
+msgid "Korea, Democratic People's Republic of"
+msgstr "República de Corea, Popular Democrática de"
+
+#: models/profile.py:136
+msgid "Korea, Republic of"
+msgstr "Corea, Republica de"
+
+#: models/profile.py:137
+msgid "Kuwait"
+msgstr "Kuwait"
+
+#: models/profile.py:138
+msgid "Cayman Islands"
+msgstr "Islas Caimán"
+
+#: models/profile.py:139
+msgid "Kazakhstan"
+msgstr "Kazajstán"
+
+#: models/profile.py:140
+msgid "Lao People's Democratic Republic"
+msgstr "República Democrática Popular Lao"
+
+#: models/profile.py:141
+msgid "Lebanon"
+msgstr "Líbano"
+
+#: models/profile.py:142
+msgid "Saint Lucia"
+msgstr "Santa Lucía"
+
+#: models/profile.py:143
+msgid "Liechtenstein"
+msgstr "Liechtenstein"
+
+#: models/profile.py:144
+msgid "Sri Lanka"
+msgstr "Sri Lanka"
+
+#: models/profile.py:145
+msgid "Liberia"
+msgstr "Liberia"
+
+#: models/profile.py:146
+msgid "Lesotho"
+msgstr "Lesoto"
+
+#: models/profile.py:147
+msgid "Lithuania"
+msgstr "Lituania"
+
+#: models/profile.py:148
+msgid "Luxembourg"
+msgstr "Luxemburgo"
+
+#: models/profile.py:149
+msgid "Latvia"
+msgstr "Letonia"
+
+#: models/profile.py:150
+msgid "Libyan Arab Jamahiriya"
+msgstr "Jamahiriya Árabe Libia"
+
+#: models/profile.py:151
+msgid "Morocco"
+msgstr "Marruecos"
+
+#: models/profile.py:152
+msgid "Monaco"
+msgstr "Mónaco"
+
+#: models/profile.py:153
+msgid "Moldova, Republic of"
+msgstr "Moldova, República de"
+
+#: models/profile.py:154
+msgid "Madagascar"
+msgstr "Madagascar"
+
+#: models/profile.py:155
+msgid "Marshall Islands"
+msgstr "Islas Marshall"
+
+#: models/profile.py:156
+msgid "Mali"
+msgstr "Malí"
+
+#: models/profile.py:157
+msgid "Mongolia"
+msgstr "Mongolia"
+
+#: models/profile.py:158
+msgid "Myanmar"
+msgstr "Myanmar"
+
+#: models/profile.py:159
+msgid "Macau"
+msgstr "Macau"
+
+#: models/profile.py:160
+msgid "Northern Mariana Islands"
+msgstr "Islas Marianas del Norte"
+
+#: models/profile.py:161
+msgid "Martinique"
+msgstr "Martinica"
+
+#: models/profile.py:162
+msgid "Mauritania"
+msgstr "Mauritania"
+
+#: models/profile.py:163
+msgid "Monserrat"
+msgstr "Monserrat"
+
+#: models/profile.py:164
+msgid "Malta"
+msgstr "Malta"
+
+#: models/profile.py:165
+msgid "Mauritius"
+msgstr "Mauricio"
+
+#: models/profile.py:166
+msgid "Maldives"
+msgstr "Maldivas"
+
+#: models/profile.py:167
+msgid "Malawi"
+msgstr "Malawi"
+
+#: models/profile.py:168
+msgid "Mexico"
+msgstr "Méjico"
+
+#: models/profile.py:169
+msgid "Malaysia"
+msgstr "Malasia"
+
+#: models/profile.py:170
+msgid "Mozambique"
+msgstr "Mozambique"
+
+#: models/profile.py:171
+msgid "Namibia"
+msgstr "Namibia"
+
+#: models/profile.py:172
+msgid "New Caledonia"
+msgstr "Nueva Caledonia"
+
+#: models/profile.py:173
+msgid "Niger"
+msgstr "Níger"
+
+#: models/profile.py:174
+msgid "Norfolk Island"
+msgstr "Isla Norfolk"
+
+#: models/profile.py:175
+msgid "Nigeria"
+msgstr "Nigeria"
+
+#: models/profile.py:176
+msgid "Nicaragua"
+msgstr "Nicaragua"
+
+#: models/profile.py:177
+msgid "Netherlands"
+msgstr "Países Bajos"
+
+#: models/profile.py:178
+msgid "Norway"
+msgstr "Noruega"
+
+#: models/profile.py:179
+msgid "Nepal"
+msgstr "Nepal"
+
+#: models/profile.py:180
+msgid "Nauru"
+msgstr "Nauru"
+
+#: models/profile.py:181
+msgid "Niue"
+msgstr "Niue"
+
+#: models/profile.py:182
+msgid "New Zealand"
+msgstr "Nueva Zelanda"
+
+#: models/profile.py:183
+msgid "Oman"
+msgstr "Omán"
+
+#: models/profile.py:184
+msgid "Panama"
+msgstr "Panamá"
+
+#: models/profile.py:185
+msgid "Peru"
+msgstr "Perú"
+
+#: models/profile.py:186
+msgid "French Polynesia"
+msgstr "Polinesia francés"
+
+#: models/profile.py:187
+msgid "Papua New Guinea"
+msgstr "Papúa Nueva Guinea"
+
+#: models/profile.py:188
+msgid "Philippines"
+msgstr "Filipinas"
+
+#: models/profile.py:189
+msgid "Pakistan"
+msgstr "Pakistán"
+
+#: models/profile.py:190
+msgid "Poland"
+msgstr "Polonia"
+
+#: models/profile.py:191
+msgid "St. Pierre & Miquelon"
+msgstr "San Pedro y Miquelón"
+
+#: models/profile.py:192
+msgid "Pitcairn"
+msgstr "Pitcairn"
+
+#: models/profile.py:193
+msgid "Puerto Rico"
+msgstr "Puerto Rico"
+
+#: models/profile.py:194
+msgid "Portugal"
+msgstr "Portugal"
+
+#: models/profile.py:195
+msgid "Palau"
+msgstr "Palau"
+
+#: models/profile.py:196
+msgid "Paraguay"
+msgstr "Paraguay"
+
+#: models/profile.py:197
+msgid "Qatar"
+msgstr "Katar"
+
+#: models/profile.py:198
+msgid "Reunion"
+msgstr "Reunión"
+
+#: models/profile.py:199
+msgid "Romania"
+msgstr "Rumania"
+
+#: models/profile.py:200
+msgid "Russian Federation"
+msgstr "Federación Rusa"
+
+#: models/profile.py:201
+msgid "Rwanda"
+msgstr "Ruanda"
+
+#: models/profile.py:202
+msgid "Saudi Arabia"
+msgstr "Arabia Saudita"
+
+#: models/profile.py:203
+msgid "Solomon Islands"
+msgstr "Islas Salomón"
+
+#: models/profile.py:204
+msgid "Seychelles"
+msgstr "Seychelles"
+
+#: models/profile.py:205
+msgid "Sudan"
+msgstr "Sudán"
+
+#: models/profile.py:206
+msgid "Sweden"
+msgstr "Suecia"
+
+#: models/profile.py:207
+msgid "Singapore"
+msgstr "Singapur"
+
+#: models/profile.py:208
+msgid "St. Helena"
+msgstr "Santa Elena"
+
+#: models/profile.py:209
+msgid "Slovenia"
+msgstr "Eslovenia"
+
+#: models/profile.py:210
+msgid "Svalbard & Jan Mayen Islands"
+msgstr "Svalbard y Jan Mayen"
+
+#: models/profile.py:211
+msgid "Slovakia"
+msgstr "Eslovaquia"
+
+#: models/profile.py:212
+msgid "Sierra Leone"
+msgstr "Sierra Leona"
+
+#: models/profile.py:213
+msgid "San Marino"
+msgstr "San Marino"
+
+#: models/profile.py:214
+msgid "Senegal"
+msgstr "Senegal"
+
+#: models/profile.py:215
+msgid "Somalia"
+msgstr "Somalia"
+
+#: models/profile.py:216
+msgid "Suriname"
+msgstr "Suriname"
+
+#: models/profile.py:217
+msgid "Sao Tome & Principe"
+msgstr "Santo Tomé y Príncipe"
+
+#: models/profile.py:218
+msgid "El Salvador"
+msgstr "El Salvador"
+
+#: models/profile.py:219
+msgid "Syrian Arab Republic"
+msgstr "República Árabe Siria"
+
+#: models/profile.py:220
+msgid "Swaziland"
+msgstr "Swazilandia"
+
+#: models/profile.py:221
+msgid "Turks & Caicos Islands"
+msgstr "Islas Turcas y Caicos"
+
+#: models/profile.py:222
+msgid "Chad"
+msgstr "Chad"
+
+#: models/profile.py:223
+msgid "French Southern Territories"
+msgstr "Territorios Franceses del Sur"
+
+#: models/profile.py:224
+msgid "Togo"
+msgstr "Ir"
+
+#: models/profile.py:225
+msgid "Thailand"
+msgstr "Tailandia"
+
+#: models/profile.py:226
+msgid "Tajikistan"
+msgstr "Tayikistán"
+
+#: models/profile.py:227
+msgid "Tokelau"
+msgstr "Tokelau"
+
+#: models/profile.py:228
+msgid "Turkmenistan"
+msgstr "Turkmenistán"
+
+#: models/profile.py:229
+msgid "Tunisia"
+msgstr "Túnez"
+
+#: models/profile.py:230
+msgid "Tonga"
+msgstr "Tonga"
+
+#: models/profile.py:231
+msgid "East Timor"
+msgstr "Timor Oriental"
+
+#: models/profile.py:232
+msgid "Turkey"
+msgstr "pavo"
+
+#: models/profile.py:233
+msgid "Trinidad & Tobago"
+msgstr "Trinidad y Tobago"
+
+#: models/profile.py:234
+msgid "Tuvalu"
+msgstr "Tuvalu"
+
+#: models/profile.py:235
+msgid "Taiwan, Province of China"
+msgstr "Taiwán, Provincia de China"
+
+#: models/profile.py:236
+msgid "Tanzania, United Republic of"
+msgstr "Tanzania, República Unida de"
+
+#: models/profile.py:237
+msgid "Ukraine"
+msgstr "Ucrania"
+
+#: models/profile.py:238
+msgid "Uganda"
+msgstr "Uganda"
+
+#: models/profile.py:239
+msgid "United States Minor Outlying Islands"
+msgstr "Estados Unidos Islas menores alejadas de"
+
+#: models/profile.py:240
+msgid "United States of America"
+msgstr "Estados Unidos de America"
+
+#: models/profile.py:241
+msgid "Uruguay"
+msgstr "Uruguay"
+
+#: models/profile.py:242
+msgid "Uzbekistan"
+msgstr "Uzbekistán"
+
+#: models/profile.py:243
+msgid "Vatican City State (Holy See)"
+msgstr "Ciudad del Vaticano (Santa Sede)"
+
+#: models/profile.py:244
+msgid "St. Vincent & the Grenadines"
+msgstr "San Vicente y las Granadinas"
+
+#: models/profile.py:245
+msgid "Venezuela"
+msgstr "Venezuela"
+
+#: models/profile.py:246
+msgid "British Virgin Islands"
+msgstr "Islas Vírgenes Británicas"
+
+#: models/profile.py:247
+msgid "United States Virgin Islands"
+msgstr "Islas Vírgenes Americanas"
+
+#: models/profile.py:248
+msgid "Viet Nam"
+msgstr "Vietnam"
+
+#: models/profile.py:249
+msgid "Vanuatu"
+msgstr "Vanuatu"
+
+#: models/profile.py:250
+msgid "Wallis & Futuna Islands"
+msgstr "Wallis y Futuna"
+
+#: models/profile.py:251
+msgid "Samoa"
+msgstr "Samoa"
+
+#: models/profile.py:252
+msgid "Yemen"
+msgstr "Yemen"
+
+#: models/profile.py:253
+msgid "Mayotte"
+msgstr "Mayotte"
+
+#: models/profile.py:254
+msgid "Yugoslavia"
+msgstr "Yugoslavia"
+
+#: models/profile.py:255
+msgid "South Africa"
+msgstr "Sudáfrica"
+
+#: models/profile.py:256
+msgid "Zambia"
+msgstr "Zambia"
+
+#: models/profile.py:257
+msgid "Zaire"
+msgstr "Zaire"
+
+#: models/profile.py:258
+msgid "Zimbabwe"
+msgstr "Zimbabue"
+
+#: models/profile.py:259
+msgid "Unknown or unspecified country"
+msgstr "País Desconocido o no especificado"
+
+#: models/profile.py:290
+msgid "avatar"
+msgstr "avatar"
+
+#: models/profile.py:298
+msgid "Female"
+msgstr "Hembra"
+
+#: models/profile.py:299
+msgid "Male"
+msgstr "Masculino"
+
+#: models/profile.py:300
+msgid "Other"
+msgstr "Otro"
+
+#: models/profile.py:302
+msgid "\"gender\""
+msgstr "\"género\""
+
+#: models/profile.py:305 templates/ecobasa/pioneer_detail.html:88
+msgid "birth date"
+msgstr "Fecha de nacimiento"
+
+#: models/profile.py:308 models/profile.py:455
+#: templates/ecobasa/pioneer_detail.html:96
+msgid "country"
+msgstr "país"
+
+#: models/profile.py:310 models/profile.py:451
+#: templates/ecobasa/pioneer_detail.html:104
+msgid "city"
+msgstr "ciudad"
+
+#: models/profile.py:312 models/profile.py:453
+msgid "zipcode"
+msgstr "código postal"
+
+#: models/profile.py:315
+msgid "interests"
+msgstr "intereses"
+
+#: models/profile.py:317
+msgid ""
+"A comma-separated list of tags. You can type anything here. You can also "
+"chose from other users tags. Connect two words with a \"-\" to have one tag."
+msgstr "Una lista separada por comas de las etiquetas. Puede escribir cualquier cosa aquí. También puede elegir otras etiquetas de los usuarios. Conecte dos palabras con un \ "- \" para tener una etiqueta."
+
+#: models/profile.py:318
+msgid "About you"
+msgstr "Acerca de ti"
+
+#: models/profile.py:321 templates/ecobasa/pioneer_detail.html:36
+msgid "What would you like to use ecobasa mainly for?"
+msgstr "¿Qué te gustaría utilizar ecobasa principalmente para?"
+
+#: models/profile.py:323 templates/ecobasa/pioneer_detail.html:34
+msgid "What do you do to make the world a better place?"
+msgstr "¿Qué hace usted para hacer del mundo un lugar mejor?"
+
+#: models/profile.py:326
+msgid "knowledge/skills"
+msgstr "conocimientos / habilidades"
+
+#: models/profile.py:328
+msgid ""
+"What skills do you have? What can you do to help others? What can you teach "
+"someone?"
+msgstr "¿Que habilidades tienes? ¿Qué se puede hacer para ayudar a los demás? ¿Qué se puede enseñar a alguien?"
+
+#: models/profile.py:329
+msgid "products"
+msgstr "productos"
+
+#: models/profile.py:331
+msgid ""
+"Can you manufacture any products, like jewelery, furniture, clothes, soap "
+"etc.. ?"
+msgstr "¿Se puede fabricar cualquier producto, como joyas, muebles, ropa, jabón, etc ..?"
+
+#: models/profile.py:335
+msgid "Do you have a bus or car that you want to take on the tour?"
+msgstr "¿Tiene un autobús o un coche que usted quiere tomar en la gira?"
+
+#: models/profile.py:337
+msgid "bus_image"
+msgstr "bus_image"
+
+#: models/profile.py:340
+msgid "I have a driving license"
+msgstr "Tengo un permiso de conducir"
+
+#: models/profile.py:342
+msgid "Other people can drive it too"
+msgstr "Otras personas pueden conducir también"
+
+#: models/profile.py:345
+msgid "How many people can it take"
+msgstr "¿Cuántas personas pueden tardará"
+
+#: models/profile.py:347
+msgid "Consumption (l/100km)"
+msgstr "Consumo (l / 100 km)"
+
+#: models/profile.py:417
+msgid "name of community"
+msgstr "nombre de la comunidad"
+
+#: models/profile.py:418
+msgid "link of your communities website"
+msgstr "enlace de su sitio web comunidades"
+
+#: models/profile.py:421 models/slideshow.py:59
+msgid "image"
+msgstr "imagen"
+
+#: models/profile.py:422
+msgid "Header image for the community-profile, minimum resolution 1200x400"
+msgstr "Imagen de Cabecera para la comunidad de perfil, resolución mínima 1200x400"
+
+#: models/profile.py:427 templates/ecobasa/community_detail.html:332
+msgid "Video"
+msgstr "Vídeo"
+
+#: models/profile.py:428
+msgid "Link to a video showing your community"
+msgstr "Enlace a un video que muestra a su comunidad"
+
+#: models/profile.py:434
+msgid "telephone"
+msgstr "teléfono"
+
+#: models/profile.py:438
+msgid "street"
+msgstr "calle"
+
+#: models/profile.py:442 templates/cosinnus_event/event_detail.html:53
+msgid "Location"
+msgstr "Localización"
+
+#: models/profile.py:457
+msgid "show address in profile"
+msgstr "Ver dirección en el perfil"
+
+#: models/profile.py:462
+msgid "maximum number of people you can host"
+msgstr "número máximo de personas que puede albergar"
+
+#: models/profile.py:464
+msgid "accommodation for guests"
+msgstr "alojamiento para huéspedes"
+
+#: models/profile.py:466
+msgid ""
+"Where can your visitors sleep? Do you have space for a bus, tents? How is "
+"the indoor sleeping situation? Do you have matresses, a couch? Do you have a "
+"donations or a pricing model? Required daily working amount or epxeriences?"
+msgstr "¿Dónde pueden dormir a sus visitantes? ¿Tiene espacio para un autobús, tiendas de campaña? ¿Cómo es la situación de dormir bajo techo? ¿Tiene colchones, un sofá? ¿Tiene una donación o un modelo de precios? Requerido cantidad de trabajo diario o epxeriences?"
+
+#: models/profile.py:470
+msgid ""
+"Do you have any construction projects? List and describe them together with "
+"needed materials, tools, experts, time and knowledge."
+msgstr "¿Tiene algún proyecto de construcción? Enumerar y describir ellos, junto con los materiales necesarios, las herramientas, los expertos, el tiempo y el conocimiento."
+
+#: models/profile.py:472
+msgid "What materials do you need?"
+msgstr "¿Qué materiales se necesitan?"
+
+#: models/profile.py:475
+msgid ""
+"Do you have any additional info about materials, or details to your request "
+"(like condition, when you need them)?"
+msgstr "¿Tienes alguna información adicional acerca de los materiales, o detalles de su solicitud (como condición, cuando usted los necesita)?"
+
+#: models/profile.py:477
+msgid "What tools or machines do you need?"
+msgstr "¿Qué herramientas o máquinas se puede pedir?"
+
+#: models/profile.py:481
+msgid ""
+"Do you have any additional info about tools, or details to your request "
+"(like condition, when you need them)?"
+msgstr "¿Tienes alguna información adicional sobre herramientas, o detalles de su solicitud (como condición, cuando usted los necesita)?"
+
+#: models/profile.py:483
+msgid ""
+"Are you looking for some experts that could help you with a project or "
+"problem? Tag their desired skills here:"
+msgstr "¿Está buscando algunos expertos que podrían ayudar con un proyecto o problema? Tag sus habilidades deseadas aquí:"
+
+#: models/profile.py:487
+msgid "Special needs (knowledge, information)"
+msgstr "Necesidades especiales (conocimiento, información)"
+
+#: models/profile.py:490
+msgid "Services offered in your community"
+msgstr "Servicios que se ofrecen en su comunidad"
+
+#: models/profile.py:493
+msgid "Skills people can learn in your community"
+msgstr "Habilidades gente puede aprender de su comunidad"
+
+#: models/profile.py:496
+msgid "Creations/Products"
+msgstr "Creaciones / Productos"
+
+#: models/profile.py:499
+msgid ""
+"Do you have any materials that you produce or that you dont need anymore? "
+"(What you throw away, might be useful to somebody else..)"
+msgstr "¿Tiene cualquier material que usted produce o que usted no necesita más? (Lo que tiras, podría ser útil a alguien más ..)"
+
+#: models/profile.py:502
+msgid "Do you have any tools that you produce or that you dont need anymore?"
+msgstr "¿Tienes alguna herramientas que usted produce o que usted no necesita más?"
+
+#: models/profile.py:505
+msgid ""
+"Do you have workshop spaces, where people can build/construct/manufacture "
+"things?"
+msgstr "¿Tiene espacios de taller, donde la gente puede construir / construir / cosas de fabricación?"
+
+#: models/profile.py:507
+msgid "Do you offer any seminars that visitors could attend?"
+msgstr "¿Ofrece alguna seminarios que los visitantes pudieron asistir?"
+
+#: models/profile.py:512
+msgid "Describe your community"
+msgstr "Describa su comunidad"
+
+#: models/profile.py:514
+msgid "how many people live in your community?"
+msgstr "cuántas personas viven en su comunidad?"
+
+#: models/profile.py:517
+msgid "how many of them are under 18?"
+msgstr "cuántos de ellos son menores de 18 años?"
+
+#: models/profile.py:519
+msgid "what brings your community together"
+msgstr "lo que trae su comunidad en conjunto"
+
+#: models/profile.py:524
+msgid "looking for members"
+msgstr "en busca de miembros"
+
+#: models/profile.py:525
+msgid "looking for volunteers"
+msgstr "buscando voluntarios"
+
+#: models/profile.py:526
+msgid "closed for the moment"
+msgstr "cerrado por el momento"
+
+#: models/profile.py:528
+msgid "member status"
+msgstr "la condición de miembro"
+
+#: models/profile.py:551
+msgid "seeds"
+msgstr "semillas"
+
+#: models/profile.py:555
+msgid "what kind of seeds?"
+msgstr "qué tipo de semillas?"
+
+#: models/profile.py:559
+msgid "how many?"
+msgstr "¿Cuántos?"
+
+#: models/reference.py:39
+msgid "Who gave this reference"
+msgstr "¿Quién le dio esta referencia"
+
+#: models/reference.py:45
+msgid "The pioneer who receives this reference"
+msgstr "El pionero que recibe esta referencia"
+
+#: models/reference.py:51
+msgid "The community which receives this reference"
+msgstr "La comunidad que recibe esta referencia"
+
+#: models/reference.py:56
+msgid "date"
+msgstr "fecha"
+
+#: models/reference.py:64
+msgid "reference text"
+msgstr "texto de referencia"
+
+#: models/reference.py:65
+msgid "Description of the reference"
+msgstr "Descripción de la referencia"
+
+#: models/reference.py:69
+msgid "products offered by the receiver"
+msgstr "productos ofrecidos por el receptor"
+
+#: models/reference.py:73
+msgid "services rendered by the receiver"
+msgstr "los servicios prestados por el receptor"
+
+#: models/reference.py:77
+msgid "skills receiver could teach you"
+msgstr "receptor de habilidades que podía enseñar"
+
+#: models/reference.py:84
+msgid "Reference"
+msgstr "Referencia"
+
+#: models/reference.py:85 templates/ecobasa/community_detail.html:388
+#: templates/ecobasa/community_reference_list.html:11
+#: templates/ecobasa/pioneer_detail.html:113
+#: templates/ecobasa/pioneer_reference_list.html:11
+msgid "References"
+msgstr "Referencias"
+
+#: models/reference.py:93
+#, python-format
+msgid "Pioneer %s"
+msgstr "%s"
+
+#: models/reference.py:95
+#, python-format
+msgid "Community %s"
+msgstr "%s"
+
+#: models/reference.py:97
+msgid "None"
+msgstr "Ninguno"
+
+#: models/reference.py:105 models/reference.py:108
+msgid "Please choose either pioneer or community as receiver"
+msgstr "Por favor, elija ya sea pionera o comunidad como receptor"
+
+#: models/reference.py:111
+msgid "Giver cannot be the same as receiver"
+msgstr "Dador no puede ser el mismo que el receptor"
+
+#: models/reference.py:121
+msgid "The giver has already given a reference to the receiver"
+msgstr "El dador ya ha dado una referencia al receptor"
+
+#: models/slideshow.py:11
+msgid "name"
+msgstr "nombre"
+
+#: models/slideshow.py:25 models/slideshow.py:48
+msgid "slide show"
+msgstr "diapositivas"
+
+#: models/slideshow.py:26
+msgid "slide shows"
+msgstr "presentaciones de diapositivas"
+
+#: models/slideshow.py:49
+msgid "file"
+msgstr "archivo"
+
+#: models/slideshow.py:50
+msgid "title"
+msgstr "título"
+
+#: models/slideshow.py:51
+msgid "text"
+msgstr "texto"
+
+#: models/slideshow.py:51
+msgid "Text appearing on top of the image"
+msgstr "El texto que aparece en la parte superior de la imagen"
+
+#: models/slideshow.py:52
+msgid "order"
+msgstr "orden"
+
+#: models/slideshow.py:60
+msgid "images"
+msgstr "imágenes"
+
+#: templates/contact_form/contact_form.html:7
+msgid "Contact the ecobasa team"
+msgstr "Póngase en contacto con el equipo ecobasa"
+
+#: templates/contact_form/contact_form.html:8
+msgid ""
+"Please enter your message and your contact information here, so we can get "
+"back to you!"
+msgstr "Introduzca su mensaje y su información de contacto aquí, para que podamos volver a usted!"
+
+#: templates/contact_form/contact_form.html:24
+msgid "Send"
+msgstr "Enviar"
+
+#: templates/cosinnus/dashboard.html:5 templates/cosinnus/dashboard.html:11
+#: templates/cosinnus/footermenu.html:41 templates/cosinnus/topmenu.html:58
+#: templates/cosinnus/topmenu.html:120
+msgid "Dashboard"
+msgstr "Tablero"
+
+#: templates/cosinnus/dashboard.html:22 templates/cosinnus/dashboard.html:51
+msgid "Refresh"
+msgstr "Refrescar"
+
+#: templates/cosinnus/dashboard.html:24 templates/cosinnus/dashboard.html:52
+msgid "Configure"
+msgstr "Configure"
+
+#: templates/cosinnus/dashboard.html:25 templates/cosinnus/dashboard.html:53
+#: templates/cosinnus_etherpad/tree.html:18
+#: templates/cosinnus_etherpad/tree.html:63
+#: templates/cosinnus_event/event_detail.html:100
+#: templates/cosinnus_event/event_list_object.html:32
+#: templates/cosinnus_note/note_detail.html:29
+#: templates/cosinnus_note/note_detail.html:81
+#: templates/cosinnus_note/note_detail.html:138
+#: templates/cosinnus_note/note_list.html:64
+#: templates/cosinnus_todo/todoentry_detail.html:86
+#: templates/cosinnus_todo/todoentry_list.html:81
+#: templates/ecobasa/caravan_detail.html:52
+#: templates/ecobasa/caravan_detail.html:254
+#: templates/ecobasa/caravan_detail.html:293
+#: templates/ecobasa/caravan_detail.html:320
+#: templates/ecobasa/caravan_detail.html:342
+#: templates/ecobasa/caravan_list.html:48
+#: templates/ecobasa/community_detail.html:62
+#: templates/ecobasa/community_detail.html:441
+#: templates/ecobasa/community_detail.html:469
+#: templates/ecobasa/community_detail.html:491
+msgid "Delete"
+msgstr "Borrar"
+
+#: templates/cosinnus/dashboard.html:38
+msgid "Add widget"
+msgstr "Añadir widget de"
+
+#: templates/cosinnus/dashboard.html:64
+msgid "Caravan Profile"
+msgstr "Perfil de camping"
+
+#: templates/cosinnus/dashboard.html:66
+msgid "Edit Caravan"
+msgstr "Editar Caravana"
+
+#: templates/cosinnus/dashboard.html:69
+msgid "Community Profile"
+msgstr "Perfil de la Comunidad"
+
+#: templates/cosinnus/dashboard.html:71
+msgid "Edit Community Profile"
+msgstr "Editar Perfil Comunidad"
+
+#: templates/cosinnus/dashboard.html:76
+msgid "Leave this group"
+msgstr "Deja este grupo"
+
+#: templates/cosinnus/dashboard.html:78
+msgid "Withdraw membership request"
+msgstr "Retirar solicitud de membresía"
+
+#: templates/cosinnus/dashboard.html:80
+msgid "Join this group"
+msgstr "Unirse a este grupo"
+
+#: templates/cosinnus/dashboard.html:83
+msgid "Details"
+msgstr "Detalles"
+
+#: templates/cosinnus/dashboard.html:85
+#: templates/cosinnus_etherpad/tree.html:17
+#: templates/cosinnus_etherpad/tree.html:62
+#: templates/cosinnus_event/event_detail.html:99
+#: templates/cosinnus_event/event_form.html:10
+#: templates/cosinnus_event/event_form.html:28
+#: templates/cosinnus_event/event_list_object.html:31
+#: templates/cosinnus_note/note_detail.html:26
+#: templates/cosinnus_note/note_detail.html:80
+#: templates/cosinnus_note/note_detail.html:137
+#: templates/cosinnus_note/note_list.html:63
+#: templates/cosinnus_todo/todoentry_detail.html:85
+#: templates/cosinnus_todo/todoentry_list.html:80
+#: templates/ecobasa/caravan_detail.html:49
+#: templates/ecobasa/caravan_detail.html:253
+#: templates/ecobasa/caravan_detail.html:292
+#: templates/ecobasa/caravan_detail.html:319
+#: templates/ecobasa/caravan_detail.html:341
+#: templates/ecobasa/caravan_list.html:46
+#: templates/ecobasa/community_detail.html:59
+#: templates/ecobasa/community_detail.html:399
+#: templates/ecobasa/community_detail.html:440
+#: templates/ecobasa/community_detail.html:468
+#: templates/ecobasa/community_detail.html:490
+#: templates/ecobasa/community_reference_list.html:19
+#: templates/ecobasa/pioneer_detail.html:116
+#: templates/ecobasa/pioneer_reference_list.html:19 views/community.py:162
+#: views/pioneer.py:168
+msgid "Edit"
+msgstr "Editar"
+
+#: templates/cosinnus/footermenu.html:8
+msgid "Follow us on facebook"
+msgstr "Síguenos en Facebook"
+
+#: templates/cosinnus/footermenu.html:9
+msgid "Watch ecobasa.tv"
+msgstr "Ver ecobasa.tv"
+
+#: templates/cosinnus/footermenu.html:10
+msgid "Code on github"
+msgstr "Código en github"
+
+#: templates/cosinnus/footermenu.html:13
+msgid "Newsletter"
+msgstr "Hoja informativa"
+
+#: templates/cosinnus/footermenu.html:14
+msgid "Contact"
+msgstr "Contacto"
+
+#: templates/cosinnus/footermenu.html:27 templates/cosinnus/topmenu.html:62
+msgid "My Communities"
+msgstr "Mis Comunidades"
+
+#: templates/cosinnus/footermenu.html:27 templates/cosinnus/topmenu.html:62
+msgid "My Community"
+msgstr "Mi comunidad"
+
+#: templates/cosinnus/footermenu.html:33
+msgid "List all communities"
+msgstr "Enumerar todas las comunidades"
+
+#: templates/cosinnus/footermenu.html:40
+#: templates/ecobasa/community_reference_form.html:21
+#: templates/ecobasa/pioneer_reference_form.html:21
+#: templates/userprofiles/registration_member.html:81
+msgid "Profile"
+msgstr "Perfil"
+
+#: templates/cosinnus/footermenu.html:42 templates/cosinnus/topmenu.html:81
+msgid "Logout"
+msgstr "Cerrar sesión"
+
+#: templates/cosinnus/footermenu.html:47 templates/cosinnus/topmenu.html:86
+msgctxt "the verb"
+msgid "Register"
+msgstr "Registro"
+
+#: templates/cosinnus/footermenu.html:49 templates/cosinnus/topmenu.html:88
+#: templates/cosinnus/registration/login.html:4
+#: templates/cosinnus/registration/login.html:22
+msgid "Login"
+msgstr "Iniciar sesión"
+
+#: templates/cosinnus/topmenu.html:6
+msgid "Toggle navigation"
+msgstr "Navegación de palanca"
+
+#: templates/cosinnus/topmenu.html:14
+msgid "/about"
+msgstr "/acerca de"
+
+#: templates/cosinnus/topmenu.html:14 templates/ecobasa/pioneer_list.html:24
+msgid "About"
+msgstr "Acerca de"
+
+#: templates/cosinnus/topmenu.html:16
+msgid "The Platform"
+msgstr "La plataforma"
+
+#: templates/cosinnus/topmenu.html:17
+msgid "The Network"
+msgstr "La red"
+
+#: templates/cosinnus/topmenu.html:18
+msgid "Team"
+msgstr "Equipo"
+
+#: templates/cosinnus/topmenu.html:22 templates/ecobasa/community_list.html:4
+msgid "Communities"
+msgstr "Comunidades"
+
+#: templates/cosinnus/topmenu.html:23 templates/ecobasa/caravan_list.html:4
+msgid "Community-Tours"
+msgstr "Comunidad-Tours"
+
+#: templates/cosinnus/topmenu.html:25
+msgid "What is this?"
+msgstr "¿Que es esto?"
+
+#: templates/cosinnus/topmenu.html:26
+msgid "Tour Blogs"
+msgstr "Tour de Blogs"
+
+#: templates/cosinnus/topmenu.html:27
+msgid "Go on tour!"
+msgstr "Ir de gira!"
+
+#: templates/cosinnus/topmenu.html:28
+msgid "Find a Bus"
+msgstr "Encuentra un autobús"
+
+#: templates/cosinnus/topmenu.html:29
+msgid "Pioneers"
+msgstr "Pioneros"
+
+#: templates/cosinnus/topmenu.html:32
+msgid "Communities-Convergence"
+msgstr "Comunidades-Convergencia"
+
+#: templates/cosinnus/topmenu.html:33
+msgid "Donate"
+msgstr "Donar"
+
+#: templates/cosinnus/topmenu.html:39
+msgid "Find everything you need"
+msgstr "Encuentra todo lo que necesitas"
+
+#: templates/cosinnus/topmenu.html:41
+msgid "What are you looking for?"
+msgstr "¿Qué buscas?"
+
+#: templates/cosinnus/topmenu.html:56
+msgid "My Profile"
+msgstr "Mi perfil"
+
+#: templates/cosinnus/registration/login.html:23
+msgid "Lost password"
+msgstr "Contraseña perdida"
+
+#: templates/cosinnus/registration/login.html:24
+#: templates/userprofiles/registration_community.html:271
+#: templates/userprofiles/registration_member.html:166
+msgid "Register"
+msgstr "Registro"
+
+#: templates/cosinnus/registration/password_reset_email.html:2
+#, python-format
+msgid ""
+"You're receiving this email because you requested a password reset for your "
+"user account at %(site_name)s."
+msgstr "Usted está recibiendo este correo electrónico porque ha solicitado un restablecimiento de contraseña para la cuenta de usuario en% (site_name) s."
+
+#: templates/cosinnus/registration/password_reset_email.html:4
+msgid "Please go to the following page and choose a new password:"
+msgstr "Por favor, vaya a la siguiente página y elegir una contraseña nueva:"
+
+#: templates/cosinnus/registration/password_reset_email.html:8
+msgid "Your username, in case you've forgotten:"
+msgstr "Tu nombre de usuario, en caso de que he olvidado:"
+
+#: templates/cosinnus/registration/password_reset_email.html:10
+msgid "Thanks for using our site!"
+msgstr "Gracias por usar nuestro sitio!"
+
+#: templates/cosinnus/registration/password_reset_email.html:12
+#, python-format
+msgid "The %(site_name)s team"
+msgstr "El (site_name) equipo s%"
+
+#: templates/cosinnus_etherpad/etherpad_list.html:5
+#: templates/cosinnus_etherpad/etherpad_list.html:10
+msgid "Pads"
+msgstr "Pads"
+
+#: templates/cosinnus_etherpad/etherpad_list.html:26
+#: templates/cosinnus_event/event_list.html:23
+#: templates/cosinnus_note/note_list.html:34
+#: templates/cosinnus_todo/todoentry_list.html:21
+#: templates/ecobasa/blog.html:34 templates/ecobasa/tour_blog.html:30
+msgid "No tags available."
+msgstr "No hay etiquetas disponibles."
+
+#: templates/cosinnus_etherpad/etherpad_list.html:31
+#: templates/cosinnus_event/event_list.html:29
+#: templates/cosinnus_todo/todoentry_list.html:27
+#: templates/ecobasa/caravan_detail.html:50
+#: templates/ecobasa/community_detail.html:60
+msgctxt "the verb"
+msgid "Export"
+msgstr "Exportar"
+
+#: templates/cosinnus_etherpad/tree.html:13
+#: templates/cosinnus_etherpad/tree.html:30
+msgid "Add etherpad"
+msgstr "Añadir etherpad"
+
+#: templates/cosinnus_etherpad/tree.html:14
+#: templates/cosinnus_etherpad/tree.html:31
+msgid "Create container"
+msgstr "Crear contenedor"
+
+#: templates/cosinnus_etherpad/tree.html:35
+msgid "ROOT"
+msgstr "RAÍZ"
+
+#: templates/cosinnus_etherpad/tree.html:58
+#: templates/cosinnus_event/event_list_object.html:27
+#: templates/cosinnus_note/note_list.html:59
+#: templates/cosinnus_todo/todoentry_list.html:76
+msgid "Show"
+msgstr "mostrar"
+
+#: templates/cosinnus_event/event_detail.html:41
+#: templates/cosinnus_event/event_list.html:54
+#: templates/cosinnus_event/event_list.html:87
+#: templates/cosinnus_event/widgets/upcoming.html:6
+msgid "Start"
+msgstr "Empezar"
+
+#: templates/cosinnus_event/event_detail.html:44
+#: templates/cosinnus_event/event_list.html:55
+#: templates/cosinnus_event/event_list.html:88
+msgid "End"
+msgstr "Fin"
+
+#: templates/cosinnus_event/event_detail.html:46
+msgid "Created by"
+msgstr "Creado por"
+
+#: templates/cosinnus_event/event_detail.html:48
+#: templates/cosinnus_event/event_list.html:57
+#: templates/cosinnus_event/event_list.html:90
+msgid "State"
+msgstr "Estado"
+
+#: templates/cosinnus_event/event_detail.html:60
+msgid "Street"
+msgstr "Calle"
+
+#: templates/cosinnus_event/event_detail.html:63
+msgid "ZIP code"
+msgstr "codigo zip"
+
+#: templates/cosinnus_event/event_detail.html:66
+#: templates/cosinnus_event/event_list.html:56
+#: templates/cosinnus_event/event_list.html:89
+msgid "City"
+msgstr "Ciudad"
+
+#: templates/cosinnus_event/event_detail.html:72
+#: templates/cosinnus_event/event_form.html:54
+msgid "Suggestions"
+msgstr "Sugerencias"
+
+#: templates/cosinnus_event/event_detail.html:87
+msgid "No votes for this suggestion."
+msgstr "No hay votos para esta sugerencia."
+
+#: templates/cosinnus_event/event_detail.html:97
+#: templates/cosinnus_event/event_list.html:59
+#: templates/cosinnus_event/event_list.html:92
+#: templates/cosinnus_note/note_detail.html:78
+#: templates/cosinnus_note/note_list.html:43
+#: templates/cosinnus_todo/todoentry_detail.html:83
+#: templates/cosinnus_todo/todoentry_list.html:50
+#: templates/ecobasa/caravan_detail.html:251
+#: templates/ecobasa/caravan_detail.html:290
+#: templates/ecobasa/caravan_detail.html:317
+#: templates/ecobasa/caravan_detail.html:339
+#: templates/ecobasa/caravan_list.html:24
+#: templates/ecobasa/community_detail.html:438
+#: templates/ecobasa/community_detail.html:466
+#: templates/ecobasa/community_detail.html:488
+msgid "Actions"
+msgstr "Comportamiento"
+
+#: templates/cosinnus_event/event_detail.html:102
+#: templates/cosinnus_event/event_list_object.html:34
+#: templates/ecobasa/caravan_detail.html:256
+msgctxt "the verb"
+msgid "Vote"
+msgstr "Votar"
+
+#: templates/cosinnus_event/event_form.html:8
+#: templates/cosinnus_event/event_form.html:26
+msgid "Add event"
+msgstr "Añadir evento"
+
+#: templates/cosinnus_event/event_form.html:89
+#: templates/cosinnus_event/event_list.html:28
+#: templates/cosinnus_note/note_list.html:23
+#: templates/cosinnus_todo/todoentry_list.html:26
+#: templates/ecobasa/bus_add.html:39
+#: templates/ecobasa/community_detail.html:409
+#: templates/ecobasa/pioneer_detail.html:120 views/community.py:134
+#: views/pioneer.py:140
+msgid "Add"
+msgstr "Añadir"
+
+#: templates/cosinnus_event/event_form.html:91
+msgctxt "sinn"
+msgid "Save"
+msgstr "Guardar"
+
+#: templates/cosinnus_event/event_form.html:93
+#: templates/ecobasa/bus_add.html:40 templates/ecobasa/caravan_form.html:66
+#: templates/ecobasa/community_form.html:229
+#: templates/ecobasa/pioneer_form.html:69
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: templates/cosinnus_event/event_form.html:117
+msgid "Add suggestion"
+msgstr "Añadir sugerencia"
+
+#: templates/cosinnus_event/event_list.html:5
+#: templates/cosinnus_event/event_list.html:10
+msgid "Events"
+msgstr "Eventos"
+
+#: templates/cosinnus_event/event_list.html:43
+msgid "Upcoming events"
+msgstr "Próximos Eventos"
+
+#: templates/cosinnus_event/event_list.html:53
+#: templates/cosinnus_event/event_list.html:86
+#: templates/cosinnus_event/widgets/upcoming.html:5
+#: templates/cosinnus_note/note_list.html:39
+#: templates/cosinnus_todo/todoentry_list.html:45
+msgid "Title"
+msgstr "Título"
+
+#: templates/cosinnus_event/event_list.html:58
+#: templates/cosinnus_event/event_list.html:91
+#: templates/cosinnus_note/note_list.html:42
+#: templates/cosinnus_todo/todoentry_detail.html:70
+#: templates/cosinnus_todo/todoentry_list.html:49
+msgid "Tags"
+msgstr "Etiquetas"
+
+#: templates/cosinnus_event/event_list.html:66
+#: templates/cosinnus_event/event_list.html:99
+msgid "No events to show"
+msgstr "No hay eventos para mostrar"
+
+#: templates/cosinnus_event/event_list.html:76
+msgid "Past events"
+msgstr "Eventos pasados"
+
+#: templates/cosinnus_note/note_detail.html:32
+msgid "Write comment"
+msgstr "Escribir comentario"
+
+#: templates/cosinnus_note/note_detail.html:74 templates/ecobasa/blog.html:26
+#: templates/ecobasa/tour_blog.html:22
+msgid "Show all blog-posts"
+msgstr "Mostrar todos los blog-posts"
+
+#: templates/cosinnus_note/note_detail.html:83
+#: templates/cosinnus_note/note_list.html:65
+#: templates/ecobasa/caravan_detail.html:295
+#: templates/ecobasa/caravan_detail.html:322
+#: templates/ecobasa/caravan_detail.html:344
+#: templates/ecobasa/community_detail.html:443
+#: templates/ecobasa/community_detail.html:471
+#: templates/ecobasa/community_detail.html:493
+msgid "Comment"
+msgstr "Comentario"
+
+#: templates/cosinnus_note/note_detail.html:96
+#, python-format
+msgid ""
+"written by <a href=\"%(pioneer_url)s\">%(pioneer_name)s</a> on %(created)s"
+msgstr "escrito por <a href=\"%(pioneer_url)s\">% (pioneer_name) s </a> en% (creada) s"
+
+#: templates/cosinnus_note/note_detail.html:117
+msgid "Back to blog"
+msgstr "Volver al blog"
+
+#: templates/cosinnus_note/note_list.html:3
+msgid "Notes"
+msgstr "Notas"
+
+#: templates/cosinnus_note/note_list.html:9
+#: templates/cosinnus_todo/todoentry_detail.html:61
+msgid "Note"
+msgstr "Nota"
+
+#: templates/cosinnus_note/note_list.html:14
+msgid "Create note"
+msgstr "Crear nota"
+
+#: templates/cosinnus_note/note_list.html:40
+msgid "Author"
+msgstr "Autor"
+
+#: templates/cosinnus_note/note_list.html:41
+msgid "Created"
+msgstr "Creado"
+
+#: templates/cosinnus_note/note_list.html:74
+msgid "There are no notes."
+msgstr "No hay notas."
+
+#: templates/cosinnus_todo/todoentry_detail.html:19
+msgid "Created on"
+msgstr "Creado en"
+
+#: templates/cosinnus_todo/todoentry_detail.html:20
+#: templates/cosinnus_todo/todoentry_detail.html:36
+msgctxt "done by someone"
+msgid "by"
+msgstr "por"
+
+#: templates/cosinnus_todo/todoentry_detail.html:27
+#: templates/cosinnus_todo/todoentry_list.html:46
+msgid "Due by"
+msgstr "Debido por"
+
+#: templates/cosinnus_todo/todoentry_detail.html:30
+msgid "No due date"
+msgstr "Sin fecha de vencimiento"
+
+#: templates/cosinnus_todo/todoentry_detail.html:35
+msgid "Completed on"
+msgstr "Completado en"
+
+#: templates/cosinnus_todo/todoentry_detail.html:38
+msgid "Not completed"
+msgstr "No completado"
+
+#: templates/cosinnus_todo/todoentry_detail.html:46
+#: templates/cosinnus_todo/todoentry_list.html:47
+msgid "Assigned to"
+msgstr "Asignado a"
+
+#: templates/cosinnus_todo/todoentry_detail.html:49
+msgid "Not assigned"
+msgstr "No asignado"
+
+#: templates/cosinnus_todo/todoentry_detail.html:53
+msgid "Priority"
+msgstr "Prioridad"
+
+#: templates/cosinnus_todo/todoentry_detail.html:91
+#: templates/cosinnus_todo/todoentry_detail.html:95
+#: templates/cosinnus_todo/todoentry_list.html:87
+#: templates/cosinnus_todo/todoentry_list.html:91
+msgid "Unassign"
+msgstr "Sin asignar"
+
+#: templates/cosinnus_todo/todoentry_detail.html:92
+#: templates/cosinnus_todo/todoentry_detail.html:98
+#: templates/cosinnus_todo/todoentry_list.html:88
+#: templates/cosinnus_todo/todoentry_list.html:94
+msgid "Assign someone else"
+msgstr "Asigne a alguien más"
+
+#: templates/cosinnus_todo/todoentry_detail.html:94
+#: templates/cosinnus_todo/todoentry_detail.html:97
+#: templates/cosinnus_todo/todoentry_list.html:90
+#: templates/cosinnus_todo/todoentry_list.html:93
+msgid "Assign to me"
+msgstr "Asignar a mí"
+
+#: templates/cosinnus_todo/todoentry_detail.html:103
+#: templates/cosinnus_todo/todoentry_list.html:99
+msgid "Mark incomplete"
+msgstr "Marcos incompletos"
+
+#: templates/cosinnus_todo/todoentry_detail.html:105
+#: templates/cosinnus_todo/todoentry_list.html:101
+msgid "Finish yourself"
+msgstr "Termine ti mismo"
+
+#: templates/cosinnus_todo/todoentry_detail.html:106
+#: templates/cosinnus_todo/todoentry_list.html:102
+msgid "Mark complete (other)"
+msgstr "Marcos completa (otra)"
+
+#: templates/cosinnus_todo/todoentry_list.html:6
+#: templates/cosinnus_todo/todoentry_list.html:11
+msgid "TodoEntries"
+msgstr "TodoEntries"
+
+#: templates/cosinnus_todo/todoentry_list.html:30
+msgid "Delete List"
+msgstr "Borrar lista"
+
+#: templates/cosinnus_todo/todoentry_list.html:48
+msgid "Status"
+msgstr "Estado"
+
+#: templates/cosinnus_todo/todoentry_list.html:54
+msgid "Default list"
+msgstr "Lista predeterminada"
+
+#: templates/cosinnus_todo/todoentry_list.html:62
+msgid "Completed"
+msgstr "Terminado"
+
+#: templates/cosinnus_todo/todoentry_list.html:64
+msgid "Open"
+msgstr "Abierto"
+
+#: templates/cosinnus_todo/todoentry_list.html:112
+msgid "There are no todo entries."
+msgstr "No hay entradas de tareas pendientes."
+
+#: templates/ecobasa/announcements.html:2
+msgid "Announcements"
+msgstr "Avisos"
+
+#: templates/ecobasa/blog.html:5
+msgid "ecobasa.blog"
+msgstr "ecobasa.blog"
+
+#: templates/ecobasa/bus_add.html:4
+msgid "Add your bus"
+msgstr "Añadir su autobús"
+
+#: templates/ecobasa/bus_list.html:4 templates/ecobasa/caravan_detail.html:148
+msgid "Buses"
+msgstr "Autobuses"
+
+#: templates/ecobasa/bus_list.html:7
+msgid "Available buses for your Community-Tour"
+msgstr "Autobuses disponibles para su Comunidad-Tour"
+
+#: templates/ecobasa/bus_list.html:9
+msgid "Add a bus to your profile"
+msgstr "Añadir un autobús a tu perfil"
+
+#: templates/ecobasa/bus_list.html:16
+#: templates/ecobasa/pioneer_detail.html:129
+#: templates/ecobasa/pioneer_list.html:26
+msgid "Bus"
+msgstr "Autobús"
+
+#: templates/ecobasa/bus_list.html:17
+msgid "Owner"
+msgstr "Propietario"
+
+#: templates/ecobasa/bus_list.html:18
+msgid "Capacity"
+msgstr "Capacidad"
+
+#: templates/ecobasa/bus_list.html:19
+msgid "Consumption"
+msgstr "Consumo"
+
+#: templates/ecobasa/bus_list.html:20
+msgid "Needs a driver"
+msgstr "Necesita un controlador"
+
+#: templates/ecobasa/bus_list.html:38
+msgid "There are no buses, yet! "
+msgstr "No hay autobuses, todavía! "
+
+#: templates/ecobasa/bus_list.html:40
+msgid "Add a bus"
+msgstr "Añadir un autobús"
+
+#: templates/ecobasa/bus_list.html:42 templates/ecobasa/caravan_list.html:65
+msgid "Sign up"
+msgstr "contratar"
+
+#: templates/ecobasa/bus_list.html:42 templates/ecobasa/caravan_list.html:65
+msgid "and add one now."
+msgstr "y añadir una ahora."
+
+#: templates/ecobasa/caravan_detail.html:20
+#, python-format
+msgid "%(group_name)s - Community-Tour | ecobasa.org"
+msgstr "% (nombre_grupo) s - Comunidad-Tour | ecobasa.org"
+
+#: templates/ecobasa/caravan_detail.html:26
+#: templates/ecobasa/caravan_detail.html:37
+#: templates/ecobasa/community_detail.html:14
+#, python-format
+msgid "%(name)s"
+msgstr "% (nombre) s"
+
+#: templates/ecobasa/caravan_detail.html:41
+#: templates/ecobasa/caravan_list.html:39
+msgid "Leave"
+msgstr "Salir"
+
+#: templates/ecobasa/caravan_detail.html:55
+#: templates/ecobasa/community_detail.html:65
+#: templates/ecobasa/pioneer_list.html:4
+msgid "Users"
+msgstr "Usuarios"
+
+#: templates/ecobasa/caravan_detail.html:57
+#: templates/ecobasa/community_detail.html:67
+#: templates/ecobasa/pioneer_list.html:16
+msgid "Add user"
+msgstr "Agregar usuario"
+
+#: templates/ecobasa/caravan_detail.html:69
+msgid "Members"
+msgstr "Miembros"
+
+#: templates/ecobasa/caravan_detail.html:83
+#: templates/ecobasa/caravan_detail.html:111
+msgid "Change Status"
+msgstr "Cambiar Estado"
+
+#: templates/ecobasa/caravan_detail.html:84
+#: templates/ecobasa/caravan_detail.html:112
+#: templates/ecobasa/caravan_detail.html:138
+msgid "Kick Out"
+msgstr "Echar"
+
+#: templates/ecobasa/caravan_detail.html:97
+msgid "Admins"
+msgstr "Administradores"
+
+#: templates/ecobasa/caravan_detail.html:123
+msgid "Applied for membership"
+msgstr "Aplicado a la adhesión"
+
+#: templates/ecobasa/caravan_detail.html:137
+msgid "Add to Tour"
+msgstr "Añadir en Tour"
+
+#: templates/ecobasa/caravan_detail.html:150
+msgid "Find a bus"
+msgstr "Encuentra un autobús"
+
+#: templates/ecobasa/caravan_detail.html:175
+msgid "This tour doesnt have any buses, yet!"
+msgstr "Este tour doesnt tiene ningún autobuses, todavía!"
+
+#: templates/ecobasa/caravan_detail.html:176
+msgid "Apply for membership"
+msgstr "Solicitar la participación"
+
+#: templates/ecobasa/caravan_detail.html:176
+msgid ", if you have a bus!"
+msgstr ", Si usted tiene un autobús!"
+
+#: templates/ecobasa/caravan_detail.html:185
+#: templates/ecobasa/pioneer_detail.html:39
+#: templates/ecobasa/pioneer_list.html:25
+msgid "Skills"
+msgstr "Habilidades"
+
+#: templates/ecobasa/caravan_detail.html:195
+#: templates/ecobasa/pioneer_detail.html:51
+msgid "Products"
+msgstr "Productos"
+
+#: templates/ecobasa/caravan_detail.html:206
+msgid "Ressources"
+msgstr "Ressources"
+
+#: templates/ecobasa/caravan_detail.html:213
+msgid "Add a ressource"
+msgstr "Añadir un ressource"
+
+#: templates/ecobasa/caravan_detail.html:222
+msgid "Visiting these Places"
+msgstr "Visitar estos lugares"
+
+#: templates/ecobasa/caravan_detail.html:224
+msgid "Add Community visit"
+msgstr "Añadir inspección comunitaria"
+
+#: templates/ecobasa/caravan_detail.html:234
+msgid "Name"
+msgstr "Nombre"
+
+#: templates/ecobasa/caravan_detail.html:235
+#: templates/ecobasa/caravan_list.html:22
+#: templates/ecobasa/community_list.html:34
+msgid "Description"
+msgstr "Descripción"
+
+#: templates/ecobasa/caravan_detail.html:236
+msgid "Time"
+msgstr "Hora"
+
+#: templates/ecobasa/caravan_detail.html:238
+msgid "Admin"
+msgstr "Administración"
+
+#: templates/ecobasa/caravan_detail.html:271
+#: templates/ecobasa/community_detail.html:418
+msgid "Blog Posts"
+msgstr "Mensajes de blog"
+
+#: templates/ecobasa/caravan_detail.html:273
+#: templates/ecobasa/community_detail.html:420
+msgid "Write a Blogpost"
+msgstr "Escribe una Blogpost"
+
+#: templates/ecobasa/caravan_form.html:6
+#: templates/ecobasa/caravan_form.html:23
+#, python-format
+msgid "Edit caravan “%(name)s”"
+msgstr "Editar caravana "% (name) s""
+
+#: templates/ecobasa/caravan_form.html:8
+#: templates/ecobasa/caravan_form.html:25
+msgid "Create Caravan"
+msgstr "Crear Caravana"
+
+#: templates/ecobasa/caravan_list.html:9
+msgid "Join a Community-Tour!"
+msgstr "Únete a un sistema comunitario de Tour!"
+
+#: templates/ecobasa/caravan_list.html:11
+msgid "Create a new Tour"
+msgstr "Crear un nuevo tour"
+
+#: templates/ecobasa/caravan_list.html:21
+msgid "Tour"
+msgstr "Excursión"
+
+#: templates/ecobasa/caravan_list.html:41
+msgid "Join"
+msgstr "Unirse"
+
+#: templates/ecobasa/caravan_list.html:61
+msgid "No tours are currently planned"
+msgstr "No hay tours están actualmente planificados"
+
+#: templates/ecobasa/caravan_list.html:63
+msgid "Add a tour"
+msgstr "Añadir un tour"
+
+#: templates/ecobasa/community_detail.html:10
+#, python-format
+msgid "“%(name)s” Community"
+msgstr ""% (Nombre) es" Comunidad"
+
+#: templates/ecobasa/community_detail.html:83
+#: templates/ecobasa/community_detail.html:234
+#: templates/ecobasa/community_detail.html:254
+msgid "Add a description"
+msgstr "Añadir una descripción"
+
+#: templates/ecobasa/community_detail.html:86
+msgid "What brings this community together"
+msgstr "Lo que trae a esta comunidad"
+
+#: templates/ecobasa/community_detail.html:90
+msgid "Accomodation for guests"
+msgstr "Alojamiento para los huéspedes"
+
+#: templates/ecobasa/community_detail.html:100
+msgid "What can you learn here"
+msgstr "¿Qué se puede aprender aquí"
+
+#: templates/ecobasa/community_detail.html:111
+msgid "Add a skill you learned here with a review"
+msgstr "Añadir una habilidad que aprendió aquí con una reseña"
+
+#: templates/ecobasa/community_detail.html:113
+msgid "Add a skill"
+msgstr "Añadir una habilidad"
+
+#: templates/ecobasa/community_detail.html:129
+msgid "Add a service they offer with a review"
+msgstr "Añadir un servicio que ofrecen con una opinión"
+
+#: templates/ecobasa/community_detail.html:131
+msgid "Add a service"
+msgstr "Añadir un servicio"
+
+#: templates/ecobasa/community_detail.html:138
+msgid "Products and Creations"
+msgstr "Productos y Creaciones"
+
+#: templates/ecobasa/community_detail.html:149
+msgid "Add a product you recieved with a review"
+msgstr "Añadir un producto que usted recibió con una opinión"
+
+#: templates/ecobasa/community_detail.html:151
+msgid "Add a product"
+msgstr "Añadir un producto"
+
+#: templates/ecobasa/community_detail.html:177
+msgid "Workshop and factoring spaces"
+msgstr "Taller y factoring espacios"
+
+#: templates/ecobasa/community_detail.html:179
+msgid "Seminars"
+msgstr "Seminarios"
+
+#: templates/ecobasa/community_detail.html:187
+msgid "Needs"
+msgstr "Necesariamente"
+
+#: templates/ecobasa/community_detail.html:196
+msgid "Add more projects"
+msgstr "Añadir más proyectos"
+
+#: templates/ecobasa/community_detail.html:198
+msgid "Add a project you need help for to your profile"
+msgstr "Añadir un proyecto que necesita ayuda para a tu perfil"
+
+#: templates/ecobasa/community_detail.html:203
+msgid "Experts/People with the following skills"
+msgstr "Expertos / Las personas con las siguientes habilidades"
+
+#: templates/ecobasa/community_detail.html:210
+msgid "Ask for more skills"
+msgstr "Solicite más habilidades"
+
+#: templates/ecobasa/community_detail.html:212
+msgid "Tell people with special skills to come"
+msgstr "Dile a la gente con habilidades especiales para venir"
+
+#: templates/ecobasa/community_detail.html:216
+msgid "Materials"
+msgstr "Materiales"
+
+#: templates/ecobasa/community_detail.html:225
+msgid "Ask for more materials"
+msgstr "Solicite más materiales"
+
+#: templates/ecobasa/community_detail.html:227
+msgid "Ask for materials"
+msgstr "Pida materiales"
+
+#: templates/ecobasa/community_detail.html:231
+msgid "Aditional info about Materials"
+msgstr "Información adicional sobre los Materiales"
+
+#: templates/ecobasa/community_detail.html:238
+msgid "Tools"
+msgstr "Herramientas"
+
+#: templates/ecobasa/community_detail.html:247
+msgid "Ask for more tools"
+msgstr "Solicite más herramientas"
+
+#: templates/ecobasa/community_detail.html:249
+msgid "Ask for tools"
+msgstr "Pida herramientas"
+
+#: templates/ecobasa/community_detail.html:258
+#: templates/ecobasa/community_form.html:176
+#: templates/userprofiles/registration_community.html:221
+msgid "Seeds"
+msgstr "Semillas"
+
+#: templates/ecobasa/community_detail.html:278
+msgid "Ask for seeds"
+msgstr "Pregunte por las semillas"
+
+#: templates/ecobasa/community_detail.html:282
+msgid "Special Needs"
+msgstr "Necesidades especiales"
+
+#: templates/ecobasa/community_detail.html:285
+msgid "Ask for more special needs"
+msgstr "Solicite más necesidades especiales"
+
+#: templates/ecobasa/community_detail.html:287
+msgid "Ask for special needs"
+msgstr "Pida necesidades especiales"
+
+#: templates/ecobasa/community_detail.html:312
+msgid "Contact this community"
+msgstr "Póngase en contacto con esta comunidad"
+
+#: templates/ecobasa/community_detail.html:342
+msgid "Gift-economy Ambassadors"
+msgstr "Embajadores regalo de economía"
+
+#: templates/ecobasa/community_detail.html:365
+msgid "Pending users"
+msgstr "En espera de los usuarios"
+
+#: templates/ecobasa/community_detail.html:405
+#: templates/ecobasa/community_detail.html:410
+#: templates/ecobasa/pioneer_detail.html:121
+msgid "More"
+msgstr "Más"
+
+#: templates/ecobasa/community_form.html:5
+#: templates/ecobasa/community_form.html:17
+#, python-format
+msgid "Edit community “%(name)s”"
+msgstr "Editar la comunidad "% (name) s""
+
+#: templates/ecobasa/community_form.html:27
+#: templates/userprofiles/registration_community.html:72
+msgid "Community Contact Information"
+msgstr "Comunidad Información de Contacto"
+
+#: templates/ecobasa/community_form.html:86
+#: templates/userprofiles/registration_community.html:131
+msgid "Info"
+msgstr "Info"
+
+#: templates/ecobasa/community_form.html:86
+#: templates/ecobasa/community_form.html:122
+#: templates/ecobasa/community_form.html:158
+#: templates/ecobasa/community_form.html:204
+#: templates/userprofiles/registration_community.html:131
+#: templates/userprofiles/registration_community.html:167
+#: templates/userprofiles/registration_community.html:203
+#: templates/userprofiles/registration_community.html:249
+msgid "(Click to expand)"
+msgstr "(Click para ampliar)"
+
+#: templates/ecobasa/community_form.html:122
+#: templates/userprofiles/registration_community.html:167
+msgid "Statistics"
+msgstr "Estadística"
+
+#: templates/ecobasa/community_form.html:158
+#: templates/userprofiles/registration_community.html:203
+msgid "Whishes"
+msgstr "Whishes"
+
+#: templates/ecobasa/community_form.html:228
+#: templates/ecobasa/pioneer_form.html:68
+msgid "Save"
+msgstr "Guardar"
+
+#: templates/ecobasa/community_form.html:271
+#: templates/userprofiles/registration_community.html:291
+msgid "More seeds"
+msgstr "Más semillas"
+
+#: templates/ecobasa/community_list.html:17
+msgid "Map"
+msgstr "Mapa"
+
+#: templates/ecobasa/community_list.html:18
+msgid "List"
+msgstr "Lista"
+
+#: templates/ecobasa/community_list.html:26
+msgid "Community List"
+msgstr "Lista Comunidad"
+
+#: templates/ecobasa/community_list.html:33
+msgid "Community"
+msgstr "Comunidad"
+
+#: templates/ecobasa/community_list.html:35
+msgid "Country"
+msgstr "País"
+
+#: templates/ecobasa/community_list.html:36
+msgid "Teaching"
+msgstr "Enseñanza"
+
+#: templates/ecobasa/community_list.html:68
+#: templates/ecobasa/community_list.html:110
+msgid "What brings us together:"
+msgstr "Lo que nos une:"
+
+#: templates/ecobasa/community_list.html:70
+#: templates/ecobasa/community_list.html:110
+msgid "see profile"
+msgstr "ver el perfil"
+
+#: templates/ecobasa/community_list.html:90
+msgid "There are no communities, yet."
+msgstr "No hay comunidades, todavía."
+
+#: templates/ecobasa/community_list.html:90
+msgid "Register as a gift-economy ambassador for your community</a>"
+msgstr "Registrarse como embajador de regalo-economía para su comunidad </a>"
+
+#: templates/ecobasa/community_reference_list.html:5
+#: templates/ecobasa/pioneer_reference_list.html:5
+#, python-format
+msgid "List references for %(name)s"
+msgstr "Referencias Lista para% (nombre) s"
+
+#: templates/ecobasa/community_reference_list.html:12
+#: templates/ecobasa/pioneer_reference_list.html:12
+msgid "Back to Profile of"
+msgstr "Volver al Perfil de"
+
+#: templates/ecobasa/community_reference_list.html:24
+#: templates/ecobasa/pioneer_reference_list.html:24
+msgid "Products:"
+msgstr "Productos"
+
+#: templates/ecobasa/community_reference_list.html:32
+#: templates/ecobasa/pioneer_reference_list.html:32
+msgid "Services:"
+msgstr "Servicios:"
+
+#: templates/ecobasa/community_reference_list.html:40
+#: templates/ecobasa/pioneer_reference_list.html:40
+msgid "Skills:"
+msgstr "Habilidades:"
+
+#: templates/ecobasa/organiser_list.html:4
+#: templates/ecobasa/organiser_list.html:17
+msgid "The ecobasa team"
+msgstr "El equipo ecobasa"
+
+#: templates/ecobasa/organiser_list.html:49
+msgid "There are no organisers registered yet, "
+msgstr "No hay organizadores registrados, "
+
+#: templates/ecobasa/organiser_list.html:49
+msgid "join now!"
+msgstr "¡Únete ahora!"
+
+#: templates/ecobasa/pioneer_detail.html:5
+#, python-format
+msgid "Pioneer profile: %(name)s"
+msgstr "Perfil de Pioneer:% (nombre) s"
+
+#: templates/ecobasa/pioneer_detail.html:11
+msgid "Edit profile"
+msgstr "Editar perfil"
+
+#: templates/ecobasa/pioneer_detail.html:24
+#: templates/ecobasa/pioneer_detail.html:26
+msgid "Change Picture"
+msgstr "Cambiar imagen"
+
+#: templates/ecobasa/pioneer_detail.html:29
+msgid "Send message"
+msgstr "Enviar mensaje"
+
+#: templates/ecobasa/pioneer_detail.html:32
+msgid "About me"
+msgstr "Acerca de mí"
+
+#: templates/ecobasa/pioneer_detail.html:64
+msgid "Services"
+msgstr "Servicios"
+
+#: templates/ecobasa/pioneer_detail.html:69
+msgid "Interests"
+msgstr "Intereses"
+
+#: templates/ecobasa/pioneer_detail.html:80
+msgid "gender"
+msgstr "género"
+
+#: templates/ecobasa/pioneer_detail.html:142
+msgid "Maximum passengers this bus can take:"
+msgstr "Pasajeros máximo este autobús puede tomar:"
+
+#: templates/ecobasa/pioneer_detail.html:143
+msgid "fuel consumption"
+msgstr "el consumo de combustible"
+
+#: templates/ecobasa/pioneer_detail.html:152
+msgid "Posts"
+msgstr "Mensajes"
+
+#: templates/ecobasa/pioneer_detail.html:169
+#: templates/ecobasa/includes/organisers.html:17
+msgid "Roles"
+msgstr "Roles"
+
+#: templates/ecobasa/pioneer_detail.html:174
+msgid "of"
+msgstr "de"
+
+#: templates/ecobasa/pioneer_form.html:4
+msgid "Edit pioneer"
+msgstr "Editar pionera"
+
+#: templates/ecobasa/pioneer_form.html:14
+#, python-format
+msgid "Edit pioneer “%(username)s”"
+msgstr "Editar pionera "% (nombre de usuario) s""
+
+#: templates/ecobasa/pioneer_list.html:14
+msgid "Gift-economy pioneers making the world a better place"
+msgstr "Pioneros regalo de economía que hacen del mundo un lugar mejor"
+
+#: templates/ecobasa/pioneer_list.html:23
+#: templates/userprofiles/registration.html:12
+msgid "Pioneer"
+msgstr "Pionero"
+
+#: templates/ecobasa/pioneer_list.html:58
+msgid "There are no pioneers registered yet, "
+msgstr "No hay pioneros registrados, "
+
+#: templates/ecobasa/pioneer_list.html:58
+msgid "join the tours now!"
+msgstr "unirse a los tours ahora!"
+
+#: templates/ecobasa/tour_blog.html:5
+msgid "community-tours.blog"
+msgstr "comunidad tours.blog"
+
+#: templates/ecobasa/includes/organisers.html:5
+msgid "Organisers"
+msgstr "Organizadores"
+
+#: templates/ecobasa/includes/organisers.html:9
+msgid "Organiser"
+msgstr "Organizador"
+
+#: templates/postman/email_user.txt:2
+#, python-format
+msgid ""
+"\n"
+"Dear %(recipient)s,\n"
+msgstr "\ nDear% (receptor) s, \ n"
+
+#: templates/postman/email_user.txt:6
+#, python-format
+msgid "On %(date)s, you asked to send a message to the user '%(recipient)s'."
+msgstr "En% (fecha) s, se le solicitará que envíe un mensaje al usuario '% (receptor) s'."
+
+#: templates/postman/email_user.txt:8
+msgid "Your message has been rejected by the moderator"
+msgstr "Su mensaje ha sido rechazada por el moderador"
+
+#: templates/postman/email_user.txt:8
+msgid ", for the following reason:"
+msgstr ", Por la siguiente razón:"
+
+#: templates/postman/email_user.txt:12
+#, python-format
+msgid "On %(date)s, you sent a message to the user '%(sender)s'."
+msgstr "En% (fecha) s, que envió un mensaje al usuario '% (remitente) s'."
+
+#: templates/postman/email_user.txt:13
+msgid "Your correspondent has given you an answer."
+msgstr "Su interlocutor le ha dado una respuesta."
+
+#: templates/postman/email_user.txt:14
+#, python-format
+msgid ""
+"You have received a copy of a response from "
+"'%(sender_username)s' (%(sender_first)s %(sender_last)s)."
+msgstr "Usted ha recibido una copia de la respuesta de '% (sender_username) s' (% (sender_first) s% (sender_last) s)."
+
+#: templates/postman/email_user.txt:16
+#, python-format
+msgid ""
+"You have received a message from '%(sender_username)s' (%(sender_first)s "
+"%(sender_last)s)."
+msgstr "Ha recibido un mensaje de '% (sender_username) s' (% (sender_first) s% (sender_last) s)."
+
+#: templates/postman/email_user.txt:21
+msgid "Follow this link to view and reply to this message on the site"
+msgstr "Siga este enlace para ver y responder a este mensaje en el sitio"
+
+#: templates/postman/email_user.txt:25
+msgid ""
+"Note: This message is issued by an automated system.\n"
+"Do not reply, this would not be taken into account."
+msgstr "Nota:. Este mensaje es emitido por un sistema automatizado \ n no respondió, esto no sería tomado en cuenta."
+
+#: templates/postman/email_user.txt:27
+msgid ""
+"\n"
+"Have a nice day!\n"
+"This service is provided as a gift by ecobasa.org, please support us with a "
+"small donation!\n"
+"https://www.betterplace.org/en/projects/11742-ecobasa-org\n"
+msgstr "! \ Nhave un buen día \ nEste servicio es proporcionado gratuitamente por ecobasa.org, por favor que nos apoyen con una pequeña donación \ nhttps: //www.betterplace.org/en/projects/11742-ecobasa-org \ n"
+
+#: templates/postman/email_user_subject.txt:1
+#, python-format
+msgid "Message \"%(subject)s\" on %(sitename)s"
+msgstr "Mensaje \ "% (sujeto) s \" en% (nombre del sitio) s"
+
+#: templates/search/search.html:5
+msgid "Find everything you are looking for :)"
+msgstr "Encuentra todo lo que buscas :)"
+
+#: templates/search/search.html:9
+msgid ""
+"Find places, people, skills, products, materials, tools, workshops, "
+"everything you are looking for :)"
+msgstr "Encuentra los lugares, las personas, habilidades, productos, materiales, herramientas, talleres, todo lo que usted está buscando :)"
+
+#: templates/search/search.html:13
+msgid "Enter search term"
+msgstr "Introduzca término de búsqueda"
+
+#: templates/search/search.html:15
+msgid "Find"
+msgstr "Encontrar"
+
+#: templates/search/search.html:21
+#, python-format
+msgid "%(num)s result for \"%(query)s\"."
+msgid_plural "%(num)s results for \"%(query)s\"."
+msgstr[0] "% (num) s resultado para \ "% (consulta) s \"."
+msgstr[1] "% (num) s resultado para \ "% (consulta) s \"."
+
+#: templates/search/search.html:24
+#, python-format
+msgid "No results found for \"%(query)s\"."
+msgstr "No se han encontrado resultados para \ "% (consulta) s \" resultados."
+
+#: templates/search/search.html:26
+msgid "No search term given!"
+msgstr "No término de búsqueda dado!"
+
+#: templates/userprofiles/registration.html:4
+#: templates/userprofiles/registration_community.html:4
+#: templates/userprofiles/registration_complete.html:4
+#: templates/userprofiles/registration_member.html:4
+msgid "Registration"
+msgstr "Registro"
+
+#: templates/userprofiles/registration.html:14
+msgid ""
+"This is the standard sign-up for all users. Every person is a pioneer in the "
+"gift-economy network, as we beginn to walk new (ancient) paths of "
+"sustainability."
+msgstr "Este es el estándar de inscripción para todos los usuarios. Cada persona es un pionero en la red de regalos economía, ya que Beginn caminar nuevas (antiguos) caminos de la sostenibilidad."
+
+#: templates/userprofiles/registration.html:21
+msgid "Community Gift-Ambassador"
+msgstr "Comunidad regalo-Embajador"
+
+#: templates/userprofiles/registration.html:23
+msgid ""
+"If you live in a community click here. With your pioneer profile we will "
+"create a community profile where you can whish for everything that your "
+"community needs. You will be the manager of this community on this website "
+"and other people from your community can sign up as pioneers and become "
+"members of the community-group later. You will be the contact person for "
+"volunteers that want to visit your community and help with your whishes, you "
+"can assign this role to someone else later!"
+msgstr "Si usted vive en una comunidad haga clic aquí. Con su perfil pionero vamos a crear un perfil de la comunidad donde se puede whish por todo lo que su comunidad necesita. Va a ser el gerente de esta comunidad en este sitio web y otras personas de su comunidad puede inscribirse como pioneros y convertirse en miembros del grupo comunitario después. Usted será la persona de contacto para los voluntarios que quieran visitar su comunidad y ayudar con sus whishes, puede asignar esta función a otra persona después!"
+
+#: templates/userprofiles/registration_community.html:16
+msgid "Community Ambassador Registration"
+msgstr "Comunidad Embajador de Registro"
+
+#: templates/userprofiles/registration_community.html:17
+msgid ""
+"Please take some time to think, ask around and fill out as much information "
+"as possible! It can be a fun group process, like collecting the whishes – "
+"you might inspire each other! You dont need to do it all now, you can always "
+"edit your profile later. For the start we only need your contact "
+"information, to help you!"
+msgstr "Por favor, tómese un tiempo para pensar, pregunta por ahí y llenar la mayor información posible! Puede ser un proceso divertido grupo, como la recogida de los whishes - podría inspirar a los demás! Usted no necesita hacerlo todo ahora, siempre se puede editar su perfil más tarde. Para el inicio sólo tenemos su información de contacto, para ayudarle!"
+
+#: templates/userprofiles/registration_community.html:20
+msgid ""
+"It is useful just to have a look at different hosts and study their way of "
+"describing the help they need. It will save you a lot of wasted energy on "
+"volunteers who are not suited for your situation.\n"
+"    Define your situation, describe the work that is expected from "
+"volunteers, and discourage people who just want to hang around or look for a "
+"cheap place to stay (simply say so).\n"
+"    And be fair. Do not expect volunteers to work 10 hours a day because you "
+"are doing it.\n"
+"    It helps also if you set a minimum period for staying with you, so you "
+"do not lose lots of time by introducing new guests. And yes, volunteers are "
+"guests. Treat them like that and share as much with them as possible and you "
+"will be blessed (as a rule)!"
+msgstr "Es útil sólo para echar un vistazo a los diferentes anfitriones y estudiar su forma de describir la ayuda que necesitan. Esto le ahorrará una gran cantidad de energía desperdiciada en voluntarios que no son adecuados para su situación. \ N Defina su situación, describir el trabajo que se espera de los voluntarios, y desalentar a las personas que sólo quieren pasar el rato o buscar un lugar barato para estancia (simplemente decirlo). \ n Y ser justo. No hay que esperar voluntarios para trabajar 10 horas al día, ya lo está haciendo. \ N También ayuda si se establece un período mínimo para quedarse con usted, para que no pierda mucho tiempo mediante la introducción de nuevos huéspedes. Y sí, los voluntarios son invitados. Tratarlos como ese y compartir tanto con ellos como sea posible y serás bendecido (por regla general)!"
+
+#: templates/userprofiles/registration_community.html:26
+msgid ""
+"Hosting volunteers is fun, if you organize it well. So enjoy, because life "
+"is meant to be fun!"
+msgstr "Voluntarios Hosting es divertido, si se organiza bien. Así que disfruten, porque la vida está destinado a ser divertido!"
+
+#: templates/userprofiles/registration_community.html:31
+msgid "Log In"
+msgstr "Iniciar sesión"
+
+#: templates/userprofiles/registration_complete.html:8
+msgid "Welcome on board"
+msgstr "La bienvenida a bordo"
+
+#: templates/userprofiles/registration_complete.html:10
+msgid "You are now a full part of the gift-economy network!"
+msgstr "Usted es ahora una parte completa de la red de regalos economía!"
+
+#: templates/userprofiles/registration_complete.html:11
+msgid ""
+"If you want to go on Community-Tours with other people, invite them to join "
+"this network. You can create a new Tour and use the tools of this website to "
+"communicate, organize and network!"
+msgstr "Si quieres ir en la Comunidad-Tours con otras personas, los invitamos a unirse a esta red. Puedes crear un nuevo Tour y utilizar las herramientas de este sitio web para comunicarse, organizarse y la red!"
+
+#: templates/userprofiles/registration_complete.html:12
+msgid ""
+"You can contact communities that you know or that you would like to visit "
+"and tell them to sign up on this website, so we have their information."
+msgstr "Puede ponerse en contacto con las comunidades que usted conoce o que le gustaría visitar y decirles que para inscribirse en este sitio web, así que tenemos su información."
+
+#: templates/userprofiles/registration_complete.html:13
+msgid "Then we can send them the experts and resources they wish for."
+msgstr "Luego les podemos enviar los expertos y los recursos que desear."
+
+#: templates/userprofiles/registration_complete.html:14
+#: templates/userprofiles/registration_complete.html:23
+msgid ""
+"This network is grown and maintained by its members, as we dont get many "
+"donations, we can not provide much of a service, so please contribute "
+"feedback, your skills (design, programming, communcation, networking, etc..) "
+"Just get in contact with us! Alternatively you can also give a donation, can "
+"be even really small, that helps us to pay the server costs and develop the "
+"site professionaly! There can be no gift-economy without a little gift-"
+"economy :)"
+msgstr "Esta red se cultiva y mantenida por sus miembros, ya que nosotros no conseguir muchas donaciones, no podemos ofrecer mucho más de un servicio, así que por favor contribuir retroalimentación, sus habilidades (diseño, programación, communcation, redes, etc ..) Apenas consiga en contacto ¡con nosotros! Alternativamente, también puede dar una donación, puede ser aún muy pequeño, que nos ayuda a pagar las costas del servidor y desarrollamos el sitio profesionalmente! No puede haber ningún don-economía sin un regalito economía :)"
+
+#: templates/userprofiles/registration_complete.html:15
+msgid "Thank you, see you around! The rest of the ecobasa team."
+msgstr "Gracias, nos vemos! El resto del equipo ecobasa."
+
+#: templates/userprofiles/registration_complete.html:17
+msgid "Welcome to the gift-economy network!"
+msgstr "Bienvenidos a la red de regalos economía!"
+
+#: templates/userprofiles/registration_complete.html:18
+msgid ""
+"As your communities gift-ambassador it is on you to spread the idea and "
+"function of a gift-economy network among other members of your community, "
+"they can sign up as pioneers and join your community-group"
+msgstr "A medida que su comunidades regalo-embajador es con ustedes para difundir la idea y la función de una red de regalos economía entre otros miembros de su comunidad, pueden inscribirse como pioneros y unirse a su grupo de la comunidad"
+
+#: templates/userprofiles/registration_complete.html:19
+msgid ""
+"For now, it is your job to post offers and needs the community has to the "
+"profile, so it stays up to date. Without wishing, things cannot come to "
+"you :)"
+msgstr "Por ahora, es su trabajo para publicar ofertas y necesidades de la comunidad cuenta con el perfil, por lo que se mantiene hasta la fecha. Sin querer, las cosas no pueden ir a vosotros :)"
+
+#: templates/userprofiles/registration_complete.html:20
+msgid ""
+"You can contact other communities that you would like to recieve goods and "
+"services from and tell them to sign up on this website, so we can connect "
+"them to the network."
+msgstr "Puede ponerse en contacto con otras comunidades que le gustaría para recibir los bienes y servicios de y decirles que para inscribirse en este sitio web, por lo que puede conectar a la red."
+
+#: templates/userprofiles/registration_complete.html:22
+msgid ""
+"You can use this websites tools for your community! You can organize events, "
+"doodle for available times, write texts and assign tasks and of course "
+"network with the other communities!"
+msgstr "Puede utilizar estos sitios web herramientas para su comunidad! Puede organizar eventos, garabatear durante las horas disponibles, escribir textos y asignar tareas y de la red de curso con las otras comunidades!"
+
+#: templates/userprofiles/registration_complete.html:24
+msgid "See you soon, the rest of the ecobasa team."
+msgstr "Hasta pronto, el resto del equipo ecobasa."
+
+#: templates/userprofiles/registration_member.html:19
+msgid "Already signed in as"
+msgstr "Ya firmado en como"
+
+#: templates/userprofiles/registration_member.html:56
+msgid ""
+"As you might know, this is a gift-economy Network, by signing up on this "
+"website, you become a member of the gift-economy network for communities. "
+"For the gift-economy to work, we need some information. This is the most "
+"important thing and you should really take your time to fill out your "
+"profile, so other people can find your skills and start interacting with "
+"you. This is the most sustainable investment of time that you can do today!"
+msgstr "Como debes saber, se trata de una red de regalos economía, mediante la firma de este sitio web, te conviertes en un miembro de la red de regalo-economía de las comunidades. Para la economía del regalo funcione, necesitamos un poco de información. Esto es lo más importante y usted debe realmente tomar su tiempo para llenar tu perfil, para que otras personas puedan encontrar sus habilidades y empezar a interactuar con usted. Esta es la inversión más sostenible de tiempo que usted puede hacer hoy!"
+
+#: templates/userprofiles/registration_member.html:63
+msgid "Fill out your profile"
+msgstr "Complete su perfil"
+
+#: templates/userprofiles/registration_member.html:70
+msgid "No, just register"
+msgstr "No, registrate"
+
+#: templates/userprofiles/registration_member.html:121
+msgid ""
+"You can also add a bus later, it would be great if you could ask around "
+"among your friends if they want to join us with their bus!"
+msgstr "También puede añadir un autobús después, sería estupendo si pudiera preguntar por ahí entre tus amigos, si quieren unirse a nosotros con su autobús!"
+
+#: templates/userprofiles/registration_member.html:124
+msgid "YES"
+msgstr "SÍ"
+
+#: templates/userprofiles/registration_member.html:127
+msgid "NO, just register me!"
+msgstr "NO, sólo me registrarse!"
+
+#: views/community.py:107 views/pioneer.py:113
+msgid "The profile was successfully updated."
+msgstr "El perfil se ha actualizado correctamente."
+
+#: views/community.py:130
+#, python-format
+msgid "Add reference for %(community)s"
+msgstr "Añadir referencia para% (comunidad) s"
+
+#: views/community.py:133 views/pioneer.py:139
+msgid "Add reference"
+msgstr "Añadir referencia"
+
+#: views/community.py:140 views/pioneer.py:146
+msgid "The reference was successfully added."
+msgstr "Se ha agregado correctamente la referencia."
+
+#: views/community.py:158
+#, python-format
+msgid "Edit reference for %(community)s"
+msgstr "Editar referencia para% (de la comunidad) s"
+
+#: views/community.py:161 views/pioneer.py:167
+msgid "Edit reference"
+msgstr "Editar referencia"
+
+#: views/community.py:168 views/pioneer.py:174
+msgid "The reference was successfully edited."
+msgstr "La referencia fue editado con éxito."
+
+#: views/pioneer.py:136
+#, python-format
+msgid "Add reference for %(pioneer)s"
+msgstr "Añadir referencia para% (pionero) s"
+
+#: views/pioneer.py:164
+#, python-format
+msgid "Edit reference for %(pioneer)s"
+msgstr "Editar referencia para% (pioneros) s"
+
