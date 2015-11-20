@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n l10n thumbnail cms_tags static cosinnus_tags sekizai_tags ecobasa_community %}
+{% load i18n l10n thumbnail ecobasa_start cms_tags static cosinnus_tags sekizai_tags ecobasa_community %}
 
 {% block extrahead %}
 {{ block.super }} 
@@ -35,6 +35,18 @@
       </div>
     </div>
     <div class="col-xs-12 col-md-6">{% placeholder video_text %}</div>
+  </div>
+</div>
+<div class="container" id="blog_feature">
+  <div class="row">
+    <div class="col-xs-12">
+      {% placeholder blog %}
+    </div>
+  </div>
+  <div class="row">
+    {% for post in object_list %}
+      {% show_start_post post %}
+    {% endfor %}
   </div>
 </div>
 <div class="image">
