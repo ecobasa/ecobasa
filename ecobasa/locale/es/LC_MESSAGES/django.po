@@ -1123,7 +1123,9 @@ msgstr "intereses"
 msgid ""
 "A comma-separated list of tags. You can type anything here. You can also "
 "chose from other users tags. Connect two words with a \"-\" to have one tag."
-msgstr "Una lista separada por comas de las etiquetas. Puede escribir cualquier cosa aquí. También puede elegir otras etiquetas de los usuarios. Conecte dos palabras con un \ "- \" para tener una etiqueta."
+msgstr "Una lista separada por comas de las etiquetas. Puede escribir cualquier "
+"cosa aquí. También puede elegir otras etiquetas de los usuarios. Conecte dos "
+"palabras con un \"-\" para tener una etiqueta."
 
 #: models/profile.py:318
 msgid "About you"
@@ -1398,12 +1400,12 @@ msgstr "Referencias"
 #: models/reference.py:93
 #, python-format
 msgid "Pioneer %s"
-msgstr "%s"
+msgstr "Pioneer %s"
 
 #: models/reference.py:95
 #, python-format
 msgid "Community %s"
-msgstr "%s"
+msgstr "Comunidad %s"
 
 #: models/reference.py:97
 msgid "None"
@@ -1717,7 +1719,8 @@ msgstr "Registro"
 msgid ""
 "You're receiving this email because you requested a password reset for your "
 "user account at %(site_name)s."
-msgstr "Usted está recibiendo este correo electrónico porque ha solicitado un restablecimiento de contraseña para la cuenta de usuario en% (site_name) s."
+msgstr "Usted está recibiendo este correo electrónico porque ha solicitado "
+"un restablecimiento de contraseña para la cuenta de usuario en %(site_name)s."
 
 #: templates/cosinnus/registration/password_reset_email.html:4
 msgid "Please go to the following page and choose a new password:"
@@ -1734,7 +1737,7 @@ msgstr "Gracias por usar nuestro sitio!"
 #: templates/cosinnus/registration/password_reset_email.html:12
 #, python-format
 msgid "The %(site_name)s team"
-msgstr "El (site_name) equipo s%"
+msgstr "El %(site_name)s equipo"
 
 #: templates/cosinnus_etherpad/etherpad_list.html:5
 #: templates/cosinnus_etherpad/etherpad_list.html:10
@@ -1940,7 +1943,7 @@ msgstr "Comentario"
 #, python-format
 msgid ""
 "written by <a href=\"%(pioneer_url)s\">%(pioneer_name)s</a> on %(created)s"
-msgstr "escrito por <a href=\"%(pioneer_url)s\">% (pioneer_name) s </a> en% (creada) s"
+msgstr "escrito por <a href=\"%(pioneer_url)s\">%(pioneer_name)s </a> en %(created)s"
 
 #: templates/cosinnus_note/note_detail.html:117
 msgid "Back to blog"
@@ -2141,14 +2144,14 @@ msgstr "y añadir una ahora."
 #: templates/ecobasa/caravan_detail.html:20
 #, python-format
 msgid "%(group_name)s - Community-Tour | ecobasa.org"
-msgstr "% (nombre_grupo) s - Comunidad-Tour | ecobasa.org"
+msgstr "%(group_name)s - Comunidad-Tour | ecobasa.org"
 
 #: templates/ecobasa/caravan_detail.html:26
 #: templates/ecobasa/caravan_detail.html:37
 #: templates/ecobasa/community_detail.html:14
 #, python-format
 msgid "%(name)s"
-msgstr "% (nombre) s"
+msgstr "%(name)s"
 
 #: templates/ecobasa/caravan_detail.html:41
 #: templates/ecobasa/caravan_list.html:39
@@ -2269,7 +2272,7 @@ msgstr "Escribe una Blogpost"
 #: templates/ecobasa/caravan_form.html:23
 #, python-format
 msgid "Edit caravan “%(name)s”"
-msgstr "Editar caravana "% (name) s""
+msgstr "Editar caravana “%(name)s”"
 
 #: templates/ecobasa/caravan_form.html:8
 #: templates/ecobasa/caravan_form.html:25
@@ -2303,7 +2306,7 @@ msgstr "Añadir un tour"
 #: templates/ecobasa/community_detail.html:10
 #, python-format
 msgid "“%(name)s” Community"
-msgstr ""% (Nombre) es" Comunidad"
+msgstr "“%(name)s” Comunidad"
 
 #: templates/ecobasa/community_detail.html:83
 #: templates/ecobasa/community_detail.html:234
@@ -2455,7 +2458,7 @@ msgstr "Más"
 #: templates/ecobasa/community_form.html:17
 #, python-format
 msgid "Edit community “%(name)s”"
-msgstr "Editar la comunidad "% (name) s""
+msgstr "Editar la comunidad “%(name)s”"
 
 #: templates/ecobasa/community_form.html:27
 #: templates/userprofiles/registration_community.html:72
@@ -2544,7 +2547,7 @@ msgstr "Registrarse como embajador de regalo-economía para su comunidad </a>"
 #: templates/ecobasa/pioneer_reference_list.html:5
 #, python-format
 msgid "List references for %(name)s"
-msgstr "Referencias Lista para% (nombre) s"
+msgstr "Referencias Lista para %(name)s"
 
 #: templates/ecobasa/community_reference_list.html:12
 #: templates/ecobasa/pioneer_reference_list.html:12
@@ -2582,7 +2585,7 @@ msgstr "¡Únete ahora!"
 #: templates/ecobasa/pioneer_detail.html:5
 #, python-format
 msgid "Pioneer profile: %(name)s"
-msgstr "Perfil de Pioneer:% (nombre) s"
+msgstr "Perfil de Pioneer: %(name)s"
 
 #: templates/ecobasa/pioneer_detail.html:11
 msgid "Edit profile"
@@ -2641,7 +2644,7 @@ msgstr "Editar pionera"
 #: templates/ecobasa/pioneer_form.html:14
 #, python-format
 msgid "Edit pioneer “%(username)s”"
-msgstr "Editar pionera "% (nombre de usuario) s""
+msgstr "Editar pionera “%(username)s”"
 
 #: templates/ecobasa/pioneer_list.html:14
 msgid "Gift-economy pioneers making the world a better place"
@@ -2677,12 +2680,13 @@ msgstr "Organizador"
 msgid ""
 "\n"
 "Dear %(recipient)s,\n"
-msgstr "\ nDear% (receptor) s, \ n"
+msgstr "\n"
+"Dear %(recipient)s,\n"
 
 #: templates/postman/email_user.txt:6
 #, python-format
 msgid "On %(date)s, you asked to send a message to the user '%(recipient)s'."
-msgstr "En% (fecha) s, se le solicitará que envíe un mensaje al usuario '% (receptor) s'."
+msgstr "En %(date)s, se le solicitará que envíe un mensaje al usuario '%(recipient)s'."
 
 #: templates/postman/email_user.txt:8
 msgid "Your message has been rejected by the moderator"
@@ -2695,7 +2699,7 @@ msgstr ", Por la siguiente razón:"
 #: templates/postman/email_user.txt:12
 #, python-format
 msgid "On %(date)s, you sent a message to the user '%(sender)s'."
-msgstr "En% (fecha) s, que envió un mensaje al usuario '% (remitente) s'."
+msgstr "En %(date)s, que envió un mensaje al usuario '%(sender)s'."
 
 #: templates/postman/email_user.txt:13
 msgid "Your correspondent has given you an answer."
@@ -2706,14 +2710,16 @@ msgstr "Su interlocutor le ha dado una respuesta."
 msgid ""
 "You have received a copy of a response from "
 "'%(sender_username)s' (%(sender_first)s %(sender_last)s)."
-msgstr "Usted ha recibido una copia de la respuesta de '% (sender_username) s' (% (sender_first) s% (sender_last) s)."
+msgstr "Usted ha recibido una copia de la respuesta de "
+"'%(sender_username)s' (%(sender_first)s %(sender_last)s)."
 
 #: templates/postman/email_user.txt:16
 #, python-format
 msgid ""
 "You have received a message from '%(sender_username)s' (%(sender_first)s "
 "%(sender_last)s)."
-msgstr "Ha recibido un mensaje de '% (sender_username) s' (% (sender_first) s% (sender_last) s)."
+msgstr "Ha recibido un mensaje de '%(sender_username)s' (%(sender_first)s "
+"%(sender_last)s)."
 
 #: templates/postman/email_user.txt:21
 msgid "Follow this link to view and reply to this message on the site"
@@ -2723,7 +2729,8 @@ msgstr "Siga este enlace para ver y responder a este mensaje en el sitio"
 msgid ""
 "Note: This message is issued by an automated system.\n"
 "Do not reply, this would not be taken into account."
-msgstr "Nota:. Este mensaje es emitido por un sistema automatizado \ n no respondió, esto no sería tomado en cuenta."
+msgstr "Nota:. Este mensaje es emitido por un sistema automatizado.\n"
+"No respondió, esto no sería tomado en cuenta."
 
 #: templates/postman/email_user.txt:27
 msgid ""
@@ -2732,12 +2739,16 @@ msgid ""
 "This service is provided as a gift by ecobasa.org, please support us with a "
 "small donation!\n"
 "https://www.betterplace.org/en/projects/11742-ecobasa-org\n"
-msgstr "! \ Nhave un buen día \ nEste servicio es proporcionado gratuitamente por ecobasa.org, por favor que nos apoyen con una pequeña donación \ nhttps: //www.betterplace.org/en/projects/11742-ecobasa-org \ n"
+msgstr "\n"
+"tener un buen día!\n"
+"Este servicio es proporcionado gratuitamente por ecobasa.org, por favor "
+"que nos apoyen con una pequeña donación\n"
+"https: //www.betterplace.org/en/projects/11742-ecobasa-org\n"
 
 #: templates/postman/email_user_subject.txt:1
 #, python-format
 msgid "Message \"%(subject)s\" on %(sitename)s"
-msgstr "Mensaje \ "% (sujeto) s \" en% (nombre del sitio) s"
+msgstr "Mensaje \"%(subject)s\" en %(sitename)s"
 
 #: templates/search/search.html:5
 msgid "Find everything you are looking for :)"
@@ -2761,13 +2772,13 @@ msgstr "Encontrar"
 #, python-format
 msgid "%(num)s result for \"%(query)s\"."
 msgid_plural "%(num)s results for \"%(query)s\"."
-msgstr[0] "% (num) s resultado para \ "% (consulta) s \"."
-msgstr[1] "% (num) s resultado para \ "% (consulta) s \"."
+msgstr[0] "%(num)s resultado para \"%(query)s\"."
+msgstr[1] "%(num)s resultado para \"%(query)s\"."
 
 #: templates/search/search.html:24
 #, python-format
 msgid "No results found for \"%(query)s\"."
-msgstr "No se han encontrado resultados para \ "% (consulta) s \" resultados."
+msgstr "No se han encontrado resultados para \"%(query)s\" resultados."
 
 #: templates/search/search.html:26
 msgid "No search term given!"
@@ -2829,7 +2840,17 @@ msgid ""
 "do not lose lots of time by introducing new guests. And yes, volunteers are "
 "guests. Treat them like that and share as much with them as possible and you "
 "will be blessed (as a rule)!"
-msgstr "Es útil sólo para echar un vistazo a los diferentes anfitriones y estudiar su forma de describir la ayuda que necesitan. Esto le ahorrará una gran cantidad de energía desperdiciada en voluntarios que no son adecuados para su situación. \ N Defina su situación, describir el trabajo que se espera de los voluntarios, y desalentar a las personas que sólo quieren pasar el rato o buscar un lugar barato para estancia (simplemente decirlo). \ n Y ser justo. No hay que esperar voluntarios para trabajar 10 horas al día, ya lo está haciendo. \ N También ayuda si se establece un período mínimo para quedarse con usted, para que no pierda mucho tiempo mediante la introducción de nuevos huéspedes. Y sí, los voluntarios son invitados. Tratarlos como ese y compartir tanto con ellos como sea posible y serás bendecido (por regla general)!"
+msgstr "Es útil sólo para echar un vistazo a los diferentes anfitriones y estudiar "
+"su forma de describir la ayuda que necesitan. Esto le ahorrará una gran cantidad "
+"de energía desperdiciada en voluntarios que no son adecuados para su situación.\n"
+"Defina su situación, describir el trabajo que se espera de los voluntarios, y "
+"desalentar a las personas que sólo quieren pasar el rato o buscar un lugar barato "
+"para estancia (simplemente decirlo). \n Y ser justo. No hay que esperar voluntarios "
+"para trabajar 10 horas al día, ya lo está haciendo. \n También ayuda si se establece "
+"un período mínimo para quedarse con usted, para que no pierda mucho tiempo mediante "
+"la introducción de nuevos huéspedes. Y sí, los voluntarios son invitados. "
+"Tratarlos como ese y compartir tanto con ellos como sea posible y serás "
+"bendecido (por regla general)!"
 
 #: templates/userprofiles/registration_community.html:26
 msgid ""
@@ -2961,7 +2982,7 @@ msgstr "El perfil se ha actualizado correctamente."
 #: views/community.py:130
 #, python-format
 msgid "Add reference for %(community)s"
-msgstr "Añadir referencia para% (comunidad) s"
+msgstr "Añadir referencia para %(community)s"
 
 #: views/community.py:133 views/pioneer.py:139
 msgid "Add reference"
@@ -2974,7 +2995,7 @@ msgstr "Se ha agregado correctamente la referencia."
 #: views/community.py:158
 #, python-format
 msgid "Edit reference for %(community)s"
-msgstr "Editar referencia para% (de la comunidad) s"
+msgstr "Editar referencia para %(community)s"
 
 #: views/community.py:161 views/pioneer.py:167
 msgid "Edit reference"
@@ -2987,10 +3008,10 @@ msgstr "La referencia fue editado con éxito."
 #: views/pioneer.py:136
 #, python-format
 msgid "Add reference for %(pioneer)s"
-msgstr "Añadir referencia para% (pionero) s"
+msgstr "Añadir referencia para %(pioneer)s"
 
 #: views/pioneer.py:164
 #, python-format
 msgid "Edit reference for %(pioneer)s"
-msgstr "Editar referencia para% (pioneros) s"
+msgstr "Editar referencia para %(pioneer)s"
 
