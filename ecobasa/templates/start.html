@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n l10n thumbnail ecobasa_start cms_tags static cosinnus_tags sekizai_tags ecobasa_community %}
+{% load i18n l10n thumbnail ecobasa_start cms_tags embed_video_tags static cosinnus_tags sekizai_tags ecobasa_community %}
 
 {% block extrahead %}
 {{ block.super }} 
@@ -44,8 +44,24 @@
     </div>
   </div>
   <div class="row">
+    {% show_start_post post %}
     {% for post in object_list %}
-      {% show_start_post post %}
+      <div class="col-xs-12 col-md-4">
+        <a href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">
+        {% if post.video or post.image %}
+          {% if post.video %}
+          <div class="video-responsive">
+            {% video post.video "tiny" %}
+          </div>
+          {% else %}
+            <img src="{{ post.image|thumbnail_url:"note_medium" }}" alt="{{ post.title }}" width="100%" />
+          {% endif %}
+        {% endif %}
+          <h2>{{ post.title }}</h2>
+        </a>
+        <div class="article">{{ post.text|striptags|linebreaks|safe|truncatewords_html:40 }}</div>
+        <a class="more" href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">read more <span class="glyphicon glyphicon-arrow-right"></span></a>
+      </div>
     {% endfor %}
   </div>
 </div>
