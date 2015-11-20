@@ -20,48 +20,56 @@
 {% placeholder fullwidth_slider %}
 <div class="description">
   <div class="container">
-    <div class="col-xs-12">
-      <a href="/accounts/register/">{% placeholder text %}</a>
+    <div class="row">
+      <div class="col-xs-12">
+        <a href="/accounts/register/">{% placeholder text %}</a>
+      </div>
     </div>
   </div>
 </div>
 <div class="container" id="video">
-  <div class="col-xs-12 col-md-6 pull-right">
-    <div class="video-responsive">
-      <iframe width="560" height="315" src="//www.youtube.com/embed/QBX0HkupHOQ" frameborder="0" allowfullscreen></iframe>
+  <div class="row">
+    <div class="col-xs-12 col-md-6 pull-right">
+      <div class="video-responsive">
+        <iframe width="560" height="315" src="//www.youtube.com/embed/QBX0HkupHOQ" frameborder="0" allowfullscreen></iframe>
+      </div>
     </div>
+    <div class="col-xs-12 col-md-6">{% placeholder video_text %}</div>
   </div>
-  <div class="col-xs-12 col-md-6">{% placeholder video_text %}</div>
 </div>
 <div class="image">
   {% placeholder fullwith_image %}
   <div class="caption-wrapper">
     <div class="carousel-caption static">
       <div class="container">
-        <div class="col-xs-12 col-md-10 col-md-offset-1">
-          <a href="{% url 'pages-details-by-slug' slug='community-tours' %}">
-            <div class="col-xs-12 col-md-3">
-              <img class="bus" src="{% static "img/start-bus.png" %}" alt="Community-Tours: a gift-economy experience">
-            </div>
-            <div class="col-xs-12 col-md-9">
-              {% placeholder community-tours %}
-            </div>
-          </a>  
+        <div class="row">
+          <div class="col-xs-12 col-md-10 col-md-offset-1">
+            <a href="{% url 'pages-details-by-slug' slug='community-tours' %}">
+              <div class="col-xs-12 col-md-3">
+                <img class="bus" src="{% static "img/start-bus.png" %}" alt="Community-Tours: a gift-economy experience">
+              </div>
+              <div class="col-xs-12 col-md-9">
+                {% placeholder community-tours %}
+              </div>
+            </a>  
+          </div>
         </div>
       </div>  
     </div>
 
     <div class="carousel-caption static">
       <div class="container">
-        <div class="col-xs-12 col-md-10 col-md-offset-1">
-          <a data-toggle="modal" data-target="#donate-modal" href="<!-- https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6CZ8CXEZLV4VW -->">
-            <div class="col-xs-12 col-md-3">
-              <img class="heart" src="{% static "img/heart.png" %}" alt="Support us!">
-            </div>
-            <div class="col-xs-12 col-md-9">
-              {% placeholder support %}
-            </div>
-          </a>
+        <div class="row">
+          <div class="col-xs-12 col-md-10 col-md-offset-1">
+            <a data-toggle="modal" data-target="#donate-modal" href="<!-- https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6CZ8CXEZLV4VW -->">
+              <div class="col-xs-12 col-md-3">
+                <img class="heart" src="{% static "img/heart.png" %}" alt="Support us!">
+              </div>
+              <div class="col-xs-12 col-md-9">
+                {% placeholder support %}
+              </div>
+            </a>
+          </div>
         </div>
       </div>
     </div>
