@@ -210,6 +210,7 @@ INSTALLED_APPS = (
     'postman',
     'embed_video',
     'contact_form',
+    'django_extensions',
 
     # CMS
     'cms',
