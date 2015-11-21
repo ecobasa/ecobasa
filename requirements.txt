@@ -33,3 +33,4 @@ django-widget-tweaks==1.3.0
 django-browserid
 pytz
 django-select2
+django-extensions
