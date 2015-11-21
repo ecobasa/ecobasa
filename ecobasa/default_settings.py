@@ -162,6 +162,7 @@ CMS_TEMPLATES = (
 LANGUAGES = (
     ('en', _('English')),
     ('de', _('German')),
+    ('es', _('Spanish')),
     #('fr', _('French')),
     #('hu', _('Hungarian')),
 )
