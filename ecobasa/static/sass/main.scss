@@ -975,15 +975,25 @@ button.continue {
 
 /**************** Team Page *******************/
 
-.media-list {
-	margin-top: 50px;
-	h2.media-heading {
-		font-size: 32px;
-		margin-bottom: 10px;
-		color: $orange;
+body#team {
+	.media-list {
+		margin-top: 50px;
+		h2.media-heading {
+			font-size: 32px;
+			margin-bottom: 10px;
+			color: $orange;
+		}
+		li.media {
+			margin-bottom: 40px;
+		}
 	}
-	li.media {
-		margin-bottom: 40px;
+	img.avatar {
+		width: 100%;
+	}
+	span.role {
+		font-size: 25px;
+		margin-left: 20px;
+		color: $purple;
 	}
 }
 
@@ -997,14 +1007,6 @@ img.avatar {
 	margin-right: auto;
 	border: 1px dashed;
 	padding: 5px;
-	margin-top: 37px;
-	width: 100%;
-}
-
-span.role {
-	font-size: 25px;
-	margin-left: 20px;
-	color: $purple;
 }
 
 /*************** Community-Profiles **************/
@@ -1109,7 +1111,8 @@ body#profile {
 		margin-top: 20px;
 	}
 }
-img.avatar {
+span.username {
+	margin-top: 10px;
 	margin-bottom: 20px;
 }
 
@@ -1158,54 +1161,56 @@ table.caravans {
 	}
 }
 
-/*************** Caravan-Profiles **************/
+/*************** Caravan-Detail **************/
 
-body#profile {
+body#profile.group {
 	a.pioneer {
 		font-family: 'Bree Serif';
 		font-size: 18px;
 		text-align: center;
+		span.username {
+			display: block;
+		}
 	}
-	img.avatar {
+	span.username {
+		margin-top: 10px;
 		margin-bottom: 20px;
-		width: 100%;
 	}
 	#tour-map {
 		margin-top: 20px;
 	}
-}
-
-.comment.tooltip {
-	margin-top: 5px;
-	margin-bottom: 5px;
-	position: relative;
-	.tooltip-inner {
-		background-color: $primary;
-		color: $secondary;
-		text-align: left;
-		max-width: 100%;
+	.comment.tooltip {
+		margin-top: 20px;
+		margin-bottom: 5px;
 		position: relative;
-		padding: 20px;
-	}
-	.tooltip-arrow {
-		border-right-color: $primary;
-		border-left-color: $primary;
-	}
-	.tooltip-inner h3 {
-		color: $secondary;
-		margin-bottom: 8px;
-	}
-	a {
-		color: $secondary;
-		&:hover {
-			color: $third;
+		.tooltip-inner {
+			background-color: $primary;
+			color: $secondary;
+			text-align: left;
+			max-width: 100%;
+			position: relative;
+			padding: 20px;
 		}
-	}
-	.created {
-		font-size: 11px;
-		margin-top: -10px;
-		margin-right: -10px;
-		text-shadow: 1px -1px 0px $third;
+		.tooltip-arrow {
+			border-right-color: $primary;
+			border-left-color: $primary;
+		}
+		.tooltip-inner h3 {
+			color: $secondary;
+			margin-bottom: 8px;
+		}
+		a {
+			color: $secondary;
+			&:hover {
+				color: $third;
+			}
+		}
+		.created {
+			font-size: 11px;
+			margin-top: -10px;
+			margin-right: -10px;
+			text-shadow: 1px -1px 0px $third;
+		}
 	}
 }
 
