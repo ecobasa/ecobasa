@@ -1054,6 +1054,9 @@ table.caravans a.name {
   font-family: 'Bree Serif';
   font-size: 18px;
 }
+table.caravans .btn-group {
+  display: flex;
+}
 
 /*************** Caravan-Detail **************/
 body#profile.group a.pioneer {
