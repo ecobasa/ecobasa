@@ -1005,6 +1005,9 @@ body#profile a.email {
   display: block;
   margin-top: 20px;
 }
+body#profile img.avatar {
+  width: 100%;
+}
 
 span.username {
   margin-top: 10px;
@@ -1100,6 +1103,9 @@ body#profile.group .comment.tooltip .created {
   margin-top: -10px;
   margin-right: -10px;
   text-shadow: 1px -1px 0px #b4502c;
+}
+body#profile.group a.email {
+  margin-top: 20px;
 }
 
 /*************** Dashboard **************/

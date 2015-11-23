@@ -1110,6 +1110,9 @@ body#profile {
 		display: block;
 		margin-top: 20px;
 	}
+	img.avatar {
+		width: 100%
+	}
 }
 span.username {
 	margin-top: 10px;
@@ -1211,6 +1214,9 @@ body#profile.group {
 			margin-right: -10px;
 			text-shadow: 1px -1px 0px $third;
 		}
+	}
+	a.email {
+		margin-top: 20px;
 	}
 }
 
