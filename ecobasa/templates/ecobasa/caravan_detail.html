@@ -35,8 +35,9 @@
 <div class="row">
   <div class="col-md-12">
     <h1>{% blocktrans with name=object.name %}{{ name }}{% endblocktrans %}</h1>
-    {% if user|is_group_member:caravan or user|is_group_admin:object or user.is_superuser %}
     <div class="btn-group pull-right">
+      <a class="btn btn-primary" href="{% url 'postman_write' recipients=object.name %}"><span class="glyphicon glyphicon-envelope"></span>{% trans "Contact" %}</a>
+      {% if user|is_group_member:caravan or user|is_group_admin:object or user.is_superuser %}
       {% if user|is_group_member:caravan %}
         <a class="btn btn-primary" href="{% url 'caravan-leave' object.slug %}">{% trans "Leave" %}</a>
       {% endif %}
@@ -57,8 +58,8 @@
           </ul>
         </div>
         {% endif %}
-      </div>
     {% endif %}
+    </div>
 
     <p>{{ object.description|urlize|linebreaksbr|safe }}</p>
   </div>
