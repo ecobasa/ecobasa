@@ -896,16 +896,24 @@ button.continue {
 }
 
 /**************** Team Page *******************/
-.media-list {
+body#team .media-list {
   margin-top: 50px;
 }
-.media-list h2.media-heading {
+body#team .media-list h2.media-heading {
   font-size: 32px;
   margin-bottom: 10px;
   color: #ff7800;
 }
-.media-list li.media {
+body#team .media-list li.media {
   margin-bottom: 40px;
+}
+body#team img.avatar {
+  width: 100%;
+}
+body#team span.role {
+  font-size: 25px;
+  margin-left: 20px;
+  color: #80143b;
 }
 
 img.avatar {
@@ -918,14 +926,6 @@ img.avatar {
   margin-right: auto;
   border: 1px dashed;
   padding: 5px;
-  margin-top: 37px;
-  width: 100%;
-}
-
-span.role {
-  font-size: 25px;
-  margin-left: 20px;
-  color: #80143b;
 }
 
 /*************** Community-Profiles **************/
@@ -1006,7 +1006,8 @@ body#profile a.email {
   margin-top: 20px;
 }
 
-img.avatar {
+span.username {
+  margin-top: 10px;
   margin-bottom: 20px;
 }
 
@@ -1051,26 +1052,28 @@ table.caravans a.name {
   font-size: 18px;
 }
 
-/*************** Caravan-Profiles **************/
-body#profile a.pioneer {
+/*************** Caravan-Detail **************/
+body#profile.group a.pioneer {
   font-family: 'Bree Serif';
   font-size: 18px;
   text-align: center;
 }
-body#profile img.avatar {
-  margin-bottom: 20px;
-  width: 100%;
+body#profile.group a.pioneer span.username {
+  display: block;
 }
-body#profile #tour-map {
+body#profile.group span.username {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+body#profile.group #tour-map {
   margin-top: 20px;
 }
-
-.comment.tooltip {
-  margin-top: 5px;
+body#profile.group .comment.tooltip {
+  margin-top: 20px;
   margin-bottom: 5px;
   position: relative;
 }
-.comment.tooltip .tooltip-inner {
+body#profile.group .comment.tooltip .tooltip-inner {
   background-color: #da6137;
   color: #f4ede3;
   text-align: left;
@@ -1078,21 +1081,21 @@ body#profile #tour-map {
   position: relative;
   padding: 20px;
 }
-.comment.tooltip .tooltip-arrow {
+body#profile.group .comment.tooltip .tooltip-arrow {
   border-right-color: #da6137;
   border-left-color: #da6137;
 }
-.comment.tooltip .tooltip-inner h3 {
+body#profile.group .comment.tooltip .tooltip-inner h3 {
   color: #f4ede3;
   margin-bottom: 8px;
 }
-.comment.tooltip a {
+body#profile.group .comment.tooltip a {
   color: #f4ede3;
 }
-.comment.tooltip a:hover {
+body#profile.group .comment.tooltip a:hover {
   color: #b4502c;
 }
-.comment.tooltip .created {
+body#profile.group .comment.tooltip .created {
   font-size: 11px;
   margin-top: -10px;
   margin-right: -10px;
