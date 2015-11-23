@@ -1106,6 +1106,7 @@ body#profile.group .comment.tooltip .created {
 }
 body#profile.group a.email {
   margin-top: 20px;
+  display: table;
 }
 
 /*************** Dashboard **************/
