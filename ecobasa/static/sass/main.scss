@@ -81,10 +81,6 @@ body {
 	color: $brown;
 }
 
-body#note-detail section#content {
-	background: url('../img/back.jpg') repeat;
-}
-
 .btn-primary {
 	background-color: rgba($primary, 0.8);
 	border-color: $third;
@@ -672,6 +668,12 @@ body#note-detail {
 				bottom: 0px;
 			}
 		}
+	}
+	section#content {
+		background: url('../img/back.jpg') repeat;
+	}
+	.sharing_buttons {
+		text-align: center;
 	}
 }
 

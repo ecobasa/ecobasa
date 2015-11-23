@@ -41,10 +41,6 @@ body {
   color: #452912;
 }
 
-body#note-detail section#content {
-  background: url("../img/back.jpg") repeat;
-}
-
 .btn-primary {
   background-color: rgba(218, 97, 55, 0.8);
   border-color: #b4502c;
@@ -611,6 +607,12 @@ body#note-detail section#header .carousel-inner {
 }
 body#note-detail section#header .carousel-inner .carousel-caption {
   bottom: 0px;
+}
+body#note-detail section#content {
+  background: url("../img/back.jpg") repeat;
+}
+body#note-detail .sharing_buttons {
+  text-align: center;
 }
 
 body#note-list .container.content {
