@@ -373,20 +373,19 @@
 
   $(function() {
     EcobasaMap.init('tour-map');
+    var WayPoints = [];
+
     {% for event in events %}
     {% with lat=event.location.latitude|unlocalize lon=event.location.longitude|unlocalize %}
     EcobasaMap.addMarker({{ lat }}, {{ lon }}, '<a href="{% url "cosinnus:event:entry-detail" group=object.slug slug=event.slug %}">{{ event.title }}</a>');
+    WayPoints.push(L.latLng({{ lat }}, {{ lon }}));
     {% endwith %}
     {% endfor %}
-    var area = [
-    {% for event in events %}
-    {% with lat=event.location.latitude|unlocalize lon=event.location.longitude|unlocalize %}
-    [{{ lat }}, {{ lon }}],
-    {% endwith %}
-    {% endfor %}
-    ];
-    EcobasaMap.map.fitBounds(area);
-    if (area.length <= 1 ) {
+
+    var tour = L.polyline(WayPoints, {color: '#da6137'}).addTo(EcobasaMap.map);
+
+    EcobasaMap.map.fitBounds(tour.getBounds(), {padding: [10, 10]});
+    if (WayPoints.length <= 1 ) {
       EcobasaMap.map.setZoom(5);
     }
   });
