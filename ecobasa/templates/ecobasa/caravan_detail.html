@@ -145,36 +145,64 @@
         </div>
       {% endif %}
     {% endif %}
+    <div class="row">
+      <div class="col-xs-12">
     <h2>{% trans "Buses" %}</h2>
     {% if user|is_group_member:caravan %}
-      <a href="{% url 'bus-list' %}" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span>{% trans "Find a bus" %}</a>
+    <div class="row">
+      <div class="col-xs-12">
+        <a href="{% url 'bus-list' %}" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span>{% trans "Find a bus" %}</a>
+      </div>
+    </div>
     {% endif %}
-    {% if members.cosinnus_profile.has_bus %}
-      <ul class="media-list">
         {% for member in members %}
         {% with member.cosinnus_profile as profile %}
         {% if profile.has_bus %}
-          <li class="media">
-            <a class="pull-left" href="{% url 'pioneer-detail' username=member.get_username %}">
-              {% if profile.bus_image %}<img src="{{ profile.bus_image|thumbnail_url:"bus_medium" }}" />
-              {% else %}
-                <img class="avatar" src="http://placehold.it/200x200">
-              {% endif %}
-            </a>
-            <div class="media-body">
-              <p>This bus can take {{ profile.bus_num_passengers }} people</p>
-              <p>He drinks {{ profile.bus_consumption }}l on 100km</p>
-              {% if not profile.bus_has_driving_license and profile.bus_others_can_drive %}<p>This bus still needs a driver!</p>{% else %}{% endif %}
+        <div class="row">
+          <div class="col-xs-12 bus">
+            {% if profile.bus_image %}
+              <div class="row">
+                <div class="col-xs-12">
+                  <img src="{{ profile.bus_image|thumbnail_url:"bus_large" }}" />
+                </div>
+              </div>
+            {% else %}
+              <div class="row">
+                <div class="col-xs-12">
+                  <img src="http://placehold.it/600x300">
+                </div>
+              </div>
+            {% endif %}
+        <div class="row">
+          <div class="col-xs-2">
+            {% if not profile.bus_has_driving_license %}
+              <i class="fa fa-life-ring"></i><span class="important">This bus still needs a driver!</span>
+            {% elif profile.bus_others_can_drive %}
+              <a class="bus" href="#" data-toggle="tooltip" title="{% trans "Other people can drive this bus too" %}"><i class="fa fa-user-plus"></i></a>
+            {% else %}
+              <a class="bus" href="#" data-toggle="tooltip" title="{% blocktrans with username=object.username %}This bus needs to be driven by {{ username }} only{% endblocktrans %}"><i class="fa fa-user-times"></i>{{ username }}</a>
+            {% endif %}
+          </div>
+          <div class="col-xs-3">
+            <a class="bus" href="#" data-toggle="tooltip" title="{% blocktrans with number=profile.bus_num_passengers %}This bus can take {{ number }} passengers{% endblocktrans %}">
+              <i class="fa fa-users"></i><span class="details">{{ profile.bus_num_passengers }}</span></a>
             </div>
-          </li>
-        {% endif %}
-        {% endwith %}
-        {% endfor %}
-      </ul>
-    {% else %}
-      <p>{% trans "This tour doesnt have any buses, yet!" %}
-      {% if not user|is_group_admin:object %} <a href="{% url 'caravan-join' object.slug %}">{% trans "Apply for membership" %}</a>{% trans ", if you have a bus you want to share!" %}{% endif %}</p>
-    {% endif %}
+          <div class="col-xs-2">
+            {% if profile.bus_transport %}
+              <a class="bus" href="#" data-toggle="tooltip" title="{% trans "Can transport gifts" %}"><i class="fa fa-gift"></i></a>
+            {% endif %}
+          </div>
+          <div class="col-xs-5">
+            <a class="bus" href="#" data-toggle="tooltip" title="{% trans "fuel consumption" %}"><i class="fa fa-tint"></i><span class="detail">{{ profile.bus_consumption }}l/100km</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+      {% endif %}
+      {% endwith %}
+      {% endfor %}
+      </div>
+    </div>
   </div>
 </div>
 

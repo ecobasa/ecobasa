@@ -1138,6 +1138,16 @@ body#profile.group a.email {
   margin-left: 0px;
   margin-right: 0px;
 }
+body#profile.group .bus {
+  margin-bottom: 20px;
+}
+body#profile.group .bus img {
+  width: 100%;
+  margin-bottom: 8px;
+}
+body#profile.group .bus a {
+  color: #452912;
+}
 
 /*************** Dashboard **************/
 body.group .container.content {
