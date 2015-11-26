@@ -3,6 +3,11 @@
 
 {% block page_title %}{% trans "Buses" %}{% endblock %}
 
+{% block extrahead %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static "css/vendor/jquery.tablesorter.theme.bootstrap.css" %}" />
+{% endblock %}
+
 {% block content %}
     <h1>{% trans "Available buses for your Community-Tour" %}</h1>
     {% if user.is_authenticated and not user.cosinnus_profile.has_bus %}
