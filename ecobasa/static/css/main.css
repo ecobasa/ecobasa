@@ -1148,6 +1148,9 @@ body#profile.group .bus img {
 body#profile.group .bus a {
   color: #452912;
 }
+body#profile.group img.avatar.default {
+  width: 64px;
+}
 
 /*************** Dashboard **************/
 body.group .container.content {
