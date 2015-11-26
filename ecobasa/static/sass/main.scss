@@ -1171,11 +1171,12 @@ ul.references {
 table#bus_table {
 	a.pioneer {
 		font-family: 'Bree Serif' serif;
-		font-size: 16px;
+		font-size: 14px;
 	}
 	a i.fa,
 	span.detail {
 		color: $brown;
+		float: left;
 	}
 	.tablesorter-header i.fa {
 		position: relative;
