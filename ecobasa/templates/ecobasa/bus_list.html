@@ -19,6 +19,7 @@
                 <th><i class="fa fa-users"></i><i class="fa fa-gift"></i> {% trans "Capacity" %}</th>
                 <th><i class="fa fa-tint"></i> {% trans "Consumption" %}</th>
                 <th><i class="fa fa-life-ring"></i> {% trans "Needs a driver" %}</th>
+                <th class="sorter-false"><i class="fa fa-pencil"></i>{% trans "Actions" %}</th>
             </tr>
         </thead>
 
@@ -36,6 +37,9 @@
             </td>
             <td><a href="#" data-toggle="tooltip" title="{% trans "fuel consumption" %}"><i class="fa fa-tint"></i><span class="detail">{{ profile.bus_consumption }}l/100km</a></td>
             <td>{% if not profile.bus_has_driving_license and profile.bus_others_can_drive %}<i class="fa fa-life-ring"></i> {% trans "YES" %}{% else %}<i class="fa fa-user-times"></i> {% trans "NO" %}{% endif %}</td>
+            <td>
+              <a class="btn btn-primary" href="{% url 'postman_write' recipients=pioneer.username %}"><span class="glyphicon glyphicon-envelope"></span>{% trans "Contact" %}</a>
+            </td>
         </tr>
         {% endwith %}
         {% endfor %}
