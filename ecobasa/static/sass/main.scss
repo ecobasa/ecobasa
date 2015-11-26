@@ -1248,6 +1248,16 @@ body#profile.group {
 		margin-left: 0px;
 		margin-right: 0px;
 	}
+	.bus {
+		margin-bottom: 20px;
+		img {
+			width: 100%;
+			margin-bottom: 8px;
+		}
+		a {
+			color: $brown;
+		}
+	}
 }
 
 

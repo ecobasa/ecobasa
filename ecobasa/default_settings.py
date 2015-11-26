@@ -123,6 +123,7 @@ THUMBNAIL_ALIASES = {
         'avatar_medium': {'size': (64, 64), 'crop': True, 'upscale': True },
         'avatar_small': {'size': (32, 32), 'crop': True, 'upscale': True },
         'bus_medium': {'size': (265, 200), 'crop': True, 'upscale': True },
+        'bus_large': {'size': (600, 300), 'crop': True, 'upscale': True },
         'event': {'size': (70, 70), 'crop': True, 'upscale': True },
         'note_large': {'size': (1140, 400), 'crop': True, 'upscale': True },
         'note_medium': {'size': (350, 250), 'crop': True, 'upscale': True },
