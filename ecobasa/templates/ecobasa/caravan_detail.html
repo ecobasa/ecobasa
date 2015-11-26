@@ -100,7 +100,7 @@
                   {% if admin.cosinnus_profile.avatar %}
                     <img class="avatar" src="{{ admin.cosinnus_profile.avatar|thumbnail_url:"avatar_medium" }}">
                   {% else %}
-                    <img class="avatar" src="{% static "img/avatar.png" %}" alt="{{ admin.get_full_name|default:admin.username }}" data-toggle="tooltip" data-placement="top" title="{{ admin.get_full_name|default:admin.username }}">
+                    <img class="avatar default" src="{% static "img/avatar.png" %}" alt="{{ admin.get_full_name|default:admin.username }}" data-toggle="tooltip" data-placement="top" title="{{ admin.get_full_name|default:admin.username }}">
                   {% endif %}
                   <span class="username">{{ admin.get_full_name|default:admin.get_username }}</span>
                 </a>
@@ -127,7 +127,7 @@
                     {% if pending.cosinnus_profile.avatar %}
                       <img class="avatar" src="{{ pending.cosinnus_profile.avatar|thumbnail_url:"avatar_medium" }}">
                     {% else %}
-                       <img class="avatar" src="{% static "img/avatar.png" %}" alt="{{ pending.get_full_name|default:pending.username }}" data-toggle="tooltip" data-placement="top" title="{{ pending.get_full_name|default:pending.username }}">
+                       <img class="avatar default" src="{% static "img/avatar.png" %}" alt="{{ pending.get_full_name|default:pending.username }}" data-toggle="tooltip" data-placement="top" title="{{ pending.get_full_name|default:pending.username }}">
                     {% endif %}
                    <span class="username">{{ pending.get_full_name|default:pending.get_username }}</span>
                   </a>
