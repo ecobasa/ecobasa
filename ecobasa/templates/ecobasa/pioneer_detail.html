@@ -74,7 +74,8 @@
         {% endfor %}
       </ul>
   </div>
-  <div class="col-xs-6 col-md-3">
+  <div class="col-xs-12 col-md-3">
+    <h2>{% trans "Info" %}</h2>
     <div class="row">
       <div class="col-xs-6 col-md-4">
         <span class="desc">{% trans "gender" %}</span>
@@ -108,6 +109,44 @@
       </div>
     </div>
 
+    {% if profile.has_bus %}
+    <div class="row">
+      <div class="col-xs-12">
+        <h2>{% trans "Bus" %}</h2>
+          {% if profile.bus_image %}
+          <div class="row">
+            <div class="col-xs-12">
+              <img class="bus" src="{{ profile.bus_image|thumbnail_url:"bus_medium" }}" />
+            </div>
+          </div>
+          {% endif %}
+      <div class="row">
+        <div class="col-xs-2">
+          {% if not profile.bus_has_driving_license %}
+            <i class="fa fa-life-ring"></i><span class="important">This bus still needs a driver!</span>
+          {% elif profile.bus_others_can_drive %}
+            <a class="bus" href="#" data-toggle="tooltip" title="{% trans "Other people can drive this bus too" %}"><i class="fa fa-user-plus"></i></a>
+          {% else %}
+            <a class="bus" href="#" data-toggle="tooltip" title="{% blocktrans with username=object.username %}This bus needs to be driven by {{ username }} only{% endblocktrans %}"><i class="fa fa-user-times"></i></a>
+          {% endif %}
+        </div>
+        <div class="col-xs-3">
+          <a class="bus" href="#" data-toggle="tooltip" title="{% blocktrans with number=profile.bus_num_passengers %}This bus can take {{ number }} passengers{% endblocktrans %}">
+            <i class="fa fa-users"></i><span class="details">{{ profile.bus_num_passengers }}</span></a>
+          </div>
+        <div class="col-xs-2">
+          {% if profile.bus_transport %}
+            <a class="bus" href="#" data-toggle="tooltip" title="{% trans "Can transport gifts" %}"><i class="fa fa-gift"></i></a>
+          {% endif %}
+        </div>
+        <div class="col-xs-5">
+          <a class="bus" href="#" data-toggle="tooltip" title="{% trans "fuel consumption" %}"><i class="fa fa-tint"></i><span class="detail">{{ profile.bus_consumption }}l/100km</span></a>
+        </div>
+      </div>
+      </div>
+    </div>
+    {% endif %}
+
     <div class="row">
       <div class="col-xs-12">
         <h2>{% trans "References" %}</h2>
@@ -123,29 +162,6 @@
     </div>
   </div>
 </div>
-  {% if profile.has_bus %}
-    <div class="row">
-      <div class="col-xs-12">
-      <h2>{% trans "Bus" %}</h2>
-      <div class="col-xs-3">
-        {% if profile.bus_image %}<img src="{{ profile.bus_image|thumbnail_url:"bus_medium" }}" />{% endif %}
-      </div>
-      <div class="col-xs-6">
-          {% if not profile.bus_has_driving_license %}
-            <span class="important">This bus still needs a driver!</span>
-          {% endif %}
-          {% if profile.bus_others_can_drive %}
-            <p>Other people can drive this bus too</p>
-          {% else %}
-            <p>This bus needs to be driven by {{ object.username }} only</p>
-          {% endif %}
-          <span class="desc">{% trans "Maximum passengers this bus can take:" %}</span>{{ profile.bus_num_passengers }}
-          <span class="desc">{% trans "fuel consumption" %}</span> {{ profile.bus_consumption }}l/100km
-      </div>
-    </div>
-  </div>
-  {% endif %}
-
   {% if posts %}
   <div class="row">
     <div class="col-xs-12">

@@ -1,5 +1,5 @@
 {% extends "cosinnus/base.html" %}
-{% load i18n thumbnail %}
+{% load i18n thumbnail static %}
 
 {% block page_title %}{% trans "Buses" %}{% endblock %}
 
@@ -10,14 +10,15 @@
     {% endif %}
 
     {% if object_list %}
-    <table class="table table-striped">
+    <table id="bus_table" class="table table-striped table-bordered table-hover table-curved">
         <thead>
             <tr>
-                <th>{% trans "Bus" %}</th>
-                <th>{% trans "Owner" %}</th>
-                <th>{% trans "Capacity" %}</th>
-                <th>{% trans "Consumption" %}</th>
-                <th>{% trans "Needs a driver" %}</th>
+                <th class="sorter-false"><i class="fa fa-bus"></i> {% trans "Bus" %}</th>
+                <th><i class="fa fa-globe"></i>{% trans "Country" %}</th>
+                <th><i class="fa fa-user"></i>{% trans "Owner" %}</th>
+                <th><i class="fa fa-users"></i><i class="fa fa-gift"></i> {% trans "Capacity" %}</th>
+                <th><i class="fa fa-tint"></i> {% trans "Consumption" %}</th>
+                <th><i class="fa fa-life-ring"></i> {% trans "Needs a driver" %}</th>
             </tr>
         </thead>
 
@@ -25,10 +26,16 @@
         {% with pioneer.cosinnus_profile as profile %}
         <tr>
             <td>{% if profile.bus_image %}<img src="{{ profile.bus_image|thumbnail_url:"bus_medium" }}" />{% endif %}</td>
-            <td><a href="{% url 'pioneer-detail' username=pioneer.username %}">{{ pioneer.username }}</a></td>
-            <td>{{ profile.bus_num_passengers }} people</td>
-            <td>{{ profile.bus_consumption }}l/100km</td>
-            <td>{% if not profile.bus_has_driving_license and profile.bus_others_can_drive %}YES{% else %}NO{% endif %}</td>
+            <td>{{ profile.get_country_display }}</td>
+            <td><a class="pioneer" href="{% url 'pioneer-detail' username=pioneer.username %}">{{ pioneer.username }}</a></td>
+            <td>
+                <i class="fa fa-users"></i> {{ profile.bus_num_passengers }} {% trans "people" %} 
+                {% if profile.bus_transport %}
+                    <a href="#" data-toggle="tooltip" title="{% trans "Can transport gifts" %}"><i class="fa fa-gift"></i></a>
+                {% endif %}
+            </td>
+            <td><a href="#" data-toggle="tooltip" title="{% trans "fuel consumption" %}"><i class="fa fa-tint"></i><span class="detail">{{ profile.bus_consumption }}l/100km</a></td>
+            <td>{% if not profile.bus_has_driving_license and profile.bus_others_can_drive %}<i class="fa fa-life-ring"></i> {% trans "YES" %}{% else %}<i class="fa fa-user-times"></i> {% trans "NO" %}{% endif %}</td>
         </tr>
         {% endwith %}
         {% endfor %}
@@ -43,3 +50,24 @@
         {% endif %}
     {% endif %}
 {% endblock %}
+
+{% block extrafooter %}
+  {{ block.super }}
+  <script src="{% static "js/vendor/jquery.tablesorter.min.js" %}"></script>
+  <script src="{% static "js/vendor/jquery.tablesorter.widgets.min.js" %}"></script>
+  <script type="text/javascript">
+  $(function() {
+    $.extend($.tablesorter.themes.bootstrap, {
+      header     : '',
+      sortNone   : 'bootstrap-icon-unsorted',
+      sortAsc    : 'glyphicon glyphicon-chevron-up',
+      sortDesc   : 'glyphicon glyphicon-chevron-down',
+    });
+    $('#bus_table').tablesorter({
+      theme : 'bootstrap',
+      headerTemplate : '{content} {icon}',
+      widgets : [ 'uitheme' ],
+    });
+  });
+  </script>
+{% endblock extrafooter %}

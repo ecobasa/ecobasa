@@ -1115,6 +1115,10 @@ body#profile {
 	img.avatar {
 		width: 100%
 	}
+	img.bus {
+		width: 100%;
+		margin-bottom: 8px;
+	}
 }
 span.username {
 	margin-top: 10px;
@@ -1151,10 +1155,28 @@ ul.references {
 	border: 1px solid;
 }
 
+.icon > i.fa {
+    margin-top: 10px;
+}
+
+
 /*************** Pioneer-List **************/
 
 .name {
 	text-align: center;
+}
+
+/**************** Bus-List ******************/
+
+table#bus_table {
+	a.pioneer {
+		font-family: 'Bree Serif' serif;
+		font-size: 16px;
+	}
+	a i.fa,
+	span.detail {
+		color: $brown;
+	}
 }
 
 /*************** Caravan-List **************/

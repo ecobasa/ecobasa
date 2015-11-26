@@ -345,6 +345,9 @@ class EcobasaUserProfile(BaseUserProfile):
         _('How many people can it take'), null=True, blank=True, default=0)
     bus_consumption = models.PositiveIntegerField(
         _('Consumption (l/100km)'), null=True, blank=True, default=0)
+    bus_transport = models.BooleanField(
+        _('Can it transport gifts for the communities like materials, or tools?'), 
+        default=True, blank=True)
 
     objects = BaseUserProfileManager()
 
@@ -510,9 +513,9 @@ class EcobasaCommunityProfile(models.Model):
     # basic info
     basic_description = models.TextField(
         _('Describe your community'), blank=True, null=True)
-    basic_inhabitants = models.PositiveIntegerField(
+    basic_inhabitants = models.CharField(
         _('how many people live in your community?'),
-        null=True, blank=True, default=0)
+        max_length=255, null=True, blank=True)
     basic_inhabitants_underage = models.PositiveIntegerField(
         _('how many of them are under 18?'), null=True, blank=True, default=0)
     basic_brings_together = models.TextField(
