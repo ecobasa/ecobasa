@@ -50,7 +50,7 @@
               <h5><a href="{% url 'community-detail' group=community.slug %}">{{ community.name }}</a></h5>
               <span class="community-details">
                 <a href="#" data-toggle="tooltip" title="{{ profile.basic_inhabitants }} people live there"><i class="fa fa-users"></i>{{ profile.basic_inhabitants }}</a> 
-                <a href="#" data-toggle="tooltip" title="{% trans "They can host up to {{ profile.visitors_num }} people" %}"><i class="fa fa-bed"></i>{{ profile.visitors_num }}</a>
+                <a href="#" data-toggle="tooltip" title="{% blocktrans with number=profile.visitors_num  %}They can host up to {{ number }} people{% endblocktrans %}"><i class="fa fa-bed"></i>{{ profile.visitors_num }}</a>
                 {% if profile.basic_membership_status = 'l' %}
                   <a href="#" data-toggle="tooltip" title="{% trans "Looking for volunteers" %}"><i class="fa fa-hand-rock-o"></i></a>
                 {% elif profile.basic_membership_status = 'c' %}
