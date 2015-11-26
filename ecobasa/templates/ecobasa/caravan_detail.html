@@ -149,7 +149,7 @@
     {% if user|is_group_member:caravan %}
       <a href="{% url 'bus-list' %}" class="btn btn-primary"><span class="glyphicon glyphicon-search"></span>{% trans "Find a bus" %}</a>
     {% endif %}
-    {% if members.profile.has_bus %}
+    {% if members.cosinnus_profile.has_bus %}
       <ul class="media-list">
         {% for member in members %}
         {% with member.cosinnus_profile as profile %}
