@@ -32,32 +32,32 @@
               {% endif %}
               <a class="name" href="{% url 'caravan-detail' caravan.slug %}">{{ caravan.name }}</a></td>
             <td>{{ caravan.description|linebreaksbr|safe }}</td>
-              <td>
-                <div class="btn-group" role="group" aria-label="actions">
-                {% if user|is_group_member:caravan %}
-                  <button type="button" class="btn btn-primary" onclick="window.location.href='{% url 'caravan-leave' caravan.slug %}'">{% trans "Leave" %}</button>
-                {% else %}
-                  <button class="btn btn-primary" onclick="window.location.href='{% url 'postman_write' recipients=caravan.name %}'"><span class="glyphicon glyphicon-envelope"></span>{% trans "Contact" %}</button>
-                {% endif %}
-                {% if user.is_authenticated %}
-                  <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="caret"></span>
-                    <span class="sr-only">Toggle Dropdown</span>
-                  </button>
-                  <ul class="dropdown-menu">
-                    {% if user.is_superuser or user|is_group_admin:caravan %}
-                      <li><a href="{% url 'caravan-edit' caravan.slug %}"><span class="glyphicon glyphicon-pencil"></span> {% trans "Edit" %}</a>
-                    {% endif %}
-                    {% if user.is_superuser %}
-                      <li><a href="{% url 'caravan-delete' caravan.slug %}"><span class="glyphicon glyphicon-trash"></span> {% trans "Delete" %}</a>
-                    {% endif %}
-                    {% if not user|is_group_member:caravan %}
-                    <li><a href="{% url 'caravan-join' caravan.slug %}">{% trans "Join" %}</a></li>
-                    {% endif %}
-                  </ul>
-                {% endif %}
-                </div>
-              </td>
+            <td>
+              <div class="btn-group" role="group" aria-label="actions">
+              {% if user|is_group_member:caravan %}
+                <button type="button" class="btn btn-primary" onclick="window.location.href='{% url 'caravan-leave' caravan.slug %}'">{% trans "Leave" %}</button>
+              {% else %}
+                <button class="btn btn-primary" onclick="window.location.href='{% url 'postman_write' recipients=caravan.name %}'"><span class="glyphicon glyphicon-envelope"></span>{% trans "Contact" %}</button>
+              {% endif %}
+              {% if user.is_authenticated %}
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <span class="caret"></span>
+                  <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu">
+                  {% if user.is_superuser or user|is_group_admin:caravan %}
+                    <li><a href="{% url 'caravan-edit' caravan.slug %}"><span class="glyphicon glyphicon-pencil"></span> {% trans "Edit" %}</a>
+                  {% endif %}
+                  {% if user.is_superuser %}
+                    <li><a href="{% url 'caravan-delete' caravan.slug %}"><span class="glyphicon glyphicon-trash"></span> {% trans "Delete" %}</a>
+                  {% endif %}
+                  {% if not user|is_group_member:caravan %}
+                  <li><a href="{% url 'caravan-join' caravan.slug %}">{% trans "Join" %}</a></li>
+                  {% endif %}
+                </ul>
+              {% endif %}
+              </div>
+            </td>
         </tr>
       {% endfor %}
   </table>
