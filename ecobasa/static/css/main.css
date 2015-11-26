@@ -1067,11 +1067,12 @@ ul.references > li.negative > a:hover {
 /**************** Bus-List ******************/
 table#bus_table a.pioneer {
   font-family: 'Bree Serif' serif;
-  font-size: 16px;
+  font-size: 14px;
 }
 table#bus_table a i.fa,
 table#bus_table span.detail {
   color: #452912;
+  float: left;
 }
 table#bus_table .tablesorter-header i.fa {
   position: relative;
