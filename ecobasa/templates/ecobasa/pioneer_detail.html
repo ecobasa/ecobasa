@@ -119,6 +119,12 @@
               <img class="bus" src="{{ profile.bus_image|thumbnail_url:"bus_medium" }}" />
             </div>
           </div>
+          {% else %}
+          <div class="row">
+            <div class="col-xs-12">
+              <img class="bus" src="http://placehold.it/265x200">
+            </div>
+          </div>
           {% endif %}
       <div class="row">
         <div class="col-xs-2">

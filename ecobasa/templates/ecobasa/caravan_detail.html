@@ -180,7 +180,7 @@
             {% elif profile.bus_others_can_drive %}
               <a class="bus" href="#" data-toggle="tooltip" title="{% trans "Other people can drive this bus too" %}"><i class="fa fa-user-plus"></i></a>
             {% else %}
-              <a class="bus" href="#" data-toggle="tooltip" title="{% blocktrans with username=profile.username %}This bus needs to be driven by {{ username }} only{% endblocktrans %}"><i class="fa fa-user-times"></i>{{ username }}</a>
+              <a class="bus" href="{% url 'pioneer-detail' username=member.get_username %}" data-toggle="tooltip" title="{% blocktrans with username=member.get_username %}This bus needs to be driven by {{ username }} only{% endblocktrans %}"><i class="fa fa-user-times"></i>{{ member.get_username }}</a>
             {% endif %}
           </div>
           <div class="col-xs-3">
