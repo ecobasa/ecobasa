@@ -1177,6 +1177,9 @@ table#bus_table {
 	span.detail {
 		color: $brown;
 	}
+	.tablesorter-header i.fa {
+		position: relative;
+	}
 }
 
 /*************** Caravan-List **************/

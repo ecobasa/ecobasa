@@ -1073,6 +1073,9 @@ table#bus_table a i.fa,
 table#bus_table span.detail {
   color: #452912;
 }
+table#bus_table .tablesorter-header i.fa {
+  position: relative;
+}
 
 /*************** Caravan-List **************/
 table.caravans a.name {
