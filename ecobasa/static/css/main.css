@@ -1148,8 +1148,14 @@ body#profile.group .bus img {
 body#profile.group .bus a {
   color: #452912;
 }
+body#profile.group img.avatar {
+  width: auto;
+}
 body#profile.group img.avatar.default {
   width: 64px;
+}
+body#profile.group img.avatar.member.default {
+  width: 200px;
 }
 
 /*************** Dashboard **************/
