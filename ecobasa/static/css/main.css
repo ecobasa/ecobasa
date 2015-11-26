@@ -1076,6 +1076,7 @@ table#bus_table span.detail {
 }
 table#bus_table .tablesorter-header i.fa {
   position: relative;
+  display: inline;
 }
 
 /*************** Caravan-List **************/
