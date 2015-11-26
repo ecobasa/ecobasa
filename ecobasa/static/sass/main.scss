@@ -1258,8 +1258,14 @@ body#profile.group {
 			color: $brown;
 		}
 	}
-	img.avatar.default {
-		width: 64px;
+	img.avatar {
+		width: auto;	
+		&.default {
+			width: 64px;
+		}
+		&.member.default {
+			width: 200px;
+		}
 	}
 }
 
