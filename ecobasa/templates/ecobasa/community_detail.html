@@ -86,10 +86,6 @@
           <h3>{% trans "What brings this community together" %}</h3>
           <p>{{ profile.basic_brings_together|urlize|linebreaksbr|safe }}</p>
         {% endif %}
-        {% if profile.visitors_accomodation %}
-          <h3>{% trans "Accomodation for guests" %}</h3>
-          <p>{{ profile.visitors_accommodation|urlize|linebreaksbr|safe }}</p>
-        {% endif %}
       </div>
     </div>
     {% if profile.offers_skills or references.tag_counts.skills.items or profile.offers_services or profile.offers_creations or user|is_group_admin:object %}
@@ -309,6 +305,10 @@
           {% endif %}
         </span>
       </ul>
+      {% if profile.visitors_accommodation %}
+        <h3>{% trans "Accomodation for guests" %}</h3>
+        <p>{{ profile.visitors_accommodation|urlize|linebreaksbr|safe }}</p>
+      {% endif %}
       <a href="{% url 'postman_write' recipients=object.name %}"><button class="email btn btn-primary btn-lg" data-toggle="tooltip" data-placement="top" title="If you want to visit and volunteer at this communtiy"><span class="glyphicon glyphicon-envelope"></span> {% trans "Contact this community" %}</button></a>
     </div>
     <div id="community-map" class="community-map-small"></div>
