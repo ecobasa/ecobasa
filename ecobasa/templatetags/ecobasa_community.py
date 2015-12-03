@@ -33,6 +33,20 @@ def get_community_locations():
     return locations
 
 
+@register.inclusion_tag('ecobasa/start_blog.html', takes_context=True)
+def show_blog_posts(context):
+    pk = getattr(settings, 'ECOBASA_GROUP', 1)
+    try:
+        group = CosinnusGroup.objects.filter(pk=pk)[0]
+    except IndexError:
+        posts = []
+    else:
+        posts = Note.objects.filter(
+            group=group, media_tag__public=True)[0:3]
+
+    context['posts'] = posts
+    return context
+
 @register.inclusion_tag('ecobasa/announcements.html', takes_context=True)
 def show_announcements(context):
     pk = getattr(settings, 'ECOBASA_SPECIAL_COSINNUS_GROUP', 1)
