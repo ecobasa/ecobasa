@@ -7,10 +7,13 @@
 {% block extrahead %}
 <meta property="og:title" content="{{ object.title }} - ecobasa.blog" />
 {% if object.video %}
+{% video object.video is_secure=True as video %}
 <meta property="og:video" content="{{ object.video }}" />
 <meta property="og:video:url" content="{{ object.video }}" />
 <meta property="og:type" content="video" />
 <meta property="og:video:type" content="application/x-shockwave-flash" />
+<meta property=“og:image” content=“{{ video.thumbnail }}” />
+{% endvideo %}
 {% else %}
 <meta property=“og:image” content=“{{ object.image|thumbnail_url:"note_medium" }}” />
 <meta property="og:image:width" content="350" />
