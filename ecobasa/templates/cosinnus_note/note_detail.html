@@ -9,6 +9,8 @@
 {% if object.video %}
 {% video object.video is_secure=True as video %}
 <meta property="og:image" content="{{ video.thumbnail }}" />
+<meta property="og:type" content="video" />
+<meta property="og:video" content="{{ video }}" />
 {% endvideo %}
 {% else %}
 <meta property="og:image" content="{{ object.image|thumbnail_url:"note_medium" }}" />
