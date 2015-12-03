@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
-from .start import * #noqa
 from .bus import *  # noqa
 from .caravan import *  # noqa
 from .community import *  # noqa
