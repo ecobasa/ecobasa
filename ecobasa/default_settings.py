@@ -126,7 +126,7 @@ THUMBNAIL_ALIASES = {
         'bus_large': {'size': (600, 300), 'crop': True, 'upscale': True },
         'event': {'size': (70, 70), 'crop': True, 'upscale': True },
         'note_large': {'size': (1140, 400), 'crop': True, 'upscale': True },
-        'note_medium': {'size': (350, 250), 'crop': True, 'upscale': True },
+        'note_medium': {'size': (350, 232), 'crop': True, 'upscale': True },
         'note_small': {'size': (175, 125), 'crop': True, 'upscale': True },
         'slideshow': {'size': (1920, 700), 'crop': True, 'upscale': True },
         'community_map': {'size': (300, 120), 'crop': True, 'upscale': True }, 
