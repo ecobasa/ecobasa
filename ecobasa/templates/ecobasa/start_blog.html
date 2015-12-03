@@ -8,14 +8,14 @@
         {% video post.video "tiny" %}
       </div>
       {% else %}
-      <img src="{{ post.image|thumbnail_url:"note_medium" }}" alt="{{ post.title }}" width="100%" />
+      <img src="{{ post.image|thumbnail_url:"note_medium" }}" alt="{{ post.title }}"/>
       {% endif %}
     </a>
   {% endif %}
     <a href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">
       <h2>{{ post.title }}</h2>
     </a>
-    <div class="article">{{ post.text|striptags|linebreaks|safe|truncatewords:40 }}</div>
+    <div class="article">{{ post.text|striptags|linebreaks|urlize|safe|truncatewords:40 }}</div>
     <a class="more" href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">read more <span class="glyphicon glyphicon-arrow-right"></span></a>
 </div>
 {% endfor %}
