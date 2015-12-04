@@ -14,7 +14,7 @@
 <meta property="og:video" content="{{ video.url }}" />
 {% endvideo %}
 {% else %}
-<meta property="og:image" content="{{ object.image|thumbnail_url:"note_medium" }}" />
+<meta property="og:image" content="http://{{ request.get_host }}{{ object.image|thumbnail_url:"note_medium" }}" />
 <meta property="og:image:width" content="350" />
 <meta property="og:image:height" content="250" />
 {% endif %}
