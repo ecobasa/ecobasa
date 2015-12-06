@@ -188,7 +188,7 @@ h3, h4, h5, h6 {
 }
 
 ul.dropdown-menu {
-  background: rgba(218, 97, 55, 0.8);
+  background: rgba(218, 97, 55, 0.7);
   color: #f4ede3;
   min-width: 100%;
 }
@@ -236,7 +236,7 @@ nav.navbar-sub ul li a {
 #searchbar ul {
   width: 260px;
   padding: 10px 20px 20px;
-  margin-top: 9px;
+  margin-top: 11px;
   left: 0px;
 }
 #searchbar input {
