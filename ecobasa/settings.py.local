@@ -16,13 +16,14 @@ MANAGERS = ADMINS
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'ecobasa',
-        'USER': 'django',
-        'PASSWORD': 'ecobasa',
-        'HOST': '',
-        'PORT': '',
-    }
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': 'mydatabase',
+    },
+}
+
+SOUTH_MIGRATION_MODULES = {
+    'taggit': 'taggit.south_migrations',
+    'postman': 'postman.south_migrations',
 }
 
 # Hosts/domain names that are valid for this site; required if DEBUG is False
@@ -31,11 +32,3 @@ ALLOWED_HOSTS = []
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'r(y6&k-^j^lz2_)bpt&89v2aqy=2c%f^ppff2v5fptk%a11*_!'
-
-
-# Django DebugToolbar
-if DEBUG:
-    MIDDLEWARE_CLASSES =\
-        ('debug_toolbar.middleware.DebugToolbarMiddleware',) +\
-        MIDDLEWARE_CLASSES
-    INSTALLED_APPS += ('debug_toolbar',)
