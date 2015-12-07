@@ -5,7 +5,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
 @font-face {
   font-family: 'Lato';
   src: url("../fonts/lato-regular-webfont.eot");
@@ -13,7 +12,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
 @font-face {
   font-family: 'Lato';
   src: url("../fonts/lato-bold-webfont.eot");
@@ -21,7 +19,6 @@
   font-weight: bold;
   font-style: normal;
 }
-
 @font-face {
   font-family: 'Lato';
   src: url("../fonts/lato-italic-webfont.eot");
@@ -29,7 +26,6 @@
   font-weight: normal;
   font-style: italic;
 }
-
 @font-face {
   font-family: 'Lato';
   src: url("../fonts/lato-bolditalic-webfont.eot");
@@ -37,7 +33,6 @@
   font-weight: bold;
   font-style: italic;
 }
-
 /*********** Default **************/
 body {
   background: url("../img/back.jpg") repeat;
@@ -259,9 +254,9 @@ nav.navbar-sub ul li a {
 }
 
 .alert-success {
-  color: #5a5527;
+  color: #5A5527;
   background-color: #c9c384;
-  border-color: #5a5527;
+  border-color: #5A5527;
 }
 
 /*********** Startpage ****************/
@@ -723,32 +718,44 @@ a.community-image {
   width: 800px;
 }
 
-table#community-list-table a.community-image > img {
+table#community-list a.community-image > img,
+table#caravan-list a.community-image > img {
   border-radius: 5px;
+  alignment-adjust: central;
 }
-table#community-list-table h5 {
+table#community-list a.name,
+table#caravan-list a.name {
   font-family: 'Bree Serif';
+  font-size: 14px;
+  margin-top: 10px;
   margin-bottom: 5px;
 }
-table#community-list-table a {
+table#community-list a,
+table#caravan-list a {
   color: #de7a08;
 }
-table#community-list-table a:hover, table#community-list-table a:focus {
+table#community-list a:hover, table#community-list a:focus,
+table#caravan-list a:hover,
+table#caravan-list a:focus {
   color: #80143b !important;
   text-decoration: none;
 }
-table#community-list-table span.community-details a[data-toggle=tooltip] {
+table#community-list div.community-details a[data-toggle=tooltip],
+table#caravan-list div.community-details a[data-toggle=tooltip] {
   color: #452912;
   margin-left: 10px;
   margin-right: 2px;
 }
-table#community-list-table span.community-details a[data-toggle=tooltip]:first-child {
+table#community-list div.community-details a[data-toggle=tooltip]:first-child,
+table#caravan-list div.community-details a[data-toggle=tooltip]:first-child {
   margin-left: 0px;
 }
-table#community-list-table ul {
+table#community-list ul,
+table#caravan-list ul {
   padding-left: 0px;
 }
-table#community-list-table ul li {
+table#community-list ul li,
+table#caravan-list ul li {
   padding-left: 0px;
   list-style: none;
 }
@@ -889,11 +896,11 @@ button.continue {
 }
 
 .has-success .form-control {
-  border: 1px dotted #5a5527;
+  border: 1px dotted #5A5527;
 }
 
 .has-success .help-block, .has-success .control-label, .has-success .radio, .has-success .checkbox, .has-success .radio-inline, .has-success .checkbox-inline {
-  color: #5a5527;
+  color: #5A5527;
 }
 
 .form-control:focus {
@@ -1080,11 +1087,11 @@ table#bus_table .tablesorter-header i.fa {
 }
 
 /*************** Caravan-List **************/
-table.caravans a.name {
+table#caravan-list a.name {
   font-family: 'Bree Serif';
   font-size: 18px;
 }
-table.caravans .btn-group {
+table#caravan-list .btn-group {
   display: flex;
 }
 
@@ -1428,3 +1435,5 @@ div.cosinnus-event .big-calendar {
     margin: 0px;
   }
 }
+
+/*# sourceMappingURL=main.css.map */
