@@ -27,7 +27,7 @@
       </div>
       <div class="modal-body">
         {% if object_list %}
-    <table id="community-list-table" class="table table-bordered table-hover table-curved">
+    <table id="community-list" class="table table-bordered table-hover table-curved">
       <thead>
         <tr>
           <th>{% trans "Community" %}</th>
@@ -42,13 +42,13 @@
           <tr>
             <td>
               {% if profile.image %}
-              <a class="community-image" href="{% url 'community-detail' group=community.slug %}">
+              <a class="community-image text-center" href="{% url 'community-detail' group=community.slug %}">
                 {% thumbnail profile.image 130x80 upscale crop as thumb %}
                   <img src="{{ thumb.url }}" alt="{{ community.name }}" width="{{ thumb.width }}" />
               </a>
               {% endif %}
-              <h5><a href="{% url 'community-detail' group=community.slug %}">{{ community.name }}</a></h5>
-              <span class="community-details">
+              <a class="name" href="{% url 'community-detail' group=community.slug %}"><div class="text-center">{{ community.name }}</div></a>
+              <div class="community-details text-center">
                 <a href="#" data-toggle="tooltip" title="{{ profile.basic_inhabitants }} people live there"><i class="fa fa-users"></i>{{ profile.basic_inhabitants }}</a> 
                 <a href="#" data-toggle="tooltip" title="{% blocktrans with number=profile.visitors_num  %}They can host up to {{ number }} people{% endblocktrans %}"><i class="fa fa-bed"></i>{{ profile.visitors_num }}</a>
                 {% if profile.basic_membership_status = 'l' %}
@@ -58,7 +58,7 @@
                 {% elif profile.basic_membership_status = 'o' %}
                   <a href="#" data-toggle="tooltip" title="{% trans "Looking for members" %}"><i class="fa fa-user-plus"></i></a>
                 {% endif %}
-              </span>
+              </div>
             </td>
 
             <td>
