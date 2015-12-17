@@ -5,6 +5,7 @@ from django.conf.urls.i18n import i18n_patterns
 from django.utils.translation import ugettext_lazy as _
 from haystack.views import search_view_factory
 from django.views.generic.base import RedirectView
+from django.views.generic import TemplateView
 
 from .views import FindView
 
@@ -92,3 +93,12 @@ urlpatterns += i18n_patterns('',
 )
 
 #url(r'^select2/', include('django_select2.urls')),
+
+if settings.DEBUG:
+    urlpatterns += patterns(
+        '',
+        url(r'^400/$', TemplateView.as_view(template_name='400.html')),
+        url(r'^403/$', TemplateView.as_view(template_name='403.html')),
+        url(r'^404/$', 'django.views.defaults.page_not_found'),
+        url(r'^500/$', 'django.views.defaults.server_error'),
+    )
