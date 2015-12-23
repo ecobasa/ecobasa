@@ -12,6 +12,7 @@
 {% video object.video is_secure=True as video %}
 <meta property="og:image" content="{{ video.thumbnail }}" />
 <meta property="og:video" content="{{ video.url }}" />
+<meta property="og:video:secure_url" content="{{ video.url }}" />
 {% endvideo %}
 {% else %}
 <meta property="og:image" content="http://{{ request.get_host }}{{ object.image|thumbnail_url:"note_medium" }}" />
