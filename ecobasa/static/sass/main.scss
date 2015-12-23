@@ -790,12 +790,16 @@ a.community-image {
 	width: 800px;
 }
 
-table#community-list-table {
+table#community-list,
+table#caravan-list {
 	a.community-image > img {
 		border-radius: 5px;
+		alignment-adjust: central;
 	}
-	h5 {
+	a.name {
 	    font-family: 'Bree Serif';
+	    font-size: 14px;
+	    margin-top: 10px;
 	    margin-bottom: 5px;
 	}
 	a {
@@ -806,7 +810,7 @@ table#community-list-table {
 			text-decoration: none;
 		}
 	}
-	span.community-details {
+	div.community-details {
 		a[data-toggle=tooltip] {
 			color: $brown;
 			margin-left: 10px;
@@ -1186,7 +1190,7 @@ table#bus_table {
 
 /*************** Caravan-List **************/
 
-table.caravans {
+table#caravan-list {
 	a.name {
 		font-family: 'Bree Serif';
 		font-size: 18px;
