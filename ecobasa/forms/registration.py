@@ -99,7 +99,7 @@ class RegistrationCommunityForm(RegistrationForm):
         self.fields.update(fields_community)
 
     def save_profile(self, new_user, *args, **kwargs):
-        name = self.cleaned_data['name']
+        name = unicode(self.cleaned_data['name'])
 
         # set up cosinnus group and admin user
         community = CosinnusGroup.objects.create(name=name, public=True)
@@ -111,7 +111,7 @@ class RegistrationCommunityForm(RegistrationForm):
         userprofile.avatar = self.cleaned_data['avatar']
 
         profile = EcobasaCommunityProfile.objects.create(group=community)
-        profile.name = self.cleaned_data['name']
+        profile.name = name
         profile.image = self.cleaned_data['image']
         profile.website = self.cleaned_data['website']
         profile.contact_telephone = self.cleaned_data['contact_telephone']
