@@ -3,6 +3,7 @@ from __future__ import unicode_literals
 
 from django import forms
 from django.conf import settings
+from django.utils.text import slugify
 from userprofiles.forms import RegistrationForm
 
 from cosinnus.forms.widgets import DateL10nPicker
@@ -99,10 +100,10 @@ class RegistrationCommunityForm(RegistrationForm):
         self.fields.update(fields_community)
 
     def save_profile(self, new_user, *args, **kwargs):
-        name = unicode(self.cleaned_data['name'])
+        name = self.cleaned_data['name']
 
         # set up cosinnus group and admin user
-        community = CosinnusGroup.objects.create(name=name, public=True)
+        community = CosinnusGroup.objects.create(name=slugify(name), public=True)
         CosinnusGroupMembership.objects.create(
             user=new_user, group=community, status=MEMBERSHIP_ADMIN)
 
