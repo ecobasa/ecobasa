@@ -30,11 +30,11 @@
   </div>
   <div class="col-xs-12 col-md-6">
     <h2>{% trans "About me" %}</h2>
-    <p>{{ profile.about }}</p>
+    <p>{{ profile.about|urlize|linebreaksbr|safe }}</p>
     <h5>{% trans "What do you do to make the world a better place?" %}</h5>
-    <p>{{ profile.world }}</p>
+    <p>{{ profile.world|urlize|linebreaksbr|safe }}</p>
     <h5>{% trans "What would you like to use ecobasa mainly for?" %}</h5>
-    <p>{{ profile.ecobasa_what }}</p>
+    <p>{{ profile.ecobasa_what|urlize|linebreaksbr|safe }}</p>
 
     <h2>{% trans "Skills" %}</h2>
     <ul class="list-inline">
