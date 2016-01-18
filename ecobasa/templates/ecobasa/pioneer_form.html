@@ -55,6 +55,7 @@
       <br/>
       <div>
         {% bootstrap_field form.interests %}
+        {% bootstrap_field form.wishlist %}
         {% bootstrap_field form.skills %}
         {% bootstrap_field form.products %}
       </div>
@@ -89,10 +90,12 @@
 <script src="{% static 'js/ecobasa_profile.js' %}"></script>
 <script type="text/javascript">
 {% get_interests as interests %}
+{% get_wishlist as wishlist %}
 {% get_products as products %}
 {% get_skills as skills %}
 var tags = {
   interests: {{ interests|safe }},
+  wishlist: {{ wishlist|safe }},
   skills: {{ skills|safe }},
   products: {{ products|safe }}
 };

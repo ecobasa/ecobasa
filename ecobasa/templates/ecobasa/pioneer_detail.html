@@ -36,19 +36,23 @@
     <h5>{% trans "What would you like to use ecobasa mainly for?" %}</h5>
     <p>{{ profile.ecobasa_what|urlize|linebreaksbr|safe }}</p>
 
-    <h2>{% trans "Skills" %}</h2>
-    <ul class="list-inline">
-      {% for skill in profile.skills.all %}
-      <li><span class="label label-{{ skill }}">{{ skill }}</span></li>
-      {% endfor %}
-    </ul>
-    <ul class="list-inline">
-      {% for tag_name, tag_data in references.tag_counts.skills.items %}
-          <li><span class="label label-{{ tag_data.class }}">{{ tag_name }} <span class="badge alert-success">{{ tag_data.count }}</span></span></li>
-      {% endfor %}
-    </ul>  
-    {% if profile.products or references.tag_counts.products.items %}
-      <h2>{% trans "Products" %}</h2>
+      <h2 id="skills">{% trans "Skills" %}</h2>
+      <ul class="list-inline">
+        {% for skill in profile.skills.all %}
+        <li><span class="label label-{{ skill }}">{{ skill }}</span></li>
+        {% endfor %}
+      </ul>
+      <ul class="list-inline">
+        {% for tag_name, tag_data in references.tag_counts.skills.items %}
+            <li><span class="label label-{{ tag_data.class }}">{{ tag_name }} <span class="badge alert-success">{{ tag_data.count }}</span></span></li>
+        {% endfor %}
+      </ul>
+      {% if can_add_reference and not user == object %}
+        <a class="btn btn-primary" href="{% url 'pioneer-reference-add' object.username %}"><span class="glyphicon glyphicon-plus"></span> {% trans "Add a skill of this person with a review" %}</a>
+      {% elif user == object %}
+        <a href="{% url 'pioneer-edit' username=object.username %}#s2id_id_offers_skills" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add skills" %}</a>
+      {% endif %}
+      <h2 id="products">{% trans "Products" %}</h2>
       <ul class="list-inline">
         {% for tag in profile.products.all %}
         <li><span class="label label-{{ tag }}">{{ tag }}</span></li>
@@ -59,20 +63,42 @@
             <li><span class="label label-{{ tag_data.class }}">{{ tag_name }} <span class="badge alert-success">{{ tag_data.count }}</span></span></li>
         {% endfor %}
       </ul>
-    {% endif %}
-    {% if references.tag_counts.services.items %}  
-      <h2>{% trans "Services" %}</h2>
+      {% if can_add_reference and not user == object %}
+        <a class="btn btn-primary" href="{% url 'pioneer-reference-add' object.username %}"><span class="glyphicon glyphicon-plus"></span> {% trans "Add a product this person can make with a review" %}</a>
+      {% elif user == object %}
+        <a href="{% url 'pioneer-edit' username=object.username %}#s2id_id_offers_products" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add products" %}</a>
+      {% endif %}
+      <h2 id="services">{% trans "Services" %}</h2>
         <ul class="list-inline">{% for tag_name, tag_data in references.tag_counts.services.items %}
           <li><span class="label label-{{ tag_data.class }}">{{ tag_name }} <span class="badge alert-success">{{ tag_data.count }}</span></span></li>
         {% endfor %}</ul>
-    {% endif %}
-    <h2>{% trans "Interests" %}</h2>
-    <ul class="list-inline">
+        {% if user == object %}
+          <a href="{% url 'pioneer-edit' username=object.username %}#s2id_id_offers_services" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add services" %}</a>
+        {% endif %}
+    {% if profile.interests or user == object %}
+      <h2 id="interests">{% trans "Interests" %}</h2>
+      <ul class="list-inline">
         {% for tag in profile.interests.all %}
-        <li><span class="label label-{{ tag }}">{{ tag }}</span></li>
+          <li><span class="label label-{{ tag }}">{{ tag }}</span></li>
         {% if not forloop.last %} {% endif %}
         {% endfor %}
       </ul>
+      {% if user == object %}
+        <a href="{% url 'pioneer-edit' username=object.username %}#s2id_id_offers_skills" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add interests" %}</a>
+      {% endif %}
+    {% endif %}
+    {% if profile.wishlist or user == object %}
+      <h2 id="wishlist">{% trans "Wishlist" %}</h2>
+      <ul class="list-inline">
+          {% for tag in profile.wishlist.all %}
+            <li><span class="label label-{{ tag }}">{{ tag }}</span></li>
+          {% if not forloop.last %} {% endif %}
+          {% endfor %}
+        </ul>
+        {% if user == object %}
+          <a href="{% url 'pioneer-edit' username=object.username %}#s2id_id_wishlist" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add wishes" %}</a>
+        {% endif %}
+    {% endif %}
   </div>
   <div class="col-xs-12 col-md-3">
     <h2>{% trans "Info" %}</h2>
@@ -162,7 +188,7 @@
             <p>{{ reference.text }}</p>
           </li>
         {% endfor %}</ul>
-        {% if can_add_reference %}<a class="btn btn-primary" href="{% url 'pioneer-reference-add' object.username %}"><span class="glyphicon glyphicon-plus"></span> {% trans "Add" %}</a>{% endif %}
+        {% if can_add_reference and not object == username %}<a class="btn btn-primary" href="{% url 'pioneer-reference-add' object.username %}"><span class="glyphicon glyphicon-plus"></span> {% trans "Add" %}</a>{% endif %}
         <a class="btn btn-primary pull-right" href="{% url 'pioneer-reference-list' object.username %}">{% trans "More" %}</a>
       </div>
     </div>

@@ -10,6 +10,9 @@ EcobasaProfile = {
 		$("#id_interests").select2({
 			tags: tags.interests, tokenSeparators: [","]
 		});
+		$("#id_wishlist").select2({
+			tags: tags.wishlist, tokenSeparators: [","]
+		});
 		$("#id_skills").select2({
 			tags: tags.skills, tokenSeparators: [","]
 		});
