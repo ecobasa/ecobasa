@@ -246,6 +246,22 @@
 </div>
 
 <div class="row">
+  <div class="col-md-12">
+    <h2>{% trans "Wishes" %}</h2>
+    <ul>
+      {% for member in members %}
+        {% for tag in member.cosinnus_profile.wishlist.all %}
+        <li>{{ tag }}</li>
+        {% if not forloop.last %} {% endif %}{% endfor %}
+      {% endfor %}
+    </ul>
+    {% if user|is_group_member:object %}
+      <a href="{% url 'pioneer-edit' username=user.username %}" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add a wish to your profile, so it appears here" %}</a>
+    {% endif %}
+  </div>
+</div>
+
+<div class="row">
   <div class="events col-xs-12">
     <h2>{% trans "Visiting these Places" %}</h2>
     {% if user.is_superuser or user|is_group_member:object %}
