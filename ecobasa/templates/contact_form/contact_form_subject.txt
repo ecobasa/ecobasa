@@ -1,1 +1,1 @@
-{{ Concern }}: message from {{ name }} on ecobasa/contact
+{{ concern }}: message from {{ name }} on ecobasa/contact
