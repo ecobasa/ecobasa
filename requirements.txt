@@ -31,6 +31,6 @@ django-tinymce==1.5.2
 django-widget-tweaks==1.3.0
 django-browserid
 pytz
-django-select2<4
+django-select2
 django-extensions
 djangorestframework==2.4.8
