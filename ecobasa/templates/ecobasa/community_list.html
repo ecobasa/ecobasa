@@ -27,7 +27,7 @@
       </div>
       <div class="modal-body">
         {% if object_list %}
-    <table id="community-list" class="table table-bordered table-hover table-curved">
+    <table id="community-list-table" class="table table-bordered table-hover table-curved tablesorter">
       <thead>
         <tr>
           <th>{% trans "Community" %}</th>
@@ -109,7 +109,6 @@
     {% for l in locations %}
       EcobasaMap.addMarker({{ l.lat|unlocalize }}, {{ l.lon|unlocalize }}, '{% if l.image %}{% thumbnail l.image 300x120 upscale crop as thumb %}<img src="{{ thumb.url }}" alt="{{ l.name }}" width="{{ thumb.width }}" /><br />{% endif %}<h5><a href="{% url 'community-detail' group=l.slug %}">{{ l.name }}</a></h5><span class="community-details"><a href="{% url 'community-detail' group=l.slug %}" data-toggle="tooltip" title="{{ l.members }} people live there"><i class="fa fa-users"></i>{{ l.members }}</a><a href="{% url 'community-detail' group=l.slug %}" data-toggle="tooltip" title="They can host up to {{ l.visitors }} people"><i class="fa fa-bed"></i>{{ l.visitors }}</a> {% if l.status = "l" %}<a href="{% url 'community-detail' group=l.slug %}" data-toggle="tooltip" title="Looking for volunteers"><i class="fa fa-hand-rock-o"></i></a>{% elif l.status = "c" %}<a href="{% url 'community-detail' group=l.slug %}" data-toggle="tooltip" title="Closed at the moment"><i class="fa fa-hand-stop-o"></i></a>{% elif l.status = "o" %}<a href="{% url 'community-detail' group=l.slug %}" data-toggle="tooltip" title="Looking for members"><i class="fa fa-user-plus"></i></a>{% endif %}</span> {% if l.text %}<span>{{ l.text|urlize|safe|truncatewords:50 }}</span> <a href="{% url 'community-detail' group=l.slug %}">{%trans "see profile" %}</a>{% elif l.text2 %}<span>{% trans "What brings us together:" %}</br>{{ l.text2|urlize|safe|truncatewords:50 }}</span> <a href="{% url 'community-detail' group=l.slug %}">{%trans "see profile" %}</a>{% endif %}');
     {% endfor %}
-
     $.extend($.tablesorter.themes.bootstrap, {
       sortNone   : 'bootstrap-icon-unsorted',
       sortAsc    : 'glyphicon glyphicon-chevron-up',
