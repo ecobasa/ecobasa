@@ -726,6 +726,7 @@ a.community-image {
 table#community-list-table a.community-image > img,
 table#caravan-list a.community-image > img {
   border-radius: 5px;
+  text-align: center;
   alignment-adjust: central;
 }
 table#community-list-table a.name,
@@ -755,6 +756,11 @@ table#community-list-table div.community-details a[data-toggle=tooltip]:first-ch
 table#caravan-list div.community-details a[data-toggle=tooltip]:first-child {
   margin-left: 0px;
 }
+table#community-list-table span.highlight,
+table#caravan-list span.highlight {
+  background-color: #ff7800;
+  color: #452912;
+}
 table#community-list-table ul,
 table#caravan-list ul {
   padding-left: 0px;
@@ -763,6 +769,36 @@ table#community-list-table ul li,
 table#caravan-list ul li {
   padding-left: 0px;
   list-style: none;
+}
+
+#community-list-table_wrapper .form-control {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+  background-color: #80143b;
+  border-color: #b4502c;
+  color: #f4ede3;
+}
+
+.pagination > .disabled > span,
+.pagination > .disabled > span:hover,
+.pagination > .disabled > span:focus,
+.pagination > .disabled > a {
+  color: #f4ede3;
+  background-color: rgba(218, 97, 55, 0.8);
+  border-color: #b4502c;
+}
+
+.pagination > .disabled > a:hover,
+.pagination > .disabled > a:focus {
+  background-color: #80143b;
+  border-color: #b4502c;
 }
 
 /*********** Community-Detail **************/
