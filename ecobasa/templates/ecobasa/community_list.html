@@ -6,7 +6,9 @@
 {% block extrahead %}
 {{ block.super }}
 <link rel="stylesheet" href="{% static "leaflet/leaflet.css" %}" />
-<link rel="stylesheet" href="{% static "css/vendor/jquery.tablesorter.theme.bootstrap.css" %}" />
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/u/bs/dt-1.10.12,af-2.1.2,r-2.1.
+0/datatables.min.css"/>
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/plug-ins/1.10.12/features/searchHighlight/dataTables.searchHighlight.css"/>
 {% endblock %}
 
 {% block body %}communities{% endblock body %}
@@ -27,11 +29,12 @@
       </div>
       <div class="modal-body">
         {% if object_list %}
-    <table id="community-list-table" class="table table-bordered table-hover table-curved tablesorter">
+    <table id="community-list-table" class="table table-bordered table-hover table-curved">
       <thead>
         <tr>
           <th>{% trans "Community" %}</th>
           <th class="sorter-false">{% trans "Description" %}</th>
+          <th>{% trans "Stats" %}</th>
           <th>{% trans "Country" %}</th>
           <th class="sorter-false">{% trans "Teaching" %}</th>
         </tr>
@@ -42,23 +45,12 @@
           <tr>
             <td>
               {% if profile.image %}
-              <a class="community-image text-center" href="{% url 'community-detail' group=community.slug %}">
+              <a class="community-image" href="{% url 'community-detail' group=community.slug %}">
                 {% thumbnail profile.image 130x80 upscale crop as thumb %}
                   <img src="{{ thumb.url }}" alt="{{ community.name }}" width="{{ thumb.width }}" />
               </a>
               {% endif %}
               <a class="name" href="{% url 'community-detail' group=community.slug %}"><div class="text-center">{{ community.name }}</div></a>
-              <div class="community-details text-center">
-                <a href="#" data-toggle="tooltip" title="{{ profile.basic_inhabitants }} people live there"><i class="fa fa-users"></i>{{ profile.basic_inhabitants }}</a> 
-                <a href="#" data-toggle="tooltip" title="{% blocktrans with number=profile.visitors_num  %}They can host up to {{ number }} people{% endblocktrans %}"><i class="fa fa-bed"></i>{{ profile.visitors_num }}</a>
-                {% if profile.basic_membership_status = 'l' %}
-                  <a href="#" data-toggle="tooltip" title="{% trans "Looking for volunteers" %}"><i class="fa fa-hand-rock-o"></i></a>
-                {% elif profile.basic_membership_status = 'c' %}
-                  <a href="#" data-toggle="tooltip" title="{% trans "Closed at the moment" %}"><i class="fa fa-hand-stop-o"></i></a>
-                {% elif profile.basic_membership_status = 'o' %}
-                  <a href="#" data-toggle="tooltip" title="{% trans "Looking for members" %}"><i class="fa fa-user-plus"></i></a>
-                {% endif %}
-              </div>
             </td>
 
             <td>
@@ -73,7 +65,25 @@
             </td>
 
             <td>
-              {{ profile.get_contact_country_display }}
+              <div class="community-details text-center">              
+                <a href="#" data-toggle="tooltip" title="{{ profile.basic_inhabitants }} people live there"><i class="fa fa-users"></i>{{ profile.basic_inhabitants }}</a> 
+                <a href="#" data-toggle="tooltip" title="{% blocktrans with number=profile.visitors_num  %}They can host up to {{ number }} people{% endblocktrans %}"><i class="fa fa-bed"></i>{{ profile.visitors_num }}</a>
+                {% if profile.basic_membership_status = 'l' %}
+                  <a href="#" data-toggle="tooltip" title="{% trans "Looking for volunteers" %}"><i class="fa fa-hand-rock-o"></i></a>
+                {% elif profile.basic_membership_status = 'c' %}
+                  <a href="#" data-toggle="tooltip" title="{% trans "Closed at the moment" %}"><i class="fa fa-hand-stop-o"></i></a>
+                {% elif profile.basic_membership_status = 'o' %}
+                  <a href="#" data-toggle="tooltip" title="{% trans "Looking for members" %}"><i class="fa fa-user-plus"></i></a>
+                {% endif %}
+              </div>
+            </td>
+
+            <td>
+              {% if profile.get_contact_country_display == "Unknown or unspecified country" %}
+
+              {% else %}
+                {{ profile.get_contact_country_display }}
+              {% endif %}
             </td>
 
             <td>
@@ -98,10 +108,11 @@
 {% block extrafooter %}
   {{ block.super }}
   <script src="{% static "leaflet/leaflet.js" %}"></script>
-  <script src="{% static "js/vendor/jquery.tablesorter.min.js" %}"></script>
-  <script src="{% static "js/vendor/jquery.tablesorter.widgets.min.js" %}"></script>
   <script src="{% static "js/ecobasa_map.js" %}"></script>
   <script type="text/javascript" src="https://stamen-maps.a.ssl.fastly.net/js/tile.stamen.js?v1.2.4"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/u/bs/dt-1.10.12,af-2.1.2,r-2.1.0/datatables.min.js"></script>
+  <script type="text/javascript" src="//cdn.datatables.net/plug-ins/1.10.12/features/searchHighlight/dataTables.searchHighlight.min.js"></script>
+  <script type="text/javascript" src="//bartaz.github.io/sandbox.js/jquery.highlight.js"></script>
   <script type="text/javascript">
   {% get_community_locations as locations %}
   $(function() {
@@ -109,16 +120,14 @@
     {% for l in locations %}
       EcobasaMap.addMarker({{ l.lat|unlocalize }}, {{ l.lon|unlocalize }}, '{% if l.image %}{% thumbnail l.image 300x120 upscale crop as thumb %}<img src="{{ thumb.url }}" alt="{{ l.name }}" width="{{ thumb.width }}" /><br />{% endif %}<h5><a href="{% url 'community-detail' group=l.slug %}">{{ l.name }}</a></h5><span class="community-details"><a href="{% url 'community-detail' group=l.slug %}" data-toggle="tooltip" title="{{ l.members }} people live there"><i class="fa fa-users"></i>{{ l.members }}</a><a href="{% url 'community-detail' group=l.slug %}" data-toggle="tooltip" title="They can host up to {{ l.visitors }} people"><i class="fa fa-bed"></i>{{ l.visitors }}</a> {% if l.status = "l" %}<a href="{% url 'community-detail' group=l.slug %}" data-toggle="tooltip" title="Looking for volunteers"><i class="fa fa-hand-rock-o"></i></a>{% elif l.status = "c" %}<a href="{% url 'community-detail' group=l.slug %}" data-toggle="tooltip" title="Closed at the moment"><i class="fa fa-hand-stop-o"></i></a>{% elif l.status = "o" %}<a href="{% url 'community-detail' group=l.slug %}" data-toggle="tooltip" title="Looking for members"><i class="fa fa-user-plus"></i></a>{% endif %}</span> {% if l.text %}<span>{{ l.text|urlize|safe|truncatewords:50 }}</span> <a href="{% url 'community-detail' group=l.slug %}">{%trans "see profile" %}</a>{% elif l.text2 %}<span>{% trans "What brings us together:" %}</br>{{ l.text2|urlize|safe|truncatewords:50 }}</span> <a href="{% url 'community-detail' group=l.slug %}">{%trans "see profile" %}</a>{% endif %}');
     {% endfor %}
-    $.extend($.tablesorter.themes.bootstrap, {
-      sortNone   : 'bootstrap-icon-unsorted',
-      sortAsc    : 'glyphicon glyphicon-chevron-up',
-      sortDesc   : 'glyphicon glyphicon-chevron-down',
+
+    $('#community-list-table').DataTable( {
+        "searchHighlight": true,
+        "pageLength": 50,
+        "aoColumnDefs": [
+          { 'bSortable': false, 'aTargets': [ 1, 4 ] }
+       ]
+      } );
     });
-    $('#community-list-table').tablesorter({
-      theme : 'bootstrap',
-      headerTemplate : '{content} {icon}',
-      widgets : [ 'uitheme' ],
-    });
-  });
   </script>
 {% endblock extrafooter %}
