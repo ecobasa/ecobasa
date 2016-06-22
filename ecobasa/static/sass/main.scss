@@ -790,11 +790,14 @@ a.community-image {
 	width: 800px;
 }
 
-table#community-list,
+table#community-list-table,
 table#caravan-list {
-	a.community-image > img {
-		border-radius: 5px;
-		alignment-adjust: central;
+	a.community-image {
+		text-align: center;
+		> img {
+			border-radius: 5px;
+			text-align: center;
+		}
 	}
 	a.name {
 	    font-family: 'Bree Serif';
@@ -813,12 +816,15 @@ table#caravan-list {
 	div.community-details {
 		a[data-toggle=tooltip] {
 			color: $brown;
-			margin-left: 10px;
-			margin-right: 2px;
-			&:first-child {
-				margin-left: 0px;
-			}
+			text-align: left;
+			margin-left: 20px;
+			margin-bottom: 10px;
+			display: block;
 		}
+	}
+	span.highlight {
+	    background-color: $orange;
+	    color: $brown;
 	}
 	ul {
 		padding-left: 0px;
@@ -827,6 +833,47 @@ table#caravan-list {
 			list-style: none;
 		}
 	}
+}
+
+#community-list-table_wrapper .form-control {
+	background-color: rgba(255, 255, 255, 0.5);
+}
+
+.pagination > li > a, .pagination > li > span {
+	color: $secondary;
+	background-color: rgba(218, 97, 55, 0.8);
+	border-color: $third;
+}
+
+.pagination > li > a:hover,
+.pagination > li > span:hover,
+.pagination > li > a:focus,
+.pagination > li > span:focus {
+	background-color: $purple;
+	border-color: $third;
+	color: $secondary;
+}
+
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+	background-color: $purple;
+	border-color: $third;
+	color: $secondary;
+}
+
+.pagination > .disabled > span,
+.pagination > .disabled > span:hover,
+.pagination > .disabled > span:focus,
+.pagination > .disabled > a,
+.pagination > .disabled > a:hover, 
+.pagination > .disabled > a:focus {
+	color: $secondary;
+	background-color: rgba(218, 97, 55, 0.8);
+	border-color: $third;
 }
 
 /*********** Community-Detail **************/

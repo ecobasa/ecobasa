@@ -5,6 +5,7 @@
   font-weight: normal;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'Lato';
   src: url("../fonts/lato-regular-webfont.eot");
@@ -12,6 +13,7 @@
   font-weight: normal;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'Lato';
   src: url("../fonts/lato-bold-webfont.eot");
@@ -19,6 +21,7 @@
   font-weight: bold;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'Lato';
   src: url("../fonts/lato-italic-webfont.eot");
@@ -26,6 +29,7 @@
   font-weight: normal;
   font-style: italic;
 }
+
 @font-face {
   font-family: 'Lato';
   src: url("../fonts/lato-bolditalic-webfont.eot");
@@ -33,6 +37,7 @@
   font-weight: bold;
   font-style: italic;
 }
+
 /*********** Default **************/
 body {
   background: url("../img/back.jpg") repeat;
@@ -254,9 +259,9 @@ nav.navbar-sub ul li a {
 }
 
 .alert-success {
-  color: #5A5527;
+  color: #5a5527;
   background-color: #c9c384;
-  border-color: #5A5527;
+  border-color: #5a5527;
 }
 
 /*********** Startpage ****************/
@@ -718,46 +723,94 @@ a.community-image {
   width: 800px;
 }
 
-table#community-list a.community-image > img,
+table#community-list-table a.community-image,
+table#caravan-list a.community-image {
+  text-align: center;
+}
+table#community-list-table a.community-image > img,
 table#caravan-list a.community-image > img {
   border-radius: 5px;
-  alignment-adjust: central;
+  text-align: center;
 }
-table#community-list a.name,
+table#community-list-table a.name,
 table#caravan-list a.name {
   font-family: 'Bree Serif';
   font-size: 14px;
   margin-top: 10px;
   margin-bottom: 5px;
 }
-table#community-list a,
+table#community-list-table a,
 table#caravan-list a {
   color: #de7a08;
 }
-table#community-list a:hover, table#community-list a:focus,
+table#community-list-table a:hover, table#community-list-table a:focus,
 table#caravan-list a:hover,
 table#caravan-list a:focus {
   color: #80143b !important;
   text-decoration: none;
 }
-table#community-list div.community-details a[data-toggle=tooltip],
+table#community-list-table div.community-details a[data-toggle=tooltip],
 table#caravan-list div.community-details a[data-toggle=tooltip] {
   color: #452912;
-  margin-left: 10px;
-  margin-right: 2px;
+  text-align: left;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  display: block;
 }
-table#community-list div.community-details a[data-toggle=tooltip]:first-child,
-table#caravan-list div.community-details a[data-toggle=tooltip]:first-child {
-  margin-left: 0px;
+table#community-list-table span.highlight,
+table#caravan-list span.highlight {
+  background-color: #ff7800;
+  color: #452912;
 }
-table#community-list ul,
+table#community-list-table ul,
 table#caravan-list ul {
   padding-left: 0px;
 }
-table#community-list ul li,
+table#community-list-table ul li,
 table#caravan-list ul li {
   padding-left: 0px;
   list-style: none;
+}
+
+#community-list-table_wrapper .form-control {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.pagination > li > a, .pagination > li > span {
+  color: #f4ede3;
+  background-color: rgba(218, 97, 55, 0.8);
+  border-color: #b4502c;
+}
+
+.pagination > li > a:hover,
+.pagination > li > span:hover,
+.pagination > li > a:focus,
+.pagination > li > span:focus {
+  background-color: #80143b;
+  border-color: #b4502c;
+  color: #f4ede3;
+}
+
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+  background-color: #80143b;
+  border-color: #b4502c;
+  color: #f4ede3;
+}
+
+.pagination > .disabled > span,
+.pagination > .disabled > span:hover,
+.pagination > .disabled > span:focus,
+.pagination > .disabled > a,
+.pagination > .disabled > a:hover,
+.pagination > .disabled > a:focus {
+  color: #f4ede3;
+  background-color: rgba(218, 97, 55, 0.8);
+  border-color: #b4502c;
 }
 
 /*********** Community-Detail **************/
@@ -896,11 +949,11 @@ button.continue {
 }
 
 .has-success .form-control {
-  border: 1px dotted #5A5527;
+  border: 1px dotted #5a5527;
 }
 
 .has-success .help-block, .has-success .control-label, .has-success .radio, .has-success .checkbox, .has-success .radio-inline, .has-success .checkbox-inline {
-  color: #5A5527;
+  color: #5a5527;
 }
 
 .form-control:focus {
@@ -1435,5 +1488,3 @@ div.cosinnus-event .big-calendar {
     margin: 0px;
   }
 }
-
-/*# sourceMappingURL=main.css.map */
