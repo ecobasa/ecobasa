@@ -792,10 +792,12 @@ a.community-image {
 
 table#community-list-table,
 table#caravan-list {
-	a.community-image > img {
-		border-radius: 5px;
+	a.community-image {
 		text-align: center;
-		alignment-adjust: central;
+		> img {
+			border-radius: 5px;
+			text-align: center;
+		}
 	}
 	a.name {
 	    font-family: 'Bree Serif';
@@ -814,11 +816,10 @@ table#caravan-list {
 	div.community-details {
 		a[data-toggle=tooltip] {
 			color: $brown;
-			margin-left: 10px;
-			margin-right: 2px;
-			&:first-child {
-				margin-left: 0px;
-			}
+			text-align: left;
+			margin-left: 20px;
+			margin-bottom: 10px;
+			display: block;
 		}
 	}
 	span.highlight {

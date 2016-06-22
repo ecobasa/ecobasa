@@ -723,11 +723,14 @@ a.community-image {
   width: 800px;
 }
 
+table#community-list-table a.community-image,
+table#caravan-list a.community-image {
+  text-align: center;
+}
 table#community-list-table a.community-image > img,
 table#caravan-list a.community-image > img {
   border-radius: 5px;
   text-align: center;
-  alignment-adjust: central;
 }
 table#community-list-table a.name,
 table#caravan-list a.name {
@@ -749,12 +752,10 @@ table#caravan-list a:focus {
 table#community-list-table div.community-details a[data-toggle=tooltip],
 table#caravan-list div.community-details a[data-toggle=tooltip] {
   color: #452912;
-  margin-left: 10px;
-  margin-right: 2px;
-}
-table#community-list-table div.community-details a[data-toggle=tooltip]:first-child,
-table#caravan-list div.community-details a[data-toggle=tooltip]:first-child {
-  margin-left: 0px;
+  text-align: left;
+  margin-left: 20px;
+  margin-bottom: 10px;
+  display: block;
 }
 table#community-list-table span.highlight,
 table#caravan-list span.highlight {
