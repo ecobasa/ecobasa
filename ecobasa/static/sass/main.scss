@@ -867,7 +867,9 @@ table#caravan-list {
 .pagination > .disabled > span,
 .pagination > .disabled > span:hover,
 .pagination > .disabled > span:focus,
-.pagination > .disabled > a {
+.pagination > .disabled > a,
+.pagination > .disabled > a:hover, 
+.pagination > .disabled > a:focus {
 	color: $secondary;
 	background-color: rgba(218, 97, 55, 0.8);
 	border-color: $third;
