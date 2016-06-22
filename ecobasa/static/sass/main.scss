@@ -838,6 +838,21 @@ table#caravan-list {
 	background-color: rgba(255, 255, 255, 0.5);
 }
 
+.pagination > li > a, .pagination > li > span {
+	color: $secondary;
+	background-color: rgba(218, 97, 55, 0.8);
+	border-color: $third;
+}
+
+.pagination > li > a:hover,
+.pagination > li > span:hover,
+.pagination > li > a:focus,
+.pagination > li > span:focus {
+	background-color: $purple;
+	border-color: $third;
+	color: $secondary;
+}
+
 .pagination > .active > a,
 .pagination > .active > span,
 .pagination > .active > a:hover,
@@ -855,12 +870,6 @@ table#caravan-list {
 .pagination > .disabled > a {
 	color: $secondary;
 	background-color: rgba(218, 97, 55, 0.8);
-	border-color: $third;
-}
-
-.pagination > .disabled > a:hover,
-.pagination > .disabled > a:focus  {
-	background-color: $purple;
 	border-color: $third;
 }
 
