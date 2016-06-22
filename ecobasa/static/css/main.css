@@ -775,6 +775,21 @@ table#caravan-list ul li {
   background-color: rgba(255, 255, 255, 0.5);
 }
 
+.pagination > li > a, .pagination > li > span {
+  color: #f4ede3;
+  background-color: rgba(218, 97, 55, 0.8);
+  border-color: #b4502c;
+}
+
+.pagination > li > a:hover,
+.pagination > li > span:hover,
+.pagination > li > a:focus,
+.pagination > li > span:focus {
+  background-color: #80143b;
+  border-color: #b4502c;
+  color: #f4ede3;
+}
+
 .pagination > .active > a,
 .pagination > .active > span,
 .pagination > .active > a:hover,
@@ -792,12 +807,6 @@ table#caravan-list ul li {
 .pagination > .disabled > a {
   color: #f4ede3;
   background-color: rgba(218, 97, 55, 0.8);
-  border-color: #b4502c;
-}
-
-.pagination > .disabled > a:hover,
-.pagination > .disabled > a:focus {
-  background-color: #80143b;
   border-color: #b4502c;
 }
 
