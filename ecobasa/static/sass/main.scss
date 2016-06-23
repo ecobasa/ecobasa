@@ -778,6 +778,9 @@ span.community-details {
 		&:first-child {
 			margin-left: 0px;
 		}
+		> i {
+			display: inline;
+		}
 	}
 }
 
