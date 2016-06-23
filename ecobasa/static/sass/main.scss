@@ -778,9 +778,6 @@ span.community-details {
 		&:first-child {
 			margin-left: 0px;
 		}
-		> i {
-			display: inline;
-		}
 	}
 }
 
@@ -823,6 +820,9 @@ table#caravan-list {
 			margin-left: 20px;
 			margin-bottom: 10px;
 			display: block;
+			> i {
+				display: inline;
+			}
 		}
 	}
 	span.highlight {
