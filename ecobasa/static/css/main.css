@@ -5,7 +5,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
 @font-face {
   font-family: 'Lato';
   src: url("../fonts/lato-regular-webfont.eot");
@@ -13,7 +12,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
 @font-face {
   font-family: 'Lato';
   src: url("../fonts/lato-bold-webfont.eot");
@@ -21,7 +19,6 @@
   font-weight: bold;
   font-style: normal;
 }
-
 @font-face {
   font-family: 'Lato';
   src: url("../fonts/lato-italic-webfont.eot");
@@ -29,7 +26,6 @@
   font-weight: normal;
   font-style: italic;
 }
-
 @font-face {
   font-family: 'Lato';
   src: url("../fonts/lato-bolditalic-webfont.eot");
@@ -37,7 +33,6 @@
   font-weight: bold;
   font-style: italic;
 }
-
 /*********** Default **************/
 body {
   background: url("../img/back.jpg") repeat;
@@ -259,9 +254,9 @@ nav.navbar-sub ul li a {
 }
 
 .alert-success {
-  color: #5a5527;
+  color: #5A5527;
   background-color: #c9c384;
-  border-color: #5a5527;
+  border-color: #5A5527;
 }
 
 /*********** Startpage ****************/
@@ -713,6 +708,9 @@ span.community-details a[data-toggle=tooltip] {
 span.community-details a[data-toggle=tooltip]:first-child {
   margin-left: 0px;
 }
+span.community-details a[data-toggle=tooltip] > i {
+  display: inline;
+}
 
 a.community-image {
   display: block;
@@ -949,11 +947,11 @@ button.continue {
 }
 
 .has-success .form-control {
-  border: 1px dotted #5a5527;
+  border: 1px dotted #5A5527;
 }
 
 .has-success .help-block, .has-success .control-label, .has-success .radio, .has-success .checkbox, .has-success .radio-inline, .has-success .checkbox-inline {
-  color: #5a5527;
+  color: #5A5527;
 }
 
 .form-control:focus {
@@ -1488,3 +1486,5 @@ div.cosinnus-event .big-calendar {
     margin: 0px;
   }
 }
+
+/*# sourceMappingURL=main.css.map */
