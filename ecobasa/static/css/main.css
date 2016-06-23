@@ -708,9 +708,6 @@ span.community-details a[data-toggle=tooltip] {
 span.community-details a[data-toggle=tooltip]:first-child {
   margin-left: 0px;
 }
-span.community-details a[data-toggle=tooltip] > i {
-  display: inline;
-}
 
 a.community-image {
   display: block;
@@ -754,6 +751,10 @@ table#caravan-list div.community-details a[data-toggle=tooltip] {
   margin-left: 20px;
   margin-bottom: 10px;
   display: block;
+}
+table#community-list-table div.community-details a[data-toggle=tooltip] > i,
+table#caravan-list div.community-details a[data-toggle=tooltip] > i {
+  display: inline;
 }
 table#community-list-table span.highlight,
 table#caravan-list span.highlight {
