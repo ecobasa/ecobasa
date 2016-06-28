@@ -21,6 +21,13 @@
 		
 		<p>{% trans "You can use this websites tools for your community! You can organize events, doodle for available times, write texts and assign tasks and of course network with the other communities!" %}</p>
 		<p>{% trans "This network is grown and maintained by its members, as we dont get many donations, we can not provide much of a service, so please contribute feedback, your skills (design, programming, communcation, networking, etc..) Just get in contact with us! Alternatively you can also give a donation, can be even really small, that helps us to pay the server costs and develop the site professionaly! There can be no gift-economy without a little gift-economy :)" %}</p>
-		<p>{% trans "See you soon, the rest of the ecobasa team." %}</p>
+		<div class="row">
+		    <div class="col-xs-12 text-center">
+		        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#donate-modal">
+		          <span class="glyphicon glyphicon-heart"></span> {% trans "Donate" %}
+		        </button>
+		    </div>
+	  	</div>
+		<p><i>{% trans "See you soon, the rest of the ecobasa team." %}</i></p>
 	{% endif %}
 {% endblock %}
