@@ -860,10 +860,6 @@ a.collapsed h2.panel-title {
   color: #80143b;
 }
 
-h2.panel-title {
-  font-size: 30px;
-}
-
 button.continue {
   padding-left: 60px;
   padding-right: 60px;
@@ -931,6 +927,10 @@ button.continue {
   font-size: xx-large;
   margin-top: 40px;
   padding: 20px 36px;
+}
+
+.registration button {
+  margin-bottom: 20px;
 }
 
 .has-error .form-control,
