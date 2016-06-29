@@ -1071,6 +1071,8 @@ table#pioneer-list-table ul {
 table#pioneer-list-table ul li {
   padding-left: 0px;
   list-style: none;
+  float: left;
+  margin: 3px;
 }
 
 /**************** Pioneer-Detail ******************/
