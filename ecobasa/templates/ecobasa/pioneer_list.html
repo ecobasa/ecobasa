@@ -49,8 +49,8 @@
           </td>
           <td>
             <ul>
-              {% for tag in profile.skills.all|slice:":5" %}
-                <li><span class="label label-{{ skill }}">{{ tag|truncatewords_html:5 }}</span></li>
+              {% for tag in profile.skills.all|slice:":8" %}
+                <li><span class="label label-{{ skill }}">{{ tag|truncatewords_html:4 }}</span></li>
               {% endfor %}
             </ul>
           </td>
