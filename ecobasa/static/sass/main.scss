@@ -1152,6 +1152,13 @@ table#pioneer-list-table {
 	img.avatar {
 		width: 76px;
 	}
+	ul {
+		padding-left: 0px;
+		li {
+			padding-left: 0px;
+			list-style: none;
+		}
+	}
 }
 
 /**************** Pioneer-Detail ******************/
