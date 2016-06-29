@@ -48,7 +48,16 @@
     <script type="text/javascript">
     var LanguageCode = '{{ LANGUAGE_CODE }}';
     </script>
-
+    <!-- User Report -->
+    <script type="text/javascript">
+      window._urq = window._urq || [];
+      _urq.push(['initSite', '36be0dbd-4a79-4029-96b7-469c10416bef']);
+      (function() {
+      var ur = document.createElement('script'); ur.type = 'text/javascript'; ur.async = true;
+      ur.src = ('https:' == document.location.protocol ? 'https://cdn.userreport.com/userreport.js' : 'http://cdn.userreport.com/userreport.js');
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ur, s);
+      })();
+    </script>
     <!-- Piwik -->
     <script type="text/javascript">
       var _paq = _paq || [];
