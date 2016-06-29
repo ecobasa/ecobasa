@@ -122,12 +122,12 @@
     {% endfor %}
 
     $('#community-list-table').DataTable( {
-        "searchHighlight": true,
-        "pageLength": 10,
-        "aoColumnDefs": [
-          { 'bSortable': false, 'aTargets': [ 1, 4 ] }
-       ]
-      } );
-    });
+      "searchHighlight": true,
+      "pageLength": 10,
+      "aoColumnDefs": [
+        { 'bSortable': false, 'aTargets': [ 1, 4 ] }
+      ]
+    } );
+  });
   </script>
 {% endblock extrafooter %}
