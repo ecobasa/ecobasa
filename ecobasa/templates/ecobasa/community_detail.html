@@ -70,7 +70,7 @@
           {% if user.pk in object.members %}
             <a class="btn btn-primary" href="{% url 'cosinnus:group-user-leave' group=object.slug %}">{% trans "Leave Community" %}</a>
           {% elif user.pk in object.pendings %}
-          <a class="btn btn-primary" href="{% url 'cosinnus:group-user-withdraw' group=object.slug %}">{% trans "Withdraw membership request" %}</a>
+            <a class="btn btn-primary" href="{% url 'cosinnus:group-user-withdraw' group=object.slug %}">{% trans "Withdraw membership request" %}</a>
           {% else %}
             <a class="btn btn-primary" href="{% url 'cosinnus:group-user-join' group=object.slug %}">{% trans "Request to join this community" %}</a>
           {% endif %}
@@ -345,50 +345,63 @@
 
      <div class="row">
       <div class="col-md-12">
-        <h3>{% trans "Gift-economy Ambassadors" %}</h3>
+        <h2>{% trans "Gift-economy Ambassadors" %}</h2>
         <ul class="media-list">
           {% for amb in object.ambassadors %}
-            <li class="media">
+            <li class="media text-center">
               <a href="{% url 'pioneer-detail' username=amb.username %}">
                 {% if amb.cosinnus_profile.avatar %}
                   <img class="avatar" src="{{ amb.cosinnus_profile.avatar|thumbnail_url:"avatar_medium" }}">
                 {% else %}
                   <img class="avatar" src="{% static "img/avatar.png" %}" alt="{{ amb.get_full_name|default:amb.username }}" data-toggle="tooltip" data-placement="top" title="{{ amb.get_full_name|default:amb.username }}">
                 {% endif %}
+                <span class="username">{{ amb.get_full_name|default:amb.get_username }}</span>
               </a>
+              {% if user.is_superuser or user|is_group_admin:object %}
               <div class="media-body">
-                <a class="ambassador" href="{% url 'pioneer-detail' username=amb.username %}">{{ amb.get_full_name|default:amb.username }}</a>
-              </div>
+                <div class="btn-group btn-group-xs">
+                  <a href="{% url 'cosinnus:group-user-edit' group=object.slug username=amb.get_username %}" class="btn btn-primary">{% trans "Change Status" %}</a>
+                  <a href="{% url 'cosinnus:group-user-delete' group=object.slug username=amb.get_username %}" class="btn btn-primary">{% trans "Kick Out" %}</a>
+                </div>
+                  <a class="email btn btn-primary btn-smll" href="{% url 'postman_write' recipients=amb.get_username %}"><span class="glyphicon glyphicon-envelope"></span>{% trans "Send message" %}</a>
+                </div>
+                {% endif %}
             </li>
           {% endfor %}
         </ul>
       </div>
     </div>
 
-    {% if object.pending_members.pending and user.is_superuser or object.pending_members and user|is_group_admin:object %}
+    {% if user.is_superuser or user|is_group_admin:object %}
+      {% if object.pendings %}
       <div class="row">
         <div class="col-md-12">
-          <h3>{% trans "Pending users" %}</h3>
+          <h2>{% trans "Pending users" %}</h2>
           <ul class="media-list">
             {% for pending in object.pending_members %}
-              <li class="media">
+              <li class="media text-center">
                 <a class="pull-left" href="{% url 'pioneer-detail' username=pending.username %}">
                   {% if pending.cosinnus_profile.avatar %}
                     <img class="avatar" src="{{ cosinnus_profile.avatar|thumbnail_url:"avatar_medium" }}">
                   {% else %}
                     <img class="avatar" src="{% static "img/avatar.png" %}">
                   {% endif %}
+                <a href="{% url 'pioneer-detail' username=pending.username %}">{{ pending.get_full_name|default:pending.username }}</a>
                 </a>
                 <div class="media-body">
-                  <a class="pull-left" href="{% url 'pioneer-detail' username=pending.username %}">{{ pending.get_full_name|default:pending.username }}</a>
-                </div>
+                  <div class="btn-group btn-group-xs">
+                    <a href="{% url 'cosinnus:group-user-edit' group=object.slug username=pending.get_username %}" class="btn btn-primary">{% trans "Change Status" %}</a>
+                    <a href="{% url 'cosinnus:group-user-delete' group=object.slug username=pending.get_username %}" class="btn btn-primary">{% trans "Kick Out" %}</a>
+                  </div>
+                  <a class="email btn btn-primary btn-smll" href="{% url 'postman_write' recipients=pending.get_username %}"><span class="glyphicon glyphicon-envelope"></span>{% trans "Send message" %}</a>
+              </div>
               </li>
             {% endfor %}
           </ul>
         </div>
       </div>
     {% endif %}
-
+  {% endif %}
     <div class="row">
       <div class="col-md-12">
         <h2>{% trans "References" %}</h2>
