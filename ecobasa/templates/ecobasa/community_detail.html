@@ -53,23 +53,29 @@
 
 <div class="row">
   <div class="col-xs-12">
-    <h1 class="community_name">{{ object.name }}</h1>
+    <h1 class="community-name">{{ object.name }}</h1>
       {% if user.is_superuser or user|is_group_admin:object %}
-      <div class="btn-group pull-right">
-        <a href="{% url 'community-edit' group=object.slug %}" class="btn btn-primary">{% trans "Edit" %}</a>
-        <a href="{% url 'cosinnus:group-export' group=object.slug %}" class="btn btn-primary">{% trans "Export" context "the verb" %}</a>
-        {% if user.is_superuser %}
-          <a href="{% url 'cosinnus:group-delete' group=object.slug %}" class="btn btn-primary">{% trans "Delete" %}</a>
-        {% endif %}
-        <div class="btn-group">
-          <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">{% trans "Users" %} <span class="caret"></span></a>
-          <ul class="dropdown-menu pull-right" role="menu">
-            <li><a href="{% url 'cosinnus:group-user-add-generic' group=object.slug %}">{% trans "Add user" %}</a></li>
-          </ul>
-        </div>
-        
+      <div class="btn-group pull-right admin-buttons">
+        <a class="btn btn-primary" href="{% url 'community-edit' group=object.slug %}">{% trans "Edit" %}</a>
+        <a class="btn btn-primary" href="{% url 'cosinnus:group-export' group=object.slug %}">{% trans "Export" context "the verb" %}</a>
+        <a class="btn btn-primary" href="{% url 'cosinnus:group-delete' group=object.slug %}">{% trans "Delete" %}</a>
+        <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">{% trans "Users" %} <span class="caret"></span></a>
+        <ul class="dropdown-menu pull-right" role="menu">
+          <li><a href="{% url 'cosinnus:group-user-add-generic' group=object.slug %}">{% trans "Add user" %}</a></li>
+        </ul>
       </div>
-    {% endif %}
+      {% endif %}
+      <div class="btn-group pull-right admin-buttons">
+        {% if user.is_authenticated %}
+          {% if user.pk in object.members %}
+            <a class="btn btn-primary" href="{% url 'cosinnus:group-user-leave' group=object.slug %}">{% trans "Leave Community" %}</a>
+          {% elif user.pk in object.pendings %}
+          <a class="btn btn-primary" href="{% url 'cosinnus:group-user-withdraw' group=object.slug %}">{% trans "Withdraw membership request" %}</a>
+          {% else %}
+            <a class="btn btn-primary" href="{% url 'cosinnus:group-user-join' group=object.slug %}">{% trans "Request to join this community" %}</a>
+          {% endif %}
+        {% endif %}
+      </div>
   </div>
 </div>
 
