@@ -881,6 +881,15 @@ table#caravan-list {
 
 /*********** Community-Detail **************/
 
+h1.community-name {
+	display: inline-block;
+	margin-top: 20px;
+}
+
+.btn-group.admin-buttons {
+	margin-top: 20px;
+}
+
 a.ambassador {
 	font-family: "Bree Serif";
 	text-align: center;
