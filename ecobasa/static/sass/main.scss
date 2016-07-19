@@ -1,5 +1,5 @@
 $primary: #da6137;
-$secondary: #f4ede3;
+$secondary: #fcf3e5;
 $third: #b4502c;
 $yellow: #de7a08;
 $orange: #ff7800;
@@ -85,6 +85,28 @@ body {
 	background-color: rgba($primary, 0.8);
 	border-color: $third;
 	color: $secondary;
+}
+
+.btn-danger {
+	background-color: rgba($red, 0.8);
+	border-color: $third;
+	color: $secondary;
+}
+
+.btn-default {
+	background-color: rgba($orange, 0.8);
+	border-color: $orange;
+	color: $secondary;
+}
+
+.btn-default:hover, 
+.btn-default:focus, 
+.btn-default:active, 
+.btn-default.active, 
+.open .dropdown-toggle.btn-default {
+  color: $secondary;
+  background-color: $orange;
+  border-color: $orange;
 }
 
 .btn-primary:hover, 
