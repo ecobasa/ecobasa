@@ -52,6 +52,28 @@ body {
   color: #fcf3e5;
 }
 
+.btn-danger {
+  background-color: rgba(227, 74, 38, 0.8);
+  border-color: #b4502c;
+  color: #fcf3e5;
+}
+
+.btn-default {
+  background-color: rgba(255, 120, 0, 0.8);
+  border-color: #ff7800;
+  color: #fcf3e5;
+}
+
+.btn-default:hover,
+.btn-default:focus,
+.btn-default:active,
+.btn-default.active,
+.open .dropdown-toggle.btn-default {
+  color: #fcf3e5;
+  background-color: #ff7800;
+  border-color: #ff7800;
+}
+
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary:active,
