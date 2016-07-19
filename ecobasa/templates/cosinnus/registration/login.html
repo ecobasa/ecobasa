@@ -8,27 +8,43 @@
 {% endblock extrahead %}
 
 {% block content %}
-    {% browserid_info %}
-    {% if user.is_authenticated %}
-      <p>Current user: {{ user.email }}</p>
-      {% browserid_logout text='Logout' %}
-    {% else %}
-      {% browserid_login text='Login' color='dark' %}
-    {% endif %}
-    <form action="" method="post" class="form-horizontal register" role="form">
-    {% csrf_token %}
-    <input type="hidden" name="next" value="{% url 'cosinnus:index' %}">
-    {% bootstrap_form form layout="horizontal" %}
-    {% trans "Login" as submit_label %}
-    {% trans "Lost password" as reset_label %}
-    {% trans "Register" as register_label %}
-    {% url 'password_reset' as reset_link %}
-    {% url 'register' as register_link %}
+<div class="row">
+    <div class="col-xs-12">
+        {% browserid_info %}
+        {% if user.is_authenticated %}
+        <div class="alert alert-danger" role="alert">
+            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+            <span class="sr-only">{% trans "Error" %}:</span>
+            {% trans "You are logged in as:" %} <b>{{ user.username }}</b> ({{ user.email }})
+        </div>
+          {% browserid_logout text='Logout' link_class='btn btn-primary' %}
+        {% else %}
+          {% browserid_login text='Login' color='dark' %}
+        {% endif %}
+    </div>
+</div>
+<div class="row">
+    <div class="col-xs-12">
+        <form action="" method="post" class="form-horizontal register" role="form">
+        {% csrf_token %}
+        {% if next %}
+        <input type="hidden" name="next" value="{{ next }}">
+        {% else %}
+        <input type="hidden" name="next" value="{% url 'cosinnus:index' %}">
+        {% endif %}
+        {% bootstrap_form form layout="horizontal" %}
+        {% trans "Login" as submit_label %}
+        {% trans "Lost password" as reset_label %}
+        {% trans "Register" as register_label %}
+        {% url 'password_reset' as reset_link %}
+        {% url 'register' as register_link %}
 
-    {% buttons submit=submit_label reset=reset_label reset_link=reset_link layout='horizontal' %}
-    <a class="btn btn-default None" href="{{ register_link }}">{{ register_label }}</a>
-    {% endbuttons %}
-    </form>
+        {% buttons submit=submit_label reset=reset_label reset_link=reset_link layout='horizontal' %}
+        <a class="btn btn-default None" href="{{ register_link }}">{{ register_label }}</a>
+        {% endbuttons %}
+        </form>
+    </div>
+</div>
 {% endblock content %}
 
 {% block extrafooter %}
