@@ -17,7 +17,7 @@
             <span class="sr-only">{% trans "Error" %}:</span>
             {% trans "You are logged in as:" %} <b>{{ user.username }}</b> ({{ user.email }})
         </div>
-          {% browserid_logout text='Logout' link_class='btn btn-primary' %}
+          {% browserid_logout text='Logout' link_class='btn btn-danger' %}
         {% else %}
           {% browserid_login text='Login' color='dark' %}
         {% endif %}
