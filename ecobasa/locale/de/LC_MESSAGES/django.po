@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-19 19:19+0100\n"
+"POT-Creation-Date: 2016-07-04 18:54+0200\n"
 "PO-Revision-Date: 2014-11-23 18:07+0200\n"
 "Last-Translator: Sebastian Henschel <ecobasa@kodeaffe.de\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -29,21 +29,38 @@ msgstr "Gruppe"
 msgid "Slideshow"
 msgstr "Diashow"
 
-#: default_settings.py:163
+#: default_settings.py:164
 msgid "English"
 msgstr "Englisch"
 
-#: default_settings.py:164
+#: default_settings.py:165
 msgid "German"
 msgstr "Deutsch"
 
-#: urls.py:78
-msgid "^about/$"
-msgstr "^uber-die-tour/$"
+#: default_settings.py:166
+msgid "Spanish"
+msgstr ""
 
 #: urls.py:79
+msgid "^about/$"
+msgstr "^uber-uns/$"
+
+#: urls.py:80
 msgid "^info/$"
 msgstr "^info/$"
+
+#: forms/contact_form.py:140
+#, fuzzy
+msgid "Support"
+msgstr "Exportieren"
+
+#: forms/contact_form.py:141
+msgid "Feedback"
+msgstr ""
+
+#: forms/contact_form.py:142
+msgid "Account deletion"
+msgstr ""
 
 #: forms/pioneer.py:13
 msgid "The two password fields didn't match."
@@ -70,8 +87,8 @@ msgstr "Neues Passwort (Bestätigung)"
 msgid "Email"
 msgstr "Email"
 
-#: models/caravan.py:25 templates/ecobasa/caravan_detail.html:183
-#: templates/ecobasa/community_detail.html:97
+#: models/caravan.py:25 templates/ecobasa/caravan_detail.html:212
+#: templates/ecobasa/community_detail.html:93
 #: templates/ecobasa/community_form.html:204
 #: templates/userprofiles/registration_community.html:249
 msgid "Offers"
@@ -87,7 +104,7 @@ msgstr ""
 
 #: models/caravan.py:30 templates/cosinnus_event/event_list.html:52
 #: templates/cosinnus_event/event_list.html:85
-#: templates/ecobasa/caravan_detail.html:233
+#: templates/ecobasa/caravan_detail.html:278
 msgid "Image"
 msgstr "Bild"
 
@@ -1079,49 +1096,49 @@ msgstr "Simbabwe"
 msgid "Unknown or unspecified country"
 msgstr "Unbekanntes oder unspezifiziertes Land"
 
-#: models/profile.py:290
+#: models/profile.py:297
 msgid "avatar"
 msgstr "Avatar"
 
-#: models/profile.py:298
+#: models/profile.py:305
 msgid "Female"
 msgstr "Weiblich"
 
-#: models/profile.py:299
+#: models/profile.py:306
 msgid "Male"
 msgstr "Männlich"
 
-#: models/profile.py:300
+#: models/profile.py:307
 msgid "Other"
 msgstr "Anders"
 
-#: models/profile.py:302
+#: models/profile.py:309
 msgid "\"gender\""
 msgstr "\"Geschlecht\""
 
-#: models/profile.py:305 templates/ecobasa/pioneer_detail.html:88
+#: models/profile.py:312 templates/ecobasa/pioneer_detail.html:117
 msgid "birth date"
 msgstr "Geburtsdatum"
 
-#: models/profile.py:308 models/profile.py:455
-#: templates/ecobasa/pioneer_detail.html:96
+#: models/profile.py:315 models/profile.py:471
+#: templates/ecobasa/pioneer_detail.html:125
 msgid "country"
 msgstr "Land"
 
-#: models/profile.py:310 models/profile.py:451
-#: templates/ecobasa/pioneer_detail.html:104
+#: models/profile.py:317 models/profile.py:467
+#: templates/ecobasa/pioneer_detail.html:133
 msgid "city"
 msgstr "Stadt"
 
-#: models/profile.py:312 models/profile.py:453
+#: models/profile.py:319 models/profile.py:469
 msgid "zipcode"
 msgstr "PLZ"
 
-#: models/profile.py:315
+#: models/profile.py:322
 msgid "interests"
 msgstr "Interessen"
 
-#: models/profile.py:317
+#: models/profile.py:324
 msgid ""
 "A comma-separated list of tags. You can type anything here. You can also "
 "chose from other users tags. Connect two words with a \"-\" to have one tag."
@@ -1130,23 +1147,23 @@ msgstr ""
 "oder aus Tags von anderen Benutzern wählen. Verbinde zwei Wörter mit einem "
 "\"-\" um einen ganzen Tag zu erhalten"
 
-#: models/profile.py:318
+#: models/profile.py:325
 msgid "About you"
 msgstr "Über dich"
 
-#: models/profile.py:321 templates/ecobasa/pioneer_detail.html:36
+#: models/profile.py:328 templates/ecobasa/pioneer_detail.html:36
 msgid "What would you like to use ecobasa mainly for?"
 msgstr "Wofür möchtest du ecobasa am meißten nutzen"
 
-#: models/profile.py:323 templates/ecobasa/pioneer_detail.html:34
+#: models/profile.py:330 templates/ecobasa/pioneer_detail.html:34
 msgid "What do you do to make the world a better place?"
 msgstr "Was tust du um die Welt zu einem besseren Ort zu machen"
 
-#: models/profile.py:326
-msgid "knowledge/skills"
-msgstr "Wissen/Fertigkeiten"
+#: models/profile.py:334
+msgid "Skills / Knowledge"
+msgstr ""
 
-#: models/profile.py:328
+#: models/profile.py:336
 msgid ""
 "What skills do you have? What can you do to help others? What can you teach "
 "someone?"
@@ -1154,11 +1171,12 @@ msgstr ""
 "Was für Fähigkeiten hast du? Wobei kannst du anderen hilfreich sein? Was "
 "könntest du jemandem anders beibringen?"
 
-#: models/profile.py:329
-msgid "products"
+#: models/profile.py:337 templates/ecobasa/caravan_detail.html:224
+#: templates/ecobasa/pioneer_detail.html:55
+msgid "Products"
 msgstr "Produkte"
 
-#: models/profile.py:331
+#: models/profile.py:339
 msgid ""
 "Can you manufacture any products, like jewelery, furniture, clothes, soap "
 "etc.. ?"
@@ -1166,80 +1184,89 @@ msgstr ""
 "Kannst du irgendwelche Produkte herstellen, so wie Schmuck, Möbel, Kleider "
 "oder Seife?"
 
-#: models/profile.py:335
+#: models/profile.py:342 templates/ecobasa/pioneer_detail.html:93
+#, fuzzy
+msgid "Wishlist"
+msgstr "Wunschliste"
+
+#: models/profile.py:348
 msgid "Do you have a bus or car that you want to take on the tour?"
 msgstr ""
 "Hast du einen Bus oder ein Auto, das du mit auf die Tour nehmen möchtest?"
 
-#: models/profile.py:337
+#: models/profile.py:350
 msgid "bus_image"
 msgstr "Bild vom Bus"
 
-#: models/profile.py:340
+#: models/profile.py:353
 msgid "I have a driving license"
 msgstr "Ich habe einen Führerschein (in der EU gültig)"
 
-#: models/profile.py:342
+#: models/profile.py:355
 msgid "Other people can drive it too"
 msgstr "Andere dürfen ihn auch fahren"
 
-#: models/profile.py:345
+#: models/profile.py:358
 msgid "How many people can it take"
 msgstr "Wieviele Leute kann er aufnehmen"
 
-#: models/profile.py:347
+#: models/profile.py:360
 msgid "Consumption (l/100km)"
 msgstr "Verbrauch (l/100km)"
 
-#: models/profile.py:417
+#: models/profile.py:362
+msgid "Can it transport gifts for the communities like materials, or tools?"
+msgstr ""
+
+#: models/profile.py:433
 msgid "name of community"
 msgstr "Name der Gemeinschaft"
 
-#: models/profile.py:418
+#: models/profile.py:434
 msgid "link of your communities website"
 msgstr "Link zur Webseite der Gemeinschaft"
 
-#: models/profile.py:421 models/slideshow.py:59
+#: models/profile.py:437 models/slideshow.py:59
 msgid "image"
 msgstr "Bild"
 
-#: models/profile.py:422
+#: models/profile.py:438
 msgid "Header image for the community-profile, minimum resolution 1200x400"
 msgstr "Kopfbild des Gemeinschaftsprofiles, minimale Auflösung 1200x400"
 
-#: models/profile.py:427 templates/ecobasa/community_detail.html:332
+#: models/profile.py:443 templates/ecobasa/community_detail.html:332
 msgid "Video"
 msgstr "Video"
 
-#: models/profile.py:428
+#: models/profile.py:444
 msgid "Link to a video showing your community"
 msgstr "Link zu einem Video, das deine Gemeinschaft zeigt"
 
-#: models/profile.py:434
+#: models/profile.py:450
 msgid "telephone"
 msgstr "Telefon"
 
-#: models/profile.py:438
+#: models/profile.py:454
 msgid "street"
 msgstr "Strasse"
 
-#: models/profile.py:442 templates/cosinnus_event/event_detail.html:53
+#: models/profile.py:458 templates/cosinnus_event/event_detail.html:53
 msgid "Location"
 msgstr "Ort"
 
-#: models/profile.py:457
+#: models/profile.py:473
 msgid "show address in profile"
 msgstr "Zeige Addresse im Profil"
 
-#: models/profile.py:462
+#: models/profile.py:478
 msgid "maximum number of people you can host"
 msgstr "Maximale Anzahl der Leute, die ihr unterbringen könnt"
 
-#: models/profile.py:464
+#: models/profile.py:480
 msgid "accommodation for guests"
 msgstr "Unterkunft für Gäste"
 
-#: models/profile.py:466
+#: models/profile.py:482
 msgid ""
 "Where can your visitors sleep? Do you have space for a bus, tents? How is "
 "the indoor sleeping situation? Do you have matresses, a couch? Do you have a "
@@ -1250,7 +1277,7 @@ msgstr ""
 "Spenden oder Preis-Modell? Was erwartet ihr and täglicher Arbeitszeit und "
 "Vorerfahrungen?"
 
-#: models/profile.py:470
+#: models/profile.py:486
 msgid ""
 "Do you have any construction projects? List and describe them together with "
 "needed materials, tools, experts, time and knowledge."
@@ -1258,11 +1285,11 @@ msgstr ""
 "Habt ihr irgendwelche Bauprojekte? Liste sie auf und beschreibe was ihr "
 "dafür an Materialien, Werkzeugen, Experten, Zeit und Wissen benötigt"
 
-#: models/profile.py:472
+#: models/profile.py:488
 msgid "What materials do you need?"
 msgstr "Was für Materialien braucht ihr?"
 
-#: models/profile.py:475
+#: models/profile.py:491
 msgid ""
 "Do you have any additional info about materials, or details to your request "
 "(like condition, when you need them)?"
@@ -1270,11 +1297,11 @@ msgstr ""
 "Habt ihr zusätzliche Informationen über die benötigten Materialion, Details "
 "wie Zustand oder wann sie benötigt werden?"
 
-#: models/profile.py:477
+#: models/profile.py:493
 msgid "What tools or machines do you need?"
 msgstr "Welche Werkzeuge oder Maschinen braucht ihr?"
 
-#: models/profile.py:481
+#: models/profile.py:497
 msgid ""
 "Do you have any additional info about tools, or details to your request "
 "(like condition, when you need them)?"
@@ -1282,7 +1309,7 @@ msgstr ""
 "Habt ihr zusätzliche Informationen über die benötigten Werkzeuge, Details "
 "wie Zustand oder wann sie benötigt werden?"
 
-#: models/profile.py:483
+#: models/profile.py:499
 msgid ""
 "Are you looking for some experts that could help you with a project or "
 "problem? Tag their desired skills here:"
@@ -1290,23 +1317,23 @@ msgstr ""
 "Sucht ihr Experten die euch mit bei einem Projekt oder Problem helfen "
 "können? Dann taggt ihre Fähigkeiten hier:"
 
-#: models/profile.py:487
+#: models/profile.py:503
 msgid "Special needs (knowledge, information)"
 msgstr "Sonstige Bedürfnisse (Wissen, Information)"
 
-#: models/profile.py:490
+#: models/profile.py:506
 msgid "Services offered in your community"
 msgstr "Dienstleistungen, die in eurer Gemeinschaft angeboten werden"
 
-#: models/profile.py:493
+#: models/profile.py:509
 msgid "Skills people can learn in your community"
 msgstr "Fähigkeiten, die Leute in eurer Gemeinschaft lernen können?"
 
-#: models/profile.py:496
+#: models/profile.py:512
 msgid "Creations/Products"
 msgstr "Kreationen / Produkte"
 
-#: models/profile.py:499
+#: models/profile.py:515
 msgid ""
 "Do you have any materials that you produce or that you dont need anymore? "
 "(What you throw away, might be useful to somebody else..)"
@@ -1314,12 +1341,12 @@ msgstr ""
 "Habt ihr irgendwelche Materialien, die ihr produziert, oder nicht mehr "
 "benötigt? (Was ihr wegwerft, kann für andere noch nützlich sein..)"
 
-#: models/profile.py:502
+#: models/profile.py:518
 msgid "Do you have any tools that you produce or that you dont need anymore?"
 msgstr ""
 "Hast du einen Bus oder ein Auto, das du mit auf die Tour nehmen möchtest?"
 
-#: models/profile.py:505
+#: models/profile.py:521
 msgid ""
 "Do you have workshop spaces, where people can build/construct/manufacture "
 "things?"
@@ -1327,51 +1354,51 @@ msgstr ""
 "Habt ihr Werkstätten in denen Leute basteln, bauen oder Dinge herstellen "
 "können?"
 
-#: models/profile.py:507
+#: models/profile.py:523
 msgid "Do you offer any seminars that visitors could attend?"
 msgstr "Bietet ihr Seminare an, an denen Besucher teilnehmen können?"
 
-#: models/profile.py:512
+#: models/profile.py:528
 msgid "Describe your community"
 msgstr "Beschreibung der Gemeinschaft"
 
-#: models/profile.py:514
+#: models/profile.py:530
 msgid "how many people live in your community?"
 msgstr "Wieviele Leute leben in eurer Gemscheinschaft?"
 
-#: models/profile.py:517
+#: models/profile.py:533
 msgid "how many of them are under 18?"
 msgstr "Wieviele davon sind unter 18?"
 
-#: models/profile.py:519
+#: models/profile.py:535
 msgid "what brings your community together"
 msgstr "Was bringt eure Gemeinschaft zusammen"
 
-#: models/profile.py:524
+#: models/profile.py:540
 msgid "looking for members"
 msgstr "Suchen nach Mitgliedern"
 
-#: models/profile.py:525
+#: models/profile.py:541
 msgid "looking for volunteers"
 msgstr "Suchen nach Helfern"
 
-#: models/profile.py:526
+#: models/profile.py:542
 msgid "closed for the moment"
 msgstr "Im Moment Geschlossen"
 
-#: models/profile.py:528
+#: models/profile.py:544
 msgid "member status"
 msgstr "Mitgliederstatus"
 
-#: models/profile.py:551
+#: models/profile.py:567
 msgid "seeds"
 msgstr "samen"
 
-#: models/profile.py:555
+#: models/profile.py:571
 msgid "what kind of seeds?"
 msgstr "Was für Saatgut?"
 
-#: models/profile.py:559
+#: models/profile.py:575
 msgid "how many?"
 msgstr "Wieviele?"
 
@@ -1417,7 +1444,7 @@ msgstr "Bewertung"
 
 #: models/reference.py:85 templates/ecobasa/community_detail.html:388
 #: templates/ecobasa/community_reference_list.html:11
-#: templates/ecobasa/pioneer_detail.html:113
+#: templates/ecobasa/pioneer_detail.html:186
 #: templates/ecobasa/pioneer_reference_list.html:11
 msgid "References"
 msgstr "Bewertungen"
@@ -1500,8 +1527,8 @@ msgid "Send"
 msgstr "Senden"
 
 #: templates/cosinnus/dashboard.html:5 templates/cosinnus/dashboard.html:11
-#: templates/cosinnus/footermenu.html:41 templates/cosinnus/topmenu.html:58
-#: templates/cosinnus/topmenu.html.py:120
+#: templates/cosinnus/footermenu.html:41 templates/cosinnus/topmenu.html:59
+#: templates/cosinnus/topmenu.html.py:121
 msgid "Dashboard"
 msgstr "Dashboard"
 
@@ -1518,18 +1545,18 @@ msgstr "Konfigurieren"
 #: templates/cosinnus_etherpad/tree.html:63
 #: templates/cosinnus_event/event_detail.html:100
 #: templates/cosinnus_event/event_list_object.html:32
-#: templates/cosinnus_note/note_detail.html:29
-#: templates/cosinnus_note/note_detail.html:81
-#: templates/cosinnus_note/note_detail.html:138
+#: templates/cosinnus_note/note_detail.html:37
+#: templates/cosinnus_note/note_detail.html:89
+#: templates/cosinnus_note/note_detail.html:146
 #: templates/cosinnus_note/note_list.html:64
 #: templates/cosinnus_todo/todoentry_detail.html:86
 #: templates/cosinnus_todo/todoentry_list.html:81
 #: templates/ecobasa/caravan_detail.html:52
-#: templates/ecobasa/caravan_detail.html:254
-#: templates/ecobasa/caravan_detail.html:293
-#: templates/ecobasa/caravan_detail.html:320
-#: templates/ecobasa/caravan_detail.html:342
-#: templates/ecobasa/caravan_list.html:48
+#: templates/ecobasa/caravan_detail.html:299
+#: templates/ecobasa/caravan_detail.html:338
+#: templates/ecobasa/caravan_detail.html:365
+#: templates/ecobasa/caravan_detail.html:387
+#: templates/ecobasa/caravan_list.html:54
 #: templates/ecobasa/community_detail.html:62
 #: templates/ecobasa/community_detail.html:441
 #: templates/ecobasa/community_detail.html:469
@@ -1580,25 +1607,25 @@ msgstr "Details"
 #: templates/cosinnus_event/event_form.html:10
 #: templates/cosinnus_event/event_form.html:28
 #: templates/cosinnus_event/event_list_object.html:31
-#: templates/cosinnus_note/note_detail.html:26
-#: templates/cosinnus_note/note_detail.html:80
-#: templates/cosinnus_note/note_detail.html:137
+#: templates/cosinnus_note/note_detail.html:34
+#: templates/cosinnus_note/note_detail.html:88
+#: templates/cosinnus_note/note_detail.html:145
 #: templates/cosinnus_note/note_list.html:63
 #: templates/cosinnus_todo/todoentry_detail.html:85
 #: templates/cosinnus_todo/todoentry_list.html:80
-#: templates/ecobasa/caravan_detail.html:49
-#: templates/ecobasa/caravan_detail.html:253
-#: templates/ecobasa/caravan_detail.html:292
-#: templates/ecobasa/caravan_detail.html:319
-#: templates/ecobasa/caravan_detail.html:341
-#: templates/ecobasa/caravan_list.html:46
+#: templates/ecobasa/caravan_detail.html:50
+#: templates/ecobasa/caravan_detail.html:298
+#: templates/ecobasa/caravan_detail.html:337
+#: templates/ecobasa/caravan_detail.html:364
+#: templates/ecobasa/caravan_detail.html:386
+#: templates/ecobasa/caravan_list.html:51
 #: templates/ecobasa/community_detail.html:59
 #: templates/ecobasa/community_detail.html:399
 #: templates/ecobasa/community_detail.html:440
 #: templates/ecobasa/community_detail.html:468
 #: templates/ecobasa/community_detail.html:490
 #: templates/ecobasa/community_reference_list.html:19
-#: templates/ecobasa/pioneer_detail.html:116
+#: templates/ecobasa/pioneer_detail.html:189
 #: templates/ecobasa/pioneer_reference_list.html:19 views/community.py:162
 #: views/pioneer.py:168
 msgid "Edit"
@@ -1620,15 +1647,17 @@ msgstr "Open-source auf github"
 msgid "Newsletter"
 msgstr "Newsletter"
 
-#: templates/cosinnus/footermenu.html:14
+#: templates/cosinnus/footermenu.html:14 templates/ecobasa/bus_list.html:46
+#: templates/ecobasa/caravan_detail.html:39
+#: templates/ecobasa/caravan_list.html:42
 msgid "Contact"
 msgstr "Kontakt"
 
-#: templates/cosinnus/footermenu.html:27 templates/cosinnus/topmenu.html:62
+#: templates/cosinnus/footermenu.html:27 templates/cosinnus/topmenu.html:63
 msgid "My Communities"
 msgstr "Meine Gemeinschaften"
 
-#: templates/cosinnus/footermenu.html:27 templates/cosinnus/topmenu.html:62
+#: templates/cosinnus/footermenu.html:27 templates/cosinnus/topmenu.html:63
 msgid "My Community"
 msgstr "Meine Gemeinschaft"
 
@@ -1639,20 +1668,20 @@ msgstr "Alle Gemeinschaften auflisten"
 #: templates/cosinnus/footermenu.html:40
 #: templates/ecobasa/community_reference_form.html:21
 #: templates/ecobasa/pioneer_reference_form.html:21
-#: templates/userprofiles/registration_member.html:81
+#: templates/userprofiles/registration_member.html:83
 msgid "Profile"
 msgstr "Profil"
 
-#: templates/cosinnus/footermenu.html:42 templates/cosinnus/topmenu.html:81
+#: templates/cosinnus/footermenu.html:42 templates/cosinnus/topmenu.html:82
 msgid "Logout"
 msgstr "Abmelden"
 
-#: templates/cosinnus/footermenu.html:47 templates/cosinnus/topmenu.html:86
+#: templates/cosinnus/footermenu.html:47 templates/cosinnus/topmenu.html:87
 msgctxt "the verb"
 msgid "Register"
 msgstr "Registrieren"
 
-#: templates/cosinnus/footermenu.html:49 templates/cosinnus/topmenu.html:88
+#: templates/cosinnus/footermenu.html:49 templates/cosinnus/topmenu.html:89
 #: templates/cosinnus/registration/login.html:4
 #: templates/cosinnus/registration/login.html:22
 msgid "Login"
@@ -1710,23 +1739,28 @@ msgstr "Finde einen Bus"
 msgid "Pioneers"
 msgstr "Pioniere"
 
-#: templates/cosinnus/topmenu.html:32
+#: templates/cosinnus/topmenu.html:30
+msgid "Traveling Tips"
+msgstr ""
+
+#: templates/cosinnus/topmenu.html:33
 msgid "Communities-Convergence"
 msgstr "Communities-Convergence"
 
-#: templates/cosinnus/topmenu.html:33
+#: templates/cosinnus/topmenu.html:34
+#: templates/userprofiles/registration_complete.html:27
 msgid "Donate"
 msgstr "Spenden"
 
-#: templates/cosinnus/topmenu.html:39
+#: templates/cosinnus/topmenu.html:40
 msgid "Find everything you need"
 msgstr "Finde alles wonach du suchst. :)"
 
-#: templates/cosinnus/topmenu.html:41
+#: templates/cosinnus/topmenu.html:42
 msgid "What are you looking for?"
 msgstr "Was suchst du?"
 
-#: templates/cosinnus/topmenu.html:56
+#: templates/cosinnus/topmenu.html:57
 msgid "My Profile"
 msgstr "Mein Profil"
 
@@ -1736,7 +1770,7 @@ msgstr "Passwort verloren"
 
 #: templates/cosinnus/registration/login.html:24
 #: templates/userprofiles/registration_community.html:271
-#: templates/userprofiles/registration_member.html:166
+#: templates/userprofiles/registration_member.html:176
 msgid "Register"
 msgstr "Registrieren"
 
@@ -1782,7 +1816,7 @@ msgstr "Keine Tags verfügbar"
 #: templates/cosinnus_etherpad/etherpad_list.html:31
 #: templates/cosinnus_event/event_list.html:29
 #: templates/cosinnus_todo/todoentry_list.html:27
-#: templates/ecobasa/caravan_detail.html:50
+#: templates/ecobasa/caravan_detail.html:51
 #: templates/ecobasa/community_detail.html:60
 msgctxt "the verb"
 msgid "Export"
@@ -1858,14 +1892,14 @@ msgstr "Keine Stimmen für diesen Vorschlag"
 #: templates/cosinnus_event/event_detail.html:97
 #: templates/cosinnus_event/event_list.html:59
 #: templates/cosinnus_event/event_list.html:92
-#: templates/cosinnus_note/note_detail.html:78
+#: templates/cosinnus_note/note_detail.html:86
 #: templates/cosinnus_note/note_list.html:43
 #: templates/cosinnus_todo/todoentry_detail.html:83
 #: templates/cosinnus_todo/todoentry_list.html:50
-#: templates/ecobasa/caravan_detail.html:251
-#: templates/ecobasa/caravan_detail.html:290
-#: templates/ecobasa/caravan_detail.html:317
-#: templates/ecobasa/caravan_detail.html:339
+#: templates/ecobasa/bus_list.html:27 templates/ecobasa/caravan_detail.html:296
+#: templates/ecobasa/caravan_detail.html:335
+#: templates/ecobasa/caravan_detail.html:362
+#: templates/ecobasa/caravan_detail.html:384
 #: templates/ecobasa/caravan_list.html:24
 #: templates/ecobasa/community_detail.html:438
 #: templates/ecobasa/community_detail.html:466
@@ -1875,7 +1909,7 @@ msgstr "Aktionen"
 
 #: templates/cosinnus_event/event_detail.html:102
 #: templates/cosinnus_event/event_list_object.html:34
-#: templates/ecobasa/caravan_detail.html:256
+#: templates/ecobasa/caravan_detail.html:301
 msgctxt "the verb"
 msgid "Vote"
 msgstr "Abstimmen"
@@ -1889,9 +1923,9 @@ msgstr "Veranstaltung hinzufügen"
 #: templates/cosinnus_event/event_list.html:28
 #: templates/cosinnus_note/note_list.html:23
 #: templates/cosinnus_todo/todoentry_list.html:26
-#: templates/ecobasa/bus_add.html:39
+#: templates/ecobasa/bus_add.html:47
 #: templates/ecobasa/community_detail.html:409
-#: templates/ecobasa/pioneer_detail.html:120 views/community.py:134
+#: templates/ecobasa/pioneer_detail.html:193 views/community.py:134
 #: views/pioneer.py:140
 msgid "Add"
 msgstr "Hinzufügen"
@@ -1902,9 +1936,9 @@ msgid "Save"
 msgstr "Speichern"
 
 #: templates/cosinnus_event/event_form.html:93
-#: templates/ecobasa/bus_add.html:40 templates/ecobasa/caravan_form.html:66
+#: templates/ecobasa/bus_add.html:48 templates/ecobasa/caravan_form.html:66
 #: templates/ecobasa/community_form.html:229
-#: templates/ecobasa/pioneer_form.html:69
+#: templates/ecobasa/pioneer_form.html:76
 msgid "Cancel"
 msgstr "Abbrechen"
 
@@ -1946,27 +1980,27 @@ msgstr "Keine Termine zum Anzeigen"
 msgid "Past events"
 msgstr "Vergangene Veranstaltungen"
 
-#: templates/cosinnus_note/note_detail.html:32
+#: templates/cosinnus_note/note_detail.html:40
 msgid "Write comment"
 msgstr "Schreibe einen Kommentar"
 
-#: templates/cosinnus_note/note_detail.html:74 templates/ecobasa/blog.html:26
+#: templates/cosinnus_note/note_detail.html:82 templates/ecobasa/blog.html:26
 #: templates/ecobasa/tour_blog.html:22
 msgid "Show all blog-posts"
 msgstr "Alle Blog-Nachrichten anzeigen"
 
-#: templates/cosinnus_note/note_detail.html:83
+#: templates/cosinnus_note/note_detail.html:91
 #: templates/cosinnus_note/note_list.html:65
-#: templates/ecobasa/caravan_detail.html:295
-#: templates/ecobasa/caravan_detail.html:322
-#: templates/ecobasa/caravan_detail.html:344
+#: templates/ecobasa/caravan_detail.html:340
+#: templates/ecobasa/caravan_detail.html:367
+#: templates/ecobasa/caravan_detail.html:389
 #: templates/ecobasa/community_detail.html:443
 #: templates/ecobasa/community_detail.html:471
 #: templates/ecobasa/community_detail.html:493
 msgid "Comment"
 msgstr "Kommentar"
 
-#: templates/cosinnus_note/note_detail.html:96
+#: templates/cosinnus_note/note_detail.html:104
 #, python-format
 msgid ""
 "written by <a href=\"%(pioneer_url)s\">%(pioneer_name)s</a> on %(created)s"
@@ -1974,7 +2008,7 @@ msgstr ""
 "geschrieben von <a href=\"%(pioneer_url)s\">%(pioneer_name)s</a> am "
 "%(created)s"
 
-#: templates/cosinnus_note/note_detail.html:117
+#: templates/cosinnus_note/note_detail.html:125
 msgid "Back to blog"
 msgstr "Zurück zum Blog"
 
@@ -2120,52 +2154,79 @@ msgstr "ecobasa.blog"
 msgid "Add your bus"
 msgstr "Deinen Bus hinzufügen"
 
-#: templates/ecobasa/bus_list.html:4 templates/ecobasa/caravan_detail.html:148
+#: templates/ecobasa/bus_list.html:4 templates/ecobasa/caravan_detail.html:151
 msgid "Buses"
 msgstr "Busse"
 
-#: templates/ecobasa/bus_list.html:7
+#: templates/ecobasa/bus_list.html:12
 msgid "Available buses for your Community-Tour"
 msgstr "Vorhandene Busse für deine Community-Tour"
 
-#: templates/ecobasa/bus_list.html:9
+#: templates/ecobasa/bus_list.html:14
 msgid "Add a bus to your profile"
 msgstr "Füge deinem Profil einen Bus hinzu"
 
-#: templates/ecobasa/bus_list.html:16 templates/ecobasa/pioneer_detail.html:129
+#: templates/ecobasa/bus_list.html:21 templates/ecobasa/pioneer_detail.html:143
 #: templates/ecobasa/pioneer_list.html:26
 msgid "Bus"
 msgstr "Bus"
 
-#: templates/ecobasa/bus_list.html:17
+#: templates/ecobasa/bus_list.html:22 templates/ecobasa/community_list.html:38
+msgid "Country"
+msgstr "Land"
+
+#: templates/ecobasa/bus_list.html:23
 msgid "Owner"
 msgstr "Besitzer"
 
-#: templates/ecobasa/bus_list.html:18
+#: templates/ecobasa/bus_list.html:24
 msgid "Capacity"
 msgstr "Kapazität"
 
-#: templates/ecobasa/bus_list.html:19
+#: templates/ecobasa/bus_list.html:25
 msgid "Consumption"
 msgstr "Verbrauch"
 
-#: templates/ecobasa/bus_list.html:20
+#: templates/ecobasa/bus_list.html:26
 msgid "Needs a driver"
 msgstr "Braucht eine/n Fahrer/in"
 
 #: templates/ecobasa/bus_list.html:38
+msgid "people"
+msgstr ""
+
+#: templates/ecobasa/bus_list.html:40 templates/ecobasa/caravan_detail.html:193
+#: templates/ecobasa/pioneer_detail.html:173
+msgid "Can transport gifts"
+msgstr ""
+
+#: templates/ecobasa/bus_list.html:43 templates/ecobasa/caravan_detail.html:197
+#: templates/ecobasa/pioneer_detail.html:177
+msgid "fuel consumption"
+msgstr "Kraftstoffverbrauch"
+
+#: templates/ecobasa/bus_list.html:44
+#: templates/userprofiles/registration_member.html:126
+msgid "YES"
+msgstr "JA"
+
+#: templates/ecobasa/bus_list.html:44
+msgid "NO"
+msgstr ""
+
+#: templates/ecobasa/bus_list.html:54
 msgid "There are no buses, yet! "
 msgstr "Es gibt noch keine Busse!"
 
-#: templates/ecobasa/bus_list.html:40
+#: templates/ecobasa/bus_list.html:56
 msgid "Add a bus"
 msgstr "Einen Bus hinzufügen"
 
-#: templates/ecobasa/bus_list.html:42 templates/ecobasa/caravan_list.html:65
+#: templates/ecobasa/bus_list.html:58 templates/ecobasa/caravan_list.html:73
 msgid "Sign up"
 msgstr "Registrieren"
 
-#: templates/ecobasa/bus_list.html:42 templates/ecobasa/caravan_list.html:65
+#: templates/ecobasa/bus_list.html:58 templates/ecobasa/caravan_list.html:73
 msgid "and add one now."
 msgstr "und füge jetzt einen hinzu."
 
@@ -2181,41 +2242,47 @@ msgstr "%(group_name)s - Community-Tour | ecobasa.org"
 msgid "%(name)s"
 msgstr "%(name)s"
 
-#: templates/ecobasa/caravan_detail.html:41
-#: templates/ecobasa/caravan_list.html:39
+#: templates/ecobasa/caravan_detail.html:42
+#: templates/ecobasa/caravan_list.html:40
 msgid "Leave"
 msgstr "Verlassen"
 
-#: templates/ecobasa/caravan_detail.html:55
+#: templates/ecobasa/caravan_detail.html:54
 #: templates/ecobasa/community_detail.html:65
 #: templates/ecobasa/pioneer_list.html:4
 msgid "Users"
 msgstr "Nutzer"
 
-#: templates/ecobasa/caravan_detail.html:57
+#: templates/ecobasa/caravan_detail.html:56
 #: templates/ecobasa/community_detail.html:67
 #: templates/ecobasa/pioneer_list.html:16
 msgid "Add user"
 msgstr "Nutzer hinzufügen"
 
-#: templates/ecobasa/caravan_detail.html:69
+#: templates/ecobasa/caravan_detail.html:68
 msgid "Members"
 msgstr "Mitglieder"
 
-#: templates/ecobasa/caravan_detail.html:83
-#: templates/ecobasa/caravan_detail.html:111
+#: templates/ecobasa/caravan_detail.html:82
+#: templates/ecobasa/caravan_detail.html:110
 msgid "Change Status"
 msgstr "Status ändern"
 
-#: templates/ecobasa/caravan_detail.html:84
-#: templates/ecobasa/caravan_detail.html:112
+#: templates/ecobasa/caravan_detail.html:83
+#: templates/ecobasa/caravan_detail.html:111
 #: templates/ecobasa/caravan_detail.html:138
 msgid "Kick Out"
 msgstr "Rausschmeissen"
 
-#: templates/ecobasa/caravan_detail.html:97
+#: templates/ecobasa/caravan_detail.html:96
 msgid "Admins"
 msgstr "Administratoren"
+
+#: templates/ecobasa/caravan_detail.html:113
+#: templates/ecobasa/caravan_detail.html:140
+#: templates/ecobasa/pioneer_detail.html:29
+msgid "Send message"
+msgstr "Nachricht schicken"
 
 #: templates/ecobasa/caravan_detail.html:123
 msgid "Applied for membership"
@@ -2225,73 +2292,84 @@ msgstr "Mitgliedschaft beantragt"
 msgid "Add to Tour"
 msgstr "In Tour aufnehmen"
 
-#: templates/ecobasa/caravan_detail.html:150
+#: templates/ecobasa/caravan_detail.html:155
 msgid "Find a bus"
 msgstr "Finde einen Bus"
 
-#: templates/ecobasa/caravan_detail.html:175
-msgid "This tour doesnt have any buses, yet!"
-msgstr "Es gibt noch keine Busse für diese Tour!"
+#: templates/ecobasa/caravan_detail.html:182
+#: templates/ecobasa/pioneer_detail.html:162
+#, fuzzy
+msgid "Other people can drive this bus too"
+msgstr "Andere dürfen ihn auch fahren"
 
-#: templates/ecobasa/caravan_detail.html:176
-msgid "Apply for membership"
-msgstr "Schließ dich der Karawane an"
+#: templates/ecobasa/caravan_detail.html:184
+#: templates/ecobasa/pioneer_detail.html:164
+#, python-format
+msgid "This bus needs to be driven by %(username)s only"
+msgstr ""
 
-#: templates/ecobasa/caravan_detail.html:176
-msgid ", if you have a bus!"
-msgstr ", wenn du einen Bus hast!"
+#: templates/ecobasa/caravan_detail.html:188
+#: templates/ecobasa/pioneer_detail.html:168
+#, python-format
+msgid "This bus can take %(number)s passengers"
+msgstr ""
 
-#: templates/ecobasa/caravan_detail.html:185
+#: templates/ecobasa/caravan_detail.html:214
 #: templates/ecobasa/pioneer_detail.html:39
 #: templates/ecobasa/pioneer_list.html:25
 msgid "Skills"
 msgstr "Fertigkeiten"
 
-#: templates/ecobasa/caravan_detail.html:195
-#: templates/ecobasa/pioneer_detail.html:51
-msgid "Products"
-msgstr "Produkte"
-
-#: templates/ecobasa/caravan_detail.html:206
+#: templates/ecobasa/caravan_detail.html:235
 msgid "Ressources"
 msgstr "Ressourcen"
 
-#: templates/ecobasa/caravan_detail.html:213
+#: templates/ecobasa/caravan_detail.html:242
 msgid "Add a ressource"
 msgstr "Füge eine Ressource hinzu"
 
-#: templates/ecobasa/caravan_detail.html:222
+#: templates/ecobasa/caravan_detail.html:251
+#, fuzzy
+msgid "Wishes"
+msgstr "Wünsche"
+
+#: templates/ecobasa/caravan_detail.html:260
+#, fuzzy
+msgid "Add a wish to your profile, so it appears here"
+msgstr "Füge deinem Profil einen Bus hinzu"
+
+#: templates/ecobasa/caravan_detail.html:267
 msgid "Visiting these Places"
 msgstr "Diese Orte werden/wurden besucht"
 
-#: templates/ecobasa/caravan_detail.html:224
+#: templates/ecobasa/caravan_detail.html:269
 msgid "Add Community visit"
 msgstr "Gemeinschaftsaufenthalt hinzufügen"
 
-#: templates/ecobasa/caravan_detail.html:234
+#: templates/ecobasa/caravan_detail.html:279
 msgid "Name"
 msgstr "Name"
 
-#: templates/ecobasa/caravan_detail.html:235
+#: templates/ecobasa/caravan_detail.html:280
 #: templates/ecobasa/caravan_list.html:22
-#: templates/ecobasa/community_list.html:34
+#: templates/ecobasa/community_list.html:36
 msgid "Description"
 msgstr "Beschreibung"
 
-#: templates/ecobasa/caravan_detail.html:236
+#: templates/ecobasa/caravan_detail.html:281
 msgid "Time"
 msgstr "Zeit"
 
-#: templates/ecobasa/caravan_detail.html:238
+#: templates/ecobasa/caravan_detail.html:283
 msgid "Admin"
 msgstr "Admin"
 
-#: templates/ecobasa/caravan_detail.html:271
+#: templates/ecobasa/caravan_detail.html:316
 #: templates/ecobasa/community_detail.html:418
 msgid "Blog Posts"
 msgstr "Blog-Nachrichten"
 
-#: templates/ecobasa/caravan_detail.html:273
+#: templates/ecobasa/caravan_detail.html:318
 #: templates/ecobasa/community_detail.html:420
 msgid "Write a Blogpost"
 msgstr "Blogge eine Nachricht"
@@ -2317,15 +2395,15 @@ msgstr "Eine neue Tour anlegen"
 msgid "Tour"
 msgstr "Tour"
 
-#: templates/ecobasa/caravan_list.html:41
+#: templates/ecobasa/caravan_list.html:57
 msgid "Join"
 msgstr "Beitreten"
 
-#: templates/ecobasa/caravan_list.html:61
+#: templates/ecobasa/caravan_list.html:69
 msgid "No tours are currently planned"
 msgstr "Derzeit sind keine Touren geplant"
 
-#: templates/ecobasa/caravan_list.html:63
+#: templates/ecobasa/caravan_list.html:71
 msgid "Add a tour"
 msgstr "Eine Tour hinzufügen"
 
@@ -2335,8 +2413,8 @@ msgid "“%(name)s” Community"
 msgstr "“%(name)s” Gemeinschaft"
 
 #: templates/ecobasa/community_detail.html:83
-#: templates/ecobasa/community_detail.html:234
-#: templates/ecobasa/community_detail.html:254
+#: templates/ecobasa/community_detail.html:230
+#: templates/ecobasa/community_detail.html:250
 msgid "Add a description"
 msgstr "Füge eine Beschreibung hinzu"
 
@@ -2344,123 +2422,123 @@ msgstr "Füge eine Beschreibung hinzu"
 msgid "What brings this community together"
 msgstr "Was bringt eure Gemeinschaft zusammen"
 
-#: templates/ecobasa/community_detail.html:90
-msgid "Accomodation for guests"
-msgstr "Unterkunft für Gäste"
-
-#: templates/ecobasa/community_detail.html:100
+#: templates/ecobasa/community_detail.html:96
 msgid "What can you learn here"
 msgstr "Was kannst du hier lernen"
 
-#: templates/ecobasa/community_detail.html:111
+#: templates/ecobasa/community_detail.html:107
 msgid "Add a skill you learned here with a review"
 msgstr "Füge eine Fähigkeit die du hier gelernt hast dem Profil hinzu"
 
-#: templates/ecobasa/community_detail.html:113
+#: templates/ecobasa/community_detail.html:109
 msgid "Add a skill"
 msgstr "Eine Fähigkeit hinzufügen"
 
-#: templates/ecobasa/community_detail.html:129
+#: templates/ecobasa/community_detail.html:125
 msgid "Add a service they offer with a review"
 msgstr "Füge eine Dienstleistung die sie anbieten mit einer Bewertung hinzu"
 
-#: templates/ecobasa/community_detail.html:131
+#: templates/ecobasa/community_detail.html:127
 msgid "Add a service"
 msgstr "Füge eine Dienstleistung hinzu"
 
-#: templates/ecobasa/community_detail.html:138
+#: templates/ecobasa/community_detail.html:134
 msgid "Products and Creations"
 msgstr "Produkte und Kreationen"
 
-#: templates/ecobasa/community_detail.html:149
+#: templates/ecobasa/community_detail.html:145
 msgid "Add a product you recieved with a review"
 msgstr "Füge ein Produkt das du bekommen hast mit einer Bewertung hinzu"
 
-#: templates/ecobasa/community_detail.html:151
+#: templates/ecobasa/community_detail.html:147
 msgid "Add a product"
 msgstr "Füge ein Produkt hinzu"
 
-#: templates/ecobasa/community_detail.html:177
+#: templates/ecobasa/community_detail.html:173
 msgid "Workshop and factoring spaces"
 msgstr "Werkstätten / Arbeitsplätze"
 
-#: templates/ecobasa/community_detail.html:179
+#: templates/ecobasa/community_detail.html:175
 msgid "Seminars"
 msgstr "Seminare"
 
-#: templates/ecobasa/community_detail.html:187
+#: templates/ecobasa/community_detail.html:183
 msgid "Needs"
 msgstr "Bedürfnisse"
 
-#: templates/ecobasa/community_detail.html:196
+#: templates/ecobasa/community_detail.html:192
 msgid "Add more projects"
 msgstr "Füge mehr Projekte hinzu"
 
-#: templates/ecobasa/community_detail.html:198
+#: templates/ecobasa/community_detail.html:194
 msgid "Add a project you need help for to your profile"
 msgstr "Füge ein Projekt, bei dem ihr Hilfe braucht zu deinem Profil hinzu"
 
-#: templates/ecobasa/community_detail.html:203
+#: templates/ecobasa/community_detail.html:199
 msgid "Experts/People with the following skills"
 msgstr "Experten/Leute mit den folgenden Fertigkeiten"
 
-#: templates/ecobasa/community_detail.html:210
+#: templates/ecobasa/community_detail.html:206
 msgid "Ask for more skills"
 msgstr "Frage nach mehr Fähigkeiten"
 
-#: templates/ecobasa/community_detail.html:212
+#: templates/ecobasa/community_detail.html:208
 msgid "Tell people with special skills to come"
 msgstr "Sag Leuten mit speziellen Fähigkeiten, das sie kommen sollen"
 
-#: templates/ecobasa/community_detail.html:216
+#: templates/ecobasa/community_detail.html:212
 msgid "Materials"
 msgstr "Materialien"
 
-#: templates/ecobasa/community_detail.html:225
+#: templates/ecobasa/community_detail.html:221
 msgid "Ask for more materials"
 msgstr "Frage nach mehr Materialien"
 
-#: templates/ecobasa/community_detail.html:227
+#: templates/ecobasa/community_detail.html:223
 msgid "Ask for materials"
 msgstr "Frage nach Materialien"
 
-#: templates/ecobasa/community_detail.html:231
+#: templates/ecobasa/community_detail.html:227
 msgid "Aditional info about Materials"
 msgstr "Zusätzliche Info zu Materialien"
 
-#: templates/ecobasa/community_detail.html:238
+#: templates/ecobasa/community_detail.html:234
 msgid "Tools"
 msgstr "Werkzeuge"
 
-#: templates/ecobasa/community_detail.html:247
+#: templates/ecobasa/community_detail.html:243
 msgid "Ask for more tools"
 msgstr "Frage nach mehr Werkzeugen"
 
-#: templates/ecobasa/community_detail.html:249
+#: templates/ecobasa/community_detail.html:245
 msgid "Ask for tools"
 msgstr "Frage nach Werkzeugen"
 
-#: templates/ecobasa/community_detail.html:258
+#: templates/ecobasa/community_detail.html:254
 #: templates/ecobasa/community_form.html:176
 #: templates/userprofiles/registration_community.html:221
 msgid "Seeds"
 msgstr "Saatgut"
 
-#: templates/ecobasa/community_detail.html:278
+#: templates/ecobasa/community_detail.html:274
 msgid "Ask for seeds"
 msgstr "Frag nach Saatgut"
 
-#: templates/ecobasa/community_detail.html:282
+#: templates/ecobasa/community_detail.html:278
 msgid "Special Needs"
 msgstr "Spezielle Bedürfnisse"
 
-#: templates/ecobasa/community_detail.html:285
+#: templates/ecobasa/community_detail.html:281
 msgid "Ask for more special needs"
 msgstr "Frage nach mehr speziellen Bedürfnissen"
 
-#: templates/ecobasa/community_detail.html:287
+#: templates/ecobasa/community_detail.html:283
 msgid "Ask for special needs"
 msgstr "Frage nach speziellen Bedürfnissen"
+
+#: templates/ecobasa/community_detail.html:309
+msgid "Accomodation for guests"
+msgstr "Unterkunft für Gäste"
 
 #: templates/ecobasa/community_detail.html:312
 msgid "Contact this community"
@@ -2476,7 +2554,7 @@ msgstr "Gruppen-Bewerber"
 
 #: templates/ecobasa/community_detail.html:405
 #: templates/ecobasa/community_detail.html:410
-#: templates/ecobasa/pioneer_detail.html:121
+#: templates/ecobasa/pioneer_detail.html:194
 msgid "More"
 msgstr "Mehr"
 
@@ -2492,6 +2570,7 @@ msgid "Community Contact Information"
 msgstr "Kontakt Informationen für die Gemeinschaft"
 
 #: templates/ecobasa/community_form.html:86
+#: templates/ecobasa/pioneer_detail.html:106
 #: templates/userprofiles/registration_community.html:131
 msgid "Info"
 msgstr "Info"
@@ -2518,7 +2597,7 @@ msgid "Whishes"
 msgstr "Wünsche"
 
 #: templates/ecobasa/community_form.html:228
-#: templates/ecobasa/pioneer_form.html:68
+#: templates/ecobasa/pioneer_form.html:75
 msgid "Save"
 msgstr "Speichern"
 
@@ -2527,45 +2606,66 @@ msgstr "Speichern"
 msgid "More seeds"
 msgstr "Mehr Saatgut"
 
-#: templates/ecobasa/community_list.html:17
+#: templates/ecobasa/community_list.html:19
 msgid "Map"
 msgstr "Karte"
 
-#: templates/ecobasa/community_list.html:18
+#: templates/ecobasa/community_list.html:20
 msgid "List"
 msgstr "Liste"
 
-#: templates/ecobasa/community_list.html:26
+#: templates/ecobasa/community_list.html:28
 msgid "Community List"
 msgstr "Gemeinschafts-Liste"
 
-#: templates/ecobasa/community_list.html:33
+#: templates/ecobasa/community_list.html:35
 msgid "Community"
 msgstr "Gemeinschaft"
 
-#: templates/ecobasa/community_list.html:35
-msgid "Country"
-msgstr "Land"
+#: templates/ecobasa/community_list.html:37
+#, fuzzy
+msgid "Stats"
+msgstr "Status"
 
-#: templates/ecobasa/community_list.html:36
+#: templates/ecobasa/community_list.html:39
 msgid "Teaching"
 msgstr "Lehren"
 
-#: templates/ecobasa/community_list.html:68
-#: templates/ecobasa/community_list.html:110
+#: templates/ecobasa/community_list.html:60
+#: templates/ecobasa/community_list.html:121
 msgid "What brings us together:"
 msgstr "Was uns zusammen bringt:"
 
-#: templates/ecobasa/community_list.html:70
-#: templates/ecobasa/community_list.html:110
+#: templates/ecobasa/community_list.html:62
+#: templates/ecobasa/community_list.html:121
 msgid "see profile"
 msgstr "Profil ansehen"
 
-#: templates/ecobasa/community_list.html:90
+#: templates/ecobasa/community_list.html:70
+#, python-format
+msgid "They can host up to %(number)s people"
+msgstr ""
+
+#: templates/ecobasa/community_list.html:72
+#, fuzzy
+msgid "Looking for volunteers"
+msgstr "Suchen nach Helfern"
+
+#: templates/ecobasa/community_list.html:74
+#, fuzzy
+msgid "Closed at the moment"
+msgstr "Im Moment Geschlossen"
+
+#: templates/ecobasa/community_list.html:76
+#, fuzzy
+msgid "Looking for members"
+msgstr "Suchen nach Mitgliedern"
+
+#: templates/ecobasa/community_list.html:100
 msgid "There are no communities, yet."
 msgstr "Es haben sich noch keine Gemeinschaften angemeldet!"
 
-#: templates/ecobasa/community_list.html:90
+#: templates/ecobasa/community_list.html:100
 msgid "Register as a gift-economy ambassador for your community</a>"
 msgstr "Melde dich als Schenkökonomie Botschafter für deine Gemeinschaft an"
 
@@ -2622,44 +2722,67 @@ msgstr "Profil bearbeiten"
 msgid "Change Picture"
 msgstr "Bild ändern"
 
-#: templates/ecobasa/pioneer_detail.html:29
-msgid "Send message"
-msgstr "Nachricht schicken"
-
 #: templates/ecobasa/pioneer_detail.html:32
 msgid "About me"
 msgstr "Über mich"
 
-#: templates/ecobasa/pioneer_detail.html:64
+#: templates/ecobasa/pioneer_detail.html:51
+#, fuzzy
+msgid "Add a skill of this person with a review"
+msgstr "Füge eine Fähigkeit die du hier gelernt hast dem Profil hinzu"
+
+#: templates/ecobasa/pioneer_detail.html:53
+#, fuzzy
+msgid "Add skills"
+msgstr "Eine Fähigkeit hinzufügen"
+
+#: templates/ecobasa/pioneer_detail.html:67
+#, fuzzy
+msgid "Add a product this person can make with a review"
+msgstr "Füge ein Produkt das du bekommen hast mit einer Bewertung hinzu"
+
+#: templates/ecobasa/pioneer_detail.html:69
+#, fuzzy
+msgid "Add products"
+msgstr "Füge ein Produkt hinzu"
+
+#: templates/ecobasa/pioneer_detail.html:71
 msgid "Services"
 msgstr "Dienstleistungen"
 
-#: templates/ecobasa/pioneer_detail.html:69
+#: templates/ecobasa/pioneer_detail.html:78
+#, fuzzy
+msgid "Add a service you reveived with a review"
+msgstr "Füge ein Produkt das du bekommen hast mit einer Bewertung hinzu"
+
+#: templates/ecobasa/pioneer_detail.html:81
 msgid "Interests"
 msgstr "Interessen"
 
-#: templates/ecobasa/pioneer_detail.html:80
+#: templates/ecobasa/pioneer_detail.html:89
+#, fuzzy
+msgid "Add interests"
+msgstr "Interessen"
+
+#: templates/ecobasa/pioneer_detail.html:101
+#, fuzzy
+msgid "Add wishes"
+msgstr "Widget hinzufügen"
+
+#: templates/ecobasa/pioneer_detail.html:109
 msgid "gender"
 msgstr "\"Geschlecht\""
 
-#: templates/ecobasa/pioneer_detail.html:142
-msgid "Maximum passengers this bus can take:"
-msgstr "Maximale Anzahl der Passagiere, die dieser Bus befördern kann:"
-
-#: templates/ecobasa/pioneer_detail.html:143
-msgid "fuel consumption"
-msgstr "Kraftstoffverbrauch"
-
-#: templates/ecobasa/pioneer_detail.html:152
+#: templates/ecobasa/pioneer_detail.html:202
 msgid "Posts"
 msgstr "Posts"
 
-#: templates/ecobasa/pioneer_detail.html:169
+#: templates/ecobasa/pioneer_detail.html:219
 #: templates/ecobasa/includes/organisers.html:17
 msgid "Roles"
 msgstr "Rollen"
 
-#: templates/ecobasa/pioneer_detail.html:174
+#: templates/ecobasa/pioneer_detail.html:224
 msgid "of"
 msgstr "von"
 
@@ -3023,7 +3146,7 @@ msgstr ""
 "gemeinsam Texte verfassen, und Aufgaben verteilen. Und natürlich mit anderen "
 "Gemeinschaften Netzwerken!"
 
-#: templates/userprofiles/registration_complete.html:24
+#: templates/userprofiles/registration_complete.html:31
 msgid "See you soon, the rest of the ecobasa team."
 msgstr "Bis bald, der Rest des ecobasa Teams."
 
@@ -3052,11 +3175,11 @@ msgstr ""
 msgid "Fill out your profile"
 msgstr "Füll dein Profil aus"
 
-#: templates/userprofiles/registration_member.html:70
+#: templates/userprofiles/registration_member.html:72
 msgid "No, just register"
 msgstr "NEIN, einfach registrieren"
 
-#: templates/userprofiles/registration_member.html:121
+#: templates/userprofiles/registration_member.html:123
 msgid ""
 "You can also add a bus later, it would be great if you could ask around "
 "among your friends if they want to join us with their bus!"
@@ -3065,11 +3188,7 @@ msgstr ""
 "Bekanntenkreis herumfragst, ob sie uns ihren Bus leihen oder mitfahren "
 "wollen!"
 
-#: templates/userprofiles/registration_member.html:124
-msgid "YES"
-msgstr "JA"
-
-#: templates/userprofiles/registration_member.html:127
+#: templates/userprofiles/registration_member.html:129
 msgid "NO, just register me!"
 msgstr "NEIN, registrier mich einfach!"
 
@@ -3112,6 +3231,24 @@ msgstr "Bewertung für %(pioneer)s hinzufügen"
 #, python-format
 msgid "Edit reference for %(pioneer)s"
 msgstr "Bewertung für %(pioneer)s bearbeiten"
+
+#~ msgid "knowledge/skills"
+#~ msgstr "Wissen/Fertigkeiten"
+
+#~ msgid "products"
+#~ msgstr "Produkte"
+
+#~ msgid "This tour doesnt have any buses, yet!"
+#~ msgstr "Es gibt noch keine Busse für diese Tour!"
+
+#~ msgid "Apply for membership"
+#~ msgstr "Schließ dich der Karawane an"
+
+#~ msgid ", if you have a bus!"
+#~ msgstr ", wenn du einen Bus hast!"
+
+#~ msgid "Maximum passengers this bus can take:"
+#~ msgstr "Maximale Anzahl der Passagiere, die dieser Bus befördern kann:"
 
 #~ msgid "Caravan “%(group_name)s”"
 #~ msgstr "Karawane “%(group_name)s”"
@@ -3185,9 +3322,6 @@ msgstr "Bewertung für %(pioneer)s bearbeiten"
 
 #~ msgid "visitors"
 #~ msgstr "Besucher"
-
-#~ msgid "wishlist"
-#~ msgstr "Wunschliste"
 
 #~ msgid "offers"
 #~ msgstr "Angebote"
