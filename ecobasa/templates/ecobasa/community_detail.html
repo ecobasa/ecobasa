@@ -58,21 +58,21 @@
       <div class="btn-group pull-right admin-buttons">
         <a class="btn btn-primary" href="{% url 'community-edit' group=object.slug %}">{% trans "Edit" %}</a>
         <a class="btn btn-primary" href="{% url 'cosinnus:group-export' group=object.slug %}">{% trans "Export" context "the verb" %}</a>
-        <a class="btn btn-primary" href="{% url 'cosinnus:group-delete' group=object.slug %}">{% trans "Delete" %}</a>
-        <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">{% trans "Users" %} <span class="caret"></span></a>
+        <a class="btn btn-danger" href="{% url 'cosinnus:group-delete' group=object.slug %}">{% trans "Delete" %}</a>
+        <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">{% trans "Members" %} <span class="caret"></span></a>
         <ul class="dropdown-menu pull-right" role="menu">
-          <li><a href="{% url 'cosinnus:group-user-add-generic' group=object.slug %}">{% trans "Add user" %}</a></li>
+          <li><a href="{% url 'cosinnus:group-user-add-generic' group=object.slug %}">{% trans "Add member" %}</a></li>
         </ul>
       </div>
       {% endif %}
       <div class="btn-group pull-right admin-buttons">
         {% if user.is_authenticated %}
           {% if user.pk in object.members %}
-            <a class="btn btn-primary" href="{% url 'cosinnus:group-user-leave' group=object.slug %}">{% trans "Leave Community" %}</a>
+            <a class="btn btn-danger" href="{% url 'cosinnus:group-user-leave' group=object.slug %}">{% trans "Leave Community" %}</a>
           {% elif user.pk in object.pendings %}
-            <a class="btn btn-primary" href="{% url 'cosinnus:group-user-withdraw' group=object.slug %}">{% trans "Withdraw membership request" %}</a>
+            <a class="btn btn-default" href="{% url 'cosinnus:group-user-withdraw' group=object.slug %}">{% trans "Withdraw membership request" %}</a>
           {% else %}
-            <a class="btn btn-primary" href="{% url 'cosinnus:group-user-join' group=object.slug %}">{% trans "Request to join this community" %}</a>
+            <a class="btn btn-info" href="{% url 'cosinnus:group-user-join' group=object.slug %}">{% trans "Request to join this community" %}</a>
           {% endif %}
         {% endif %}
       </div>
@@ -86,7 +86,7 @@
         {% if profile.basic_description or user|is_group_admin:object %}
           <p>{{ profile.basic_description|urlize|linebreaksbr|safe }}</p>
         {% elif user|is_group_admin:object %}
-          <a href="{% url 'community-edit' group=object.slug %}#id_wishlist_materials" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add a description" %}</a>
+          <a href="{% url 'community-edit' group=object.slug %}#id_description" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add a description" %}</a>
         {% endif %}
         {% if profile.basic_brings_together %}
           <h3>{% trans "What brings this community together" %}</h3>
@@ -176,7 +176,6 @@
               {% elif user|is_group_admin:object %}
                 <a class="btn btn-primary" href="{% url 'community-edit' group=object.slug %}#s2id_id_offers_creations"><span class="glyphicon glyphicon-plus"></span> {% trans "Add a product" %}</a>
               {% endif %}
-          </div>
         {% endif %}
         {% if profile.offers_materials %}
           <h3>Materials</h3>
@@ -195,7 +194,7 @@
           </ul>
         {% endif %}
       </div>
-
+    </div>
       {% if profile.offers_workshop_spaces %}
         <div class="row">
           <div class="col-xs-12">
