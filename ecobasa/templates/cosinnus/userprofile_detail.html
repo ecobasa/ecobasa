@@ -10,9 +10,14 @@
 {% block content %}
 <a class="btn btn-primary pull-right" href="{% url 'pioneer-edit' username=user.username %}"><span class="glyphicon glyphicon-pencil"></span>{% trans "Edit profile" %}</a>
 <h1>{{ user.get_full_name|default:user.username }}</h1>
-{% if group = "ecobasa" %}
-  {% for role in roles %}
-  <h2>{{ role.title }}</h2>
+{% get_organiser_roles_for_user user as grouped_roles %}
+{% if grouped_roles %}
+  {% for group, roles in grouped_roles.items %}
+    {% for role in roles %}
+      {% with role.cosinnus_group_membership.group as group %}
+        <h2 class="title">{{ role.title }} {% trans "of" %} <a href="{% url 'cosinnus:group-dashboard' group.slug %}">{{ group.name }}</a></h2></br>
+      {% endwith %}
+    {% endfor %}
   {% endfor %}
 {% endif %}
 
