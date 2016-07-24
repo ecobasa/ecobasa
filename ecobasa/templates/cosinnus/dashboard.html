@@ -62,30 +62,30 @@
   <div>
     {% if group %}
       {% if group.caravan %}
-      <a href="{% url 'caravan-detail' group=group.slug %}" class="btn btn-primary">{% trans "Caravan Profile" %}</a>
+        <a href="{% url 'caravan-detail' group=group.slug %}" class="btn btn-primary">{% trans "Caravan Profile" %}</a>
         {% if user.is_superuser or user|is_group_admin:group %}
-        <a href="{% url 'caravan-edit' group=group.slug %}" class="btn btn-primary">{% trans "Edit Caravan" %}</a>
+          <a href="{% url 'caravan-edit' group=group.slug %}" class="btn btn-default">{% trans "Edit Caravan" %}</a>
         {% endif %}
       {% elif group.profile %}
-      <a href="{% url 'community-detail' group=group.slug %}" class="btn btn-primary">{% trans "Community Profile" %}</a>
+        <a href="{% url 'community-detail' group=group.slug %}" class="btn btn-primary">{% trans "Community Profile" %}</a>
         {% if user.is_superuser or user|is_group_admin:group %}
-        <a href="{% url 'community-edit' group=group.slug %}" class="btn btn-primary">{% trans "Edit Community Profile" %}</a>
+          <a href="{% url 'community-edit' group=group.slug %}" class="btn btn-default">{% trans "Edit Community Profile" %}</a>
         {% endif %}
       {% else %}
-      {% if user.is_authenticated %}
-        {% if user.pk in members %}
-          <a class="btn btn-primary" href="{% url 'cosinnus:group-user-leave' group=group.slug %}">{% trans "Leave this group" %}</a>
-        {% elif user.pk in pendings %}
-          <a class="btn btn-primary" href="{% url 'cosinnus:group-user-withdraw' group=group.slug %}">{% trans "Withdraw membership request" %}</a>
-        {% else %}
-          <a class="btn btn-primary" href="{% url 'cosinnus:group-user-join' group=group.slug %}">{% trans "Join this group" %}</a>
+        <a href="{% url 'cosinnus:group-detail' group=group.slug %}" class="btn btn-primary">{% trans "Details" %}</a>
+        {% if user.is_superuser or user|is_group_admin:group %}
+          <a href="{% url 'cosinnus:group-edit' group=group.slug %}" class="btn btn-primary">{% trans "Edit" %}</a>
         {% endif %}
       {% endif %}
-      <a href="{% url 'cosinnus:group-detail' group=group.slug %}" class="btn btn-primary">{% trans "Details" %}</a>
-      {% if user.is_superuser or user|is_group_admin:group %}
-      <a href="{% url 'cosinnus:group-edit' group=group.slug %}" class="btn btn-primary">{% trans "Edit" %}</a>
-      {% endif %}
-    {% endif %}
+      {% if user.is_authenticated %}
+          {% if user.pk in group.members or user|is_group_admin:group %}
+            <a class="btn btn-danger" href="{% url 'cosinnus:group-user-leave' group=group.slug %}">{% trans "Leave this group" %}</a>
+          {% elif user.pk in group.pendings %}
+            <a class="btn btn-danger" href="{% url 'cosinnus:group-user-withdraw' group=group.slug %}">{% trans "Withdraw membership request" %}</a>
+          {% else %}
+            <a class="btn btn-info" href="{% url 'cosinnus:group-user-join' group=group.slug %}">{% trans "Join this group" %}</a>
+          {% endif %}
+        {% endif %}
     {% else %}
       <a class="btn btn-primary" href="{% url 'pioneer-edit' username=user.username %}"><span class="glyphicon glyphicon-pencil"></span>{% trans "Edit your profile" %}</a>
   {% endif %}
