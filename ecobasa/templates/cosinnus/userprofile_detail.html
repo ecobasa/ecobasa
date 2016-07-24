@@ -1,0 +1,215 @@
+{% extends "cosinnus/base.html" %}
+{% load i18n l10n thumbnail static ecobasa_organiser %}
+
+{% block page_title %}
+  {% blocktrans with name=user.username %}Pioneer profile: {{ name }}{% endblocktrans %}
+{% endblock %}
+
+{% block body %}profile{% endblock body %}
+
+{% block content %}
+<a class="btn btn-primary pull-right" href="{% url 'pioneer-edit' username=user.username %}"><span class="glyphicon glyphicon-pencil"></span>{% trans "Edit profile" %}</a>
+<h1>{{ user.get_full_name|default:user.username }}</h1>
+{% if group = "ecobasa" %}
+  {% for role in roles %}
+  <h2>{{ role.title }}</h2>
+  {% endfor %}
+{% endif %}
+
+{% with user.cosinnus_profile as profile %}
+<div class="row">
+  <div class="col-xs-12 col-md-3">
+    <a href="{% url 'pioneer-edit' username=user.username %}">
+      {% if profile.avatar %}
+        <img class="avatar" src="{{ profile.avatar|thumbnail_url:"avatar_large" }}" alt="{%trans "Change Picture" %}" data-toggle="tooltip" data-placement="top" title="{%trans "Change Picture" %}"/>
+      {% else %}
+        <img class="avatar" src="{% static "img/avatar.png" %}" alt="{%trans "Change Picture" %}" data-toggle="tooltip" data-placement="top" title="{%trans "Change Picture" %}"/>
+      {% endif %}
+      </a>
+  </div>
+  <div class="col-xs-12 col-md-6">
+    <h2>{% trans "About me" %}</h2>
+    <p>{{ profile.about|urlize|linebreaksbr|safe }}</p>
+    <h5>{% trans "What do you do to make the world a better place?" %}</h5>
+    <p>{{ profile.world|urlize|linebreaksbr|safe }}</p>
+    <h5>{% trans "What would you like to use ecobasa mainly for?" %}</h5>
+    <p>{{ profile.ecobasa_what|urlize|linebreaksbr|safe }}</p>
+
+      <h2 id="skills">{% trans "Skills" %}</h2>
+      <ul class="list-inline">
+        {% for skill in profile.skills.all %}
+        <li><span class="label label-{{ skill }}">{{ skill }}</span></li>
+        {% endfor %}
+      </ul>
+      <ul class="list-inline">
+        {% for tag_name, tag_data in references.tag_counts.skills.items %}
+            <li><span class="label label-{{ tag_data.class }}">{{ tag_name }} <span class="badge alert-success">{{ tag_data.count }}</span></span></li>
+        {% endfor %}
+      </ul>
+      <a href="{% url 'pioneer-edit' username=user.username %}#s2id_id_offers_skills" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add skills" %}</a>
+      <h2 id="products">{% trans "Products" %}</h2>
+      <ul class="list-inline">
+        {% for tag in profile.products.all %}
+        <li><span class="label label-{{ tag }}">{{ tag }}</span></li>
+        {% endfor %}
+      </ul>
+      <ul class="list-inline">
+        {% for tag_name, tag_data in references.tag_counts.products.items %}
+            <li><span class="label label-{{ tag_data.class }}">{{ tag_name }} <span class="badge alert-success">{{ tag_data.count }}</span></span></li>
+        {% endfor %}
+      </ul>
+      <a href="{% url 'pioneer-edit' username=user.username %}#s2id_id_offers_products" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add products" %}</a>
+      <h2 id="services">{% trans "Services" %}</h2>
+        <ul class="list-inline">
+          {% for tag_name, tag_data in references.tag_counts.services.items %}
+            <li><span class="label label-{{ tag_data.class }}">{{ tag_name }} <span class="badge alert-success">{{ tag_data.count }}</span></span></li>
+          {% endfor %}
+        </ul>
+      <a href="{% url 'pioneer-edit' username=user.username %}#s2id_id_offers_services" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add Services" %}</a>
+        <h2 id="interests">{% trans "Interests" %}</h2>
+        <ul class="list-inline">
+          {% for tag in profile.interests.all %}
+            <li><span class="label label-{{ tag }}">{{ tag }}</span></li>
+          {% if not forloop.last %} {% endif %}
+          {% endfor %}
+        </ul>
+        <a href="{% url 'pioneer-edit' username=user.username %}#s2id_id_offers_skills" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add interests" %}</a>
+      <h2 id="wishlist">{% trans "Wishlist" %}</h2>
+      <ul class="list-inline">
+          {% for tag in profile.wishlist.all %}
+            <li><span class="label label-{{ tag }}">{{ tag }}</span></li>
+          {% if not forloop.last %} {% endif %}
+          {% endfor %}
+        </ul>
+          <a href="{% url 'pioneer-edit' username=user.username %}#s2id_id_wishlist" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add wishes" %}</a>
+  </div>
+  <div class="col-xs-12 col-md-3">
+    <h2>{% trans "Info" %}</h2>
+    <div class="row">
+      <div class="col-xs-6 col-md-4">
+        <span class="desc">{% trans "gender" %}</span>
+      </div>
+      <div class="col-xs-6 col-md-8">
+        {{ profile.get_gender_display }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-6 col-md-4">
+        <span class="desc">{% trans "birth date" %}</span>
+      </div>
+      <div class="col-xs-6 col-md-8">
+        {{ profile.birth_date }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-6 col-md-4">
+        <span class="desc">{% trans "country" %}</span>
+      </div>
+      <div class="col-xs-6 col-md-8">
+        {{ profile.get_country_display }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-6 col-md-4">
+        <span class="desc">{% trans "city" %}</span>
+      </div>
+      <div class="col-xs-6 col-md-8">
+        {{ profile.zipcode }} {{ profile.city }}
+      </div>
+    </div>
+
+    {% if profile.has_bus %}
+    <div class="row">
+      <div class="col-xs-12">
+        <h2>{% trans "Bus" %}</h2>
+          {% if profile.bus_image %}
+          <div class="row">
+            <div class="col-xs-12">
+              <img class="bus" src="{{ profile.bus_image|thumbnail_url:"bus_medium" }}" />
+            </div>
+          </div>
+          {% else %}
+          <div class="row">
+            <div class="col-xs-12">
+              <img class="bus" src="http://placehold.it/265x200">
+            </div>
+          </div>
+          {% endif %}
+      <div class="row">
+        <div class="col-xs-2">
+          {% if not profile.bus_has_driving_license %}
+            <i class="fa fa-life-ring"></i><span class="important">This bus still needs a driver!</span>
+          {% elif profile.bus_others_can_drive %}
+            <a class="bus" href="#" data-toggle="tooltip" title="{% trans "Other people can drive this bus too" %}"><i class="fa fa-user-plus"></i></a>
+          {% else %}
+            <a class="bus" href="#" data-toggle="tooltip" title="{% blocktrans with username=user.username %}This bus needs to be driven by {{ username }} only{% endblocktrans %}"><i class="fa fa-user-times"></i></a>
+          {% endif %}
+        </div>
+        <div class="col-xs-3">
+          <a class="bus" href="#" data-toggle="tooltip" title="{% blocktrans with number=profile.bus_num_passengers %}This bus can take {{ number }} passengers{% endblocktrans %}">
+            <i class="fa fa-users"></i><span class="details">{{ profile.bus_num_passengers }}</span></a>
+          </div>
+        <div class="col-xs-2">
+          {% if profile.bus_transport %}
+            <a class="bus" href="#" data-toggle="tooltip" title="{% trans "Can transport gifts" %}"><i class="fa fa-gift"></i></a>
+          {% endif %}
+        </div>
+        <div class="col-xs-5">
+          <a class="bus" href="#" data-toggle="tooltip" title="{% trans "fuel consumption" %}"><i class="fa fa-tint"></i><span class="detail">{{ profile.bus_consumption }}l/100km</span></a>
+        </div>
+      </div>
+      </div>
+    </div>
+    {% endif %}
+
+    <div class="row">
+      <div class="col-xs-12">
+        <h2>{% trans "References" %}</h2>
+        <ul class="references">{% for reference in references.references %}
+          <li>
+            <a href="{% url 'pioneer-detail' reference.giver.username %}">{{ reference.giver.username }}</a> {{ reference.date }}
+            <p>{{ reference.text }}</p>
+          </li>
+        {% endfor %}</ul>
+        <a class="btn btn-primary pull-right" href="{% url 'pioneer-reference-list' user.username %}">{% trans "More" %}</a>
+      </div>
+    </div>
+  </div>
+</div>
+  {% if posts %}
+  <div class="row">
+    <div class="col-xs-12">
+      <h2>{% trans "Posts" %}</h2>
+      <ul>
+        {% for post in posts %}
+        <li>
+          <h4><a href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">{{ post.title }}</a></h4>
+          <p>{{ post.text|linebreaksbr|safe }}</p>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  {% endif %}
+  
+  <div class="row">
+    <div class="col-xs-12">
+      {% get_organiser_roles_for_user user as grouped_roles %}
+      {% if grouped_roles %}
+        <h2>{% trans "Roles" %}</h2>
+        {% for group, roles in grouped_roles.items %}
+
+          {% for role in roles %}
+          {% with role.cosinnus_group_membership.group as group %}
+            <h3>{{ role.title }} {% trans "of" %} <a href="{% url 'cosinnus:group-dashboard' group.slug %}">{{ group.name }}</a></h3>
+            <p>{{ role.description }}</p>
+           {% endwith %}
+          {% endfor %}
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+{% endwith %}
+{% endblock content %}
