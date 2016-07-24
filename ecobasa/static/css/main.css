@@ -1057,6 +1057,12 @@ body#profile .content h2 {
   -moz-border-radius: 4px;
   border-radius: 4px;
 }
+body#profile .content h2.title {
+  color: #80143b;
+  padding: 0;
+  border: none;
+  background: none;
+}
 
 .sidebar .data {
   margin-right: 5px;
