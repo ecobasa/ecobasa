@@ -16,8 +16,12 @@
   <div class="col-xs-12">
     {% browserid_info %}
     {% if user.is_authenticated %}
-      <p>{% trans "Already signed in as" %}: {{ user.email }}</p>
-      {% browserid_logout text='Logout' %}
+      <div class="alert alert-danger" role="alert">
+          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+          <span class="sr-only">{% trans "Error" %}:</span>
+          {% trans "You are logged in as:" %} <b>{{ user.username }}</b> ({{ user.email }})
+      </div>
+      {% browserid_logout text='Logout' link_class='btn btn-danger' %}
     {% else %}
       {% browserid_login text='Login' color='dark' %}
     {% endif %}

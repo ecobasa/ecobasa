@@ -64,6 +64,12 @@ body {
   color: #fcf3e5;
 }
 
+.btn-info {
+  background-color: rgba(128, 20, 59, 0.8);
+  border-color: #80143b;
+  color: #fcf3e5;
+}
+
 .btn-default:hover,
 .btn-default:focus,
 .btn-default:active,
@@ -82,6 +88,16 @@ body {
   color: #fcf3e5;
   background-color: #da6137;
   border-color: #b4502c;
+}
+
+.btn-info:hover,
+.btn-info:focus,
+.btn-info:active,
+.btn-info.active,
+.open .dropdown-toggle.btn-info {
+  color: #fcf3e5;
+  background-color: #80143b;
+  border-color: #80143b;
 }
 
 a {

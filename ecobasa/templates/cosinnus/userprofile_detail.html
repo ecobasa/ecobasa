@@ -2,31 +2,30 @@
 {% load i18n l10n thumbnail static ecobasa_organiser %}
 
 {% block page_title %}
-  {% blocktrans with name=object.username %}Pioneer profile: {{ name }}{% endblocktrans %}
+  {% blocktrans with name=user.username %}Pioneer profile: {{ name }}{% endblocktrans %}
 {% endblock %}
 
 {% block body %}profile{% endblock body %}
 
 {% block content %}
-{% if user.is_superuser or user == object %}<a class="btn btn-primary pull-right" href="{% url 'pioneer-edit' username=object.username %}"><span class="glyphicon glyphicon-pencil"></span>{% trans "Edit profile" %}</a>{% endif %}
-<h1>{{ object.get_full_name|default:object.username }}</h1>
+<a class="btn btn-primary pull-right" href="{% url 'pioneer-edit' username=user.username %}"><span class="glyphicon glyphicon-pencil"></span>{% trans "Edit profile" %}</a>
+<h1>{{ user.get_full_name|default:user.username }}</h1>
 {% if group = "ecobasa" %}
   {% for role in roles %}
   <h2>{{ role.title }}</h2>
   {% endfor %}
 {% endif %}
 
-{% with object.cosinnus_profile as profile %}
+{% with user.cosinnus_profile as profile %}
 <div class="row">
   <div class="col-xs-12 col-md-3">
-    {% if user.is_superuser or user == object %}<a href="{% url 'pioneer-edit' username=object.username %}">{% endif %}
+    <a href="{% url 'pioneer-edit' username=user.username %}">
       {% if profile.avatar %}
-        <img class="avatar" src="{{ profile.avatar|thumbnail_url:"avatar_large" }}" {% if user.is_superuser or user == object %}alt="{%trans "Change Picture" %}"{% else %}alt="{{ object.get_full_name|default:object.username }}"{% endif %} data-toggle="tooltip" data-placement="top" {% if user.is_superuser or user == object %}title="{%trans "Change Picture" %}"{% else %}title="{{ object.get_full_name|default:object.username }}"{% endif %}/>
+        <img class="avatar" src="{{ profile.avatar|thumbnail_url:"avatar_large" }}" alt="{%trans "Change Picture" %}" data-toggle="tooltip" data-placement="top" title="{%trans "Change Picture" %}"/>
       {% else %}
-        <img class="avatar" src="{% static "img/avatar.png" %}" {% if user.is_superuser or user == object %}alt="{%trans "Change Picture" %}"{% else %}alt="{{ object.get_full_name|default:object.username }}"{% endif %} data-toggle="tooltip" data-placement="top" {% if user.is_superuser or user == object %}title="{%trans "Change Picture" %}"{% else %}title="{{ object.get_full_name|default:object.username }}"{% endif %}/>
+        <img class="avatar" src="{% static "img/avatar.png" %}" alt="{%trans "Change Picture" %}" data-toggle="tooltip" data-placement="top" title="{%trans "Change Picture" %}"/>
       {% endif %}
-      {% if user.is_superuser or user == object %}</a>{% endif %}
-      <a class="email btn btn-primary btn-smll" href="{% url 'postman_write' recipients=object.username %}"><span class="glyphicon glyphicon-envelope"></span>{% trans "Send message" %}</a>
+      </a>
   </div>
   <div class="col-xs-12 col-md-6">
     <h2>{% trans "About me" %}</h2>
@@ -47,11 +46,7 @@
             <li><span class="label label-{{ tag_data.class }}">{{ tag_name }} <span class="badge alert-success">{{ tag_data.count }}</span></span></li>
         {% endfor %}
       </ul>
-      {% if can_add_reference and not user == object %}
-        <a class="btn btn-primary" href="{% url 'pioneer-reference-add' object.username %}"><span class="glyphicon glyphicon-plus"></span> {% trans "Add a skill of this person with a review" %}</a>
-      {% elif user == object %}
-        <a href="{% url 'pioneer-edit' username=object.username %}#s2id_id_offers_skills" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add skills" %}</a>
-      {% endif %}
+      <a href="{% url 'pioneer-edit' username=user.username %}#s2id_id_offers_skills" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add skills" %}</a>
       <h2 id="products">{% trans "Products" %}</h2>
       <ul class="list-inline">
         {% for tag in profile.products.all %}
@@ -63,23 +58,14 @@
             <li><span class="label label-{{ tag_data.class }}">{{ tag_name }} <span class="badge alert-success">{{ tag_data.count }}</span></span></li>
         {% endfor %}
       </ul>
-      {% if can_add_reference and not user == object %}
-        <a class="btn btn-primary" href="{% url 'pioneer-reference-add' object.username %}"><span class="glyphicon glyphicon-plus"></span> {% trans "Add a product this person can make with a review" %}</a>
-      {% elif user == object %}
-        <a href="{% url 'pioneer-edit' username=object.username %}#s2id_id_offers_products" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add products" %}</a>
-      {% endif %}
+      <a href="{% url 'pioneer-edit' username=user.username %}#s2id_id_offers_products" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add products" %}</a>
       <h2 id="services">{% trans "Services" %}</h2>
         <ul class="list-inline">
           {% for tag_name, tag_data in references.tag_counts.services.items %}
             <li><span class="label label-{{ tag_data.class }}">{{ tag_name }} <span class="badge alert-success">{{ tag_data.count }}</span></span></li>
           {% endfor %}
         </ul>
-        {% if can_add_reference and not user == object %}
-          <a class="btn btn-primary" href="{% url 'pioneer-reference-add' object.username %}"><span class="glyphicon glyphicon-plus"></span> {% trans "Add a service you reveived with a review" %}</a>
-        {% elif user == object %}
-          <a href="{% url 'cosinnus:profile-edit' %}#s2id_id_offers_services" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add Services" %}</a>
-        {% endif %}
-      {% if profile.interests or user == object %}
+      <a href="{% url 'pioneer-edit' username=user.username %}#s2id_id_offers_services" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add Services" %}</a>
         <h2 id="interests">{% trans "Interests" %}</h2>
         <ul class="list-inline">
           {% for tag in profile.interests.all %}
@@ -87,11 +73,7 @@
           {% if not forloop.last %} {% endif %}
           {% endfor %}
         </ul>
-      {% if user == object %}
-        <a href="{% url 'pioneer-edit' username=object.username %}#s2id_id_offers_skills" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add interests" %}</a>
-      {% endif %}
-    {% endif %}
-    {% if profile.wishlist or user == object %}
+        <a href="{% url 'pioneer-edit' username=user.username %}#s2id_id_offers_skills" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add interests" %}</a>
       <h2 id="wishlist">{% trans "Wishlist" %}</h2>
       <ul class="list-inline">
           {% for tag in profile.wishlist.all %}
@@ -99,10 +81,7 @@
           {% if not forloop.last %} {% endif %}
           {% endfor %}
         </ul>
-        {% if user == object %}
-          <a href="{% url 'pioneer-edit' username=object.username %}#s2id_id_wishlist" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add wishes" %}</a>
-        {% endif %}
-    {% endif %}
+          <a href="{% url 'pioneer-edit' username=user.username %}#s2id_id_wishlist" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add wishes" %}</a>
   </div>
   <div class="col-xs-12 col-md-3">
     <h2>{% trans "Info" %}</h2>
@@ -163,7 +142,7 @@
           {% elif profile.bus_others_can_drive %}
             <a class="bus" href="#" data-toggle="tooltip" title="{% trans "Other people can drive this bus too" %}"><i class="fa fa-user-plus"></i></a>
           {% else %}
-            <a class="bus" href="#" data-toggle="tooltip" title="{% blocktrans with username=object.username %}This bus needs to be driven by {{ username }} only{% endblocktrans %}"><i class="fa fa-user-times"></i></a>
+            <a class="bus" href="#" data-toggle="tooltip" title="{% blocktrans with username=user.username %}This bus needs to be driven by {{ username }} only{% endblocktrans %}"><i class="fa fa-user-times"></i></a>
           {% endif %}
         </div>
         <div class="col-xs-3">
@@ -188,12 +167,11 @@
         <h2>{% trans "References" %}</h2>
         <ul class="references">{% for reference in references.references %}
           <li>
-            <a href="{% url 'pioneer-detail' reference.giver.username %}">{{ reference.giver.username }}</a> {{ reference.date }}{% if user.is_superuser or  reference.giver == user %} <a href="{% url 'pioneer-reference-edit' object.username reference.pk %}">{% trans "Edit" %}</a>{% endif %}
+            <a href="{% url 'pioneer-detail' reference.giver.username %}">{{ reference.giver.username }}</a> {{ reference.date }}
             <p>{{ reference.text }}</p>
           </li>
         {% endfor %}</ul>
-        {% if can_add_reference and not object == username %}<a class="btn btn-primary" href="{% url 'pioneer-reference-add' object.username %}"><span class="glyphicon glyphicon-plus"></span> {% trans "Add" %}</a>{% endif %}
-        <a class="btn btn-primary pull-right" href="{% url 'pioneer-reference-list' object.username %}">{% trans "More" %}</a>
+        <a class="btn btn-primary pull-right" href="{% url 'pioneer-reference-list' user.username %}">{% trans "More" %}</a>
       </div>
     </div>
   </div>
@@ -216,7 +194,7 @@
   
   <div class="row">
     <div class="col-xs-12">
-      {% get_organiser_roles_for_user object as grouped_roles %}
+      {% get_organiser_roles_for_user user as grouped_roles %}
       {% if grouped_roles %}
         <h2>{% trans "Roles" %}</h2>
         {% for group, roles in grouped_roles.items %}

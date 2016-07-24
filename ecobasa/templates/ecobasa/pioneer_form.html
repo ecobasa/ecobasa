@@ -11,7 +11,7 @@
 {% endblock extrahead %}
 
 {% block content %}
-<h1>{% blocktrans with username=object.user.username %}Edit pioneer “{{ username }}”{% endblocktrans %}</h1>
+<h1>{% if object.user.first_name %}{% blocktrans with username=object.user.first_name %}Edit your profile, {{ username }}{% endblocktrans %}{% else %}{% blocktrans with username=object.user.username %}Edit your profile, {{ username }}{% endblocktrans %}{% endif %}</h1>
 <form action="" method="post" enctype="multipart/form-data">
   {% csrf_token %}
   <div class="row">
@@ -26,6 +26,9 @@
       </div>
       <div class="row">
         <div class="col-xs-12">
+          {% bootstrap_field form.username %}
+          {% bootstrap_field form.first_name %}
+          {% bootstrap_field form.last_name %}
           {% bootstrap_field form.email %}
           {% bootstrap_field form.old_password %}
           {% bootstrap_field form.new_password1 %}
