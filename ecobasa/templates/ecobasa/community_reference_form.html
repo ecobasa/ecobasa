@@ -13,21 +13,37 @@
 {% endblock extrahead %}
 
 
-{% block body %}profile{% endblock body %}
+{% block body %}references{% endblock body %}
 
 
 {% block content %}
 <h1>{{ page_h1 }}</h1>
-<p>{% trans "Profile" %}:  <a href="{% url 'community-detail' community.slug %}">{{ community.name }}</a></p>
+<p>{% trans "For community" %}:  <a href="{% url 'community-detail' community.slug %}">{{ community.name }}</a></p>
 
 <form method="POST" action="">
   {% csrf_token %}
-  {% bootstrap_form form %}
-  {% buttons %}
-    <button type="submit" class="btn btn-primary">
-      {{ form_action }}
-    </button>
-   {% endbuttons %}
+  {% bootstrap_field form.giver %}
+  {% bootstrap_field form.receiver_pioneer %}
+  {% bootstrap_field form.receiver_community %}
+  {% bootstrap_label "Would you recommend this community to others?" %}
+  {% bootstrap_field form.recommend show_label=False field_class="form-inline" %}
+  {% bootstrap_label "How was your volunteering experience at this community?" %}
+  {% bootstrap_field form.text show_label=False show_help=False%}
+  <span class="help-block">
+    <ul>
+      <li>{% trans "How was your day there, what did you do?" %}</li>
+      <li>{% trans "How where you integrated into the community?" %}</li>
+      <li>{% trans "How was your learning experience?" %}</li>
+      <li>{% trans "How was the communication there?" %}</li>
+    </ul>
+    </span>
+  {% bootstrap_label "Did you receive any products from them?" %}
+  {% bootstrap_field form.products show_label=False %}
+  {% bootstrap_label "Did you receive any services?" %}
+  {% bootstrap_field form.services show_label=False %}
+  {% bootstrap_label "Could you learn or deepen some skills here?" %}
+  {% bootstrap_field form.skills show_label=False %}
+  {% buttons submit='Safe' %}{% endbuttons %}
 </form>
 {% endblock content %}
 

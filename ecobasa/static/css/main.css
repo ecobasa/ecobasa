@@ -850,30 +850,6 @@ table#caravan-list ul li {
   border-color: #b4502c;
 }
 
-/*********** Community-Detail **************/
-h1.community-name {
-  display: inline-block;
-  margin-top: 20px;
-}
-
-.btn-group.admin-buttons {
-  margin-top: 20px;
-}
-
-a.ambassador {
-  font-family: "Bree Serif";
-  text-align: center;
-  display: block;
-  font-size: 20px;
-}
-
-.visitor-info ul {
-  padding-left: 0px;
-}
-.visitor-info ul li {
-  list-style: none;
-}
-
 /*********** Registration **************/
 .panel {
   background: #fcf3e5;
@@ -1042,6 +1018,25 @@ img.avatar {
 }
 
 /*************** Community-Profiles **************/
+body#profile h1.community-name {
+  display: inline-block;
+  margin-top: 20px;
+}
+body#profile .btn-group.admin-buttons {
+  margin-top: 20px;
+}
+body#profile a.ambassador {
+  font-family: "Bree Serif";
+  text-align: center;
+  display: block;
+  font-size: 20px;
+}
+body#profile .visitor-info ul {
+  padding-left: 0px;
+}
+body#profile .visitor-info ul li {
+  list-style: none;
+}
 body#profile .content h2 {
   font-size: 20px;
   padding: 10px;
@@ -1123,6 +1118,10 @@ table#pioneer-list-table ul li {
   margin: 3px;
 }
 
+.name {
+  text-align: center;
+}
+
 /**************** Pioneer-Detail ******************/
 body#profile a:hover div.edit {
   content: "\270f";
@@ -1140,49 +1139,72 @@ body#profile img.bus {
   width: 100%;
   margin-bottom: 8px;
 }
-
-span.username {
-  margin-top: 10px;
-  margin-bottom: 20px;
-}
-
-ul.references {
-  padding-left: 0px;
-  margin-top: 40px;
-}
-ul.references > li {
-  list-style: none;
+body#profile .references .media {
   padding: 20px;
-  border: 2px dotted #da6137;
-  border-radius: 10px;
-  margin-bottom: 20px;
 }
-ul.references > li > span {
-  font-weight: bold;
+body#profile .references span.details {
   margin-bottom: 10px;
 }
-ul.references > li.negative {
-  background: rgba(180, 80, 44, 0.5);
-  color: #fcf3e5;
-}
-ul.references > li.negative > a {
+body#profile .references span.details > a {
   color: #80143b;
 }
-ul.references > li.negative > a:hover {
+body#profile .references span.details > a:hover {
   color: #da6137;
 }
-
-.badge {
-  border: 1px solid;
+body#profile .references .negative {
+  background: rgba(180, 80, 44, 0.5);
+  color: #fcf3e5;
+  border: 2px dotted #da6137;
+  border-radius: 10px;
 }
-
-.icon > i.fa {
+body#profile .references img.avatar {
+  width: 64px;
+}
+body#profile span.username {
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+body#profile .badge {
+  border: 1px solid;
+  color: #fcf3e5;
+  background: #da6137;
+  margin-left: 2px;
+}
+body#profile .icon > i.fa {
   margin-top: 10px;
 }
 
-/*************** Pioneer-List **************/
-.name {
-  text-align: center;
+/**************** References ******************/
+body#references .media {
+  padding: 20px;
+}
+body#references .media .btn {
+  color: #fcf3e5;
+  margin-left: 10px;
+}
+body#references .media .btn:hover {
+  color: #80143b;
+}
+body#references span.details {
+  margin-bottom: 10px;
+}
+body#references span.details > a {
+  color: #80143b;
+}
+body#references span.details > a:hover {
+  color: #da6137;
+}
+body#references .negative {
+  background: rgba(180, 80, 44, 0.5);
+  color: #fcf3e5;
+  border: 2px dotted #da6137;
+  border-radius: 10px;
+}
+body#references img.avatar {
+  width: 64px;
+}
+body#references .form-inline .radio + .radio {
+  margin-left: 50px;
 }
 
 /**************** Bus-List ******************/

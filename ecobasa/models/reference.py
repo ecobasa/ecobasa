@@ -31,7 +31,7 @@ class TaggedReferenceProduct(TaggedItemBase):
     class Meta:
         app_label = 'ecobasa'
 
-RATING_CHOICES = ((True, 'Positive'), (False, 'Negative'))
+RECOMMEND_CHOICES = ((True, 'Yes'), (False, 'No'))
 
 class Reference(models.Model):
     giver = models.ForeignKey(settings.AUTH_USER_MODEL,
@@ -56,13 +56,13 @@ class Reference(models.Model):
         _('date'),
         auto_now=True,
     )
-    rating = models.BooleanField(
-        choices=RATING_CHOICES,
+    recommend = models.BooleanField(
+        choices=RECOMMEND_CHOICES,
         default=True,
     )
     text = models.TextField(
         _('reference text'),
-        help_text=_('Description of the reference'),
+        help_text=_('How was your volunteer experience?'),
         blank=False,
     )
 

@@ -189,14 +189,25 @@
     {% endif %}
 
     <div class="row">
-      <div class="col-xs-12">
+      <div class="col-xs-12 references">
         <h2>{% trans "References" %}</h2>
-        <ul class="references">{% for reference in references.references %}
-          <li>
-            <a href="{% url 'pioneer-detail' reference.giver.username %}">{{ reference.giver.username }}</a> {{ reference.date }}{% if user.is_superuser or  reference.giver == user %} <a href="{% url 'pioneer-reference-edit' object.username reference.pk %}">{% trans "Edit" %}</a>{% endif %}
-            <p>{{ reference.text }}</p>
-          </li>
-        {% endfor %}</ul>
+        {% for reference in references.references %}
+          <div class="media {% if reference.recommend %}{% else %}negative{% endif %}">
+            <a class="pull-left" href="{% url 'pioneer-detail' reference.giver.username %}">
+              {% if reference.giver.cosinnus_profile.avatar %}
+                  <img class="avatar media-object" src="{{ reference.giver.cosinnus_profile.avatar|thumbnail_url:"avatar_medium" }}" />
+                {% else %}
+                  <img class="avatar media-object" src="{% static "img/avatar.png" %}" width="64px">
+                {% endif %}
+                <center>{{ reference.giver.username }}</center>
+              </a>
+            <div class="media-body">
+              <h4 class="media-heading">{% if reference.recommend %}Positive{% else %}Negative!{% endif %}</h4>
+              <span class="details">{% trans "on" %} {{ reference.date }}{% if user.is_superuser or  reference.giver == user %} <a href="{% url 'pioneer-reference-edit' object.username reference.pk %}">{% trans "Edit" %}</a>{% endif %}</span>
+              <p>{{ reference.text|urlize|safe|truncatewords:25 }}</p>
+            </div>
+          </div>
+        {% endfor %}
         {% if can_add_reference and not object == username %}<a class="btn btn-primary" href="{% url 'pioneer-reference-add' object.username %}"><span class="glyphicon glyphicon-plus"></span> {% trans "Add" %}</a>{% endif %}
         <a class="btn btn-primary pull-right" href="{% url 'pioneer-reference-list' object.username %}">{% trans "More" %}</a>
       </div>
