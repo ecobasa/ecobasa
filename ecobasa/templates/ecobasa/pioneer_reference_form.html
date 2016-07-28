@@ -13,19 +13,32 @@
 {% endblock extrahead %}
 
 
-{% block body %}profile{% endblock body %}
+{% block body %}references{% endblock body %}
 
 
 {% block content %}
 <h1>{{ page_h1 }}</h1>
-<p>{% trans "Profile" %}:  <a href="{% url 'pioneer-detail' pioneer.username %}">{{ pioneer.username }}</a></p>
+<p>{% trans "Add a reference for" %}: <a href="{% url 'pioneer-detail' pioneer.username %}">{{ pioneer.username }}</a></p>
 
 <form method="POST" action="">
   {% csrf_token %}
-  {% bootstrap_form form %}
+  {% bootstrap_field form.giver %}
+  {% bootstrap_field form.receiver_pioneer %}
+  {% bootstrap_field form.receiver_community %}
+  {% bootstrap_label "Would you recommend this pioneer to others?" %}
+  {% bootstrap_field form.recommend show_label=False %}
+  {% bootstrap_label "How was your experience with this pioneer?" %}
+  {% bootstrap_field form.text show_label=False show_help=False %}
+  <span class="help-block">{% trans "How was the volunteers reliability, communication, social skills, efficiency?" %}</span>
+  {% bootstrap_label "Did you receive any products?" %}
+  {% bootstrap_field form.products show_label=False %}
+  {% bootstrap_label "Did you receive any services?" %}
+  {% bootstrap_field form.services show_label=False %}
+  {% bootstrap_label "Could you learn or deepen some skills from the pioneer?" %}
+  {% bootstrap_field form.skills show_label=False %}
   {% buttons %}
     <button type="submit" class="btn btn-primary">
-      {{ form_action }}
+      {% trans "Safe" %}
     </button>
    {% endbuttons %}
 </form>

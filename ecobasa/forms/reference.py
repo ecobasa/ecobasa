@@ -11,7 +11,7 @@ class ReferenceForm(forms.ModelForm):
     class Meta:
         model = Reference
         widgets = {
-            'rating': forms.RadioSelect
+            'recommend': forms.RadioSelect
         }
 
     def __init__(self, *args, **kwargs):

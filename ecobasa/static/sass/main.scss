@@ -917,31 +917,6 @@ table#caravan-list {
 	border-color: $third;
 }
 
-/*********** Community-Detail **************/
-
-h1.community-name {
-	display: inline-block;
-	margin-top: 20px;
-}
-
-.btn-group.admin-buttons {
-	margin-top: 20px;
-}
-
-a.ambassador {
-	font-family: "Bree Serif";
-	text-align: center;
-	display: block;
-	font-size: 20px;
-}
-
-.visitor-info ul {
-	padding-left: 0px;
-	li {
-		list-style: none;
-	}
-}
-
 /*********** Registration **************/
 
 .panel {
@@ -1115,6 +1090,30 @@ img.avatar {
 /*************** Community-Profiles **************/
 
 body#profile {
+
+	h1.community-name {
+		display: inline-block;
+		margin-top: 20px;
+	}
+
+	.btn-group.admin-buttons {
+		margin-top: 20px;
+	}
+
+	a.ambassador {
+		font-family: "Bree Serif";
+		text-align: center;
+		display: block;
+		font-size: 20px;
+	}
+
+	.visitor-info ul {
+		padding-left: 0px;
+		li {
+			list-style: none;
+		}
+	}
+
 	.content h2 {
 		font-size: 20px;
 		padding: 10px;
@@ -1216,6 +1215,10 @@ table#pioneer-list-table {
 	}
 }
 
+.name {
+	text-align: center;
+}
+
 /**************** Pioneer-Detail ******************/
 
 body#profile {
@@ -1235,51 +1238,81 @@ body#profile {
 		width: 100%;
 		margin-bottom: 8px;
 	}
-}
-span.username {
-	margin-top: 10px;
-	margin-bottom: 20px;
-}
-
-ul.references {
-	padding-left: 0px;
-	margin-top: 40px;
-	> li {
-		list-style: none;
-		padding: 20px;
-		border: 2px dotted $primary;
-		border-radius: 10px;
-		margin-bottom: 20px;
-		> span {
-			font-weight: bold;
-			margin-bottom: 10px;
+	.references {
+		.media {
+			padding: 20px;
 		}
-		&.negative {
+		span.details {
+			margin-bottom: 10px;
+				> a {
+					color: $purple;
+					&:hover {
+						color: $primary;
+					}
+				}
+		}
+		.negative {
 			background: rgba($third, 0.5);
 			color: $secondary;
+			border: 2px dotted $primary;
+			border-radius: 10px;
+		}
+		img.avatar {
+			width: 64px;
+		}
+	}
+	span.username {
+		margin-top: 10px;
+		margin-bottom: 20px;
+	}
+
+	.badge {
+		border: 1px solid;
+		color: $secondary;
+		background: $primary;
+		margin-left: 2px;
+	}
+
+	.icon > i.fa {
+	    margin-top: 10px;
+	}
+}
+
+
+/**************** References ******************/
+
+body#references {
+	.media {
+		padding: 20px;
+		.btn {
+			color: $secondary;
+			margin-left: 10px;
+			&:hover {
+				color: $purple;		
+			}
+		}
+	}
+	span.details {
+		margin-bottom: 10px;
 			> a {
 				color: $purple;
 				&:hover {
 					color: $primary;
 				}
 			}
-		}
 	}
-}
-
-.badge {
-	border: 1px solid;
-}
-
-.icon > i.fa {
-    margin-top: 10px;
-}
-
-
-/*************** Pioneer-List **************/
-
-.name {
-	text-align: center;
+	.negative {
+		background: rgba($third, 0.5);
+		color: $secondary;
+		border: 2px dotted $primary;
+		border-radius: 10px;
+	}
+	img.avatar {
+		width: 64px;
+	}
+	.form-inline .radio+.radio {
+		margin-left: 50px;
+	}
 }
 
 /**************** Bus-List ******************/
