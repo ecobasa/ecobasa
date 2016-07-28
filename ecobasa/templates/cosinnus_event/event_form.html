@@ -33,7 +33,7 @@
 
 {% block content %}
 <div class="cosinnus-event">
-  <form action="." method="post" class="form-inline" enctype="multipart/form-data">
+  <form action="." method="post" class="form" enctype="multipart/form-data">
   {% csrf_token %}
 
   {% if form_view == 'add' or form_view == 'edit' %}
@@ -45,8 +45,6 @@
       {% bootstrap_field form.forms.obj.public %}
       {% bootstrap_field form.forms.obj.image %}
       {% bootstrap_field form.forms.obj.url %}
-
-      {% bootstrap_form form.forms.media_tag %}
 
       {% for formset in inlines %}
         <fieldset id="formset{{ formset.prefix }}">
@@ -76,7 +74,11 @@
       {% endfor %}
     </div>
     <div class="col-md-5 pull-right">
-    {% bootstrap_field form.forms.obj.location %}
+      <div class="row">
+        <div class="col-xs-12">
+          {% bootstrap_field form.forms.obj.location %}
+        </div>
+      </div>
     {% bootstrap_field form.forms.obj.street %}
     {% bootstrap_field form.forms.obj.zipcode %}
     {% bootstrap_field form.forms.obj.city %}
@@ -127,6 +129,5 @@
 {% if not event %}
   $("#id_title").focus();
 {% endif %}
-});
 </script>
 {% endblock extrafooter %}
