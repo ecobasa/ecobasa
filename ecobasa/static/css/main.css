@@ -1373,6 +1373,9 @@ span.mailcount {
 }
 
 /************* Cosinus-Event ******************/
+div.cosinnus-event .geoposition {
+  display: initial;
+}
 div.cosinnus-event .geoposition-search {
   float: left;
   width: 100%;
