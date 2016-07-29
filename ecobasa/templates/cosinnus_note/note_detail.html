@@ -7,7 +7,7 @@
 {% block extrahead %}
 <meta property="og:title" content="{{ object.title }} - ecobasa.blog" />
 <meta property="og:type" content="article" />
-<meta property="article:author" content="http://{{ request.get_host }}{% url 'pioneer-detail' username=object.creator.get_username %}" />
+<meta property="article:author" content="https://{{ request.get_host }}{% url 'pioneer-detail' username=object.creator.get_username %}" />
 {% if object.video %}
 {% video object.video is_secure=True as video %}
 <meta property="og:image" content="{{ video.thumbnail }}" />
@@ -15,7 +15,7 @@
 <meta property="og:video:secure_url" content="{{ video.url }}" />
 {% endvideo %}
 {% else %}
-<meta property="og:image" content="http://{{ request.get_host }}{{ object.image|thumbnail_url:"note_medium" }}" />
+<meta property="og:image" content="https://{{ request.get_host }}{{ object.image|thumbnail_url:"note_medium" }}" />
 <meta property="og:image:width" content="350" />
 <meta property="og:image:height" content="250" />
 {% endif %}
@@ -132,7 +132,7 @@
             {% if comment.author.cosinnus_profile.avatar %}
               <img class="media-object avatar avatar-small" src="{{ comment.author.cosinnus_profile.avatar|thumbnail_url:"avatar_small" }}">
             {% else %}
-              <img class="media-object avatar avatar-small" src="http://placehold.it/32x32">
+              <img class="media-object avatar avatar-small" src="https://placehold.it/32x32">
             {% endif %}
           </a>
           <div class="media-body">
