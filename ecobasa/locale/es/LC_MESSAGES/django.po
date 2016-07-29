@@ -1,22 +1,20 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: ecobasaorg\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-04 18:54+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"POT-Creation-Date: 2016-07-04 18:52+0200\n"
+"PO-Revision-Date: 2016-07-29 08:47-0400\n"
+"Last-Translator: ArneBo <arne@ecobasa.org>\n"
+"Language-Team: Spanish (Modern)\n"
+"Language: es_EM\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: crowdin.com\n"
+"X-Crowdin-Project: ecobasaorg\n"
+"X-Crowdin-Language: es-EM\n"
+"X-Crowdin-File: Website Translations.po\n"
 
 #: admin.py:28
 msgid "User"
@@ -51,9 +49,8 @@ msgid "^info/$"
 msgstr "^ info / $"
 
 #: forms/contact_form.py:140
-#, fuzzy
 msgid "Support"
-msgstr "Exportar"
+msgstr ""
 
 #: forms/contact_form.py:141
 msgid "Feedback"
@@ -69,9 +66,7 @@ msgstr "Los dos campos de contraseña no coinciden."
 
 #: forms/pioneer.py:14
 msgid "Your old password was entered incorrectly. Please enter it again."
-msgstr ""
-"Su contraseña anterior se ha introducido de forma incorrecta. Por favor, "
-"introduzca de nuevo."
+msgstr "Su contraseña anterior se ha introducido de forma incorrecta. Por favor, introduzca de nuevo."
 
 #: forms/pioneer.py:17
 msgid "Old password"
@@ -87,7 +82,7 @@ msgstr "Nueva confirmación de contraseña"
 
 #: forms/pioneer.py:26
 msgid "Email"
-msgstr "Email"
+msgstr "Correo electrónico"
 
 #: models/caravan.py:25 templates/ecobasa/caravan_detail.html:212
 #: templates/ecobasa/community_detail.html:93
@@ -97,12 +92,8 @@ msgid "Offers"
 msgstr "Ofertas"
 
 #: models/caravan.py:26
-msgid ""
-"If the caravan collects something on the way for example, communities know "
-"what it is coming with."
-msgstr ""
-"Si la caravana recoge algo en el camino, por ejemplo, las comunidades saben "
-"lo que viene con."
+msgid "If the caravan collects something on the way for example, communities know what it is coming with."
+msgstr "Si la caravana recoge algo en el camino, por ejemplo, las comunidades saben lo que viene con."
 
 #: models/caravan.py:30 templates/cosinnus_event/event_list.html:52
 #: templates/cosinnus_event/event_list.html:85
@@ -144,7 +135,7 @@ msgstr "Funciones del organizador"
 
 #: models/profile.py:21
 msgid "Andorra"
-msgstr "Andorra"
+msgstr ""
 
 #: models/profile.py:22
 msgid "United Arab Emirates"
@@ -164,11 +155,11 @@ msgstr "Anguila"
 
 #: models/profile.py:26
 msgid "Albania"
-msgstr "Albania"
+msgstr ""
 
 #: models/profile.py:27
 msgid "Armenia"
-msgstr "Armenia"
+msgstr ""
 
 #: models/profile.py:28
 msgid "Netherlands Antilles"
@@ -176,7 +167,7 @@ msgstr "Antillas Holandesas"
 
 #: models/profile.py:29
 msgid "Angola"
-msgstr "Angola"
+msgstr ""
 
 #: models/profile.py:30
 msgid "Antarctica"
@@ -184,7 +175,7 @@ msgstr "Antártida"
 
 #: models/profile.py:31
 msgid "Argentina"
-msgstr "Argentina"
+msgstr ""
 
 #: models/profile.py:32
 msgid "American Samoa"
@@ -192,15 +183,15 @@ msgstr "Samoa Americana"
 
 #: models/profile.py:33
 msgid "Austria"
-msgstr "Austria"
+msgstr ""
 
 #: models/profile.py:34
 msgid "Australia"
-msgstr "Australia"
+msgstr ""
 
 #: models/profile.py:35
 msgid "Aruba"
-msgstr "Aruba"
+msgstr ""
 
 #: models/profile.py:36
 msgid "Azerbaijan"
@@ -212,11 +203,11 @@ msgstr "Bosnia y Herzegovina"
 
 #: models/profile.py:38
 msgid "Barbados"
-msgstr "Barbados"
+msgstr ""
 
 #: models/profile.py:39
 msgid "Bangladesh"
-msgstr "Bangladesh"
+msgstr ""
 
 #: models/profile.py:40
 msgid "Belgium"
@@ -224,11 +215,11 @@ msgstr "Bélgica"
 
 #: models/profile.py:41
 msgid "Burkina Faso"
-msgstr "Burkina Faso"
+msgstr ""
 
 #: models/profile.py:42
 msgid "Bulgaria"
-msgstr "Bulgaria"
+msgstr ""
 
 #: models/profile.py:43
 msgid "Bahrain"
@@ -236,11 +227,11 @@ msgstr "Bahrein"
 
 #: models/profile.py:44
 msgid "Burundi"
-msgstr "Burundi"
+msgstr ""
 
 #: models/profile.py:45
 msgid "Benin"
-msgstr "Benin"
+msgstr ""
 
 #: models/profile.py:46
 msgid "Bermuda"
@@ -248,11 +239,11 @@ msgstr "islas Bermudas"
 
 #: models/profile.py:47
 msgid "Brunei Darussalam"
-msgstr "Brunei Darussalam"
+msgstr ""
 
 #: models/profile.py:48
 msgid "Bolivia"
-msgstr "Bolivia"
+msgstr ""
 
 #: models/profile.py:49
 msgid "Brazil"
@@ -260,7 +251,7 @@ msgstr "Brasil"
 
 #: models/profile.py:50
 msgid "Bahama"
-msgstr "Bahama"
+msgstr ""
 
 #: models/profile.py:51
 msgid "Bhutan"
@@ -272,7 +263,7 @@ msgstr "Isla Bouvet"
 
 #: models/profile.py:53
 msgid "Botswana"
-msgstr "Botswana"
+msgstr ""
 
 #: models/profile.py:54
 msgid "Belarus"
@@ -296,7 +287,7 @@ msgstr "República Centroafricana"
 
 #: models/profile.py:59
 msgid "Congo"
-msgstr "Congo"
+msgstr ""
 
 #: models/profile.py:60
 msgid "Switzerland"
@@ -312,7 +303,7 @@ msgstr "Cocine Iislands"
 
 #: models/profile.py:63
 msgid "Chile"
-msgstr "Chile"
+msgstr ""
 
 #: models/profile.py:64
 msgid "Cameroon"
@@ -320,19 +311,19 @@ msgstr "Camerún"
 
 #: models/profile.py:65
 msgid "China"
-msgstr "China"
+msgstr ""
 
 #: models/profile.py:66
 msgid "Colombia"
-msgstr "Colombia"
+msgstr ""
 
 #: models/profile.py:67
 msgid "Costa Rica"
-msgstr "Costa Rica"
+msgstr ""
 
 #: models/profile.py:68
 msgid "Cuba"
-msgstr "Cuba"
+msgstr ""
 
 #: models/profile.py:69
 msgid "Cape Verde"
@@ -356,7 +347,7 @@ msgstr "Alemania"
 
 #: models/profile.py:74
 msgid "Djibouti"
-msgstr "Djibouti"
+msgstr ""
 
 #: models/profile.py:75
 msgid "Denmark"
@@ -364,7 +355,7 @@ msgstr "Dinamarca"
 
 #: models/profile.py:76
 msgid "Dominica"
-msgstr "Dominica"
+msgstr ""
 
 #: models/profile.py:77
 msgid "Dominican Republic"
@@ -376,11 +367,11 @@ msgstr "Argelia"
 
 #: models/profile.py:79
 msgid "Ecuador"
-msgstr "Ecuador"
+msgstr ""
 
 #: models/profile.py:80
 msgid "Estonia"
-msgstr "Estonia"
+msgstr ""
 
 #: models/profile.py:81
 msgid "Egypt"
@@ -392,7 +383,7 @@ msgstr "Sahara Occidental"
 
 #: models/profile.py:83
 msgid "Eritrea"
-msgstr "Eritrea"
+msgstr ""
 
 #: models/profile.py:84
 msgid "Spain"
@@ -408,7 +399,7 @@ msgstr "Finlandia"
 
 #: models/profile.py:87
 msgid "Fiji"
-msgstr "Fiji"
+msgstr ""
 
 #: models/profile.py:88
 msgid "Falkland Islands (Malvinas)"
@@ -416,7 +407,7 @@ msgstr "Islas Malvinas (Falkland)"
 
 #: models/profile.py:89
 msgid "Micronesia"
-msgstr "Micronesia"
+msgstr ""
 
 #: models/profile.py:90
 msgid "Faroe Islands"
@@ -444,7 +435,7 @@ msgstr "Granada"
 
 #: models/profile.py:96
 msgid "Georgia"
-msgstr "Georgia"
+msgstr ""
 
 #: models/profile.py:97
 msgid "French Guiana"
@@ -452,11 +443,11 @@ msgstr "Guiana francés"
 
 #: models/profile.py:98
 msgid "Ghana"
-msgstr "Ghana"
+msgstr ""
 
 #: models/profile.py:99
 msgid "Gibraltar"
-msgstr "Gibraltar"
+msgstr ""
 
 #: models/profile.py:100
 msgid "Greenland"
@@ -464,11 +455,11 @@ msgstr "Tierra Verde"
 
 #: models/profile.py:101
 msgid "Gambia"
-msgstr "Gambia"
+msgstr ""
 
 #: models/profile.py:102
 msgid "Guinea"
-msgstr "Guinea"
+msgstr ""
 
 #: models/profile.py:103
 msgid "Guadeloupe"
@@ -488,15 +479,15 @@ msgstr "Georgia del Sur y las Islas Sandwich del Sur"
 
 #: models/profile.py:107
 msgid "Guatemala"
-msgstr "Guatemala"
+msgstr ""
 
 #: models/profile.py:108
 msgid "Guam"
-msgstr "Guam"
+msgstr ""
 
 #: models/profile.py:109
 msgid "Guinea-Bissau"
-msgstr "Guinea-Bissau"
+msgstr ""
 
 #: models/profile.py:110
 msgid "Guyana"
@@ -504,7 +495,7 @@ msgstr "Guayana"
 
 #: models/profile.py:111
 msgid "Hong Kong"
-msgstr "Hong Kong"
+msgstr ""
 
 #: models/profile.py:112
 msgid "Heard & McDonald Islands"
@@ -512,7 +503,7 @@ msgstr "Heard y McDonald Islas"
 
 #: models/profile.py:113
 msgid "Honduras"
-msgstr "Honduras"
+msgstr ""
 
 #: models/profile.py:114
 msgid "Croatia"
@@ -528,7 +519,7 @@ msgstr "Hungría"
 
 #: models/profile.py:117
 msgid "Indonesia"
-msgstr "Indonesia"
+msgstr ""
 
 #: models/profile.py:118
 msgid "Ireland"
@@ -536,11 +527,11 @@ msgstr "Irlanda"
 
 #: models/profile.py:119
 msgid "Israel"
-msgstr "Israel"
+msgstr ""
 
 #: models/profile.py:120
 msgid "India"
-msgstr "India"
+msgstr ""
 
 #: models/profile.py:121
 msgid "British Indian Ocean Territory"
@@ -564,7 +555,7 @@ msgstr "Italia"
 
 #: models/profile.py:126
 msgid "Jamaica"
-msgstr "Jamaica"
+msgstr ""
 
 #: models/profile.py:127
 msgid "Jordan"
@@ -588,7 +579,7 @@ msgstr "Camboya"
 
 #: models/profile.py:132
 msgid "Kiribati"
-msgstr "Kiribati"
+msgstr ""
 
 #: models/profile.py:133
 msgid "Comoros"
@@ -608,7 +599,7 @@ msgstr "Corea, Republica de"
 
 #: models/profile.py:137
 msgid "Kuwait"
-msgstr "Kuwait"
+msgstr ""
 
 #: models/profile.py:138
 msgid "Cayman Islands"
@@ -632,15 +623,15 @@ msgstr "Santa Lucía"
 
 #: models/profile.py:143
 msgid "Liechtenstein"
-msgstr "Liechtenstein"
+msgstr ""
 
 #: models/profile.py:144
 msgid "Sri Lanka"
-msgstr "Sri Lanka"
+msgstr ""
 
 #: models/profile.py:145
 msgid "Liberia"
-msgstr "Liberia"
+msgstr ""
 
 #: models/profile.py:146
 msgid "Lesotho"
@@ -676,7 +667,7 @@ msgstr "Moldova, República de"
 
 #: models/profile.py:154
 msgid "Madagascar"
-msgstr "Madagascar"
+msgstr ""
 
 #: models/profile.py:155
 msgid "Marshall Islands"
@@ -688,15 +679,15 @@ msgstr "Malí"
 
 #: models/profile.py:157
 msgid "Mongolia"
-msgstr "Mongolia"
+msgstr ""
 
 #: models/profile.py:158
 msgid "Myanmar"
-msgstr "Myanmar"
+msgstr ""
 
 #: models/profile.py:159
 msgid "Macau"
-msgstr "Macau"
+msgstr ""
 
 #: models/profile.py:160
 msgid "Northern Mariana Islands"
@@ -708,15 +699,15 @@ msgstr "Martinica"
 
 #: models/profile.py:162
 msgid "Mauritania"
-msgstr "Mauritania"
+msgstr ""
 
 #: models/profile.py:163
 msgid "Monserrat"
-msgstr "Monserrat"
+msgstr ""
 
 #: models/profile.py:164
 msgid "Malta"
-msgstr "Malta"
+msgstr ""
 
 #: models/profile.py:165
 msgid "Mauritius"
@@ -728,7 +719,7 @@ msgstr "Maldivas"
 
 #: models/profile.py:167
 msgid "Malawi"
-msgstr "Malawi"
+msgstr ""
 
 #: models/profile.py:168
 msgid "Mexico"
@@ -740,11 +731,11 @@ msgstr "Malasia"
 
 #: models/profile.py:170
 msgid "Mozambique"
-msgstr "Mozambique"
+msgstr ""
 
 #: models/profile.py:171
 msgid "Namibia"
-msgstr "Namibia"
+msgstr ""
 
 #: models/profile.py:172
 msgid "New Caledonia"
@@ -760,11 +751,11 @@ msgstr "Isla Norfolk"
 
 #: models/profile.py:175
 msgid "Nigeria"
-msgstr "Nigeria"
+msgstr ""
 
 #: models/profile.py:176
 msgid "Nicaragua"
-msgstr "Nicaragua"
+msgstr ""
 
 #: models/profile.py:177
 msgid "Netherlands"
@@ -776,15 +767,15 @@ msgstr "Noruega"
 
 #: models/profile.py:179
 msgid "Nepal"
-msgstr "Nepal"
+msgstr ""
 
 #: models/profile.py:180
 msgid "Nauru"
-msgstr "Nauru"
+msgstr ""
 
 #: models/profile.py:181
 msgid "Niue"
-msgstr "Niue"
+msgstr ""
 
 #: models/profile.py:182
 msgid "New Zealand"
@@ -828,23 +819,23 @@ msgstr "San Pedro y Miquelón"
 
 #: models/profile.py:192
 msgid "Pitcairn"
-msgstr "Pitcairn"
+msgstr ""
 
 #: models/profile.py:193
 msgid "Puerto Rico"
-msgstr "Puerto Rico"
+msgstr ""
 
 #: models/profile.py:194
 msgid "Portugal"
-msgstr "Portugal"
+msgstr ""
 
 #: models/profile.py:195
 msgid "Palau"
-msgstr "Palau"
+msgstr ""
 
 #: models/profile.py:196
 msgid "Paraguay"
-msgstr "Paraguay"
+msgstr ""
 
 #: models/profile.py:197
 msgid "Qatar"
@@ -876,7 +867,7 @@ msgstr "Islas Salomón"
 
 #: models/profile.py:204
 msgid "Seychelles"
-msgstr "Seychelles"
+msgstr ""
 
 #: models/profile.py:205
 msgid "Sudan"
@@ -912,19 +903,19 @@ msgstr "Sierra Leona"
 
 #: models/profile.py:213
 msgid "San Marino"
-msgstr "San Marino"
+msgstr ""
 
 #: models/profile.py:214
 msgid "Senegal"
-msgstr "Senegal"
+msgstr ""
 
 #: models/profile.py:215
 msgid "Somalia"
-msgstr "Somalia"
+msgstr ""
 
 #: models/profile.py:216
 msgid "Suriname"
-msgstr "Suriname"
+msgstr ""
 
 #: models/profile.py:217
 msgid "Sao Tome & Principe"
@@ -932,7 +923,7 @@ msgstr "Santo Tomé y Príncipe"
 
 #: models/profile.py:218
 msgid "El Salvador"
-msgstr "El Salvador"
+msgstr ""
 
 #: models/profile.py:219
 msgid "Syrian Arab Republic"
@@ -948,7 +939,7 @@ msgstr "Islas Turcas y Caicos"
 
 #: models/profile.py:222
 msgid "Chad"
-msgstr "Chad"
+msgstr ""
 
 #: models/profile.py:223
 msgid "French Southern Territories"
@@ -968,7 +959,7 @@ msgstr "Tayikistán"
 
 #: models/profile.py:227
 msgid "Tokelau"
-msgstr "Tokelau"
+msgstr ""
 
 #: models/profile.py:228
 msgid "Turkmenistan"
@@ -980,7 +971,7 @@ msgstr "Túnez"
 
 #: models/profile.py:230
 msgid "Tonga"
-msgstr "Tonga"
+msgstr ""
 
 #: models/profile.py:231
 msgid "East Timor"
@@ -996,7 +987,7 @@ msgstr "Trinidad y Tobago"
 
 #: models/profile.py:234
 msgid "Tuvalu"
-msgstr "Tuvalu"
+msgstr ""
 
 #: models/profile.py:235
 msgid "Taiwan, Province of China"
@@ -1012,7 +1003,7 @@ msgstr "Ucrania"
 
 #: models/profile.py:238
 msgid "Uganda"
-msgstr "Uganda"
+msgstr ""
 
 #: models/profile.py:239
 msgid "United States Minor Outlying Islands"
@@ -1024,7 +1015,7 @@ msgstr "Estados Unidos de America"
 
 #: models/profile.py:241
 msgid "Uruguay"
-msgstr "Uruguay"
+msgstr ""
 
 #: models/profile.py:242
 msgid "Uzbekistan"
@@ -1040,7 +1031,7 @@ msgstr "San Vicente y las Granadinas"
 
 #: models/profile.py:245
 msgid "Venezuela"
-msgstr "Venezuela"
+msgstr ""
 
 #: models/profile.py:246
 msgid "British Virgin Islands"
@@ -1056,7 +1047,7 @@ msgstr "Vietnam"
 
 #: models/profile.py:249
 msgid "Vanuatu"
-msgstr "Vanuatu"
+msgstr ""
 
 #: models/profile.py:250
 msgid "Wallis & Futuna Islands"
@@ -1064,19 +1055,19 @@ msgstr "Wallis y Futuna"
 
 #: models/profile.py:251
 msgid "Samoa"
-msgstr "Samoa"
+msgstr ""
 
 #: models/profile.py:252
 msgid "Yemen"
-msgstr "Yemen"
+msgstr ""
 
 #: models/profile.py:253
 msgid "Mayotte"
-msgstr "Mayotte"
+msgstr ""
 
 #: models/profile.py:254
 msgid "Yugoslavia"
-msgstr "Yugoslavia"
+msgstr ""
 
 #: models/profile.py:255
 msgid "South Africa"
@@ -1084,11 +1075,11 @@ msgstr "Sudáfrica"
 
 #: models/profile.py:256
 msgid "Zambia"
-msgstr "Zambia"
+msgstr ""
 
 #: models/profile.py:257
 msgid "Zaire"
-msgstr "Zaire"
+msgstr ""
 
 #: models/profile.py:258
 msgid "Zimbabwe"
@@ -1100,7 +1091,7 @@ msgstr "País Desconocido o no especificado"
 
 #: models/profile.py:297
 msgid "avatar"
-msgstr "avatar"
+msgstr ""
 
 #: models/profile.py:305
 msgid "Female"
@@ -1141,13 +1132,8 @@ msgid "interests"
 msgstr "intereses"
 
 #: models/profile.py:324
-msgid ""
-"A comma-separated list of tags. You can type anything here. You can also "
-"chose from other users tags. Connect two words with a \"-\" to have one tag."
-msgstr ""
-"Una lista separada por comas de las etiquetas. Puede escribir cualquier cosa "
-"aquí. También puede elegir otras etiquetas de los usuarios. Conecte dos "
-"palabras con un \"-\" para tener una etiqueta."
+msgid "A comma-separated list of tags. You can type anything here. You can also chose from other users tags. Connect two words with a \"-\" to have one tag."
+msgstr "Una lista separada por comas de las etiquetas. Puede escribir cualquier cosa aquí. También puede elegir otras etiquetas de los usuarios. Conecte dos palabras con un \"-\" para tener una etiqueta."
 
 #: models/profile.py:325
 msgid "About you"
@@ -1166,12 +1152,8 @@ msgid "Skills / Knowledge"
 msgstr ""
 
 #: models/profile.py:336
-msgid ""
-"What skills do you have? What can you do to help others? What can you teach "
-"someone?"
-msgstr ""
-"¿Que habilidades tienes? ¿Qué se puede hacer para ayudar a los demás? ¿Qué "
-"se puede enseñar a alguien?"
+msgid "What skills do you have? What can you do to help others? What can you teach someone?"
+msgstr "¿Que habilidades tienes? ¿Qué se puede hacer para ayudar a los demás? ¿Qué se puede enseñar a alguien?"
 
 #: models/profile.py:337 templates/ecobasa/caravan_detail.html:224
 #: templates/ecobasa/pioneer_detail.html:55
@@ -1179,12 +1161,8 @@ msgid "Products"
 msgstr "Productos"
 
 #: models/profile.py:339
-msgid ""
-"Can you manufacture any products, like jewelery, furniture, clothes, soap "
-"etc.. ?"
-msgstr ""
-"¿Se puede fabricar cualquier producto, como joyas, muebles, ropa, jabón, "
-"etc ..?"
+msgid "Can you manufacture any products, like jewelery, furniture, clothes, soap etc.. ?"
+msgstr "¿Se puede fabricar cualquier producto, como joyas, muebles, ropa, jabón, etc ..?"
 
 #: models/profile.py:342 templates/ecobasa/pioneer_detail.html:93
 msgid "Wishlist"
@@ -1196,7 +1174,7 @@ msgstr "¿Tiene un autobús o un coche que usted quiere tomar en la gira?"
 
 #: models/profile.py:350
 msgid "bus_image"
-msgstr "bus_image"
+msgstr ""
 
 #: models/profile.py:353
 msgid "I have a driving license"
@@ -1232,8 +1210,7 @@ msgstr "imagen"
 
 #: models/profile.py:438
 msgid "Header image for the community-profile, minimum resolution 1200x400"
-msgstr ""
-"Imagen de Cabecera para la comunidad de perfil, resolución mínima 1200x400"
+msgstr "Imagen de Cabecera para la comunidad de perfil, resolución mínima 1200x400"
 
 #: models/profile.py:443 templates/ecobasa/community_detail.html:332
 msgid "Video"
@@ -1268,56 +1245,32 @@ msgid "accommodation for guests"
 msgstr "alojamiento para huéspedes"
 
 #: models/profile.py:482
-msgid ""
-"Where can your visitors sleep? Do you have space for a bus, tents? How is "
-"the indoor sleeping situation? Do you have matresses, a couch? Do you have a "
-"donations or a pricing model? Required daily working amount or epxeriences?"
-msgstr ""
-"¿Dónde pueden dormir a sus visitantes? ¿Tiene espacio para un autobús, "
-"tiendas de campaña? ¿Cómo es la situación de dormir bajo techo? ¿Tiene "
-"colchones, un sofá? ¿Tiene una donación o un modelo de precios? Requerido "
-"cantidad de trabajo diario o epxeriences?"
+msgid "Where can your visitors sleep? Do you have space for a bus, tents? How is the indoor sleeping situation? Do you have matresses, a couch? Do you have a donations or a pricing model? Required daily working amount or epxeriences?"
+msgstr "¿Dónde pueden dormir a sus visitantes? ¿Tiene espacio para un autobús, tiendas de campaña? ¿Cómo es la situación de dormir bajo techo? ¿Tiene colchones, un sofá? ¿Tiene una donación o un modelo de precios? Requerido cantidad de trabajo diario o epxeriences?"
 
 #: models/profile.py:486
-msgid ""
-"Do you have any construction projects? List and describe them together with "
-"needed materials, tools, experts, time and knowledge."
-msgstr ""
-"¿Tiene algún proyecto de construcción? Enumerar y describir ellos, junto con "
-"los materiales necesarios, las herramientas, los expertos, el tiempo y el "
-"conocimiento."
+msgid "Do you have any construction projects? List and describe them together with needed materials, tools, experts, time and knowledge."
+msgstr "¿Tiene algún proyecto de construcción? Enumerar y describir ellos, junto con los materiales necesarios, las herramientas, los expertos, el tiempo y el conocimiento."
 
 #: models/profile.py:488
 msgid "What materials do you need?"
 msgstr "¿Qué materiales se necesitan?"
 
 #: models/profile.py:491
-msgid ""
-"Do you have any additional info about materials, or details to your request "
-"(like condition, when you need them)?"
-msgstr ""
-"¿Tienes alguna información adicional acerca de los materiales, o detalles de "
-"su solicitud (como condición, cuando usted los necesita)?"
+msgid "Do you have any additional info about materials, or details to your request (like condition, when you need them)?"
+msgstr "¿Tienes alguna información adicional acerca de los materiales, o detalles de su solicitud (como condición, cuando usted los necesita)?"
 
 #: models/profile.py:493
 msgid "What tools or machines do you need?"
 msgstr "¿Qué herramientas o máquinas se puede pedir?"
 
 #: models/profile.py:497
-msgid ""
-"Do you have any additional info about tools, or details to your request "
-"(like condition, when you need them)?"
-msgstr ""
-"¿Tienes alguna información adicional sobre herramientas, o detalles de su "
-"solicitud (como condición, cuando usted los necesita)?"
+msgid "Do you have any additional info about tools, or details to your request (like condition, when you need them)?"
+msgstr "¿Tienes alguna información adicional sobre herramientas, o detalles de su solicitud (como condición, cuando usted los necesita)?"
 
 #: models/profile.py:499
-msgid ""
-"Are you looking for some experts that could help you with a project or "
-"problem? Tag their desired skills here:"
-msgstr ""
-"¿Está buscando algunos expertos que podrían ayudar con un proyecto o "
-"problema? Tag sus habilidades deseadas aquí:"
+msgid "Are you looking for some experts that could help you with a project or problem? Tag their desired skills here:"
+msgstr "¿Está buscando algunos expertos que podrían ayudar con un proyecto o problema? Tag sus habilidades deseadas aquí:"
 
 #: models/profile.py:503
 msgid "Special needs (knowledge, information)"
@@ -1336,25 +1289,16 @@ msgid "Creations/Products"
 msgstr "Creaciones / Productos"
 
 #: models/profile.py:515
-msgid ""
-"Do you have any materials that you produce or that you dont need anymore? "
-"(What you throw away, might be useful to somebody else..)"
-msgstr ""
-"¿Tiene cualquier material que usted produce o que usted no necesita más? (Lo "
-"que tiras, podría ser útil a alguien más ..)"
+msgid "Do you have any materials that you produce or that you dont need anymore? (What you throw away, might be useful to somebody else..)"
+msgstr "¿Tiene cualquier material que usted produce o que usted no necesita más? (Lo que tiras, podría ser útil a alguien más ..)"
 
 #: models/profile.py:518
 msgid "Do you have any tools that you produce or that you dont need anymore?"
-msgstr ""
-"¿Tienes alguna herramientas que usted produce o que usted no necesita más?"
+msgstr "¿Tienes alguna herramientas que usted produce o que usted no necesita más?"
 
 #: models/profile.py:521
-msgid ""
-"Do you have workshop spaces, where people can build/construct/manufacture "
-"things?"
-msgstr ""
-"¿Tiene espacios de taller, donde la gente puede construir / construir / "
-"cosas de fabricación?"
+msgid "Do you have workshop spaces, where people can build/construct/manufacture things?"
+msgstr "¿Tiene espacios de taller, donde la gente puede construir / construir / cosas de fabricación?"
 
 #: models/profile.py:523
 msgid "Do you offer any seminars that visitors could attend?"
@@ -1454,7 +1398,7 @@ msgstr "Referencias"
 #: models/reference.py:93
 #, python-format
 msgid "Pioneer %s"
-msgstr "Pioneer %s"
+msgstr "Pionero %s"
 
 #: models/reference.py:95
 #, python-format
@@ -1518,12 +1462,8 @@ msgid "Contact the ecobasa team"
 msgstr "Póngase en contacto con el equipo ecobasa"
 
 #: templates/contact_form/contact_form.html:8
-msgid ""
-"Please enter your message and your contact information here, so we can get "
-"back to you!"
-msgstr ""
-"Introduzca su mensaje y su información de contacto aquí, para que podamos "
-"volver a usted!"
+msgid "Please enter your message and your contact information here, so we can get back to you!"
+msgstr "Introduzca su mensaje y su información de contacto aquí, para que podamos volver a usted!"
 
 #: templates/contact_form/contact_form.html:24
 msgid "Send"
@@ -1541,7 +1481,7 @@ msgstr "Refrescar"
 
 #: templates/cosinnus/dashboard.html:24 templates/cosinnus/dashboard.html:52
 msgid "Configure"
-msgstr "Configure"
+msgstr "Configurar"
 
 #: templates/cosinnus/dashboard.html:25 templates/cosinnus/dashboard.html:53
 #: templates/cosinnus_etherpad/tree.html:18
@@ -1720,7 +1660,7 @@ msgstr "Comunidades"
 
 #: templates/cosinnus/topmenu.html:23 templates/ecobasa/caravan_list.html:4
 msgid "Community-Tours"
-msgstr "Comunidad-Tours"
+msgstr "Tours Comunitarios"
 
 #: templates/cosinnus/topmenu.html:25
 msgid "What is this?"
@@ -1748,7 +1688,7 @@ msgstr ""
 
 #: templates/cosinnus/topmenu.html:33
 msgid "Communities-Convergence"
-msgstr "Comunidades-Convergencia"
+msgstr "Convergencia de las comunidades"
 
 #: templates/cosinnus/topmenu.html:34
 #: templates/userprofiles/registration_complete.html:27
@@ -1779,12 +1719,8 @@ msgstr "Registro"
 
 #: templates/cosinnus/registration/password_reset_email.html:2
 #, python-format
-msgid ""
-"You're receiving this email because you requested a password reset for your "
-"user account at %(site_name)s."
-msgstr ""
-"Usted está recibiendo este correo electrónico porque ha solicitado un "
-"restablecimiento de contraseña para la cuenta de usuario en %(site_name)s."
+msgid "You're receiving this email because you requested a password reset for your user account at %(site_name)s."
+msgstr "Usted está recibiendo este correo electrónico porque ha solicitado un restablecimiento de contraseña para la cuenta de usuario en %(site_name)s."
 
 #: templates/cosinnus/registration/password_reset_email.html:4
 msgid "Please go to the following page and choose a new password:"
@@ -1806,7 +1742,7 @@ msgstr "El %(site_name)s equipo"
 #: templates/cosinnus_etherpad/etherpad_list.html:5
 #: templates/cosinnus_etherpad/etherpad_list.html:10
 msgid "Pads"
-msgstr "Pads"
+msgstr ""
 
 #: templates/cosinnus_etherpad/etherpad_list.html:26
 #: templates/cosinnus_event/event_list.html:23
@@ -2005,10 +1941,8 @@ msgstr "Comentario"
 
 #: templates/cosinnus_note/note_detail.html:104
 #, python-format
-msgid ""
-"written by <a href=\"%(pioneer_url)s\">%(pioneer_name)s</a> on %(created)s"
-msgstr ""
-"escrito por <a href=\"%(pioneer_url)s\">%(pioneer_name)s </a> en %(created)s"
+msgid "written by <a href=\"%(pioneer_url)s\">%(pioneer_name)s</a> on %(created)s"
+msgstr "escrito por <a href=\"%(pioneer_url)s\">%(pioneer_name)s </a> en %(created)s"
 
 #: templates/cosinnus_note/note_detail.html:125
 msgid "Back to blog"
@@ -2118,7 +2052,7 @@ msgstr "Marcos completa (otra)"
 #: templates/cosinnus_todo/todoentry_list.html:6
 #: templates/cosinnus_todo/todoentry_list.html:11
 msgid "TodoEntries"
-msgstr "TodoEntries"
+msgstr ""
 
 #: templates/cosinnus_todo/todoentry_list.html:30
 msgid "Delete List"
@@ -2242,7 +2176,7 @@ msgstr "%(group_name)s - Comunidad-Tour | ecobasa.org"
 #: templates/ecobasa/community_detail.html:14
 #, python-format
 msgid "%(name)s"
-msgstr "%(name)s"
+msgstr ""
 
 #: templates/ecobasa/caravan_detail.html:42
 #: templates/ecobasa/caravan_list.html:40
@@ -2300,9 +2234,8 @@ msgstr "Encuentra un autobús"
 
 #: templates/ecobasa/caravan_detail.html:182
 #: templates/ecobasa/pioneer_detail.html:162
-#, fuzzy
 msgid "Other people can drive this bus too"
-msgstr "Otras personas pueden conducir también"
+msgstr ""
 
 #: templates/ecobasa/caravan_detail.html:184
 #: templates/ecobasa/pioneer_detail.html:164
@@ -2324,21 +2257,19 @@ msgstr "Habilidades"
 
 #: templates/ecobasa/caravan_detail.html:235
 msgid "Ressources"
-msgstr "Ressources"
+msgstr "Recursos"
 
 #: templates/ecobasa/caravan_detail.html:242
 msgid "Add a ressource"
 msgstr "Añadir un ressource"
 
 #: templates/ecobasa/caravan_detail.html:251
-#, fuzzy
 msgid "Wishes"
-msgstr "Whishes"
+msgstr ""
 
 #: templates/ecobasa/caravan_detail.html:260
-#, fuzzy
 msgid "Add a wish to your profile, so it appears here"
-msgstr "Añadir un autobús a tu perfil"
+msgstr ""
 
 #: templates/ecobasa/caravan_detail.html:267
 msgid "Visiting these Places"
@@ -2596,7 +2527,7 @@ msgstr "Estadística"
 #: templates/ecobasa/community_form.html:158
 #: templates/userprofiles/registration_community.html:203
 msgid "Whishes"
-msgstr "Whishes"
+msgstr ""
 
 #: templates/ecobasa/community_form.html:228
 #: templates/ecobasa/pioneer_form.html:75
@@ -2625,9 +2556,8 @@ msgid "Community"
 msgstr "Comunidad"
 
 #: templates/ecobasa/community_list.html:37
-#, fuzzy
 msgid "Stats"
-msgstr "Estado"
+msgstr ""
 
 #: templates/ecobasa/community_list.html:39
 msgid "Teaching"
@@ -2649,19 +2579,16 @@ msgid "They can host up to %(number)s people"
 msgstr ""
 
 #: templates/ecobasa/community_list.html:72
-#, fuzzy
 msgid "Looking for volunteers"
-msgstr "buscando voluntarios"
+msgstr ""
 
 #: templates/ecobasa/community_list.html:74
-#, fuzzy
 msgid "Closed at the moment"
-msgstr "cerrado por el momento"
+msgstr ""
 
 #: templates/ecobasa/community_list.html:76
-#, fuzzy
 msgid "Looking for members"
-msgstr "en busca de miembros"
+msgstr ""
 
 #: templates/ecobasa/community_list.html:100
 msgid "There are no communities, yet."
@@ -2729,47 +2656,40 @@ msgid "About me"
 msgstr "Acerca de mí"
 
 #: templates/ecobasa/pioneer_detail.html:51
-#, fuzzy
 msgid "Add a skill of this person with a review"
-msgstr "Añadir una habilidad que aprendió aquí con una reseña"
+msgstr ""
 
 #: templates/ecobasa/pioneer_detail.html:53
-#, fuzzy
 msgid "Add skills"
-msgstr "Añadir una habilidad"
+msgstr ""
 
 #: templates/ecobasa/pioneer_detail.html:67
-#, fuzzy
 msgid "Add a product this person can make with a review"
-msgstr "Añadir un producto que usted recibió con una opinión"
+msgstr ""
 
 #: templates/ecobasa/pioneer_detail.html:69
-#, fuzzy
 msgid "Add products"
-msgstr "Añadir un producto"
+msgstr ""
 
 #: templates/ecobasa/pioneer_detail.html:71
 msgid "Services"
 msgstr "Servicios"
 
 #: templates/ecobasa/pioneer_detail.html:78
-#, fuzzy
 msgid "Add a service you reveived with a review"
-msgstr "Añadir un producto que usted recibió con una opinión"
+msgstr ""
 
 #: templates/ecobasa/pioneer_detail.html:81
 msgid "Interests"
 msgstr "Intereses"
 
 #: templates/ecobasa/pioneer_detail.html:89
-#, fuzzy
 msgid "Add interests"
-msgstr "intereses"
+msgstr ""
 
 #: templates/ecobasa/pioneer_detail.html:101
-#, fuzzy
 msgid "Add wishes"
-msgstr "Añadir widget de"
+msgstr ""
 
 #: templates/ecobasa/pioneer_detail.html:109
 msgid "gender"
@@ -2782,7 +2702,7 @@ msgstr "Mensajes"
 #: templates/ecobasa/pioneer_detail.html:219
 #: templates/ecobasa/includes/organisers.html:17
 msgid "Roles"
-msgstr "Roles"
+msgstr ""
 
 #: templates/ecobasa/pioneer_detail.html:224
 msgid "of"
@@ -2816,7 +2736,7 @@ msgstr "unirse a los tours ahora!"
 
 #: templates/ecobasa/tour_blog.html:5
 msgid "community-tours.blog"
-msgstr "comunidad tours.blog"
+msgstr "tours comuntarios.blog"
 
 #: templates/ecobasa/includes/organisers.html:5
 msgid "Organisers"
@@ -2828,19 +2748,14 @@ msgstr "Organizador"
 
 #: templates/postman/email_user.txt:2
 #, python-format
-msgid ""
-"\n"
+msgid "\n"
 "Dear %(recipient)s,\n"
 msgstr ""
-"\n"
-"Dear %(recipient)s,\n"
 
 #: templates/postman/email_user.txt:6
 #, python-format
 msgid "On %(date)s, you asked to send a message to the user '%(recipient)s'."
-msgstr ""
-"En %(date)s, se le solicitará que envíe un mensaje al usuario "
-"'%(recipient)s'."
+msgstr "En %(date)s, se le solicitará que envíe un mensaje al usuario '%(recipient)s'."
 
 #: templates/postman/email_user.txt:8
 msgid "Your message has been rejected by the moderator"
@@ -2861,46 +2776,32 @@ msgstr "Su interlocutor le ha dado una respuesta."
 
 #: templates/postman/email_user.txt:14
 #, python-format
-msgid ""
-"You have received a copy of a response from "
-"'%(sender_username)s' (%(sender_first)s %(sender_last)s)."
-msgstr ""
-"Usted ha recibido una copia de la respuesta de "
-"'%(sender_username)s' (%(sender_first)s %(sender_last)s)."
+msgid "You have received a copy of a response from '%(sender_username)s' (%(sender_first)s %(sender_last)s)."
+msgstr "Usted ha recibido una copia de la respuesta de '%(sender_username)s' (%(sender_first)s %(sender_last)s)."
 
 #: templates/postman/email_user.txt:16
 #, python-format
-msgid ""
-"You have received a message from '%(sender_username)s' (%(sender_first)s "
-"%(sender_last)s)."
-msgstr ""
-"Ha recibido un mensaje de '%(sender_username)s' (%(sender_first)s "
-"%(sender_last)s)."
+msgid "You have received a message from '%(sender_username)s' (%(sender_first)s %(sender_last)s)."
+msgstr "Ha recibido un mensaje de '%(sender_username)s' (%(sender_first)s %(sender_last)s)."
 
 #: templates/postman/email_user.txt:21
 msgid "Follow this link to view and reply to this message on the site"
 msgstr "Siga este enlace para ver y responder a este mensaje en el sitio"
 
 #: templates/postman/email_user.txt:25
-msgid ""
-"Note: This message is issued by an automated system.\n"
+msgid "Note: This message is issued by an automated system.\n"
 "Do not reply, this would not be taken into account."
-msgstr ""
-"Nota:. Este mensaje es emitido por un sistema automatizado.\n"
+msgstr "Nota:. Este mensaje es emitido por un sistema automatizado.\n"
 "No respondió, esto no sería tomado en cuenta."
 
 #: templates/postman/email_user.txt:27
-msgid ""
-"\n"
+msgid "\n"
 "Have a nice day!\n"
-"This service is provided as a gift by ecobasa.org, please support us with a "
-"small donation!\n"
+"This service is provided as a gift by ecobasa.org, please support us with a small donation!\n"
 "https://www.betterplace.org/en/projects/11742-ecobasa-org\n"
-msgstr ""
-"\n"
+msgstr "\n"
 "tener un buen día!\n"
-"Este servicio es proporcionado gratuitamente por ecobasa.org, por favor que "
-"nos apoyen con una pequeña donación\n"
+"Este servicio es proporcionado gratuitamente por ecobasa.org, por favor que nos apoyen con una pequeña donación\n"
 "https: //www.betterplace.org/en/projects/11742-ecobasa-org\n"
 
 #: templates/postman/email_user_subject.txt:1
@@ -2913,12 +2814,8 @@ msgid "Find everything you are looking for :)"
 msgstr "Encuentra todo lo que buscas :)"
 
 #: templates/search/search.html:9
-msgid ""
-"Find places, people, skills, products, materials, tools, workshops, "
-"everything you are looking for :)"
-msgstr ""
-"Encuentra los lugares, las personas, habilidades, productos, materiales, "
-"herramientas, talleres, todo lo que usted está buscando :)"
+msgid "Find places, people, skills, products, materials, tools, workshops, everything you are looking for :)"
+msgstr "Encuentra los lugares, las personas, habilidades, productos, materiales, herramientas, talleres, todo lo que usted está buscando :)"
 
 #: templates/search/search.html:13
 msgid "Enter search term"
@@ -2952,92 +2849,38 @@ msgid "Registration"
 msgstr "Registro"
 
 #: templates/userprofiles/registration.html:14
-msgid ""
-"This is the standard sign-up for all users. Every person is a pioneer in the "
-"gift-economy network, as we beginn to walk new (ancient) paths of "
-"sustainability."
-msgstr ""
-"Este es el estándar de inscripción para todos los usuarios. Cada persona es "
-"un pionero en la red de regalos economía, ya que Beginn caminar nuevas "
-"(antiguos) caminos de la sostenibilidad."
+msgid "This is the standard sign-up for all users. Every person is a pioneer in the gift-economy network, as we beginn to walk new (ancient) paths of sustainability."
+msgstr "Este es el estándar de inscripción para todos los usuarios. Cada persona es un pionero en la red de regalos economía, ya que Beginn caminar nuevas (antiguos) caminos de la sostenibilidad."
 
 #: templates/userprofiles/registration.html:21
 msgid "Community Gift-Ambassador"
 msgstr "Comunidad regalo-Embajador"
 
 #: templates/userprofiles/registration.html:23
-msgid ""
-"If you live in a community click here. With your pioneer profile we will "
-"create a community profile where you can whish for everything that your "
-"community needs. You will be the manager of this community on this website "
-"and other people from your community can sign up as pioneers and become "
-"members of the community-group later. You will be the contact person for "
-"volunteers that want to visit your community and help with your whishes, you "
-"can assign this role to someone else later!"
-msgstr ""
-"Si usted vive en una comunidad haga clic aquí. Con su perfil pionero vamos a "
-"crear un perfil de la comunidad donde se puede whish por todo lo que su "
-"comunidad necesita. Va a ser el gerente de esta comunidad en este sitio web "
-"y otras personas de su comunidad puede inscribirse como pioneros y "
-"convertirse en miembros del grupo comunitario después. Usted será la persona "
-"de contacto para los voluntarios que quieran visitar su comunidad y ayudar "
-"con sus whishes, puede asignar esta función a otra persona después!"
+msgid "If you live in a community click here. With your pioneer profile we will create a community profile where you can whish for everything that your community needs. You will be the manager of this community on this website and other people from your community can sign up as pioneers and become members of the community-group later. You will be the contact person for volunteers that want to visit your community and help with your whishes, you can assign this role to someone else later!"
+msgstr "Si usted vive en una comunidad haga clic aquí. Con su perfil pionero vamos a crear un perfil de la comunidad donde se puede whish por todo lo que su comunidad necesita. Va a ser el gerente de esta comunidad en este sitio web y otras personas de su comunidad puede inscribirse como pioneros y convertirse en miembros del grupo comunitario después. Usted será la persona de contacto para los voluntarios que quieran visitar su comunidad y ayudar con sus whishes, puede asignar esta función a otra persona después!"
 
 #: templates/userprofiles/registration_community.html:16
 msgid "Community Ambassador Registration"
 msgstr "Comunidad Embajador de Registro"
 
 #: templates/userprofiles/registration_community.html:17
-msgid ""
-"Please take some time to think, ask around and fill out as much information "
-"as possible! It can be a fun group process, like collecting the whishes – "
-"you might inspire each other! You dont need to do it all now, you can always "
-"edit your profile later. For the start we only need your contact "
-"information, to help you!"
-msgstr ""
-"Por favor, tómese un tiempo para pensar, pregunta por ahí y llenar la mayor "
-"información posible! Puede ser un proceso divertido grupo, como la recogida "
-"de los whishes - podría inspirar a los demás! Usted no necesita hacerlo todo "
-"ahora, siempre se puede editar su perfil más tarde. Para el inicio sólo "
-"tenemos su información de contacto, para ayudarle!"
+msgid "Please take some time to think, ask around and fill out as much information as possible! It can be a fun group process, like collecting the whishes – you might inspire each other! You dont need to do it all now, you can always edit your profile later. For the start we only need your contact information, to help you!"
+msgstr "Por favor, tómese un tiempo para pensar, pregunta por ahí y llenar la mayor información posible! Puede ser un proceso divertido grupo, como la recogida de los whishes - podría inspirar a los demás! Usted no necesita hacerlo todo ahora, siempre se puede editar su perfil más tarde. Para el inicio sólo tenemos su información de contacto, para ayudarle!"
 
 #: templates/userprofiles/registration_community.html:20
-msgid ""
-"It is useful just to have a look at different hosts and study their way of "
-"describing the help they need. It will save you a lot of wasted energy on "
-"volunteers who are not suited for your situation.\n"
-"    Define your situation, describe the work that is expected from "
-"volunteers, and discourage people who just want to hang around or look for a "
-"cheap place to stay (simply say so).\n"
-"    And be fair. Do not expect volunteers to work 10 hours a day because you "
-"are doing it.\n"
-"    It helps also if you set a minimum period for staying with you, so you "
-"do not lose lots of time by introducing new guests. And yes, volunteers are "
-"guests. Treat them like that and share as much with them as possible and you "
-"will be blessed (as a rule)!"
-msgstr ""
-"Es útil sólo para echar un vistazo a los diferentes anfitriones y estudiar "
-"su forma de describir la ayuda que necesitan. Esto le ahorrará una gran "
-"cantidad de energía desperdiciada en voluntarios que no son adecuados para "
-"su situación.\n"
-"Defina su situación, describir el trabajo que se espera de los voluntarios, "
-"y desalentar a las personas que sólo quieren pasar el rato o buscar un lugar "
-"barato para estancia (simplemente decirlo). \n"
-" Y ser justo. No hay que esperar voluntarios para trabajar 10 horas al día, "
-"ya lo está haciendo. \n"
-" También ayuda si se establece un período mínimo para quedarse con usted, "
-"para que no pierda mucho tiempo mediante la introducción de nuevos "
-"huéspedes. Y sí, los voluntarios son invitados. Tratarlos como ese y "
-"compartir tanto con ellos como sea posible y serás bendecido (por regla "
-"general)!"
+msgid "It is useful just to have a look at different hosts and study their way of describing the help they need. It will save you a lot of wasted energy on volunteers who are not suited for your situation.\n"
+"    Define your situation, describe the work that is expected from volunteers, and discourage people who just want to hang around or look for a cheap place to stay (simply say so).\n"
+"    And be fair. Do not expect volunteers to work 10 hours a day because you are doing it.\n"
+"    It helps also if you set a minimum period for staying with you, so you do not lose lots of time by introducing new guests. And yes, volunteers are guests. Treat them like that and share as much with them as possible and you will be blessed (as a rule)!"
+msgstr "Es útil sólo para echar un vistazo a los diferentes anfitriones y estudiar su forma de describir la ayuda que necesitan. Esto le ahorrará una gran cantidad de energía desperdiciada en voluntarios que no son adecuados para su situación.\n"
+"Defina su situación, describir el trabajo que se espera de los voluntarios, y desalentar a las personas que sólo quieren pasar el rato o buscar un lugar barato para estancia (simplemente decirlo). \n"
+" Y ser justo. No hay que esperar voluntarios para trabajar 10 horas al día, ya lo está haciendo. \n"
+" También ayuda si se establece un período mínimo para quedarse con usted, para que no pierda mucho tiempo mediante la introducción de nuevos huéspedes. Y sí, los voluntarios son invitados. Tratarlos como ese y compartir tanto con ellos como sea posible y serás bendecido (por regla general)!"
 
 #: templates/userprofiles/registration_community.html:26
-msgid ""
-"Hosting volunteers is fun, if you organize it well. So enjoy, because life "
-"is meant to be fun!"
-msgstr ""
-"Voluntarios Hosting es divertido, si se organiza bien. Así que disfruten, "
-"porque la vida está destinado a ser divertido!"
+msgid "Hosting volunteers is fun, if you organize it well. So enjoy, because life is meant to be fun!"
+msgstr "Voluntarios Hosting es divertido, si se organiza bien. Así que disfruten, porque la vida está destinado a ser divertido!"
 
 #: templates/userprofiles/registration_community.html:31
 msgid "Log In"
@@ -3052,23 +2895,12 @@ msgid "You are now a full part of the gift-economy network!"
 msgstr "Usted es ahora una parte completa de la red de regalos economía!"
 
 #: templates/userprofiles/registration_complete.html:11
-msgid ""
-"If you want to go on Community-Tours with other people, invite them to join "
-"this network. You can create a new Tour and use the tools of this website to "
-"communicate, organize and network!"
-msgstr ""
-"Si quieres ir en la Comunidad-Tours con otras personas, los invitamos a "
-"unirse a esta red. Puedes crear un nuevo Tour y utilizar las herramientas de "
-"este sitio web para comunicarse, organizarse y la red!"
+msgid "If you want to go on Community-Tours with other people, invite them to join this network. You can create a new Tour and use the tools of this website to communicate, organize and network!"
+msgstr "Si quieres ir en los Tours Comunitarios con otras personas, los invitamos a unirse a esta red. Puedes crear un nuevo Tour y utilizar las herramientas de este sitio web para comunicarse y organizar la red!"
 
 #: templates/userprofiles/registration_complete.html:12
-msgid ""
-"You can contact communities that you know or that you would like to visit "
-"and tell them to sign up on this website, so we have their information."
-msgstr ""
-"Puede ponerse en contacto con las comunidades que usted conoce o que le "
-"gustaría visitar y decirles que para inscribirse en este sitio web, así que "
-"tenemos su información."
+msgid "You can contact communities that you know or that you would like to visit and tell them to sign up on this website, so we have their information."
+msgstr "Puede ponerse en contacto con las comunidades que usted conoce o que le gustaría visitar y decirles que para inscribirse en este sitio web, así que tenemos su información."
 
 #: templates/userprofiles/registration_complete.html:13
 msgid "Then we can send them the experts and resources they wish for."
@@ -3076,23 +2908,8 @@ msgstr "Luego les podemos enviar los expertos y los recursos que desear."
 
 #: templates/userprofiles/registration_complete.html:14
 #: templates/userprofiles/registration_complete.html:23
-msgid ""
-"This network is grown and maintained by its members, as we dont get many "
-"donations, we can not provide much of a service, so please contribute "
-"feedback, your skills (design, programming, communcation, networking, etc..) "
-"Just get in contact with us! Alternatively you can also give a donation, can "
-"be even really small, that helps us to pay the server costs and develop the "
-"site professionaly! There can be no gift-economy without a little gift-"
-"economy :)"
-msgstr ""
-"Esta red se cultiva y mantenida por sus miembros, ya que nosotros no "
-"conseguir muchas donaciones, no podemos ofrecer mucho más de un servicio, "
-"así que por favor contribuir retroalimentación, sus habilidades (diseño, "
-"programación, communcation, redes, etc ..) Apenas consiga en contacto ¡con "
-"nosotros! Alternativamente, también puede dar una donación, puede ser aún "
-"muy pequeño, que nos ayuda a pagar las costas del servidor y desarrollamos "
-"el sitio profesionalmente! No puede haber ningún don-economía sin un "
-"regalito economía :)"
+msgid "This network is grown and maintained by its members, as we dont get many donations, we can not provide much of a service, so please contribute feedback, your skills (design, programming, communcation, networking, etc..) Just get in contact with us! Alternatively you can also give a donation, can be even really small, that helps us to pay the server costs and develop the site professionaly! There can be no gift-economy without a little gift-economy :)"
+msgstr "Esta red se cultiva y mantenida por sus miembros, ya que nosotros no conseguir muchas donaciones, no podemos ofrecer mucho más de un servicio, así que por favor contribuir retroalimentación, sus habilidades (diseño, programación, communcation, redes, etc ..) Apenas consiga en contacto ¡con nosotros! Alternativamente, también puede dar una donación, puede ser aún muy pequeño, que nos ayuda a pagar las costas del servidor y desarrollamos el sitio profesionalmente! No puede haber ningún don-economía sin un regalito economía :)"
 
 #: templates/userprofiles/registration_complete.html:15
 msgid "Thank you, see you around! The rest of the ecobasa team."
@@ -3103,45 +2920,20 @@ msgid "Welcome to the gift-economy network!"
 msgstr "Bienvenidos a la red de regalos economía!"
 
 #: templates/userprofiles/registration_complete.html:18
-msgid ""
-"As your communities gift-ambassador it is on you to spread the idea and "
-"function of a gift-economy network among other members of your community, "
-"they can sign up as pioneers and join your community-group"
-msgstr ""
-"A medida que su comunidades regalo-embajador es con ustedes para difundir la "
-"idea y la función de una red de regalos economía entre otros miembros de su "
-"comunidad, pueden inscribirse como pioneros y unirse a su grupo de la "
-"comunidad"
+msgid "As your communities gift-ambassador it is on you to spread the idea and function of a gift-economy network among other members of your community, they can sign up as pioneers and join your community-group"
+msgstr "A medida que su comunidades regalo-embajador es con ustedes para difundir la idea y la función de una red de regalos economía entre otros miembros de su comunidad, pueden inscribirse como pioneros y unirse a su grupo de la comunidad"
 
 #: templates/userprofiles/registration_complete.html:19
-msgid ""
-"For now, it is your job to post offers and needs the community has to the "
-"profile, so it stays up to date. Without wishing, things cannot come to "
-"you :)"
-msgstr ""
-"Por ahora, es su trabajo para publicar ofertas y necesidades de la comunidad "
-"cuenta con el perfil, por lo que se mantiene hasta la fecha. Sin querer, las "
-"cosas no pueden ir a vosotros :)"
+msgid "For now, it is your job to post offers and needs the community has to the profile, so it stays up to date. Without wishing, things cannot come to you :)"
+msgstr "Por ahora, es su trabajo para publicar ofertas y necesidades de la comunidad cuenta con el perfil, por lo que se mantiene hasta la fecha. Sin querer, las cosas no pueden ir a vosotros :)"
 
 #: templates/userprofiles/registration_complete.html:20
-msgid ""
-"You can contact other communities that you would like to recieve goods and "
-"services from and tell them to sign up on this website, so we can connect "
-"them to the network."
-msgstr ""
-"Puede ponerse en contacto con otras comunidades que le gustaría para recibir "
-"los bienes y servicios de y decirles que para inscribirse en este sitio web, "
-"por lo que puede conectar a la red."
+msgid "You can contact other communities that you would like to recieve goods and services from and tell them to sign up on this website, so we can connect them to the network."
+msgstr "Puede ponerse en contacto con otras comunidades que le gustaría para recibir los bienes y servicios de y decirles que para inscribirse en este sitio web, por lo que puede conectar a la red."
 
 #: templates/userprofiles/registration_complete.html:22
-msgid ""
-"You can use this websites tools for your community! You can organize events, "
-"doodle for available times, write texts and assign tasks and of course "
-"network with the other communities!"
-msgstr ""
-"Puede utilizar estos sitios web herramientas para su comunidad! Puede "
-"organizar eventos, garabatear durante las horas disponibles, escribir textos "
-"y asignar tareas y de la red de curso con las otras comunidades!"
+msgid "You can use this websites tools for your community! You can organize events, doodle for available times, write texts and assign tasks and of course network with the other communities!"
+msgstr "Puede utilizar estos sitios web herramientas para su comunidad! Puede organizar eventos, garabatear durante las horas disponibles, escribir textos y asignar tareas y de la red de curso con las otras comunidades!"
 
 #: templates/userprofiles/registration_complete.html:31
 msgid "See you soon, the rest of the ecobasa team."
@@ -3152,21 +2944,8 @@ msgid "Already signed in as"
 msgstr "Ya firmado en como"
 
 #: templates/userprofiles/registration_member.html:56
-msgid ""
-"As you might know, this is a gift-economy Network, by signing up on this "
-"website, you become a member of the gift-economy network for communities. "
-"For the gift-economy to work, we need some information. This is the most "
-"important thing and you should really take your time to fill out your "
-"profile, so other people can find your skills and start interacting with "
-"you. This is the most sustainable investment of time that you can do today!"
-msgstr ""
-"Como debes saber, se trata de una red de regalos economía, mediante la firma "
-"de este sitio web, te conviertes en un miembro de la red de regalo-economía "
-"de las comunidades. Para la economía del regalo funcione, necesitamos un "
-"poco de información. Esto es lo más importante y usted debe realmente tomar "
-"su tiempo para llenar tu perfil, para que otras personas puedan encontrar "
-"sus habilidades y empezar a interactuar con usted. Esta es la inversión más "
-"sostenible de tiempo que usted puede hacer hoy!"
+msgid "As you might know, this is a gift-economy Network, by signing up on this website, you become a member of the gift-economy network for communities. For the gift-economy to work, we need some information. This is the most important thing and you should really take your time to fill out your profile, so other people can find your skills and start interacting with you. This is the most sustainable investment of time that you can do today!"
+msgstr "Como debes saber, se trata de una red de regalos economía, mediante la firma de este sitio web, te conviertes en un miembro de la red de regalo-economía de las comunidades. Para la economía del regalo funcione, necesitamos un poco de información. Esto es lo más importante y usted debe realmente tomar su tiempo para llenar tu perfil, para que otras personas puedan encontrar sus habilidades y empezar a interactuar con usted. Esta es la inversión más sostenible de tiempo que usted puede hacer hoy!"
 
 #: templates/userprofiles/registration_member.html:63
 msgid "Fill out your profile"
@@ -3177,13 +2956,8 @@ msgid "No, just register"
 msgstr "No, registrate"
 
 #: templates/userprofiles/registration_member.html:123
-msgid ""
-"You can also add a bus later, it would be great if you could ask around "
-"among your friends if they want to join us with their bus!"
-msgstr ""
-"También puede añadir un autobús después, sería estupendo si pudiera "
-"preguntar por ahí entre tus amigos, si quieren unirse a nosotros con su "
-"autobús!"
+msgid "You can also add a bus later, it would be great if you could ask around among your friends if they want to join us with their bus!"
+msgstr "También puede añadir un autobús después, sería estupendo si pudiera preguntar por ahí entre tus amigos, si quieren unirse a nosotros con su autobús!"
 
 #: templates/userprofiles/registration_member.html:129
 msgid "NO, just register me!"
@@ -3229,20 +3003,3 @@ msgstr "Añadir referencia para %(pioneer)s"
 msgid "Edit reference for %(pioneer)s"
 msgstr "Editar referencia para %(pioneer)s"
 
-#~ msgid "knowledge/skills"
-#~ msgstr "conocimientos / habilidades"
-
-#~ msgid "products"
-#~ msgstr "productos"
-
-#~ msgid "This tour doesnt have any buses, yet!"
-#~ msgstr "Este tour doesnt tiene ningún autobuses, todavía!"
-
-#~ msgid "Apply for membership"
-#~ msgstr "Solicitar la participación"
-
-#~ msgid ", if you have a bus!"
-#~ msgstr ", Si usted tiene un autobús!"
-
-#~ msgid "Maximum passengers this bus can take:"
-#~ msgstr "Pasajeros máximo este autobús puede tomar:"
