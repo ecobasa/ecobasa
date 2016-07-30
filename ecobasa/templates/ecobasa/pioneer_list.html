@@ -1,7 +1,7 @@
-{% extends "cosinnus/base.html" %}
+{% extends "base.html" %}
 {% load i18n thumbnail static %}
 
-{% block page_title %}{% trans "Users" %}{% endblock %}
+{% block page_title %}{% trans "Gift-Pioneers" %}{% endblock %}
 
 
 {% block extrahead %}
@@ -21,7 +21,7 @@
     {% endif %}
     
     {% if pioneers %}
-    <table id="pioneer-list-table" class="table table-bordered table-striped table-hover table-curved">
+    <table id="pioneer-list-table" class="table table-bordered table-striped table-hover table-curved dt-responsive" cellspacing="0" width="100%">
         <thead>
             <tr>
                 <th>{% trans "Pioneer" %}</th>
@@ -48,22 +48,24 @@
               {{ profile.about|linebreaks|truncatewords_html:80 }}
           </td>
           <td>
+            {% if profile.skills.all %}
             <ul>
               {% for tag in profile.skills.all|slice:":8" %}
                 <li><span class="label label-{{ skill }}">{{ tag|truncatewords_html:4 }}</span></li>
               {% endfor %}
             </ul>
+            {% endif %}
           </td>
           <td>
-              {% if profile.has_bus %}
+            {% if profile.has_bus %}
               {% if profile.bus_image %}
                   <img src="{{ profile.bus_image|thumbnail_url:"bus_medium" }}" />
               {% else %}
                   {% trans "Yes" %}
               {% endif %}
-              {% else %}
-                  {% trans "No" %}
-              {% endif %}
+            {% else %}
+                {% trans "No" %}
+            {% endif %}
           </td>
       </tr>
       {% endwith %}
@@ -86,7 +88,19 @@
   <script type="text/javascript">
   $(function() {
     $('#pioneer-list-table').DataTable( {
-      "responsive": true,
+      responsive: {
+        details: {
+          display: $.fn.dataTable.Responsive.display.modal( {
+            header: function ( row ) {
+                var data = row.data();
+                return '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>'+'Details for '+data[0];
+            }
+          } ),
+          renderer: $.fn.dataTable.Responsive.renderer.listHidden( {
+              tableClass: 'table'
+          } )
+        }
+      },
       "searchHighlight": true,
       "pageLength": 10,
       "aoColumnDefs": [

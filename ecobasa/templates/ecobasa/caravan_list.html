@@ -1,7 +1,14 @@
-{% extends "cosinnus/base.html" %}
+{% extends "base.html" %}
 {% load i18n thumbnail static cosinnus_tags ecobasa_event %}
 
 {% block page_title %}{% trans "Community-Tours" %}{% endblock %}
+
+{% block extrahead %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static "leaflet/leaflet.css" %}" />
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.12/af-2.1.2/r-2.1.0/sc-1.4.2/datatables.min.css"/>
+<link rel="stylesheet" type="text/css" href="//cdn.datatables.net/plug-ins/1.10.12/features/searchHighlight/dataTables.searchHighlight.css"/>
+{% endblock %}
 
 {% block content %}
 <div class="row">
@@ -16,7 +23,7 @@
 {% if object_list %}
 <div class="row">
 <div class="col-xs-12">
-  <table id="caravan-list" class="table table-striped table-bordered table-hover table-curved">
+  <table id="caravan-list" class="table table-striped table-bordered table-hover table-curved dt-responsive">
       <thead>
           <th>{% trans "Tour" %}</th>
           <th>{% trans "Description" %}</th>
@@ -75,3 +82,34 @@
 {% endif %}
   
 {% endblock %}
+
+{% block extrafooter %}
+  {{ block.super }}
+  <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.12/af-2.1.2/r-2.1.0/sc-1.4.2/datatables.min.js"></script>
+  <script type="text/javascript" src="//cdn.datatables.net/plug-ins/1.10.12/features/searchHighlight/dataTables.searchHighlight.min.js"></script>
+  <script type="text/javascript" src="//bartaz.github.io/sandbox.js/jquery.highlight.js"></script>
+  <script type="text/javascript">
+  $(function() {
+    $('#caravan-list').DataTable( {
+      responsive: {
+        details: {
+          display: $.fn.dataTable.Responsive.display.modal( {
+            header: function ( row ) {
+                var data = row.data();
+                return '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>'+'Details for '+data[0];
+            }
+          } ),
+          renderer: $.fn.dataTable.Responsive.renderer.listHidden( {
+              tableClass: 'table'
+          } )
+        }
+      },
+      "searchHighlight": true,
+      "pageLength": 10,
+      "aoColumnDefs": [
+        { 'bSortable': false, 'aTargets': [ 1, 4 ] }
+      ]
+    } );
+  });
+  </script>
+{% endblock extrafooter %}
