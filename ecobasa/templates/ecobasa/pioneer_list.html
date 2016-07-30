@@ -6,7 +6,7 @@
 
 {% block extrahead %}
   {{ block.super }}
-  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/u/bs/dt-1.10.12,af-2.1.2,r-2.1.0/datatables.min.css"/>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.12/af-2.1.2/r-2.1.0/sc-1.4.2/datatables.min.css"/>
   <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/plug-ins/1.10.12/features/searchHighlight/dataTables.searchHighlight.css"/>
 {% endblock extrahead %}
 
@@ -80,12 +80,13 @@
 
 {% block extrafooter %}
   {{ block.super }}
-   <script type="text/javascript" src="https://cdn.datatables.net/u/bs/dt-1.10.12,af-2.1.2,r-2.1.0/datatables.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.12/af-2.1.2/r-2.1.0/sc-1.4.2/datatables.min.js"></script>
   <script type="text/javascript" src="//cdn.datatables.net/plug-ins/1.10.12/features/searchHighlight/dataTables.searchHighlight.min.js"></script>
   <script type="text/javascript" src="//bartaz.github.io/sandbox.js/jquery.highlight.js"></script>
   <script type="text/javascript">
   $(function() {
     $('#pioneer-list-table').DataTable( {
+      "responsive": true,
       "searchHighlight": true,
       "pageLength": 10,
       "aoColumnDefs": [

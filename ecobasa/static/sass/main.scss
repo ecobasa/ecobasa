@@ -824,8 +824,10 @@ a.community-image {
 	margin-bottom: 10px;
 }
 
-#community-list .modal-lg {
-	width: 800px;
+@media screen and (min-width: 768px) {
+	.modal-dialog {
+	    width: 800px;
+	}
 }
 
 table#community-list-table,

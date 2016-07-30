@@ -6,8 +6,7 @@
 {% block extrahead %}
 {{ block.super }}
 <link rel="stylesheet" href="{% static "leaflet/leaflet.css" %}" />
-<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/u/bs/dt-1.10.12,af-2.1.2,r-2.1.
-0/datatables.min.css"/>
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.12/af-2.1.2/r-2.1.0/sc-1.4.2/datatables.min.css"/>
 <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/plug-ins/1.10.12/features/searchHighlight/dataTables.searchHighlight.css"/>
 {% endblock %}
 
@@ -29,7 +28,7 @@
       </div>
       <div class="modal-body">
         {% if object_list %}
-    <table id="community-list-table" class="table table-bordered table-hover table-curved">
+    <table id="community-list-table" class="table table-bordered table-hover table-curved dt-responsive nowrap" cellspacing="0" width="100%">>
       <thead>
         <tr>
           <th>{% trans "Community" %}</th>
@@ -110,8 +109,9 @@
   <script src="{% static "leaflet/leaflet.js" %}"></script>
   <script src="{% static "js/ecobasa_map.js" %}"></script>
   <script type="text/javascript" src="https://stamen-maps.a.ssl.fastly.net/js/tile.stamen.js?v1.2.4"></script>
-  <script type="text/javascript" src="https://cdn.datatables.net/u/bs/dt-1.10.12,af-2.1.2,r-2.1.0/datatables.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.12/af-2.1.2/r-2.1.0/sc-1.4.2/datatables.min.js"></script>
   <script type="text/javascript" src="//cdn.datatables.net/plug-ins/1.10.12/features/searchHighlight/dataTables.searchHighlight.min.js"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/responsive/2.1.0/js/responsive.bootstrap.min.js"></script>
   <script type="text/javascript" src="//bartaz.github.io/sandbox.js/jquery.highlight.js"></script>
   <script type="text/javascript">
   {% get_community_locations as locations %}
@@ -122,6 +122,19 @@
     {% endfor %}
 
     $('#community-list-table').DataTable( {
+      responsive: {
+        details: {
+          display: $.fn.dataTable.Responsive.display.modal( {
+            header: function ( row ) {
+                var data = row.data();
+                return '<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>'+'Details for '+data[0];
+            }
+          } ),
+          renderer: $.fn.dataTable.Responsive.renderer.listHidden( {
+              tableClass: 'table'
+          } )
+        }
+      },
       "searchHighlight": true,
       "pageLength": 10,
       "aoColumnDefs": [
