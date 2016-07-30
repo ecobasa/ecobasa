@@ -810,6 +810,16 @@ table#caravan-list ul li {
   list-style: none;
 }
 
+table.dataTable.dtr-inline.collapsed > tbody > tr > td:first-child:before,
+table.dataTable.dtr-inline.collapsed > tbody > tr > th:first-child:before {
+  background-color: #da6137 !important;
+  color: #fcf3e5 !important;
+  border: none !important;
+  height: 25px !important;
+  width: 25px !important;
+  line-height: 25px !important;
+}
+
 #community-list-table_wrapper .form-control {
   background-color: rgba(255, 255, 255, 0.5);
 }
