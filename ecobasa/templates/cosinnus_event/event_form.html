@@ -45,6 +45,7 @@
       {% bootstrap_field form.forms.obj.public %}
       {% bootstrap_field form.forms.obj.image %}
       {% bootstrap_field form.forms.obj.url %}
+      {% bootstrap_form form.forms.media_tag %}
 
       {% for formset in inlines %}
         <fieldset id="formset{{ formset.prefix }}">
