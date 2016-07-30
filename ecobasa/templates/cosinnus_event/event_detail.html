@@ -9,7 +9,7 @@
 
 {% block extrahead %}
 {{ block.super }}
-<link rel="stylesheet" href="{% static 'geoposition/geoposition.css' %}">
+<link rel="stylesheet" href="{% static "leaflet/leaflet.css" %}" />
 {% endblock extrahead %}
 
 
@@ -51,10 +51,7 @@
     <div class="col-md-6">
       {% if object.location %}
       <strong>{% trans "Location" %}:</strong>
-      <div class="geoposition-widget" data-map-widget-height="{{ map_widget_height }}">
-          <input class="geoposition" value="{{ object.location.latitude|unlocalize }}">
-          <input class="geoposition" value="{{ object.location.longitude|unlocalize }}">
-      </div>
+      <div id="event-map" class="community-map-small"></div>
       {% endif %}
       {% if object.street %}
       <strong>{% trans "Street" %}</strong> {{ object.street }}<br />
@@ -111,6 +108,17 @@
 
 {% block extrafooter %}
 {{ block.super }}
-<script src="https://maps.google.com/maps/api/js?sensor=false"></script>
-<script src="{% static 'geoposition/geoposition.js' %}"></script>
+<script src="{% static "leaflet/leaflet.js" %}"></script>
+<script src="{% static "js/ecobasa_map.js" %}"></script>
+<script type="text/javascript" src="https://stamen-maps.a.ssl.fastly.net/js/tile.stamen.js?v1.2.4"></script>
+<script type="text/javascript">
+$(function() {
+  EcobasaMap.init('event-map');
+  {% with lat=object.location.latitude|unlocalize lon=object.location.longitude|unlocalize %}
+  var location = new L.LatLng({{ lat }}, {{ lon }});
+  EcobasaMap.addMarker({{ lat }}, {{ lon }}, "{{ object.name }}");
+  EcobasaMap.map.setView(location, 10);
+  {% endwith %}
+});
+</script>
 {% endblock extrafooter %}
