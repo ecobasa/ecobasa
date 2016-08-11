@@ -8,8 +8,6 @@
 <meta property="og:title" content="ecobasa.org - a gift-economy network for communities" />
 <meta property="og:description" content="ecobasa is a directory of sustainable communities and ecovillages that connects them to individuals looking for alternative ways of living. The site offers the technology for communication, collaboration and the exchange of experiences, knowledge, skills, services and ressources" />
 <meta property="og:image" content="{% static "img/ecobasa_logo.png" %}" />
-
-<link rel="stylesheet" href="{% static "leaflet/leaflet.css" %}" />
 {% endblock %}
 
 {% block body %}start{% endblock body %}
@@ -87,19 +85,3 @@
 </div><!-- image -->
 </div>
 {% endblock %}
-
-{% block extrafooter %}
-  {{ block.super }}
-  <script src="{% static "leaflet/leaflet.js" %}"></script>
-  <script src="{% static "js/ecobasa_map.js" %}"></script>
-  <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.4"></script>
-  <script type="text/javascript">
-  {% get_community_locations as locations %}
-  $(function() {
-    EcobasaMap.init('community-map');
-    {% for l in locations %}
-    EcobasaMap.addMarker({{ l.lat|unlocalize }}, {{ l.lon|unlocalize }}, '<a href="{% url 'community-detail' group=l.slug %}">{{ l.name }}</a>');
-    {% endfor %}
-  });
-  </script>
-{% endblock extrafooter %}
