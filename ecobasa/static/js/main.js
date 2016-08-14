@@ -47,6 +47,7 @@ $(document).ready(function() {
 
     $('[data-toggle="tooltip"]').tooltip();
 	// $('.email').tooltip();
+	$('[data-toggle="popover"]').popover();
 	
 	$('#accordion .collapse').on('shown.bs.collapse', function () {
        $(this).parent().find('.glyphicon-chevron-right').removeClass('glyphicon-chevron-right').addClass('glyphicon-chevron-down');
