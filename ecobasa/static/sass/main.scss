@@ -189,6 +189,13 @@ h3, h4, h5, h6 {
 	margin-right: 7px;
 }
 
+.popover {
+	background-color: rgba($secondary,0.8);
+	&.top .arrow:after {
+		border-top-color: rgba($secondary,0.5);
+	}
+}
+
 .fa {
 	margin-right: 7px;
 }
@@ -225,14 +232,18 @@ h3, h4, h5, h6 {
 	}
 }
 
-.navbar-default .navbar-brand #logo {
-	float: left;
-    height: 27px;
-    margin-right: 4px;
+.navbar-default .navbar-brand {
+	h1 {
+		margin-right: 15px;
+	}
+	#logo {
+		float: left;
+	    height: 27px;
+	    margin-right: 6px;
+	}
 }
 
 .navbar-default ul.navbar-nav {
-	margin-left: 15px;
 	& > li > a {
 		color: $secondary;
 		padding-bottom: 17px;
@@ -764,11 +775,6 @@ body#note-list {
 body#communities {
 	.footer.navbar {
 		position: fixed;
-	}
-	@media (max-width: 992px) {
-		.footer.navbar {
-			display: none;
-		}
 	}
 }
 
@@ -1581,6 +1587,21 @@ div.cosinnus-event {
 	border: none;
     width: 100%;
     z-index: 9999;
+    a#license {
+		display: block;
+		padding-top: 14px;
+    }
+    ul.nav.navbar-right > li:last-child > a {
+    	padding-right: 0px;
+    }
+    ul.navbar-nav > li {
+    	& > a {
+    		padding-right: 6px;
+    	}
+    	&:first-child > a {
+    		padding-left: 0px;
+    	}
+    }
 }
 
 #myCanvas {
@@ -1642,6 +1663,14 @@ div.cosinnus-event {
 				    font-size: 20px;
 				}
 			}
+		}
+	}
+	footer.navbar {
+		a#license {
+			text-align: initial;
+		}
+		ul.navbar-nav > li > a {
+			padding-right: 0px;
 		}
 	}
 }
@@ -1715,6 +1744,12 @@ div.cosinnus-event {
 		}
 		ul {
 			margin: 0px;
+		}
+		a#license {
+			text-align: center;
+		}
+		span.hide-xs {
+			display: none;
 		}
 	}
 }

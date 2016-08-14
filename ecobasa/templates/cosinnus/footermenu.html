@@ -1,19 +1,22 @@
-{% load i18n menu_tags cosinnus_tags %}
+{% load i18n static menu_tags cosinnus_tags %}
 {% get_current_language as LANGUAGE_CODE %}
 <nav class="footer navbar navbar-default" role="navigation">
   <div class="navbar-footer">
-    <div class="col-md-12">
-      <div class="center-block">
-        <ul class="nav navbar-nav pull-left">
-          <li><a href="https://www.facebook.com/ecobasa/"><i class="fa fa-facebook"></i><span class="hidden-xs pull-right">{% trans "Follow us on facebook" %}</span></a></li>
-          <li><a href="https://www.youtube.com/channel/UC9P0vCR7DDPHly81cNQ_vyw"><i class="fa fa-youtube"></i><span class="hidden-xs pull-right">{% trans "Watch ecobasa.tv" %}</span></a></li>
-          <li><a href="https://github.com/ecobasa/ecobasa/"><i class="fa fa-github"></i><span class="hidden-xs pull-right">{% trans "Code on github" %}</span></a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li><a data-toggle="modal" data-target="#newsletter-modal" href="#m-newsletter"><span class="glyphicon glyphicon-envelope"></span>{% trans "Newsletter" %}</a></li>
-          <li><a href="{% url 'contact_form' %}"><span class="glyphicon glyphicon-envelope"></span>{% trans "Contact" %}</a></li>
-        </ul>
-      </div>
+    <div class="col-xs-4 col-md-5">
+      <ul class="nav navbar-nav pull-left">
+        <li><a href="https://www.facebook.com/ecobasa/"><i class="fa fa-facebook"></i><span class="visible-lg pull-right">{% trans "Follow us on facebook" %}</span></a></li>
+        <li><a href="https://www.youtube.com/channel/UC9P0vCR7DDPHly81cNQ_vyw"><i class="fa fa-youtube"></i><span class="visible-lg pull-right">{% trans "Watch ecobasa.tv" %}</span></a></li>
+        <li><a href="https://github.com/ecobasa/ecobasa/"><i class="fa fa-github"></i><span class="visible-lg pull-right">{% trans "Code on github" %}</span></a></li>
+      </ul>
+    </div>
+    <div class="col-xs-4 col-md-3">
+      <a id="license" rel="license" href="#" data-toggle="popover" data-placement="top" data-trigger="focus" data-html="true" data-content="<span xmlns:dct='http://purl.org/dc/terms/' href='http://purl.org/dc/dcmitype/StillImage' property='dct:title' rel='dct:type'><a xmlns:cc='http://creativecommons.org/ns#' href='https://ecobasa.org' property='cc:attributionName' rel='cc:attributionURL'>ecobasa.org</a></span> is licensed under a <a rel='license' href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>"><img alt="Creative Commons License" style="border-width:0;" src="{% static "img/cc-license-bright.png" %}" /></a>
+    </div>
+    <div class="col-xs-4 col-md-4">
+    <ul class="nav navbar-nav navbar-right">
+      <li><a data-toggle="modal" data-target="#newsletter-modal" href="#m-newsletter"><span class="glyphicon glyphicon-envelope"></span><span class="hide-xs">{% trans "Newsletter" %}</span></a></li>
+      <li><a href="{% url 'contact_form' %}"><span class="glyphicon glyphicon-envelope"></span><span class="hide-xs">{% trans "Contact" %}</span></a></li>
+    </ul>
     </div>
     <!-- <ul class="nav navbar-nav navbar-right">
 

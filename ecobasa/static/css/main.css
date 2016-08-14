@@ -5,6 +5,7 @@
   font-weight: normal;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'Lato';
   src: url("../fonts/lato-regular-webfont.eot");
@@ -12,6 +13,7 @@
   font-weight: normal;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'Lato';
   src: url("../fonts/lato-bold-webfont.eot");
@@ -19,6 +21,7 @@
   font-weight: bold;
   font-style: normal;
 }
+
 @font-face {
   font-family: 'Lato';
   src: url("../fonts/lato-italic-webfont.eot");
@@ -26,6 +29,7 @@
   font-weight: normal;
   font-style: italic;
 }
+
 @font-face {
   font-family: 'Lato';
   src: url("../fonts/lato-bolditalic-webfont.eot");
@@ -33,6 +37,7 @@
   font-weight: bold;
   font-style: italic;
 }
+
 /*********** Default **************/
 body {
   background: url("../img/back.jpg") repeat;
@@ -148,6 +153,13 @@ h3, h4, h5, h6 {
   margin-right: 7px;
 }
 
+.popover {
+  background-color: rgba(252, 243, 229, 0.8);
+}
+.popover.top .arrow:after {
+  border-top-color: rgba(252, 243, 229, 0.5);
+}
+
 .fa {
   margin-right: 7px;
 }
@@ -181,15 +193,15 @@ h3, h4, h5, h6 {
   font-size: 16px;
 }
 
+.navbar-default .navbar-brand h1 {
+  margin-right: 15px;
+}
 .navbar-default .navbar-brand #logo {
   float: left;
   height: 27px;
-  margin-right: 4px;
+  margin-right: 6px;
 }
 
-.navbar-default ul.navbar-nav {
-  margin-left: 15px;
-}
 .navbar-default ul.navbar-nav > li > a {
   color: #fcf3e5;
   padding-bottom: 17px;
@@ -292,9 +304,9 @@ nav.navbar-sub ul li a {
 }
 
 .alert-success {
-  color: #5A5527;
+  color: #5a5527;
   background-color: #c9c384;
-  border-color: #5A5527;
+  border-color: #5a5527;
 }
 
 /*********** Startpage ****************/
@@ -698,11 +710,6 @@ body#note-list .container.content {
 body#communities .footer.navbar {
   position: fixed;
 }
-@media (max-width: 992px) {
-  body#communities .footer.navbar {
-    display: none;
-  }
-}
 
 .leaflet-popup-content-wrapper,
 .leaflet-popup-tip {
@@ -982,11 +989,11 @@ button.continue {
 }
 
 .has-success .form-control {
-  border: 1px dotted #5A5527;
+  border: 1px dotted #5a5527;
 }
 
 .has-success .help-block, .has-success .control-label, .has-success .radio, .has-success .checkbox, .has-success .radio-inline, .has-success .checkbox-inline {
-  color: #5A5527;
+  color: #5a5527;
 }
 
 .form-control:focus {
@@ -1455,6 +1462,19 @@ div.cosinnus-event .big-calendar {
   width: 100%;
   z-index: 9999;
 }
+.footer.navbar a#license {
+  display: block;
+  padding-top: 14px;
+}
+.footer.navbar ul.nav.navbar-right > li:last-child > a {
+  padding-right: 0px;
+}
+.footer.navbar ul.navbar-nav > li > a {
+  padding-right: 6px;
+}
+.footer.navbar ul.navbar-nav > li:first-child > a {
+  padding-left: 0px;
+}
 
 #myCanvas {
   margin-left: auto;
@@ -1514,6 +1534,13 @@ div.cosinnus-event .big-calendar {
   body#note-detail section#header .carousel-inner .carousel-caption h1 {
     margin-bottom: 15px;
     font-size: 20px;
+  }
+
+  footer.navbar a#license {
+    text-align: initial;
+  }
+  footer.navbar ul.navbar-nav > li > a {
+    padding-right: 0px;
   }
 }
 @media (max-width: 992px) {
@@ -1587,6 +1614,10 @@ div.cosinnus-event .big-calendar {
   .footer.navbar ul {
     margin: 0px;
   }
+  .footer.navbar a#license {
+    text-align: center;
+  }
+  .footer.navbar span.hide-xs {
+    display: none;
+  }
 }
-
-/*# sourceMappingURL=main.css.map */
