@@ -1534,6 +1534,10 @@ div.cosinnus-event .big-calendar {
   .footer.navbar {
     position: relative;
   }
+  .footer.navbar ul.navbar-nav > li > a {
+    padding-right: 4px;
+    padding-left: 4px;
+  }
   .footer.navbar a#license {
     display: block;
     padding-top: 12px;
