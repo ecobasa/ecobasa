@@ -10,7 +10,7 @@
 {% block content %}
 {% if user.is_superuser or user == object %}<a class="btn btn-primary pull-right" href="{% url 'pioneer-edit' username=object.username %}"><span class="glyphicon glyphicon-pencil"></span>{% trans "Edit profile" %}</a>{% endif %}
 <h1>{{ object.get_full_name|default:object.username }}</h1>
-{% get_organiser_roles_for_user user as grouped_roles %}
+{% get_organiser_roles_for_user object as grouped_roles %}
 {% if grouped_roles %}
   {% for group, roles in grouped_roles.items %}
     {% for role in roles %}
