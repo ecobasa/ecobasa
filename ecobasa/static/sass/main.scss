@@ -1667,6 +1667,10 @@ div.cosinnus-event {
 	}
 	.footer.navbar {
 		position: relative;
+		ul.navbar-nav > li > a {
+		    padding-right: 4px;
+    		padding-left: 4px;
+		}
 		a#license {
 			display: block;
 			padding-top: 12px;
