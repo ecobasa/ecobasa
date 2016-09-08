@@ -29,7 +29,6 @@ django-contact-form==1.0
 django-tinymce==1.5.2
 -e git+git://github.com/bmispelon/django-multiform.git@ccc958db8daeba6044ec18c5ff6b158bc6a3d135#egg=django-multiform
 django-widget-tweaks==1.3.0
-django-browserid==1.0.0
 pytz==2015.6
 django-select2==4.2.2
 django-extensions==1.5.9
