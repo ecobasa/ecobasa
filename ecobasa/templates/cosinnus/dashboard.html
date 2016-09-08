@@ -13,7 +13,7 @@
 {% block content %}
 <div class="row">
   <div class="col-xs-12">
-  <h2>Good {% time_of_day %}, {{ user.first_name }}.</h2> {% if not group %}{% endif %}
+  {% if not group %}<h2>Good {% time_of_day %}, {{ user.first_name }}.</h2>{% endif %}
     {% if group %}
       {% if group.caravan %}
         <a href="{% url 'caravan-detail' group=group.slug %}" class="btn btn-primary"><span class="glyphicon glyphicon-road"></span>{% trans "Caravan Profile" %}</a>
