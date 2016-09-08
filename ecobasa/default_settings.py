@@ -295,6 +295,7 @@ USERPROFILES_USE_EMAIL_VERIFICATION = False
 
 # from django.core.urlresolvers import reverse
 # LOGIN_URL = reverse('home')
+LOGIN_REDIRECT_URL = '/profile/dashboard'
 
 
 # COSINNUS settings
