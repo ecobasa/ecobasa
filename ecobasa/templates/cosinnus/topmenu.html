@@ -54,9 +54,11 @@
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>{{ request.user|full_name }} <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                   <li>
+                    <a href="{% url 'cosinnus:user-dashboard' %}"><span class="glyphicon glyphicon-dashboard"></span>{% trans "Dashboard" %}</a>
+                  </li>
+                  <li>
                     <a href="{% url 'cosinnus:profile-detail' %}"><span class="glyphicon glyphicon-user"></span> {% trans "My Profile" %}</a>
                   </li>
-                  <!-- <li><a href="{% url 'cosinnus:user-dashboard' %}">{% trans "Dashboard" %}</a></li> -->
                   {% if groups %} {# only show dropdown if user is in group #}
                     <li class="divider"></li>
                     <li class="dropdown-header">
@@ -69,7 +71,7 @@
                         </li>
                       {% elif g.caravan %}
                         <li{% if g == group %} class="active"{% endif %}>
-                          <a href="{% url 'caravan-dashboard' group=g.slug %}"><span class="glyphicon glyphicon-transfer"></span>{% if g == group %}<strong>{{ g.name }}</strong>{% else %}{{ g.name }}</a>{% endif %}</a>
+                          <a href="{% url 'caravan-dashboard' group=g.slug %}"><span class="glyphicon glyphicon-road"></span>{% if g == group %}<strong>{{ g.name }}</strong>{% else %}{{ g.name }}</a>{% endif %}</a>
                         </li>
                       {% else %}
                         <li{% if g == group %} class="active"{% endif %}>
@@ -106,7 +108,7 @@
               {% if group.profile %}
                 <span class="glyphicon glyphicon-home"></span>
               {% elif group.caravan %}
-                <span class="glyphicon glyphicon-transfer"></span>
+                <span class="glyphicon glyphicon-road"></span>
               {% else %}
                 <span class="glyphicon glyphicon-globe"></span>
               {% endif %}
