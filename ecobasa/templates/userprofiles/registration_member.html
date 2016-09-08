@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n static bootstrap3 honeypot ecobasa_tags browserid %}
+{% load i18n static bootstrap3 honeypot ecobasa_tags %}
 
 {% block page_title %}{% trans "Registration" %}{% endblock %}
 
@@ -12,21 +12,6 @@
 {% endblock extrahead %}
 
 {% block content %}
-<div class="row">
-  <div class="col-xs-12">
-    {% browserid_info %}
-    {% if user.is_authenticated %}
-      <div class="alert alert-danger" role="alert">
-          <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-          <span class="sr-only">{% trans "Error" %}:</span>
-          {% trans "You are logged in as:" %} <b>{{ user.username }}</b> ({{ user.email }})
-      </div>
-      {% browserid_logout text='Logout' link_class='btn btn-danger' %}
-    {% else %}
-      {% browserid_login text='Login' color='dark' %}
-    {% endif %}
-  </div>
-</div>
 <div class="row">
   <div class="col-xs-12 col-md-6">
     <form id="form-register-member" action="{% url 'register-member' %}" method="post" enctype="multipart/form-data" novalidate="novalidate">
