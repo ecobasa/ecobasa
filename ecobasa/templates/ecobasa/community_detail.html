@@ -354,35 +354,35 @@
         </span>
       </ul>
       {% if profile.visitors_accommodation %}
-        <h3><span class="glyphicon glyphicon-tent"></span> {% trans "Accomodation for guests" %}</h3>
+        <h3><span class="glyphicon glyphicon-home"></span> {% trans "Accomodation for guests" %}</h3>
         <p>{{ profile.visitors_accommodation|urlize|linebreaksbr|safe }}</p>
       {% endif %}
       {% if profile.website %}
         <h3><span class="glyphicon glyphicon-globe"></span> Website</h3>
         <a href="{{ profile.website }}" target="_blank">{{ profile.website }}</a>
       {% endif %}
-    </div>
-    {% if user.is_authenticated and profile.contact_show %}
-    <div class="contact">
-      <h3>Contact info</h3>
-      {{ profile.contact_street }}</br>
-      {{ profile.contact_zipcode }}
-      {{ profile.contact_city }}</br>
-      {{ profile.get_contact_country_display }}</br></br>
-      <span class="glyphicon glyphicon-earphone"></span> {{ profile.contact_telephone }}      
-    </div>
-    {% endif %}
-    <a href="{% url 'postman_write' recipients=object.name %}"><button class="email btn btn-primary btn-lg" data-toggle="tooltip" data-placement="top" title="If you want to visit and volunteer at this communtiy"><span class="glyphicon glyphicon-envelope"></span> {% trans "Contact this community" %}</button></a>
-    {% if profile.video %}
-    <div class="row">
-      <div class="col-md-12">
-        <h3><span class="glyphicon glyphicon-film"></span> {% trans "Video" %}</h3>
-        <div class="video-responsive">
-          {% video profile.video "small" %}
+      {% if user.is_authenticated and profile.contact_show %}
+      <div class="contact">
+        <h3>Contact info</h3>
+        {{ profile.contact_street }}</br>
+        {{ profile.contact_zipcode }}
+        {{ profile.contact_city }}</br>
+        {{ profile.get_contact_country_display }}</br></br>
+        <span class="glyphicon glyphicon-earphone"></span> {{ profile.contact_telephone }}      
+      </div>
+      {% endif %}
+      <a href="{% url 'postman_write' recipients=object.name %}"><button class="email btn btn-primary btn-lg" data-toggle="tooltip" data-placement="top" title="If you want to visit and volunteer at this communtiy"><span class="glyphicon glyphicon-envelope"></span> {% trans "Contact this community" %}</button></a>
+      {% if profile.video %}
+      <div class="row">
+        <div class="col-md-12">
+          <h3><span class="glyphicon glyphicon-film"></span> {% trans "Video" %}</h3>
+          <div class="video-responsive">
+            {% video profile.video "small" %}
+          </div>
         </div>
       </div>
+      {% endif %}
     </div>
-    {% endif %}
     <div id="community-map" class="community-map-small"></div>
 
      <div class="row">
