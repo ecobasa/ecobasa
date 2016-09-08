@@ -1596,7 +1596,7 @@ div.cosinnus-event {
     }
     ul.navbar-nav > li {
     	& > a {
-    		padding-right: 6px;
+    		padding-right: 5px;
     	}
     	&:first-child > a {
     		padding-left: 0px;
@@ -1665,13 +1665,16 @@ div.cosinnus-event {
 			}
 		}
 	}
-	footer.navbar {
-		a#license {
-			text-align: initial;
-		}
+	.footer.navbar {
+		position: relative;
 		ul.navbar-nav > li > a {
-			padding-right: 0px;
+		    padding-right: 4px;
+    		padding-left: 4px;
 		}
+		a#license {
+			display: block;
+			padding-top: 12px;
+	    }
 	}
 }
 
