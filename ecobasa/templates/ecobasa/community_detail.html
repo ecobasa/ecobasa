@@ -203,7 +203,7 @@
       {% if profile.offers_workshop_spaces %}
         <div class="row">
           <div class="col-xs-12">
-            <h3><span class="fa fa-gears"> {% trans "Workshop and factoring spaces" %}</span></h3>
+            <h3><span class="fa fa-gears"></span> {% trans "Workshop and factoring spaces" %}</h3>
             {{ profile.offers_workshop_spaces|urlize|linebreaksbr|safe }}
             <h3><span class="fa fa-calendar"></span> {% trans "Seminars" %}</h3>
             <p>{{ profile.offers_learning_seminars|urlize|linebreaksbr|safe }}</p>
@@ -359,7 +359,6 @@
       {% endif %}
       <a href="{% url 'postman_write' recipients=object.name %}"><button class="email btn btn-primary btn-lg" data-toggle="tooltip" data-placement="top" title="If you want to visit and volunteer at this communtiy"><span class="glyphicon glyphicon-envelope"></span> {% trans "Contact this community" %}</button></a>
     </div>
-    <div id="community-map" class="community-map-small"></div>
     {% if user.is_authenticated and profile.contact_show %}
     <div class="contact">
       <h3>Contact info</h3>
@@ -384,6 +383,7 @@
       </div>
     </div>
     {% endif %}
+    <div id="community-map" class="community-map-small"></div>
 
      <div class="row">
       <div class="col-md-12">
