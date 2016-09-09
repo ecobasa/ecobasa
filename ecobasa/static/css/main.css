@@ -1077,6 +1077,12 @@ body#profile .label {
 body#profile .btn.email {
   margin-top: 20px;
 }
+body#profile .list-inline > li {
+  margin-bottom: 10px;
+  margin-right: 5px;
+  padding-right: 0px;
+  padding-left: 0px;
+}
 
 .sidebar .data {
   margin-right: 5px;
