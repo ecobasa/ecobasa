@@ -357,7 +357,10 @@
         <h3><span class="glyphicon glyphicon-tent"></span> {% trans "Accomodation for guests" %}</h3>
         <p>{{ profile.visitors_accommodation|urlize|linebreaksbr|safe }}</p>
       {% endif %}
-      <a href="{% url 'postman_write' recipients=object.name %}"><button class="email btn btn-primary btn-lg" data-toggle="tooltip" data-placement="top" title="If you want to visit and volunteer at this communtiy"><span class="glyphicon glyphicon-envelope"></span> {% trans "Contact this community" %}</button></a>
+      {% if profile.website %}
+        <h3><span class="glyphicon glyphicon-globe"></span> Website</h3>
+        <a href="{{ profile.website }}" target="_blank">{{ profile.website }}</a>
+      {% endif %}
     </div>
     {% if user.is_authenticated and profile.contact_show %}
     <div class="contact">
@@ -369,10 +372,7 @@
       <span class="glyphicon glyphicon-earphone"></span> {{ profile.contact_telephone }}      
     </div>
     {% endif %}
-    {% if profile.website %}
-    <h3><span class="glyphicon glyphicon-globe"></span> Website</h3>
-    <a href="{{ profile.website }}" target="_blank">{{ profile.website }}</a>
-    {% endif %}
+    <a href="{% url 'postman_write' recipients=object.name %}"><button class="email btn btn-primary btn-lg" data-toggle="tooltip" data-placement="top" title="If you want to visit and volunteer at this communtiy"><span class="glyphicon glyphicon-envelope"></span> {% trans "Contact this community" %}</button></a>
     {% if profile.video %}
     <div class="row">
       <div class="col-md-12">
