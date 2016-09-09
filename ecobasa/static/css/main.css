@@ -1074,7 +1074,7 @@ body#profile .content h2.title {
 body#profile .label {
   font-size: 100%;
 }
-body#profile .contact {
+body#profile .btn.email {
   margin-top: 20px;
 }
 
