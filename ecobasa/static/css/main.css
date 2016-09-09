@@ -1071,6 +1071,12 @@ body#profile .content h2.title {
   border: none;
   background: none;
 }
+body#profile .label {
+  font-size: 100%;
+}
+body#profile .contact {
+  margin-top: 20px;
+}
 
 .sidebar .data {
   margin-right: 5px;

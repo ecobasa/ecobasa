@@ -202,11 +202,13 @@
     </div>
       {% if profile.offers_workshop_spaces %}
         <div class="row">
-          <div class="col-xs-12">
-            <h3><span class="fa fa-gears"></span> {% trans "Workshop and factoring spaces" %}</h3>
-            {{ profile.offers_workshop_spaces|urlize|linebreaksbr|safe }}
+          <div class="col-xs-6">
             <h3><span class="fa fa-calendar"></span> {% trans "Seminars" %}</h3>
             <p>{{ profile.offers_learning_seminars|urlize|linebreaksbr|safe }}</p>
+          </div>
+          <div class="col-xs-6">
+            <h3><span class="fa fa-gears"></span> {% trans "Workshop and factoring spaces" %}</h3>
+            {{ profile.offers_workshop_spaces|urlize|linebreaksbr|safe }}
           </div>
         </div>
       {% endif %}
@@ -257,7 +259,7 @@
           {% endif %}
         {% endif %}
         {% if profile.wishlist_materials_info or user|is_group_admin:object %}
-          <h4><span class="glyphicon glyphicon-star"> {% trans "Aditional info about Materials" %}</span></h4>
+          <h4><span class="glyphicon glyphicon-star"></span> {% trans "Aditional info about Materials" %}</h4>
           <p>{{ profile.wishlist_materials_info|urlize|linebreaksbr|safe }}</p>
           {% if user|is_group_admin:object %}
             <a href="{% url 'community-edit' group=object.slug %}#id_wishlist_materials" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add a description" %}</a>
@@ -358,20 +360,20 @@
         <p>{{ profile.visitors_accommodation|urlize|linebreaksbr|safe }}</p>
       {% endif %}
       {% if profile.website %}
-        <h3><span class="glyphicon glyphicon-globe"></span> Website</h3>
+        <h3><a href="{{ profile.website }}" target="_blank"><span class="glyphicon glyphicon-globe"></span> Website</a></h3>
         <a href="{{ profile.website }}" target="_blank">{{ profile.website }}</a>
       {% endif %}
-      {% if user.is_authenticated and profile.contact_show %}
       <div class="contact">
-        <h3>Contact info</h3>
-        {{ profile.contact_street }}</br>
-        {{ profile.contact_zipcode }}
-        {{ profile.contact_city }}</br>
-        {{ profile.get_contact_country_display }}</br></br>
-        <span class="glyphicon glyphicon-earphone"></span> {{ profile.contact_telephone }}      
+        {% if user.is_authenticated and profile.contact_show %}
+          <h3>Contact info</h3>
+          {{ profile.contact_street }}</br>
+          {{ profile.contact_zipcode }}
+          {{ profile.contact_city }}</br>
+          {{ profile.get_contact_country_display }}</br></br>
+          <span class="glyphicon glyphicon-earphone"></span> {{ profile.contact_telephone }}      
+        {% endif %}
+        <a href="{% url 'postman_write' recipients=object.name %}"><button class="email btn btn-primary btn-lg" data-toggle="tooltip" data-placement="top" title="If you want to visit and volunteer at this communtiy"><span class="glyphicon glyphicon-envelope"></span> {% trans "Contact this community" %}</button></a>
       </div>
-      {% endif %}
-      <a href="{% url 'postman_write' recipients=object.name %}"><button class="email btn btn-primary btn-lg" data-toggle="tooltip" data-placement="top" title="If you want to visit and volunteer at this communtiy"><span class="glyphicon glyphicon-envelope"></span> {% trans "Contact this community" %}</button></a>
       {% if profile.video %}
       <div class="row">
         <div class="col-md-12">
