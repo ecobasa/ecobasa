@@ -173,7 +173,6 @@ INSTALLED_APPS = (
     'suit',
     'django.contrib.admin',
     'django.contrib.auth',
-    'django_browserid',  # Load after auth
     'django.contrib.contenttypes',
     'django.contrib.humanize',
     'django.contrib.sessions',
@@ -268,7 +267,6 @@ LOGGING = {
 AUTHENTICATION_BACKENDS = {
 
    'django.contrib.auth.backends.ModelBackend',
-   'django_browserid.auth.BrowserIDBackend',
 
 }
 
@@ -295,6 +293,7 @@ USERPROFILES_USE_EMAIL_VERIFICATION = False
 
 # from django.core.urlresolvers import reverse
 # LOGIN_URL = reverse('home')
+LOGIN_REDIRECT_URL = '/profile/dashboard'
 
 
 # COSINNUS settings

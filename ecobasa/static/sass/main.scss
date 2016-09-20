@@ -1148,6 +1148,21 @@ body#profile {
 			background: none;
 		}
 	}
+
+	.label {
+		font-size: 100%;
+	}
+
+	.btn.email {
+		margin-top: 20px;
+	}
+
+	.list-inline>li {
+		margin-bottom: 10px;
+    	margin-right: 5px;
+    	padding-right: 0px;
+    	padding-left: 0px;
+	}
 }
 
 .sidebar {
@@ -1506,10 +1521,6 @@ span.mailcount {
 	&:focus {
 		background-color: $primary;
 	}
-}
-
-.btn-group>.btn+.dropdown-toggle {
-	padding-bottom: 7px;
 }
 
 .table-striped>tbody>tr:nth-child(odd)>td, 
