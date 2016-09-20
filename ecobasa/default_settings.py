@@ -368,7 +368,6 @@ ECOBASA_SPECIAL_COSINNUS_GROUP = 8
 
 # special group all community ambassadors are member of
 # override in your local settings.py
-
 ECOBASA_COMMUNITY_GROUP = 90
 
 # used on about page for the tour progress bar
@@ -385,3 +384,5 @@ SECURE_HSTS_SECONDS = 3600
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 
 GEOPOSITION_GOOGLE_MAPS_API_KEY = 'AIzaSyB2_6y4Jr7VPT3U4nUz3bf6YA7ef3YijHM'
+
+AUTO_LOGIN = True
