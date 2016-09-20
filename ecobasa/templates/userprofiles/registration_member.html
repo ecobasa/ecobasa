@@ -12,6 +12,11 @@
 
 {% block content %}
 <div class="row">
+  <div class="col-xs-12">
+    <h2>{% trans "Member Registration" %}</h2>
+  </div>
+</div>
+<div class="row">
   <div class="col-xs-12 col-md-6">
     <form id="form-register-member" action="{% url 'register-member' %}" method="post" enctype="multipart/form-data" novalidate="novalidate">
       {% csrf_token %}
