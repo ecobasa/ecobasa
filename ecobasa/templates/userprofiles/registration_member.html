@@ -8,7 +8,6 @@
 {{ form.media.css }}
 <link href="{% static "css/vendor/select2-bootstrap.css" %}" rel="stylesheet"/>
 <link href="{% static "css/vendor/select2.css" %}" rel="stylesheet"/>
-{% browserid_css %}
 {% endblock extrahead %}
 
 {% block content %}
@@ -178,7 +177,6 @@
 {% block extrafooter %}
 {{ block.super }}
 {{ form.media.js }}
-{% browserid_js %}
 <script src="{% static 'js/vendor/select2/select2.min.js' %}"></script>
 <script src="{% static 'js/ecobasa_profile.js' %}"></script>
 <script src="{% static 'js/ecobasa_register.js' %}"></script>
