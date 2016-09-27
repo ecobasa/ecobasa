@@ -333,15 +333,17 @@ class EcobasaUserProfile(BaseUserProfile):
     # Offers
     skills = TaggableManager(_('Skills / Knowledge'),
         through=TaggedSkill, related_name='_skill', blank=True,
-	help_text=_('What skills do you have? What can you do to help others? What can you teach someone?'))
+	help_text=_('What skills do you have? What can you do to help others? What can you teach someone? Connect two words with a "-" to have one tag.'))
     products = TaggableManager(_('Products'),
         through=TaggedProduct, related_name='_product', blank=True,
-        help_text=_('Can you manufacture any products, like jewelery, furniture, clothes, soap etc.. ?'))
+        help_text=_('Can you manufacture any products, like jewelery, furniture, clothes, soap etc.. ? Connect two words with a "-" to have one tag.'))
 
     # Wishlist
     wishlist = TaggableManager(_('Wishlist'),
         through=TaggedWishlist,
-        related_name='_wishlist', blank=True)
+        related_name='_wishlist', 
+        blank=True, 
+        help_text=_('A comma-separated list of tags. You can type anything here. You can also chose from other users tags. Connect two words with a "-" to have one tag.'))
 
     # bus fields
     has_bus = models.BooleanField(
@@ -487,37 +489,51 @@ class EcobasaCommunityProfile(models.Model):
         blank=True, null=True)
     wishlist_materials = TaggableManager(_('What materials do you need?'),
         through=TaggedWishMaterial,
-        related_name='_wishlist_material', blank=True)
+        related_name='_wishlist_material', 
+        blank=True,
+        help_text=_('A comma-separated list of tags. You can type anything here. You can also chose from other users tags. Connect two words with a "-" to have one tag.'))
     wishlist_materials_info = models.TextField(_('Do you have any additional info about materials, or details to your request (like condition, when you need them)?'),
         blank=True, null=True)
     wishlist_tools = TaggableManager(_('What tools or machines do you need?'),
         through=TaggedWishTool,
-        related_name='_wishlist_tool', blank=True)
+        related_name='_wishlist_tool', 
+        blank=True,
+        help_text=_('A comma-separated list of tags. You can type anything here. You can also chose from other users tags. Connect two words with a "-" to have one tag.'))
     wishlist_tools_info = models.TextField(
         _('Do you have any additional info about tools, or details to your request (like condition, when you need them)?'),
         blank=True, null=True)
     wishlist_skills = TaggableManager(_('Are you looking for some experts that could help you with a project or problem? Tag their desired skills here:'),
         through=TaggedWishSkill,
-        related_name='_wishlist_skill', blank=True)
+        related_name='_wishlist_skill', 
+        blank=True,
+        help_text=_('A comma-separated list of tags. You can type anything here. You can also chose from other users tags. Connect two words with a "-" to have one tag.'))
     wishlist_special_needs = models.TextField(
         _('Special needs (knowledge, information)'), blank=True, null=True)
 
     # offers
     offers_services = TaggableManager(_('Services offered in your community'),
         through=TaggedOffersService,
-        related_name='_offers_service', blank=True)
+        related_name='_offers_service', 
+        blank=True,
+        help_text=_('A comma-separated list of tags. You can type anything here. You can also chose from other users tags. Connect two words with a "-" to have one tag.'))
     offers_skills = TaggableManager(_('Skills people can learn in your community'),
         through=TaggedOffersSkill,
         related_name='_offers_skill', blank=True)
     offers_creations = TaggableManager(_('Creations/Products'),
         through=TaggedOffersCreation,
-        related_name='_offers_creation', blank=True)
+        related_name='_offers_creation', 
+        blank=True,
+        help_text=_('A comma-separated list of tags. You can type anything here. You can also chose from other users tags. Connect two words with a "-" to have one tag.'))
     offers_materials = TaggableManager(_('Do you have any materials that you produce or that you dont need anymore? (What you throw away, might be useful to somebody else..)'),
         through=TaggedOffersMaterial,
-        related_name='_offers_material', blank=True)
+        related_name='_offers_material',
+        blank=True,
+        help_text=_('A comma-separated list of tags. You can type anything here. You can also chose from other users tags. Connect two words with a "-" to have one tag.'))
     offers_tools = TaggableManager(_('Do you have any tools that you produce or that you dont need anymore?'),
         through=TaggedOffersTool,
-        related_name='_offers_tool', blank=True)
+        related_name='_offers_tool',
+        blank=True,
+        help_text=_('A comma-separated list of tags. You can type anything here. You can also chose from other users tags. Connect two words with a "-" to have one tag.'))
     offers_workshop_spaces = models.TextField(_('Do you have workshop spaces, where people can build/construct/manufacture things?'),
         blank=True, null=True)
     offers_learning_seminars = models.TextField(_('Do you offer any seminars that visitors could attend?'),

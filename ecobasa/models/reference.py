@@ -69,15 +69,15 @@ class Reference(models.Model):
     products = TaggableManager(_('products offered by the receiver'),
         through=TaggedReferenceProduct,
         related_name='%(app_label)s_%(class)s_product',
-        blank=True)
+        blank=True, help_text=_('A comma-separated list of tags. You can type anything here. You can also chose from other users tags. Connect two words with a "-" to have one tag.'))
     services = TaggableManager(_('services rendered by the receiver'),
         through=TaggedReferenceService,
         related_name='%(app_label)s_%(class)s_service',
-        blank=True)
+        blank=True, help_text=_('A comma-separated list of tags. You can type anything here. You can also chose from other users tags. Connect two words with a "-" to have one tag.'))
     skills = TaggableManager(_('skills receiver could teach you'),
         through=TaggedReferenceSkill,
         related_name='%(app_label)s_%(class)s_skill',
-        blank=True)
+        blank=True, help_text=_('A comma-separated list of tags. You can type anything here. You can also chose from other users tags. Connect two words with a "-" to have one tag.'))
 
     class Meta:
         app_label = 'ecobasa'

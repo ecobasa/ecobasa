@@ -23,7 +23,7 @@ class TaggedOffers(TaggedItemBase):
 class Caravan(CosinnusGroup):
     offers = TaggableManager(
         verbose_name=_('Offers'),
-        help_text=_('If the caravan collects something on the way for example, communities know what it is coming with.'),
+        help_text=_('If the caravan collects something on the way for example, communities know what it is coming with. Connect two words with a "-" to have one tag.'),
         blank=True,
         through=TaggedOffers)
     image = ThumbnailerImageField(
