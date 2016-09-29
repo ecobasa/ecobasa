@@ -152,7 +152,7 @@
               {% endif %}
             {% endif %}
           </div>
-        {% if profile.offers_creations %}
+        {% if profile.offers_creations or object.members.cosinnus_profile.products or object.ambassadors.cosinnus_profile.products or references.tag_counts.products.items %}
           <div class="col-xs-6">
             <h3><span class="glyphicon glyphicon-gift"></span> {% trans "Products and Creations" %}</h3>
             <ul class="list-inline">
@@ -163,8 +163,15 @@
                 {% for tag in member.cosinnus_profile.products.all %}
                   <li><span class="label label-{{ tag }}">{{ tag }}</li>
                 {% if not forloop.last %} {% endif %}{% endfor %}
+                {% for tag in member.cosinnus_profile.wishlist.all %}
+                  <li><span class="label label-{{ tag }}">{{ tag }}</li>
+                  {% if not forloop.last %} {% endif %}
+                {% endfor %}
               {% endfor %}
               {% for member in object.ambassadors %}
+                {% for tag in member.cosinnus_profile.products.all %}
+                  <li><span class="label label-{{ tag }}">{{ tag }}</li>
+                {% if not forloop.last %} {% endif %}{% endfor %}
                 {% for tag in member.cosinnus_profile.wishlist.all %}
                   <li><span class="label label-{{ tag }}">{{ tag }}</li>
                   {% if not forloop.last %} {% endif %}
@@ -222,7 +229,7 @@
           <p>{{ profile.wishlist_projects|urlize|linebreaksbr|safe }}</p>
         {% else %}
           {% if user|is_group_admin:object %}
-            <h3><span class="fa fa-building-o"> Projects/Construction Sites</h3>
+            <h3><span class="fa fa-building-o"></span> Projects/Construction Sites</h3>
             {% if profile.wishlist_projects and user|is_group_admin:object %}
               <a href="{% url 'community-edit' group=object.slug %}#id_wishlist_projects" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add more projects" %}</a>
             {% elif user|is_group_admin:object %}
@@ -466,7 +473,7 @@
                 </a>
               <div class="media-body">
                 <h4 class="media-heading">{% if reference.recommend %}Positive{% else %}Negative!{% endif %}</h4>
-                <span class="details">{% trans "on" %} {{ reference.date }}{% if user.is_superuser or  reference.giver == user %} <a href="{% url 'community-reference-edit' object.slug reference.pk %}">{% trans "Edit" %}</a>{% endif %}</span>
+                <span class="details">{% trans "on" %} {{ reference.date }}{% if user.is_superuser or  reference.giver == user %} <a class="pull-right" href="{% url 'community-reference-edit' object.slug reference.pk %}"><b>{% trans "Edit" %}</b></a>{% endif %}</span>
                 <p>{{ reference.text|urlize|safe|truncatewords:25 }}</p>
               </div>
             </div>
