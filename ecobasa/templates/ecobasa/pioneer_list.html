@@ -17,61 +17,61 @@
   <div class="col-xs-12">
     <h1>{% trans "Gift-economy pioneers making the world a better place" %}</h1>
     {% if user.is_superuser %}
-    <a class="btn btn-primary pull-right" href="{% url 'cosinnus:user-add' %}">{% trans "Add user" %}</a>
+      <a class="btn btn-primary pull-right" href="{% url 'cosinnus:user-add' %}">{% trans "Add user" %}</a>
     {% endif %}
     
     {% if pioneers %}
-    <table id="pioneer-list-table" class="table table-bordered table-striped table-hover table-curved dt-responsive" cellspacing="0" width="100%">
-        <thead>
-            <tr>
-                <th>{% trans "Pioneer" %}</th>
-                <th class="sorter-false">{% trans "About" %}</th>
-                <th class="sorter-false">{% trans "Skills" %}</th>
-                <th>{% trans "Bus" %}</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for pioneer in pioneers %}
-        {% with pioneer.cosinnus_profile as profile %}
-        <tr>
-          <td>
-              <a href="{% url 'pioneer-detail' username=pioneer.username %}">
-              {% if profile.avatar %}
-                <img class="avatar media-object" src="{{ profile.avatar|thumbnail_url:"avatar_medium" }}" alt="{{ pioneer.get_full_name|default:pioneer.username }}" data-toggle="tooltip" data-placement="top" title="{{ pioneer.get_full_name|default:pioneer.username }}">
-              {% else %}
-                <img class="avatar media-object" src="{% static "img/avatar.png" %}" alt="{{ pioneer.get_full_name|default:pioneer.username }}" data-toggle="tooltip" data-placement="top" title="{{ pioneer.get_full_name|default:pioneer.username }}">
+      <table id="pioneer-list-table" class="table table-bordered table-striped table-hover table-curved dt-responsive" cellspacing="0" width="100%">
+          <thead>
+              <tr>
+                  <th>{% trans "Pioneer" %}</th>
+                  <th class="sorter-false">{% trans "About" %}</th>
+                  <th class="sorter-false">{% trans "Skills" %}</th>
+                  <th>{% trans "Bus" %}</th>
+              </tr>
+          </thead>
+          <tbody>
+          {% for pioneer in pioneers %}
+          {% with pioneer.cosinnus_profile as profile %}
+          <tr>
+            <td>
+                <a href="{% url 'pioneer-detail' username=pioneer.username %}">
+                {% if profile.avatar %}
+                  <img class="avatar media-object" src="{{ profile.avatar|thumbnail_url:"avatar_medium" }}" alt="{{ pioneer.get_full_name|default:pioneer.username }}" data-toggle="tooltip" data-placement="top" title="{{ pioneer.get_full_name|default:pioneer.username }}">
+                {% else %}
+                  <img class="avatar media-object" src="{% static "img/avatar.png" %}" alt="{{ pioneer.get_full_name|default:pioneer.username }}" data-toggle="tooltip" data-placement="top" title="{{ pioneer.get_full_name|default:pioneer.username }}">
+                {% endif %}
+                <div class="name">{{ pioneer.get_full_name|default:pioneer.username }}</div>
+                </a>
+            </td>
+            <td>
+                {{ profile.about|linebreaks|truncatewords_html:80 }}
+            </td>
+            <td>
+              {% if profile.skills.all %}
+              <ul>
+                {% for tag in profile.skills.all|slice:":8" %}
+                  <li><span class="label label-{{ skill }}">{{ tag|truncatewords_html:4 }}</span></li>
+                {% endfor %}
+              </ul>
               {% endif %}
-              <div class="name">{{ pioneer.get_full_name|default:pioneer.username }}</div>
-              </a>
-          </td>
-          <td>
-              {{ profile.about|linebreaks|truncatewords_html:80 }}
-          </td>
-          <td>
-            {% if profile.skills.all %}
-            <ul>
-              {% for tag in profile.skills.all|slice:":8" %}
-                <li><span class="label label-{{ skill }}">{{ tag|truncatewords_html:4 }}</span></li>
-              {% endfor %}
-            </ul>
-            {% endif %}
-          </td>
-          <td>
-            {% if profile.has_bus %}
-              {% if profile.bus_image %}
-                  <img src="{{ profile.bus_image|thumbnail_url:"bus_medium" }}" />
+            </td>
+            <td>
+              {% if profile.has_bus %}
+                {% if profile.bus_image %}
+                    <img src="{{ profile.bus_image|thumbnail_url:"bus_medium" }}" />
+                {% else %}
+                    {% trans "Yes" %}
+                {% endif %}
               {% else %}
-                  {% trans "Yes" %}
+                  {% trans "No" %}
               {% endif %}
-            {% else %}
-                {% trans "No" %}
-            {% endif %}
-          </td>
-      </tr>
-      {% endwith %}
-      {% endfor %}
-      </tbody>
-    </table>
+            </td>
+        </tr>
+        {% endwith %}
+        {% endfor %}
+        </tbody>
+      </table>
     {% else %}
         {% trans "There are no pioneers registered yet, " %}<a href="{% url 'register' %}">{% trans "join the tours now!" %}</a>
     {% endif %}
@@ -82,7 +82,7 @@
 
 {% block extrafooter %}
   {{ block.super }}
-  <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.12/af-2.1.2/r-2.1.0/sc-1.4.2/datatables.min.js"></script>
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/v/bs/dt-1.10.12/af-2.1.2/r-2.1.0/sc-1.4.2/datatables.min.js"></script>
   <script type="text/javascript" src="//cdn.datatables.net/plug-ins/1.10.12/features/searchHighlight/dataTables.searchHighlight.min.js"></script>
   <script type="text/javascript" src="//bartaz.github.io/sandbox.js/jquery.highlight.js"></script>
   <script type="text/javascript">
@@ -104,7 +104,7 @@
       "searchHighlight": true,
       "pageLength": 10,
       "aoColumnDefs": [
-        { 'bSortable': false, 'aTargets': [ 1, 4 ] }
+        { 'bSortable': false, 'aTargets': [ 1, 2 ] }
       ]
     } );
   });
