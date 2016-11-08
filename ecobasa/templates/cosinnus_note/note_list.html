@@ -45,7 +45,7 @@
     </thead>
     {% for object in object_list %}
         <tr>
-            <td><a href="{{ object.get_absolute_url }}">{% if object.image %}<img src="{{ object.image|thumbnail_url:"note_small" }}>{% else %}<img src="https://placehold.it/175x125">{% endif %}
+            <td><a href="{{ object.get_absolute_url }}">{% if object.image %}<img src="{{ object.image|thumbnail_url:"note_small" }}">{% else %}<img src="https://placehold.it/175x125">{% endif %}
             <td><a href="{{ object.get_absolute_url }}"><h2>{{ object.title }}</h2></a></td>
             <td>{{ object.creator.get_full_name }}</td>
             <td>{{ object.created }}</td>
