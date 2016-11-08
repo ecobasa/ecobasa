@@ -1,0 +1,42 @@
+{% extends "cosinnus_note/base.html" %}
+{% load i18n cosinnus_tags %}
+{% load static from staticfiles %}
+{% block page_title %}Comment on “{{ note.title }}”{% endblock %}
+
+{% block breadcrumbs %}
+    {{ block.super }}
+    <li><a href="{{ note.get_absolute_url }}">{{ note.title }}</a> <span class="divider">/</span></li>
+    <li class="active">{% trans "Write comment" %}</li> 
+{% endblock %}
+
+{% block subnav_add_right %}{% endblock %}
+
+{% block content %}
+<h3>{{ note.title }}</h3>
+<div class="media">
+  <a class="pull-left" href="#">
+    {% if note.creator.cosinnus_profile.avatar %}
+      <img class="media-object avatar avatar-medium" src="{{ note.creator.cosinnus_profile.avatar.url }}">
+    {% else %}
+      <img class="media-object avatar avatar-medium" src="http://placehold.it/64x64">
+    {% endif %}
+  </a>
+  <div class="media-body">
+    {% autoescape off %}{{ note.text|urlize }}{% endautoescape %}
+    <h4 class="media-heading">{{ note.creator.get_full_name }}</h4>
+  </div>
+</div>
+<hr>
+<form action="." method="post" class="form-horizontal">
+    {% csrf_token %}
+    <fieldset>
+        {{ form }}
+        <div class="control-group">
+            <div class="controls">
+                <button type="submit" class="btn btn-primary">{% trans "Create" %}</button>
+                <a href="{{ note.get_absolute_url }}" class="btn">{% trans "Cancel" %}</a>
+            </div>
+        </div>
+    </fieldset>
+</form>
+{% endblock %}
