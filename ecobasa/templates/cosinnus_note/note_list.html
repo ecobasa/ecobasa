@@ -57,15 +57,12 @@
                 {% endfor %}
             </td>
             <td>
-                <div class="btn-group">
-                    <a class="btn btn-primary btn-mini" href="{{ object.get_absolute_url }}"><i class="icon-eye-open icon-white"></i> {% trans "Show" %}</a>
+                <div class="btn-group-vertical" role="group">
+                    <a class="btn btn-primary" href="{{ object.get_absolute_url }}"><span class="glyphicon glyphicon-eye-open"></span> {% trans "Show" %}</a>
                     {% if user.is_superuser or user|is_group_member:group %}
-                    <a class="btn btn-primary btn-mini dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="{% url 'cosinnus:note:update' group=group.slug slug=object.slug %}"><i class="icon-pencil"></i> {% trans "Edit" %}</a></li>
-                        <li><a href="{% url 'cosinnus:note:delete' group=group.slug slug=object.slug %}"><i class="icon-trash"></i> {% trans "Delete" %}</a></li>
-                        <li><a href="{% url 'cosinnus:note:comment' group=group.slug slug=object.slug %}"><i class="icon-comment"></i> {% trans "Comment" %}</a></li>
-                    </ul>
+                        <a class="btn btn-primary" href="{% url 'cosinnus:note:update' group=group.slug slug=object.slug %}"><span class="glyphicon glyphicon-pencil"></span> {% trans "Edit" %}</a>
+                        <a class="btn btn-primary" href="{% url 'cosinnus:note:delete' group=group.slug slug=object.slug %}"><span class="glyphicon glyphicon-trash"></span> {% trans "Delete" %}</a>
+                        <a class="btn btn-primary" href="{% url 'cosinnus:note:comment' group=group.slug slug=object.slug %}"><span class="glyphicon glyphicon-comment"></span> {% trans "Comment" %}</a>
                     {% endif %}
                 </div>
             </td>
