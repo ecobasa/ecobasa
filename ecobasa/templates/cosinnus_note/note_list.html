@@ -1,5 +1,5 @@
 {% extends "cosinnus_note/base.html" %}
-{% load i18n cosinnus_tags %}
+{% load i18n cosinnus_tags thumbnail %}
 {% block page_title %}{% trans "Notes" %}: {{group.name}} {% endblock %}
 
 {% block body %}note-list{% endblock body %}
@@ -36,6 +36,7 @@
 
 <table class="table table-striped">
     <thead>
+        <td><a href="{{ request.path }}{{ sort_helper.get_sort_query_by_image }}">{% trans "Image" %}</a></td>
         <td><a href="{{ request.path }}{{ sort_helper.get_sort_query_by_title }}">{% trans "Title" %}</a></td>
         <td><a href="{{ request.path }}{{ sort_helper.get_sort_query_by_creator }}">{% trans "Author" %}</a></td>
         <td><a href="{{ request.path }}{{ sort_helper.get_sort_query_by_created }}">{% trans "Created" %}</a></td>
@@ -44,7 +45,8 @@
     </thead>
     {% for object in object_list %}
         <tr>
-            <td><a href="{{ object.get_absolute_url }}">{{ object.title }}</a></td>
+            <td><a href="{{ object.get_absolute_url }}">{% if object.image %}<img src="{{ object.image|thumbnail_url:"note_small" }}{% else %}<img src="https://placehold.it/175x125">{% endif %}
+            <td><a href="{{ object.get_absolute_url }}"><h2>{{ object.title }}</h2></a></td>
             <td>{{ object.creator.get_full_name }}</td>
             <td>{{ object.created }}</td>
             <td>
