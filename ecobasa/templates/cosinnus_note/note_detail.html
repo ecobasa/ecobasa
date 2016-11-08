@@ -75,8 +75,8 @@
 <section id="content" data-type="parallax" data-speed="18">
   <div class="container content blog">
     <div class="row tags">
-      <div class="col-xs-12">      
-        {% if object.tag %}
+      <div class="col-xs-12">
+        {% if object.tags %}
           {% for tag in object.tags.all %}
             <a href="{% url 'blog_filtered' tag=tag.slug %}"><span class="label">{{ tag }}</span></a>
           {% endfor %}
