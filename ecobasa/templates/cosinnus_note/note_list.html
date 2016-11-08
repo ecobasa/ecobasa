@@ -1,5 +1,5 @@
 {% extends "cosinnus_note/base.html" %}
-{% load i18n cosinnus_tags thumbnail %}
+{% load i18n cosinnus_tags thumbnail embed_video_tags %}
 {% block page_title %}{% trans "Notes" %}: {{group.name}} {% endblock %}
 
 {% block body %}note-list{% endblock body %}
@@ -45,7 +45,16 @@
     </thead>
     {% for object in object_list %}
         <tr>
-            <td><a href="{{ object.get_absolute_url }}">{% if object.image %}<img src="{{ object.image|thumbnail_url:"note_small" }}">{% else %}<img src="https://placehold.it/175x125">{% endif %}
+            <td><a href="{{ object.get_absolute_url }}">
+            {% if object.image %}
+                <img src="{{ object.image|thumbnail_url:"note_small" }}">
+            {% elif object.video %}
+                {% video object.video is_secure=True as video %}
+                    <img src="{{ video.thumbnail }}" width="175px">
+                {% endvideo %}
+            {% else %}
+                <img src="https://placehold.it/175x125">
+            {% endif %}
             <td><a href="{{ object.get_absolute_url }}"><h2>{{ object.title }}</h2></a></td>
             <td>{{ object.creator.get_full_name }}</td>
             <td>{{ object.created }}</td>
