@@ -10,12 +10,10 @@
 {% block content %}
 </div>
 </div>
-{% if head_image %}
 <div class="headimage">
 {% placeholder head_image %}
 </div>
 <div class="row gradient">
-{% endif %}
   <div class="container content blog">
     <div class="row">
       <div class="col-xs-12">
@@ -44,8 +42,6 @@
         {% show_post post %}
       {% endfor %}
   </div>
-{% if head_image %}
 </div>
-{% endif %}
 </div>
 {% endblock %}
