@@ -1,3 +1,20 @@
-{% for post in object_list %}
-  {% include "ecobasa/blog_post.html" with post=post %}
-{% endfor %}
+{% load i18n cosinnus_tags ecobasa_tour_blog cms_tags %}
+<div class="row tags">
+	<div class="col-xs-12">
+		<span class="tags">
+			<a href="{% url 'pages-details-by-slug' slug='community-tours/blog' %}"><span class="label">{% trans "Show all blog-posts" %}</span></a>
+			{% for post in object_list %}
+			  {% for tag in post.tags.all %}
+			     <a href="?tag={{ tag.slug }}"><span class="label">{{ tag }}</span></a>
+			  {% endfor %}
+			{% endfor %}
+		</span>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-12">
+		{% for post in object_list %}
+		  {% include "ecobasa/blog_post.html" with post=post %}
+		{% endfor %}
+	</div>
+</div>

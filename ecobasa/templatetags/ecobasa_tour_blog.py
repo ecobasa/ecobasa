@@ -16,10 +16,10 @@ def show_posts(context, tags):
     if tags:
         qs = qs.filter(tags=tags)
 
-    bloglist = []
-    for n in qs.select_related('group', 'group__caravan'):
-        if hasattr(n.group, 'caravan'):
-           bloglist.append(n)
-    context['object_list'] = bloglist
+    posts = []
+    for post in qs.select_related('group', 'group__caravan'):
+        if hasattr(post.group, 'caravan'):
+           posts.append(post)
+    context['object_list'] = posts
 
     return context
