@@ -26,7 +26,7 @@
       {% endif %}
       {% for post in object_list %}
         {% if post.tags %}
-          {% for tag in tags %}
+          {% for tag in post.tags.all %}
             <a href="{% url 'blog_filtered' tag=tag.slug %}"><span class="label">{{ tag }}</span></a>
           {% endfor %}
         {% else %}
