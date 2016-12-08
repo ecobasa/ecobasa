@@ -16,7 +16,8 @@ Environment Requirements
 Database
 --------
 
-We use PostgreSQL: http://www.postgresql.org/.
+We use PostgreSQL: http://www.postgresql.org/
+For OSX we recommend: http://postgresapp.com/
 See http://od-eon.com/blogs/calvin/postgresql-cheat-sheet-beginners/
 for a bit of setup info. Basically:
 
