@@ -5,7 +5,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
 @font-face {
   font-family: 'Lato';
   src: url("../fonts/lato-regular-webfont.eot");
@@ -13,7 +12,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
 @font-face {
   font-family: 'Lato';
   src: url("../fonts/lato-bold-webfont.eot");
@@ -21,7 +19,6 @@
   font-weight: bold;
   font-style: normal;
 }
-
 @font-face {
   font-family: 'Lato';
   src: url("../fonts/lato-italic-webfont.eot");
@@ -29,7 +26,6 @@
   font-weight: normal;
   font-style: italic;
 }
-
 @font-face {
   font-family: 'Lato';
   src: url("../fonts/lato-bolditalic-webfont.eot");
@@ -37,7 +33,6 @@
   font-weight: bold;
   font-style: italic;
 }
-
 /*********** Default **************/
 body {
   background: url("../img/back.jpg") repeat;
@@ -304,9 +299,9 @@ nav.navbar-sub ul li a {
 }
 
 .alert-success {
-  color: #5a5527;
+  color: #5A5527;
   background-color: #c9c384;
-  border-color: #5a5527;
+  border-color: #5A5527;
 }
 
 /*********** Startpage ****************/
@@ -426,6 +421,37 @@ body#start .footer.navbar {
 }
 #newsletter-modal input#mc-embedded-subscribe:hover {
   background-color: #da6137;
+}
+
+/************** Donate ******************/
+body#support .column {
+  display: inline-block;
+  max-width: 100%;
+  vertical-align: top;
+}
+body#support .pre-amount {
+  color: #fcf3e5;
+  font-size: 14px;
+  margin-left: 14px;
+  margin-right: -21px;
+  margin-top: 11px;
+  pointer-events: none;
+  position: absolute;
+}
+body#support #amount-custom {
+  max-width: 170px;
+  padding-left: 24px;
+  padding-right: 24px;
+  text-align: center;
+  width: 100%;
+}
+body#support input[type="number"] {
+  -moz-appearance: textfield;
+}
+body#support .Header-companyName.u-textTruncate {
+  font-family: Bree Serif;
+  text-shadow: none !important;
+  color: #452912 !important;
 }
 
 /*************** Slider *****************/
@@ -989,11 +1015,11 @@ button.continue {
 }
 
 .has-success .form-control {
-  border: 1px dotted #5a5527;
+  border: 1px dotted #5A5527;
 }
 
 .has-success .help-block, .has-success .control-label, .has-success .radio, .has-success .checkbox, .has-success .radio-inline, .has-success .checkbox-inline {
-  color: #5a5527;
+  color: #5A5527;
 }
 
 .form-control:focus {
@@ -1634,3 +1660,5 @@ div.cosinnus-event .big-calendar {
     display: none;
   }
 }
+
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,164 @@
+{% extends "base.html" %}
+{% load i18n l10n thumbnail cms_tags static cosinnus_tags sekizai_tags ecobasa_community cms_placeholder_check %}
+
+{% block extrahead %}
+<script src="https://checkout.stripe.com/checkout.js"></script>
+{% endblock %}
+{% block page_title %}
+{% page_attribute "page_title" %}
+{% endblock %}
+
+{% block body %}support{% get_placeholder "head_image" as head_image %}{% if head_image %}slideshow{% endif %}{% endblock body %}
+
+{% block content %}
+{% get_current_language as current_lang %}
+{% get_placeholder "head_image" as head_image %}
+{% if head_image %}
+</div>
+</div>
+<div class="headimage">
+	{% placeholder head_image %}
+</div>
+<div class="row gradient">
+	<div class="container content">
+{% endif %}
+	<div class="row">
+	  <div class="col-xs-12">
+	    {% placeholder first %}
+	  </div>
+	</div>
+	<div class="row">
+		<div class="col-md-6 col-xs-12">
+		<h2>{% trans "Credit Card" %}</h2>
+			<button id="amount-five" value="5" class="btn btn-primary btn-small payment-button target-amount"><span class="glyphicon glyphicon-gift"></span>5{% if current_lang = "de" %}€{% else %}${% endif %}</button>
+			<button id="amount-ten" value="10" class="btn btn-primary btn-small payment-button target-amount"><span class="glyphicon glyphicon-gift"></span>10{% if current_lang = "de" %}€{% else %}${% endif %}</button>
+			<button id="amount-twenty-five" value="25" class="btn btn-primary btn-small payment-button target-amount checked"><span class="glyphicon glyphicon-gift"></span>25{% if current_lang = "de" %}€{% else %}${% endif %}</button>
+			<div class="column">
+				<input step="1" min="1" max="9999999" id="amount-custom" class="button btn btn-primary btn-small target-amount" placeholder="{% trans 'Custom' %}" type="number">
+				<span class="pre-amount">{% if current_lang = "de" %}€{% else %}${% endif %}</span>
+				<p class="small-label focus-reveal text-center">{% if current_lang = "de" %}Gib einen beliebigen Euro Betrag ein.{% else %}{% trans "Enter any dollar amount." %}{% endif %}</p>
+			</div>
+			<p>{% if current_lang = "de" %}<a href="https://de.wikipedia.org/wiki/Bitcoin">Bitcoin</a> ist nur verfügbar wenn du kurz <a href="/en/support/">auf Englisch umschaltest</a>{% else %}{% endif %}</p>
+			<div style="clear:both;"></div>
+			</div>
+			<div class="col-md-6 col-xs-12">
+				<h2>Paypal</h2>
+				<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank">
+					<input type="hidden" name="cmd" value="_s-xclick">
+					<input type="hidden" name="hosted_button_id" value="6CZ8CXEZLV4VW">
+					<button class="btn btn-primary" border="0" name="submit"><span class="glyphicon glyphicon-gift"></span>{% trans "Mit Paypal spenden" %}</button>
+				</form>
+	   	</div>
+	</div>
+		<div class="row">
+			<div class="col-xs-12">
+				{% placeholder second %}
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}
+{% block extrafooter %}
+{% get_current_language as current_lang %}
+<script>
+
+	var handler = StripeCheckout.configure({
+	  key: 'pk_test_E0bSQWCQhmH4EnDq37SzkEmv',
+	  image: '{% static "img/flower.png" %}',
+	  locale: '{{ current_lang }}',
+	  name: 'ecobasa.org',
+    description: '{% trans 'your gifts keep us giving' %}',
+    {% if user.is_authenticated %}email: '{{ user.email }}',{% endif %}
+    zipCode: false,
+    allowRememberMe: false,
+	  token: function(token) {
+	    // You can access the token ID with `token.id`.
+	    // Get the token ID to your server-side code for use.
+	    console.log(JSON.parse(JSON.stringify(token)))
+      doStripePayment(amount, token)
+	  }
+	});
+
+	document.getElementById('amount-five').addEventListener('click', function(e) {
+	  // Open Checkout with further options:
+	  handler.open({
+	    {% if current_lang = "de" %}
+	    	currency: 'eur',
+	    {% else %}
+		    currency: 'usd',
+		    bitcoin: 'true',
+	    {% endif %}
+	    amount: 500,
+	    panelLabel: '{% trans "Donate" %} {{amount}}',
+	  });
+	  e.preventDefault();
+	});
+
+	document.getElementById('amount-ten').addEventListener('click', function(e) {
+	  // Open Checkout with further options:
+	  handler.open({
+	    {% if current_lang = "de" %}
+	    	currency: 'eur',
+	    {% else %}
+		    currency: 'usd',
+		    bitcoin: 'true',
+	    {% endif %}
+	    amount: 1000,
+	    panelLabel: '{% trans "Donate" %} {{amount}}',
+	  });
+	  e.preventDefault();
+	});
+
+	document.getElementById('amount-twenty-five').addEventListener('click', function(e) {
+	  // Open Checkout with further options:
+	  handler.open({
+	    {% if current_lang = "de" %}
+	    	currency: 'eur',
+	    {% else %}
+		    currency: 'usd',
+		    bitcoin: 'true',
+	    {% endif %}
+	    amount: 2500,
+	    panelLabel: '{% trans "Donate" %} {{amount}}',
+	  });
+	  e.preventDefault();
+	});
+
+	$('#amount-custom').bind("enterKey",function(e){
+   handler.open({
+	    {% if current_lang = "de" %}
+	    	currency: 'eur',
+	    {% else %}
+		    currency: 'usd',
+		    bitcoin: 'true',
+	    {% endif %}
+	    amount: document.getElementById('amount-custom').value * 100,
+	    panelLabel: '{% trans "Donate" %} {{amount}}',
+	  });
+	  e.preventDefault();
+	});
+
+	$('#amount-custom').click(function(e) {
+		var clicks = $(this).data('clicks');
+		if(clicks) {
+			e.preventDefault();
+			$(this).trigger("enterKey");
+		} else {
+		  e.preventDefault();
+		}
+		$(this).data("clicks", !clicks);
+	});
+
+$('#amount-custom').keyup(function(e){
+    if(e.keyCode == 13)
+    {
+        $(this).trigger("enterKey");
+    }
+});
+
+	// Close Checkout on page navigation:
+	window.addEventListener('popstate', function() {
+	  handler.close();
+	});
+</script>
+{% endblock %}
