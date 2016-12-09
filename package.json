@@ -1,9 +1,9 @@
 {
-  "name": "Community-Tours",
+  "name": "ecobasa",
   "version": "0.0.1",
-  "description": "A short description of the project.",
+  "description": "gift network for sustainable ways of living",
   "main": "Gruntfile.js",
-  "author": "Sinnwerkstatt",
+  "author": "Arne Bollinger",
   "license": "none",
   "readmeFilename": "README.md",
   "devDependencies": {
