@@ -482,42 +482,6 @@ body#start {
 	}
 }
 
-/************** Donate ******************/
-body#support {
-	.column {
-	    display: inline-block;
-	    max-width: 100%;
-	    vertical-align: top;
-	}
-
-	.pre-amount {
-	    color: $secondary;
-	    font-size: 14px;
-	    margin-left: 14px;
-	    margin-right: -21px;
-	    margin-top: 11px;
-	    pointer-events: none;
-	    position: absolute;
-	}
-
-	#amount-custom {
-	    max-width: 170px;
-	    padding-left: 24px;
-	    padding-right: 24px;
-	    text-align: center;
-	    width: 100%;
-	}
-
-	input[type="number"] {
-	    -moz-appearance: textfield;
-	}
-
-		.Header-companyName.u-textTruncate {
-		    font-family: Bree Serif;
-		    text-shadow: none !important;
-		    color: $brown !important;
-		}
-}
 
 /*************** Slider *****************/
 
