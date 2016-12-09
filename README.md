@@ -82,3 +82,9 @@ Edit your local settings.py for ECOBASA_SPECIAL_COSINNUS_GROUP to point to the
 primary key of the special group every pioneer will become a member of and
 whose blog posts are exposed. You will have to do that after setting up the
 group in the admin interface.
+
+
+We use LESS - CSS has to be compiled
+------------------------------------
+You can use grunt with node.js. Package.json will install all necessary dependencies, just type
+	$ npm install
