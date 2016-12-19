@@ -659,6 +659,81 @@ body#note-detail section#content {
 body#note-detail .sharing_buttons {
   text-align: center;
 }
+body#note-detail #comment-new .status-upload {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  float: left;
+  width: 100%;
+}
+body#note-detail #comment-new .status-upload form {
+  float: left;
+  width: 100%;
+}
+body#note-detail #comment-new .status-upload form textarea {
+  background: rgba(255, 255, 255, 0.6);
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+  color: #777777;
+  float: left;
+  font-family: Lato;
+  font-size: 14px;
+  height: 142px;
+  letter-spacing: 0.3px;
+  padding: 20px;
+  width: 100%;
+  resize: vertical;
+  outline: none;
+}
+body#note-detail #comment-new .status-upload form button {
+  float: right;
+  letter-spacing: 0.3px;
+  margin-top: 9px;
+  padding: 6px 15px;
+}
+body#note-detail #comment-new .status-upload form button > i {
+  margin-right: 7px;
+}
+body#note-detail #comment-new .status-upload ul {
+  float: left;
+  list-style: none outside none;
+  margin: 0;
+  padding: 0 0 0 15px;
+  width: auto;
+}
+body#note-detail #comment-new .status-upload ul > li {
+  float: left;
+}
+body#note-detail #comment-new .status-upload ul > li > a {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  color: #777777;
+  float: left;
+  font-size: 14px;
+  height: 30px;
+  line-height: 30px;
+  margin: 10px 0 10px 10px;
+  text-align: center;
+  -webkit-transition: all 0.4s ease 0s;
+  -moz-transition: all 0.4s ease 0s;
+  -ms-transition: all 0.4s ease 0s;
+  -o-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
+  width: 30px;
+  cursor: pointer;
+}
+body#note-detail #comment-new .status-upload ul > li > a:hover {
+  background: none repeat scroll 0 0 #606060;
+  color: #fff;
+}
 
 body#note-list .container.content {
   padding-top: 130px;
