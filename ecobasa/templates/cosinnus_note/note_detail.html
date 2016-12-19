@@ -127,35 +127,39 @@
         <a href="{% url "blog" %}"><span class="glyphicon glyphicon-arrow-left"></span> {% trans "Back to blog" %}</a>
       </div>
     </div>
-      <div class="row">
-        <h3>{% trans "Comments" %}</h3>
-        <a class="btn btn-primary" href="{% url 'cosinnus:note:comment' group=group.slug slug=object.slug %}#comments"><i class="fa fa-share"></i> {% trans "Comment" %}</a>
+  </div>
+  <div class="row" id="comments">
+    <div class="col-xs-12">
+      <h3>{% trans "Comments" %}</h3>
+      <a class="btn btn-primary" href="{% url 'cosinnus:note:comment' group=group.slug slug=object.slug %}#comments"><i class="fa fa-share"></i> {% trans "Comment" %}</a>
 
-        {% for comment in object.comments.all %}
-          <div class="media media-indent-small" id="comment-{{ comment.pk }}">
-            <a class="pull-left" href="{% url 'pioneer-detail' username=comment.author.get_username %}">
-              {% if comment.author.cosinnus_profile.avatar %}
-                <img class="media-object avatar avatar-small" src="{{ comment.author.cosinnus_profile.avatar|thumbnail_url:"avatar_small" }}">
-              {% else %}
-                <img class="media-object avatar avatar-small" src="https://placehold.it/32x32">
-              {% endif %}
-            </a>
-            <div class="media-body">
-              <h5 class="media-heading muted pull-right">{{ comment.created_on }}</h5>
-              <h4 class="media-heading">
-                <a href="{% url 'pioneer-detail' username=comment.author.get_username %}">{{ comment.author.get_full_name|default:comment.author.username }}</a>
-              </h4>
-              {{ comment.text }}
-              <div class="btn-group btn-group-xs pull-right">
-                <a class="btn btn-primary btn-small" href="{% url 'cosinnus:note:comment-update' group=group.slug pk=comment.pk %}"><span class="glyphicon glyphicon-pencil"></span>{% trans "Edit" %}</a>
-                <a class="btn btn-primary btn-small" href="{% url 'cosinnus:note:comment-delete' group=group.slug pk=comment.pk %}"><span class="glyphicon glyphicon-trash"></span>{% trans "Delete" %}</a>
-              </div>
+      {% for comment in object.comments.all %}
+        <div class="media media-indent-small" id="comment-{{ comment.pk }}">
+          <a class="pull-left" href="{% url 'pioneer-detail' username=comment.author.get_username %}">
+            {% if comment.author.cosinnus_profile.avatar %}
+              <img class="media-object avatar avatar-small" src="{{ comment.author.cosinnus_profile.avatar|thumbnail_url:"avatar_small" }}">
+            {% else %}
+              <img class="media-object avatar avatar-small" src="https://placehold.it/32x32">
+            {% endif %}
+          </a>
+          <div class="media-body">
+            <h5 class="media-heading muted pull-right">{{ comment.created_on }}</h5>
+            <h4 class="media-heading">
+              <a href="{% url 'pioneer-detail' username=comment.author.get_username %}">{{ comment.author.get_full_name|default:comment.author.username }}</a>
+            </h4>
+            {{ comment.text }}
+            <div class="btn-group btn-group-xs pull-right">
+              <a class="btn btn-primary btn-small" href="{% url 'cosinnus:note:comment-update' group=group.slug pk=comment.pk %}"><span class="glyphicon glyphicon-pencil"></span>{% trans "Edit" %}</a>
+              <a class="btn btn-primary btn-small" href="{% url 'cosinnus:note:comment-delete' group=group.slug pk=comment.pk %}"><span class="glyphicon glyphicon-trash"></span>{% trans "Delete" %}</a>
             </div>
           </div>
-          {% if not forloop.last %}
-            <hr class="media-indent-small">
-          {% endif %}
-        {% endfor %}
         </div>
+        {% if not forloop.last %}
+          <hr class="media-indent-small">
+        {% endif %}
+      {% endfor %}
+      </div>
     </div>
+  </div>
+</div>
   {% endblock %}

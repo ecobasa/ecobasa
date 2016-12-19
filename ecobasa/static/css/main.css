@@ -568,7 +568,6 @@ img.left {
 }
 
 .post {
-  margin-bottom: 60px;
   overflow: auto;
 }
 .post img {
@@ -635,6 +634,7 @@ body#note-detail .container.content {
 }
 body#note-detail .container.content.blog {
   padding-top: 25px;
+  margin-bottom: 80px;
 }
 body#note-detail section#header {
   margin-top: 0px;
@@ -660,8 +660,8 @@ body#note-detail .sharing_buttons {
   text-align: center;
 }
 body#note-detail #comments {
-  padding-top: 130px;
-  margin-top: -130px;
+  padding-top: 100px;
+  margin-top: -100px;
 }
 body#note-detail #comment-new .status-upload {
   -webkit-border-radius: 4px;
