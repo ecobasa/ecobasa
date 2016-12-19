@@ -1436,10 +1436,21 @@ a#group span.glyphicon {
 }
 #dashboard .panel {
   border: 1px dotted #da6137;
+  border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.2);
 }
 #dashboard .panel .panel-body {
   border: none;
+}
+#dashboard .panel .panel-body .row.post {
+  margin-bottom: 40px;
+}
+#dashboard .panel .panel-body .row.post img {
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+#dashboard .panel .panel-body .row.post .post .article {
+  margin-top: 3px;
 }
 #dashboard .panel.panel-default > .panel-heading {
   background-color: #da6137;

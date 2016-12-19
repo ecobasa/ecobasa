@@ -1,0 +1,44 @@
+{% load i18n cosinnus_tags thumbnail embed_video_tags %}
+
+{% if notes %}
+    {% for note in notes %}
+    <div class="row post">
+      <div class="col-xs-12">
+      {% if note.video or note.image %}
+        <a href="{% url 'cosinnus:note:note' group=note.group.slug slug=note.slug %}">
+          {% if note.video %}
+          <div class="video-responsive">
+            {% video note.video "tiny" %}
+          </div>
+          {% else %}
+          <img src="{{ note.image|thumbnail_url:"note_medium" }}" alt="{{ note.title }}" width="100%" />
+          {% endif %}
+        </a>
+      {% endif %}
+      {% if note.tags %}
+        <span class="tags">
+        {% for tag in note.tags.all %}
+           <a href="{% url 'blog_filtered' tag=tag.slug %}"><span class="label">{{ tag }}</span></a>
+        {% endfor %}
+        </span>
+      {% endif %}
+        <a href="{% url 'cosinnus:note:note' group=note.group.slug slug=note.slug %}">
+          <h2>{{ note.title }}</h2>
+        </a>
+        <span class="details">
+          written by <a href="{% url 'pioneer-detail' username=note.creator.get_username %}">{{ note.creator.get_full_name|default:note.creator.username }}</a> on {{ note.created }} in <a href="{% url 'cosinnus:group-detail' group=note.group.slug %}">{{ note.group }}</a>
+        </span>
+         <div class="article">{{ note.text|striptags|safe|truncatewords_html:80 }}<a class="more" href="{% url 'cosinnus:note:note' group=note.group.slug slug=note.slug %}">read more <span class="glyphicon glyphicon-arrow-right"></span></a></div>
+         <a href="{% url 'cosinnus:note:note' group=note.group.slug slug=note.slug %}#comments">{{ note.comments.count }} {% trans "comments" %}</a>
+         {% if note.attached_objects.all %}
+              <div style="max-width:250px; max-height:200px; overflow:hidden;">
+                  {% cosinnus_render_attached_objects note 'cosinnus_file.FileEntry' %}
+              </div>
+          {% endif %}
+      </div>
+    </div>
+  </div>
+{% endfor %}
+{% else %}
+    {% trans "There are no notes." %}
+{% endif %}
