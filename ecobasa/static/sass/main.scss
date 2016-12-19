@@ -589,12 +589,17 @@ a:hover span.label {
 	background: $purple;
 }
 
-body#blog .headimage {
-	margin-bottom: 0px;
-	img {
-		width: 100%;
-		height: auto;
-		margin-top: -160px;
+body#blog {
+	.row.post {
+		margin-bottom: 60px;
+	}
+	.headimage {
+		margin-bottom: 0px;
+		img {
+			width: 100%;
+			height: auto;
+			margin-top: -160px;
+		}
 	}
 }
 
@@ -1563,6 +1568,9 @@ a#group {
 
 #dashboard {
 	padding-top: 40px;
+	.widget {
+		display: block;
+	}
 	.panel {
 		border: 1px dotted $primary;
 		border-radius: 10px;
