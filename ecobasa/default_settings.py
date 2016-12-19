@@ -129,6 +129,7 @@ THUMBNAIL_ALIASES = {
         'note_medium': {'size': (350, 232), 'crop': True, 'upscale': True },
         'note_small': {'size': (175, 125), 'crop': True, 'upscale': True },
         'slideshow': {'size': (1920, 700), 'crop': True, 'upscale': True },
+        'blogpost': {'size': (1920, 1080), 'crop': True, 'upscale': True },
         'community_map': {'size': (300, 120), 'crop': True, 'upscale': True }, 
         'community_list': {'size': (220, 120), 'crop': True, 'upscale': True }, 
     },
