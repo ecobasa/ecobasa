@@ -659,6 +659,10 @@ body#note-detail section#content {
 body#note-detail .sharing_buttons {
   text-align: center;
 }
+body#note-detail #comments {
+  padding-top: 130px;
+  margin-top: -130px;
+}
 body#note-detail #comment-new .status-upload {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -703,7 +707,7 @@ body#note-detail #comment-new .status-upload ul {
   float: left;
   list-style: none outside none;
   margin: 0;
-  padding: 0 0 0 15px;
+  padding: 0px;
   width: auto;
 }
 body#note-detail #comment-new .status-upload ul > li {
@@ -720,7 +724,8 @@ body#note-detail #comment-new .status-upload ul > li > a {
   font-size: 14px;
   height: 30px;
   line-height: 30px;
-  margin: 10px 0 10px 10px;
+  margin: 10px 10px 10px 0px;
+  padding-left: 7px;
   text-align: center;
   -webkit-transition: all 0.4s ease 0s;
   -moz-transition: all 0.4s ease 0s;
@@ -731,8 +736,8 @@ body#note-detail #comment-new .status-upload ul > li > a {
   cursor: pointer;
 }
 body#note-detail #comment-new .status-upload ul > li > a:hover {
-  background: none repeat scroll 0 0 #606060;
-  color: #fff;
+  background: none repeat scroll 0 0 #da6137;
+  color: #fcf3e5;
 }
 
 body#note-list .container.content {

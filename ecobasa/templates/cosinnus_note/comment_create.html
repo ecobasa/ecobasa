@@ -82,61 +82,62 @@
       </div>
     </div>
     <div class="row">
-      <h3>{% trans "Comments" %}</h3>
-    </div>
-    <div class="media media-indent-small" id="comment-new">
-      {% if user.cosinnus_profile.avatar %}
-        <img class="media-note avatar avatar-small pull-left" src="{{ user.cosinnus_profile.avatar|thumbnail_url:"avatar_small" }}">
-      {% else %}
-        <img class="media-note avatar avatar-small pull-left" src="https://placehold.it/32x32">
-      {% endif %}
-      <div class="media-body">
-        <h4 class="media-heading">
-          {{ user.get_full_name|default:user.username }}</a>
-        </h4>
-        <div class="status-upload">
-          <form action="." method="post" role="form">
-            {% csrf_token %}
-            <textarea name="text" class="form-control" type="textarea" placeholder="Your comments"></textarea>
-            <div class="form-group">
-              <ul>
-                <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="{% trans "Coming soon: Audio" %}"><i class="fa fa-music"></i></a></li>
-                <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="{% trans "Coming soon: Video" %}"><i class="fa fa-video-camera"></i></a></li>
-                <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="{% trans "Coming soon: Sound Record" %}"><i class="fa fa-microphone"></i></a></li>
-                <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="{% trans "Coming soon: Picture" %}"><i class="fa fa-picture-o"></i></a></li>
-              </ul>
-              <button type="submit" class="btn btn-default">Create</button>
-            </div>
-          </form>
-        </div><!-- Status Upload  -->
-      </div><!-- Media Body -->
-    </div><!-- Media -->
-      <hr class="media-indent-small">
-    {% for comment in note.comments.all %}
-        <div class="media media-indent-small" id="comment-{{ comment.pk }}">
-          <a class="pull-left" href="{% url 'pioneer-detail' username=comment.author.get_username %}">
-            {% if comment.author.cosinnus_profile.avatar %}
-              <img class="media-note avatar avatar-small" src="{{ comment.author.cosinnus_profile.avatar|thumbnail_url:"avatar_small" }}">
-            {% else %}
-              <img class="media-note avatar avatar-small" src="https://placehold.it/32x32">
-            {% endif %}
-          </a>
-          <div class="media-body">
-            <h5 class="media-heading muted pull-right">{{ comment.created_on }}</h5>
-            <h4 class="media-heading">
-              <a href="{% url 'pioneer-detail' username=comment.author.get_username %}">{{ comment.author.get_full_name|default:comment.author.username }}</a>
-            </h4>
-            {{ comment.text }}
-            <div class="btn-group btn-group-xs pull-right">
-              <a class="btn btn-primary btn-small" href="{% url 'cosinnus:note:comment-update' group=group.slug pk=comment.pk %}"><span class="glyphicon glyphicon-pencil"></span>{% trans "Edit" %}</a>
-              <a class="btn btn-primary btn-small" href="{% url 'cosinnus:note:comment-delete' group=group.slug pk=comment.pk %}"><span class="glyphicon glyphicon-trash"></span>{% trans "Delete" %}</a>
+      <h3 id="comments">{% trans "Comments" %}</h3>
+      <div class="media media-indent-small" id="comment-new">
+      <a class="pull-left" href="{% url 'pioneer-detail' username=user.get_username %}">
+        {% if user.cosinnus_profile.avatar %}
+          <img class="media-note avatar avatar-small pull-left" src="{{ user.cosinnus_profile.avatar|thumbnail_url:"avatar_small" }}">
+        {% else %}
+          <img class="media-note avatar avatar-small pull-left" src="https://placehold.it/32x32">
+        {% endif %}
+      </a>
+        <div class="media-body">
+          <h4 class="media-heading">
+            {{ user.get_full_name|default:user.username }}</a>
+          </h4>
+          <div class="status-upload">
+            <form action="." method="post" role="form">
+              {% csrf_token %}
+              <textarea name="text" class="form-control" type="textarea" placeholder="Your comments"></textarea>
+              <div class="form-group">
+                <ul>
+                  <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="{% trans "Coming soon: Audio" %}"><i class="fa fa-music"></i></a></li>
+                  <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="{% trans "Coming soon: Video" %}"><i class="fa fa-video-camera"></i></a></li>
+                  <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="{% trans "Coming soon: Sound Record" %}"><i class="fa fa-microphone"></i></a></li>
+                  <li><a title="" data-toggle="tooltip" data-placement="bottom" data-original-title="{% trans "Coming soon: Picture" %}"><i class="fa fa-picture-o"></i></a></li>
+                </ul>
+                <button type="submit" class="btn btn-default"><i class="fa fa-share"></i>{% trans "Create" %}</button>
+              </div>
+            </form>
+          </div><!-- Status Upload  -->
+        </div><!-- Media Body -->
+      </div><!-- Media -->
+        <hr class="media-indent-small">
+      {% for comment in note.comments.all %}
+          <div class="media media-indent-small" id="comment-{{ comment.pk }}">
+            <a class="pull-left" href="{% url 'pioneer-detail' username=comment.author.get_username %}">
+              {% if comment.author.cosinnus_profile.avatar %}
+                <img class="media-note avatar avatar-small" src="{{ comment.author.cosinnus_profile.avatar|thumbnail_url:"avatar_small" }}">
+              {% else %}
+                <img class="media-note avatar avatar-small" src="https://placehold.it/32x32">
+              {% endif %}
+            </a>
+            <div class="media-body">
+              <h5 class="media-heading muted pull-right">{{ comment.created_on }}</h5>
+              <h4 class="media-heading">
+                <a href="{% url 'pioneer-detail' username=comment.author.get_username %}">{{ comment.author.get_full_name|default:comment.author.username }}</a>
+              </h4>
+              {{ comment.text }}
+              <div class="btn-group btn-group-xs pull-right">
+                <a class="btn btn-primary btn-small" href="{% url 'cosinnus:note:comment-update' group=group.slug pk=comment.pk %}"><span class="glyphicon glyphicon-pencil"></span>{% trans "Edit" %}</a>
+                <a class="btn btn-primary btn-small" href="{% url 'cosinnus:note:comment-delete' group=group.slug pk=comment.pk %}"><span class="glyphicon glyphicon-trash"></span>{% trans "Delete" %}</a>
+              </div>
             </div>
           </div>
+          {% if not forloop.last %}
+            <hr class="media-indent-small">
+          {% endif %}
+        {% endfor %}
         </div>
-        {% if not forloop.last %}
-          <hr class="media-indent-small">
-        {% endif %}
-      {% endfor %}
       </div>
-    </div>
   {% endblock %}
