@@ -526,6 +526,9 @@ a:hover span.label {
   background: #80143b;
 }
 
+body#blog .row.post {
+  margin-bottom: 60px;
+}
 body#blog .headimage {
   margin-bottom: 0px;
 }
@@ -1433,6 +1436,9 @@ a#group span.glyphicon {
 
 #dashboard {
   padding-top: 40px;
+}
+#dashboard .widget {
+  display: block;
 }
 #dashboard .panel {
   border: 1px dotted #da6137;
