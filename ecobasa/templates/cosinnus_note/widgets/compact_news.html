@@ -1,12 +1,36 @@
+{% load i18n cosinnus_tags thumbnail embed_video_tags %}
+
 {% if notes %}
-  <table class="table table-striped table-hover table-condensed">
+  <table class="table table-striped">
+    <thead>
+        <td><a href="{{ request.path }}{{ sort_helper.get_sort_query_by_image }}">{% trans "Image" %}</a></td>
+        <td><a href="{{ request.path }}{{ sort_helper.get_sort_query_by_title }}">{% trans "Note" %}</a></td>
+        <td><a href="{{ request.path }}{{ sort_helper.get_sort_query_by_creator }}">{% trans "Group" %}</a></td>
+    </thead>
     {% for note in notes %}
-      <tr>
-          <td><a href="{% url 'cosinnus:note:note' group=note.group.slug slug=note.slug %}">{{ note.title }}</a></td>
-          <td>{{ note.created }}</td>
-      </tr>
+        <tr>
+            <td><a href="{% url 'cosinnus:note:note' group=note.group.slug slug=note.slug %}">
+            {% if note.image %}
+                <img src="{{ note.image|thumbnail_url:"avatar_medium" }}">
+            {% elif note.video %}
+                {% video note.video is_secure=True as video %}
+                    <img src="{{ video.thumbnail }}" width="64px">
+                {% endvideo %}
+            {% else %}
+                <img src="https://placehold.it/64x64">
+            {% endif %}
+            <td><a href="{{ note.get_absolute_url }}"><b>{{ note.title }}</b></a><p>{{ note.text|striptags|urlize|safe|truncatewords:8 }}</td>
+            <td>
+            {% if note.group.caravan %}
+        		<a href="{% url 'caravan-detail' group=note.group.slug %}">
+			{% elif note.group.profile %}
+        		<a href="{% url 'community-detail' group=note.group.slug %}">
+        	{% else %}
+        		<a href="{% url 'cosinnus:group-detail' group=note.group.slug %}">
+        	{% endif %}{{ note.group }}</a></td>
+        </tr>
     {% endfor %}
-  </table>
+</table>
 {% else %}
-  {{ no_data }}
+    {% trans "There are no notes." %}
 {% endif %}
