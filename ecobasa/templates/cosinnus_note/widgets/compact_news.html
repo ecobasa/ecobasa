@@ -3,9 +3,9 @@
 {% if notes %}
   <table class="table table-striped">
     <thead>
-        <td><a href="{{ request.path }}{{ sort_helper.get_sort_query_by_image }}">{% trans "Image" %}</a></td>
-        <td><a href="{{ request.path }}{{ sort_helper.get_sort_query_by_title }}">{% trans "Note" %}</a></td>
-        <td><a href="{{ request.path }}{{ sort_helper.get_sort_query_by_creator }}">{% trans "Group" %}</a></td>
+        <td>{% trans "Image" %}</td>
+        <td>{% trans "Note" %}</td>
+        <td>{% trans "Group" %}</td>
     </thead>
     {% for note in notes %}
         <tr>
