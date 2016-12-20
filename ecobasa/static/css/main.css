@@ -526,9 +526,6 @@ a:hover span.label {
   background: #80143b;
 }
 
-body#blog .row.post {
-  margin-bottom: 60px;
-}
 body#blog .headimage {
   margin-bottom: 0px;
 }
@@ -568,6 +565,9 @@ body#blog .headimage img {
 .container.content.blog {
   padding-bottom: 80px;
   padding-top: 25px;
+}
+.container.content.blog .post {
+  margin-bottom: 60px;
 }
 .container.content .headimage {
   margin-bottom: 0px;

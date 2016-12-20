@@ -590,9 +590,6 @@ a:hover span.label {
 }
 
 body#blog {
-	.row.post {
-		margin-bottom: 60px;
-	}
 	.headimage {
 		margin-bottom: 0px;
 		img {
@@ -632,6 +629,9 @@ body#blog {
 	&.blog {
 		padding-bottom: 80px;
 		padding-top: 25px;
+		.post {
+			margin-bottom: 60px;
+		}
 	}
 	.headimage {
 		margin-bottom: 0px;
@@ -643,10 +643,6 @@ body#slideshow {
 		padding-top: 10px;
 		padding-bottom: 80px;
 	}
-}
-
-.container.content.blog {
-	
 }
 
 img.left {
