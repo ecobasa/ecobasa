@@ -130,7 +130,7 @@
   </div>
   <div class="row" id="comments">
     <div class="col-xs-12">
-      <h3>{% trans "Comments" %}</h3>
+      <h2>{% trans "Comments" %}</h2>
       <a class="btn btn-primary" href="{% url 'cosinnus:note:comment' group=group.slug slug=object.slug %}#comments"><i class="fa fa-share"></i> {% trans "Comment" %}</a>
 
       {% for comment in object.comments.all %}
