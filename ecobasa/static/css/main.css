@@ -571,7 +571,7 @@ body#blog .container.content.blog .post {
 body#blog .container.content .headimage {
   margin-bottom: 0px;
 }
-body#blog .container.content .carousel .headimage img {
+body#blog .container.content .headimage .carousel img {
   margin-top: 0px;
 }
 body#blog .container.content .gradient {
