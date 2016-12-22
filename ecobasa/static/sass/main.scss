@@ -589,17 +589,6 @@ a:hover span.label {
 	background: $purple;
 }
 
-body#blog {
-	.headimage {
-		margin-bottom: 0px;
-		img {
-			width: 100%;
-			height: auto;
-			margin-top: -160px;
-		}
-	}
-}
-
 .headimage img {
 	width: 100%;
   	height: auto;
@@ -623,25 +612,35 @@ body#blog {
     padding-bottom: 15px;
 }
 
-.container.content {
-	padding-top: 0px;
-	padding-bottom: 0px;
-	&.blog {
-		padding-bottom: 80px;
-		padding-top: 25px;
-		.post {
-			margin-bottom: 60px;
-		}
-	}
+body#blog {
 	.headimage {
 		margin-bottom: 0px;
+		img {
+			width: 100%;
+			height: auto;
+			margin-top: -160px;
+		}
 	}
-}
-
-body#slideshow {
-	.row.gradient {
-		padding-top: 10px;
-		padding-bottom: 80px;
+	.container.content {
+		padding-top: 0px;
+		padding-bottom: 0px;
+		&.blog {
+			padding-bottom: 80px;
+			padding-top: 25px;
+			.post {
+				margin-bottom: 60px;
+			}
+		}
+		.headimage {
+			margin-bottom: 0px;
+		}
+		.carousel .headimage img {
+			margin-top: 0px;
+		}
+		.gradient {
+			padding-top: 10px;
+			padding-bottom: 80px;
+		}
 	}
 }
 

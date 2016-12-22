@@ -5,7 +5,7 @@
   {% blocktrans %}Community-Tours Blog{% endblocktrans %}
 {% endblock %}
 
-{% block body %}slideshow{% endblock body %}
+{% block body %}blog{% endblock body %}
 
 {% block content %}
 </div>
@@ -13,7 +13,7 @@
 <div class="headimage">
 {% placeholder tour_head_image %}
 </div>
-<div class="row gradient">
+<div class="gradient">
   <div class="container content blog">
     {% placeholder tour_headlines %}
     {% show_posts tags=request.query.tags %}
