@@ -557,6 +557,9 @@ body#blog .headimage img {
   height: auto;
   margin-top: -160px;
 }
+body#blog .headimage .carousel img {
+  margin-top: 0px;
+}
 body#blog .container.content {
   padding-top: 0px;
   padding-bottom: 0px;
@@ -567,12 +570,6 @@ body#blog .container.content.blog {
 }
 body#blog .container.content.blog .post {
   margin-bottom: 60px;
-}
-body#blog .container.content .headimage {
-  margin-bottom: 0px;
-}
-body#blog .container.content .headimage .carousel img {
-  margin-top: 0px;
 }
 body#blog .container.content .gradient {
   padding-top: 10px;
