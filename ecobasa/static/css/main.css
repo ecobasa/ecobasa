@@ -552,14 +552,6 @@ a:hover span.label {
 body#blog .headimage {
   margin-bottom: 0px;
 }
-body#blog .headimage img {
-  width: 100%;
-  height: auto;
-  margin-top: -160px;
-}
-body#blog .headimage .carousel img {
-  margin-top: 0px;
-}
 body#blog .container.content {
   padding-top: 0px;
   padding-bottom: 0px;
