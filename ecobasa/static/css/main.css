@@ -424,6 +424,11 @@ body#start .footer.navbar {
 }
 
 /*************** Slider *****************/
+body#slideshow > .container.content {
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
 .carousel-caption {
   color: #fcf3e5;
   left: 0px;
