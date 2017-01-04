@@ -51,7 +51,7 @@
             <li><span class="label label-{{ tag_data.class }}">{{ tag_name }} <span class="badge alert-success">{{ tag_data.count }}</span></span></li>
         {% endfor %}
       </ul>
-      <a href="{% url 'pioneer-edit' username=user.username %}#s2id_id_offers_skills" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add skills" %}</a>
+      <a href="{% url 'pioneer-edit' username=user.username %}#s2id_id_skills" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add skills" %}</a>
       <h2 id="products">{% trans "Products" %}</h2>
       <ul class="list-inline">
         {% for tag in profile.products.all %}
@@ -63,7 +63,7 @@
             <li><span class="label label-{{ tag_data.class }}">{{ tag_name }} <span class="badge alert-success">{{ tag_data.count }}</span></span></li>
         {% endfor %}
       </ul>
-      <a href="{% url 'pioneer-edit' username=user.username %}#s2id_id_offers_products" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add products" %}</a>
+      <a href="{% url 'pioneer-edit' username=user.username %}#s2id_id_products" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add products" %}</a>
       <h2 id="services">{% trans "Services" %}</h2>
         <ul class="list-inline">
           {% for tag in profile.services.all %}
@@ -73,7 +73,7 @@
             <li><span class="label label-{{ tag_data.class }}">{{ tag_name }} <span class="badge alert-success">{{ tag_data.count }}</span></span></li>
           {% endfor %}
         </ul>
-      <a href="{% url 'pioneer-edit' username=user.username %}#s2id_id_offers_services" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add Services" %}</a>
+      <a href="{% url 'pioneer-edit' username=user.username %}#s2id_id_services" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add Services" %}</a>
         <h2 id="interests">{% trans "Interests" %}</h2>
         <ul class="list-inline">
           {% for tag in profile.interests.all %}
@@ -81,7 +81,7 @@
           {% if not forloop.last %} {% endif %}
           {% endfor %}
         </ul>
-        <a href="{% url 'pioneer-edit' username=user.username %}#s2id_id_offers_skills" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add interests" %}</a>
+        <a href="{% url 'pioneer-edit' username=user.username %}#s2id_id_interests" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add interests" %}</a>
       <h2 id="wishlist">{% trans "Wishlist" %}</h2>
       <ul class="list-inline">
           {% for tag in profile.wishlist.all %}
