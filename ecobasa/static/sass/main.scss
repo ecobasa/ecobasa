@@ -588,7 +588,6 @@ body#slideshow {
 
 .label {
 	border-radius: 1.25em;
-	background: $yellow;
 }
 
 a:hover span.label {
@@ -635,6 +634,10 @@ body#blog {
 		.gradient {
 			padding-top: 10px;
 			padding-bottom: 80px;
+		}
+		.label {
+			border-radius: 1.25em;
+			background: $yellow;
 		}
 	}
 }
@@ -1377,14 +1380,18 @@ body#profile {
 		margin-top: 10px;
 		margin-bottom: 20px;
 	}
-
 	.badge {
 		border: 1px solid;
+		background: transparent;
 		color: $secondary;
-		background: $primary;
 		margin-left: 2px;
 	}
-
+	span.label-primary {
+		background: $primary;
+	}
+	span.label-danger {
+		background: $brown;
+	}
 	.icon > i.fa {
 	    margin-top: 10px;
 	}
