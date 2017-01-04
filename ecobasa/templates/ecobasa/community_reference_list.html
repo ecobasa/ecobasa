@@ -33,7 +33,7 @@
                 <h5>{% trans "Products" %}</h5>
                   <ul class="list-inline">
                     {% for tag_name in reference.products.all %}
-                      <li><span class="label label-{% if reference.recommend %}{{ tag_data.class }}{% else %}danger{% endif %}">{{ tag_name }}</span></li>
+                      <li><span class="label label-{% if reference.recommend %}primary{% else %}danger{% endif %}">{{ tag_name }}</span></li>
                     {% endfor %}
                   </ul>
               </div>
@@ -43,7 +43,7 @@
                 <h5>{% trans "Services" %}</h5>
                   <ul class="list-inline">
                     {% for tag_name in reference.services.all %}
-                      <li><span class="label label-{% if reference.recommend %}{{ tag_data.class }}{% else %}danger{% endif %}">{{ tag_name }}</span></li>
+                      <li><span class="label label-{% if reference.recommend %}primary{% else %}danger{% endif %}">{{ tag_name }}</span></li>
                     {% endfor %}
                   </ul>
                 </div>
@@ -53,7 +53,7 @@
                 <h5>{% trans "Skills" %}</h5>
                 <ul class="list-inline">
                   {% for tag_name in reference.skills.all %}
-                    <li><span class="label label-{% if reference.recommend %}{{ tag_data.class }}{% else %}danger{% endif %}">{{ tag_name }}</span></li>
+                    <li><span class="label label-{% if reference.recommend %}primary{% else %}danger{% endif %}">{{ tag_name }}</span></li>
                   {% endfor %}
                 </ul>
               </div>

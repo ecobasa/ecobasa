@@ -1435,6 +1435,9 @@ body#references {
 	span.label {
 		font-size: 100%;
 	}
+	span.label-primary {
+		background: $primary;
+	}
 	span.label-danger {
 		background: $brown;
 	}
