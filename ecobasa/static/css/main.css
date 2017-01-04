@@ -1318,6 +1318,9 @@ body#references .form-inline .radio + .radio {
 body#references span.label {
   font-size: 100%;
 }
+body#references span.label-primary {
+  background: #da6137;
+}
 body#references span.label-danger {
   background: #452912;
 }
