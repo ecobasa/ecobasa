@@ -1398,7 +1398,7 @@ body#profile {
 }
 
 
-/**************** References ******************/
+/**************** References List ******************/
 
 body#references {
 	.media {
@@ -1431,6 +1431,12 @@ body#references {
 	}
 	.form-inline .radio+.radio {
 		margin-left: 50px;
+	}
+	span.label {
+		font-size: 100%;
+	}
+	span.label-danger {
+		background: $brown;
 	}
 }
 
