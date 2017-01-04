@@ -207,7 +207,7 @@
             <div class="media-body">
               <h4 class="media-heading">{% if reference.recommend %}Positive{% else %}Negative!{% endif %}</h4>
               <span class="details">{% trans "on" %} {{ reference.date }}{% if user.is_superuser or  reference.giver == user %} <a href="{% url 'pioneer-reference-edit' object.username reference.pk %}">{% trans "Edit" %}</a>{% endif %}</span>
-              <p>{{ reference.text|urlize|safe|truncatewords:25 }}</p>
+              <p>{{ reference.text|urlize|safe|truncatewords:25 }} <a href="{% url 'pioneer-reference-list' object.username %}">{% trans "read more" %}</a></p>
             </div>
           </div>
         {% endfor %}

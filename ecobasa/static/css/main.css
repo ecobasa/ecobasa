@@ -1283,7 +1283,7 @@ body#profile .icon > i.fa {
   margin-top: 10px;
 }
 
-/**************** References ******************/
+/**************** References List ******************/
 body#references .media {
   padding: 20px;
 }
@@ -1314,6 +1314,12 @@ body#references img.avatar {
 }
 body#references .form-inline .radio + .radio {
   margin-left: 50px;
+}
+body#references span.label {
+  font-size: 100%;
+}
+body#references span.label-danger {
+  background: #452912;
 }
 
 /**************** Bus-List ******************/
