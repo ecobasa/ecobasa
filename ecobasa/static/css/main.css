@@ -1144,8 +1144,9 @@ body#profile .content h2.title {
   border: none;
   background: none;
 }
-body#profile .label {
+body#profile span.label {
   font-size: 100%;
+  background: #da6137;
 }
 body#profile .btn.email {
   margin-top: 20px;
