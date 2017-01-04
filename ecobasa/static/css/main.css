@@ -524,7 +524,6 @@ body#slideshow > .container.content {
 /*************** Blog **************/
 .label {
   border-radius: 1.25em;
-  background: #de7a08;
 }
 
 a:hover span.label {
@@ -571,6 +570,10 @@ body#blog .container.content.blog .post {
 body#blog .container.content .gradient {
   padding-top: 10px;
   padding-bottom: 80px;
+}
+body#blog .container.content .label {
+  border-radius: 1.25em;
+  background: #de7a08;
 }
 
 img.left {
@@ -1266,9 +1269,15 @@ body#profile span.username {
 }
 body#profile .badge {
   border: 1px solid;
+  background: transparent;
   color: #fcf3e5;
-  background: #da6137;
   margin-left: 2px;
+}
+body#profile span.label-primary {
+  background: #da6137;
+}
+body#profile span.label-danger {
+  background: #452912;
 }
 body#profile .icon > i.fa {
   margin-top: 10px;

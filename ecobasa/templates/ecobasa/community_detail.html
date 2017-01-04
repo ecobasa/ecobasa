@@ -112,7 +112,7 @@
               </ul>
               <ul class="list-inline">
                 {% for tag_name, tag_data in references.tag_counts.skills.items %}
-                    <li><span class="label label-{{ tag_data.class }}">{{ tag_name }} <span class="badge">{{ tag_data.count }}</span></span></li>
+                    <li><a href="{% url 'community-reference-list' object.slug %}"><span class="label label-{% if reference.recommend %}{{ tag_data.class }}{% else %}danger{% endif %}">{{ tag_name }} <span class="badge {% if reference.recommend %}alert-success{% else %}alert-danger{% endif %}">{{ tag_data.count }}</span></span></a></li>
                 {% endfor %}
                 {% for member in object.members %}
                   {% for tag in member.cosinnus_profile.skills.all %}
@@ -134,7 +134,7 @@
                 {% endif %}       
             {% endif %}
             {% if profile.offers_services %}
-            <h3><span class="fa fa-gears"></span> Services</h3>
+            <h3><span class="fa fa-gears"></span> {% trans "Services" %}</h3>
             <ul class="list-inline">
               {% for offer_service in profile.offers_services.all %}
               <li><span class="label label-{{ offer_skill }}">{{ offer_service }}</span></li>
@@ -142,7 +142,7 @@
             </ul>
             <ul class="list-inline">
               {% for tag_name, tag_data in references.tag_counts.services.items %}
-                  <li><span class="label label-{{ tag_data.class }}">{{ tag_name }} <span class="badge">{{ tag_data.count }}</span></span></li>
+                  <li><a href="{% url 'community-reference-list' object.slug %}"><span class="label label-{% if reference.recommend %}{{ tag_data.class }}{% else %}danger{% endif %}">{{ tag_name }} <span class="badge {% if reference.recommend %}alert-success{% else %}alert-danger{% endif %}">{{ tag_data.count }}</span></span></a></li>
               {% endfor %}
             </ul>
               {% if can_add_reference and not user|is_group_admin:object %}
@@ -180,7 +180,7 @@
             </ul>
             <ul class="list-inline">
               {% for tag_name, tag_data in references.tag_counts.products.items %}
-                  <li><span class="label label-{{ tag_data.class }}">{{ tag_name }} <span class="badge">{{ tag_data.count }}</span></span></li>
+                  <li><a href="{% url 'community-reference-list' object.slug %}"><span class="label label-{% if reference.recommend %}{{ tag_data.class }}{% else %}danger{% endif %}">{{ tag_name }} <span class="badge {% if reference.recommend %}alert-success{% else %}alert-danger{% endif %}">{{ tag_data.count }}</span></span></a></li>
               {% endfor %}
             </ul>
               {% if can_add_reference and not user|is_group_admin:object %}
@@ -286,7 +286,7 @@
           {% elif user|is_group_admin:object %}
             <a href="{% url 'community-edit' group=object.slug %}#id_wishlist_materials" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Ask for tools" %}</a>
           {% endif %}
-          <h4><span class="glyphicon glyphicon-star"></span> Additional info about tools</h4>
+          <h4><span class="glyphicon glyphicon-star"></span> {% trans "Additional info about tools" %}</h4>
           <p>{{ profile.wishlist_tools_info|urlize|linebreaksbr|safe }}</p>
           {% if user|is_group_admin:object %}
             <a href="{% url 'community-edit' group=object.slug %}#id_wishlist_tools" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add a description" %}</a>
@@ -347,7 +347,7 @@
   </div>
   <div class="col-xs-12 col-md-4 sidebar">
     <div class="visitor-info">
-      <h2><span class="glyphicon glyphicon-info-sign"></span> Visitor Info</h2>
+      <h2><span class="glyphicon glyphicon-info-sign"></span> {% trans "Visitor Info" %}</h2>
       <span class="community-details">
         <a href="#" data-toggle="tooltip" title="{{ profile.basic_inhabitants }} people live there"><i class="fa fa-users"></i>{{ profile.basic_inhabitants }}</a>
         <a href="#" data-toggle="tooltip" title="{{ profile.basic_inhabitants_underage }} children"><i class="fa fa-child"></i>{{ profile.basic_inhabitants_underage }}
@@ -481,7 +481,7 @@
         {% if references.references %}
           <a class="btn btn-primary pull-right" href="{% url 'community-reference-list' object.slug %}">{% trans "See all References" %}</a>
         {% else %}
-          <p>There are no references for this community yet</p>
+          <p>{% trans "There are no references for this community yet" %}</p>
         {% endif %}
         {% if can_add_reference %}<a class="btn btn-primary" href="{% url 'community-reference-add' object.slug %}"><span class="glyphicon glyphicon-plus"></span> {% trans "Add" %}</a>{% endif %}
       </div>

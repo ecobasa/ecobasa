@@ -28,7 +28,7 @@ class CommunityDetailView(DetailView):
 
     def _can_add_reference(self):
         if not self.request.user.is_authenticated():
-            return False
+            return True
         qs = Reference.objects.filter(
             giver=self.request.user, receiver_community=self.object)
         return len(qs) == 0

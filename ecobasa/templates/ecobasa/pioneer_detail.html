@@ -49,13 +49,13 @@
       </ul>
       <ul class="list-inline">
         {% for tag_name, tag_data in references.tag_counts.skills.items %}
-            <li><span class="label label-{{ tag_data.class }}">{{ tag_name }} <span class="badge alert-success">{{ tag_data.count }}</span></span></li>
+            <li><a href="{% url 'pioneer-reference-list' object.username %}"><span class="label label-{% if reference.recommend %}{{ tag_data.class }}{% else %}danger{% endif %}">{{ tag_name }} <span class="badge {% if reference.recommend %}alert-success{% else %}alert-danger{% endif %}">{{ tag_data.count }}</span></span></a></li>
         {% endfor %}
       </ul>
       {% if can_add_reference and not user == object %}
         <a class="btn btn-primary" href="{% url 'pioneer-reference-add' object.username %}"><span class="glyphicon glyphicon-plus"></span> {% trans "Add a skill of this person with a review" %}</a>
       {% elif user == object %}
-        <a href="{% url 'pioneer-edit' username=object.username %}#s2id_id_offers_skills" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add skills" %}</a>
+        <a href="{% url 'pioneer-edit' username=object.username %}#s2id_id_skills" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add skills" %}</a>
       {% endif %}
       <h2 id="products">{% trans "Products" %}</h2>
       <ul class="list-inline">
@@ -65,13 +65,13 @@
       </ul>
       <ul class="list-inline">
         {% for tag_name, tag_data in references.tag_counts.products.items %}
-            <li><span class="label label-{{ tag_data.class }}">{{ tag_name }} <span class="badge alert-success">{{ tag_data.count }}</span></span></li>
+            <li><a href="{% url 'pioneer-reference-list' object.username %}"><span class="label label-{% if reference.recommend %}{{ tag_data.class }}{% else %}danger{% endif %}">{{ tag_name }} <span class="badge {% if reference.recommend %}alert-success{% else %}alert-danger{% endif %}">{{ tag_data.count }}</span></span></a></li>
         {% endfor %}
       </ul>
       {% if can_add_reference and not user == object %}
         <a class="btn btn-primary" href="{% url 'pioneer-reference-add' object.username %}"><span class="glyphicon glyphicon-plus"></span> {% trans "Add a product this person can make with a review" %}</a>
       {% elif user == object %}
-        <a href="{% url 'pioneer-edit' username=object.username %}#s2id_id_offers_products" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add products" %}</a>
+        <a href="{% url 'pioneer-edit' username=object.username %}#s2id_id_products" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add products" %}</a>
       {% endif %}
       <h2 id="services">{% trans "Services" %}</h2>
         <ul class="list-inline">
@@ -79,13 +79,13 @@
             <li><span class="label label-{{ tag }}">{{ tag }}</span></li>
           {% endfor %}
           {% for tag_name, tag_data in references.tag_counts.services.items %}
-            <li><span class="label label-{{ tag_data.class }}">{{ tag_name }} <span class="badge alert-success">{{ tag_data.count }}</span></span></li>
+            <li><a href="{% url 'pioneer-reference-list' object.username %}"><span class="label label-{% if reference.recommend %}{{ tag_data.class }}{% else %}danger{% endif %}">{{ tag_name }} <span class="badge {% if reference.recommend %}alert-success{% else %}alert-danger{% endif %}">{{ tag_data.count }}</span></span></a></li>
           {% endfor %}
         </ul>
         {% if can_add_reference and not user == object %}
           <a class="btn btn-primary" href="{% url 'pioneer-reference-add' object.username %}"><span class="glyphicon glyphicon-plus"></span> {% trans "Add a service you reveived with a review" %}</a>
         {% elif user == object %}
-          <a href="{% url 'cosinnus:profile-edit' %}#s2id_id_offers_services" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add Services" %}</a>
+          <a href="{% url 'cosinnus:profile-edit' %}#s2id_id_services" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add Services" %}</a>
         {% endif %}
       {% if profile.interests or user == object %}
         <h2 id="interests">{% trans "Interests" %}</h2>
@@ -96,7 +96,7 @@
           {% endfor %}
         </ul>
       {% if user == object %}
-        <a href="{% url 'pioneer-edit' username=object.username %}#s2id_id_offers_skills" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add interests" %}</a>
+        <a href="{% url 'pioneer-edit' username=object.username %}#s2id_id_interests" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add interests" %}</a>
       {% endif %}
     {% endif %}
     {% if profile.wishlist or user == object %}
