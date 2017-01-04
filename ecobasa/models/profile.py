@@ -273,6 +273,12 @@ class TaggedSkill(TaggedItemBase):
     class Meta:
         app_label = 'ecobasa'
 
+class TaggedService(TaggedItemBase):
+    content_object = models.ForeignKey('EcobasaUserProfile')
+
+    class Meta:
+        app_label = 'ecobasa'
+
 
 class TaggedProduct(TaggedItemBase):
     content_object = models.ForeignKey('EcobasaUserProfile')
@@ -292,7 +298,7 @@ class EcobasaUserProfile(BaseUserProfile):
     # FIXME: why need tagged* to be part of SKIP_FIELDS? where are they
     # injected into the model fields?
     SKIP_FIELDS = ('id', 'user',
-                   'taggedskill', 'taggedinterest', 'taggedproduct', 'taggedwishlist')
+                   'taggedskill', 'taggedinterest', 'taggedproduct', 'taggedwishlist', 'taggedservice')
 
     avatar = ThumbnailerImageField(_('avatar'),
         upload_to='avatars', null=True, blank=True)
@@ -337,6 +343,9 @@ class EcobasaUserProfile(BaseUserProfile):
     products = TaggableManager(_('Products'),
         through=TaggedProduct, related_name='_product', blank=True,
         help_text=_('Can you manufacture any products, like jewelery, furniture, clothes, soap etc.. ? Connect two words with a "-" to have one tag.'))
+    services = TaggableManager(_('Services'),
+        through=TaggedService, related_name='_service', blank=True,
+        help_text=_('What services can you offer? Connect two words with a "-" to have one tag.'))
 
     # Wishlist
     wishlist = TaggableManager(_('Wishlist'),

@@ -16,6 +16,9 @@ EcobasaProfile = {
 		$("#id_skills").select2({
 			tags: tags.skills, tokenSeparators: [","]
 		});
+		$("#id_services").select2({
+			tags: tags.services, tokenSeparators: [","]
+		});
 		$("#id_products").select2({
 			tags: tags.products, tokenSeparators: [","]
 		});
