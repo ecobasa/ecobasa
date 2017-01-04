@@ -459,10 +459,11 @@
     {% endif %}
   {% endif %}
     <div class="row">
-      <div class="col-md-12 references">
-        <h2><span class="glyphicon glyphicon-stats"></span> {% trans "References" %}</h2>
+      <div class="col-md-12">
+        <div class="references">
+          <h2><span class="glyphicon glyphicon-stats"></span> {% trans "References" %}</h2>
           {% for reference in references.references %}
-            <div class="media {% if reference.recommend %}{% else %}negative{% endif %}">
+            <div class="media{% if reference.recommend %}{% else %} negative{% endif %}">
               <a class="pull-left" href="{% url 'pioneer-detail' reference.giver.username %}">
                 {% if reference.giver.cosinnus_profile.avatar %}
                     <img class="avatar media-object" src="{{ reference.giver.cosinnus_profile.avatar|thumbnail_url:"avatar_medium" }}" />
@@ -478,12 +479,15 @@
               </div>
             </div>
           {% endfor %}
+        </div>
         {% if references.references %}
           <a class="btn btn-primary pull-right" href="{% url 'community-reference-list' object.slug %}">{% trans "See all References" %}</a>
         {% else %}
           <p>{% trans "There are no references for this community yet" %}</p>
         {% endif %}
-        {% if can_add_reference %}<a class="btn btn-primary" href="{% url 'community-reference-add' object.slug %}"><span class="glyphicon glyphicon-plus"></span> {% trans "Add" %}</a>{% endif %}
+        {% if can_add_reference %}
+          <a class="btn btn-primary" href="{% url 'community-reference-add' object.slug %}"><span class="glyphicon glyphicon-plus"></span> {% trans "Add" %}</a>
+        {% endif %}
       </div>
     </div>
   </div><!-- sidebar -->

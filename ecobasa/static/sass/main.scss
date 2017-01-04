@@ -1408,6 +1408,8 @@ body#profile {
 body#references {
 	.media {
 		padding: 20px;
+		border: 2px dotted $primary;
+		border-radius: 5px;
 		.btn {
 			color: $secondary;
 			margin-left: 10px;
