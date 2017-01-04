@@ -1291,6 +1291,8 @@ body#profile .icon > i.fa {
 /**************** References List ******************/
 body#references .media {
   padding: 20px;
+  border: 2px dotted #da6137;
+  border-radius: 5px;
 }
 body#references .media .btn {
   color: #fcf3e5;

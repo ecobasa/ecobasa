@@ -14,7 +14,7 @@
     <div class="row">
       <div class="col-md-12">
     {% for reference in object_list %}
-        <div class="media {% if reference.recommend %}{% else %}negative{% endif %}">
+        <div class="media{% if reference.recommend %}{% else %} negative{% endif %}">
           <a class="pull-left" href="{% url 'pioneer-detail' reference.giver.username %}">
           {% if reference.giver.cosinnus_profile.avatar %}
               <img class="avatar media-object" src="{{ reference.giver.cosinnus_profile.avatar|thumbnail_url:"avatar_medium" }}" />
