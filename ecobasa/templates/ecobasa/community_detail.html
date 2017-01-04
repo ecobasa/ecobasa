@@ -112,7 +112,7 @@
               </ul>
               <ul class="list-inline">
                 {% for tag_name, tag_data in references.tag_counts.skills.items %}
-                    <li><a href="{% url 'community-reference-list' object.slug %}"><span class="label label-{% if reference.recommend %}{{ tag_data.class }}{% else %}danger{% endif %}">{{ tag_name }} <span class="badge {% if reference.recommend %}alert-success{% else %}alert-danger{% endif %}">{{ tag_data.count }}</span></span></a></li>
+                    <li><a href="{% url 'community-reference-list' object.slug %}"><span class="label label-{{ tag_data.class }}">{{ tag_name }} <span class="badge {% if reference.recommend %}alert-success{% else %}alert-danger{% endif %}">{{ tag_data.count }}</span></span></a></li>
                 {% endfor %}
                 {% for member in object.members %}
                   {% for tag in member.cosinnus_profile.skills.all %}
@@ -142,7 +142,7 @@
             </ul>
             <ul class="list-inline">
               {% for tag_name, tag_data in references.tag_counts.services.items %}
-                  <li><a href="{% url 'community-reference-list' object.slug %}"><span class="label label-{% if reference.recommend %}{{ tag_data.class }}{% else %}danger{% endif %}">{{ tag_name }} <span class="badge {% if reference.recommend %}alert-success{% else %}alert-danger{% endif %}">{{ tag_data.count }}</span></span></a></li>
+                  <li><a href="{% url 'community-reference-list' object.slug %}"><span class="label label-{{ tag_data.class }}">{{ tag_name }} <span class="badge {% if reference.recommend %}alert-success{% else %}alert-danger{% endif %}">{{ tag_data.count }}</span></span></a></li>
               {% endfor %}
             </ul>
               {% if can_add_reference and not user|is_group_admin:object %}
@@ -180,7 +180,7 @@
             </ul>
             <ul class="list-inline">
               {% for tag_name, tag_data in references.tag_counts.products.items %}
-                  <li><a href="{% url 'community-reference-list' object.slug %}"><span class="label label-{% if reference.recommend %}{{ tag_data.class }}{% else %}danger{% endif %}">{{ tag_name }} <span class="badge {% if reference.recommend %}alert-success{% else %}alert-danger{% endif %}">{{ tag_data.count }}</span></span></a></li>
+                  <li><a href="{% url 'community-reference-list' object.slug %}"><span class="label label-{{ tag_data.class }}">{{ tag_name }} <span class="badge {% if reference.recommend %}alert-success{% else %}alert-danger{% endif %}">{{ tag_data.count }}</span></span></a></li>
               {% endfor %}
             </ul>
               {% if can_add_reference and not user|is_group_admin:object %}

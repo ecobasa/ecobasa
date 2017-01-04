@@ -1244,6 +1244,11 @@ body#profile img.bus {
 }
 body#profile .references .media {
   padding: 20px;
+  border: 2px dotted #da6137;
+  border-radius: 5px;
+}
+body#profile .references .media:last-child {
+  margin-bottom: 10px;
 }
 body#profile .references span.details {
   margin-bottom: 10px;
