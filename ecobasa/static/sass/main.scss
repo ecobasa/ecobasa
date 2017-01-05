@@ -586,8 +586,10 @@ body#slideshow {
 
 /*************** Blog **************/
 
-.label {
+span.label {
 	border-radius: 1.25em;
+	background: $primary;
+	color: $secondary;
 }
 
 a:hover span.label {
@@ -811,10 +813,6 @@ body#note-detail {
 body#note-list {
 	.container.content {
 		padding-top: 130px;
-		span.label {
-			background: $primary;
-			color: $secondary;
-		}
 	}
 }
 
@@ -1237,7 +1235,6 @@ body#profile {
 
 	span.label {
 		font-size: 100%;
-		background: $primary;
 	}
 
 	.btn.email {
