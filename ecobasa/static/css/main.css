@@ -649,6 +649,7 @@ body#note-detail section#header .carousel-inner {
   position: absolute;
   height: 124px;
   bottom: 20%;
+  overflow: visible;
 }
 body#note-detail section#header .carousel-inner .carousel-caption {
   bottom: 0px;
@@ -1642,7 +1643,6 @@ div.cosinnus-event .big-calendar {
   body#note-detail section#header .carousel-inner {
     height: 70px;
     top: 30%;
-    overflow: visible;
   }
   body#note-detail section#header .carousel-inner .carousel-caption {
     display: block;
