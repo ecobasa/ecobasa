@@ -715,6 +715,7 @@ body#note-detail {
 			position: absolute;
 			height: 124px;
 			bottom: 20%;
+			overflow: visible;
 			.carousel-caption {
 				bottom: 0px;
 			}
@@ -1782,7 +1783,6 @@ div.cosinnus-event {
 		.carousel-inner {
 			height: 70px;
 			top: 30%;
-			overflow: visible;
 			.carousel-caption {
 				display: block;
 				padding-bottom: 0px;
