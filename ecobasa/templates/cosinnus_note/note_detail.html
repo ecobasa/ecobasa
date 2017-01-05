@@ -5,7 +5,7 @@
 {% load thumbnail %}
 
 {% block extrahead %}
-<meta property="og:title" content="{{ object.title }} - ecobasa.blog" />
+<meta property="og:title" content="{{ object.title }} - {{ group }}'s blog" />
 <meta property="og:type" content="article" />
 <meta property="article:author" content="https://{{ request.get_host }}{% url 'pioneer-detail' username=object.creator.get_username %}" />
 {% if object.video %}
