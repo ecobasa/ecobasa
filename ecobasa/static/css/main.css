@@ -522,8 +522,10 @@ body#slideshow > .container.content {
 }
 
 /*************** Blog **************/
-.label {
+span.label {
   border-radius: 1.25em;
+  background: #da6137;
+  color: #fcf3e5;
 }
 
 a:hover span.label {
@@ -740,10 +742,6 @@ body#note-detail #comment-new .status-upload ul > li > a:hover {
 
 body#note-list .container.content {
   padding-top: 130px;
-}
-body#note-list .container.content span.label {
-  background: #da6137;
-  color: #fcf3e5;
 }
 
 /***************Communities**************/
@@ -1150,7 +1148,6 @@ body#profile .content h2.title {
 }
 body#profile span.label {
   font-size: 100%;
-  background: #da6137;
 }
 body#profile .btn.email {
   margin-top: 20px;
