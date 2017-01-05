@@ -811,6 +811,10 @@ body#note-detail {
 body#note-list {
 	.container.content {
 		padding-top: 130px;
+		span.label {
+			background: $primary;
+			color: $secondary;
+		}
 	}
 }
 

@@ -741,6 +741,10 @@ body#note-detail #comment-new .status-upload ul > li > a:hover {
 body#note-list .container.content {
   padding-top: 130px;
 }
+body#note-list .container.content span.label {
+  background: #da6137;
+  color: #fcf3e5;
+}
 
 /***************Communities**************/
 /*#community-map {
