@@ -27,6 +27,6 @@ Do not reply, this would not be taken into account.{% endblocktrans %}
 {% blocktrans %}
 Have a nice day!
 This service is provided as a gift by ecobasa.org, please support us with a small donation!
-https://www.betterplace.org/en/projects/11742-ecobasa-org
+https://ecobasa.org/support/
 {% endblocktrans %}
 {% endautoescape %}
