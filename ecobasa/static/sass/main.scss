@@ -1498,41 +1498,12 @@ body#profile.group {
 		margin-top: 10px;
 		margin-bottom: 20px;
 	}
-	#tour-map {
-		margin-top: 20px;
-	}
-	.comment.tooltip {
+	.tooltip {
 		margin-top: 20px;
 		margin-bottom: 5px;
-		position: relative;
-		.tooltip-inner {
-			background-color: $primary;
-			color: $secondary;
-			text-align: left;
-			max-width: 100%;
-			position: relative;
-			padding: 20px;
-		}
-		.tooltip-arrow {
-			border-right-color: $primary;
-			border-left-color: $primary;
-		}
-		.tooltip-inner h3 {
-			color: $secondary;
-			margin-bottom: 8px;
-		}
-		a {
-			color: $secondary;
-			&:hover {
-				color: $third;
-			}
-		}
-		.created {
-			font-size: 11px;
-			margin-top: -10px;
-			margin-right: -10px;
-			text-shadow: 1px -1px 0px $third;
-		}
+	}
+	#tour-map {
+		margin-top: 20px;
 	}
 	a.email {
 		margin-top: 20px;
@@ -1561,6 +1532,66 @@ body#profile.group {
 	}
 }
 
+.tooltip {
+	.tooltip-inner {
+		background-color: $primary;
+		color: $secondary;
+		text-align: left;
+		position: relative;
+	}
+	a {
+		color: $secondary;
+		&:hover {
+			color: $third;
+		}
+	}
+	&.left, &.right {
+		.tooltip-arrow {
+			border-right-color: $primary;
+			border-left-color: $primary;
+		}
+	}
+	&.top, &.bottom {
+		.tooltip-arrow {
+			border-top-color: $primary;
+			border-bottom-color: $primary;
+		}
+	}
+}
+
+.comment.tooltip,
+.comment.tooltip.left,
+.comment.tooltip.right {
+	position: relative;
+	.tooltip-inner {
+		background-color: $primary;
+		color: $secondary;
+		text-align: left;
+		max-width: 100%;
+		position: relative;
+		padding: 20px;
+	}
+	.tooltip-arrow {
+		border-right-color: $primary;
+		border-left-color: $primary;
+	}
+	.tooltip-inner h3 {
+		color: $secondary;
+		margin-bottom: 8px;
+	}
+	a {
+		color: $secondary;
+		&:hover {
+			color: $third;
+		}
+	}
+	.created {
+		font-size: 11px;
+		margin-top: -10px;
+		margin-right: -10px;
+		text-shadow: 1px -1px 0px $third;
+	}
+}
 
 /*************** Dashboard **************/
 
@@ -1696,6 +1727,53 @@ div.cosinnus-event {
 }
 
 
+/**************** Messages ******************/
+
+img.avatar.small {
+	width: 50px;
+}
+
+body#message {
+	ul.media-list {
+		li.media {
+			position: relative;
+			&.left {
+				.frame {
+			    	left: 0px;
+			    }
+				.media-body {
+					margin-left: 55px;
+				}
+			}
+			&.right {
+				.frame {
+			    	right: 0px;
+			    }
+				.media-body {
+					margin-right: 55px;
+				}
+			}
+			form {
+				margin-top: 20px;
+			}
+			.frame {
+				position: absolute;
+			    top: 0;
+			    bottom: 0;
+			    display: flex; /* add */
+			    justify-content: center; /* add to align horizontal */
+			    align-items: center; /* add to align vertical */
+			}	
+			a.pioneer {
+			    img.avatar {
+			    	width: 50px;
+			    	height: 50px;
+			    }
+			}
+		}
+	}
+}
+
 /************* Footer ******************/
 
 #footer {
@@ -1795,6 +1873,9 @@ div.cosinnus-event {
 				}
 			}
 		}
+	}
+	.post img {
+		max-width: 100%;
 	}
 	.footer.navbar {
 		position: relative;
