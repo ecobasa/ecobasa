@@ -44,9 +44,9 @@ in the INSTALLED_APPS setting.
                     <img class="avatar small" src="{{ message.sender.cosinnus_profile.avatar|thumbnail_url:"avatar_small" }}" alt="{{ message.sender.get_full_name|default:message.obfuscated_sender }}" data-toggle="tooltip" data-placement="top" title="{% if message.obfuscated_sender == user.username %}{% trans "me" %}{% else %}{{ message.sender.get_full_name|default:message.obfuscated_sender }}{% endif %}">
                   {% else %}
                     <img class="avatar small" src="{% static "img/avatar.png" %}" alt="{{ message.sender.get_full_name|default:message.obfuscated_sender }}" data-toggle="tooltip" data-placement="top" title="{% if message.obfuscated_sender == user.username %}{% trans "me" %}{% else %}{{ message.sender.get_full_name|default:message.obfuscated_sender }}{% endif %}">
-                  {% endif %}<span class="username">{% if message.obfuscated_sender == user.username %}{% trans "me" %}{% else %}{{ message.sender.get_full_name|default:message.obfuscated_sender }}{% endif %}</span></a>{% if message.count %} <span class="label">{{ message.count }}</span>{% endif %}</td>{% endblock %}
+                  {% endif %}<span class="username">{% if message.obfuscated_sender == user.username %}{% trans "me" %}{% else %}{{ message.sender.first_name|default:message.obfuscated_sender }}{% endif %}</span></a></td>{% endblock %}
 {% block pm_recipient_cell %}   <td>{{ message.obfuscated_recipient|or_me:user }}{% if message.count %} ({{ message.count }}){% endif %}</td>{% endblock %}
-   <td>{% if message.is_new %}<strong>{% endif %}{% if message.is_replied %}<em>{% endif %}
+   <td>{% if message.count %} <span class="label">{{ message.count }}</span>{% endif %}{% if message.is_new %}<strong>{% endif %}{% if message.is_replied %}<em>{% endif %}
 {% block pm_subject %}
     <a href="{% if by_conversation and message.thread_id %}{% url 'postman_view_conversation' message.thread_id %}{% else %}{{message.get_absolute_url }}{% endif %}?next={{ current_url|urlencode }}">
     {% include "postman/inc_subject_ex.html" %}
