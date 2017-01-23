@@ -1372,41 +1372,12 @@ body#profile.group span.username {
   margin-top: 10px;
   margin-bottom: 20px;
 }
-body#profile.group #tour-map {
-  margin-top: 20px;
-}
-body#profile.group .comment.tooltip {
+body#profile.group .tooltip {
   margin-top: 20px;
   margin-bottom: 5px;
-  position: relative;
 }
-body#profile.group .comment.tooltip .tooltip-inner {
-  background-color: #da6137;
-  color: #fcf3e5;
-  text-align: left;
-  max-width: 100%;
-  position: relative;
-  padding: 20px;
-}
-body#profile.group .comment.tooltip .tooltip-arrow {
-  border-right-color: #da6137;
-  border-left-color: #da6137;
-}
-body#profile.group .comment.tooltip .tooltip-inner h3 {
-  color: #fcf3e5;
-  margin-bottom: 8px;
-}
-body#profile.group .comment.tooltip a {
-  color: #fcf3e5;
-}
-body#profile.group .comment.tooltip a:hover {
-  color: #b4502c;
-}
-body#profile.group .comment.tooltip .created {
-  font-size: 11px;
-  margin-top: -10px;
-  margin-right: -10px;
-  text-shadow: 1px -1px 0px #b4502c;
+body#profile.group #tour-map {
+  margin-top: 20px;
 }
 body#profile.group a.email {
   margin-top: 20px;
@@ -1432,6 +1403,73 @@ body#profile.group img.avatar.default {
 }
 body#profile.group img.avatar.member.default {
   width: 200px;
+}
+
+.tooltip .tooltip-inner {
+  background-color: #da6137;
+  color: #fcf3e5;
+  text-align: left;
+  position: relative;
+}
+.tooltip a {
+  color: #fcf3e5;
+}
+.tooltip a:hover {
+  color: #b4502c;
+}
+.tooltip.left .tooltip-arrow, .tooltip.right .tooltip-arrow {
+  border-right-color: #da6137;
+  border-left-color: #da6137;
+}
+.tooltip.top .tooltip-arrow, .tooltip.bottom .tooltip-arrow {
+  border-top-color: #da6137;
+  border-bottom-color: #da6137;
+}
+
+.comment.tooltip,
+.comment.tooltip.left,
+.comment.tooltip.right {
+  position: relative;
+}
+.comment.tooltip .tooltip-inner,
+.comment.tooltip.left .tooltip-inner,
+.comment.tooltip.right .tooltip-inner {
+  background-color: #da6137;
+  color: #fcf3e5;
+  text-align: left;
+  max-width: 100%;
+  position: relative;
+  padding: 20px;
+}
+.comment.tooltip .tooltip-arrow,
+.comment.tooltip.left .tooltip-arrow,
+.comment.tooltip.right .tooltip-arrow {
+  border-right-color: #da6137;
+  border-left-color: #da6137;
+}
+.comment.tooltip .tooltip-inner h3,
+.comment.tooltip.left .tooltip-inner h3,
+.comment.tooltip.right .tooltip-inner h3 {
+  color: #fcf3e5;
+  margin-bottom: 8px;
+}
+.comment.tooltip a,
+.comment.tooltip.left a,
+.comment.tooltip.right a {
+  color: #fcf3e5;
+}
+.comment.tooltip a:hover,
+.comment.tooltip.left a:hover,
+.comment.tooltip.right a:hover {
+  color: #b4502c;
+}
+.comment.tooltip .created,
+.comment.tooltip.left .created,
+.comment.tooltip.right .created {
+  font-size: 11px;
+  margin-top: -10px;
+  margin-right: -10px;
+  text-shadow: 1px -1px 0px #b4502c;
 }
 
 /*************** Dashboard **************/
@@ -1560,6 +1598,45 @@ div.cosinnus-event .big-calendar {
   margin-top: 50px;
 }
 
+/**************** Messages ******************/
+img.avatar.small {
+  width: 50px;
+}
+
+body#message ul.media-list li.media {
+  position: relative;
+}
+body#message ul.media-list li.media.left .frame {
+  left: 0px;
+}
+body#message ul.media-list li.media.left .media-body {
+  margin-left: 55px;
+}
+body#message ul.media-list li.media.right .frame {
+  right: 0px;
+}
+body#message ul.media-list li.media.right .media-body {
+  margin-right: 55px;
+}
+body#message ul.media-list li.media form {
+  margin-top: 20px;
+}
+body#message ul.media-list li.media .frame {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  /* add */
+  justify-content: center;
+  /* add to align horizontal */
+  align-items: center;
+  /* add to align vertical */
+}
+body#message ul.media-list li.media a.pioneer img.avatar {
+  width: 50px;
+  height: 50px;
+}
+
 /************* Footer ******************/
 #footer {
   margin-top: 50px;
@@ -1654,6 +1731,10 @@ div.cosinnus-event .big-calendar {
   body#note-detail section#header .carousel-inner .carousel-caption h1 {
     margin-bottom: 15px;
     font-size: 20px;
+  }
+
+  .post img {
+    max-width: 100%;
   }
 
   .footer.navbar {

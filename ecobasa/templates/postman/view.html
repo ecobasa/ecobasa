@@ -1,0 +1,54 @@
+{% extends "postman/base.html" %}
+{% load url from future %}
+{% load static i18n postman_tags thumbnail %}
+{% block body %}message{% endblock %}
+{% block content %}
+<div class="row">
+	<div class="col-xs-12">
+		<div id="postman">
+			<h1>{% if pm_messages|length > 1 %}{% trans "Conversation" %}: {% else %}{% trans "Message" %}: {% endif %}{% for message in pm_messages %}{% if forloop.first %}{{ message.subject }}{% endif %}{% endfor %}</h1>
+			<ul class="media-list">
+		      {% for message in pm_messages %}
+		        <li class="media pm_message{% if message.is_pending %} pm_pending{% endif %}{% if message.is_rejected %} pm_rejected{% endif %}{% if message.sender == user and message.sender_archived or message.recipient == user and message.recipient_archived %} pm_archived{% endif %}{% if message.sender == user and message.sender_deleted_at or message.recipient == user and message.recipient_deleted_at %} pm_deleted{% endif %}{% if message.recipient == user and not message.read_at %} pm_unread{% endif %}{% if message.obfuscated_sender == user.username %} right{% else %} left{% endif %}">
+		        <div class="frame">
+		            <a class="pioneer" href="{% url 'pioneer-detail' username=message.obfuscated_sender %}">
+		              {% if message.obfuscated_sender.cosinnus_profile.avatar %}
+		                <img class="avatar small" src="{{ message.obfuscated_sender.cosinnus_profile.avatar|thumbnail_url:"avatar_small" }}" alt="{{ message.obfuscated_sender.get_full_name|default:message.obfuscated_sender }}" data-toggle="tooltip" data-placement="top" title="{% if message.obfuscated_sender == user.username %}{% trans "me" %}{% else %}{{ message.obfuscated_sender.get_full_name|default:message.obfuscated_sender }}{% endif %}">
+		              {% else %}
+		                <img class="avatar small" src="{% static "img/avatar.png" %}" alt="{{ message.obfuscated_sender.get_full_name|default:message.obfuscated_sender }}" data-toggle="tooltip" data-placement="top" title="{% if message.obfuscated_sender == user.username %}{% trans "me" %}{% else %}{{ message.obfuscated_sender.get_full_name|default:message.obfuscated_sender }}{% endif %}">
+		              {% endif %}
+		            </a>
+		        </div>
+					<div class="media-body">
+						<div class="comment tooltip fade {% if message.obfuscated_sender == user.username %} left{% else %} right{% endif %} in">
+						<div class="tooltip-arrow"></div>
+						<div class="tooltip-inner">
+						<div class="pm_header created pull-right">
+							<span class="pm_sender"><a href="{% url 'pioneer-detail' username=message.obfuscated_sender %}">{% if message.obfuscated_sender == user.username %}{% trans "me" %}{% else %}{{ message.obfuscated_sender }}{% endif %}</a></span> |
+							<span class="pm_date">{{ message.sent_at|date:"DATETIME_FORMAT"}}</span>
+							{% if message.is_rejected %}  <div class="pm_status">{% trans "Rejected" %}{% if message.moderation_reason %}{% trans ":" %} {{ message.moderation_reason }}{% endif %}</div>{% endif %}
+						</div>
+						{{ message.body|urlize|linebreaksbr|safe }}</div></div>
+					</div>			
+		        </li>
+		      {% endfor %}
+		    </ul>
+		    <form action="" method="post">{% csrf_token %}
+			<input type="hidden" {% if pm_messages|length > 1 and message.thread_id %}name="tpks" value="{{ message.thread_id }}"{% else %}name="pks" value="{{ message.pk }}"{% endif %} />
+			<a class="btn" href="{{ next_url }}">{% trans "Back" %}</a>
+			<span id="pm_buttons">
+			<button class="btn btn-danger" type="submit" onclick="this.form.action='{% url 'postman_delete' %}?next={{ next_url|urlencode }}'">{% trans "Delete" %}</button>
+			{% if not archived %}<button class="btn btn-default" type="submit" onclick="this.form.action='{% url 'postman_archive' %}?next={{ next_url|urlencode }}'">{% trans "Archive" %}</button>{% endif %}
+			</span>
+			{% if reply_to_pk %}<a class="btn btn-primary" href="{% url 'postman_reply' reply_to_pk %}?next={{ next_url|urlencode }}">{% trans "Reply" %}</a>{% endif %}
+			</form>
+			{% if reply_to_pk %}
+			<h2>{% trans 'Reply' %}</h2>
+			<form action="{% url 'postman_reply' reply_to_pk %}?next={{ next_url|urlencode }}" method="post">{% csrf_token %}
+			<div class="form-group" id="pm_reply"><textarea cols="55" name="body" rows="12" id="id_body" class="form-control"></textarea></div>
+			<button class="btn btn-primary" type="submit">{% trans 'Reply' %}</button>
+			</form>{% endif %}
+			</div>	
+	</div>
+</div>
+{% endblock %}
