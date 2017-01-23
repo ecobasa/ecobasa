@@ -40,11 +40,11 @@ in the INSTALLED_APPS setting.
  <tbody>{% for message in pm_messages %}
   <tr>
    <td><input type="checkbox" {% if by_conversation and message.thread_id %}name="tpks" value="{{ message.thread_id }}"{% else %}name="pks" value="{{ message.pk }}"{% endif %} /></td>
-{% block pm_sender_cell %}   <td><a href="{% url 'pioneer-detail' username=message.obfuscated_sender %}">{% if message.obfuscated_sender.cosinnus_profile.avatar %}
-                    <img class="avatar small" src="{{ message.obfuscated_sender.cosinnus_profile.avatar|thumbnail_url:"avatar_small" }}" alt="{{ message.obfuscated_sender.get_full_name|default:message.obfuscated_sender }}" data-toggle="tooltip" data-placement="top" title="{% if message.obfuscated_sender == user.username %}{% trans "me" %}{% else %}{{ message.obfuscated_sender.get_full_name|default:message.obfuscated_sender }}{% endif %}">
+{% block pm_sender_cell %}   <td><a href="{% url 'pioneer-detail' username=message.obfuscated_sender %}">{% if message.sender.cosinnus_profile.avatar %}
+                    <img class="avatar small" src="{{ message.sender.cosinnus_profile.avatar|thumbnail_url:"avatar_small" }}" alt="{{ message.sender.get_full_name|default:message.obfuscated_sender }}" data-toggle="tooltip" data-placement="top" title="{% if message.obfuscated_sender == user.username %}{% trans "me" %}{% else %}{{ message.sender.get_full_name|default:message.obfuscated_sender }}{% endif %}">
                   {% else %}
-                    <img class="avatar small" src="{% static "img/avatar.png" %}" alt="{{ message.obfuscated_sender.get_full_name|default:message.obfuscated_sender }}" data-toggle="tooltip" data-placement="top" title="{% if message.obfuscated_sender == user.username %}{% trans "me" %}{% else %}{{ message.obfuscated_sender.get_full_name|default:message.obfuscated_sender }}{% endif %}">
-                  {% endif %}<span class="username">{{ message.obfuscated_sender|or_me:user }}</span></a>{% if message.count %} <span class="label">{{ message.count }}</span>{% endif %}</td>{% endblock %}
+                    <img class="avatar small" src="{% static "img/avatar.png" %}" alt="{{ message.sender.get_full_name|default:message.obfuscated_sender }}" data-toggle="tooltip" data-placement="top" title="{% if message.obfuscated_sender == user.username %}{% trans "me" %}{% else %}{{ message.sender.get_full_name|default:message.obfuscated_sender }}{% endif %}">
+                  {% endif %}<span class="username">{% if message.obfuscated_sender == user.username %}{% trans "me" %}{% else %}{{ message.sender.get_full_name|default:message.obfuscated_sender }}{% endif %}</span></a>{% if message.count %} <span class="label">{{ message.count }}</span>{% endif %}</td>{% endblock %}
 {% block pm_recipient_cell %}   <td>{{ message.obfuscated_recipient|or_me:user }}{% if message.count %} ({{ message.count }}){% endif %}</td>{% endblock %}
    <td>{% if message.is_new %}<strong>{% endif %}{% if message.is_replied %}<em>{% endif %}
 {% block pm_subject %}
