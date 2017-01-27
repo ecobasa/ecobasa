@@ -147,7 +147,7 @@
             <h4 class="media-heading">
               <a href="{% url 'pioneer-detail' username=comment.author.get_username %}">{{ comment.author.get_full_name|default:comment.author.username }}</a>
             </h4>
-            {{ comment.text }}
+            {{ comment.text|urlize|linebreaks|safe }}
             <div class="btn-group btn-group-xs pull-right">
               <a class="btn btn-primary btn-small" href="{% url 'cosinnus:note:comment-update' group=group.slug pk=comment.pk %}"><span class="glyphicon glyphicon-pencil"></span>{% trans "Edit" %}</a>
               <a class="btn btn-primary btn-small" href="{% url 'cosinnus:note:comment-delete' group=group.slug pk=comment.pk %}"><span class="glyphicon glyphicon-trash"></span>{% trans "Delete" %}</a>
