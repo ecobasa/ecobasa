@@ -1510,11 +1510,15 @@ a#group span.glyphicon {
   margin-bottom: 40px;
 }
 #dashboard .panel .panel-body .row.post img {
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   border-radius: 10px;
+}
+#dashboard .panel .panel-body .row.post span.details a.group {
+  float: left;
 }
 #dashboard .panel .panel-body .row.post .post .article {
   margin-top: 3px;
+  clear: left;
 }
 #dashboard .panel.panel-default > .panel-heading {
   background-color: #da6137;

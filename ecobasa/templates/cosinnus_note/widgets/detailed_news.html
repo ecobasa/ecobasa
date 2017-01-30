@@ -28,11 +28,11 @@
         <span class="details">
           written by <a href="{% url 'pioneer-detail' username=note.creator.get_username %}">{{ note.creator.get_full_name|default:note.creator.username }}</a> on {{ note.created }} in 
           {% if note.group.caravan %}
-            <a href="{% url 'caravan-detail' group=note.group.slug %}"><span class="glyphicon glyphicon-road"></span>
+            <a class="group" href="{% url 'caravan-detail' group=note.group.slug %}"><span class="glyphicon glyphicon-road"></span>
           {% elif note.group.profile %}
-            <a href="{% url 'community-detail' group=note.group.slug %}"><span class="glyphicon glyphicon-home"></span>
+            <a class="group" href="{% url 'community-detail' group=note.group.slug %}"><span class="glyphicon glyphicon-home"></span>
           {% else %}
-            <a href="{% url 'cosinnus:group-detail' group=note.group.slug %}"><span class="glyphicon glyphicon-globe"></span>
+            <a class="group" href="{% url 'cosinnus:group-detail' group=note.group.slug %}"><span class="glyphicon glyphicon-globe"></span>
           {% endif %}
           {{ note.group }}</a>
         </span>
