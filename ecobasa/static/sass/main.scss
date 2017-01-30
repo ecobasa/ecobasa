@@ -1628,11 +1628,15 @@ a#group {
 			.row.post {
 				margin-bottom: 40px;
 				img {
-				    margin-bottom: 20px;
+				    margin-bottom: 10px;
 				    border-radius: 10px;
+				}
+				span.details a.group {
+					float: left;
 				}
 				.post .article {
 				    margin-top: 3px;
+				    clear: left;
 				}
 			}
 		}
