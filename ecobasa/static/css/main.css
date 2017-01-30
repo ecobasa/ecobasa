@@ -1516,8 +1516,7 @@ a#group span.glyphicon {
 #dashboard .panel .panel-body .row.post span.details a.group {
   float: left;
 }
-#dashboard .panel .panel-body .row.post .post .article {
-  margin-top: 3px;
+#dashboard .panel .panel-body .row.post .article {
   clear: left;
 }
 #dashboard .panel.panel-default > .panel-heading {
