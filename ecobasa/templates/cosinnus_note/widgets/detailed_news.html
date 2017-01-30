@@ -26,7 +26,15 @@
           <h2>{{ note.title }}</h2>
         </a>
         <span class="details">
-          written by <a href="{% url 'pioneer-detail' username=note.creator.get_username %}">{{ note.creator.get_full_name|default:note.creator.username }}</a> on {{ note.created }} in <a href="{% url 'cosinnus:group-detail' group=note.group.slug %}">{{ note.group }}</a>
+          written by <a href="{% url 'pioneer-detail' username=note.creator.get_username %}">{{ note.creator.get_full_name|default:note.creator.username }}</a> on {{ note.created }} in 
+          {% if note.group.caravan %}
+            <a href="{% url 'caravan-detail' group=note.group.slug %}"><span class="glyphicon glyphicon-road"></span>
+          {% elif note.group.profile %}
+            <a href="{% url 'community-detail' group=note.group.slug %}"><span class="glyphicon glyphicon-home"></span>
+          {% else %}
+            <a href="{% url 'cosinnus:group-detail' group=note.group.slug %}"><span class="glyphicon glyphicon-globe"></span>
+          {% endif %}
+          {{ note.group }}</a>
         </span>
          <div class="article">{{ note.text|striptags|safe|truncatewords_html:80 }}<a class="more" href="{% url 'cosinnus:note:note' group=note.group.slug slug=note.slug %}">read more <span class="glyphicon glyphicon-arrow-right"></span></a></div>
          <a href="{% url 'cosinnus:note:note' group=note.group.slug slug=note.slug %}#comments"><span class="label">{{ note.comments.count }}</span> {% trans "comments" %}</a>
