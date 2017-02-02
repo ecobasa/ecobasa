@@ -97,6 +97,7 @@ class RegistrationCommunityForm(RegistrationForm):
         fields_community = forms.fields_for_model(EcobasaCommunityProfile)
         fields_community['contact_location_lat'].widget = forms.HiddenInput()
         fields_community['contact_location_lon'].widget = forms.HiddenInput()
+        fields_community['network'].widget = forms.HiddenInput()
         self.fields.update(fields_community)
 
     def save_profile(self, new_user, *args, **kwargs):
@@ -113,6 +114,7 @@ class RegistrationCommunityForm(RegistrationForm):
 
         profile = EcobasaCommunityProfile.objects.create(group=community)
         profile.name = name
+        profile.network = self.cleaned_data['network']
         profile.image = self.cleaned_data['image']
         profile.website = self.cleaned_data['website']
         profile.contact_telephone = self.cleaned_data['contact_telephone']

@@ -61,6 +61,7 @@
   </div>
   <div class="row">
     <div class="col-xs-12">
+      {% bootstrap_field form.network %}
       <h2>{% trans "Log In" %}</h2>
       <form id="form-register-community" action="{% url 'register-community' %}" method="post" enctype="multipart/form-data" novalidate="novalidate">
         {% csrf_token %}
@@ -333,11 +334,13 @@
 <script src="{% static 'js/ecobasa_register.js' %}"></script>
 <script type="text/javascript">
 $('#network').on('click', function () {
+  $('input#id_network').prop('checked', true);
   $('.panel.statistics').hide()
   $('.panel.offers').hide()
   $('.panel.wishes').hide()
 })
 $('#community').on('click', function () {
+  $('input#id_network').prop('checked', false);
   $('.panel.statistics').show()
   $('.panel.offers').show()
   $('.panel.wishes').show()
