@@ -3,6 +3,8 @@
 
 {% block page_title %}{% trans "Registration" %}{% endblock %}
 
+{% block body %}registration{% endblock %}
+
 {% block content %}
 <div class="row">
   <div class="col-xs-6">
@@ -10,8 +12,17 @@
     	<span class="glyphicon glyphicon-user"></span>
     	</br>
     	{% trans "Pioneer" %}</a>
+      <ul class="join">
+        <li><i class="fa fa-truck"></i> {% trans "Start a Community-Tour" %}</li>
+        <li><i class="fa fa-address-card-o"></i> {% trans "Volunteer in communities" %}</li>
+        <li><i class="fa fa-sign-in"></i> {% trans "Join an existing community or regional network" %}</li>
+        <li><i class="fa fa-sitemap"></i> {% trans "Participate in their organisation" %}</li>
+        <li><i class="fa fa-gift"></i> {% trans "Wish for things from the network" %}</li>
+        <li><i class="fa fa-envelope-o"></i> {% trans "Get requests and invitation for your skills" %}</li>
+        <li><i class="fa fa-globe"></i> {% trans "Read posts from communities, Community-Tours and the network" %}</li>
+      </ul>
       <p>
-        {% trans "This is the standard sign-up for all users. Every person is a pioneer in the gift-economy network, as we beginn to walk new (ancient) paths of sustainability." %}
+        {% trans "This is the standard sign-up for all users. Every person is a pioneer in the gift-economy network, as we beginn to walk new (ancient) paths of sustainability. You can:" %}
       </p>
   </div>
   <div class="col-xs-6">
@@ -19,8 +30,17 @@
     	<span class="glyphicon glyphicon-home"></span>
     	</br>
     	{% trans "Community Gift-Ambassador" %}</a>
+      <ul class="join">
+        <li><i class="fa fa-home"></i> {% trans "Get a community Profile" %}</li>
+        <li><i class="fa fa-users"></i> {% trans "Receive Volunteers" %}</li>
+        <li><i class="fa fa-pencil-square"></i> {% trans "Write Blogposts you can share in the network" %}</li>
+        <li><i class="fa fa-rocket"></i> {% trans "Start a regional gift-network" %}</li>
+        <li><i class="fa fa-pencil-square-o"></i> {% trans "Organize Meeting Notes, Common Documents, Tasks and Events" %}</li>
+        <li><i class="fa fa-gift"></i> {% trans "Exchange gifts!" %}</li>
+        <li><i class="fa fa-list"></i> {% trans "Collect References" %}</li>
+      </ul>
       <p>
-        {% trans "If you live in a community click here. With your pioneer profile we will create a community profile where you can whish for everything that your community needs. You will be the manager of this community on this website and other people from your community can sign up as pioneers and become members of the community-group later. You will be the contact person for volunteers that want to visit your community and help with your whishes, you can assign this role to someone else later!" %}
+        {% trans "If you live in a community, or want to start a regional network click here. With your standart pioneer profile we will create a community profile where you can whish for everything that your community needs and your personal and collective offers will be listed. You will be the manager of this community on this website and other people from your community can sign up as pioneers and become members or admins of the community-group later. You will be the contact person for volunteers that want to visit your community and facilitate exchanges over the platform. You can assign this role to someone else later!" %}
       </p>
   </div>
 </div>
