@@ -345,6 +345,12 @@ $('#community').on('click', function () {
   $('.panel.offers').show()
   $('.panel.wishes').show()
 })
+if ($('.has-error').length > 0) {
+  $('#signup-form').collapse('show')
+  $('html, body').animate({
+        scrollTop: $(".has-error").offset().top-100
+    }, 500);
+}
 var registerAs = 'community';
 {% get_offers_services as offers_services %}
 {% get_offers_skills as offers_skills %}
