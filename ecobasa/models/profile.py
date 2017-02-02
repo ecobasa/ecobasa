@@ -441,6 +441,9 @@ class EcobasaCommunityProfile(models.Model):
     group = models.OneToOneField(CosinnusGroup,
         editable=False, related_name='profile')
     # mandatory name!
+    network = models.BooleanField(
+        _('Is this a regional network?'),
+        default=False, blank=True)
     name = models.CharField(_('name of community'), max_length=255)
     website = models.URLField(_('link of your communities website'), max_length=100,
         blank=True, null=True)

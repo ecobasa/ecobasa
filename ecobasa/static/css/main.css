@@ -945,6 +945,28 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > th:first-child:before {
 }
 
 /*********** Registration **************/
+body#registration ul.join {
+  font-size: 21px;
+  line-height: 46px;
+  list-style: none;
+}
+body#registration ul.join li {
+  margin-bottom: 30px;
+}
+body#registration ul.join i.fa {
+  font-size: 24px;
+}
+body#registration ul.register {
+  list-style: none;
+  margin-top: 0px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+body#registration p {
+  font-size: 15px;
+  line-height: 24px;
+}
+
 .panel {
   background: #fcf3e5;
 }

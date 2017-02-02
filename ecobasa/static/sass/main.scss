@@ -1022,6 +1022,30 @@ table.dataTable.dtr-inline.collapsed>tbody>tr>th:first-child:before {
 
 /*********** Registration **************/
 
+body#registration {
+	ul.join {
+		font-size: 21px;
+		line-height: 46px;
+		list-style: none;
+		li {
+			margin-bottom: 30px;
+		}
+		i.fa {
+			font-size: 24px;
+		}
+	}
+	ul.register {
+		list-style: none;
+		margin-top: 0px;
+		padding-top: 0px;
+		padding-bottom: 0px;
+	}
+	p {
+		font-size: 15px;
+		line-height: 24px;
+	}
+}
+
 .panel {
 	background: $secondary;
 }
