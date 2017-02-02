@@ -1,4 +1,4 @@
-{% load static from staticfiles %}
+{% load static %}
 {% load bootstrap3 %}
 {% load cosinnus_tags %}
 {% load sekizai_tags %}
@@ -18,7 +18,7 @@
     {% else %}
       <script src="{% bootstrap_jquery_url %}"></script>
       <script src="{% bootstrap_javascript_url %}"></script>
-      <link href="{% bootstrap_css_url %}" rel="stylesheet">
+      <link rel="stylesheet" href="{% bootstrap_css_url %}">
       <link rel="stylesheet" href="{% static "css/main.css" %}">
     {% endif %}
     <script type="text/javascript">
@@ -27,7 +27,7 @@
      </script>
     <link rel="shortcut icon" href="{% static "img/favicon.ico" %}" />
     <link href="{% static "css/cosinnus.css" %}" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
     <link href="{% static 'css/vendor/fullcalendar.css' %}" rel="stylesheet">
     {% include 'cosinnus/extrahead.html' %}
     {% block extrahead %}{% endblock extrahead %}
