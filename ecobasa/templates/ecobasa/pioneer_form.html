@@ -27,12 +27,22 @@
       <div class="row">
         <div class="col-xs-12">
           {% bootstrap_field form.username %}
-          {% bootstrap_field form.first_name %}
-          {% bootstrap_field form.last_name %}
-          {% bootstrap_field form.email %}
-          {% bootstrap_field form.old_password %}
-          {% bootstrap_field form.new_password1 %}
-          {% bootstrap_field form.new_password2 %}
+          <div class="row">
+          {% bootstrap_field form.first_name field_class "col-xs-6" %}
+          {% bootstrap_field form.last_name field_class "col-xs-6" %}
+          </div>
+          <div class="row">
+          {% bootstrap_field form.email field_class "col-xs-12" %}
+          </div>
+          <div class="row">
+          {% bootstrap_field form.old_password field_class "col-xs-12" %}
+          </div>
+          <div class="row">
+          {% bootstrap_field form.new_password1 field_class "col-xs-12" %}
+          </div>
+          <div class="row">
+          {% bootstrap_field form.new_password2 field_class "col-xs-12" %}
+          </div>
         </div>
       </div>
       <div class="row">
@@ -109,5 +119,13 @@ var tags = {
 $(function() {
   EcobasaProfile.initMember();
 });
+
+function offsetAnchor() {
+    if(location.hash.length !== 0) {
+        window.scrollTo(window.scrollX, window.scrollY - 83);
+    }
+}
+window.addEventListener("hashchange", offsetAnchor);
+window.setTimeout(offsetAnchor, 1); // The delay of 1 is arbitrary and may not always work right (although it did in my testing).
 </script>
 {% endblock extrafooter %}

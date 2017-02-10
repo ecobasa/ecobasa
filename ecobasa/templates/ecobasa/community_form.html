@@ -21,14 +21,14 @@
 
 <div class="panel-group" id="accordion_registration" role="tablist" aria-multiselectable="true">
   <div class="panel panel-default">
-    <a data-toggle="collapse" data-parent="#accordion" href="#collapseZero" aria-expanded="true" aria-controls="collapseOne">
+    <a data-toggle="collapse" data-parent="#accordion" href="#contact" aria-expanded="true" aria-controls="contact">
       <div class="panel-heading" role="tab" id="headingZero">
         <h2 class="panel-title">
             {% trans "Community Contact Information" %} <span class="glyphicon glyphicon-chevron-down pull-right"></span>
         </h2>
       </div>
     </a>
-    <div id="collapseZero" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingZero">
+    <div id="contact" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingZero">
       <div class="panel-body">
 
       <div class="row">
@@ -80,14 +80,14 @@
 
 
   <div class="panel panel-default">
-    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+    <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#info" aria-expanded="true" aria-controls="info">
       <div class="panel-heading" role="tab" id="headingOne">
         <h2 class="panel-title">
             {% trans "Info" %} {% trans "(Click to expand)" %}<span class="glyphicon glyphicon-chevron-right pull-right"></span>
         </h2>
       </div>
     </a>
-    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+    <div id="info" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
       <div class="panel-body">
 
         <div class="row">
@@ -261,6 +261,19 @@ var tags = {
 $(function() {
   EcobasaProfile.initCommunity();
 });
+
+if(window.location.href.indexOf("id_image") > -1) {
+  $('#contact').collapse('hide');
+  $('#info').collapse('show');
+}
+
+function offsetAnchor() {
+  if(location.hash.length !== 0) {
+      window.scrollTo(window.scrollX, window.scrollY - 70);
+  }
+}
+window.addEventListener("hashchange", offsetAnchor);
+window.setTimeout(offsetAnchor, 1); // The delay of 1 is arbitrary and may not always work right (although it did in my testing).
 </script>
 {# for seeds #}
 <script type="text/javascript" src="{% static 'js/vendor/bootstrap.inline.js' %}"></script>
