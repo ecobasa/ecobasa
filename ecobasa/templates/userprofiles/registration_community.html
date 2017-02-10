@@ -20,7 +20,7 @@
 </div>
 <div class="row">
   <div class="col-xs-6">
-    <button type="button" id="community" data-toggle="collapse" href="#signup-form" aria-expanded="false" aria-controls="signup-form" class="register btn btn-primary btn-lg">
+    <button type="button" id="community" href="#signup-form" class="register btn btn-primary btn-lg">
       <span class="glyphicon glyphicon-home"></span><br />{% trans "Intentional Community" %}
     </button>
     <p>{% trans "Get a profile for your" %}</p>
@@ -32,7 +32,7 @@
       </ul>
   </div>
   <div class="col-xs-6">
-    <button type="button" id="network" data-toggle="collapse" href="#signup-form" aria-expanded="false" aria-controls="signup-form" class="register btn btn-primary btn-lg">
+    <button type="button" id="network" href="#signup-form" class="register btn btn-primary btn-lg">
       <span class="glyphicon glyphicon-globe"></span><br />{% trans "Regional Network" %}
     </button>
     <p>{% trans "Start a regional gift-network and invite the other pioneers to your" %}</p>
@@ -337,18 +337,20 @@
 <script type="text/javascript">
 $('#network').on('click', function () {
   $('input#id_network').prop('checked', true);
-  $('.panel.statistics').hide()
-  $('.panel.offers').hide()
-  $('.panel.wishes').hide()
+  $('#signup-form').collapse('show');
+  $('.panel.statistics').hide();
+  $('.panel.offers').hide();
+  $('.panel.wishes').hide();
 })
 $('#community').on('click', function () {
   $('input#id_network').prop('checked', false);
-  $('.panel.statistics').show()
-  $('.panel.offers').show()
-  $('.panel.wishes').show()
+  $('#signup-form').collapse('show');
+  $('.panel.statistics').show();
+  $('.panel.offers').show();
+  $('.panel.wishes').show();
 })
 if ($('.has-error').length > 0) {
-  $('#signup-form').collapse('show')
+  $('#signup-form').collapse('show');
   $('html, body').animate({
         scrollTop: $(".has-error").offset().top-100
     }, 500);
