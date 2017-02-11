@@ -445,12 +445,13 @@ class EcobasaCommunityProfile(models.Model):
         _('Is this a regional network?'),
         default=False, blank=True)
     name = models.CharField(_('name of community'), max_length=255)
-    website = models.URLField(_('link of your communities website'), max_length=100,
+    website = models.URLField(_('link of your communities website'), max_length=250,
         blank=True, null=True)
     image = ThumbnailerImageField(
         verbose_name=_('image'),
         help_text=_('Header image for the community-profile, minimum resolution 1200x400'),
         upload_to='community_images',
+        max_length=255,
         blank=True,
         null=True)
     video = models.URLField(
