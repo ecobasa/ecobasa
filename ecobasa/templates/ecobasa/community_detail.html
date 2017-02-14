@@ -189,7 +189,7 @@
                 <a class="btn btn-primary" href="{% url 'community-edit' group=object.slug %}#s2id_id_offers_creations"><span class="glyphicon glyphicon-plus"></span> {% trans "Add a product" %}</a>
               {% endif %}
         {% endif %}
-        {% if profile.offers_materials %}
+        {% if profile.offers_materials.all %}
           <h3><span class="fa fa-codepen"></span> {% trans "Materials" %}</h3>
           <ul class="list-inline">
             {% for offer_material in profile.offers_materials.all %}
@@ -197,7 +197,7 @@
             {% endfor %}
           </ul>
         {% endif %}
-        {% if profile.offers_tools %}
+        {% if profile.offers_tools.all %}
           <h3><span class="glyphicon glyphicon-wrench"></span> {% trans "Tools" %}</h3>
           <ul class="list-inline">
             {% for offer_tool in profile.offers_tools.all %}
@@ -250,16 +250,16 @@
             <a href="{% url 'community-edit' group=object.slug %}#s2id_id_wishlist_skills" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Tell people with special skills to come" %}</a>
           {% endif %}
         {% endif %}
-        {% if profile.wishlist_materials or profile.wishlist_materials_info or user|is_group_admin:object %}
+        {% if profile.wishlist_materials.all or profile.wishlist_materials_info or user|is_group_admin:object %}
           <h3><span class="fa fa-codepen"></span> {% trans "Materials" %}</h3>
         {% endif %}
-        {% if profile.wishlist_materials or user|is_group_admin:object %}
+        {% if profile.wishlist_materials.all or user|is_group_admin:object %}
           <ul class="list-inline">
             {% for wishlist_material in profile.wishlist_materials.all %}
             <li><span class="label label-{{ whish_material }}">{{ wishlist_material }}</span></li>
             {% endfor %}
           </ul>
-          {% if profile.wishlist_materials and user|is_group_admin:object %}
+          {% if profile.wishlist_materials.all and user|is_group_admin:object %}
             <a href="{% url 'community-edit' group=object.slug %}#id_wishlist_materials" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Ask for more materials" %}</a>
           {% elif user|is_group_admin:object %}
             <a href="{% url 'community-edit' group=object.slug %}#id_wishlist_materials" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Ask for materials" %}</a>
