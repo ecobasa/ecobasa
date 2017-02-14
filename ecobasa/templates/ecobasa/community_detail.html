@@ -220,7 +220,7 @@
         </div>
       {% endif %}
     {% endif %}
-  {% if profile.wishlist_projects or profile.wishlist_skills or profile.wishlist_materials or profile.wishlist_tools or profile.wishlist_seeds or profile.wishlist_special_needs or user.is_superuser or user|is_group_admin:object %}
+  {% if profile.wishlist_projects or profile.wishlist_skills.all or profile.wishlist_materials.all or profile.wishlist_tools.all or profile.wishlist_seeds.all or profile.wishlist_special_needs or user|is_group_admin:object %}
     <div class="row">
       <div class="col-xs-12">
         <h2><span class="glyphicon glyphicon-gift"></span> {% trans "Needs" %}</h2>
@@ -237,7 +237,7 @@
             {% endif %}    
           {% endif %}
         {% endif %}
-        {% if profile.wishlist_skill or user|is_group_admin:object%}
+        {% if profile.wishlist_skills.all or user|is_group_admin:object%}
           <h3><span class="fa fa-graduation-cap"></span> {% trans "Experts/People with the following skills" %}</h3>
           <ul>
             {% for wishlist_skill in profile.wishlist_skills.all %}
@@ -292,7 +292,7 @@
             <a href="{% url 'community-edit' group=object.slug %}#id_wishlist_tools" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add a description" %}</a>
         {% endif %}
         {% endif %}
-        {% if profile.wishlist_seeds or user|is_group_admin:object %}
+        {% if profile.wishlist_seeds.all or user|is_group_admin:object %}
           <h3><span class="glyphicon glyphicon-leaf"></span> {% trans "Seeds" %}</h3>
           <div class="table-responsive">
             <table class="table table-striped">
