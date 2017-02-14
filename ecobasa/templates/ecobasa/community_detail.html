@@ -184,7 +184,7 @@
               {% endfor %}
             </ul>
               {% if can_add_reference and not user|is_group_admin:object %}
-                <a class="btn btn-primary" href="{% url 'community-reference-add' object.slug %}"><span class="glyphicon glyphicon-plus"></span> {% trans "Add a product you recieved with a review" %}</a>
+                <a class="btn btn-primary" href="{% url 'community-reference-add' object.slug %}"><span class="glyphicon glyphicon-plus"></span> {% trans "Add a product you received with a review" %}</a>
               {% elif user|is_group_admin:object %}
                 <a class="btn btn-primary" href="{% url 'community-edit' group=object.slug %}#s2id_id_offers_creations"><span class="glyphicon glyphicon-plus"></span> {% trans "Add a product" %}</a>
               {% endif %}
@@ -326,6 +326,7 @@
           {% endif %}
         {% endif %}
       {% endif %}
+      {% if member.cosinnus_profile.wishlist or user|is_group_member:object %}
       <h3><span class="fa fa-users"></span> {% trans "Personal wishes from community-members" %}</h3>
       <ul>
         {% for member in object.members %}
@@ -341,6 +342,10 @@
           {% endfor %}
         {% endfor %}
       </ul>
+      {% if user|is_group_member:object %}
+        <a href="{% url 'pioneer-edit' username=user.username %}" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add wishes to your profile" %}</a>
+      {% endif %}
+      {% endif %}
       </div><!-- Needs -->
     </div><!-- Row -->
 
