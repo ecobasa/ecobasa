@@ -1204,8 +1204,12 @@ img.avatar {
 
 body#profile {
 
-	div.container.content {
+	&.community div.container.content {
 		padding: 0px;
+	}
+
+	div.container.content {
+		padding-top: 60px;
 	}
 
 	section#header {
