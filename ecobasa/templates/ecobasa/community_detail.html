@@ -19,580 +19,598 @@
 {% block content %}
 
 {% if profile.image %}
-<div class="row">
-  <div class="col-xs-12">
-  <img src="{{ profile.image|thumbnail_url:"note_large" }}" alt="{{ object.name }}">
-  <!-- 
-  <div class="row">
-    <div id="carousel-community" class="carousel slide gradient" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#carousel-community" data-slide-to="0" class="active"></li>
-        <li data-target="#carousel-community" data-slide-to="1"></li>
-        <li data-target="#carousel-community" data-slide-to="2"></li>
-        <li data-target="#carousel-community" data-slide-to="3"></li>
-      </ol>
-
-      <div class="carousel-inner">
-        <div class="item active">
-          <img src="{{ profile.image|thumbnail_url:"note_large" }}" alt="{{ object.name }}">
-          </div>
-        </div>
-      </div>
-
-      <a class="left carousel-control" href="#carousel-community" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left"></span>
-      </a>
-      <a class="right carousel-control" href="#carousel-community" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right"></span>
-      </a>
-    </div>
-    -->
+</div>
+</div>
+<section id="header" data-type="parallax" data-speed="1.8">
+  <img src="{{ object.image|thumbnail_url:"blogpost" }}"/>
+  <div class="carousel-inner" data-type="parallax" data-speed="22">
+  <div class="carousel-caption">
+  <h1>{{ object.title }}</h1>
+  <div class="caption-back"></div>
   </div>
 </div>
-{% endif %}
+</section>
 
-<div class="row">
-  <div class="col-xs-12">
-    <h1 class="community-name">{{ object.name }}</h1>
-      {% if user.is_superuser or user|is_group_admin:object %}
-      <div class="btn-group pull-right admin-buttons">
-        <a class="btn btn-primary" href="{% url 'community-edit' group=object.slug %}"><span class="glyphicon glyphicon-pencil"></span> {% trans "Edit" %}</a>
-        <a class="btn btn-primary" href="{% url 'cosinnus:group-export' group=object.slug %}"><span class="glyphicon glyphicon-export"></span> {% trans "Export" context "the verb" %}</a>
-        <a class="btn btn-danger" href="{% url 'cosinnus:group-delete' group=object.slug %}"><span class="glyphicon glyphicon-remove"></span> {% trans "Delete" %}</a>
-        <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="fa fa-users"></span>{% trans "Members" %} <span class="caret"></span></a>
-        <ul class="dropdown-menu pull-right" role="menu">
-          <li><a href="{% url 'cosinnus:group-user-add-generic' group=object.slug %}">{% trans "Add member" %}</a></li>
-        </ul>
-      </div>
-      {% endif %}
-      <div class="btn-group pull-right admin-buttons">
-        {% if user.is_authenticated %}
-          {% if user.pk in object.members %}
-            <a class="btn btn-danger" href="{% url 'cosinnus:group-user-leave' group=object.slug %}"><span class="glyphicon glyphicon-log-out"></span> {% trans "Leave Community" %}</a>
-          {% elif user.pk in object.pendings %}
-            <a class="btn btn-default" href="{% url 'cosinnus:group-user-withdraw' group=object.slug %}"><span class="glyphicon glyphicon-log-out"></span> {% trans "Withdraw membership request" %}</a>
-          {% else %}
-            <a class="btn btn-info" href="{% url 'cosinnus:group-user-join' group=object.slug %}"><span class="glyphicon glyphicon-log-in"></span> {% trans "Request to join this community" %}</a>
-          {% endif %}
-        {% endif %}
-      </div>
-  </div>
-</div>
-
-<div class="row">
-  <div class="col-xs-12 col-md-8">
+<div class="gradient">
+<section id="content" data-type="parallax" data-speed="18">
+  <div class="container content">
     <div class="row">
       <div class="col-xs-12">
-        {% if profile.basic_description or user|is_group_admin:object %}
-          <p>{{ profile.basic_description|urlize|linebreaksbr|safe }}</p>
-          {% if user|is_group_admin:object %}
-            <a href="{% url 'community-edit' group=object.slug %}#id_description" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add a description" %}</a>
-          {% endif %}
-        {% endif %}
-        {% if profile.basic_brings_together %}
-          <h3><span class="glyphicon glyphicon-heart"></span> {% trans "What brings this community together" %}</h3>
-          <p>{{ profile.basic_brings_together|urlize|linebreaksbr|safe }}</p>
-        {% endif %}
-      </div>
-    </div>
-    {% if profile.offers_skills or references.tag_counts.skills.items or profile.offers_services or profile.offers_creations or user|is_group_admin:object or member.cosinnus_profile.skills %}
+      <img class="community" src="{{ profile.image|thumbnail_url:"note_large" }}" alt="{{ object.name }}">
+      <!-- 
       <div class="row">
-        <div class="col-xs-12">
-          <h2><span class="glyphicon glyphicon-gift"></span> {% trans "Offers" %}</h2>
-        </div>
-      </div>
-      <div class="row">
-          <div class="col-xs-6">
-            {% if profile.offers_skills or references.tag_counts.skills.items %}
-              <h3><span class="fa fa-graduation-cap"></span> {% trans "What can you learn here" %}</h3>
-              <ul class="list-inline">
-                {% for offer_skill in profile.offers_skills.all %}
-                <li><span class="label label-{{ offer_skill }}">{{ offer_skill }}</span></li>
-                {% endfor %}
-              </ul>
-              <ul class="list-inline">
-                {% for tag_name, tag_data in references.tag_counts.skills.items %}
-                    <li><a href="{% url 'community-reference-list' object.slug %}"><span class="label label-{{ tag_data.class }}">{{ tag_name }} <span class="badge {% if reference.recommend %}alert-success{% else %}alert-danger{% endif %}">{{ tag_data.count }}</span></span></a></li>
-                {% endfor %}
-                {% for member in object.members %}
-                  {% for tag in member.cosinnus_profile.skills.all %}
-                  <li><span class="label label-{{ tag }}">{{ tag }}</li>
-                    {% if not forloop.last %} {% endif %}
-                  {% endfor %}
-                {% endfor %}
-                {% for member in object.ambassadors %}
-                  {% for tag in member.cosinnus_profile.wishlist.all %}
-                    <li><span class="label label-{{ tag }}">{{ tag }}</li>
-                    {% if not forloop.last %} {% endif %}
-                  {% endfor %}
-                {% endfor %}
-                </ul> 
-                {% if can_add_reference and not user|is_group_admin:object %}
-                  <a class="btn btn-primary" href="{% url 'community-reference-add' object.slug %}"><span class="glyphicon glyphicon-plus"></span> {% trans "Add a skill you learned here with a review" %}</a>
-                {% elif user|is_group_admin:object %}
-                  <a href="{% url 'community-edit' group=object.slug %}#s2id_id_offers_skills" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add a skill" %}</a>
-                {% endif %}       
-            {% endif %}
-            {% if profile.offers_services %}
-            <h3><span class="fa fa-gears"></span> {% trans "Services" %}</h3>
-            <ul class="list-inline">
-              {% for offer_service in profile.offers_services.all %}
-              <li><span class="label label-{{ offer_skill }}">{{ offer_service }}</span></li>
-              {% endfor %}
-            </ul>
-            <ul class="list-inline">
-              {% for tag_name, tag_data in references.tag_counts.services.items %}
-                  <li><a href="{% url 'community-reference-list' object.slug %}"><span class="label label-{{ tag_data.class }}">{{ tag_name }} <span class="badge {% if reference.recommend %}alert-success{% else %}alert-danger{% endif %}">{{ tag_data.count }}</span></span></a></li>
-              {% endfor %}
-            </ul>
-              {% if can_add_reference and not user|is_group_admin:object %}
-                  <a class="btn btn-primary" href="{% url 'community-reference-add' object.slug %}"><span class="glyphicon glyphicon-plus"></span> {% trans "Add a service they offer with a review" %}</a>
-              {% elif user|is_group_admin:object %}
-                <a class="btn btn-primary" href="{% url 'community-edit' group=object.slug %}#s2id_id_offers_services"><span class="glyphicon glyphicon-plus"></span> {% trans "Add a service" %}</a>
-              {% endif %}
-            {% endif %}
-          </div>
-        {% if profile.offers_creations or object.members.cosinnus_profile.products or object.ambassadors.cosinnus_profile.products or references.tag_counts.products.items %}
-          <div class="col-xs-6">
-            <h3><span class="glyphicon glyphicon-gift"></span> {% trans "Products and Creations" %}</h3>
-            <ul class="list-inline">
-              {% for offer_creation in profile.offers_creations.all %}
-              <li><span class="label label-{{ offer_skill }}">{{ offer_creation }}</span></li>
-              {% endfor %}
-              {% for member in object.members %}
-                {% for tag in member.cosinnus_profile.products.all %}
-                  <li><span class="label label-{{ tag }}">{{ tag }}</li>
-                {% if not forloop.last %} {% endif %}{% endfor %}
-                {% for tag in member.cosinnus_profile.wishlist.all %}
-                  <li><span class="label label-{{ tag }}">{{ tag }}</li>
-                  {% if not forloop.last %} {% endif %}
-                {% endfor %}
-              {% endfor %}
-              {% for member in object.ambassadors %}
-                {% for tag in member.cosinnus_profile.products.all %}
-                  <li><span class="label label-{{ tag }}">{{ tag }}</li>
-                {% if not forloop.last %} {% endif %}{% endfor %}
-                {% for tag in member.cosinnus_profile.wishlist.all %}
-                  <li><span class="label label-{{ tag }}">{{ tag }}</li>
-                  {% if not forloop.last %} {% endif %}
-                {% endfor %}
-              {% endfor %}
-            </ul>
-            <ul class="list-inline">
-              {% for tag_name, tag_data in references.tag_counts.products.items %}
-                  <li><a href="{% url 'community-reference-list' object.slug %}"><span class="label label-{{ tag_data.class }}">{{ tag_name }} <span class="badge {% if reference.recommend %}alert-success{% else %}alert-danger{% endif %}">{{ tag_data.count }}</span></span></a></li>
-              {% endfor %}
-            </ul>
-              {% if can_add_reference and not user|is_group_admin:object %}
-                <a class="btn btn-primary" href="{% url 'community-reference-add' object.slug %}"><span class="glyphicon glyphicon-plus"></span> {% trans "Add a product you received with a review" %}</a>
-              {% elif user|is_group_admin:object %}
-                <a class="btn btn-primary" href="{% url 'community-edit' group=object.slug %}#s2id_id_offers_creations"><span class="glyphicon glyphicon-plus"></span> {% trans "Add a product" %}</a>
-              {% endif %}
-        {% endif %}
-        {% if profile.offers_materials.all %}
-          <h3><span class="fa fa-codepen"></span> {% trans "Materials" %}</h3>
-          <ul class="list-inline">
-            {% for offer_material in profile.offers_materials.all %}
-            <li><span class="label label-{{ offer_material }}">{{ offer_material }}</span></li>
-            {% endfor %}
-          </ul>
-        {% endif %}
-        {% if profile.offers_tools.all %}
-          <h3><span class="glyphicon glyphicon-wrench"></span> {% trans "Tools" %}</h3>
-          <ul class="list-inline">
-            {% for offer_tool in profile.offers_tools.all %}
-            <li><span class="label label-{{ offer_tool }}">{{ offer_tool }}</span></li>
-            {% endfor %}
-          </ul>
-        {% endif %}
-      </div>
-    </div>
-      {% if profile.offers_workshop_spaces %}
-        <div class="row">
-          <div class="col-xs-6">
-            <h3><span class="fa fa-calendar"></span> {% trans "Seminars" %}</h3>
-            <p>{{ profile.offers_learning_seminars|urlize|linebreaksbr|safe }}</p>
-          </div>
-          <div class="col-xs-6">
-            <h3><span class="fa fa-gears"></span> {% trans "Workshop and factoring spaces" %}</h3>
-            {{ profile.offers_workshop_spaces|urlize|linebreaksbr|safe }}
-          </div>
-        </div>
-      {% endif %}
-    {% endif %}
-  {% if profile.wishlist_projects or profile.wishlist_skills.all or profile.wishlist_materials.all or profile.wishlist_tools.all or profile.wishlist_seeds.all or profile.wishlist_special_needs or user|is_group_admin:object %}
-    <div class="row">
-      <div class="col-xs-12">
-        <h2><span class="glyphicon glyphicon-gift"></span> {% trans "Needs" %}</h2>
-        {% if profile.wishlist_projects %}
-          <h3><span class="glyphicon glyphicon-home"></span> Projects/Construction Sites</h3>
-          <p>{{ profile.wishlist_projects|urlize|linebreaksbr|safe }}</p>
-        {% else %}
-          {% if user|is_group_admin:object %}
-            <h3><span class="fa fa-building-o"></span> Projects/Construction Sites</h3>
-            {% if profile.wishlist_projects and user|is_group_admin:object %}
-              <a href="{% url 'community-edit' group=object.slug %}#id_wishlist_projects" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add more projects" %}</a>
-            {% elif user|is_group_admin:object %}
-              <a href="{% url 'community-edit' group=object.slug %}#id_wishlist_projects" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add a project you need help for to your profile" %}</a>
-            {% endif %}    
-          {% endif %}
-        {% endif %}
-        {% if profile.wishlist_skills.all or user|is_group_admin:object%}
-          <h3><span class="fa fa-graduation-cap"></span> {% trans "Experts/People with the following skills" %}</h3>
-          <ul>
-            {% for wishlist_skill in profile.wishlist_skills.all %}
-            <li>{{ wishlist_skill }}</li>
-            {% endfor %}
-          </ul>
-          {% if profile.wishlist_skill and user|is_group_admin:object %}
-            <a href="{% url 'community-edit' group=object.slug %}#s2id_id_wishlist_skills" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Ask for more skills" %}</a>
-          {% elif user|is_group_admin:object %}
-            <a href="{% url 'community-edit' group=object.slug %}#s2id_id_wishlist_skills" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Tell people with special skills to come" %}</a>
-          {% endif %}
-        {% endif %}
-        {% if profile.wishlist_materials.all or profile.wishlist_materials_info or user|is_group_admin:object %}
-          <h3><span class="fa fa-codepen"></span> {% trans "Materials" %}</h3>
-        {% endif %}
-        {% if profile.wishlist_materials.all or user|is_group_admin:object %}
-          <ul class="list-inline">
-            {% for wishlist_material in profile.wishlist_materials.all %}
-            <li><span class="label label-{{ whish_material }}">{{ wishlist_material }}</span></li>
-            {% endfor %}
-          </ul>
-          {% if profile.wishlist_materials.all and user|is_group_admin:object %}
-            <a href="{% url 'community-edit' group=object.slug %}#id_wishlist_materials" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Ask for more materials" %}</a>
-          {% elif user|is_group_admin:object %}
-            <a href="{% url 'community-edit' group=object.slug %}#id_wishlist_materials" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Ask for materials" %}</a>
-          {% endif %}
-        {% endif %}
-        {% if profile.wishlist_materials_info or user|is_group_admin:object %}
-          <h4><span class="glyphicon glyphicon-star"></span> {% trans "Aditional info about Materials" %}</h4>
-          <p>{{ profile.wishlist_materials_info|urlize|linebreaksbr|safe }}</p>
-          {% if user|is_group_admin:object %}
-            <a href="{% url 'community-edit' group=object.slug %}#id_wishlist_materials" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add a description" %}</a>
-          {% endif %}
-        {% endif %}
-        {% if profile.wishlist_tools.all or profile.wishlist_tools_info or user|is_group_admin:object %}
-          <h3><span class="glyphicon glyphicon-wrench"></span> {% trans "Tools" %}</h3>
-        {% endif %}
-          {% if profile.wishlist_tools.all or user|is_group_admin:object %}
-          <ul class="list-inline">
-            {% for wishlist_tool in profile.wishlist_tools.all %}
-            <li><span class="label label-{{ whish_tool }}">{{ wishlist_tool }}</span></li>
-            {% endfor %}
-          </ul>
-          {% if profile.wishlist_tools.all and user|is_group_admin:object %}
-            <a href="{% url 'community-edit' group=object.slug %}#id_wishlist_tools" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Ask for more tools" %}</a>
-          {% elif user|is_group_admin:object %}
-            <a href="{% url 'community-edit' group=object.slug %}#id_wishlist_materials" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Ask for tools" %}</a>
-          {% endif %}
-          <h4><span class="glyphicon glyphicon-star"></span> {% trans "Additional info about tools" %}</h4>
-          <p>{{ profile.wishlist_tools_info|urlize|linebreaksbr|safe }}</p>
-          {% if user|is_group_admin:object %}
-            <a href="{% url 'community-edit' group=object.slug %}#id_wishlist_tools" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add a description" %}</a>
-        {% endif %}
-        {% endif %}
-        {% if profile.wishlist_seeds.all or user|is_group_admin:object %}
-          <h3><span class="glyphicon glyphicon-leaf"></span> {% trans "Seeds" %}</h3>
-          <div class="table-responsive">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>Sort</th>
-                  <th>Quantity</th>
-                </tr>
-              </thead>
-              <tbody>
-                {% for seed in profile.wishlist_seeds.all %}
-                <tr>
-                  <td>{{ seed.kind }}</td>
-                  <td>{{ seed.num }}</td>
-                </tr>
-                {% endfor %}
-              </tbody>
-            </table>
-          </div>
-          {% if user|is_group_admin:object %}
-            <a href="{% url 'community-edit' group=object.slug %}#id_wishlist_seeds-0-id" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Ask for seeds" %}</a>
-          {% endif %}
-        {% endif %}
-        {% if profile.wishlist_special_needs or user|is_group_admin:object %}
-          <h3><span class="fa fa-magic"></span> {% trans "Special Needs" %}</h3>
-          <p>{{ profile.wishlist_special_needs|urlize|linebreaksbr|safe }}</p>
-          {% if profile.wishlist_special_needs and user|is_group_admin:object %}
-            <a href="{% url 'community-edit' group=object.slug %}#id_wishlist_special_needs" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Ask for more special needs" %}</a>
-          {% elif user|is_group_admin:object %}
-            <a href="{% url 'community-edit' group=object.slug %}#id_wishlist_special_needs" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Ask for special needs" %}</a>
-          {% endif %}
-        {% endif %}
-      {% endif %}
-      {% if member.cosinnus_profile.wishlist or user|is_group_member:object %}
-      <h3><span class="fa fa-users"></span> {% trans "Personal wishes from community-members" %}</h3>
-      <ul>
-        {% for member in object.members %}
-          {% for tag in member.cosinnus_profile.wishlist.all %}
-            <li><span class="label label-{{ tag }}">{{ tag }}</li>
-            {% if not forloop.last %} {% endif %}
-          {% endfor %}
-        {% endfor %}
-        {% for member in object.ambassadors %}
-          {% for tag in member.cosinnus_profile.wishlist.all %}
-            <li><span class="label label-{{ tag }}">{{ tag }}</li>
-            {% if not forloop.last %} {% endif %}
-          {% endfor %}
-        {% endfor %}
-      </ul>
-      {% if user|is_group_member:object %}
-        <a href="{% url 'pioneer-edit' username=user.username %}" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add wishes to your profile" %}</a>
-      {% endif %}
-      {% endif %}
-      </div><!-- Needs -->
-    </div><!-- Row -->
+        <div id="carousel-community" class="carousel slide gradient" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carousel-community" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-community" data-slide-to="1"></li>
+            <li data-target="#carousel-community" data-slide-to="2"></li>
+            <li data-target="#carousel-community" data-slide-to="3"></li>
+          </ol>
 
-  </div>
-  <div class="col-xs-12 col-md-4 sidebar">
-    <div class="visitor-info">
-      <h2><span class="glyphicon glyphicon-info-sign"></span> {% trans "Visitor Info" %}</h2>
-      <span class="community-details">
-        <a href="#" data-toggle="tooltip" title="{{ profile.basic_inhabitants }} people live there"><i class="fa fa-users"></i>{{ profile.basic_inhabitants }}</a>
-        <a href="#" data-toggle="tooltip" title="{{ profile.basic_inhabitants_underage }} children"><i class="fa fa-child"></i>{{ profile.basic_inhabitants_underage }}
-        <a href="#" data-toggle="tooltip" title="They can host up to {{ profile.visitors_num }} people"><i class="fa fa-bed"></i>{{ profile.visitors_num }}</a>
-        
-          {% if profile.basic_membership_status = 'l' %}
-            <a href="#" data-toggle="tooltip" title="Looking for volunteers"><i class="fa fa-hand-rock-o"></i></a>
-          {% elif profile.basic_membership_status = 'c' %}
-            <a href="#" data-toggle="tooltip" title="Closed at the moment"><i class="fa fa-hand-stop-o"></i></a>
-          {% elif profile.basic_membership_status = 'o' %}
-            <a href="#" data-toggle="tooltip" title="Looking for members"><i class="fa fa-user-plus"></i></a>
-          {% endif %}
-        </span>
-      </ul>
-      {% if profile.visitors_accommodation %}
-        <h3><span class="glyphicon glyphicon-home"></span> {% trans "Accomodation for guests" %}</h3>
-        <p>{{ profile.visitors_accommodation|urlize|linebreaksbr|safe }}</p>
-      {% endif %}
-      {% if profile.website %}
-        <h3><a href="{{ profile.website }}" target="_blank"><span class="glyphicon glyphicon-globe"></span> Website</a></h3>
-        <a href="{{ profile.website }}" target="_blank">{{ profile.website }}</a>
-      {% endif %}
-      <div class="contact">
-        {% if user.is_authenticated and profile.contact_show %}
-          <h3>Contact info</h3>
-          {{ profile.contact_street }}</br>
-          {{ profile.contact_zipcode }}
-          {{ profile.contact_city }}</br>
-          {{ profile.get_contact_country_display }}</br></br>
-          <span class="glyphicon glyphicon-earphone"></span> {{ profile.contact_telephone }}      
-        {% endif %}
-        <a href="{% url 'postman_write' recipients=object.name %}"><button class="email btn btn-primary btn-lg" data-toggle="tooltip" data-placement="top" title="If you want to visit and volunteer at this communtiy"><span class="glyphicon glyphicon-envelope"></span> {% trans "Contact this community" %}</button></a>
-      </div>
-      {% if profile.video %}
-      <div class="row">
-        <div class="col-md-12">
-          <h3><span class="glyphicon glyphicon-film"></span> {% trans "Video" %}</h3>
-          <div class="video-responsive">
-            {% video profile.video "small" %}
-          </div>
-        </div>
-      </div>
-      {% endif %}
-    </div>
-    <div id="community-map" class="community-map-small"></div>
-
-     <div class="row">
-      <div class="col-md-12">
-        <h2><span class="glyphicon glyphicon-certificate"></span> {% trans "Gift-economy Ambassadors" %}</h2>
-        <ul class="media-list">
-          {% for amb in object.ambassadors %}
-            <li class="media text-center">
-              <a href="{% url 'pioneer-detail' username=amb.username %}">
-                {% if amb.cosinnus_profile.avatar %}
-                  <img class="avatar" src="{{ amb.cosinnus_profile.avatar|thumbnail_url:"avatar_large" }}">
-                {% else %}
-                  <img class="avatar" src="{% static "img/avatar.png" %}" alt="{{ amb.get_full_name|default:amb.username }}" data-toggle="tooltip" data-placement="top" title="{{ amb.get_full_name|default:amb.username }}">
-                {% endif %}
-                <span class="username">{{ amb.get_full_name|default:amb.get_username }}</span>
-              </a>
-              {% if user.is_superuser or user|is_group_admin:object %}
-              <div class="media-body">
-                <div class="btn-group btn-group-xs">
-                  <a href="{% url 'cosinnus:group-user-edit' group=object.slug username=amb.get_username %}" class="btn btn-primary"><span class="glyphicon glyphicon-log-in"></span> {% trans "Change Status" %}</a>
-                  <a href="{% url 'cosinnus:group-user-delete' group=object.slug username=amb.get_username %}" class="btn btn-primary"><span class="glyphicon glyphicon-log-out"></span> {% trans "Kick Out" %}</a>
-                  <a href="{% url 'postman_write' recipients=amb.get_username %}" class="btn btn-primary"><span class="glyphicon glyphicon-envelope"></span>{% trans "Send message" %}</a>
-                </div>
+          <div class="carousel-inner">
+            <div class="item active">
+              <img src="{{ profile.image|thumbnail_url:"note_large" }}" alt="{{ object.name }}">
               </div>
+            </div>
+          </div>
+
+          <a class="left carousel-control" href="#carousel-community" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+          </a>
+          <a class="right carousel-control" href="#carousel-community" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+          </a>
+        </div>
+        -->
+      </div>
+    </div>
+    {% endif %}
+
+    <div class="row">
+      <div class="col-xs-12">
+        <h1 class="community-name">{{ object.name }}</h1>
+          {% if user.is_superuser or user|is_group_admin:object %}
+          <div class="btn-group pull-right admin-buttons">
+            <a class="btn btn-primary" href="{% url 'community-edit' group=object.slug %}"><span class="glyphicon glyphicon-pencil"></span> {% trans "Edit" %}</a>
+            <a class="btn btn-primary" href="{% url 'cosinnus:group-export' group=object.slug %}"><span class="glyphicon glyphicon-export"></span> {% trans "Export" context "the verb" %}</a>
+            <a class="btn btn-danger" href="{% url 'cosinnus:group-delete' group=object.slug %}"><span class="glyphicon glyphicon-remove"></span> {% trans "Delete" %}</a>
+            <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown"><span class="fa fa-users"></span>{% trans "Members" %} <span class="caret"></span></a>
+            <ul class="dropdown-menu pull-right" role="menu">
+              <li><a href="{% url 'cosinnus:group-user-add-generic' group=object.slug %}">{% trans "Add member" %}</a></li>
+            </ul>
+          </div>
+          {% endif %}
+          <div class="btn-group pull-right admin-buttons">
+            {% if user.is_authenticated %}
+              {% if user.pk in object.members %}
+                <a class="btn btn-danger" href="{% url 'cosinnus:group-user-leave' group=object.slug %}"><span class="glyphicon glyphicon-log-out"></span> {% trans "Leave Community" %}</a>
+              {% elif user.pk in object.pendings %}
+                <a class="btn btn-default" href="{% url 'cosinnus:group-user-withdraw' group=object.slug %}"><span class="glyphicon glyphicon-log-out"></span> {% trans "Withdraw membership request" %}</a>
               {% else %}
-                <a class="email btn btn-primary btn-smll" href="{% url 'postman_write' recipients=amb.get_username %}"><span class="glyphicon glyphicon-envelope"></span>{% trans "Send message" %}</a>
+                <a class="btn btn-info" href="{% url 'cosinnus:group-user-join' group=object.slug %}"><span class="glyphicon glyphicon-log-in"></span> {% trans "Request to join this community" %}</a>
               {% endif %}
-            </li>
-          {% endfor %}
-        </ul>
-        {% if user.is_superuser or user|is_group_admin:object %}
-          <a class="btn btn-default center-block" href="{% url 'cosinnus:group-user-add-generic' group=object.slug %}"><span class="glyphicon glyphicon-plus"></span>{% trans "Add member" %}</a>
-        {% endif %}
+            {% endif %}
+          </div>
       </div>
     </div>
 
-    {% if user.is_superuser or user|is_group_admin:object %}
-      {% if object.pendings %}
-      <div class="row">
-        <div class="col-md-12">
-          <h2><span class="fa fa-users"></span> {% trans "Pending users" %}</h2>
-          <ul class="media-list">
-            {% for pending in object.pending_members %}
-              <li class="media text-center">
-                <a class="pull-left" href="{% url 'pioneer-detail' username=pending.username %}">
-                  {% if pending.cosinnus_profile.avatar %}
-                    <img class="avatar" src="{{ cosinnus_profile.avatar|thumbnail_url:"avatar_large" }}">
-                  {% else %}
-                    <img class="avatar" src="{% static "img/avatar.png" %}">
+    <div class="row">
+      <div class="col-xs-12 col-md-8">
+        <div class="row">
+          <div class="col-xs-12">
+            {% if profile.basic_description or user|is_group_admin:object %}
+              <p>{{ profile.basic_description|urlize|linebreaksbr|safe }}</p>
+              {% if user|is_group_admin:object %}
+                <a href="{% url 'community-edit' group=object.slug %}#id_description" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add a description" %}</a>
+              {% endif %}
+            {% endif %}
+            {% if profile.basic_brings_together %}
+              <h3><span class="glyphicon glyphicon-heart"></span> {% trans "What brings this community together" %}</h3>
+              <p>{{ profile.basic_brings_together|urlize|linebreaksbr|safe }}</p>
+            {% endif %}
+          </div>
+        </div>
+        {% if profile.offers_skills or references.tag_counts.skills.items or profile.offers_services or profile.offers_creations or user|is_group_admin:object or member.cosinnus_profile.skills %}
+          <div class="row">
+            <div class="col-xs-12">
+              <h2><span class="glyphicon glyphicon-gift"></span> {% trans "Offers" %}</h2>
+            </div>
+          </div>
+          <div class="row">
+              <div class="col-xs-6">
+                {% if profile.offers_skills or references.tag_counts.skills.items %}
+                  <h3><span class="fa fa-graduation-cap"></span> {% trans "What can you learn here" %}</h3>
+                  <ul class="list-inline">
+                    {% for offer_skill in profile.offers_skills.all %}
+                    <li><span class="label label-{{ offer_skill }}">{{ offer_skill }}</span></li>
+                    {% endfor %}
+                  </ul>
+                  <ul class="list-inline">
+                    {% for tag_name, tag_data in references.tag_counts.skills.items %}
+                        <li><a href="{% url 'community-reference-list' object.slug %}"><span class="label label-{{ tag_data.class }}">{{ tag_name }} <span class="badge {% if reference.recommend %}alert-success{% else %}alert-danger{% endif %}">{{ tag_data.count }}</span></span></a></li>
+                    {% endfor %}
+                    {% for member in object.members %}
+                      {% for tag in member.cosinnus_profile.skills.all %}
+                      <li><span class="label label-{{ tag }}">{{ tag }}</li>
+                        {% if not forloop.last %} {% endif %}
+                      {% endfor %}
+                    {% endfor %}
+                    {% for member in object.ambassadors %}
+                      {% for tag in member.cosinnus_profile.wishlist.all %}
+                        <li><span class="label label-{{ tag }}">{{ tag }}</li>
+                        {% if not forloop.last %} {% endif %}
+                      {% endfor %}
+                    {% endfor %}
+                    </ul> 
+                    {% if can_add_reference and not user|is_group_admin:object %}
+                      <a class="btn btn-primary" href="{% url 'community-reference-add' object.slug %}"><span class="glyphicon glyphicon-plus"></span> {% trans "Add a skill you learned here with a review" %}</a>
+                    {% elif user|is_group_admin:object %}
+                      <a href="{% url 'community-edit' group=object.slug %}#s2id_id_offers_skills" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add a skill" %}</a>
+                    {% endif %}       
+                {% endif %}
+                {% if profile.offers_services %}
+                <h3><span class="fa fa-gears"></span> {% trans "Services" %}</h3>
+                <ul class="list-inline">
+                  {% for offer_service in profile.offers_services.all %}
+                  <li><span class="label label-{{ offer_skill }}">{{ offer_service }}</span></li>
+                  {% endfor %}
+                </ul>
+                <ul class="list-inline">
+                  {% for tag_name, tag_data in references.tag_counts.services.items %}
+                      <li><a href="{% url 'community-reference-list' object.slug %}"><span class="label label-{{ tag_data.class }}">{{ tag_name }} <span class="badge {% if reference.recommend %}alert-success{% else %}alert-danger{% endif %}">{{ tag_data.count }}</span></span></a></li>
+                  {% endfor %}
+                </ul>
+                  {% if can_add_reference and not user|is_group_admin:object %}
+                      <a class="btn btn-primary" href="{% url 'community-reference-add' object.slug %}"><span class="glyphicon glyphicon-plus"></span> {% trans "Add a service they offer with a review" %}</a>
+                  {% elif user|is_group_admin:object %}
+                    <a class="btn btn-primary" href="{% url 'community-edit' group=object.slug %}#s2id_id_offers_services"><span class="glyphicon glyphicon-plus"></span> {% trans "Add a service" %}</a>
                   {% endif %}
-                <a href="{% url 'pioneer-detail' username=pending.username %}">{{ pending.get_full_name|default:pending.username }}</a>
-                </a>
-                <div class="media-body">
-                  <div class="btn-group btn-group-xs">
-                    <a href="{% url 'cosinnus:group-user-edit' group=object.slug username=pending.get_username %}" class="btn btn-primary"><span class="glyphicon glyphicon-log-in"></span> {% trans "Change Status" %}</a>
-                    <a href="{% url 'cosinnus:group-user-delete' group=object.slug username=pending.get_username %}" class="btn btn-primary"><span class="glyphicon glyphicon-log-out"></span>{% trans "Kick Out" %}</a>
-                  </div>
-                  <a class="email btn btn-primary btn-smll" href="{% url 'postman_write' recipients=pending.get_username %}"><span class="glyphicon glyphicon-envelope"></span>{% trans "Send message" %}</a>
+                {% endif %}
               </div>
-              </li>
+            {% if profile.offers_creations or object.members.cosinnus_profile.products or object.ambassadors.cosinnus_profile.products or references.tag_counts.products.items %}
+              <div class="col-xs-6">
+                <h3><span class="glyphicon glyphicon-gift"></span> {% trans "Products and Creations" %}</h3>
+                <ul class="list-inline">
+                  {% for offer_creation in profile.offers_creations.all %}
+                  <li><span class="label label-{{ offer_skill }}">{{ offer_creation }}</span></li>
+                  {% endfor %}
+                  {% for member in object.members %}
+                    {% for tag in member.cosinnus_profile.products.all %}
+                      <li><span class="label label-{{ tag }}">{{ tag }}</li>
+                    {% if not forloop.last %} {% endif %}{% endfor %}
+                    {% for tag in member.cosinnus_profile.wishlist.all %}
+                      <li><span class="label label-{{ tag }}">{{ tag }}</li>
+                      {% if not forloop.last %} {% endif %}
+                    {% endfor %}
+                  {% endfor %}
+                  {% for member in object.ambassadors %}
+                    {% for tag in member.cosinnus_profile.products.all %}
+                      <li><span class="label label-{{ tag }}">{{ tag }}</li>
+                    {% if not forloop.last %} {% endif %}{% endfor %}
+                    {% for tag in member.cosinnus_profile.wishlist.all %}
+                      <li><span class="label label-{{ tag }}">{{ tag }}</li>
+                      {% if not forloop.last %} {% endif %}
+                    {% endfor %}
+                  {% endfor %}
+                </ul>
+                <ul class="list-inline">
+                  {% for tag_name, tag_data in references.tag_counts.products.items %}
+                      <li><a href="{% url 'community-reference-list' object.slug %}"><span class="label label-{{ tag_data.class }}">{{ tag_name }} <span class="badge {% if reference.recommend %}alert-success{% else %}alert-danger{% endif %}">{{ tag_data.count }}</span></span></a></li>
+                  {% endfor %}
+                </ul>
+                  {% if can_add_reference and not user|is_group_admin:object %}
+                    <a class="btn btn-primary" href="{% url 'community-reference-add' object.slug %}"><span class="glyphicon glyphicon-plus"></span> {% trans "Add a product you received with a review" %}</a>
+                  {% elif user|is_group_admin:object %}
+                    <a class="btn btn-primary" href="{% url 'community-edit' group=object.slug %}#s2id_id_offers_creations"><span class="glyphicon glyphicon-plus"></span> {% trans "Add a product" %}</a>
+                  {% endif %}
+            {% endif %}
+            {% if profile.offers_materials.all %}
+              <h3><span class="fa fa-codepen"></span> {% trans "Materials" %}</h3>
+              <ul class="list-inline">
+                {% for offer_material in profile.offers_materials.all %}
+                <li><span class="label label-{{ offer_material }}">{{ offer_material }}</span></li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+            {% if profile.offers_tools.all %}
+              <h3><span class="glyphicon glyphicon-wrench"></span> {% trans "Tools" %}</h3>
+              <ul class="list-inline">
+                {% for offer_tool in profile.offers_tools.all %}
+                <li><span class="label label-{{ offer_tool }}">{{ offer_tool }}</span></li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </div>
+        </div>
+          {% if profile.offers_workshop_spaces %}
+            <div class="row">
+              <div class="col-xs-6">
+                <h3><span class="fa fa-calendar"></span> {% trans "Seminars" %}</h3>
+                <p>{{ profile.offers_learning_seminars|urlize|linebreaksbr|safe }}</p>
+              </div>
+              <div class="col-xs-6">
+                <h3><span class="fa fa-gears"></span> {% trans "Workshop and factoring spaces" %}</h3>
+                {{ profile.offers_workshop_spaces|urlize|linebreaksbr|safe }}
+              </div>
+            </div>
+          {% endif %}
+        {% endif %}
+      {% if profile.wishlist_projects or profile.wishlist_skills.all or profile.wishlist_materials.all or profile.wishlist_tools.all or profile.wishlist_seeds.all or profile.wishlist_special_needs or user|is_group_admin:object %}
+        <div class="row">
+          <div class="col-xs-12">
+            <h2><span class="glyphicon glyphicon-gift"></span> {% trans "Needs" %}</h2>
+            {% if profile.wishlist_projects %}
+              <h3><span class="glyphicon glyphicon-home"></span> Projects/Construction Sites</h3>
+              <p>{{ profile.wishlist_projects|urlize|linebreaksbr|safe }}</p>
+            {% else %}
+              {% if user|is_group_admin:object %}
+                <h3><span class="fa fa-building-o"></span> Projects/Construction Sites</h3>
+                {% if profile.wishlist_projects and user|is_group_admin:object %}
+                  <a href="{% url 'community-edit' group=object.slug %}#id_wishlist_projects" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add more projects" %}</a>
+                {% elif user|is_group_admin:object %}
+                  <a href="{% url 'community-edit' group=object.slug %}#id_wishlist_projects" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add a project you need help for to your profile" %}</a>
+                {% endif %}    
+              {% endif %}
+            {% endif %}
+            {% if profile.wishlist_skills.all or user|is_group_admin:object%}
+              <h3><span class="fa fa-graduation-cap"></span> {% trans "Experts/People with the following skills" %}</h3>
+              <ul>
+                {% for wishlist_skill in profile.wishlist_skills.all %}
+                <li>{{ wishlist_skill }}</li>
+                {% endfor %}
+              </ul>
+              {% if profile.wishlist_skill and user|is_group_admin:object %}
+                <a href="{% url 'community-edit' group=object.slug %}#s2id_id_wishlist_skills" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Ask for more skills" %}</a>
+              {% elif user|is_group_admin:object %}
+                <a href="{% url 'community-edit' group=object.slug %}#s2id_id_wishlist_skills" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Tell people with special skills to come" %}</a>
+              {% endif %}
+            {% endif %}
+            {% if profile.wishlist_materials.all or profile.wishlist_materials_info or user|is_group_admin:object %}
+              <h3><span class="fa fa-codepen"></span> {% trans "Materials" %}</h3>
+            {% endif %}
+            {% if profile.wishlist_materials.all or user|is_group_admin:object %}
+              <ul class="list-inline">
+                {% for wishlist_material in profile.wishlist_materials.all %}
+                <li><span class="label label-{{ whish_material }}">{{ wishlist_material }}</span></li>
+                {% endfor %}
+              </ul>
+              {% if profile.wishlist_materials.all and user|is_group_admin:object %}
+                <a href="{% url 'community-edit' group=object.slug %}#id_wishlist_materials" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Ask for more materials" %}</a>
+              {% elif user|is_group_admin:object %}
+                <a href="{% url 'community-edit' group=object.slug %}#id_wishlist_materials" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Ask for materials" %}</a>
+              {% endif %}
+            {% endif %}
+            {% if profile.wishlist_materials_info or user|is_group_admin:object %}
+              <h4><span class="glyphicon glyphicon-star"></span> {% trans "Aditional info about Materials" %}</h4>
+              <p>{{ profile.wishlist_materials_info|urlize|linebreaksbr|safe }}</p>
+              {% if user|is_group_admin:object %}
+                <a href="{% url 'community-edit' group=object.slug %}#id_wishlist_materials" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add a description" %}</a>
+              {% endif %}
+            {% endif %}
+            {% if profile.wishlist_tools.all or profile.wishlist_tools_info or user|is_group_admin:object %}
+              <h3><span class="glyphicon glyphicon-wrench"></span> {% trans "Tools" %}</h3>
+            {% endif %}
+              {% if profile.wishlist_tools.all or user|is_group_admin:object %}
+              <ul class="list-inline">
+                {% for wishlist_tool in profile.wishlist_tools.all %}
+                <li><span class="label label-{{ whish_tool }}">{{ wishlist_tool }}</span></li>
+                {% endfor %}
+              </ul>
+              {% if profile.wishlist_tools.all and user|is_group_admin:object %}
+                <a href="{% url 'community-edit' group=object.slug %}#id_wishlist_tools" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Ask for more tools" %}</a>
+              {% elif user|is_group_admin:object %}
+                <a href="{% url 'community-edit' group=object.slug %}#id_wishlist_materials" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Ask for tools" %}</a>
+              {% endif %}
+              <h4><span class="glyphicon glyphicon-star"></span> {% trans "Additional info about tools" %}</h4>
+              <p>{{ profile.wishlist_tools_info|urlize|linebreaksbr|safe }}</p>
+              {% if user|is_group_admin:object %}
+                <a href="{% url 'community-edit' group=object.slug %}#id_wishlist_tools" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add a description" %}</a>
+            {% endif %}
+            {% endif %}
+            {% if profile.wishlist_seeds.all or user|is_group_admin:object %}
+              <h3><span class="glyphicon glyphicon-leaf"></span> {% trans "Seeds" %}</h3>
+              <div class="table-responsive">
+                <table class="table table-striped">
+                  <thead>
+                    <tr>
+                      <th>Sort</th>
+                      <th>Quantity</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {% for seed in profile.wishlist_seeds.all %}
+                    <tr>
+                      <td>{{ seed.kind }}</td>
+                      <td>{{ seed.num }}</td>
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+              {% if user|is_group_admin:object %}
+                <a href="{% url 'community-edit' group=object.slug %}#id_wishlist_seeds-0-id" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Ask for seeds" %}</a>
+              {% endif %}
+            {% endif %}
+            {% if profile.wishlist_special_needs or user|is_group_admin:object %}
+              <h3><span class="fa fa-magic"></span> {% trans "Special Needs" %}</h3>
+              <p>{{ profile.wishlist_special_needs|urlize|linebreaksbr|safe }}</p>
+              {% if profile.wishlist_special_needs and user|is_group_admin:object %}
+                <a href="{% url 'community-edit' group=object.slug %}#id_wishlist_special_needs" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Ask for more special needs" %}</a>
+              {% elif user|is_group_admin:object %}
+                <a href="{% url 'community-edit' group=object.slug %}#id_wishlist_special_needs" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Ask for special needs" %}</a>
+              {% endif %}
+            {% endif %}
+          {% endif %}
+          {% if member.cosinnus_profile.wishlist or user|is_group_member:object %}
+          <h3><span class="fa fa-users"></span> {% trans "Personal wishes from community-members" %}</h3>
+          <ul>
+            {% for member in object.members %}
+              {% for tag in member.cosinnus_profile.wishlist.all %}
+                <li><span class="label label-{{ tag }}">{{ tag }}</li>
+                {% if not forloop.last %} {% endif %}
+              {% endfor %}
+            {% endfor %}
+            {% for member in object.ambassadors %}
+              {% for tag in member.cosinnus_profile.wishlist.all %}
+                <li><span class="label label-{{ tag }}">{{ tag }}</li>
+                {% if not forloop.last %} {% endif %}
+              {% endfor %}
             {% endfor %}
           </ul>
-        </div>
+          {% if user|is_group_member:object %}
+            <a href="{% url 'pioneer-edit' username=user.username %}" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add wishes to your profile" %}</a>
+          {% endif %}
+          {% endif %}
+          </div><!-- Needs -->
+        </div><!-- Row -->
+
       </div>
-    {% endif %}
-  {% endif %}
-    <div class="row">
-      <div class="col-md-12">
-        <div class="references">
-          <h2><span class="glyphicon glyphicon-stats"></span> {% trans "References" %}</h2>
-          {% for reference in references.references %}
-            <div class="media{% if reference.recommend %}{% else %} negative{% endif %}">
-              <a class="pull-left" href="{% url 'pioneer-detail' reference.giver.username %}">
-                {% if reference.giver.cosinnus_profile.avatar %}
-                    <img class="avatar media-object" src="{{ reference.giver.cosinnus_profile.avatar|thumbnail_url:"avatar_medium" }}" />
-                  {% else %}
-                    <img class="avatar media-object" src="{% static "img/avatar.png" %}">
-                  {% endif %}
-                  <center>{{ reference.giver.username }}</center>
-                </a>
-              <div class="media-body">
-                <h4 class="media-heading">{% if reference.recommend %}Positive{% else %}Negative!{% endif %}</h4>
-                <span class="details">{% trans "on" %} {{ reference.date }}{% if user.is_superuser or  reference.giver == user %} <a class="pull-right" href="{% url 'community-reference-edit' object.slug reference.pk %}"><b>{% trans "Edit" %}</b></a>{% endif %}</span>
-                <p>{{ reference.text|urlize|safe|truncatewords:25 }} <a href="{% url 'community-reference-list' object.slug %}">{% trans "read more" %}</a></p>
+      <div class="col-xs-12 col-md-4 sidebar">
+        <div class="visitor-info">
+          <h2><span class="glyphicon glyphicon-info-sign"></span> {% trans "Visitor Info" %}</h2>
+          <span class="community-details">
+            <a href="#" data-toggle="tooltip" title="{{ profile.basic_inhabitants }} people live there"><i class="fa fa-users"></i>{{ profile.basic_inhabitants }}</a>
+            <a href="#" data-toggle="tooltip" title="{{ profile.basic_inhabitants_underage }} children"><i class="fa fa-child"></i>{{ profile.basic_inhabitants_underage }}
+            <a href="#" data-toggle="tooltip" title="They can host up to {{ profile.visitors_num }} people"><i class="fa fa-bed"></i>{{ profile.visitors_num }}</a>
+            
+              {% if profile.basic_membership_status = 'l' %}
+                <a href="#" data-toggle="tooltip" title="Looking for volunteers"><i class="fa fa-hand-rock-o"></i></a>
+              {% elif profile.basic_membership_status = 'c' %}
+                <a href="#" data-toggle="tooltip" title="Closed at the moment"><i class="fa fa-hand-stop-o"></i></a>
+              {% elif profile.basic_membership_status = 'o' %}
+                <a href="#" data-toggle="tooltip" title="Looking for members"><i class="fa fa-user-plus"></i></a>
+              {% endif %}
+            </span>
+          </ul>
+          {% if profile.visitors_accommodation %}
+            <h3><span class="glyphicon glyphicon-home"></span> {% trans "Accomodation for guests" %}</h3>
+            <p>{{ profile.visitors_accommodation|urlize|linebreaksbr|safe }}</p>
+          {% endif %}
+          {% if profile.website %}
+            <h3><a href="{{ profile.website }}" target="_blank"><span class="glyphicon glyphicon-globe"></span> Website</a></h3>
+            <a href="{{ profile.website }}" target="_blank">{{ profile.website }}</a>
+          {% endif %}
+          <div class="contact">
+            {% if user.is_authenticated and profile.contact_show %}
+              <h3>Contact info</h3>
+              {{ profile.contact_street }}</br>
+              {{ profile.contact_zipcode }}
+              {{ profile.contact_city }}</br>
+              {{ profile.get_contact_country_display }}</br></br>
+              <span class="glyphicon glyphicon-earphone"></span> {{ profile.contact_telephone }}      
+            {% endif %}
+            <a href="{% url 'postman_write' recipients=object.name %}"><button class="email btn btn-primary btn-lg" data-toggle="tooltip" data-placement="top" title="If you want to visit and volunteer at this communtiy"><span class="glyphicon glyphicon-envelope"></span> {% trans "Contact this community" %}</button></a>
+          </div>
+          {% if profile.video %}
+          <div class="row">
+            <div class="col-md-12">
+              <h3><span class="glyphicon glyphicon-film"></span> {% trans "Video" %}</h3>
+              <div class="video-responsive">
+                {% video profile.video "small" %}
               </div>
             </div>
-          {% endfor %}
-        </div>
-        {% if references.references %}
-          <a class="btn btn-primary pull-right" href="{% url 'community-reference-list' object.slug %}">{% trans "See all References" %}</a>
-        {% else %}
-          <p>{% trans "There are no references for this community yet" %}</p>
-        {% endif %}
-        {% if can_add_reference %}
-          <a class="btn btn-primary" href="{% url 'community-reference-add' object.slug %}"><span class="glyphicon glyphicon-plus"></span> {% trans "Add" %}</a>
-        {% endif %}
-      </div>
-    </div>
-  </div><!-- sidebar -->
-</div><!-- row -->
-{% if posts or user.is_superuser or user|is_group_admin:object %}
-  <div class="row">
-    <div class="posts col-xs-12">
-    <h2><span class="glyphicon glyphicon-list-alt"></span> {% trans "Blog Posts" %}</h2>
-    {% if user.is_superuser or user|is_group_admin:object %}
-      <a class="btn btn-primary btn-larg" href="{% url 'cosinnus:note:add' group=object.slug %}"><span class="glyphicon glyphicon-plus"></span> {% trans "Write a Blogpost" %}</a>
-      </br></br>
-    {% endif %}
-    {% for post in posts %}
-    <div class="post row">
-      {% if post.video %}
-      <!-- see http://django-embed-video.readthedocs.org/en/latest/examples.html#template-examples -->
-      <div class="col-xs-12 col-sm-4">
-        <a href="{% url 'cosinnus:note:note' group=object.slug slug=post.slug %}">
-          <div class="video-responsive">
-            {% video post.video "tiny" %}
           </div>
-        </a>
-      </div>
-      <div class="col-xs-12 col-sm-8">
+          {% endif %}
+        </div>
+        <div id="community-map" class="community-map-small"></div>
+
+         <div class="row">
+          <div class="col-md-12">
+            <h2><span class="glyphicon glyphicon-certificate"></span> {% trans "Gift-economy Ambassadors" %}</h2>
+            <ul class="media-list">
+              {% for amb in object.ambassadors %}
+                <li class="media text-center">
+                  <a href="{% url 'pioneer-detail' username=amb.username %}">
+                    {% if amb.cosinnus_profile.avatar %}
+                      <img class="avatar" src="{{ amb.cosinnus_profile.avatar|thumbnail_url:"avatar_large" }}">
+                    {% else %}
+                      <img class="avatar" src="{% static "img/avatar.png" %}" alt="{{ amb.get_full_name|default:amb.username }}" data-toggle="tooltip" data-placement="top" title="{{ amb.get_full_name|default:amb.username }}">
+                    {% endif %}
+                    <span class="username">{{ amb.get_full_name|default:amb.get_username }}</span>
+                  </a>
+                  {% if user.is_superuser or user|is_group_admin:object %}
+                  <div class="media-body">
+                    <div class="btn-group btn-group-xs">
+                      <a href="{% url 'cosinnus:group-user-edit' group=object.slug username=amb.get_username %}" class="btn btn-primary"><span class="glyphicon glyphicon-log-in"></span> {% trans "Change Status" %}</a>
+                      <a href="{% url 'cosinnus:group-user-delete' group=object.slug username=amb.get_username %}" class="btn btn-primary"><span class="glyphicon glyphicon-log-out"></span> {% trans "Kick Out" %}</a>
+                      <a href="{% url 'postman_write' recipients=amb.get_username %}" class="btn btn-primary"><span class="glyphicon glyphicon-envelope"></span>{% trans "Send message" %}</a>
+                    </div>
+                  </div>
+                  {% else %}
+                    <a class="email btn btn-primary btn-smll" href="{% url 'postman_write' recipients=amb.get_username %}"><span class="glyphicon glyphicon-envelope"></span>{% trans "Send message" %}</a>
+                  {% endif %}
+                </li>
+              {% endfor %}
+            </ul>
+            {% if user.is_superuser or user|is_group_admin:object %}
+              <a class="btn btn-default center-block" href="{% url 'cosinnus:group-user-add-generic' group=object.slug %}"><span class="glyphicon glyphicon-plus"></span>{% trans "Add member" %}</a>
+            {% endif %}
+          </div>
+        </div>
 
         {% if user.is_superuser or user|is_group_admin:object %}
-          <div class="btn-group pull-right">
-            <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">{% trans "Actions" %} <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-                <li><a href="{% url 'cosinnus:note:update' group=object.slug slug=post.slug %}"><span class="glyphicon glyphicon-pencil"></span> {% trans "Edit" %}</a></li>
-                <li><a href="{% url 'cosinnus:note:delete' group=object.slug slug=post.slug %}"><span class="glyphicon glyphicon-trash"></span> {% trans "Delete" %}</a></li>
-                <li class="divider"></li>
-                <li><a href="{% url 'cosinnus:note:comment' group=object.slug slug=post.slug %}"><i class="icon-comment"></i> {% trans "Comment" %}</a></li>
-            </ul>
+          {% if object.pendings %}
+          <div class="row">
+            <div class="col-md-12">
+              <h2><span class="fa fa-users"></span> {% trans "Pending users" %}</h2>
+              <ul class="media-list">
+                {% for pending in object.pending_members %}
+                  <li class="media text-center">
+                    <a class="pull-left" href="{% url 'pioneer-detail' username=pending.username %}">
+                      {% if pending.cosinnus_profile.avatar %}
+                        <img class="avatar" src="{{ cosinnus_profile.avatar|thumbnail_url:"avatar_large" }}">
+                      {% else %}
+                        <img class="avatar" src="{% static "img/avatar.png" %}">
+                      {% endif %}
+                    <a href="{% url 'pioneer-detail' username=pending.username %}">{{ pending.get_full_name|default:pending.username }}</a>
+                    </a>
+                    <div class="media-body">
+                      <div class="btn-group btn-group-xs">
+                        <a href="{% url 'cosinnus:group-user-edit' group=object.slug username=pending.get_username %}" class="btn btn-primary"><span class="glyphicon glyphicon-log-in"></span> {% trans "Change Status" %}</a>
+                        <a href="{% url 'cosinnus:group-user-delete' group=object.slug username=pending.get_username %}" class="btn btn-primary"><span class="glyphicon glyphicon-log-out"></span>{% trans "Kick Out" %}</a>
+                      </div>
+                      <a class="email btn btn-primary btn-smll" href="{% url 'postman_write' recipients=pending.get_username %}"><span class="glyphicon glyphicon-envelope"></span>{% trans "Send message" %}</a>
+                  </div>
+                  </li>
+                {% endfor %}
+              </ul>
+            </div>
           </div>
         {% endif %}
-
-        <a href="{% url 'cosinnus:note:note' group=object.slug slug=post.slug %}">
-          <h3>{{ post.title }}</h3>
-        </a>
-        <span class="details">
-          written by <a href="{% url 'pioneer-detail' username=post.creator.get_username %}">{{ post.creator.get_full_name|default:post.creator.username }}</a> on {{ post.created }}
-        </span>
-        <div class="article">{{ post.text|urlize|linebreaks|safe|truncatewords_html:80 }}</div>
-        <a class="more" href="{% url 'cosinnus:note:note' group=object.slug slug=post.slug %}">read more</a>
-      </div>
-      {% elif post.image %}
-        <div class="col-xs-12 col-sm-4">
-          <a href="{% url 'cosinnus:note:note' group=object.slug slug=post.slug %}">
-            <img src="{{ post.image|thumbnail_url:"note_medium" }}" alt="{{ post.title }}" width="100%"/>
-          </a>
-        </div>
-        <div class="col-xs-12 col-sm-8">
-          {% if user.is_superuser or user|is_group_admin:object %}
-            <div class="btn-group pull-right">
-              <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">{% trans "Actions" %} <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                  <li><a href="{% url 'cosinnus:note:update' group=object.slug slug=post.slug %}"><span class="glyphicon glyphicon-pencil"></span> {% trans "Edit" %}</a></li>
-                  <li><a href="{% url 'cosinnus:note:delete' group=object.slug slug=post.slug %}"><span class="glyphicon glyphicon-trash"></span> {% trans "Delete" %}</a></li>
-                  <li class="divider"></li>
-                  <li><a href="{% url 'cosinnus:note:comment' group=object.slug slug=post.slug %}"><i class="icon-comment"></i> {% trans "Comment" %}</a></li>
-              </ul>
-            </div>
-          {% endif %}
-          <a href="{% url 'cosinnus:note:note' group=object.slug slug=post.slug %}">
-            <h3>{{ post.title }}</h3>
-          </a>
-          <span class="details">
-            written by <a href="{% url 'pioneer-detail' username=post.creator.get_username %}">{{ post.creator.get_full_name|default:post.creator.username }}</a> on {{ post.created }}
-          </span>
-          <div class="article">{{ post.text|striptags|linebreaks|safe|truncatewords_html:80 }}</div>
-          <a class="more" href="{% url 'cosinnus:note:note' group=object.slug slug=post.slug %}">read more</a>
-        </div>
-      {% else %}
-        <div class="col-xs-12">
-          {% if user.is_superuser or user|is_group_admin:object %}
-            <div class="btn-group pull-right">
-              <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">{% trans "Actions" %} <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                  <li><a href="{% url 'cosinnus:note:update' group=object.slug slug=post.slug %}"><span class="glyphicon glyphicon-pencil"></span> {% trans "Edit" %}</a></li>
-                  <li><a href="{% url 'cosinnus:note:delete' group=object.slug slug=post.slug %}"><span class="glyphicon glyphicon-trash"></span> {% trans "Delete" %}</a></li>
-                  <li class="divider"></li>
-                  <li><a href="{% url 'cosinnus:note:comment' group=object.slug slug=post.slug %}"><i class="icon-comment"></i> {% trans "Comment" %}</a></li>
-              </ul>
-            </div>
-          {% endif %}
-          <a href="{% url 'cosinnus:note:note' group=object.slug slug=post.slug %}">
-            <h3>{{ post.title }}</h3>
-          </a>
-          <span class="details">
-            written by <a href="{% url 'pioneer-detail' username=post.creator.get_username %}">{{ post.creator.get_full_name|default:post.creator.username }}</a> on {{ post.created }}
-          </span>
-          <div class="article">{% autoescape off %}{{ post.text|urlize|linebreaks|truncatewords_html:80 }}{% endautoescape %}</div>
-          <a class="more" href="{% url 'cosinnus:note:note' group=object.slug slug=post.slug %}">read more</a>
-        </div>
       {% endif %}
+        <div class="row">
+          <div class="col-md-12">
+            <div class="references">
+              <h2><span class="glyphicon glyphicon-stats"></span> {% trans "References" %}</h2>
+              {% for reference in references.references %}
+                <div class="media{% if reference.recommend %}{% else %} negative{% endif %}">
+                  <a class="pull-left" href="{% url 'pioneer-detail' reference.giver.username %}">
+                    {% if reference.giver.cosinnus_profile.avatar %}
+                        <img class="avatar media-object" src="{{ reference.giver.cosinnus_profile.avatar|thumbnail_url:"avatar_medium" }}" />
+                      {% else %}
+                        <img class="avatar media-object" src="{% static "img/avatar.png" %}">
+                      {% endif %}
+                      <center>{{ reference.giver.username }}</center>
+                    </a>
+                  <div class="media-body">
+                    <h4 class="media-heading">{% if reference.recommend %}Positive{% else %}Negative!{% endif %}</h4>
+                    <span class="details">{% trans "on" %} {{ reference.date }}{% if user.is_superuser or  reference.giver == user %} <a class="pull-right" href="{% url 'community-reference-edit' object.slug reference.pk %}"><b>{% trans "Edit" %}</b></a>{% endif %}</span>
+                    <p>{{ reference.text|urlize|safe|truncatewords:25 }} <a href="{% url 'community-reference-list' object.slug %}">{% trans "read more" %}</a></p>
+                  </div>
+                </div>
+              {% endfor %}
+            </div>
+            {% if references.references %}
+              <a class="btn btn-primary pull-right" href="{% url 'community-reference-list' object.slug %}">{% trans "See all References" %}</a>
+            {% else %}
+              <p>{% trans "There are no references for this community yet" %}</p>
+            {% endif %}
+            {% if can_add_reference %}
+              <a class="btn btn-primary" href="{% url 'community-reference-add' object.slug %}"><span class="glyphicon glyphicon-plus"></span> {% trans "Add" %}</a>
+            {% endif %}
+          </div>
+        </div>
+      </div><!-- sidebar -->
+    </div><!-- row -->
+    {% if posts or user.is_superuser or user|is_group_admin:object %}
+      <div class="row">
+        <div class="posts col-xs-12">
+        <h2><span class="glyphicon glyphicon-list-alt"></span> {% trans "Blog Posts" %}</h2>
+        {% if user.is_superuser or user|is_group_admin:object %}
+          <a class="btn btn-primary btn-larg" href="{% url 'cosinnus:note:add' group=object.slug %}"><span class="glyphicon glyphicon-plus"></span> {% trans "Write a Blogpost" %}</a>
+          </br></br>
+        {% endif %}
+        {% for post in posts %}
+        <div class="post row">
+          {% if post.video %}
+          <!-- see http://django-embed-video.readthedocs.org/en/latest/examples.html#template-examples -->
+          <div class="col-xs-12 col-sm-4">
+            <a href="{% url 'cosinnus:note:note' group=object.slug slug=post.slug %}">
+              <div class="video-responsive">
+                {% video post.video "tiny" %}
+              </div>
+            </a>
+          </div>
+          <div class="col-xs-12 col-sm-8">
+
+            {% if user.is_superuser or user|is_group_admin:object %}
+              <div class="btn-group pull-right">
+                <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">{% trans "Actions" %} <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a href="{% url 'cosinnus:note:update' group=object.slug slug=post.slug %}"><span class="glyphicon glyphicon-pencil"></span> {% trans "Edit" %}</a></li>
+                    <li><a href="{% url 'cosinnus:note:delete' group=object.slug slug=post.slug %}"><span class="glyphicon glyphicon-trash"></span> {% trans "Delete" %}</a></li>
+                    <li class="divider"></li>
+                    <li><a href="{% url 'cosinnus:note:comment' group=object.slug slug=post.slug %}"><i class="icon-comment"></i> {% trans "Comment" %}</a></li>
+                </ul>
+              </div>
+            {% endif %}
+
+            <a href="{% url 'cosinnus:note:note' group=object.slug slug=post.slug %}">
+              <h3>{{ post.title }}</h3>
+            </a>
+            <span class="details">
+              written by <a href="{% url 'pioneer-detail' username=post.creator.get_username %}">{{ post.creator.get_full_name|default:post.creator.username }}</a> on {{ post.created }}
+            </span>
+            <div class="article">{{ post.text|urlize|linebreaks|safe|truncatewords_html:80 }}</div>
+            <a class="more" href="{% url 'cosinnus:note:note' group=object.slug slug=post.slug %}">read more</a>
+          </div>
+          {% elif post.image %}
+            <div class="col-xs-12 col-sm-4">
+              <a href="{% url 'cosinnus:note:note' group=object.slug slug=post.slug %}">
+                <img src="{{ post.image|thumbnail_url:"note_medium" }}" alt="{{ post.title }}" width="100%"/>
+              </a>
+            </div>
+            <div class="col-xs-12 col-sm-8">
+              {% if user.is_superuser or user|is_group_admin:object %}
+                <div class="btn-group pull-right">
+                  <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">{% trans "Actions" %} <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                      <li><a href="{% url 'cosinnus:note:update' group=object.slug slug=post.slug %}"><span class="glyphicon glyphicon-pencil"></span> {% trans "Edit" %}</a></li>
+                      <li><a href="{% url 'cosinnus:note:delete' group=object.slug slug=post.slug %}"><span class="glyphicon glyphicon-trash"></span> {% trans "Delete" %}</a></li>
+                      <li class="divider"></li>
+                      <li><a href="{% url 'cosinnus:note:comment' group=object.slug slug=post.slug %}"><i class="icon-comment"></i> {% trans "Comment" %}</a></li>
+                  </ul>
+                </div>
+              {% endif %}
+              <a href="{% url 'cosinnus:note:note' group=object.slug slug=post.slug %}">
+                <h3>{{ post.title }}</h3>
+              </a>
+              <span class="details">
+                written by <a href="{% url 'pioneer-detail' username=post.creator.get_username %}">{{ post.creator.get_full_name|default:post.creator.username }}</a> on {{ post.created }}
+              </span>
+              <div class="article">{{ post.text|striptags|linebreaks|safe|truncatewords_html:80 }}</div>
+              <a class="more" href="{% url 'cosinnus:note:note' group=object.slug slug=post.slug %}">read more</a>
+            </div>
+          {% else %}
+            <div class="col-xs-12">
+              {% if user.is_superuser or user|is_group_admin:object %}
+                <div class="btn-group pull-right">
+                  <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">{% trans "Actions" %} <span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                      <li><a href="{% url 'cosinnus:note:update' group=object.slug slug=post.slug %}"><span class="glyphicon glyphicon-pencil"></span> {% trans "Edit" %}</a></li>
+                      <li><a href="{% url 'cosinnus:note:delete' group=object.slug slug=post.slug %}"><span class="glyphicon glyphicon-trash"></span> {% trans "Delete" %}</a></li>
+                      <li class="divider"></li>
+                      <li><a href="{% url 'cosinnus:note:comment' group=object.slug slug=post.slug %}"><i class="icon-comment"></i> {% trans "Comment" %}</a></li>
+                  </ul>
+                </div>
+              {% endif %}
+              <a href="{% url 'cosinnus:note:note' group=object.slug slug=post.slug %}">
+                <h3>{{ post.title }}</h3>
+              </a>
+              <span class="details">
+                written by <a href="{% url 'pioneer-detail' username=post.creator.get_username %}">{{ post.creator.get_full_name|default:post.creator.username }}</a> on {{ post.created }}
+              </span>
+              <div class="article">{% autoescape off %}{{ post.text|urlize|linebreaks|truncatewords_html:80 }}{% endautoescape %}</div>
+              <a class="more" href="{% url 'cosinnus:note:note' group=object.slug slug=post.slug %}">read more</a>
+            </div>
+          {% endif %}
+          </div>
+        {% endfor %}
+        </div>
       </div>
-    {% endfor %}
     </div>
   </div>
+</section>
 {% endif %}
 {% endblock %}
 
