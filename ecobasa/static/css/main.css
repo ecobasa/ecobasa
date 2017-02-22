@@ -134,12 +134,12 @@ h3, h4, h5, h6 {
   -webkit-box-shadow: inset 0 5px 10px -5px rgba(0, 0, 0, 0.4);
   -moz-box-shadow: inset 0 5px 10px -5px rgba(0, 0, 0, 0.4);
   box-shadow: inset 0 5px 10px -5px rgba(0, 0, 0, 0.4);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e5e5e5), color-stop(100%, #fcf3e5));
-  background-image: -webkit-linear-gradient(top, #e5e5e5, #fcf3e5);
-  background-image: -moz-linear-gradient(top, #e5e5e5, #fcf3e5);
-  background-image: -ms-linear-gradient(top, #e5e5e5, #fcf3e5);
-  background-image: -o-linear-gradient(top, #e5e5e5, #fcf3e5);
-  background-image: linear-gradient(top, #e5e5e5, #fcf3e5);
+  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e5e5e5), color-stop(100%, transparent));
+  background-image: -webkit-linear-gradient(top, #e5e5e5, transparent);
+  background-image: -moz-linear-gradient(top, #e5e5e5, transparent);
+  background-image: -ms-linear-gradient(top, #e5e5e5, transparent);
+  background-image: -o-linear-gradient(top, #e5e5e5, transparent);
+  background-image: linear-gradient(top, #e5e5e5, transparent);
   background-size: 100% 52px;
   background-repeat: no-repeat;
 }
@@ -535,20 +535,6 @@ a:hover span.label {
 .headimage img {
   width: 100%;
   height: auto;
-}
-
-.gradient {
-  -webkit-box-shadow: inset 0 5px 10px -5px rgba(0, 0, 0, 0.4);
-  -moz-box-shadow: inset 0 5px 10px -5px rgba(0, 0, 0, 0.4);
-  box-shadow: inset 0 5px 10px -5px rgba(0, 0, 0, 0.4);
-  background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #e5e5e5), color-stop(100%, #f4ede3));
-  background-image: -webkit-linear-gradient(top, #e5e5e5, #f4ede3);
-  background-image: -moz-linear-gradient(top, #e5e5e5, #f4ede3);
-  background-image: -ms-linear-gradient(top, #e5e5e5, #f4ede3);
-  background-image: -o-linear-gradient(top, #e5e5e5, #f4ede3);
-  background-image: linear-gradient(top, #e5e5e5, #f4ede3);
-  background-size: 100% 52px;
-  background-repeat: no-repeat;
 }
 
 .row.tags {
@@ -1134,6 +1120,30 @@ img.avatar {
 }
 
 /*************** Community-Profiles **************/
+body#profile div.container.content {
+  padding: 0px;
+}
+body#profile section#header {
+  margin-top: 0px;
+  position: relative;
+  z-index: -1;
+}
+body#profile section#header img.community {
+  width: 100%;
+  height: auto;
+}
+body#profile section#header .carousel-inner {
+  position: absolute;
+  height: 124px;
+  bottom: 20%;
+  overflow: visible;
+}
+body#profile section#header .carousel-inner .carousel-caption {
+  bottom: 0px;
+}
+body#profile section#content {
+  background: url("../img/back.jpg") repeat;
+}
 body#profile h1.community-name {
   display: inline-block;
   margin-top: 20px;
@@ -1747,18 +1757,21 @@ body#message ul.media-list li.media a.pioneer img.avatar {
     background-color: #da6137;
   }
 
-  body#note-detail section#header .carousel-inner {
+  body#note-detail section#header .carousel-inner,
+  body#profile.community .carousel-inner {
     height: 70px;
     top: 30%;
   }
-  body#note-detail section#header .carousel-inner .carousel-caption {
+  body#note-detail section#header .carousel-inner .carousel-caption,
+  body#profile.community .carousel-inner .carousel-caption {
     display: block;
     padding-bottom: 0px;
     padding-top: 0px;
     height: auto;
     bottom: 0px;
   }
-  body#note-detail section#header .carousel-inner .carousel-caption h1 {
+  body#note-detail section#header .carousel-inner .carousel-caption h1,
+  body#profile.community .carousel-inner .carousel-caption h1 {
     margin-bottom: 15px;
     font-size: 20px;
   }
