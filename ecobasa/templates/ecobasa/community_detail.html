@@ -22,21 +22,19 @@
 </div>
 </div>
 <section id="header" data-type="parallax" data-speed="1.8">
-  <img src="{{ object.image|thumbnail_url:"blogpost" }}"/>
+  <img class="community" src="{{ profile.image|thumbnail_url:"note_large" }}" alt="{{ object.name }}">
   <div class="carousel-inner" data-type="parallax" data-speed="22">
   <div class="carousel-caption">
-  <h1>{{ object.title }}</h1>
+  <h1>{{ object.name }}</h1>
   <div class="caption-back"></div>
   </div>
 </div>
 </section>
 
-<div class="gradient">
-<section id="content" data-type="parallax" data-speed="18">
+<section id="content" class="gradient" data-type="parallax" data-speed="18">
   <div class="container content">
     <div class="row">
       <div class="col-xs-12">
-      <img class="community" src="{{ profile.image|thumbnail_url:"note_large" }}" alt="{{ object.name }}">
       <!-- 
       <div class="row">
         <div id="carousel-community" class="carousel slide gradient" data-ride="carousel">
@@ -62,13 +60,12 @@
           </a>
         </div>
         -->
-      </div>
-    </div>
-    {% endif %}
+    {% else %}
 
     <div class="row">
       <div class="col-xs-12">
         <h1 class="community-name">{{ object.name }}</h1>
+    {% endif %}
           {% if user.is_superuser or user|is_group_admin:object %}
           <div class="btn-group pull-right admin-buttons">
             <a class="btn btn-primary" href="{% url 'community-edit' group=object.slug %}"><span class="glyphicon glyphicon-pencil"></span> {% trans "Edit" %}</a>
@@ -609,7 +606,6 @@
         </div>
       </div>
     </div>
-  </div>
 </section>
 {% endif %}
 {% endblock %}
