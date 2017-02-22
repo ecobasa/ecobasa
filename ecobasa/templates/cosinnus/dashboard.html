@@ -34,7 +34,7 @@
         <p><a class="btn btn-primary" href="{% url 'pioneer-edit' username=user.username %}#id_first_name"><span class="glyphicon glyphicon-pencil"></span>{% trans "Edit your profile" %}</a></p>
       </div>
     {% endif %}
-    <a class="btn btn-primary pull-right" href="{% url 'pioneer-edit' username=user.username %}"><span class="glyphicon glyphicon-pencil"></span>{% trans "Edit your profile" %}</a>
+    <a class="btn btn-primary" href="{% url 'pioneer-edit' username=user.username %}"><span class="fa  fa-user-circle-o"></span>{% trans "Edit your profile" %}</a>
   {% endif %}
     {% if group %}
       {% if user|is_group_admin:group %}
