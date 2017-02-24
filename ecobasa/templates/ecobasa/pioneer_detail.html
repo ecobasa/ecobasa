@@ -191,16 +191,33 @@
     </div>
     {% endif %}
 
+    {% if object.cosinnus_groups %}
     <div class="row">
       <div class="col-xs-12">
         <h2>{% trans "Groups" %}</h2>
-        <ul>
+        <ul class="groups">
           {% for group in object.cosinnus_groups.all %}
-              <li><a href="{% url 'cosinnus:group-dashboard' group=group.slug %}">{{ group.name }}</a></li>
+              {% if group.profile %}
+                {% url 'community-detail' group=group.slug as profile_url %}
+              {% elif group.caravan %}
+                {% url 'caravan-detail' group=group.slug as profile_url %}
+              {% else %}
+                {% url 'cosinnus:group-detail' group=group.slug as profile_url %}
+              {% endif %}
+              <li><a id="group" href="{{ profile_url }}">
+                {% if group.profile %}
+                  <span class="glyphicon glyphicon-home"></span>
+                {% elif group.caravan %}
+                  <span class="glyphicon glyphicon-road"></span>
+                {% else %}
+                  <span class="glyphicon glyphicon-globe"></span>
+                {% endif %}
+                {{ group.name }}</a></li>
           {% endfor %}
         </ul>
       </div>  
     </div>
+    {% endif %}
 
     <div class="row">
       <div class="col-xs-12">
@@ -232,7 +249,7 @@
     </div>
   </div>
 </div>
-  {% if posts %}
+
   <div class="row">
     <div class="col-xs-12">
       <h2>{% trans "Posts" %}</h2>
@@ -246,7 +263,7 @@
       </ul>
     </div>
   </div>
-  {% endif %}
+
   
   <div class="row">
     <div class="col-xs-12">
