@@ -1,0 +1,38 @@
+{% extends "cosinnus/base.html" %}
+{% load i18n cosinnus_tags static ecobasa_tags ecobasa_time thumbnail %}
+{% load static from staticfiles %}
+
+{% block page_title %}{% blocktrans %}Users in group {{ group }}{% endblocktrans %}{% endblock %}
+
+{% block content %}
+    <a class="btn btn-primary" href="{% url 'cosinnus:group-user-add-generic' group=group.slug %}"><span class="glyphicon glyphicon-plus"></span>{% trans "Add user" %}</a>
+
+    {% if object_list %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>{% trans "User" %}</th>
+                <th>{% trans "Status" %}</th>
+            </tr>
+        </thead>
+        {% for user in object_list %}
+        <tr>
+            <th><a href="{% url 'pioneer-detail' username=user.username %}">{% if user.cosinnus_profile.avatar %}
+                    <img class="avatar small" src="{{ user.cosinnus_profile.avatar|thumbnail_url:"avatar_small" }}">
+                  {% else %}
+                    <img class="avatar small" src="{% static "img/avatar.png" %}" alt="{{ user.get_full_name|default:user.username }}" data-toggle="tooltip" data-placement="top" title="{{ user.get_full_name|default:user.username }}">
+                  {% endif %}
+                  <span class="username">{{ user.username }}</span></a></th>
+            <th>
+                <div class="btn-group btn-group-sm" role="group" aria-label="status">
+                    <a class="btn btn-primary" href="{% url 'cosinnus:group-user-edit' group=group.slug username=user.username %}"><span class="glyphicon glyphicon-pencil"></span> {% trans "edit status" %}</a>
+                    <a class="btn btn-danger" href="{% url 'cosinnus:group-user-delete' group=group.slug username=user.username %}"><span class="glyphicon glyphicon-trash"></span> {% trans "delete" %}</a>
+                </div>
+            </th>
+        </tr>
+        {% endfor %}
+    </table>
+    {% else %}
+        {% trans "There are no users." %}
+    {% endif %}
+{% endblock %}

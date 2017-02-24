@@ -1,0 +1,43 @@
+{% extends "cosinnus/base.html" %}
+{% load i18n static bootstrap3 %}
+
+{% block page_title %}
+  
+{% endblock %}
+
+{% block extrahead %}
+{{ block.super }}
+{{ form.media.css }}
+<link href="{% static "css/vendor/select2-bootstrap.css" %}" rel="stylesheet"/>
+<link href="{% static "css/vendor/select2.css" %}" rel="stylesheet"/>
+{% endblock extrahead %}
+
+{% block content_title %}
+  
+{% endblock content_title %}
+
+{% block content %}
+  <form action="" method="post" class="form-horizontal" role="form">
+    {% csrf_token %}
+    {% bootstrap_form form layout="horizontal" %}
+    {% trans "Cancel" as reset_label %}
+    {% url 'cosinnus:group-dashboard' group=group.slug as reset_link %}
+    {% buttons layout='horizontal' %}
+      {% bootstrap_button submit_label button_type="submit" css_classes=submit_css_classes %}
+      {% bootstrap_button reset_label link=reset_link %}
+    {% endbuttons %}
+  </form>
+{% endblock content %}
+
+{% block extrafooter %}
+{{ block.super }}
+{{ form.media.js }}
+<script src="{% static 'js/vendor/select2/select2.min.js' %}"></script>
+<script type="text/javascript">
+  $(function() {
+    $('#id_user').select2({
+      placeholder: "Find user"
+    });
+  });
+</script>
+{% endblock extrafooter %}
