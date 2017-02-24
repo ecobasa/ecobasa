@@ -1459,6 +1459,12 @@ body#profile {
 		width: 100%;
 		margin-bottom: 8px;
 	}
+	ul.groups {
+		padding-left: 0px;
+		li {
+			list-style: none;
+		}
+	}
 	.references {
 		.media {
 			padding: 20px;

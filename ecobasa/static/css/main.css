@@ -1339,6 +1339,12 @@ body#profile img.bus {
   width: 100%;
   margin-bottom: 8px;
 }
+body#profile ul.groups {
+  padding-left: 0px;
+}
+body#profile ul.groups li {
+  list-style: none;
+}
 body#profile .references .media {
   padding: 20px;
   border: 2px dotted #da6137;
