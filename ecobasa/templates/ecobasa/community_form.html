@@ -224,9 +224,10 @@
 
   <div class="row">
     <div class="col-xs-12 register">
-      <div class="form-group">
+      <div class="btn-group" role="group" aria-label="form-actions">
         <button class="btn btn-lg btn-primary save" type="submit">{% trans "Save" %}</button> 
         <a class="btn btn-lg btn-default cancel" href="{% url 'community-detail' group=object.group.slug %}">{% trans "Cancel" %}</a>
+        <a class="btn btn-lg btn-danger" href="{% url 'cosinnus:group-delete' group=object.group.slug %}"><i class="fa fa-trash"></i>{% trans "Delete" %}</a>
       </div>
     </div>
   </div>

@@ -14,7 +14,7 @@
   {% blocktrans with name=object.name %}{{ name }}{% endblocktrans %}
 {% endblock content_title %}
 
-{% block body %}profile" class="community{% endblock body %}
+{% block body %}profile" class="community {% if profile.image %}no_image{% endif %}{% endblock body %}
 
 {% block content %}
 
