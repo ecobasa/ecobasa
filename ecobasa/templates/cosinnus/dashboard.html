@@ -89,7 +89,7 @@
         {% else %}
           <a href="{% url 'cosinnus:group-detail' group=group.slug %}" class="btn btn-primary"><span class="glyphicon glyphicon-globe"></span>{% trans "Group Details" %}</a>
           {% if user.is_superuser or user|is_group_admin:group %}
-            <a href="{% url 'cosinnus:group-edit' group=group.slug %}" class="btn btn-primary><span class="glyphicon glyphicon-pencil"></span> {% trans "Edit Group" %}</a>
+            <a href="{% url 'cosinnus:group-edit' group=group.slug %}" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span> {% trans "Edit Group" %}</a>
           {% endif %}
         {% endif %}
 
