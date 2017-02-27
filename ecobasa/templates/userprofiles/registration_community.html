@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n static bootstrap3 honeypot ecobasa_tags %}
+{% load i18n static bootstrap3 cosinnus_tags honeypot ecobasa_tags %}
 
 {% block page_title %}{% trans "Registration" %}{% endblock %}
 
@@ -64,7 +64,7 @@
   <div class="row">
     <div class="col-xs-12">
       {% bootstrap_field form.network %}
-      <h2>{% trans "Log In" %}</h2>
+      <h2>{% trans "Account" %}</h2>
       <form id="form-register-community" action="{% url 'register-community' %}" method="post" enctype="multipart/form-data" novalidate="novalidate">
         {% csrf_token %}
 
@@ -261,12 +261,17 @@
                 {% for inlineform in formset_seed.forms %}
                 <div class="control-group{% if inlineform.errors %} error{% endif %}">
                   <div class="controls form-inline">
-                    {{ inlineform.id.as_widget }}
-                    {{ inlineform.DELETE.as_widget }}
                     <div class="row">
                       <div class="col-xs-9">{% bootstrap_field inlineform.kind %}</div>
-                      <div class="col-xs-3">{% bootstrap_field inlineform.num %}</div>
+                      <div class="col-xs-3">{% bootstrap_field inlineform.num %}
+                      {% with inlineform.DELETE.as_widget as field %}
+                      <label{% if field.auto_id %} for="{{ field.auto_id }}"{% endif %}>{{ field.label }}</label>
+                      {{ field }}
+                      {% endwith %}
+                      {{ inlineform.id.as_widget }}
+                      </div>
                     </div>
+                      {{ inlineform.event.as_widget }}
                    </div>
                 </div>
                 {% endfor %}
@@ -321,15 +326,21 @@
 
 {# for seeds #}
 <script type="text/javascript" src="{% static 'js/vendor/bootstrap.inline.js' %}"></script>
+
 <script type="text/javascript">
+{% for inlineform in formset_seed.forms %}
   $(function() {
     $('#formset-{{ formset_seed.prefix }} div.control-group').formset({
       addCssClass: 'add-row btn pull-right',
       addText: '<button type="button" class="btn btn-primary btn-lg"><span class="glyphicon glyphicon-plus"></span> {% trans "More seeds" %}</button>',
+      deleteCssClass: 'delete-row',
+      deleteText: '<span class="glyphicon glyphicon-remove"></span>',
       insertAddInSelector: true,
+      insertDeleteAfter: 'div.controls.form-inline',
       prefix: '{{ formset_seed.prefix }}',
     });
   });
+{% endfor %}
 </script>
 
 <script src="{% static 'js/ecobasa_profile.js' %}"></script>
@@ -341,6 +352,9 @@ $('#network').on('click', function () {
   $('.panel.statistics').hide();
   $('.panel.offers').hide();
   $('.panel.wishes').hide();
+  $('html, body').animate({
+        scrollTop: $("#signup-form").offset().top-100
+    }, 500);
 })
 $('#community').on('click', function () {
   $('input#id_network').prop('checked', false);
@@ -348,6 +362,9 @@ $('#community').on('click', function () {
   $('.panel.statistics').show();
   $('.panel.offers').show();
   $('.panel.wishes').show();
+  $('html, body').animate({
+        scrollTop: $("#signup-form").offset().top-100
+    }, 500);
 })
 if ($('.has-error').length > 0) {
   $('#signup-form').collapse('show');
