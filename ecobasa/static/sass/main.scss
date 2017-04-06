@@ -155,20 +155,24 @@ h1 + h2 {
 }
 
 h1 {
-	margin-bottom: 20px;
 	font-size: 38px;
 }
 
 h2 {
 	font-size: 30px;
 	color: $purple;
-	margin-bottom: 15px;
+	padding-bottom: 15px;
 }
 
 h3, h4, h5, h6 {
   font-family: 'Lato';
   font-weight: bold;
   color: #452912;
+  line-height: 140%;
+}
+
+p {
+	font-size: 14px;
 }
 
 .gradient {
@@ -684,14 +688,6 @@ img.left {
 	overflow: auto;
 	img {
 		margin-bottom: 20px;
-	}
-	h2 {
-		margin-top: 0px;
-		margin-bottom: 0px;
-	}
-	h3 {
-		margin-top: 0px;
-		margin-bottom: 0px;
 	}
 	span.details {
 		font-size: 12px;
@@ -1253,7 +1249,7 @@ body#profile {
 
 	&.community div.container.content {
 		padding: 0px;
-		padding-bottom: 50px;
+		padding-bottom: 50px; 
 	}
 
 	&.community.no_image div.container.content {

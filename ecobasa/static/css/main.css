@@ -114,20 +114,24 @@ h1 + h2 {
 }
 
 h1 {
-  margin-bottom: 20px;
   font-size: 38px;
 }
 
 h2 {
   font-size: 30px;
   color: #80143b;
-  margin-bottom: 15px;
+  padding-bottom: 15px;
 }
 
 h3, h4, h5, h6 {
   font-family: 'Lato';
   font-weight: bold;
   color: #452912;
+  line-height: 140%;
+}
+
+p {
+  font-size: 14px;
 }
 
 .gradient {
@@ -619,14 +623,6 @@ img.left {
 }
 .post img {
   margin-bottom: 20px;
-}
-.post h2 {
-  margin-top: 0px;
-  margin-bottom: 0px;
-}
-.post h3 {
-  margin-top: 0px;
-  margin-bottom: 0px;
 }
 .post span.details {
   font-size: 12px;
