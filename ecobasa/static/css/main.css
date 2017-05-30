@@ -1165,7 +1165,7 @@ img.avatar {
 /*************** Community-Profiles **************/
 body#profile.community div.container.content {
   padding: 0px;
-  padding-bottom: 50px;
+  padding-bottom: 0px;
 }
 body#profile.community.no_image div.container.content {
   padding-top: 60px;
