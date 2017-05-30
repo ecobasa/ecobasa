@@ -1252,6 +1252,10 @@ body#profile {
 		padding-bottom: 0px; 
 	}
 
+	&.community .posts {
+		padding-bottom: 80px;
+	}
+
 	&.community.no_image div.container.content {
 		padding-top: 60px;
 	}
