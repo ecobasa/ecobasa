@@ -1767,6 +1767,8 @@ body#message ul.media-list li.media a.pioneer img.avatar {
 .footer.navbar a#license {
   display: block;
   padding-top: 14px;
+  text-align: center;
+  margin-left: -110px;
 }
 .footer.navbar ul.nav.navbar-right > li:last-child > a {
   padding-right: 0px;
@@ -1806,13 +1808,6 @@ body#message ul.media-list li.media a.pioneer img.avatar {
 @media (max-width: 832px) {
   .header .navbar-brand h1 {
     display: none;
-  }
-
-  .footer.navbar a#license {
-    display: block;
-    padding-top: 14px;
-    text-align: center;
-    margin-left: -110px;
   }
 }
 @media (max-width: 768px) {
@@ -1861,9 +1856,7 @@ body#message ul.media-list li.media a.pioneer img.avatar {
   }
   .footer.navbar a#license {
     display: block;
-    padding-top: 14px;
-    text-align: center;
-    margin-left: -110px;
+    padding-top: 12px;
   }
 }
 @media (max-width: 992px) {

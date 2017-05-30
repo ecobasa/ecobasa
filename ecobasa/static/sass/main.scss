@@ -1913,6 +1913,8 @@ body#message {
     a#license {
 		display: block;
 		padding-top: 14px;
+		text-align: center;
+		margin-left: -110px;
     }
     ul.nav.navbar-right > li:last-child > a {
     	padding-right: 0px;
@@ -1958,14 +1960,6 @@ body#message {
 	.header .navbar-brand h1 {
 		display: none;
 	}
-	.footer.navbar {
-		a#license {
-			display: block;
-			padding-top: 14px;
-			text-align: center;
-			margin-left: -110px;
-	    }
-	}
 }
 
 @media (max-width: 768px) {
@@ -2008,9 +2002,7 @@ body#message {
 		}
 		a#license {
 			display: block;
-			padding-top: 14px;
-			text-align: center;
-			margin-left: -110px;
+			padding-top: 12px;
 	    }
 	}
 }
