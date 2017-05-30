@@ -1857,6 +1857,7 @@ body#message ul.media-list li.media a.pioneer img.avatar {
   .footer.navbar a#license {
     display: block;
     padding-top: 12px;
+    margin-left: 0px;
   }
 }
 @media (max-width: 992px) {
