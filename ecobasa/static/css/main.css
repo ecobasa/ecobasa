@@ -1807,6 +1807,13 @@ body#message ul.media-list li.media a.pioneer img.avatar {
   .header .navbar-brand h1 {
     display: none;
   }
+
+  .footer.navbar a#license {
+    display: block;
+    padding-top: 14px;
+    text-align: center;
+    margin-left: -110px;
+  }
 }
 @media (max-width: 768px) {
   .navbar-default .navbar-nav .open .dropdown-menu > li > a {
