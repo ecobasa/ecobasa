@@ -155,20 +155,24 @@ h1 + h2 {
 }
 
 h1 {
-	margin-bottom: 20px;
 	font-size: 38px;
 }
 
 h2 {
 	font-size: 30px;
 	color: $purple;
-	margin-bottom: 15px;
+	padding-bottom: 15px;
 }
 
 h3, h4, h5, h6 {
   font-family: 'Lato';
   font-weight: bold;
   color: #452912;
+  line-height: 140%;
+}
+
+p {
+	font-size: 14px;
 }
 
 .gradient {
@@ -685,14 +689,6 @@ img.left {
 	img {
 		margin-bottom: 20px;
 	}
-	h2 {
-		margin-top: 0px;
-		margin-bottom: 0px;
-	}
-	h3 {
-		margin-top: 0px;
-		margin-bottom: 0px;
-	}
 	span.details {
 		font-size: 12px;
 		color: rgba($brown, 0.35);
@@ -896,8 +892,8 @@ body#communities {
 
 .leaflet-popup-content-wrapper, 
 .leaflet-popup-tip {
-	background: url('../img/back.jpg') repeat !important;
-	background-color: $secondary !important;
+	/* background: url('../img/back.jpg') repeat !important; */
+	background-color: #fff8eecc !important;
 }
 
 .leaflet-container a {
@@ -1253,7 +1249,7 @@ body#profile {
 
 	&.community div.container.content {
 		padding: 0px;
-		padding-bottom: 50px;
+		padding-bottom: 50px; 
 	}
 
 	&.community.no_image div.container.content {
@@ -2004,7 +2000,9 @@ body#message {
 		}
 		a#license {
 			display: block;
-			padding-top: 12px;
+			padding-top: 14px;
+			text-align: center;
+			margin-left: -110px;
 	    }
 	}
 }

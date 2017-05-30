@@ -99,12 +99,11 @@
     </div>
     <div class="row">
       <div class="col-xs-12 post">
-
-      <h1>{{ object.title }}</h1>
       <span class="media-heading muted pull-right details">
         {% url 'pioneer-detail' username=object.creator.get_username as pioneer_url %}
         {% blocktrans with username=object.author.get_username pioneer_name=object.creator.get_full_name|default:object.creator.username created=object.created group_url=group_url group_slug=object.group.slug %}written by <a href="{{ pioneer_url }}">{{ pioneer_name }}</a> on {{ created }}{% endblocktrans %}
-      </span><br />
+      </span>
+      <h1>{{ object.title }}</h1>
       <p>{% autoescape off %}{{ object.text|urlize }}{% endautoescape %}</p>
 
       {% if object.attached_objects.all %}
