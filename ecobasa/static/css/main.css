@@ -816,8 +816,8 @@ body#communities .footer.navbar {
 
 .leaflet-popup-content-wrapper,
 .leaflet-popup-tip {
-  background: url("../img/back.jpg") repeat !important;
-  background-color: #fcf3e5 !important;
+  /* background: url('../img/back.jpg') repeat !important; */
+  background-color: #fff8eecc !important;
 }
 
 .leaflet-container a {
@@ -1854,7 +1854,9 @@ body#message ul.media-list li.media a.pioneer img.avatar {
   }
   .footer.navbar a#license {
     display: block;
-    padding-top: 12px;
+    padding-top: 14px;
+    text-align: center;
+    margin-left: -110px;
   }
 }
 @media (max-width: 992px) {
