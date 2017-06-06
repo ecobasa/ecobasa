@@ -25,7 +25,7 @@
         var cosinnus_base_url = "{{ COSINNUS_BASE_URL|default:'/' }}";
         var cosinnus_active_group = {% if group %}"{{ group.slug }}"{% else %}false{% endif %};
      </script>
-    <link rel="shortcut icon" href="{% static "img/favicon.ico" %}" />
+    <link rel="shortcut icon" type="image/png" href="{% static "img/favicon.ico" %}" />
     <link href="{% static "css/cosinnus.css" %}" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
     <link href="{% static 'css/vendor/fullcalendar.css' %}" rel="stylesheet">
