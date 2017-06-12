@@ -66,7 +66,7 @@
     {% trans "Cancel" as reset_label %}
     {% url 'caravan-detail' group=object.slug as reset_link %}
     {% buttons submit=submit_label reset=reset_label reset_link=reset_link %}
-    <a class="btn btn-danger" href="{% url 'cosinnus:group-delete' group=object.slug %}"><i class="fa fa-trash"></i>{% trans "Delete" %}</a>
+    <a class="btn btn-danger" href="{% url 'caravan-delete' group=object.slug %}"><i class="fa fa-trash"></i>{% trans "Delete" %}</a>
     {% endbuttons %}
     </div>
   </div>
