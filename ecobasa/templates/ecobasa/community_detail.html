@@ -357,10 +357,10 @@
           {% if user|is_group_member:object %}
             <a href="{% url 'pioneer-edit' username=user.username %}" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add wishes to your profile" %}</a>
           {% endif %}
-          {% endif %}
           </div><!-- Needs -->
         </div><!-- Row -->
-
+        {% endif %}
+        
       </div>
       <div class="col-xs-12 col-md-4 sidebar">
         <div class="visitor-info">
