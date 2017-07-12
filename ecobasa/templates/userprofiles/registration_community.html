@@ -69,16 +69,6 @@
         {% csrf_token %}
 
         <div class="row">
-          <div class="col-xs-3">{% bootstrap_label form.community_status.label %}</div>
-          <div class="col-xs-9">{% bootstrap_field form.community_status show_label=False %}</div>
-        </div>
-
-        <div class="row">
-          <div class="col-xs-3">{% bootstrap_label form.community_type.label %}</div>
-          <div class="col-xs-9">{% bootstrap_field form.community_type show_label=False %}</div>
-        </div>
-
-        <div class="row">
           {% render_honeypot_field %}
           <div class="col-xs-3 required">{% bootstrap_label form.username.label %}*</div>
           <div class="col-xs-6">{% bootstrap_field form.username show_label=False %}</div>
@@ -217,6 +207,16 @@
             <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
               <div class="panel-body">
 
+                <div class="row">
+                  <div class="col-xs-3">{% bootstrap_label form.community_status.label %}</div>
+                  <div class="col-xs-9">{% bootstrap_field form.community_status show_label=False %}</div>
+                </div>
+
+                <div class="row">
+                  <div class="col-xs-3">{% bootstrap_label form.community_type.label %}</div>
+                  <div class="col-xs-9">{% bootstrap_field form.community_type show_label=False %}</div>
+                </div>
+                
                 <div class="row">
                   <div class="col-xs-3">{% bootstrap_label form.basic_membership_status.label %}</div>
                   <div class="col-xs-9">{% bootstrap_field form.basic_membership_status show_label=False %}</div>
