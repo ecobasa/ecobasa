@@ -444,6 +444,35 @@ class EcobasaCommunityProfile(models.Model):
     network = models.BooleanField(
         _('Is this a regional network?'),
         default=False, blank=True)
+    COMMUNITY_STATUS_STARTING = 's'
+    COMMUNITY_STATUS_ESTABLISHED = 'e'
+    COMMUNITY_STATUS_LAND = 'l'
+    COMMUNITY_STATUS_CHOICES = (
+        (COMMUNITY_STATUS_STARTING, _('Starting Project (first years)')),
+        (COMMUNITY_STATUS_ESTABLISHED, _('Established (+4 years)')),
+        (COMMUNITY_STATUS_LAND, _('Land Offer')),
+    )
+    community_status = models.CharField(_('Project status'),
+        max_length=2,
+        blank=True,
+        choices=COMMUNITY_STATUS_CHOICES,
+        default=COMMUNITY_STATUS_ESTABLISHED)
+
+    COMMUNITY_TYPE_ECOVILLAGE = 'e'
+    COMMUNITY_TYPE_COMUNE = 'c'
+    COMMUNITY_TYPE_HOUSEPROJECT = 'h'
+    COMMUNITY_TYPE_FARM = 'f'
+    COMMUNITY_TYPE_CHOICES = (
+        (COMMUNITY_TYPE_ECOVILLAGE, _('Ecovillage')),
+        (COMMUNITY_TYPE_COMUNE, _('Comune')),
+        (COMMUNITY_TYPE_HOUSEPROJECT, _('Houseproject')),
+        (COMMUNITY_TYPE_FARM, _('Permaculture Farm')),
+    )
+    community_type = models.CharField(_('Type of community'),
+        max_length=2,
+        blank=True,
+        choices=COMMUNITY_TYPE_CHOICES,
+        default=COMMUNITY_TYPE_ECOVILLAGE)
     name = models.CharField(_('name of community'), max_length=255)
     website = models.URLField(_('link of your communities website'), max_length=250,
         blank=True, null=True)

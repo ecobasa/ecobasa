@@ -127,6 +127,16 @@
       <div class="panel-body">
 
         <div class="row">
+          <div class="col-xs-3">{% bootstrap_label form.community_status.label %}</div>
+          <div class="col-xs-9">{% bootstrap_field form.community_status show_label=False %}</div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-3">{% bootstrap_label form.community_type.label %}</div>
+          <div class="col-xs-9">{% bootstrap_field form.community_type show_label=False %}</div>
+        </div>
+
+        <div class="row">
           <div class="col-xs-3">{% bootstrap_label form.basic_membership_status.label %}</div>
           <div class="col-xs-9">{% bootstrap_field form.basic_membership_status show_label=False %}</div>
         </div> 
@@ -223,10 +233,10 @@
 </div>
 
   <div class="row">
-    <div class="col-xs-12 register">
+    <div class="col-xs-12 register btns">
       <div class="btn-group" role="group" aria-label="form-actions">
         <button class="btn btn-lg btn-primary save" type="submit">{% trans "Save" %}</button> 
-        <a class="btn btn-lg btn-default cancel" href="{% url 'community-detail' group=object.group.slug %}">{% trans "Cancel" %}</a>
+        <a class="btn btn-lg btn-info cancel" href="{% url 'community-detail' group=object.group.slug %}">{% trans "Cancel" %}</a>
         <a class="btn btn-lg btn-danger" href="{% url 'cosinnus:group-delete' group=object.group.slug %}"><i class="fa fa-trash"></i>{% trans "Delete" %}</a>
       </div>
     </div>

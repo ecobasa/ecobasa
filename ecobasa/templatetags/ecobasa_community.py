@@ -25,6 +25,8 @@ def get_community_locations():
             'members': com.basic_inhabitants,
             'visitors': com.visitors_num,
             'status': com.basic_membership_status,
+            'type': com.community_type,
+            'status': com.community_status,
         }
 
     qs = EcobasaCommunityProfile.objects.all().select_related('group')

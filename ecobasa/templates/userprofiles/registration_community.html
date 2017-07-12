@@ -47,7 +47,7 @@
 <div class="collapse" id="signup-form">
   <div class="row">
     <div class="col-xs-12">
-      <div class="alert alert-danger">
+      <div class="alert alert-warning">
         <p>{% blocktrans %}Please take some time to think, ask around and fill out as much information as possible! It can be a fun group process, like collecting the whishes – you might inspire each other! You dont need to do it all now, you can always edit your profile later. For the start we only need your contact information, to help you!{% endblocktrans %}
         </p>
         <p>
@@ -67,6 +67,16 @@
       <h2>{% trans "Account" %}</h2>
       <form id="form-register-community" action="{% url 'register-community' %}" method="post" enctype="multipart/form-data" novalidate="novalidate">
         {% csrf_token %}
+
+        <div class="row">
+          <div class="col-xs-3">{% bootstrap_label form.community_status.label %}</div>
+          <div class="col-xs-9">{% bootstrap_field form.community_status show_label=False %}</div>
+        </div>
+
+        <div class="row">
+          <div class="col-xs-3">{% bootstrap_label form.community_type.label %}</div>
+          <div class="col-xs-9">{% bootstrap_field form.community_type show_label=False %}</div>
+        </div>
 
         <div class="row">
           {% render_honeypot_field %}
