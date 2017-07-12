@@ -978,6 +978,9 @@ table#caravan-list {
 			margin-left: 20px;
 			margin-bottom: 10px;
 			display: block;
+			&:first-child {
+			margen-left: 0px;	
+			}
 			> i {
 				display: inline;
 			}

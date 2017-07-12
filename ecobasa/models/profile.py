@@ -464,7 +464,7 @@ class EcobasaCommunityProfile(models.Model):
     COMMUNITY_TYPE_FARM = 'f'
     COMMUNITY_TYPE_CHOICES = (
         (COMMUNITY_TYPE_ECOVILLAGE, _('Ecovillage')),
-        (COMMUNITY_TYPE_COMUNE, _('Comune')),
+        (COMMUNITY_TYPE_COMUNE, _('Commune')),
         (COMMUNITY_TYPE_HOUSEPROJECT, _('Houseproject')),
         (COMMUNITY_TYPE_FARM, _('Permaculture Farm')),
     )

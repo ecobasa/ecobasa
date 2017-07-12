@@ -366,6 +366,24 @@
         <div class="visitor-info">
           <h2><span class="glyphicon glyphicon-info-sign"></span> {% trans "Visitor Info" %}</h2>
           <span class="community-details">
+            {% if profile.community_type = 'e' %}
+              <a href="#" data-toggle="tooltip" title="Ecovillage"><i class="fa fa-home"></i></a> Ecovillage
+            {% elif profile.community_type = 'c' %}
+              <a href="#" data-toggle="tooltip" title="Established (+4 years)"><i class="fa fa-home"></i></a>Commune
+            {% elif profile.community_type = 'h' %}
+              <a href="#" data-toggle="tooltip" title="Houseproject"><i class="fa fa-home"></i></a>Houseproject
+            {% elif profile.community_type = 'f' %}
+              <a href="#" data-toggle="tooltip" title="Land Offer"><i class="fa fa-home"></i></a>Permaculture Farm
+            {% endif %}
+            {% if profile.community_status = 's' %}
+              <a href="#" data-toggle="tooltip" title="Starting Project (first years)"><i class="fa fa-hand-rock-o"></i></a>Starting Project (first years)
+            {% elif profile.community_status = 'e' %}
+              <a href="#" data-toggle="tooltip" title="Established (+4 years)"><i class="fa fa-thumbs-up"></i></a>Established (+4 years)
+            {% elif profile.community_status = 'l' %}
+              <a href="#" data-toggle="tooltip" title="Land Offer"><i class="fa fa-map-marker"></i></a>Land Offer
+            {% endif %}
+            </span>
+            <span class="community-details">
             <a href="#" data-toggle="tooltip" title="{{ profile.basic_inhabitants }} people live there"><i class="fa fa-users"></i>{{ profile.basic_inhabitants }}</a>
             <a href="#" data-toggle="tooltip" title="{{ profile.basic_inhabitants_underage }} children"><i class="fa fa-child"></i>{{ profile.basic_inhabitants_underage }}
             <a href="#" data-toggle="tooltip" title="They can host up to {{ profile.visitors_num }} people"><i class="fa fa-bed"></i>{{ profile.visitors_num }}</a>
