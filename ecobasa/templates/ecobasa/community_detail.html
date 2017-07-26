@@ -339,29 +339,28 @@
             {% endif %}
           {% endif %}
           {% if member.cosinnus_profile.wishlist or user|is_group_member:object %}
-          <h3><span class="fa fa-users"></span> {% trans "Personal wishes from community-members" %}</h3>
-          <ul>
-            {% for member in object.members %}
-              {% for tag in member.cosinnus_profile.wishlist.all %}
-                <li><span class="label label-{{ tag }}">{{ tag }}</li>
-                {% if not forloop.last %} {% endif %}
+            <h3><span class="fa fa-users"></span> {% trans "Personal wishes from community-members" %}</h3>
+            <ul>
+              {% for member in object.members %}
+                {% for tag in member.cosinnus_profile.wishlist.all %}
+                  <li><span class="label label-{{ tag }}">{{ tag }}</span></li>
+                  {% if not forloop.last %} {% endif %}
+                {% endfor %}
               {% endfor %}
-            {% endfor %}
-            {% for member in object.ambassadors %}
-              {% for tag in member.cosinnus_profile.wishlist.all %}
-                <li><span class="label label-{{ tag }}">{{ tag }}</li>
-                {% if not forloop.last %} {% endif %}
+              {% for member in object.ambassadors %}
+                {% for tag in member.cosinnus_profile.wishlist.all %}
+                  <li><span class="label label-{{ tag }}">{{ tag }}</span></li>
+                  {% if not forloop.last %} {% endif %}
+                {% endfor %}
               {% endfor %}
-            {% endfor %}
-          </ul>
-          {% if user|is_group_member:object %}
-            <a href="{% url 'pioneer-edit' username=user.username %}" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add wishes to your profile" %}</a>
+            </ul>
+            {% if user|is_group_member:object %}
+              <a href="{% url 'pioneer-edit' username=user.username %}" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add wishes to your profile" %}</a>
+            {% endif %}
           {% endif %}
           </div><!-- Needs -->
         </div><!-- Row -->
-        {% endif %}
-        
-      </div>
+      </div><!-- Main -->
       <div class="col-xs-12 col-md-4 sidebar">
         <div class="visitor-info">
           <h2><span class="glyphicon glyphicon-info-sign"></span> {% trans "Visitor Info" %}</h2>
