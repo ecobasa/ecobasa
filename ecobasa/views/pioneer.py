@@ -28,18 +28,19 @@ class PioneerListView(UserListView):
         The list of pioneers should exclude ambassadors, but include organisers
         even if ambassador
         """
-        organisers = users.filter(
-            cosinnus_memberships__organiserrole__isnull=False,
-        ).distinct()
-        ambassadors = users.filter(
-            # a CosinnusGroup with profile means Community!
-            cosinnus_memberships__group__profile__isnull=False,
-            cosinnus_memberships__status=MEMBERSHIP_ADMIN,
-        ).distinct()
-        non_ambassadors = set(users) - set(ambassadors)
+        # organisers = users.filter(
+        #     cosinnus_memberships__organiserrole__isnull=False,
+        # ).distinct()
+        # ambassadors = users.filter(
+        #     # a CosinnusGroup with profile means Community!
+        #     cosinnus_memberships__group__profile__isnull=False,
+        #     cosinnus_memberships__status=MEMBERSHIP_ADMIN,
+        # ).distinct()
+        # non_ambassadors = set(users) - set(ambassadors)
 
-        pioneers = set(list(organisers) + list(non_ambassadors))
-        return list(pioneers)
+        # pioneers = set(list(organisers) + list(non_ambassadors))
+        # return list(pioneers)
+        return list(users)
 
     def get_context_data(self, **kwargs):
         context = super(PioneerListView, self).get_context_data(**kwargs)
