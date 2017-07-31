@@ -1441,12 +1441,15 @@ table#pioneer-list-table {
   		list-style: none;
   		span.label {
   			float: left;
-  			margin-right: 2px;
+  			margin-right: 6px;
+				margin-bottom: 6px;
   		}
   		a#group {
-				font-size: 16px;
+				font-size: 14px;
+				display: block;
+				margin-bottom: 10px;
 				span.glyphicon {
-					font-size: 14px;
+					font-size: 12px;
 				}
   		}
 		}
