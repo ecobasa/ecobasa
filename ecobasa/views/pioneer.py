@@ -65,8 +65,7 @@ class PioneerDetailView(DetailView):
         return super(PioneerDetailView, self).dispatch(*args, **kwargs)
 
     def get_context_data(self, *args, **kwargs):
-        context = super(PioneerDetailView, self).get_context_data(*args,
-                                                                  **kwargs)
+        context = super(PioneerDetailView, self).get_context_data(*args, **kwargs)
         context['posts'] = Note.objects.filter(creator=context['object'])
 
     def _can_add_reference(self):

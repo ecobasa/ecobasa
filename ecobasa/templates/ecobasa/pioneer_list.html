@@ -27,6 +27,7 @@
                   <th>{% trans "Pioneer" %}</th>
                   <th class="sorter-false">{% trans "About" %}</th>
                   <th class="sorter-false">{% trans "Skills" %}</th>
+                  <th>{% trans "Ambassadors" %}</th>
                   <th>{% trans "Bus" %}</th>
               </tr>
           </thead>
@@ -54,6 +55,33 @@
                   <li><span class="label label-{{ skill }}">{{ tag|truncatewords_html:4 }}</span></li>
                 {% endfor %}
               </ul>
+              {% endif %}
+            </td>
+            <td>
+              {% if pioneer.cosinnus_groups %}
+                <ul>
+                {% for group in pioneer.cosinnus_groups.all %}
+                  {% if group.profile %}
+                    {% url 'community-detail' group=group.slug as profile_url %}
+                  {% elif group.caravan %}
+                    {% url 'caravan-detail' group=group.slug as profile_url %}
+                  {% else %}
+                    {% url 'cosinnus:group-detail' group=group.slug as profile_url %}
+                  {% endif %}
+                  {% if group.name != "Community-Tours" and group.name != "Gift-Ambassadors" %}
+                  <li><a id="group" href="{{ profile_url }}">
+                    {% if group.profile %}
+                      <span class="glyphicon glyphicon-home"></span>
+                    {% elif group.caravan %}
+                      <span class="glyphicon glyphicon-road"></span>
+                    {% else %}
+                      <span class="glyphicon glyphicon-globe"></span>
+                    {% endif %}
+                    {{ group.name }}</a>
+                  </li>
+                  {% endif %}
+                {% endfor %}
+                </ul>
               {% endif %}
             </td>
             <td>
