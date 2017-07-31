@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n thumbnail static %}
+{% load i18n thumbnail static ecobasa_tags %}
 
 {% block page_title %}{% trans "Gift-Pioneers" %}{% endblock %}
 
@@ -68,7 +68,7 @@
                   {% else %}
                     {% url 'cosinnus:group-detail' group=group.slug as profile_url %}
                   {% endif %}
-                  {% if group.name != "Community-Tours" and group.name != "Gift-Ambassadors" %}
+                  {% if group.pk != settings.ECOBASA_COMMUNITY_GROUP and group.pk != settings.ECOBASA_SPECIAL_COSINNUS_GROUP %}
                   <li><a id="group" href="{{ profile_url }}">
                     {% if group.profile %}
                       <span class="glyphicon glyphicon-home"></span>

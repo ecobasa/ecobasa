@@ -108,6 +108,7 @@ TEMPLATE_CONTEXT_PROCESSORS = [
     'cms.context_processors.media',
     'sekizai.context_processors.sekizai',
     'postman.context_processors.inbox',
+    'django_settings_export.settings_export',
 ]
 
 THUMBNAIL_PROCESSORS = (
@@ -385,3 +386,8 @@ SECURE_HSTS_SECONDS = 3600
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 
 GEOPOSITION_GOOGLE_MAPS_API_KEY = 'AIzaSyB2_6y4Jr7VPT3U4nUz3bf6YA7ef3YijHM'
+
+SETTINGS_EXPORT = [
+    'ECOBASA_SPECIAL_COSINNUS_GROUP',
+    'ECOBASA_COMMUNITY_GROUP',
+]
