@@ -23,10 +23,10 @@ def add_to_special_group(user):
 
 def add_to_community_group(user):
     """Adds the given user to Ecobasa's special group."""
-    special_pk = settings.ECOBASA_COMMUNITY_GROUP
-    special_group = CosinnusGroup.objects.filter(pk=special_pk)[0]
+    community_pk = settings.ECOBASA_COMMUNITY_GROUP
+    community_group = CosinnusGroup.objects.filter(pk=community_pk)[0]
     CosinnusGroupMembership.objects.create(
-        user=user, group=special_group, status=MEMBERSHIP_MEMBER)
+        user=user, group=community_group, status=MEMBERSHIP_MEMBER)
 
 
 class RegistrationMemberForm(RegistrationForm):
@@ -156,6 +156,10 @@ class RegistrationCommunityForm(RegistrationForm):
             self.cleaned_data['basic_brings_together']
         profile.basic_membership_status =\
             self.cleaned_data['basic_membership_status']
+        profile.community_status =\
+            self.cleaned_data['community_status']
+        profile.community_type =\
+            self.cleaned_data['community_type']
 
         profile.save()
         userprofile.save()
