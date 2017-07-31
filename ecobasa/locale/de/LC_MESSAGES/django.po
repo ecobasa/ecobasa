@@ -3292,7 +3292,7 @@ msgstr "Bis bald, wir sehen uns! Der Rest des ecobasa Teams."
 
 #: templates/userprofiles/registration_complete.html:17
 msgid "Welcome to the gift-economy network!"
-msgstr "Wilkomen im Schenkökonomie Netzwerk"
+msgstr "Willkommen im Schenkökonomie Netzwerk"
 
 #: templates/userprofiles/registration_complete.html:18
 msgid ""
