@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-01 02:43+0200\n"
+"POT-Creation-Date: 2017-08-01 03:08+0200\n"
 "PO-Revision-Date: 2014-11-23 18:07+0200\n"
 "Last-Translator: Sebastian Henschel <ecobasa@kodeaffe.de\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1646,8 +1646,9 @@ msgid ""
 "This makes sense if you want to be found by people that know you to receive "
 "references. Also it helps to develop trust in this network and your person!"
 msgstr ""
-"Das macht Sinn, wenn du von anderen Leute die dich kennen gefunden werden willst."
-"Sie können dir Bewertungen geben. Es hilft anderen Vertrauen zu dir und zu diesem Netzwerk aufzubauen"
+"Das macht Sinn, wenn du von anderen Leute die dich kennen gefunden werden "
+"willst.Sie können dir Bewertungen geben. Es hilft anderen Vertrauen zu dir "
+"und zu diesem Netzwerk aufzubauen"
 
 #: templates/cosinnus/dashboard.html:44
 msgid "Caravan Profile"
@@ -1715,8 +1716,8 @@ msgid ""
 "You don't have a picture in your profile! It is much nice if people get a "
 "quick impression of how it looks like."
 msgstr ""
-"Ihr habt kein Bild in eurem Gemeinschaftsprofil! Es ist viel schöner, wenn Leute "
-"einen kurzen Eindruck bekommen wie es bei euch aussieht"
+"Ihr habt kein Bild in eurem Gemeinschaftsprofil! Es ist viel schöner, wenn "
+"Leute einen kurzen Eindruck bekommen wie es bei euch aussieht"
 
 #: templates/cosinnus/dashboard.html:96
 msgid "Not on map"
@@ -1727,7 +1728,8 @@ msgid ""
 "You have to enter a location in your profile, otherwise your community will "
 "not show on our"
 msgstr ""
-"Ihr müsst einen Ort in eurem Profil angeben, sonst sieht man eure Gemeinschaft nicht auf unserer"
+"Ihr müsst einen Ort in eurem Profil angeben, sonst sieht man eure "
+"Gemeinschaft nicht auf unserer"
 
 #: templates/cosinnus/dashboard.html:97
 msgid "map"
@@ -1743,8 +1745,9 @@ msgid ""
 "You have to check public, so other users see your tour! If this is "
 "intentional, ignore this message."
 msgstr ""
-"Du musst öffentlich ankreuzen, damit andere deine Tour sehen! "
-"Falls die Tour absichtlich nicht gefunden werden soll, dann ignorier diese Nachricht einfach."
+"Du musst öffentlich ankreuzen, damit andere deine Tour sehen! Falls die Tour "
+"absichtlich nicht gefunden werden soll, dann ignorier diese Nachricht "
+"einfach."
 
 #: templates/cosinnus/dashboard.html:124
 #: templates/ecobasa/community_detail.html:433
@@ -3418,7 +3421,9 @@ msgstr "Alle Gemeinschaften auflisten"
 
 #: templates/userprofiles/registration.html:18
 msgid "Join an existing community or regional network"
-msgstr "Schliesse dich einer existieren Gemeinschaft oder einem regionalen Netzwerk an"
+msgstr ""
+"Schliesse dich einer existieren Gemeinschaft oder einem regionalen Netzwerk "
+"an"
 
 #: templates/userprofiles/registration.html:19
 msgid "Participate in their organisation"
@@ -3471,7 +3476,8 @@ msgstr "Starte ein regionales Schenk-Netzwerk"
 
 #: templates/userprofiles/registration.html:38
 msgid "Organize meeting notes, common documents, tasks and events"
-msgstr "Organisiere Protokolle, gemeinsame Dokumente, ToDo's und Veranstaltungen"
+msgstr ""
+"Organisiere Protokolle, gemeinsame Dokumente, ToDo's und Veranstaltungen"
 
 #: templates/userprofiles/registration.html:39
 msgid "Exchange gifts!"
@@ -3528,7 +3534,9 @@ msgstr "Regionales Netzwerk"
 
 #: templates/userprofiles/registration_community.html:38
 msgid "Start a regional gift-network and invite the other pioneers to your"
-msgstr "Starte ein regionales Schenk-Netzwerk und lade andere Pioniere ein der Gruppe beizutreten"
+msgstr ""
+"Starte ein regionales Schenk-Netzwerk und lade andere Pioniere ein der "
+"Gruppe beizutreten"
 
 #: templates/userprofiles/registration_community.html:40
 msgid "Bio-regional community network"
@@ -3689,8 +3697,8 @@ msgid ""
 "with other people, invite them to join this network. You can create a new "
 "Tour and use the tools of this website to communicate, organize and network!"
 msgstr ""
-"gehen willst, dann lade sie ein sich hier anzumelden. Du kannst dann eine neue "
-"Tour anlegen und die Tools dieser Website benutzen um zu Kommunizieren, "
+"gehen willst, dann lade sie ein sich hier anzumelden. Du kannst dann eine "
+"neue Tour anlegen und die Tools dieser Website benutzen um zu Kommunizieren, "
 "zu Organisieren und zu Netzwerken!"
 
 #: templates/userprofiles/registration_complete.html:31
@@ -3712,6 +3720,10 @@ msgstr ""
 #: templates/userprofiles/registration_complete.html:34
 msgid "Thank you, see you around! The rest of the ecobasa team."
 msgstr "Bis bald, wir sehen uns! Der Rest des ecobasa Teams."
+
+#: templates/userprofiles/registration_complete.html:40
+msgid "Ok Captain, take me to the dashboard!"
+msgstr "Ok Käptn, auf zum Dashboard!"
 
 #: templates/userprofiles/registration_member.html:16
 msgid "Member Registration"
