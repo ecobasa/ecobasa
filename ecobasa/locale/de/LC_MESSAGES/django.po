@@ -3685,15 +3685,13 @@ msgid "If you want to go on"
 msgstr "Wenn du mit anderen Leuten auf "
 
 #: templates/userprofiles/registration_complete.html:30
-#, fuzzy
 msgid ""
 "with other people, invite them to join this network. You can create a new "
 "Tour and use the tools of this website to communicate, organize and network!"
 msgstr ""
-"gehen willst, dann lade sie "
-"ein sich hier anzumeldenDu kannst dann eine neue Tour anlegen und die Tools "
-"dieser Website benutzen um zu Kommunizieren,zu Organisieren und zu "
-"Netzwerken!"
+"gehen willst, dann lade sie ein sich hier anzumelden. Du kannst dann eine neue "
+"Tour anlegen und die Tools dieser Website benutzen um zu Kommunizieren, "
+"zu Organisieren und zu Netzwerken!"
 
 #: templates/userprofiles/registration_complete.html:31
 msgid ""
