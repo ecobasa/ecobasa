@@ -5,6 +5,7 @@ from django import template
 import json
 
 from ..models import (TaggedInterest, TaggedWishlist, TaggedSkill, TaggedService, TaggedProduct, TaggedOffersService, TaggedOffersSkill, TaggedOffersCreation, TaggedOffersMaterial, TaggedOffersTool, TaggedWishSkill, TaggedWishMaterial, TaggedWishTool, TaggedReferenceProduct, TaggedReferenceService, TaggedReferenceSkill)
+from django.conf import settings
 
 register = template.Library()
 
@@ -87,3 +88,8 @@ def get_reference_services():
 @register.assignment_tag
 def get_reference_skills():
     return get_tagnames(TaggedReferenceSkill)
+
+
+@register.assignment_tag
+def is_ambassador(user):
+    return user.cosinnus_groups.filter(pk=settings.ECOBASA_COMMUNITY_GROUP).exists()
