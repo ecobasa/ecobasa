@@ -224,6 +224,7 @@
     {% endif %}
   {% endif %}
 {% endif %}
+{% if group and user|is_group_member:group %}
 <div class="col-md-4 widget references">
   <div class="panel">
     <div class="panel-heading">
@@ -277,6 +278,7 @@
     </div>
   </div>
 </div>
+{% endif %}
     {% for id in widgets %}
       <div class="widget col-md-4" data-widget-id="{{ id }}" data-type="widget">
         <div class="panel">
