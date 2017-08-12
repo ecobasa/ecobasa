@@ -36,186 +36,186 @@
       </div>
     {% endif %}
   {% endif %}
-    {% if group %}
-      <div class="row">
-        <div class="col-xs-12">
-          <div class="btn-group pull-right" role="group" aria-label="actions">
-          {% if group.caravan %}
-            <a href="{% url 'caravan-detail' group=group.slug %}" class="btn btn-primary"><span class="glyphicon glyphicon-road"></span>{% trans "Caravan Profile" %}</a>
-            {% if user.is_superuser or user|is_group_admin:group %}
-              <a href="{% url 'caravan-edit' group=group.slug %}" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span> {% trans "Edit Caravan" %}</a>
-            {% endif %}
-          {% elif group.profile %}
-            <a href="{% url 'community-detail' group=group.slug %}" class="btn btn-primary"><span class="glyphicon glyphicon-home"></span>{% trans "Community Profile" %}</a>
-            {% if user.is_superuser or user|is_group_admin:group %}
-              <a href="{% url 'community-edit' group=group.slug %}" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span> {% trans "Edit Community Profile" %}</a>
-            {% endif %}
-          {% else %}
-            <a href="{% url 'cosinnus:group-detail' group=group.slug %}" class="btn btn-primary"><span class="glyphicon glyphicon-globe"></span>{% trans "Group Details" %}</a>
-            {% if user.is_superuser or user|is_group_admin:group %}
-              <a href="{% url 'cosinnus:group-edit' group=group.slug %}" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span> {% trans "Edit Group" %}</a>
-            {% endif %}
-          {% endif %}
-
-          {% if user.is_authenticated %}
-            {% if user.is_superuser or user|is_group_admin:group %}
-              <a href="{% url 'cosinnus:group-user-list' group=group.slug %}" class="btn btn-primary"><i class="fa fa-users"></i> {% trans "Members" %}</a>
-            {% endif %}
-            <a href="{% url 'postman_write' recipients=group %}" class="btn btn-primary"><i class="fa fa-envelope"></i>{% trans "Write to all members" %}
-          {% endif %}
-          
-          {% if user.is_authenticated %}
-            {% if user.pk in group.members or user|is_group_admin:group %}
-              <a class="btn btn-danger" href="{% url 'cosinnus:group-user-leave' group=group.slug %}"><span class="glyphicon glyphicon-log-out"></span>{% trans "Leave this" %} {% if group.caravan %}{% trans "Caravan" %}{% elif group.profile %}{% trans "Community" %}{% else %}{% trans "Group" %}{% endif %}</a>
-            {% elif user.pk in group.pendings %}
-              <a class="btn btn-danger" href="{% url 'cosinnus:group-user-withdraw' group=group.slug %}">{% trans "Withdraw membership request" %}</a>
-            {% else %}
-              <a class="btn btn-info" href="{% url 'cosinnus:group-user-join' group=group.slug %}">{% trans "Join this group" %}</a>
-            {% endif %}
-          {% endif %}
-        </div>
-      </div>
-    {% endif %}
-    </div>
-      {% if user|is_group_admin:group %}
-        {% if not group.profile.image %}
-          <div class="alert alert-warning alert-dismissible" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-            <h4>{% trans "No Picture" %}</h4>
-            <p>{% trans "You don't have a picture in your profile! It is much nice if people get a quick impression of how it looks like." %}</p>
-            <p><a href="{% if group.caravan %}{% url 'caravan-edit' group=group.slug %}{% elif group.profile %}{% url 'community-edit' group=group.slug %}{% else %}{% url 'cosinnus:group-detail' group=group.slug %}{% endif %}#id_image" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span> {% if group.caravan %}{% trans "Edit Caravan" %}{% elif group.profile %}{% trans "Edit Community Profile" %}{% else %}{% trans "Edit Group" %}{% endif %}</a></p>
-          </div>
-        {% endif %}
-        {% if not group.profile.contact_location %}
-          <div class="alert alert-warning alert-dismissible" role="alert">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-            <h4>{% trans "Not on map" %}</h4>
-            <p>{% trans "You have to enter a location in your profile, otherwise your community will not show on our" %} <a class="alert-link" href="{% url 'community-list' %}">{% trans "map" %}</a></p>
-            <p><a href="{% if group.caravan %}{% url 'caravan-edit' group=group.slug %}{% elif group.profile %}{% url 'community-edit' group=group.slug %}{% else %}{% url 'cosinnus:group-detail' group=group.slug %}{% endif %}#id_contact_location" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span> {% if group.caravan %}{% trans "Edit Caravan" %}{% elif group.profile %}{% trans "Edit Community Profile" %}{% else %}{% trans "Edit Group" %}{% endif %}</a></p>
-          </div>
-        {% endif %}
+  {% if group %}
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="btn-group pull-right" role="group" aria-label="actions">
         {% if group.caravan %}
-          {% if not group.caravan.public %}
-            <div class="alert alert-warning alert-dismissible" role="alert">
-              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-              <h4>{% trans "Your Community-Tour is not published" %}</h4>
-              <p>{{ group.profile.public }}{% trans "You have to check public, so other users see your tour! If this is intentional, ignore this message." %}</p>
-              <p><a href="{% url 'caravan-edit' group=group.slug %}#id_public" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span> {% trans "Edit Caravan" %}</a></p>
-            </div>
+          <a href="{% url 'caravan-detail' group=group.slug %}" class="btn btn-primary"><span class="glyphicon glyphicon-road"></span>{% trans "Caravan Profile" %}</a>
+          {% if user.is_superuser or user|is_group_admin:group %}
+            <a href="{% url 'caravan-edit' group=group.slug %}" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span> {% trans "Edit Caravan" %}</a>
+          {% endif %}
+        {% elif group.profile %}
+          <a href="{% url 'community-detail' group=group.slug %}" class="btn btn-primary"><span class="glyphicon glyphicon-home"></span>{% trans "Community Profile" %}</a>
+          {% if user.is_superuser or user|is_group_admin:group %}
+            <a href="{% url 'community-edit' group=group.slug %}" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span> {% trans "Edit Community Profile" %}</a>
+          {% endif %}
+        {% else %}
+          <a href="{% url 'cosinnus:group-detail' group=group.slug %}" class="btn btn-primary"><span class="glyphicon glyphicon-globe"></span>{% trans "Group Details" %}</a>
+          {% if user.is_superuser or user|is_group_admin:group %}
+            <a href="{% url 'cosinnus:group-edit' group=group.slug %}" class="btn btn-primary"><span class="glyphicon glyphicon-pencil"></span> {% trans "Edit Group" %}</a>
           {% endif %}
         {% endif %}
+
+        {% if user.is_authenticated %}
+          {% if user.is_superuser or user|is_group_admin:group %}
+            <a href="{% url 'cosinnus:group-user-list' group=group.slug %}" class="btn btn-primary"><i class="fa fa-users"></i> {% trans "Members" %}</a>
+          {% endif %}
+          <a href="{% url 'postman_write' recipients=group %}" class="btn btn-primary"><i class="fa fa-envelope"></i>{% trans "Write to all members" %}</a>
+        {% endif %}
+        
+        {% if user.is_authenticated %}
+          {% if user.pk in group.members or user|is_group_admin:group %}
+            <a class="btn btn-danger" href="{% url 'cosinnus:group-user-leave' group=group.slug %}"><span class="glyphicon glyphicon-log-out"></span>{% trans "Leave this" %} {% if group.caravan %}{% trans "Caravan" %}{% elif group.profile %}{% trans "Community" %}{% else %}{% trans "Group" %}{% endif %}</a>
+          {% elif user.pk in group.pendings %}
+            <a class="btn btn-danger" href="{% url 'cosinnus:group-user-withdraw' group=group.slug %}">{% trans "Withdraw membership request" %}</a>
+          {% else %}
+            <a class="btn btn-info" href="{% url 'cosinnus:group-user-join' group=group.slug %}">{% trans "Join this group" %}</a>
+          {% endif %}
+        {% endif %}
+        </div>
       </div>
     </div>
   {% endif %}
+  {% if user|is_group_admin:group %}
+    {% if not group.profile.image %}
+      <div class="alert alert-warning alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4>{% trans "No Picture" %}</h4>
+        <p>{% trans "You don't have a picture in your profile! It is much nice if people get a quick impression of how it looks like." %}</p>
+        <p><a href="{% if group.caravan %}{% url 'caravan-edit' group=group.slug %}{% elif group.profile %}{% url 'community-edit' group=group.slug %}{% else %}{% url 'cosinnus:group-detail' group=group.slug %}{% endif %}#id_image" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span> {% if group.caravan %}{% trans "Edit Caravan" %}{% elif group.profile %}{% trans "Edit Community Profile" %}{% else %}{% trans "Edit Group" %}{% endif %}</a></p>
+      </div>
+    {% endif %}
+    {% if not group.profile.contact_location %}
+      <div class="alert alert-warning alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        <h4>{% trans "Not on map" %}</h4>
+        <p>{% trans "You have to enter a location in your profile, otherwise your community will not show on our" %} <a class="alert-link" href="{% url 'community-list' %}">{% trans "map" %}</a></p>
+        <p><a href="{% if group.caravan %}{% url 'caravan-edit' group=group.slug %}{% elif group.profile %}{% url 'community-edit' group=group.slug %}{% else %}{% url 'cosinnus:group-detail' group=group.slug %}{% endif %}#id_contact_location" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span> {% if group.caravan %}{% trans "Edit Caravan" %}{% elif group.profile %}{% trans "Edit Community Profile" %}{% else %}{% trans "Edit Group" %}{% endif %}</a></p>
+      </div>
+    {% endif %}
+    {% if group.caravan %}
+      {% if not group.caravan.public %}
+        <div class="alert alert-warning alert-dismissible" role="alert">
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4>{% trans "Your Community-Tour is not published" %}</h4>
+          <p>{{ group.profile.public }}{% trans "You have to check public, so other users see your tour! If this is intentional, ignore this message." %}</p>
+          <p><a href="{% url 'caravan-edit' group=group.slug %}#id_public" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span> {% trans "Edit Caravan" %}</a></p>
+        </div>
+      {% endif %}
+    {% endif %}
+  {% endif %}
+  </div>
+</div>
 
   <div id="dashboard" class="row dashboard">
   {% if group %}
     {% if user|is_group_admin:group %}
-      {% if admins %}
-      <div class="col-md-4 widget">
+      {% if group.ambassadors %}
+      <div class="col-md-4 widget members">
         <div class="panel">
           <div class="panel-heading">
             <h3 class="panel-title"><span class="glyphicon glyphicon-certificate"></span> <span data-target="widget-title">{% trans "Gift-economy Ambassadors" %}</span></h3>
           </div>
           <div class="panel-body">
           <ul class="media-list">
-            {% for admin in admins %}
-              <li class="media text-center">
+            {% for admin in group.ambassadors %}
+              <li class="media member text-center pull-left">
                 <a href="{% url 'pioneer-detail' username=admin.username %}">
                   {% if admin.cosinnus_profile.avatar %}
-                    <img class="avatar" src="{{ admin.cosinnus_profile.avatar|thumbnail_url:"avatar_large" }}">
+                    <img class="avatar small" src="{{ admin.cosinnus_profile.avatar|thumbnail_url:"avatar_small" }}">
                   {% else %}
-                    <img class="avatar" src="{% static "img/avatar.png" %}" alt="{{ admin.get_full_name|default:admin.username }}" data-toggle="tooltip" data-placement="top" title="{{ admin.get_full_name|default:admin.username }}">
+                    <img class="avatar small" src="{% static "img/avatar.png" %}" alt="{{ admin.get_full_name|default:admin.username }}" data-toggle="tooltip" data-placement="top" title="{{ admin.get_full_name|default:admin.username }}">
                   {% endif %}
                   <span class="username">{{ admin.get_full_name|default:admin.get_username }}</span>
                 </a>
                 {% if user.is_superuser or user|is_group_admin:group %}
-                <div class="media-body">
-                  <div class="btn-group btn-group-xs">
-                    <a href="{% url 'cosinnus:group-user-edit' group=group.slug username=admin.get_username %}" class="btn btn-primary"><span class="glyphicon glyphicon-log-in"></span> {% trans "Change Status" %}</a>
-                    <a href="{% url 'cosinnus:group-user-delete' group=group.slug username=admin.get_username %}" class="btn btn-primary"><span class="glyphicon glyphicon-log-out"></span> {% trans "Kick Out" %}</a>
-                    <a href="{% url 'postman_write' recipients=admin.get_username %}" class="btn btn-primary"><span class="glyphicon glyphicon-envelope"></span>{% trans "Send message" %}</a>
+                  <div class="btn-group btn-group-vertical">
+                    <a href="{% url 'cosinnus:group-user-delete' group=group.slug username=admin.get_username %}" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-log-out"></span> {% trans "Remove" %}</a>
+                    <a href="{% url 'postman_write' recipients=admin.get_username %}" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-envelope"></span>{% trans "Send message" %}</a>
                   </div>
-                </div>
                 {% else %}
-                  <a class="email btn btn-primary btn-smll" href="{% url 'postman_write' recipients=admin.get_username %}"><span class="glyphicon glyphicon-envelope"></span>{% trans "Send message" %}</a>
+                  <a class="email btn btn-primary btn-xs" href="{% url 'postman_write' recipients=admin.get_username %}"><span class="glyphicon glyphicon-envelope"></span>{% trans "Send message" %}</a>
                 {% endif %}
               </li>
             {% endfor %}
           </ul>
           {% if user.is_superuser or user|is_group_admin:group %}
-            <a class="btn btn-default center-block" href="{% url 'cosinnus:group-user-add-generic' group=group.slug %}"><span class="glyphicon glyphicon-plus"></span>{% trans "Add member" %}</a>
+            <a class="btn btn-default center-block member-add" href="{% url 'cosinnus:group-user-add-generic' group=group.slug %}"><span class="glyphicon glyphicon-plus"></span>{% trans "Add member" %}</a>
           {% endif %}
         </div>
       </div>
     </div>
     {% endif %}
-    {% if members %}
-    <div class="col-md-4 widget">
+    {% if group.membs %}
+    <div class="col-md-4 widget members">
       <div class="panel">
         <div class="panel-heading">
           <h3 class="panel-title"><span class="fa fa-users"></span> <span data-target="widget-title">{% trans "Members" %}</span></h3>
         </div>
         <div class="panel-body">
         <ul class="media-list">
-          {% for member in members %}
-            <li class="media">
-              <a class="pull-left" href="{% url 'cosinnus:user-detail' username=member.get_username %}">
-                {% if member.cosinnus_profile.avatar %}
-                  <img class="avatar" src="{{ member.cosinnus_profile.avatar.url }}">
+          {% for member in group.membs %}
+            <li class="media member text-center pull-left">
+                <a href="{% url 'pioneer-detail' username=member.username %}">
+                  {% if member.cosinnus_profile.avatar %}
+                    <img class="avatar small" src="{{ member.cosinnus_profile.avatar|thumbnail_url:"avatar_small" }}">
+                  {% else %}
+                    <img class="avatar small" src="{% static "img/avatar.png" %}" alt="{{ member.get_full_name|default:member.username }}" data-toggle="tooltip" data-placement="top" title="{{ member.get_full_name|default:member.username }}">
+                  {% endif %}
+                  <span class="username">{{ member.get_full_name|default:member.get_username }}</span>
+                </a>
+                {% if user.is_superuser or user|is_group_admin:group %}
+                <div class="btn-group btn-group-vertical">
+                    <a href="{% url 'cosinnus:group-user-delete' group=group.slug username=member.get_username %}" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-log-out"></span> {% trans "Remove" %}</a>
+                    <a href="{% url 'postman_write' recipients=member.get_username %}" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-envelope"></span>{% trans "Send message" %}</a>
+                  </div>
                 {% else %}
-                  <img class="avatar" src="http://placehold.it/30x30">
+                  <a class="email btn btn-primary btn-smll" href="{% url 'postman_write' recipients=member.get_username %}"><span class="glyphicon glyphicon-envelope"></span>{% trans "Send message" %}</a>
                 {% endif %}
-              </a>
-              <div class="media-body">
-                <a class="pull-left" href="{% url 'cosinnus:user-detail' username=member.get_username %}">{{ member.get_full_name|default:member.get_username }}</a>
-                <div class="btn-group btn-group-xs">
-                  <a href="{% url 'cosinnus:group-user-edit' group=object.slug username=member.get_username %}" class="btn btn-default">{% trans "Change" %}</a>
-                  <a href="{% url 'cosinnus:group-user-delete' group=object.slug username=member.get_username %}" class="btn btn-default">{% trans "Delete" %}</a>
-                </div>
-              </div>
-            </li>
+              </li>
           {% endfor %}
         </ul>
         {% if user.is_superuser or user|is_group_admin:group %}
-          <a class="btn btn-default center-block" href="{% url 'cosinnus:group-user-add-generic' group=group.slug %}"><span class="glyphicon glyphicon-plus"></span>{% trans "Add member" %}</a>
+          <a class="btn btn-default center-block member-add" href="{% url 'cosinnus:group-user-add-generic' group=group.slug %}"><span class="glyphicon glyphicon-plus"></span>{% trans "Add member" %}</a>
         {% endif %}
       </div>
     </div>
   </div>
   {% endif %}
-  {% if pendings %}
-    <div class="col-md-4 widget">
+  {% if group.pending_members %}
+    <div class="col-md-4 widget members">
         <div class="panel">
           <div class="panel-heading">
             <h3 class="panel-title"><span class="fa fa-users"></span> <span data-target="widget-title"> {% trans "Pending users" %}</span></h3>
           </div>
           <div class="panel-body">
             <ul class="media-list">
-              {% for pending in pendings %}
-                <li class="media text-center">
-                  <a class="pull-left" href="{% url 'pioneer-detail' username=pending.username %}">
-                    {% if pending.cosinnus_profile.avatar %}
-                      <img class="avatar" src="{{ cosinnus_profile.avatar|thumbnail_url:"avatar_large" }}">
-                    {% else %}
-                      <img class="avatar" src="{% static "img/avatar.png" %}">
-                    {% endif %}
-                  <a href="{% url 'pioneer-detail' username=pending.username %}">{{ pending.get_full_name|default:pending.username }}</a>
-                  </a>
-                  <div class="media-body">
-                    <div class="btn-group btn-group-xs">
-                      <a href="{% url 'cosinnus:group-user-edit' group=group.slug username=pending.get_username %}" class="btn btn-primary"><span class="glyphicon glyphicon-log-in"></span> {% trans "Change Status" %}</a>
-                      <a href="{% url 'cosinnus:group-user-delete' group=group.slug username=pending.get_username %}" class="btn btn-primary"><span class="glyphicon glyphicon-log-out"></span>{% trans "Kick Out" %}</a>
-                    </div>
-                    <a class="email btn btn-primary btn-smll" href="{% url 'postman_write' recipients=pending.get_username %}"><span class="glyphicon glyphicon-envelope"></span>{% trans "Send message" %}</a>
+              {% for pending in group.pending_members %}
+                <li class="media member text-center pull-left">
+                <a href="{% url 'pioneer-detail' username=pending.username %}">
+                  {% if pending.cosinnus_profile.avatar %}
+                    <img class="avatar small" src="{{ pending.cosinnus_profile.avatar|thumbnail_url:"avatar_small" }}">
+                  {% else %}
+                    <img class="avatar small" src="{% static "img/avatar.png" %}" alt="{{ pending.get_full_name|default:pending.username }}" data-toggle="tooltip" data-placement="top" title="{{ pending.get_full_name|default:pending.username }}">
+                  {% endif %}
+                  <span class="username">{{ pending.get_full_name|default:pending.get_username }}</span>
+                </a>
+                {% if user.is_superuser or user|is_group_admin:group %}
+                <div class="btn-group btn-group-vertical">
+                    <a href="{% url 'cosinnus:group-user-edit' group=group.slug username=pending.get_username %}" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-log-in"></span> {% trans "Approve" %}</a>
+                    <a href="{% url 'postman_write' recipients=pending.get_username %}" class="btn btn-primary btn-xs"><span class="glyphicon glyphicon-envelope"></span>{% trans "Send message" %}</a>
                   </div>
-                </li>
+                {% else %}
+                  <a class="email btn btn-primary btn-smll" href="{% url 'postman_write' recipients=pending.get_username %}"><span class="glyphicon glyphicon-envelope"></span>{% trans "Send message" %}</a>
+                {% endif %}
+              </li>
               {% endfor %}
             </ul>
           </div>
@@ -224,6 +224,59 @@
     {% endif %}
   {% endif %}
 {% endif %}
+<div class="col-md-4 widget references">
+  <div class="panel">
+    <div class="panel-heading">
+      <a href="{% if group %}{% url 'community-reference-list' group=group.slug %}{% else %}{% url 'pioneer-reference-list' user.username %}{% endif %}"><h3 class="panel-title"><span class="fa fa-users"></span> <span data-target="widget-title"> {% trans "References" %}</span></h3></a>
+    </div>
+    <div class="panel-body">
+      {% if references %}
+        <table class="table table-striped">
+          <thead>
+            <th>User</th>
+            <th>Date</th>
+            <th>Text</th>
+            <th>Tags</th>
+          </thead>
+          <tbody>
+          {% for reference in references.references %}
+          <tr class="{% if reference.recommend %}success{% else %}danger{% endif %}">
+            <td><a class="pull-left" href="{% url 'pioneer-detail' reference.giver.username %}">
+                    {% if reference.giver.cosinnus_profile.avatar %}
+                        <img class="avatar small media-object" src="{{ reference.giver.cosinnus_profile.avatar|thumbnail_url:"avatar_small" }}" />
+                      {% else %}
+                        <img class="avatar media-object small" src="{% static "img/avatar.png" %}">
+                      {% endif %}
+                      <center>{{ reference.giver.username }}</center>
+                    </a></td>
+            <td>{{ reference.date }}</td>
+            <td>{{ reference.text|urlize|safe|truncatewords:25 }} <a href="{% url 'community-reference-list' group.slug %}">{% trans "read more" %}</a></td>
+            <td><ul class="list-inline">
+              {% for tag_name, tag_data in references.tag_counts.products.items %}
+                  <li><a href="{% if group %}{% url 'community-reference-list' group.slug %}{% else %}{% url 'pioneer-reference-list' user.username %}{% endif %}"><span class="label label-{{ tag_data.class }}">{{ tag_name }} <span class="badge {% if reference.recommend %}alert-success{% else %}alert-danger{% endif %}">{{ tag_data.count }}</span></span></a></li>
+              {% endfor %}
+              {% for tag_name, tag_data in references.tag_counts.skills.items %}
+                  <li><a href="{% if group %}{% url 'community-reference-list' group.slug %}{% else %}{% url 'pioneer-reference-list' user.username %}{% endif %}"><span class="label label-{{ tag_data.class }}">{{ tag_name }} <span class="badge {% if reference.recommend %}alert-success{% else %}alert-danger{% endif %}">{{ tag_data.count }}</span></span></a></li>
+              {% endfor %}
+              {% for tag_name, tag_data in references.tag_counts.services.items %}
+                  <li><a href="{% if group %}{% url 'community-reference-list' group.slug %}{% else %}{% url 'pioneer-reference-list' user.username %}{% endif %}"><span class="label label-{{ tag_data.class }}">{{ tag_name }} <span class="badge {% if reference.recommend %}alert-success{% else %}alert-danger{% endif %}">{{ tag_data.count }}</span></span></a></li>
+              {% endfor %}
+            </ul></td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      {% else %}
+        <p>No references yet. <br>
+        {% if group %}
+          Invite volunteers and visitors to leave you a reference!</p>
+        {% else %}
+        <p>Invite community ambassadors and other users to leave you a recommendation!</p>
+        {% endif %}
+      {% endif %}
+    </div>
+  </div>
+</div>
     {% for id in widgets %}
       <div class="widget col-md-4" data-widget-id="{{ id }}" data-type="widget">
         <div class="panel">
@@ -280,6 +333,7 @@
   <script type="text/javascript">
     $(document).ready(function(){
       var dashboard = window.Cosinnus.dashboard.init("#dashboard", {% if group.slug %}"{{ group.slug }}"{% else %}null{% endif %});
+      $('.dropdown-toggle').dropdown();
     });
   </script>
 {% endblock %}

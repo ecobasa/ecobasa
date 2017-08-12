@@ -10,7 +10,7 @@ from django.views.generic import DetailView, UpdateView, ListView
 
 
 from cosinnus.models import CosinnusGroup
-from cosinnus.models.group import MEMBERSHIP_ADMIN, MEMBERSHIP_PENDING
+from cosinnus.models.group import MEMBERSHIP_MEMBER, MEMBERSHIP_ADMIN, MEMBERSHIP_PENDING
 from cosinnus.views.group import GroupListView
 from cosinnus.views.widget import DashboardMixin
 from cosinnus_note.models import Note
@@ -62,9 +62,39 @@ class CommunityDashboardView(DashboardMixin, DetailView):
     model = CosinnusGroup
     slug_url_kwarg = 'group'
     context_object_name = 'group'
+    MAX_REFERENCES = 10
 
     def get_filter(self):
         return {'group_id': self.object.pk}
+
+    def _can_add_reference(self):
+        if not self.request.user.is_authenticated():
+            return True
+        qs = Reference.objects.filter(
+            giver=self.request.user, receiver_community=self.object)
+        return len(qs) == 0
+
+    def get_context_data(self, **kwargs):
+        context = super(CommunityDashboardView, self).get_context_data(**kwargs)
+        context['profile'] = self.object.profile
+
+        # CosinnusGroup.admins and .pendings return pks, not objects :(
+        # So does CosinnusGroupMembership.get_pendings/admins :((
+        context['object'].ambassadors = map(lambda x: x.user,
+            context['object'].memberships.filter(status=MEMBERSHIP_ADMIN))
+        context['object'].pending_members = map(lambda x: x.user,
+            context['object'].memberships.filter(status=MEMBERSHIP_PENDING))
+        context['object'].membs = map(lambda x: x.user,
+            context['object'].memberships.filter(status=MEMBERSHIP_MEMBER))
+
+        references = self.object.ecobasa_reference_receiver_community.all();
+        context['references'] = {
+            'tag_counts': get_tag_counts(references),
+            'references': references[:self.MAX_REFERENCES],
+        }
+        context['can_add_reference'] = self._can_add_reference()
+
+        return context
 
 community_dashboard = CommunityDashboardView.as_view()
 

@@ -1650,6 +1650,26 @@ a#group span.glyphicon {
 #dashboard .panel.panel-default > .panel-heading h3.panel-title {
   color: #fcf3e5;
 }
+#dashboard .widget.members ul.media-list {
+  float: left;
+}
+#dashboard .widget.members li.member {
+  display: block;
+  margin-top: 10px;
+  margin-left: 7px;
+}
+#dashboard .widget.members li.member:nth-child(3n+4) {
+  margin-left: 0px;
+}
+#dashboard .widget.members li.member:first-child {
+  margin-left: 0px;
+}
+#dashboard .widget.members .username {
+  display: block;
+}
+#dashboard .widget.members a.member-add {
+  clear: left;
+}
 
 ul#postman_menu {
   list-style: none;

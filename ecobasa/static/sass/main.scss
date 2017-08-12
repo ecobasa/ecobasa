@@ -249,6 +249,10 @@ textarea.form-control {
 	border-color: $third !important;
 }
 
+.meter.green {
+	
+}
+
 /************ Header ****************/
 
 .header.navbar {
@@ -1778,6 +1782,28 @@ a#group {
 			h3.panel-title {
 				color: $secondary;
 			}
+		}
+	}
+	.widget.members {
+		ul.media-list  {
+			float: left;
+		}
+		li.member {
+			display: block;
+			margin-top: 10px;
+			margin-left: 7px;
+			&:nth-child(3n+4) {
+				margin-left: 0px;
+			}
+			&:first-child {
+				margin-left: 0px;
+			}
+		}
+		.username {
+			display: block;
+		}
+		a.member-add {
+			clear: left;
 		}
 	}
 }
