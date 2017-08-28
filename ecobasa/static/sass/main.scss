@@ -406,7 +406,6 @@ nav.navbar-sub {
 /************* Content ***************/
 
 .container.content {
-	padding-top: 50px;
 	padding-bottom: 80px;
 }
 
@@ -423,6 +422,9 @@ body#start {
 	.container {
 		padding-top: 40px;
 		padding-bottom: 40px;
+	}
+	#carousel-startpage {
+		margin-top: -160px;
 	}
 	.overlay {
 		position: absolute;
@@ -463,10 +465,6 @@ body#start {
     margin-top: 0px;
     margin-bottom: 30px;
   }
-}
-
-#carousel-startpage {
-	margin-top: -160px;
 }
 
 .image {
