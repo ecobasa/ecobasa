@@ -919,7 +919,7 @@ body#communities {
 	}
 }
 
-.leaflet-control-layers {
+.leaflet-control-layers.leaflet-control {
 	background-color: rgba($primary, 0.8);
 	border: 1px solid $third;
 	color: $secondary;

@@ -836,7 +836,7 @@ body#communities .footer.navbar {
   position: fixed;
 }
 
-.leaflet-control-layers {
+.leaflet-control-layers.leaflet-control {
   background-color: rgba(218, 97, 55, 0.8);
   border: 1px solid #b4502c;
   color: #fcf3e5;
