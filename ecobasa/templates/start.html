@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="{% static "leaflet/leaflet.css" %}" />
 {% endblock %}
 
-{% block body %}start{% endblock body %}
+{% block body %}start slideshow{% endblock body %}
 
 {% block base_content %}
 
@@ -45,15 +45,17 @@
     </div>
   </div>
 </div>
-<div class="container content" id="blog_feature">
-  <div class="row">
-    <div class="col-xs-12">
-      {% placeholder blog %}
+<div class="gradient">
+  <div class="container content" id="blog_feature">
+    <div class="row">
+      <div class="col-xs-12">
+        {% placeholder blog %}
+      </div>
     </div>
-  </div>
-  <div class="row">
-    {% show_blog_posts %}
-  </div>
+    <div class="row">
+      {% show_blog_posts %}
+    </div>
+    </div>
   </div>
 </div>
 <div class="image">
