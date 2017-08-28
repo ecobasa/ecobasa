@@ -421,7 +421,7 @@ nav.navbar-sub {
 
 body#start {
 	.container {
-		padding-top: 60px;
+		padding-top: 40px;
 		padding-bottom: 40px;
 	}
 	.overlay {
@@ -460,6 +460,10 @@ body#start {
 			font-size: 18px;
 		}
 	}
+	#blog_feature h1 {
+    margin-top: 0px;
+    margin-bottom: 30px;
+  }
 }
 
 #carousel-startpage {
