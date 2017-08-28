@@ -8,6 +8,7 @@
 <meta property="og:title" content="ecobasa.org - a gift-economy network for communities" />
 <meta property="og:description" content="ecobasa is a directory of sustainable communities and ecovillages that connects them to individuals looking for alternative ways of living. The site offers the technology for communication, collaboration and the exchange of experiences, knowledge, skills, services and ressources" />
 <meta property="og:image" content="{% static "img/ecobasa_logo.png" %}" />
+<link rel="stylesheet" href="{% static "leaflet/leaflet.css" %}" />
 {% endblock %}
 
 {% block body %}start{% endblock body %}
@@ -16,16 +17,23 @@
 
 </div>
 {% placeholder fullwidth_slider %}
-<div class="description">
+<div class="description gradient">
   <div class="container">
     <div class="row">
-      <div class="col-xs-12">
+      <div class="col-xs-6">
         <a href="/accounts/register/">{% placeholder text %}</a>
+      </div>
+      <div class="col-xs-6">
+        
       </div>
     </div>
   </div>
 </div>
-<div class="container" id="video">
+<div id="start-map" class="community-map-small gradient">
+  <a href="/communities/"><button class="btn btn-primary btn-lg center">Large Map</button></a>
+</div>
+<div class="gradient">
+<div class="container content" id="video">
   <div class="row">
     <div class="col-xs-12 col-md-6 pull-right">
       <div class="video-responsive">
@@ -34,6 +42,7 @@
     </div>
     <div class="col-xs-12 col-md-6">{% placeholder video_text %}</div>
   </div>
+</div>
 </div>
 <div class="container" id="blog_feature">
   <div class="row">
@@ -85,3 +94,19 @@
 </div><!-- image -->
 </div>
 {% endblock %}
+
+{% block extrafooter %}
+  {{ block.super }}
+  <script src="{% static "leaflet/leaflet.js" %}"></script>
+  <script src="{% static "js/ecobasa_map.js" %}"></script>
+  <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.2.4"></script>
+  <script type="text/javascript">
+  {% get_community_locations as locations %}
+  $(function() {
+    StartMap.init('start-map');
+    {% for l in locations %}
+    StartMap.addMarker({{ l.lat|unlocalize }}, {{ l.lon|unlocalize }}, '{% if l.image %}{% thumbnail l.image 300x120 upscale crop as thumb %}<img src="{{ thumb.url }}" alt="{{ l.name }}" width="{{ thumb.width }}" /><br />{% endif %}<h5><a href="{% url 'community-detail' group=l.slug %}">{{ l.name }}</a></h5><span class="community-details"><a href="{% url 'community-detail' group=l.slug %}" data-toggle="tooltip" title="{{ l.members }} people live there"><i class="fa fa-users"></i>{{ l.members }}</a><a href="{% url 'community-detail' group=l.slug %}" data-toggle="tooltip" title="They can host up to {{ l.visitors }} people"><i class="fa fa-bed"></i>{{ l.visitors }}</a> {% if l.status = "l" %}<a href="{% url 'community-detail' group=l.slug %}" data-toggle="tooltip" title="Looking for volunteers"><i class="fa fa-hand-rock-o"></i></a>{% elif l.status = "c" %}<a href="{% url 'community-detail' group=l.slug %}" data-toggle="tooltip" title="Closed at the moment"><i class="fa fa-hand-stop-o"></i></a>{% elif l.status = "o" %}<a href="{% url 'community-detail' group=l.slug %}" data-toggle="tooltip" title="Looking for members"><i class="fa fa-user-plus"></i></a>{% endif %}</span> {% if l.text %}<span>{{ l.text|urlize|safe|truncatewords:50 }}</span> <a href="{% url 'community-detail' group=l.slug %}">{%trans "see profile" %}</a>{% elif l.text2 %}<span>{% trans "What brings us together:" %}</br>{{ l.text2|urlize|safe|truncatewords:50 }}</span> <a href="{% url 'community-detail' group=l.slug %}">{%trans "see profile" %}</a>{% endif %}');
+    {% endfor %}
+  });
+  </script>
+{% endblock extrafooter %}
