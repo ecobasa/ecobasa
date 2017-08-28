@@ -350,6 +350,7 @@ nav.navbar-sub ul li a {
 
 /************* Content ***************/
 .container.content {
+  padding-top: 50px;
   padding-bottom: 80px;
 }
 
@@ -494,6 +495,9 @@ body#start .container.ribbon {
 body#slideshow > .container.content {
   padding-top: 0px;
   padding-bottom: 0px;
+}
+body#slideshow .container.content {
+  padding-top: 0px;
 }
 
 .carousel-caption {

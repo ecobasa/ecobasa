@@ -406,6 +406,7 @@ nav.navbar-sub {
 /************* Content ***************/
 
 .container.content {
+	padding-top: 50px;
 	padding-bottom: 80px;
 }
 
@@ -563,6 +564,9 @@ body#slideshow {
 	> .container.content {
 	    padding-top: 0px;
 	    padding-bottom: 0px;
+	}
+	.container.content {
+		padding-top: 0px;
 	}
 }
 .carousel-caption {
