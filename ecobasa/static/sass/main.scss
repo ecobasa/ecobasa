@@ -418,40 +418,52 @@ nav.navbar-sub {
 
 /*********** Startpage ****************/
 
-body#start > .container {
-	padding-top: 0px;
-	margin-top: -40px;
-}
 
 body#start {
+	.container {
+		padding-top: 60px;
+		padding-bottom: 40px;
+	}
+	.overlay {
+		position: absolute;
+	  top: 20px;
+	  right: 20px;
+	  z-index: 1;
+	}
 	.footer.navbar {
 		position: relative;
 		margin-top: -50px;
 	}
-}
-
-.description {
-	text-align: center;
-	padding-top: 2%;
-	height: 190px;
-	background: url('../img/background.jpg');
-	color: $secondary;
-	a {
+	.description {
+		text-align: center;
+		padding-top: 2%;
+		height: 190px;
+		background: url('../img/background.jpg');
 		color: $secondary;
-		&:hover {
-			text-decoration: none;
-			color: $brown;
+		& > .container {
+			padding-top: 2%;
+		}
+		a {
+			color: $secondary;
+			&:hover {
+				text-decoration: none;
+				color: $brown;
+			}
+		}
+		h1 {
+			font-size: 45px;
+			margin-bottom: 10px;
+			color: $secondary;
+			margin-top: 20px;
+		}
+		p {
+			font-size: 18px;
 		}
 	}
-	h1 {
-		font-size: 45px;
-		margin-bottom: 10px;
-		color: $secondary;
-		margin-top: 20px;
-	}
-	p {
-		font-size: 18px;
-	}
+}
+
+#carousel-startpage {
+	margin-top: -200px;
 }
 
 .image {
@@ -902,13 +914,6 @@ body#communities {
 	background-color: rgba($primary, 0.8);
 	border: 1px solid $third;
 	color: $secondary;
-}
-
-.overlay {
-	position: absolute;
-  bottom: 50px;
-  right: 50px;
-  z-index: 1;
 }
 
 .leaflet-popup-content-wrapper, 

@@ -361,38 +361,49 @@ nav.navbar-sub ul li a {
 }
 
 /*********** Startpage ****************/
-body#start > .container {
-  padding-top: 0px;
-  margin-top: -40px;
+body#start .container {
+  padding-top: 60px;
+  padding-bottom: 40px;
 }
-
+body#start .overlay {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 1;
+}
 body#start .footer.navbar {
   position: relative;
   margin-top: -50px;
 }
-
-.description {
+body#start .description {
   text-align: center;
   padding-top: 2%;
   height: 190px;
   background: url("../img/background.jpg");
   color: #fcf3e5;
 }
-.description a {
+body#start .description > .container {
+  padding-top: 2%;
+}
+body#start .description a {
   color: #fcf3e5;
 }
-.description a:hover {
+body#start .description a:hover {
   text-decoration: none;
   color: #452912;
 }
-.description h1 {
+body#start .description h1 {
   font-size: 45px;
   margin-bottom: 10px;
   color: #fcf3e5;
   margin-top: 20px;
 }
-.description p {
+body#start .description p {
   font-size: 18px;
+}
+
+#carousel-startpage {
+  margin-top: -200px;
 }
 
 .image {
@@ -820,13 +831,6 @@ body#communities .footer.navbar {
   background-color: rgba(218, 97, 55, 0.8);
   border: 1px solid #b4502c;
   color: #fcf3e5;
-}
-
-.overlay {
-  position: absolute;
-  bottom: 50px;
-  right: 50px;
-  z-index: 1;
 }
 
 .leaflet-popup-content-wrapper,
