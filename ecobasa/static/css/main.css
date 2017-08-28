@@ -41,6 +41,13 @@ body {
   color: #452912;
 }
 
+.btn-xxl {
+  padding: 20px 26px;
+  font-size: 24px;
+  line-height: 1.33;
+  border-radius: 6px;
+}
+
 .btn-primary {
   background-color: rgba(218, 97, 55, 0.8);
   border-color: #b4502c;
@@ -809,10 +816,17 @@ body#communities .footer.navbar {
   position: fixed;
 }
 
-.leaflet-right .leaflet-control {
+.leaflet-control .leaflet-top .leaflet-right {
   background-color: rgba(218, 97, 55, 0.8);
   border: 1px solid #b4502c;
   color: #fcf3e5;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 50px;
+  right: 50px;
+  z-index: 1;
 }
 
 .leaflet-popup-content-wrapper,
