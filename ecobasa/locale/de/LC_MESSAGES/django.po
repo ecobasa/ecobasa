@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-11 02:21+0200\n"
+"POT-Creation-Date: 2017-09-11 03:18+0200\n"
 "PO-Revision-Date: 2014-11-23 18:07+0200\n"
 "Last-Translator: Sebastian Henschel <ecobasa@kodeaffe.de\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1620,8 +1620,8 @@ msgid "Send"
 msgstr "Senden"
 
 #: templates/cosinnus/dashboard.html:5 templates/cosinnus/dashboard.html:11
-#: templates/cosinnus/footermenu.html:44 templates/cosinnus/topmenu.html:59
-#: templates/cosinnus/topmenu.html.py:125
+#: templates/cosinnus/footermenu.html:44 templates/cosinnus/topmenu.html:60
+#: templates/cosinnus/topmenu.html.py:126
 #: templates/ecobasa/community_detail.html:86
 msgid "Dashboard"
 msgstr "Dashboard"
@@ -1867,11 +1867,11 @@ msgstr "Newsletter"
 msgid "Contact"
 msgstr "Kontakt"
 
-#: templates/cosinnus/footermenu.html:30 templates/cosinnus/topmenu.html:67
+#: templates/cosinnus/footermenu.html:30 templates/cosinnus/topmenu.html:68
 msgid "My Communities"
 msgstr "Meine Gemeinschaften"
 
-#: templates/cosinnus/footermenu.html:30 templates/cosinnus/topmenu.html:67
+#: templates/cosinnus/footermenu.html:30 templates/cosinnus/topmenu.html:68
 msgid "My Community"
 msgstr "Meine Gemeinschaft"
 
@@ -1884,16 +1884,16 @@ msgstr "Alle Gemeinschaften auflisten"
 msgid "Profile"
 msgstr "Profil"
 
-#: templates/cosinnus/footermenu.html:45 templates/cosinnus/topmenu.html:86
+#: templates/cosinnus/footermenu.html:45 templates/cosinnus/topmenu.html:87
 msgid "Logout"
 msgstr "Abmelden"
 
-#: templates/cosinnus/footermenu.html:50 templates/cosinnus/topmenu.html:91
+#: templates/cosinnus/footermenu.html:50 templates/cosinnus/topmenu.html:92
 msgctxt "the verb"
 msgid "Register"
 msgstr "Registrieren"
 
-#: templates/cosinnus/footermenu.html:52 templates/cosinnus/topmenu.html:93
+#: templates/cosinnus/footermenu.html:52 templates/cosinnus/topmenu.html:94
 #: templates/cosinnus/registration/login.html:4
 #: templates/cosinnus/registration/login.html:18
 msgid "Login"
@@ -1956,60 +1956,64 @@ msgid "The Network"
 msgstr "Das Netzwerk"
 
 #: templates/cosinnus/topmenu.html:18
+msgid "Consultation"
+msgstr "Beratung"
+
+#: templates/cosinnus/topmenu.html:19
 msgid "Team"
 msgstr "Team"
 
-#: templates/cosinnus/topmenu.html:24 templates/ecobasa/community_list.html:4
+#: templates/cosinnus/topmenu.html:25 templates/ecobasa/community_list.html:4
 msgid "Communities"
 msgstr "Gemeinschaften"
 
-#: templates/cosinnus/topmenu.html:25 templates/ecobasa/caravan_list.html:4
+#: templates/cosinnus/topmenu.html:26 templates/ecobasa/caravan_list.html:4
 msgid "Community-Tours"
 msgstr "Community-Tours"
 
-#: templates/cosinnus/topmenu.html:27
+#: templates/cosinnus/topmenu.html:28
 msgid "What is this?"
 msgstr "Was ist das?"
 
-#: templates/cosinnus/topmenu.html:28
+#: templates/cosinnus/topmenu.html:29
 msgid "Tour Blogs"
 msgstr "Tour Blogs"
 
-#: templates/cosinnus/topmenu.html:29
+#: templates/cosinnus/topmenu.html:30
 msgid "Go on tour!"
 msgstr "Geh auf Tour!"
 
-#: templates/cosinnus/topmenu.html:30
+#: templates/cosinnus/topmenu.html:31
 msgid "Find a Bus"
 msgstr "Finde einen Bus"
 
-#: templates/cosinnus/topmenu.html:31
+#: templates/cosinnus/topmenu.html:32
 msgid "Pioneers"
 msgstr "Pioniere"
 
-#: templates/cosinnus/topmenu.html:32
+#: templates/cosinnus/topmenu.html:33
 msgid "Traveling Tips"
 msgstr "Reisetips"
 
-#: templates/cosinnus/topmenu.html:35
+#: templates/cosinnus/topmenu.html:36
 msgid "Communities-Convergence"
 msgstr "Communities-Convergence"
 
-#: templates/cosinnus/topmenu.html:36
+#: templates/cosinnus/topmenu.html:37
 #: templates/userprofiles/registration_complete.html:18
 #: templates/userprofiles/registration_complete.html:38
 msgid "Donate"
 msgstr "Spenden"
 
-#: templates/cosinnus/topmenu.html:42
+#: templates/cosinnus/topmenu.html:43
 msgid "Find everything you need"
 msgstr "Finde alles wonach du suchst. :)"
 
-#: templates/cosinnus/topmenu.html:44
+#: templates/cosinnus/topmenu.html:45
 msgid "What are you looking for?"
 msgstr "Was suchst du?"
 
-#: templates/cosinnus/topmenu.html:62
+#: templates/cosinnus/topmenu.html:63
 msgid "My Profile"
 msgstr "Mein Profil"
 
