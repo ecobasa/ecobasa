@@ -1199,6 +1199,9 @@ img.avatar {
 }
 
 /*************** Community-Profiles **************/
+body#profile.community {
+  padding-bottom: 80px;
+}
 body#profile.community div.container.content {
   padding: 0px;
   padding-bottom: 0px;
