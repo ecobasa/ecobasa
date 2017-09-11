@@ -1212,7 +1212,6 @@ msgid "Services"
 msgstr "Dienstleistungen"
 
 #: models/profile.py:348
-#, fuzzy
 msgid ""
 "What services can you offer? Connect two words with a \"-\" to have one tag."
 msgstr ""
@@ -1293,7 +1292,6 @@ msgid "Permaculture Farm"
 msgstr ""
 
 #: models/profile.py:471
-#, fuzzy
 msgid "Type of community"
 msgstr "Art der Gemeinschaft"
 
@@ -1645,9 +1643,8 @@ msgid "Add one now."
 msgstr "Füge jetzt eins hinzu."
 
 #: templates/cosinnus/dashboard.html:33
-#, fuzzy
 msgid "What is your name?"
-msgstr "Was für Materialien braucht ihr?"
+msgstr "Wie heist du?"
 
 #: templates/cosinnus/dashboard.html:34
 msgid "You did not enter your full name in your profile."
@@ -1700,9 +1697,8 @@ msgid "Members"
 msgstr "Mitglieder"
 
 #: templates/cosinnus/dashboard.html:64
-#, fuzzy
 msgid "Write to all members"
-msgstr "Offen für neue Mitglieder"
+msgstr "Schreibe allen Mitgliedern"
 
 #: templates/cosinnus/dashboard.html:69
 msgid "Leave this"
@@ -1723,9 +1719,8 @@ msgid "Join this group"
 msgstr "Dieser Gruppe beitreten"
 
 #: templates/cosinnus/dashboard.html:86
-#, fuzzy
 msgid "No Picture"
-msgstr "Bild ändern"
+msgstr "Kein Bild"
 
 #: templates/cosinnus/dashboard.html:87
 msgid ""
@@ -1752,9 +1747,8 @@ msgid "map"
 msgstr "Karte"
 
 #: templates/cosinnus/dashboard.html:107
-#, fuzzy
 msgid "Your Community-Tour is not published"
-msgstr "Community-Tours Blog"
+msgstr "Deine Community-Tour ist nicht veröffentlicht"
 
 #: templates/cosinnus/dashboard.html:108
 msgid ""
@@ -1926,17 +1920,14 @@ msgid "Status"
 msgstr "Status"
 
 #: templates/cosinnus/group_user_list.html:28
-#, fuzzy
 msgid "edit status"
-msgstr "Mitgliederstatus"
+msgstr "Mitgliederstatus bearbeiten"
 
 #: templates/cosinnus/group_user_list.html:29
-#, fuzzy
 msgid "delete"
-msgstr "Entfernen"
+msgstr "Löschen"
 
 #: templates/cosinnus/group_user_list.html:36
-#, fuzzy
 msgid "There are no users."
 msgstr "Es gibt keine Notizen."
 
@@ -2139,9 +2130,8 @@ msgstr "Kraftstoffverbrauch"
 
 #: templates/cosinnus/userprofile_detail.html:175
 #: templates/ecobasa/pioneer_detail.html:197
-#, fuzzy
 msgid "Groups"
-msgstr "Gruppe"
+msgstr "Gruppen"
 
 #: templates/cosinnus/userprofile_detail.html:193
 #: templates/ecobasa/pioneer_detail.html:247
@@ -2427,9 +2417,8 @@ msgstr "Zurück zum Blog"
 
 #: templates/cosinnus_note/comment_create.html:86
 #: templates/cosinnus_note/note_detail.html:132
-#, fuzzy
 msgid "Comments"
-msgstr "Kommentar"
+msgstr "Kommentare"
 
 #: templates/cosinnus_note/comment_create.html:105
 msgid "Coming soon: Audio"
@@ -2444,7 +2433,6 @@ msgid "Coming soon: Sound Record"
 msgstr "Bald verfügbar: Audio Aufnehmen"
 
 #: templates/cosinnus_note/comment_create.html:108
-#, fuzzy
 msgid "Coming soon: Picture"
 msgstr "Bald verfügbar: Bild"
 
@@ -2493,9 +2481,8 @@ msgid "There are no notes."
 msgstr "Es gibt keine Notizen."
 
 #: templates/cosinnus_note/widgets/detailed_news.html:40
-#, fuzzy
 msgid "comments"
-msgstr "Kommentar"
+msgstr "Kommentare"
 
 #: templates/cosinnus_todo/todoentry_detail.html:19
 msgid "Created on"
@@ -2856,7 +2843,6 @@ msgid "Products and Creations"
 msgstr "Produkte und Kreationen"
 
 #: templates/ecobasa/community_detail.html:203
-#, fuzzy
 msgid "Add a product you received with a review"
 msgstr "Füge ein Produkt das du bekommen hast mit einer Bewertung hinzu"
 
@@ -2927,7 +2913,6 @@ msgid "Ask for tools"
 msgstr "Frage nach Werkzeugen"
 
 #: templates/ecobasa/community_detail.html:305
-#, fuzzy
 msgid "Additional info about tools"
 msgstr "Zusätzliche Info zu Werkzeugen"
 
@@ -2958,12 +2943,10 @@ msgid "Personal wishes from community-members"
 msgstr "Persönliche Wünsche von Mitgliedern der Gemeinschaft"
 
 #: templates/ecobasa/community_detail.html:362
-#, fuzzy
 msgid "Add wishes to your profile"
-msgstr "Füge deinem Profil einen Bus hinzu"
+msgstr "Füge deinem Profil Wünsche hinzu"
 
 #: templates/ecobasa/community_detail.html:370
-#, fuzzy
 msgid "Visitor Info"
 msgstr "Besucher Information"
 
@@ -3160,7 +3143,6 @@ msgid "Pioneer"
 msgstr "Pionier"
 
 #: templates/ecobasa/pioneer_list.html:30
-#, fuzzy
 msgid "Ambassadors"
 msgstr "Schenkökonomie Botschafter"
 
@@ -3228,19 +3210,16 @@ msgid "Archive"
 msgstr "Archiv"
 
 #: templates/postman/base_folder.html:27
-#, fuzzy
 msgid "Undelete"
-msgstr "Entfernen"
+msgstr "Entfernen rückgängig machen"
 
 #: templates/postman/base_folder.html:33
-#, fuzzy
 msgid "Action"
 msgstr "Aktionen"
 
 #: templates/postman/base_folder.html:34
-#, fuzzy
 msgid "Sender"
-msgstr "\"Geschlecht\""
+msgstr "Sender"
 
 #: templates/postman/base_folder.html:35
 msgid "Recipient"
@@ -3257,14 +3236,12 @@ msgstr "Datum"
 #: templates/postman/base_folder.html:44 templates/postman/base_folder.html:46
 #: templates/postman/base_folder.html:47 templates/postman/view.html:16
 #: templates/postman/view.html.py:18 templates/postman/view.html:27
-#, fuzzy
 msgid "me"
 msgstr "Ich"
 
 #: templates/postman/base_folder.html:64
-#, fuzzy
 msgid "No messages."
-msgstr "Keine Nachricht"
+msgstr "Keine Nachrichten"
 
 #: templates/postman/email_user.txt:2
 #, python-format
@@ -3331,7 +3308,6 @@ msgstr ""
 "Eine Antwort darauf würde nicht beachtet werden."
 
 #: templates/postman/email_user.txt:27
-#, fuzzy
 msgid ""
 "\n"
 "Have a nice day!\n"
@@ -3343,7 +3319,7 @@ msgstr ""
 "Hab einen schönen Tag!\n"
 "Dieser Service wird als Geschenk von ecobasa.org angeboten, bitte "
 "unterstütze uns mit einer kleinen Spende!\n"
-"https://www.betterplace.org/de/projects/11742-ecobasa-org\n"
+"https://ecobasa.org/support/\n"
 
 #: templates/postman/email_user_subject.txt:1
 #, python-format
@@ -3351,9 +3327,8 @@ msgid "Message \"%(subject)s\" on %(sitename)s"
 msgstr "Nachricht \"%(subject)s\" auf %(sitename)s"
 
 #: templates/postman/view.html:9
-#, fuzzy
 msgid "Conversation"
-msgstr "Verbrauch"
+msgstr "Konversation"
 
 #: templates/postman/view.html:9
 msgid "Message"
@@ -3420,14 +3395,12 @@ msgid "Registration"
 msgstr "Registrierung"
 
 #: templates/userprofiles/registration.html:16
-#, fuzzy
 msgid "Start a Community-Tour"
 msgstr "Schließ dich einer Community-Tour an!"
 
 #: templates/userprofiles/registration.html:17
-#, fuzzy
 msgid "Volunteer in communities"
-msgstr "Alle Gemeinschaften auflisten"
+msgstr "Helfe in Gemeinschaften"
 
 #: templates/userprofiles/registration.html:18
 msgid "Join an existing community or regional network"
@@ -3452,7 +3425,6 @@ msgid "Read posts from communities, Community-Tours and the network"
 msgstr "Lese Nachrichten von Gemeinschaften, Reisenden und dem Netzwerk"
 
 #: templates/userprofiles/registration.html:25
-#, fuzzy
 msgid ""
 "This is the standard sign-up for all users. Every person is a pioneer in the "
 "gift-economy network, as we beginn to walk new (ancient) paths of "
@@ -3467,14 +3439,12 @@ msgid "Community Gift-Ambassador"
 msgstr "Schenkbotschafter für eine Gemeinschaft"
 
 #: templates/userprofiles/registration.html:34
-#, fuzzy
 msgid "Get a community profile"
-msgstr "Gemeinschafts Profil bearbeiten"
+msgstr "Lege ein Profil an für deine Gemeinschaft"
 
 #: templates/userprofiles/registration.html:35
-#, fuzzy
 msgid "Receive volunteers"
-msgstr "Suchen nach Helfern"
+msgstr "Empfange Freiwillige"
 
 #: templates/userprofiles/registration.html:36
 msgid "Write blogposts you can share in the network"
@@ -3494,12 +3464,10 @@ msgid "Exchange gifts!"
 msgstr "Tausche Geschenke"
 
 #: templates/userprofiles/registration.html:40
-#, fuzzy
 msgid "Collect references"
 msgstr "Sammle Bewertungen"
 
 #: templates/userprofiles/registration.html:43
-#, fuzzy
 msgid ""
 "If you live in a community, or want to start a regional network click here. "
 "With your standart pioneer profile we will create a community profile where "
@@ -3525,9 +3493,8 @@ msgid "Community Ambassador Registration"
 msgstr "Gemeinschafts-Botschafter Anmeldung"
 
 #: templates/userprofiles/registration_community.html:24
-#, fuzzy
 msgid "Intentional Community"
-msgstr "Gemeinschaft verlassen"
+msgstr "Intentionale Gemeinschaft"
 
 #: templates/userprofiles/registration_community.html:26
 msgid "Get a profile for your"
@@ -3538,7 +3505,6 @@ msgid "Comune"
 msgstr "Kommune"
 
 #: templates/userprofiles/registration_community.html:36
-#, fuzzy
 msgid "Regional Network"
 msgstr "Regionales Netzwerk"
 
@@ -3561,7 +3527,6 @@ msgid "Urban gift-network"
 msgstr "Schenk-Netzwerk in einer Stadt"
 
 #: templates/userprofiles/registration_community.html:43
-#, fuzzy
 msgid "Thematic network"
 msgstr "Thematisches Netzwerk"
 
@@ -3581,7 +3546,6 @@ msgstr ""
 "Kontaktinformationen, damit wir euch helfen können"
 
 #: templates/userprofiles/registration_community.html:54
-#, fuzzy
 msgid ""
 "It is useful just to have a look at different hosts and study their way of "
 "describing the help they need. It will save you a lot of wasted energy on "
@@ -3694,7 +3658,6 @@ msgid "That's you"
 msgstr "Das bist Du"
 
 #: templates/userprofiles/registration_complete.html:29
-#, fuzzy
 msgid "You are now an important part of the gift-economy network!"
 msgstr "Du bist jetzt ein wichtiges Mitglied des Schenk-Ökonomie Netzwerks!"
 
