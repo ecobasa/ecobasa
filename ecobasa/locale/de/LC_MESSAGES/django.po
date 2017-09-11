@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-31 10:26+0200\n"
+"POT-Creation-Date: 2017-09-11 02:21+0200\n"
 "PO-Revision-Date: 2014-11-23 18:07+0200\n"
 "Last-Translator: Sebastian Henschel <ecobasa@kodeaffe.de\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,7 +21,7 @@ msgstr ""
 msgid "User"
 msgstr "Nutzer"
 
-#: admin.py:32 templates/cosinnus/dashboard.html:69
+#: admin.py:32 templates/cosinnus/dashboard.html:70
 #: templates/cosinnus_note/widgets/compact_news.html:8
 msgid "Group"
 msgstr "Gruppe"
@@ -119,7 +119,7 @@ msgstr "Bild"
 msgid "An image of the caravan."
 msgstr "Ein Bild für die Karawane"
 
-#: models/caravan.py:39 templates/cosinnus/dashboard.html:69
+#: models/caravan.py:39 templates/cosinnus/dashboard.html:70
 msgid "Caravan"
 msgstr "Karawane"
 
@@ -1519,7 +1519,7 @@ msgstr "Fähigkeiten die du in diesem Kontakt lernen konntest"
 msgid "Reference"
 msgstr "Bewertung"
 
-#: models/reference.py:85 templates/cosinnus/dashboard.html:231
+#: models/reference.py:85 templates/cosinnus/dashboard.html:232
 #: templates/cosinnus/userprofile_detail.html:186
 #: templates/ecobasa/community_detail.html:502
 #: templates/ecobasa/community_reference_list.html:11
@@ -1626,35 +1626,39 @@ msgstr "Senden"
 msgid "Dashboard"
 msgstr "Dashboard"
 
-#: templates/cosinnus/dashboard.html:17 templates/cosinnus/dashboard.html:35
+#: templates/cosinnus/dashboard.html:18 templates/cosinnus/dashboard.html:36
 msgid "Edit your profile"
 msgstr "Profil bearbeiten"
 
-#: templates/cosinnus/dashboard.html:24
+#: templates/cosinnus/dashboard.html:19
+msgid "Good"
+msgstr "Guten"
+
+#: templates/cosinnus/dashboard.html:25
 msgid "No Face"
 msgstr "Kein Gesicht"
 
-#: templates/cosinnus/dashboard.html:25
+#: templates/cosinnus/dashboard.html:26
 msgid "You don't have a picture of yourself in your profile!"
 msgstr "Du hast kein Bild von dir in deinem Profil!"
 
-#: templates/cosinnus/dashboard.html:25
+#: templates/cosinnus/dashboard.html:26
 msgid "Add one now."
 msgstr "Füge jetzt eins hinzu."
 
-#: templates/cosinnus/dashboard.html:33
+#: templates/cosinnus/dashboard.html:34
 msgid "What is your name?"
 msgstr "Wie heist du?"
 
-#: templates/cosinnus/dashboard.html:34
+#: templates/cosinnus/dashboard.html:35
 msgid "You did not enter your full name in your profile."
 msgstr "Du hast nicht deinen vollen Namen im Profil angegeben."
 
-#: templates/cosinnus/dashboard.html:34
+#: templates/cosinnus/dashboard.html:35
 msgid "Add your full name here"
 msgstr "Füge deinen vollen Namen hier hinzu"
 
-#: templates/cosinnus/dashboard.html:34
+#: templates/cosinnus/dashboard.html:35
 msgid ""
 "This makes sense if you want to be found by people that know you to receive "
 "references. Also it helps to develop trust in this network and your person!"
@@ -1663,66 +1667,66 @@ msgstr ""
 "willst.Sie können dir Bewertungen geben. Es hilft anderen Vertrauen zu dir "
 "und zu diesem Netzwerk aufzubauen"
 
-#: templates/cosinnus/dashboard.html:44
+#: templates/cosinnus/dashboard.html:45
 msgid "Caravan Profile"
 msgstr "Profil dieser Karawane"
 
-#: templates/cosinnus/dashboard.html:46 templates/cosinnus/dashboard.html:88
-#: templates/cosinnus/dashboard.html:98 templates/cosinnus/dashboard.html:109
+#: templates/cosinnus/dashboard.html:47 templates/cosinnus/dashboard.html:89
+#: templates/cosinnus/dashboard.html:99 templates/cosinnus/dashboard.html:110
 msgid "Edit Caravan"
 msgstr "Karawane bearbeiten"
 
-#: templates/cosinnus/dashboard.html:49
+#: templates/cosinnus/dashboard.html:50
 msgid "Community Profile"
 msgstr "Profil dieser Gemeinschaft"
 
-#: templates/cosinnus/dashboard.html:51 templates/cosinnus/dashboard.html:88
-#: templates/cosinnus/dashboard.html:98
+#: templates/cosinnus/dashboard.html:52 templates/cosinnus/dashboard.html:89
+#: templates/cosinnus/dashboard.html:99
 msgid "Edit Community Profile"
 msgstr "Gemeinschafts Profil bearbeiten"
 
-#: templates/cosinnus/dashboard.html:54
+#: templates/cosinnus/dashboard.html:55
 msgid "Group Details"
 msgstr "Gruppen Details"
 
-#: templates/cosinnus/dashboard.html:56 templates/cosinnus/dashboard.html:88
-#: templates/cosinnus/dashboard.html:98
+#: templates/cosinnus/dashboard.html:57 templates/cosinnus/dashboard.html:89
+#: templates/cosinnus/dashboard.html:99
 msgid "Edit Group"
 msgstr "Gruppe bearbeiten"
 
-#: templates/cosinnus/dashboard.html:62 templates/cosinnus/dashboard.html:160
+#: templates/cosinnus/dashboard.html:63 templates/cosinnus/dashboard.html:161
 #: templates/ecobasa/caravan_detail.html:68
 #: templates/ecobasa/community_detail.html:77
 msgid "Members"
 msgstr "Mitglieder"
 
-#: templates/cosinnus/dashboard.html:64
+#: templates/cosinnus/dashboard.html:65
 msgid "Write to all members"
 msgstr "Schreibe allen Mitgliedern"
 
-#: templates/cosinnus/dashboard.html:69
+#: templates/cosinnus/dashboard.html:70
 msgid "Leave this"
 msgstr "Diese Gruppe verlassen"
 
-#: templates/cosinnus/dashboard.html:69
+#: templates/cosinnus/dashboard.html:70
 #: templates/ecobasa/community_list.html:34
 msgid "Community"
 msgstr "Gemeinschaft"
 
-#: templates/cosinnus/dashboard.html:71
+#: templates/cosinnus/dashboard.html:72
 #: templates/ecobasa/community_detail.html:89
 msgid "Withdraw membership request"
 msgstr "Mitgliedsantrag zurückziehen"
 
-#: templates/cosinnus/dashboard.html:73
+#: templates/cosinnus/dashboard.html:74
 msgid "Join this group"
 msgstr "Dieser Gruppe beitreten"
 
-#: templates/cosinnus/dashboard.html:86
+#: templates/cosinnus/dashboard.html:87
 msgid "No Picture"
 msgstr "Kein Bild"
 
-#: templates/cosinnus/dashboard.html:87
+#: templates/cosinnus/dashboard.html:88
 msgid ""
 "You don't have a picture in your profile! It is much nice if people get a "
 "quick impression of how it looks like."
@@ -1730,11 +1734,11 @@ msgstr ""
 "Ihr habt kein Bild in eurem Gemeinschaftsprofil! Es ist viel schöner, wenn "
 "Leute einen kurzen Eindruck bekommen wie es bei euch aussieht"
 
-#: templates/cosinnus/dashboard.html:96
+#: templates/cosinnus/dashboard.html:97
 msgid "Not on map"
 msgstr "Nicht auf der Karte"
 
-#: templates/cosinnus/dashboard.html:97
+#: templates/cosinnus/dashboard.html:98
 msgid ""
 "You have to enter a location in your profile, otherwise your community will "
 "not show on our"
@@ -1742,15 +1746,15 @@ msgstr ""
 "Ihr müsst einen Ort in eurem Profil angeben, sonst sieht man eure "
 "Gemeinschaft nicht auf unserer"
 
-#: templates/cosinnus/dashboard.html:97
+#: templates/cosinnus/dashboard.html:98
 msgid "map"
 msgstr "Karte"
 
-#: templates/cosinnus/dashboard.html:107
+#: templates/cosinnus/dashboard.html:108
 msgid "Your Community-Tour is not published"
 msgstr "Deine Community-Tour ist nicht veröffentlicht"
 
-#: templates/cosinnus/dashboard.html:108
+#: templates/cosinnus/dashboard.html:109
 msgid ""
 "You have to check public, so other users see your tour! If this is "
 "intentional, ignore this message."
@@ -1759,18 +1763,18 @@ msgstr ""
 "absichtlich nicht gefunden werden soll, dann ignorier diese Nachricht "
 "einfach."
 
-#: templates/cosinnus/dashboard.html:124
+#: templates/cosinnus/dashboard.html:125
 #: templates/ecobasa/community_detail.html:437
 msgid "Gift-economy Ambassadors"
 msgstr "Schenkökonomie Botschafter"
 
-#: templates/cosinnus/dashboard.html:140 templates/cosinnus/dashboard.html:176
+#: templates/cosinnus/dashboard.html:141 templates/cosinnus/dashboard.html:177
 msgid "Remove"
 msgstr ""
 
-#: templates/cosinnus/dashboard.html:141 templates/cosinnus/dashboard.html:144
-#: templates/cosinnus/dashboard.html:177 templates/cosinnus/dashboard.html:180
-#: templates/cosinnus/dashboard.html:213 templates/cosinnus/dashboard.html:216
+#: templates/cosinnus/dashboard.html:142 templates/cosinnus/dashboard.html:145
+#: templates/cosinnus/dashboard.html:178 templates/cosinnus/dashboard.html:181
+#: templates/cosinnus/dashboard.html:214 templates/cosinnus/dashboard.html:217
 #: templates/ecobasa/caravan_detail.html:113
 #: templates/ecobasa/caravan_detail.html:140
 #: templates/ecobasa/community_detail.html:454
@@ -1780,36 +1784,36 @@ msgstr ""
 msgid "Send message"
 msgstr "Nachricht schicken"
 
-#: templates/cosinnus/dashboard.html:150 templates/cosinnus/dashboard.html:186
+#: templates/cosinnus/dashboard.html:151 templates/cosinnus/dashboard.html:187
 #: templates/ecobasa/community_detail.html:79
 #: templates/ecobasa/community_detail.html:464
 msgid "Add member"
 msgstr "Mitglied hinzufügen"
 
-#: templates/cosinnus/dashboard.html:196
+#: templates/cosinnus/dashboard.html:197
 #: templates/ecobasa/community_detail.html:473
 msgid "Pending users"
 msgstr "Gruppen-Bewerber"
 
-#: templates/cosinnus/dashboard.html:212
+#: templates/cosinnus/dashboard.html:213
 msgid "Approve"
 msgstr ""
 
-#: templates/cosinnus/dashboard.html:254
+#: templates/cosinnus/dashboard.html:255
 #: templates/ecobasa/community_detail.html:516
 #: templates/ecobasa/pioneer_detail.html:239
 msgid "read more"
 msgstr "Lese mehr"
 
-#: templates/cosinnus/dashboard.html:289 templates/cosinnus/dashboard.html:318
+#: templates/cosinnus/dashboard.html:290 templates/cosinnus/dashboard.html:319
 msgid "Refresh"
 msgstr "Aktualisieren"
 
-#: templates/cosinnus/dashboard.html:291 templates/cosinnus/dashboard.html:319
+#: templates/cosinnus/dashboard.html:292 templates/cosinnus/dashboard.html:320
 msgid "Configure"
 msgstr "Konfigurieren"
 
-#: templates/cosinnus/dashboard.html:292 templates/cosinnus/dashboard.html:320
+#: templates/cosinnus/dashboard.html:293 templates/cosinnus/dashboard.html:321
 #: templates/cosinnus_etherpad/tree.html:18
 #: templates/cosinnus_etherpad/tree.html:63
 #: templates/cosinnus_event/event_detail.html:97
@@ -1837,7 +1841,7 @@ msgstr "Konfigurieren"
 msgid "Delete"
 msgstr "Entfernen"
 
-#: templates/cosinnus/dashboard.html:305
+#: templates/cosinnus/dashboard.html:306
 msgid "Add widget"
 msgstr "Widget hinzufügen"
 
@@ -3179,7 +3183,7 @@ msgstr "Speichern"
 #: templates/ecobasa/pioneer_reference_list.html:5
 #, python-format
 msgid "%(name)s's references"
-msgstr "%(name)'s Bewertungen"
+msgstr "%(name)s's Bewertungen"
 
 #: templates/ecobasa/tour_blog.html:5
 msgid "Community-Tours Blog"

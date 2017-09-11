@@ -11,11 +11,12 @@
 {% block content_title %}{% trans "Dashboard" %}{% endblock content_title %}
 
 {% block content %}
+{% get_current_language as LANGUAGE_CODE %}
 <div class="row">
   <div class="col-xs-12">
   {% if not group %}
     <a class="btn btn-primary pull-right" href="{% url 'pioneer-edit' username=user.username %}"><span class="fa  fa-user-circle-o"></span>{% trans "Edit your profile" %}</a>
-    <h2>Good {% time_of_day %}, {{ user.first_name|default:user.username }}.</h2>
+    <h2>{% trans "Good" %} {% if LANGUAGE_CODE = "en" %}{% time_of_day %}{% elif LANGUAGE_CODE = "de" %}{% tageszeit %}{% endif %}, {{ user.first_name|default:user.username }}.</h2>
     {% if not user.cosinnus_profile.avatar %}
       <div class="alert alert-warning alert-dismissible" role="alert">
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
