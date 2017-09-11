@@ -66,32 +66,31 @@
       <div class="col-xs-12">
         <h1 class="community-name">{{ object.name }}</h1>
     {% endif %}
-          {% if user.is_superuser or user|is_group_admin:object %}
+        {% if user.is_authenticated %}
           <div class="btn-group pull-right admin-buttons">
-            <a href="#" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" id="edit"><span class="glyphicon glyphicon-pencil"></span>{% trans "Edit" %} <span class="caret"></span></a>
-            <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="edit">
-              <li><a href="{% url 'community-edit' group=object.slug %}"><span class="glyphicon glyphicon-pencil"></span> {% trans "Edit Profile" %}</a>
-              <li><a href="{% url 'cosinnus:group-export' group=object.slug %}"><span class="glyphicon glyphicon-export"></span> {% trans "Export" context "the verb" %}</a></li>
-              <li><a href="{% url 'cosinnus:group-delete' group=object.slug %}"><span class="glyphicon glyphicon-remove"></span> {% trans "Delete" %}</a></li>
-            </ul>
-            <a href="{% url 'cosinnus:group-user-add-generic' group=object.slug %}" class="btn btn-primary"><span class="fa fa-users"></span>{% trans "Add Members" %}</a>
-          </div>
-          {% endif %}
-          <div class="btn-group pull-right admin-buttons">
-            {% if user.is_authenticated %}
-              {% if user.pk in object.members %}
-                <a class="btn btn-primary" href="{% url 'cosinnus:user-dashboard' %}"><span class="glyphicon glyphicon-dashboard"></span>{% trans "Dashboard" %}</a>
-                <a class="btn btn-danger" href="{% url 'cosinnus:group-user-leave' group=object.slug %}"><span class="glyphicon glyphicon-log-out"></span> {% trans "Leave Community" %}</a>
+            {% if user.pk in object.members %}
+              <a class="btn btn-primary" href="{% url 'cosinnus:user-dashboard' %}"><span class="glyphicon glyphicon-dashboard"></span>{% trans "Dashboard" %}</a>
+            {% endif %}
+            {% if user.is_superuser or user|is_group_admin:object %}
+              <a href="#" class="btn btn-primary" data-toggle="dropdown" id="edit"><span class="glyphicon glyphicon-pencil"></span>{% trans "Edit" %} <span class="caret"></span></a>
+              <ul class="dropdown-menu pull-right" role="menu" aria-labelledby="edit">
+                <li><a href="{% url 'community-edit' group=object.slug %}"><span class="glyphicon glyphicon-pencil"></span> {% trans "Edit Profile" %}</a></li>
+                <li><a href="{% url 'cosinnus:group-export' group=object.slug %}"><span class="glyphicon glyphicon-export"></span> {% trans "Export" context "the verb" %}</a></li>
+                <li><a href="{% url 'cosinnus:group-delete' group=object.slug %}"><span class="glyphicon glyphicon-remove"></span> {% trans "Delete" %}</a></li>
+              </ul>
+              <a href="{% url 'cosinnus:group-user-add-generic' group=object.slug %}" class="btn btn-primary"><span class="fa fa-users"></span>{% trans "Add Members" %}</a>
+            {% endif %}
+            {% if user.pk in object.members %}
+              <a class="btn btn-danger" href="{% url 'cosinnus:group-user-leave' group=object.slug %}"><span class="glyphicon glyphicon-log-out"></span> {% trans "Leave Community" %}</a>
               {% elif user.pk in object.pendings %}
                 <a class="btn btn-default" href="{% url 'cosinnus:group-user-withdraw' group=object.slug %}"><span class="glyphicon glyphicon-log-out"></span> {% trans "Withdraw membership request" %}</a>
               {% else %}
                 <a class="btn btn-info" href="{% url 'cosinnus:group-user-join' group=object.slug %}"><span class="glyphicon glyphicon-log-in"></span> {% trans "Request to join this community" %}</a>
               {% endif %}
+            </div>
             {% endif %}
-          </div>
       </div>
     </div>
-
     <div class="row">
       <div class="col-xs-12 col-md-8">
         <div class="row">
