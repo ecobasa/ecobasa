@@ -3,7 +3,10 @@
 
 {% block title %}{% trans "Registration" %}{% endblock %}
 
+{% block body %}team{% endblock body %}
+
 {% block content %}
+<div class="row">
   {% if user.is_ambassador %}
     <h1>{% trans "Welcome on board" %}, {{ user.first_name|default:user.username }}</h1>
 		<p>{% trans "As your communities gift-ambassador it is on you to spread the idea and function of a gift-economy network among other members of your community, they can sign up as pioneers and join your community-group" %}</p>
@@ -20,18 +23,37 @@
   	</div>
 
   {% else %}
-  	{% if user.cosinnus_profile.avatar %}
-    <img class="avatar pull-right" src="{{ user.cosinnus_profile.avatar|thumbnail_url:"avatar_large" }}" alt="{%trans "That's you" %}" data-toggle="tooltip" data-placement="bottom" title="{%trans "That's you" %}"/>
-  {% else %}
-    <img class="avatar pull-right" src="{% static "img/avatar.png" %}" alt="{%trans "That's you" %}" data-toggle="tooltip" data-placement="bottom" title="{%trans "That's you" %}"/>
-  {% endif %}
+	<div class="col-xs-12">
+	<div class="visible-xs">
+		{% if user.cosinnus_profile.avatar %}
+	    <img class="avatar small pull-right" src="{{ user.cosinnus_profile.avatar|thumbnail_url:"avatar_large" }}" alt="{%trans "That's you" %}" data-toggle="tooltip" data-placement="bottom" title="{%trans "That's you" %}"/>
+	  {% else %}
+	    <a href="{% url 'pioneer-edit' username=user.username %}"><img class="avatar pull-right" src="{% static "img/avatar.png" %}" alt="{%trans "That's you" %}" data-toggle="tooltip" data-placement="bottom" title="{%trans "We don't have a photo of you yet. Give yourself a face now." %}"/></a>
+	  {% endif %}
+	</div>
     <h1>{% trans "Welcome on board" %}, {{ user.first_name|default:user.username }}</h1>
 		<h2>{% trans "You are now an important part of the gift-economy network!" %}</h2>
-		<p>{% trans "If you want to go on" %} <a href="/community-tours/">Community-Tours</a> {% trans "with other people, invite them to join this network. You can create a new Tour and use the tools of this website to communicate, organize and network!" %}</p>
-		<p>{% trans "You can contact communities that you would like to visit and tell them to sign up on this website or update their profile, so we have their information." %}</p>
-		<p>{% trans "Then we can send them the experts and resources they wish for." %}</p>
-		<p>{% trans "This network is grown and maintained by its members, as we dont get many donations, we can not provide much of a service, so please contribute feedback, your skills (design, programming, communcation, networking, etc..) Just get in contact with us! Alternatively you can also give a donation, can be even really small, that helps us to pay the server costs and develop the site professionaly! There can be no gift-economy without a little gift-economy :)" %}</p>
-		<p><i>{% trans "Thank you, see you around! The rest of the ecobasa team." %}</i></p>
+	</div>
+		<div class="hidden-xs col-md-3">
+			<a href="https://cloud.ecobasa.org/public.php?service=files&t=ef749b67e02e3e99d60d59acf76cfbec&download"><img align="left" src="{% static "img/Gift-Ambassador-Manual-Cover.jpg" %}" alt="{% trans "Download the Gift-Ambassador Manual" %}" data-toggle="tooltip" data-placement="top" title="{% trans "Download the Gift-Ambassador Manual" %}"></a>
+		</div>
+		<div class="col-xs-12 col-md-6">
+			<p>{% trans "If you want to go on" %} <a href="/community-tours/">Community-Tours</a> {% trans "with other people, invite them to join this network. You can create a new Tour and use the tools of this website to communicate, organize and network!" %}</p>
+			<p>{% trans "You can contact communities that you would like to visit and tell them to sign up on this website or update their profile, so we have their information. Then we can send them the experts and resources they wish for." %}</p>
+			<p>{% trans "To support your new job as a pioneer of gift-economy we created" %} <a href="https://cloud.ecobasa.org/public.php?service=files&t=ef749b67e02e3e99d60d59acf76cfbec&download">{% trans "this little manual." %}</a> {% trans "It will tell you how to grow a gift-economy network around your community and how to make a living in this new culture of trust and support." %}</p>
+			<div class="visible-xs">
+				<a href="https://cloud.ecobasa.org/public.php?service=files&t=ef749b67e02e3e99d60d59acf76cfbec&download"><img class="center-block" src="{% static "img/Gift-Ambassador-Manual-Cover.jpg" %}" alt="{% trans "Download the Gift-Ambassador Manual" %}" data-toggle="tooltip" data-placement="top" title="{% trans "Download the Gift-Ambassador Manual" %}"></a>
+			</div>
+			<p>{% trans "This network is grown and maintained by its members, as we dont get many donations, we can not provide much of a service, so please contribute feedback, your skills (design, programming, communcation, networking, etc..)" %}  <a href="/contact"></a>{% trans "Just get in contact with us!" %} {% trans "Alternatively you can also give a donation, can be even really small, that helps us to pay the server costs and develop the site professionaly! There can be no gift-economy without a little gift-economy :)" %}</p>
+		</div>
+		<div class="hidden-xs col-md-3">
+			{% if user.cosinnus_profile.avatar %}
+		    <img class="avatar small pull-right" src="{{ user.cosinnus_profile.avatar|thumbnail_url:"avatar_large" }}" alt="{%trans "That's you" %}" data-toggle="tooltip" data-placement="bottom" title="{%trans "That's you" %}"/>
+		  {% else %}
+		    <a href="{% url 'pioneer-edit' username=user.username %}"><img class="avatar pull-right" src="{% static "img/avatar.png" %}" alt="{%trans "That's you" %}" data-toggle="tooltip" data-placement="bottom" title="{%trans "We don't have a photo of you yet. Give yourself a face now." %}"/></a>
+		  {% endif %}
+		</div>
+	</div>
 		<div class="row">
 	    <div class="col-xs-12 text-center">
 		    <script src="https://donorbox.org/install-popup-button.js" type="text/javascript" defer></script>
