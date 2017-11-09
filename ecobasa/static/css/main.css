@@ -1661,6 +1661,10 @@ a#group span.glyphicon {
 #dashboard .panel .panel-body .row.post {
   margin-bottom: 40px;
 }
+#dashboard .panel .panel-body .row.post h2 {
+  margin: 0px;
+  padding: 0px;
+}
 #dashboard .panel .panel-body .row.post img {
   margin-bottom: 10px;
   border-radius: 10px;

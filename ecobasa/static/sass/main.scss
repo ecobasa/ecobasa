@@ -1794,6 +1794,10 @@ a#group {
 			border: none;
 			.row.post {
 				margin-bottom: 40px;
+				h2 {
+					margin: 0px;
+					padding: 0px;
+				}
 				img {
 				    margin-bottom: 10px;
 				    border-radius: 10px;
