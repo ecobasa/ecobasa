@@ -8,7 +8,7 @@
         <a href="{% url 'cosinnus:note:note' group=note.group.slug slug=note.slug %}">
           {% if note.video %}
           <div class="video-responsive">
-            {% video is_secure=True note.video "tiny" %}
+            {% video note.video "tiny" is_secure=True %}
           </div>
           {% else %}
           <img src="{{ note.image|thumbnail_url:"note_medium" }}" alt="{{ note.title }}" width="100%" />

@@ -54,7 +54,7 @@
   {% if object.video %}
     <!-- see http://django-embed-video.readthedocs.org/en/latest/examples.html#template-examples -->
     <div class="video-responsive">
-      {% video object.video "medium" %}
+      {% video object.video "medium" is_secure=True %}
     </div>
   {% else %}
   <section id="header" data-type="parallax" data-speed="1.8">
