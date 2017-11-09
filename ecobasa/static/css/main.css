@@ -1649,7 +1649,6 @@ a#group span.glyphicon {
 }
 #dashboard .widget {
   display: block;
-  color: green;
 }
 #dashboard .widget .panel {
   border: 1px dotted #da6137;
