@@ -170,26 +170,59 @@
     </div>
     {% endif %}
 
+    {% if user.cosinnus_groups %}
     <div class="row">
       <div class="col-xs-12">
-        <h2>{% trans "Groups" %}</h2>
-        <ul>
-          {% for group in object.cosinnus_groups.all %}
-              <li><a href="{% url 'cosinnus:group-dashboard' group=group.slug %}">{{ group.name }}</a></li>
+        <h2>{% trans "My Groups" %}</h2>
+        <ul class="groups">
+          {% for group in user.cosinnus_groups.all %}
+              {% if group.profile %}
+                {% url 'community-detail' group=group.slug as profile_url %}
+              {% elif group.caravan %}
+                {% url 'caravan-detail' group=group.slug as profile_url %}
+              {% else %}
+                {% url 'cosinnus:group-detail' group=group.slug as profile_url %}
+              {% endif %}
+              <li><a id="group" href="{{ profile_url }}">
+                {% if group.profile %}
+                  <span class="glyphicon glyphicon-home"></span>
+                {% elif group.caravan %}
+                  <span class="glyphicon glyphicon-road"></span>
+                {% else %}
+                  <span class="glyphicon glyphicon-globe"></span>
+                {% endif %}
+                {{ group.name }}</a></li>
           {% endfor %}
         </ul>
       </div>  
     </div>
+    {% endif %}
 
     <div class="row">
       <div class="col-xs-12">
-        <h2>{% trans "References" %}</h2>
-        <ul class="references">{% for reference in references.references %}
-          <li>
-            <a href="{% url 'pioneer-detail' reference.giver.username %}">{{ reference.giver.username }}</a> {{ reference.date }}
-            <p>{{ reference.text }}</p>
-          </li>
-        {% endfor %}</ul>
+        <div class="references">
+          <h2>{% trans "References" %}</h2>
+          {% for reference in references.references %}
+            <div class="media{% if reference.recommend %}{% else %} negative{% endif %}">
+              <a class="pull-left" href="{% url 'pioneer-detail' reference.giver.username %}">
+                {% if reference.giver.cosinnus_profile.avatar %}
+                    <img class="avatar media-object" src="{{ reference.giver.cosinnus_profile.avatar|thumbnail_url:"avatar_medium" }}" />
+                  {% else %}
+                    <img class="avatar media-object" src="{% static "img/avatar.png" %}" width="64px">
+                  {% endif %}
+                  <center>{{ reference.giver.username }}</center>
+                </a>
+              <div class="media-body">
+                <h4 class="media-heading">{% if reference.recommend %}Positive{% else %}Negative!{% endif %}</h4>
+                <span class="details">{% trans "on" %} {{ reference.date }}{% if user.is_superuser or  reference.giver == user %} <a href="{% url 'pioneer-reference-edit' user.username reference.pk %}">{% trans "Edit" %}</a>{% endif %}</span>
+                <p>{{ reference.text|urlize|safe|truncatewords:25 }} <a href="{% url 'pioneer-reference-list' user.username %}">{% trans "read more" %}</a></p>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+        {% if can_add_reference and not user.username == username %}
+          <a class="btn btn-primary" href="{% url 'pioneer-reference-add' object.username %}"><span class="glyphicon glyphicon-plus"></span> {% trans "Add" %}</a>
+        {% endif %}
         <a class="btn btn-primary pull-right" href="{% url 'pioneer-reference-list' user.username %}">{% trans "More" %}</a>
       </div>
     </div>

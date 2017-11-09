@@ -279,7 +279,57 @@
     </div>
   </div>
 </div>
-{% endif %}
+{% elif not group %}
+<div class="col-md-4 widget references">
+  <div class="panel">
+    <div class="panel-heading">
+      <a href="{% url 'pioneer-reference-list' user.username %}{% endif %}"><h3 class="panel-title"><span class="fa fa-users"></span> <span data-target="widget-title"> {% trans "References" %}</span></h3></a>
+    </div>
+    <div class="panel-body">
+      {% if references %}
+        <table class="table table-striped">
+          <thead>
+            <th>User</th>
+            <th>Date</th>
+            <th>Text</th>
+            <th>Tags</th>
+          </thead>
+          <tbody>
+          {% for reference in references.references %}
+          <tr class="{% if reference.recommend %}success{% else %}danger{% endif %}">
+            <td><a class="pull-left" href="{% url 'pioneer-detail' reference.giver.username %}">
+              {% if reference.giver.cosinnus_profile.avatar %}
+                  <img class="avatar small media-object" src="{{ reference.giver.cosinnus_profile.avatar|thumbnail_url:"avatar_small" }}" />
+                {% else %}
+                  <img class="avatar media-object small" src="{% static "img/avatar.png" %}">
+                {% endif %}
+                <center>{{ reference.giver.username }}</center>
+              </a></td>
+            <td>{{ reference.date }}</td>
+            <td>{{ reference.text|urlize|safe|truncatewords:25 }} <a href="{% url 'community-reference-list' group.slug %}">{% trans "read more" %}</a></td>
+            <td><ul class="list-inline">
+              {% for tag_name, tag_data in references.tag_counts.products.items %}
+                  <li><a href="{% if group %}{% url 'community-reference-list' group.slug %}{% else %}{% url 'pioneer-reference-list' user.username %}{% endif %}"><span class="label label-{{ tag_data.class }}">{{ tag_name }} <span class="badge {% if reference.recommend %}alert-success{% else %}alert-danger{% endif %}">{{ tag_data.count }}</span></span></a></li>
+              {% endfor %}
+              {% for tag_name, tag_data in references.tag_counts.skills.items %}
+                  <li><a href="{% if group %}{% url 'community-reference-list' group.slug %}{% else %}{% url 'pioneer-reference-list' user.username %}{% endif %}"><span class="label label-{{ tag_data.class }}">{{ tag_name }} <span class="badge {% if reference.recommend %}alert-success{% else %}alert-danger{% endif %}">{{ tag_data.count }}</span></span></a></li>
+              {% endfor %}
+              {% for tag_name, tag_data in references.tag_counts.services.items %}
+                  <li><a href="{% if group %}{% url 'community-reference-list' group.slug %}{% else %}{% url 'pioneer-reference-list' user.username %}{% endif %}"><span class="label label-{{ tag_data.class }}">{{ tag_name }} <span class="badge {% if reference.recommend %}alert-success{% else %}alert-danger{% endif %}">{{ tag_data.count }}</span></span></a></li>
+              {% endfor %}
+            </ul></td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+      {% else %}
+        <p>No references yet. <br>
+        <p>Invite community ambassadors and other users to leave you a recommendation!</p>
+      {% endif %}
+
+    </div>
+  </div>
+</div>
     {% for id in widgets %}
       <div class="widget col-md-4" data-widget-id="{{ id }}" data-type="widget">
         <div class="panel">

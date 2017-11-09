@@ -13,6 +13,7 @@ from django.views.generic import DetailView, UpdateView, ListView
 
 from cosinnus.models.group import MEMBERSHIP_ADMIN
 from cosinnus.views.user import UserListView, USER_MODEL
+from cosinnus.views.widget import DashboardMixin
 from cosinnus_note.models import Note
 
 from ..forms import PioneerProfileForm
@@ -87,6 +88,28 @@ class PioneerDetailView(DetailView):
 
 pioneer_detail = PioneerDetailView.as_view()
 
+class PioneerDashboardView(DashboardMixin, DetailView):
+    """Not really useful yet."""
+    model = USER_MODEL
+    MAX_REFERENCES = 10
+    slug_url_kwarg = 'username'
+    slug_field = 'username'
+    context_object_name = 'username'
+    template_name = 'ecobasa/dashboard.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(PioneerDashboardView, self).get_context_data(**kwargs)
+        context['profile'] = self.object.profile
+
+        references = self.object.ecobasa_reference_receiver_pioneer.all();
+        context['references'] = {
+            'tag_counts': get_tag_counts(references),
+            'references': references[:self.MAX_REFERENCES],
+        }
+
+        return context
+
+pioneer_dashboard = PioneerDashboardView.as_view()
 
 class PioneerUpdateView(UpdateView):
     """
