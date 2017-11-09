@@ -420,7 +420,7 @@
             <div class="col-md-12">
               <h3><span class="glyphicon glyphicon-film"></span> {% trans "Video" %}</h3>
               <div class="video-responsive">
-                {% video profile.video "small" %}
+                {% video is_secure=True profile.video "small" %}
               </div>
             </div>
           </div>

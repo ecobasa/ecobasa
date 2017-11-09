@@ -324,7 +324,7 @@
       <div class="col-xs-12 col-sm-4">
         <a href="{% url 'cosinnus:note:note' group=post.group.slug slug=post.slug %}">
           <div class="video-responsive">
-            {% video post.video "tiny" %}
+            {% video is_secure=True post.video "tiny" %}
         </div>
         </a>
       </div>
