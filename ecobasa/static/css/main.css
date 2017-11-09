@@ -1649,41 +1649,42 @@ a#group span.glyphicon {
 }
 #dashboard .widget {
   display: block;
+  color: green;
 }
-#dashboard .panel {
+#dashboard .widget .panel {
   border: 1px dotted #da6137;
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.2);
 }
-#dashboard .panel .panel-body {
+#dashboard .widget .panel .panel-body {
   border: none;
 }
-#dashboard .panel .panel-body .row.post {
+#dashboard .widget .panel .panel-body .row.post {
   margin-bottom: 40px;
 }
-#dashboard .panel .panel-body .row.post h2 {
+#dashboard .widget .panel .panel-body .row.post h2 {
   margin: 0px;
   padding: 0px;
 }
-#dashboard .panel .panel-body .row.post img {
+#dashboard .widget .panel .panel-body .row.post img {
   margin-bottom: 10px;
   border-radius: 10px;
 }
-#dashboard .panel .panel-body .row.post span.details {
+#dashboard .widget .panel .panel-body .row.post span.details {
   float: left;
   margin-top: 6px;
   margin-bottom: 4px;
 }
-#dashboard .panel .panel-body .row.post span.details a.group {
+#dashboard .widget .panel .panel-body .row.post span.details a.group {
   float: left;
 }
-#dashboard .panel .panel-body .row.post .article {
+#dashboard .widget .panel .panel-body .row.post .article {
   clear: left;
 }
-#dashboard .panel.panel-default > .panel-heading {
+#dashboard .widget .panel.panel-default > .panel-heading {
   background-color: #da6137;
 }
-#dashboard .panel.panel-default > .panel-heading h3.panel-title {
+#dashboard .widget .panel.panel-default > .panel-heading h3.panel-title {
   color: #fcf3e5;
 }
 #dashboard .widget.members ul.media-list {

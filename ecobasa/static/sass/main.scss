@@ -1785,40 +1785,40 @@ a#group {
 	padding-top: 40px;
 	.widget {
 		display: block;
-	}
-	.panel {
-		border: 1px dotted $primary;
-		border-radius: 10px;
-		background-color: rgba(#fff, 0.2);
-		.panel-body {
-			border: none;
-			.row.post {
-				margin-bottom: 40px;
-				h2 {
-					margin: 0px;
-					padding: 0px;
-				}
-				img {
-				    margin-bottom: 10px;
-				    border-radius: 10px;
-				}
-				span.details {
-					float: left;
-					margin-top: 6px;
-					margin-bottom: 4px;
-					a.group {
+		.panel {
+			border: 1px dotted $primary;
+			border-radius: 10px;
+			background-color: rgba(#fff, 0.2);
+			.panel-body {
+				border: none;
+				.row.post {
+					margin-bottom: 40px;
+					h2 {
+						margin: 0px;
+						padding: 0px;
+					}
+					img {
+					    margin-bottom: 10px;
+					    border-radius: 10px;
+					}
+					span.details {
 						float: left;
+						margin-top: 6px;
+						margin-bottom: 4px;
+						a.group {
+							float: left;
+						}
+					}
+					.article {
+					    clear: left;
 					}
 				}
-				.article {
-				    clear: left;
-				}
 			}
-		}
-		&.panel-default>.panel-heading {
-			background-color: $primary;
-			h3.panel-title {
-				color: $secondary;
+			&.panel-default>.panel-heading {
+				background-color: $primary;
+				h3.panel-title {
+					color: $secondary;
+				}
 			}
 		}
 	}
