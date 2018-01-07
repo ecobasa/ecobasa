@@ -328,6 +328,29 @@
     {% endif %}
   </div>
 </div>
+
+<div class="modal fade in" id="donate-modal" tabindex="-1" role="dialog" aria-labelledby="newsletter" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="newsletter">Help us update</h4>
+      </div>
+      <div class="modal-body">
+        <p>Dear {% if user.first_name %}{{user.first_name}}{% else %}{{user.username}}{% endif %},<br>
+        It is very great to see you using the platform! Do you want to help us to make it better?</p>
+        <p>Now we have the possibility to update the software behind ecobasa to have social networking and self-organisation features for our members and our communities. Users will be able to customize their email notification settings and many of our apps like the event calendar became really great!</p>
+        <p>You can see the same software with another design <a href="https://wechange.de/cms/?lang=en" target="_blank">here</a>.</p>
+        <p>However we need to raise 2.000€ to pay the programmers and designers to come up with a new and fresh version of ecobasa.</p>
+        <script src="https://donorbox.org/widget.js" type="text/javascript"></script>
+        <center><iframe src="https://donorbox.org/embed/ecobasa-3-0?only_donation_meter=true&donation_meter_color=%23ff7800" height="300px" width="100%" style="max-width:430px; min-width:270px; max-height:none!important" seamless="seamless" name="donorbox" frameborder="0" scrolling="no"></iframe></center>
+        <script src="https://donorbox.org/install-popup-button.js" type="text/javascript" defer></script>
+        <a class="btn btn-lg btn-primary dbox-donation-button center-block" href="https://donorbox.org/ecobasa-3-0?donation_meter_color=%23ff7800" style="text-decoration: none;padding: 15px 38px 15px 38px; box-shadow: 0 1px 0 0 #9b5505; text-shadow: 0 1px rgba(0, 0, 0, 0.3);" ><span class="glyphicon glyphicon-heart"></span>{% trans "Donate" %}</a><br>
+        <center><button type="button" class="btn btn-primary" id="btnclose" data-dismiss="modal">Close</button><center>
+      </div>
+    </div>
+  </div>
+</div>
 {% endblock %}
 
 {% block extrafooter %}
@@ -337,6 +360,7 @@
     $(document).ready(function(){
       var dashboard = window.Cosinnus.dashboard.init("#dashboard", {% if group.slug %}"{{ group.slug }}"{% else %}null{% endif %});
       $('.dropdown-toggle').dropdown();
+      $('#donate-modal').modal('show');
     });
   </script>
 {% endblock %}
