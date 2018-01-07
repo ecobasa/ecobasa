@@ -334,14 +334,14 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="newsletter">Help us update</h4>
+        <h4 class="modal-title" id="newsletter">Please help us update</h4>
       </div>
       <div class="modal-body">
-        <p>Dear {% if user.first_name %}{{user.first_name}}{% else %}{{user.username}}{% endif %},<br>
-        It is very great to see you using the platform! Do you want to help us to make it better?</p>
-        <p>Now we have the possibility to update the software behind ecobasa to have social networking and self-organisation features for our members and our communities. Users will be able to customize their email notification settings and many of our apps like the event calendar became really great!</p>
-        <p>You can see the same software with another design <a href="https://wechange.de/cms/?lang=en" target="_blank">here</a>.</p>
-        <p>However we need to raise 2.000€ to pay the programmers and designers to come up with a new and fresh version of ecobasa.</p>
+        <p>{% trans "Dear" %} {% if user.first_name %}{{user.first_name}}{% else %}{{user.username}}{% endif %},<br>
+        {% trans "It is very great to see you using the platform! Do you want to help us make it better?" %}</p>
+        <p>{% trans "Now we have the possibility to update the software behind ecobasa in order to have social-networking and self-organisation features for our members and our communities. Users will be able to customize their email notification settings and many of our apps like the event calendar will work really great!" %}</p>
+        <p>{% trans "You can see the same software with another design" %} <a href="https://wechange.de/cms/?lang=en" target="_blank">{% trans "here" %}</a>.</p>
+        <p>{% trans "However we need to raise 2.000€ to pay the programmers and designers to come up with a new professional and better version of ecobasa." %}</p>
         <script src="https://donorbox.org/widget.js" type="text/javascript"></script>
         <center><iframe src="https://donorbox.org/embed/ecobasa-3-0?only_donation_meter=true&donation_meter_color=%23ff7800" height="300px" width="100%" style="max-width:430px; min-width:270px; max-height:none!important" seamless="seamless" name="donorbox" frameborder="0" scrolling="no"></iframe></center>
         <script src="https://donorbox.org/install-popup-button.js" type="text/javascript" defer></script>
