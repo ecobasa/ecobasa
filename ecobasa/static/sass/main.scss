@@ -1981,9 +1981,9 @@ body#message {
 }
 
 .fancybox-share {
-	background: #f8f8f8e6;
+	background: #f8f8f8e6 !important;
 	h1 {
-		color: $orange;
+		color: $orange !important;
 	}
 	.fancybox-share__button:hover {
 		background: $orange !important;
