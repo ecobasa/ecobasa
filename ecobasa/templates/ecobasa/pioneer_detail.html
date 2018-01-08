@@ -1,6 +1,11 @@
 {% extends "cosinnus/base.html" %}
 {% load i18n l10n thumbnail static ecobasa_organiser %}
 
+{% block extrahead %}
+  {{ block.super }} 
+  <link href="{% static "css/vendor/jquery.fancybox.min.css" %}" rel="stylesheet"/>
+{% endblock %}
+
 {% block page_title %}
   {% blocktrans with name=object.username %}Pioneer profile: {{ name }}{% endblocktrans %}
 {% endblock %}
@@ -24,13 +29,14 @@
 {% with object.cosinnus_profile as profile %}
 <div class="row">
   <div class="col-xs-12 col-md-3">
-    {% if user.is_superuser or user == object %}<a href="{% url 'pioneer-edit' username=object.username %}">{% endif %}
+    {% if user == object %}
+    <a href="{% url 'pioneer-edit' username=object.username %}">{% elif profile.avatar %}<a href="{{profile.avatar.url}}" data-fancybox>{% else %}{% endif %}
       {% if profile.avatar %}
-        <img class="avatar" src="{{ profile.avatar|thumbnail_url:"avatar_large" }}" {% if user.is_superuser or user == object %}alt="{%trans "Change Picture" %}"{% else %}alt="{{ object.get_full_name|default:object.username }}"{% endif %} data-toggle="tooltip" data-placement="top" {% if user.is_superuser or user == object %}title="{%trans "Change Picture" %}"{% else %}title="{{ object.get_full_name|default:object.username }}"{% endif %}/>
+        <img class="avatar" src="{{ profile.avatar|thumbnail_url:"avatar_large" }}" {% if user == object %}alt="{%trans "Change Picture" %}"{% else %}alt="{{ object.get_full_name|default:object.username }}"{% endif %} data-toggle="tooltip" data-placement="top" {% if user == object %}title="{%trans "Change Picture" %}"{% else %}title="{{ object.get_full_name|default:object.username }}"{% endif %}/>
       {% else %}
-        <img class="avatar" src="{% static "img/avatar.png" %}" {% if user.is_superuser or user == object %}alt="{%trans "Change Picture" %}"{% else %}alt="{{ object.get_full_name|default:object.username }}"{% endif %} data-toggle="tooltip" data-placement="top" {% if user.is_superuser or user == object %}title="{%trans "Change Picture" %}"{% else %}title="{{ object.get_full_name|default:object.username }}"{% endif %}/>
+        <img class="avatar" src="{% static "img/avatar.png" %}" {% if user == object %}alt="{%trans "Change Picture" %}"{% else %}alt="{{ object.get_full_name|default:object.username }}"{% endif %} data-toggle="tooltip" data-placement="top" {% if user == object %}title="{%trans "Change Picture" %}"{% else %}title="{{ object.get_full_name|default:object.username }}"{% endif %}/>
       {% endif %}
-      {% if user.is_superuser or user == object %}</a>{% endif %}
+      {% if user == object %}</a>{% endif %}
       <a class="email btn btn-primary btn-smll" href="{% url 'postman_write' recipients=object.username %}"><span class="glyphicon glyphicon-envelope"></span>{% trans "Send message" %}</a>
   </div>
   <div class="col-xs-12 col-md-6">
@@ -287,3 +293,9 @@
 
 {% endwith %}
 {% endblock content %}
+
+{% block extrafooter %}
+  {{ block.super }}
+  <script src="//code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="{% static 'js/vendor/jquery.fancybox.min.js' %}"></script>
+{% endblock extrafooter %}
