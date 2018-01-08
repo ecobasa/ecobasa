@@ -1821,6 +1821,22 @@ body#message ul.media-list li.media a.pioneer img.avatar {
   height: 50px;
 }
 
+/************* Fancybox ****************/
+.fancybox-image, .fancybox-spaceball {
+  border-radius: 10px;
+}
+
+.fancybox-share {
+  background: #f8f8f8e6;
+}
+.fancybox-share h1 {
+  color: #ff7800;
+}
+.fancybox-share .fancybox-share__button:hover {
+  background: #ff7800 !important;
+  color: #fcf3e5;
+}
+
 /************* Footer ******************/
 #footer {
   margin-top: 50px;

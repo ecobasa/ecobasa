@@ -1975,6 +1975,22 @@ body#message {
 	}
 }
 
+/************* Fancybox ****************/
+.fancybox-image, .fancybox-spaceball {
+	border-radius: 10px;
+}
+
+.fancybox-share {
+	background: #f8f8f8e6;
+	h1 {
+		color: $orange;
+	}
+	.fancybox-share__button:hover {
+		background: $orange !important;
+		color: $secondary;
+	}
+}
+
 /************* Footer ******************/
 
 #footer {
