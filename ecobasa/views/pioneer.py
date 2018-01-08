@@ -92,8 +92,6 @@ class PioneerDashboardView(DashboardMixin, DetailView):
     """Not really useful yet."""
     model = USER_MODEL
     MAX_REFERENCES = 10
-    slug_url_kwarg = 'username'
-    slug_field = 'username'
     context_object_name = 'username'
     template_name = 'ecobasa/dashboard.html'
 
@@ -101,7 +99,7 @@ class PioneerDashboardView(DashboardMixin, DetailView):
         context = super(PioneerDashboardView, self).get_context_data(**kwargs)
         context['profile'] = self.object.profile
 
-        references = self.object.ecobasa_reference_receiver_pioneer.all();
+        references = self.request.user.ecobasa_reference_receiver_pioneer.all();
         context['references'] = {
             'tag_counts': get_tag_counts(references),
             'references': references[:self.MAX_REFERENCES],
