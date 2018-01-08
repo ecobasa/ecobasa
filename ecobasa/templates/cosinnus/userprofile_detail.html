@@ -220,9 +220,6 @@
             </div>
           {% endfor %}
         </div>
-        {% if can_add_reference and not user.username == username %}
-          <a class="btn btn-primary" href="{% url 'pioneer-reference-add' object.username %}"><span class="glyphicon glyphicon-plus"></span> {% trans "Add" %}</a>
-        {% endif %}
         <a class="btn btn-primary pull-right" href="{% url 'pioneer-reference-list' user.username %}">{% trans "More" %}</a>
       </div>
     </div>
