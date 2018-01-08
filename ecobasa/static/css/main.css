@@ -1827,10 +1827,10 @@ body#message ul.media-list li.media a.pioneer img.avatar {
 }
 
 .fancybox-share {
-  background: #f8f8f8e6;
+  background: #f8f8f8e6 !important;
 }
 .fancybox-share h1 {
-  color: #ff7800;
+  color: #ff7800 !important;
 }
 .fancybox-share .fancybox-share__button:hover {
   background: #ff7800 !important;
