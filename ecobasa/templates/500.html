@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>
+Das Netzwerk
+</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="flattr:id" content="poj3vk">
+    
+      <script src="//code.jquery.com/jquery-2.1.0.min.js"></script>
+      <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.3/css/bootstrap.min.css">
+      <link rel="stylesheet" href="/static/css/main.css">
+    
+    <script type="text/javascript">
+        var cosinnus_base_url = "https://ecobasa.org/de/";
+        var cosinnus_active_group = false;
+     </script>
+    <link rel="shortcut icon" type="image/png" href="/static/img/favicon.ico" />
+    <link href="/static/css/cosinnus.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
+    <link href="/static/css/vendor/fullcalendar.css" rel="stylesheet">
+  </head>
+  <body id="505">
+<nav class="header navbar navbar-default" role="navigation">
+  <div class="navbar-header">
+    
+<a class="navbar-brand" href="/de/"><img id="logo" src="/static/img/ecobasa_flower.png" /><h1>ecobasa.org</h1></a>
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+      <span class="sr-only">Navigation umschalten</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+  </div>
+  <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="/info"><span class="glyphicon glyphicon-info-sign"></span>Info</a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="/de/about-the-platform/"><span class="glyphicon glyphicon-info-sign"></span>Die Plattform</a></li>
+            <li><a href="/de/about-the-network/"><span class="glyphicon glyphicon-info-sign"></span>Das Netzwerk</a></li>
+            <li><a href="/de/consultation/"><span class="glyphicon glyphicon-user"></span>Beratung</a></li>
+            <li><a href="/de/team/"><span class="fa fa-users"></span>Team</a></li>
+            <li><a href="/de/blog/"><span class="glyphicon glyphicon-heart"></span>ecobasa Blog</a></li>
+            <li><a href="/blog/media/"><span class="fa fa-newspaper-o"></span>Press</a></li>
+            <li><a href="/links/"><span class="fa fa-globe"></span>Links</a></li>
+          </ul>
+        </li>
+        <li><a href="/de/communities/"><span class="glyphicon glyphicon-home"></span>Gemeinschaften</a></li>
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-transfer"></span>Community-Tours</a>
+          <ul class="dropdown-menu" role="menu">
+            <li><a href="/de/community-tours/"><span class="glyphicon glyphicon-question-sign"></span>Was ist das?</a></li>
+            <li><a href="/de/community-tours/blog/"><span class="glyphicon glyphicon-globe"></span>Tour Blogs</a></li>
+            <li><a href="/de/community-tours/tours/"><span class="glyphicon glyphicon-road"></span>Geh auf Tour!</a></li>
+            <li><a href="/de/community-tours/buses/"><span class="fa fa-truck"></span>Finde einen Bus</a></li>
+            <li><a href="/de/pioneers/"><span class="glyphicon glyphicon-user"></span>Pioniere</a></li>
+            <li><a href="/de/community-tours/traveling-tips/"><span class="fa fa-compass"></span>Reisetips</a></li>
+          </ul>
+        </li>
+        <li><a href="/de/communities-convergence/"><span class="glyphicon glyphicon-refresh"></span>Communities-Convergence</a></li>
+        <li><a href="/de/support/"><span class="glyphicon glyphicon-gift"></span>Spenden</a></li>
+      </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li id="searchbar" class="dropdown">
+                  <i class="fa fa-search" onclick="$('#cosinnus_search_form').submit();"></i>
+              <ul class="dropdown-menu">
+                Finde alles wonach du suchst. :)
+                <form id="cosinnus_search_form" action="/find/" method="GET">
+                  <input class="form-control" placeholder="Was suchst du?" value="" name="q">
+                </form>
+              </ul>
+            </li>
+            <li id="language-chooser" class="dropdown">
+<a href="#" class="dropdown-toggle" data-toggle="dropdown">de <b class="caret"></b></a>
+<ul class="dropdown-menu">
+        <li>
+        	<a href="/en/about-the-network/">Englisch</a>
+        </li>
+        <li class="active">
+        	<a href="/de/das-netzwerk/">Deutsch</a>
+        </li>
+    
+
+    
+        <li>
+        	<a href="/es/sobre-la-red/">Spanisch</a>
+        </li>
+    
+
+</ul>
+            </li>
+            
+              <li>
+                <a href="/de/messages/"><span class="glyphicon glyphicon-envelope"></span> <span class="mailcount">6</span></a>
+              </li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-user"></span>Arne Bollinger <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="/de/profile/dashboard/"><span class="glyphicon glyphicon-dashboard"></span>Dashboard</a>
+                  </li>
+                  <li>
+                    <a href="/de/profile/"><span class="glyphicon glyphicon-user"></span> Mein Profil</a>
+                  </li>
+                   
+                    <li class="divider"></li>
+                    <li class="dropdown-header">
+                      <span class="glyphicon glyphicon-home"></span>Meine Gemeinschaften
+                    </li>
+                    
+                      
+                        <li>
+                          <a href="/de/community-tours/tours/communibee-1/dashboard/"><span class="glyphicon glyphicon-road"></span>Communibee 1</a></a>
+                        </li>
+                      
+                    
+                      
+                        <li>
+                          <a href="/de/community-tours/tours/communibee-2/dashboard/"><span class="glyphicon glyphicon-road"></span>Communibee 2</a></a>
+                        </li>
+                      
+                    
+                      
+                        <li>
+                          <a href="/de/group/community-tours/"><span class="glyphicon glyphicon-globe"></span>Community-Tours (Main Group)</a></a>
+                        </li>
+                      
+                    
+                      
+                        <li>
+                          <a href="/de/group/community-tours-italy/"><span class="glyphicon glyphicon-globe"></span>Community-Tours Italy 2015</a></a>
+                        </li>
+                      
+                    
+                      
+                        <li>
+                          <a href="/de/community-tours/tours/comunidad-rodante/dashboard/"><span class="glyphicon glyphicon-road"></span>Comunidad Rodante</a></a>
+                        </li>
+                      
+                    
+                      
+                        <li>
+                          <a href="/de/group/danube-communities-convergence/"><span class="glyphicon glyphicon-globe"></span>Danube Communities-Convergence</a></a>
+                        </li>
+                      
+                    
+                      
+                        <li>
+                          <a href="/de/group/ede-community/"><span class="glyphicon glyphicon-globe"></span>EDE Community</a></a>
+                        </li>
+                      
+                    
+                      
+                        <li>
+                          <a href="/de/group/gift-economy-network/"><span class="glyphicon glyphicon-globe"></span>Gift-economy network</a></a>
+                        </li>
+                      
+                    
+                      
+                        <li>
+                          <a href="/de/group/giftmob/"><span class="glyphicon glyphicon-globe"></span>Giftmob</a></a>
+                        </li>
+                      
+                    
+                      
+                        <li>
+                          <a href="/de/community-tours/tours/mini-tour-to-kulturelle-landpartie-im-wendla/dashboard/"><span class="glyphicon glyphicon-road"></span>Mini tour to &quot;Kulturelle Landpartie im Wendland&quot;</a></a>
+                        </li>
+                      
+                    
+                      
+                        <li>
+                          <a href="/de/group/nextgen/"><span class="glyphicon glyphicon-globe"></span>NextGEN</a></a>
+                        </li>
+                      
+                    
+                      
+                        <li>
+                          <a href="/de/group/portugal-communities-convergence/"><span class="glyphicon glyphicon-globe"></span>Portugal Communities Convergence</a></a>
+                        </li>
+                      
+                    
+                      
+                        <li>
+                          <a href="/de/group/pyrenees-communities-convergence/"><span class="glyphicon glyphicon-globe"></span>Pyrenees Communities Convergence</a></a>
+                        </li>
+                      
+                    
+                      
+                        <li>
+                          <a href="/de/communities/schenkkreise-wien/dashboard/"><span class="glyphicon glyphicon-home"></span>Schenkkreise Wien</a>
+                        </li>
+                      
+                    
+                      
+                        <li>
+                          <a href="/de/group/sensactiones/"><span class="glyphicon glyphicon-globe"></span>SensACTionES</a></a>
+                        </li>
+                      
+                    
+                      
+                        <li>
+                          <a href="/de/group/urban-communities-convergence/"><span class="glyphicon glyphicon-globe"></span>Urban Communities-Convergence</a></a>
+                        </li>
+                      
+                    
+                      
+                        <li>
+                          <a href="/de/communities/nieklitz/dashboard/"><span class="glyphicon glyphicon-home"></span>Wir bauen Zukunft</a>
+                        </li>
+                      
+                    
+                      
+                        <li>
+                          <a href="/de/group/ecobasa/"><span class="glyphicon glyphicon-globe"></span>ecobasa</a></a>
+                        </li>
+                      
+                    
+                    <li class="divider"></li>
+                  
+                  <li><a href="/de/accounts/logout/"><span class="glyphicon glyphicon-log-out"></span>Abmelden</a></li>
+                </ul>
+              </li>
+            
+            </ul>
+          </div>
+     
+  </nav>
+    <div class="container content">
+      
+
+      
+
+	
+	
+	<div class="row">
+		<div class="col-xs-12">
+			<h1>Server Error</h1>
+      <h2>Error 500</h2>
+      <p>Whatever that means..</p>
+      <p>At least it means that something went wrong technically and our administrators have been notified! We will get to it as soon as we have time.</p>
+      <p>If you want to speed things up or give us a thank you for our hard work, we welcome you generosity!</p>
+      <div class="col-xs-12 text-center">
+        <script src="https://donorbox.org/install-popup-button.js" type="text/javascript" defer></script>
+        <a class="btn btn-lg btn-primary dbox-donation-button" href="https://donorbox.org/ecobasa?amount=10&donation_meter_color=%23ff7800" style="text-decoration: none;padding: 15px 38px 15px 38px; box-shadow: 0 1px 0 0 #9b5505; text-shadow: 0 1px rgba(0, 0, 0, 0.3);" ><span class="glyphicon glyphicon-heart"></span>{% trans "Donate" %}</a>
+      </div>
+		</div>
+	</div>
+
+	
+
+    </div>
+    
+
+<nav class="footer navbar navbar-default" role="navigation">
+  <div class="navbar-footer">
+    <div class="col-xs-4 col-md-5">
+      <ul class="nav navbar-nav pull-left">
+        <li><a href="https://www.facebook.com/ecobasa/"><i class="fa fa-facebook"></i><span class="visible-lg pull-right">Folge uns auf facebook</span></a></li>
+        <li><a href="https://www.youtube.com/channel/UC9P0vCR7DDPHly81cNQ_vyw"><i class="fa fa-youtube"></i><span class="visible-lg pull-right">Schaue ecobasa.tv</span></a></li>
+        <li><a href="https://github.com/ecobasa/ecobasa/"><i class="fa fa-github"></i><span class="visible-lg pull-right">Open-source auf github</span></a></li>
+      </ul>
+    </div>
+    <div class="col-xs-4 col-md-3">
+      <a id="license" rel="license" href="#" data-toggle="popover" data-placement="top" data-trigger="focus" data-html="true" data-content="<span xmlns:dct='http://purl.org/dc/terms/' href='http://purl.org/dc/dcmitype/StillImage' property='dct:title' rel='dct:type'><a xmlns:cc='http://creativecommons.org/ns#' href='https://ecobasa.org' property='cc:attributionName' rel='cc:attributionURL'>ecobasa.org</a></span> is licensed under a <a rel='license' href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License</a>"><img alt="Creative Commons License" style="border-width:0;" src="/static/img/cc-license-bright.png" /></a>
+    </div>
+    <div class="col-xs-4 col-md-4">
+    <ul class="nav navbar-nav navbar-right">
+      <li><a data-toggle="modal" data-target="#newsletter-modal" href="#m-newsletter"><span class="glyphicon glyphicon-envelope"></span><span class="hide-xs">Newsletter</span></a></li>
+      <li><a href="/de/contact/"><span class="glyphicon glyphicon-envelope"></span><span class="hide-xs">Kontakt</span></a></li>
+    </ul>
+    </div>
+    <!-- <ul class="nav navbar-nav navbar-right">
+
+      <li id="language-chooser" class="dropdown">
+        
+
+
+<a href="#" class="dropdown-toggle" data-toggle="dropdown">de <b class="caret"></b></a>
+<ul class="dropdown-menu">
+
+    
+        <li>
+        	<a href="/en/about-the-network/">Englisch</a>
+        </li>
+    
+
+    
+        <li class="active">
+        	<a href="/de/das-netzwerk/">Deutsch</a>
+        </li>
+    
+
+    
+        <li>
+        	<a href="/es/sobre-la-red/">Spanisch</a>
+        </li>
+    
+
+</ul>
+      </li>
+
+      
+        
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Meine Gemeinschaften <b class="caret"></b></a>
+            <ul class="dropdown-menu">
+              
+                <li><a href="/de/communities/communibee-1/dashboard/">Communibee 1</a></li>
+              
+                <li><a href="/de/communities/communibee-2/dashboard/">Communibee 2</a></li>
+              
+                <li><a href="/de/communities/community-tours/dashboard/">Community-Tours (Main Group)</a></li>
+              
+                <li><a href="/de/communities/community-tours-italy/dashboard/">Community-Tours Italy 2015</a></li>
+              
+                <li><a href="/de/communities/comunidad-rodante/dashboard/">Comunidad Rodante</a></li>
+              
+                <li><a href="/de/communities/danube-communities-convergence/dashboard/">Danube Communities-Convergence</a></li>
+              
+                <li><a href="/de/communities/ede-community/dashboard/">EDE Community</a></li>
+              
+                <li><a href="/de/communities/gift-economy-network/dashboard/">Gift-economy network</a></li>
+              
+                <li><a href="/de/communities/giftmob/dashboard/">Giftmob</a></li>
+              
+                <li><a href="/de/communities/mini-tour-to-kulturelle-landpartie-im-wendla/dashboard/">Mini tour to &quot;Kulturelle Landpartie im Wendland&quot;</a></li>
+              
+                <li><a href="/de/communities/nextgen/dashboard/">NextGEN</a></li>
+              
+                <li><a href="/de/communities/portugal-communities-convergence/dashboard/">Portugal Communities Convergence</a></li>
+              
+                <li><a href="/de/communities/pyrenees-communities-convergence/dashboard/">Pyrenees Communities Convergence</a></li>
+              
+                <li><a href="/de/communities/schenkkreise-wien/dashboard/">Schenkkreise Wien</a></li>
+              
+                <li><a href="/de/communities/sensactiones/dashboard/">SensACTionES</a></li>
+              
+                <li><a href="/de/communities/urban-communities-convergence/dashboard/">Urban Communities-Convergence</a></li>
+              
+                <li><a href="/de/communities/nieklitz/dashboard/">Wir bauen Zukunft</a></li>
+              
+                <li><a href="/de/communities/ecobasa/dashboard/">ecobasa</a></li>
+              
+              <li class="divider"></li>
+              <li><a href="/de/communities/">Alle Gemeinschaften auflisten</a></li>
+            </ul>
+          </li>
+        
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Arne Bollinger <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="/de/pioneers/Arne/"><span class="glyphicon glyphicon-user"></span> Profil</a></li>
+            <!-- <li><a href="/de/profile/dashboard/">Dashboard</a></li> -->
+            <!-- <li><a href="/de/accounts/logout/"><span class="glyphicon glyphicon-log-out"></span> Abmelden</a></li>
+          </ul>
+        </li>
+      
+    </ul> -->
+  </div>
+</nav>
+<!-- Modals -->
+<div class="modal fade" id="newsletter-modal" tabindex="-1" role="dialog" aria-labelledby="newsletter" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="newsletter">Sign up for our newsletter</h4>
+      </div>
+      <div class="modal-body">
+        <!-- Begin MailChimp Signup Form -->
+        <link href="//cdn-images.mailchimp.com/embedcode/classic-081711.css" rel="stylesheet" type="text/css">
+        <div id="mc_embed_signup">
+        <form action="//communitiesconvergence.us4.list-manage.com/subscribe/post?u=4c454a2ea90e53a65bb2cb660&amp;id=631be3d34e" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+            <div id="mc_embed_signup_scroll">
+        <div class="indicates-required"><span class="asterisk">*</span> indicates required</div>
+        <div class="mc-field-group">
+          <label for="mce-EMAIL">Email Address  <span class="asterisk">*</span>
+        </label>
+          <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL">
+        </div>
+        <div class="mc-field-group">
+          <label for="mce-FNAME">First Name </label>
+          <input type="text" value="" name="FNAME" class="" id="mce-FNAME">
+        </div>
+        <div class="mc-field-group">
+          <label for="mce-LNAME">Last Name </label>
+          <input type="text" value="" name="LNAME" class="" id="mce-LNAME">
+        </div>
+          <div id="mce-responses" class="clear">
+            <div class="response" id="mce-error-response" style="display:none"></div>
+            <div class="response" id="mce-success-response" style="display:none"></div>
+          </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+            <div style="position: absolute; left: -5000px;"><input type="text" name="b_4c454a2ea90e53a65bb2cb660_631be3d34e" tabindex="-1" value=""></div>
+            <div class="clear"><input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+            </div>
+        </form>
+        </div>
+
+        <!--End mc_embed_signup-->
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+    <script type="text/javascript">var cosinnus_base_url = "https://ecobasa.org/de/";</script>
+    <script src="/static/js/cosinnus.js"></script>
+    <script src="/static/js/vendor/jquery.tagcanvas.min.js"></script>
+    <script src="/static/js/vendor/fullcalendar.min.js"></script>
+    <script src="/static/js/main.js"></script>
+
+    <script type="text/javascript">
+    var LanguageCode = 'de';
+    </script>
+    <!-- User Report -->
+    <script type="text/javascript">
+      window._urq = window._urq || [];
+      _urq.push(['initSite', '36be0dbd-4a79-4029-96b7-469c10416bef']);
+      (function() {
+      var ur = document.createElement('script'); ur.type = 'text/javascript'; ur.async = true;
+      ur.src = ('https:' == document.location.protocol ? 'https://cdn.userreport.com/userreport.js' : 'http://cdn.userreport.com/userreport.js');
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ur, s);
+      })();
+    </script>
+    <!-- Piwik -->
+    <script type="text/javascript">
+      var _paq = _paq || [];
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+        var u="//stats.ecobasa.org/";
+        _paq.push(['setTrackerUrl', u+'piwik.php']);
+        _paq.push(['setSiteId', 2]);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <noscript><p><img src="//stats.ecobasa.org/piwik.php?idsite=2" style="border:0;" alt="" /></p></noscript>
+    <!-- End Piwik Code -->
+    
+  </body>
+</html>
