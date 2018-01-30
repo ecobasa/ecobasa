@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load i18n l10n thumbnail cms_tags static cosinnus_tags sekizai_tags ecobasa_community cms_placeholder_check %}
+
+{% block page_title %}
+{% page_attribute "page_title" %}
+{% endblock %}
+
+{% block body %}{% get_placeholder "head_image" as head_image %}{% if head_image %}slideshow{% endif %}{% endblock body %}
+
+
+{% block content %}
+<h1>{% trans "Not found" %}</h1>
+<p>{% trans "Whatever you wanted, we don't have it. But we will look for it. If you are missing something, please let us know!" %}</p>
+{% endblock %}
