@@ -360,7 +360,14 @@
     $(document).ready(function(){
       var dashboard = window.Cosinnus.dashboard.init("#dashboard", {% if group.slug %}"{{ group.slug }}"{% else %}null{% endif %});
       $('.dropdown-toggle').dropdown();
-      $('#donate-modal').modal('show');
+      if (document.cookie.indexOf("ModalShown=true")<0) {
+        $("#donate-modal").modal("show");
+        //Modal has been shown, now set a cookie so it never comes back
+        $("#donate-modalClose").click(function () {
+            $("#donate-modal").modal("hide");
+        });
+        document.cookie = "ModalShown=true; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
+      }
     });
   </script>
 {% endblock %}
