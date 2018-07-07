@@ -21,11 +21,10 @@
     <form id="form-register-member" action="{% url 'register-member' %}" method="post" enctype="multipart/form-data" novalidate="novalidate">
       {% csrf_token %}
       {{ form.has_bus }}
-    
       <div class="row">
-        {% render_honeypot_field %}
         <div class="col-xs-3">{% bootstrap_label form.username.label %}</div>
         <div class="col-xs-9">{% bootstrap_field form.username show_label=False %}</div>
+        {% render_honeypot_field "Name" %}
       </div>
       <div class="row">
         <div class="col-xs-3">{% bootstrap_label form.email.label %}</div>
