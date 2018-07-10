@@ -17,7 +17,7 @@ class RegistrationMemberView(RegistrationView):
     template_name = 'userprofiles/registration_member.html'
     form_class = RegistrationMemberForm
 
-    @method_decorator(check_honeypot)
+    @method_decorator(check_honeypot(field_name='Name'))
     def dispatch(self, request, *args, **kwargs):
         return super(RegistrationMemberView, self).dispatch(
             request, *args, **kwargs)
@@ -29,7 +29,7 @@ class RegistrationCommunityView(RegistrationView):
     template_name = 'userprofiles/registration_community.html'
     form_class = RegistrationCommunityForm
 
-    @method_decorator(check_honeypot)
+    @method_decorator(check_honeypot(field_name='Name'))
     def dispatch(self, request, *args, **kwargs):
         return super(RegistrationCommunityView, self).dispatch(
             request, *args, **kwargs)
