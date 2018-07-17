@@ -2,10 +2,10 @@
 {% load static i18n bootstrap3 ecobasa_community thumbnail %}
 
 
-{% block page_title %}{% trans "Find everything you are looking for :)" %}{% endblock page_title %}
+{% block page_title %}{% trans "Search | ecobasa.org" %}{% endblock page_title %}
 
 
-{% block base_content %}
+{% block content %}
   <h1>Search the gift-economy network</h1>
   <h2>{% trans "Find places, people, skills, products, materials, tools, workshops, everything you are looking for :)" %}</h2>
 
@@ -52,9 +52,9 @@
           <a href="{% url 'pioneer-detail' username=result.username %}">
           {% if result.avatar %}
             {% thumbnail result.avatar 130x80 upscale crop as thumb %}
-            <img class="avatar img-circle" src="{{ thumb.url }}" alt="{{ result.username }}" width="{{ thumb.width }}" />
+            <img class="img-responsive avatar" src="{{ result.avatar|thumbnail_url:"avatar_medium" }}" alt="{{ result.username }}" width="{{ thumb.width }}" />
           {% else %}
-            <img class="img-responsive avatar img-circle" src="{% static 'img/avatar.png' %}" alt="{{ result.username }}" />
+            <img class="img-responsive avatar" src="{% static 'img/avatar.png' %}" alt="{{ result.username }}" />
           {% endif %}
           </a>
         {% endif %}

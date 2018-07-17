@@ -1979,12 +1979,14 @@ body#message {
 
 .search-result {
 	margin-top: 20px;
-	margin-bottom: 100px;
 	&:first-child { 
 		margin-top: 0 !important;
 	}
+	&:last-child {
+		margin-bottom: 100px;
+	}
 	.col-md-1 { 
-		border-right: 1px dotted $primary;
+		border-right: 1px dashed $primary;
 		min-height: 140px;
 	}
 	a.community-image {
@@ -2011,7 +2013,7 @@ body#message {
 		display: block;
 		width: 97%;
 		margin: 0 15px;
-		border-bottom: 2px dotted $primary;
+		border-bottom: 1px dashed $primary;
 	}
 }
 

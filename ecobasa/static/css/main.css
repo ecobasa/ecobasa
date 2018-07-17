@@ -1824,13 +1824,15 @@ body#message ul.media-list li.media a.pioneer img.avatar {
 /************* Search ****************/
 .search-result {
   margin-top: 20px;
-  margin-bottom: 100px;
 }
 .search-result:first-child {
   margin-top: 0 !important;
 }
+.search-result:last-child {
+  margin-bottom: 100px;
+}
 .search-result .col-md-1 {
-  border-right: 1px dotted #da6137;
+  border-right: 1px dashed #da6137;
   min-height: 140px;
 }
 .search-result a.community-image {
@@ -1857,7 +1859,7 @@ body#message ul.media-list li.media a.pioneer img.avatar {
   display: block;
   width: 97%;
   margin: 0 15px;
-  border-bottom: 2px dotted #da6137;
+  border-bottom: 1px dashed #da6137;
 }
 
 /************* Fancybox ****************/
