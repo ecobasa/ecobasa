@@ -50,8 +50,8 @@
         {% endif %}
         {% if result.model_name == 'ecobasauserprofile' or result.context.model_name == 'ecobasauserprofile' %}
           <a href="{% url 'pioneer-detail' username=result.username %}">
-          {% if result.image %}
-            {% thumbnail result.image 130x80 upscale crop as thumb %}
+          {% if result.avatar %}
+            {% thumbnail result.avatar 130x80 upscale crop as thumb %}
             <img class="avatar img-circle" src="{{ thumb.url }}" alt="{{ result.username }}" width="{{ thumb.width }}" />
           {% else %}
             <img class="img-responsive avatar img-circle" src="{% static 'img/avatar.png' %}" alt="{{ result.username }}" />
@@ -64,7 +64,6 @@
       </div>
       <div class="col-xs-12 col-sm-12 col-md-1">
         <div class="community-details text-center">  
-        {{ result.community_type }}
         {% if result.community_type = 'e' %}
           <a href="#" data-toggle="tooltip" title="Ecovillage"><i class="fa fa-home"></i></a>
         {% elif result.community_type = 'c' %}

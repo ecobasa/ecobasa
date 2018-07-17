@@ -1832,6 +1832,12 @@ body#message ul.media-list li.media a.pioneer img.avatar {
   border-right: 1px dotted #ccc;
   min-height: 140px;
 }
+.search-result a.community-image {
+  text-align: center;
+}
+.search-result a.community-image span.glyphicon {
+  font-size: 1200%;
+}
 .search-result ul {
   padding-left: 0 !important;
   list-style: none;
@@ -1850,9 +1856,6 @@ body#message ul.media-list li.media a.pioneer img.avatar {
   width: 97%;
   margin: 0 15px;
   border-bottom: 1px dotted #ccc;
-}
-.search-result span.glyphicon {
-  font-size: 64px;
 }
 
 /************* Fancybox ****************/

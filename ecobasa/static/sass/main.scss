@@ -1986,6 +1986,12 @@ body#message {
 		border-right: 1px dotted #ccc; 
 		min-height: 140px; 
 	}
+	a.community-image {
+		text-align: center;
+		span.glyphicon {
+			font-size: 1200%;
+		}
+	}
 	ul { 
 		padding-left: 0 !important; 
 		list-style: none;  
@@ -2004,9 +2010,6 @@ body#message {
 		width: 97%; 
 		margin: 0 15px; 
 		border-bottom: 1px dotted #ccc; 
-	}
-	span.glyphicon {
-		font-size: 64px;
 	}
 }
 

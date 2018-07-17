@@ -73,6 +73,7 @@ class EcobasaUserProfileIndex(BasicSearchIndex, Indexable):
     first_name = CharField(model_attr='user__first_name', null=True)
     last_name = CharField(model_attr='user__last_name', null=True)
     email = CharField(model_attr='user__email', null=True)
+    avatar = CharField(model_attr='avatar', null=True)
     services = TaggableField(model_attr='services', null=True)
     interests = TaggableField(model_attr='interests', null=True)
     products = TaggableField(model_attr='products', null=True)
