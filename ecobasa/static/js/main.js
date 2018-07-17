@@ -63,17 +63,19 @@ $(document).ready(function() {
 			$('#searchbar').hover( function() {
 				$(this).addClass('open');
 				$(this).addClass('mouseover');
+				$(this).find('input').focus();
 			}, function() {
 				if (!$(this).find('input').is(':focus'))
-					$(this).removeClass('expanded');
-				$(this).removeClass('mouseover');
+					$(this).removeClass('open');
+					$(this).removeClass('mouseover');
 			});
 			$('#searchbar').find('input').blur( function() {
 				if(!$(this).parent().hasClass('mouseover'))
-					$(this).parent().removeClass('expanded');
+					$(this).parent().removeClass('open');
 			});
-			$('#searchbar').click( function() {
-				$(this).addClass('open');
+			$('body').click( function() {
+				if(!$('#searchbar').find('input').is(':focus') && $('#searchbar').hasClass('open'))
+					$('#searchbar').removeClass('open');
 			});
 		},
   
