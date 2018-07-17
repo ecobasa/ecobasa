@@ -69,7 +69,7 @@
         {% csrf_token %}
 
         <div class="row">
-          {% render_honeypot_field %}
+          {% render_honeypot_field "Name" %}
           <div class="col-xs-3 required">{% bootstrap_label form.username.label %}*</div>
           <div class="col-xs-6">{% bootstrap_field form.username show_label=False %}</div>
           <div class="col-xs-3 avatar">{% bootstrap_field form.avatar %}</div>
