@@ -1824,12 +1824,13 @@ body#message ul.media-list li.media a.pioneer img.avatar {
 /************* Search ****************/
 .search-result {
   margin-top: 20px;
+  margin-bottom: 100px;
 }
 .search-result:first-child {
   margin-top: 0 !important;
 }
 .search-result .col-md-1 {
-  border-right: 1px dotted #ccc;
+  border-right: 1px dotted #da6137;
   min-height: 140px;
 }
 .search-result a.community-image {
@@ -1850,12 +1851,13 @@ body#message ul.media-list li.media a.pioneer img.avatar {
 }
 .search-result span.plus {
   float: right;
+  margin-bottom: 10px;
 }
 .search-result span.border {
   display: block;
   width: 97%;
   margin: 0 15px;
-  border-bottom: 1px dotted #ccc;
+  border-bottom: 2px dotted #da6137;
 }
 
 /************* Fancybox ****************/

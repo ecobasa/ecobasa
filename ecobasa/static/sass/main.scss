@@ -1978,13 +1978,14 @@ body#message {
 /************* Search ****************/
 
 .search-result {
-	margin-top: 20px; 
+	margin-top: 20px;
+	margin-bottom: 100px;
 	&:first-child { 
-		margin-top: 0 !important; 
+		margin-top: 0 !important;
 	}
 	.col-md-1 { 
-		border-right: 1px dotted #ccc; 
-		min-height: 140px; 
+		border-right: 1px dotted $primary;
+		min-height: 140px;
 	}
 	a.community-image {
 		text-align: center;
@@ -1993,23 +1994,24 @@ body#message {
 		}
 	}
 	ul { 
-		padding-left: 0 !important; 
-		list-style: none;  
+		padding-left: 0 !important;
+		list-style: none;
 		li {  
-			line-height: 30px; 
+			line-height: 30px;
 			i { 
-				padding-right: 5px; 
+				padding-right: 5px;
 			}
 		}
 	}
 	span.plus { 
 		float: right;
+		margin-bottom: 10px;
 	}
 	span.border { 
-		display: block; 
-		width: 97%; 
-		margin: 0 15px; 
-		border-bottom: 1px dotted #ccc; 
+		display: block;
+		width: 97%;
+		margin: 0 15px;
+		border-bottom: 2px dotted $primary;
 	}
 }
 

@@ -63,7 +63,7 @@
         {% endif %}
       </div>
       <div class="col-xs-12 col-sm-12 col-md-1">
-        <div class="community-details text-center">  
+        <div class="community-details text-center">
         {% if result.community_type = 'e' %}
           <a href="#" data-toggle="tooltip" title="Ecovillage"><i class="fa fa-home"></i></a>
         {% elif result.community_type = 'c' %}
@@ -94,7 +94,14 @@
           {% if result.model_name == 'ecobasacommunityprofile' %}
             <a href="{% url 'community-detail' group=result.slug %}" title="">{{ result.name }}</a>
           {% elif result.model_name == 'ecobasauserprofile' %}
-            <a href="{% url 'pioneer-detail' username=result.username %}">{{ result.username }}</a>
+            <a href="{% url 'pioneer-detail' username=result.username %}">
+            {% if result.first_name or result.last_name %}
+              {{ result.first_name }}
+              {{ result.last_name }}
+            {% else %}
+              {{ result.username }}
+            {% endif %}
+            </a>
           {% elif result.model_name == 'todoentry' %}
             <a href="{% url 'cosinnus:todo:entry-detail' group=result.group_slug slug=result.slug %}">{{ result.title }}</a>
           {% else %}
