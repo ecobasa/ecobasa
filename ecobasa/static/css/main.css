@@ -1821,6 +1821,40 @@ body#message ul.media-list li.media a.pioneer img.avatar {
   height: 50px;
 }
 
+/************* Search ****************/
+.search-result {
+  margin-top: 20px;
+}
+.search-result:first-child {
+  margin-top: 0 !important;
+}
+.search-result .col-md-1 {
+  border-right: 1px dotted #ccc;
+  min-height: 140px;
+}
+.search-result ul {
+  padding-left: 0 !important;
+  list-style: none;
+}
+.search-result ul li {
+  line-height: 30px;
+}
+.search-result ul li i {
+  padding-right: 5px;
+}
+.search-result span.plus {
+  float: right;
+}
+.search-result span.border {
+  display: block;
+  width: 97%;
+  margin: 0 15px;
+  border-bottom: 1px dotted #ccc;
+}
+.search-result span.glyphicon {
+  font-size: 64px;
+}
+
 /************* Fancybox ****************/
 .fancybox-image, .fancybox-spaceball {
   border-radius: 10px;
