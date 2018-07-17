@@ -1,3 +1,13 @@
+{{ object.name }}
+{{ object.first_name }}
+{{ object.last_name }}
+{{ object.email }}
 {{ object.interests.all }}
 {{ object.products.all }}
 {{ object.skills.all }}
+{{ object.services.all }}
+{{ object.about }}
+{{ object.world }}
+{{ object.country }}
+{{ object.city }}
+{{ object.ecobasa_what }}
