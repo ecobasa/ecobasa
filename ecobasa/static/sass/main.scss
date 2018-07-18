@@ -1985,14 +1985,17 @@ body#message {
 	&:last-child {
 		margin-bottom: 100px;
 	}
-	.col-md-1 { 
-		border-right: 1px dashed $primary;
+	.col-md-8.excerpt { 
+		border-left: 1px dashed $primary;
 	}
 	a.community-image {
 		text-align: center;
 		span.glyphicon {
 			font-size: 1200%;
 		}
+	}
+	.avatar {
+		width: 90%;
 	}
 	.community-details {
 		padding-top: 20px;

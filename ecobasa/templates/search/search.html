@@ -51,8 +51,8 @@
         {% if result.model_name == 'ecobasauserprofile' or result.context.model_name == 'ecobasauserprofile' %}
           <a href="{% url 'pioneer-detail' username=result.username %}">
           {% if result.avatar %}
-            {% thumbnail result.avatar 500x400 upscale crop as thumb %}
-            <img class="img-responsive avatar center-block" src="{{ result.avatar|thumbnail_url:"avatar_medium" }}" alt="{{ result.username }}" width="{{ thumb.width }}" />
+            {% thumbnail result.avatar 400x400 upscale crop as thumb %}
+            <img class="img-responsive avatar center-block" src="{{ thumb.url }}" alt="{{ result.username }}" width="{{ thumb.width }}" />
           {% else %}
             <img class="img-responsive avatar" src="{% static 'img/avatar.png' %}" alt="{{ result.username }}" />
           {% endif %}

@@ -1831,14 +1831,17 @@ body#message ul.media-list li.media a.pioneer img.avatar {
 .search-result:last-child {
   margin-bottom: 100px;
 }
-.search-result .col-md-1 {
-  border-right: 1px dashed #da6137;
+.search-result .col-md-8.excerpt {
+  border-left: 1px dashed #da6137;
 }
 .search-result a.community-image {
   text-align: center;
 }
 .search-result a.community-image span.glyphicon {
   font-size: 1200%;
+}
+.search-result .avatar {
+  width: 90%;
 }
 .search-result .community-details {
   padding-top: 20px;
