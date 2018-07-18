@@ -39,10 +39,10 @@
     <article class="search-result row">
       <div class="col-xs-12 col-sm-12 col-md-3">
         {% if result.model_name == 'ecobasacommunityprofile' or result.context.model_name == 'ecobasacommunityprofile' %}
-        <a  href="{% url 'community-detail' group=result.slug %}">
+        <a class="community-image" href="{% url 'community-detail' group=result.slug %}">
           {% if result.image %}
             {% thumbnail result.image 500x300 upscale crop as thumb %}
-            <img class="img-responsive community-image img-rounded center-block" src="{{ thumb.url }}" alt="{{ result.name }}" width="{{ thumb.width }}" />
+            <img class="img-responsive img-rounded center-block" src="{{ thumb.url }}" alt="{{ result.name }}" width="{{ thumb.width }}" />
           {% else %}
             <span class="glyphicon glyphicon-home"></span>
           {% endif %}
