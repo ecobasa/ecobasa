@@ -86,6 +86,12 @@
         {% if result.visitors_num %}
         <a href="#" data-toggle="tooltip" title="{% blocktrans with number=result.visitors_num  %}They can host up to {{ number }} people{% endblocktrans %}"><i class="fa fa-bed"></i>{{ result.visitors_num }}</a>
         {% endif %}
+        {% if result.country %}
+          <span class="glyphicon glyphicon-globe"></span> {{ result.country }}</br>
+        {% endif %}
+        {% if result.city %}
+          <span class="glyphicon glyphicon-map-marker"></span> {{ result.city }}
+        {% endif %}
         </div>
       </div>
       
@@ -109,7 +115,7 @@
           {% endif %}
         </h3>
         {% if result.about %}
-          <p>{{ result.about }}</p>
+          <p>{{ result.about|linebreaks|truncatewords_html:80 }}</p>
         {% endif %}
         {% if not result.context.field == 'Slug' and result.context.field != 'slug' %}
           <h4>{{ result.context.field }}</h4>

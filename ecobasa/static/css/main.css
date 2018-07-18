@@ -1842,6 +1842,7 @@ body#message ul.media-list li.media a.pioneer img.avatar {
 }
 .search-result .avatar {
   width: 90%;
+  margin-bottom: 20px;
 }
 .search-result .community-details {
   padding-top: 20px;
