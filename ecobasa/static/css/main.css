@@ -1833,13 +1833,15 @@ body#message ul.media-list li.media a.pioneer img.avatar {
 }
 .search-result .col-md-1 {
   border-right: 1px dashed #da6137;
-  min-height: 140px;
 }
 .search-result a.community-image {
   text-align: center;
 }
 .search-result a.community-image span.glyphicon {
   font-size: 1200%;
+}
+.search-result .community-details {
+  padding-top: 20px;
 }
 .search-result ul {
   padding-left: 0 !important;
@@ -1850,6 +1852,18 @@ body#message ul.media-list li.media a.pioneer img.avatar {
 }
 .search-result ul li i {
   padding-right: 5px;
+}
+.search-result .excerpt h4 {
+  line-height: 100%;
+  font-size: 14px;
+}
+.search-result .excerpt .well {
+  background: rgba(252, 243, 229, 0.4);
+  border: 1px dashed #da6137;
+}
+.search-result .excerpt .well .highlighted {
+  font-weight: 800;
+  color: #80143b;
 }
 .search-result span.plus {
   float: right;

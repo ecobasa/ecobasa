@@ -1987,13 +1987,15 @@ body#message {
 	}
 	.col-md-1 { 
 		border-right: 1px dashed $primary;
-		min-height: 140px;
 	}
 	a.community-image {
 		text-align: center;
 		span.glyphicon {
 			font-size: 1200%;
 		}
+	}
+	.community-details {
+		padding-top: 20px;
 	}
 	ul { 
 		padding-left: 0 !important;
@@ -2002,6 +2004,20 @@ body#message {
 			line-height: 30px;
 			i { 
 				padding-right: 5px;
+			}
+		}
+	}
+	.excerpt {
+		h4 {
+			line-height: 100%;
+			font-size: 14px;
+		}
+		.well {
+			background: rgba($secondary, 0.4);
+			border: 1px dashed $primary;
+			.highlighted {
+				font-weight: 800;
+				color: $purple;
 			}
 		}
 	}
