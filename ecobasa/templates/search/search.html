@@ -65,26 +65,26 @@
       <div class="col-xs-12 col-sm-12 col-md-1">
         <div class="community-details text-center">
         {% if result.community_type = 'e' %}
-          <a href="#" data-toggle="tooltip" title="Ecovillage"><i class="fa fa-home"></i></a>
+          <a href="" data-toggle="tooltip" title="Ecovillage"><i class="fa fa-home"></i></a>
         {% elif result.community_type = 'c' %}
-          <a href="#" data-toggle="tooltip" title="Established (+4 years)"><i class="fa fa-home"></i></a>
+          <a href="" data-toggle="tooltip" title="Established (+4 years)"><i class="fa fa-home"></i></a>
         {% elif result.community_type = 'h' %}
-          <a href="#" data-toggle="tooltip" title="Houseproject"><i class="fa fa-home"></i></a>
+          <a href="" data-toggle="tooltip" title="Houseproject"><i class="fa fa-home"></i></a>
         {% elif result.community_type = 'f' %}
-          <a href="#" data-toggle="tooltip" title="Land Offer"><i class="fa fa-home"></i></a>
+          <a href="" data-toggle="tooltip" title="Land Offer"><i class="fa fa-home"></i></a>
         {% endif %}
         {% if result.community_status = 's' %}
-          <a href="#" data-toggle="tooltip" title="Starting Project (first years)"><i class="fa fa-hand-rock-o"></i></a>
+          <a href="" data-toggle="tooltip" title="Starting Project (first years)"><i class="fa fa-hand-rock-o"></i></a>
         {% elif result.community_status = 'e' %}
-          <a href="#" data-toggle="tooltip" title="Established (+4 years)"><i class="fa fa-thumbs-up"></i></a>
+          <a href="" data-toggle="tooltip" title="Established (+4 years)"><i class="fa fa-thumbs-up"></i></a>
         {% elif result.community_status = 'l' %}
-          <a href="#" data-toggle="tooltip" title="Land Offer"><i class="fa fa-map-marker"></i></a>
+          <a href="" data-toggle="tooltip" title="Land Offer"><i class="fa fa-map-marker"></i></a>
         {% endif %}
         {% if result.basic_inhabitants %}
-        <a href="#" data-toggle="tooltip" title="{{ result.basic_inhabitants }} people live there"><i class="fa fa-users"></i>{{ result.basic_inhabitants }}</a> 
+        <a href="" data-toggle="tooltip" title="{{ result.basic_inhabitants }} people live there"><i class="fa fa-users"></i>{{ result.basic_inhabitants }}</a> 
         {% endif %}
         {% if result.visitors_num %}
-        <a href="#" data-toggle="tooltip" title="{% blocktrans with number=result.visitors_num  %}They can host up to {{ number }} people{% endblocktrans %}"><i class="fa fa-bed"></i>{{ result.visitors_num }}</a>
+        </br><a href="" data-toggle="tooltip" title="{% blocktrans with number=result.visitors_num  %}They can host up to {{ number }} people{% endblocktrans %}"><i class="fa fa-bed"></i>{{ result.visitors_num }}</a>
         {% endif %}
         {% if result.contact_country %}
           </br><span class="glyphicon glyphicon-globe"></span> {{ result.contact_country }}</br>
