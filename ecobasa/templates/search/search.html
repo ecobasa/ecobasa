@@ -86,6 +86,9 @@
         {% if result.visitors_num %}
         <a href="#" data-toggle="tooltip" title="{% blocktrans with number=result.visitors_num  %}They can host up to {{ number }} people{% endblocktrans %}"><i class="fa fa-bed"></i>{{ result.visitors_num }}</a>
         {% endif %}
+        {% if result.contact_country %}
+          </br><span class="glyphicon glyphicon-globe"></span> {{ result.contact_country }}</br>
+        {% endif %}
         {% if result.country %}
           <span class="glyphicon glyphicon-globe"></span> {{ result.country }}</br>
         {% endif %}
