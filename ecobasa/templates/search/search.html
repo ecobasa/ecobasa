@@ -165,15 +165,13 @@
         </h3>
 
         <p>
-        {% autoescape off %}
         {% if result.about %}
           {{ result.about|linebreaks|safe|truncatewords_html:50 }}
         {% elif result.note %}
-          {{ result.note|linebreaks|safe|truncatewords_html:50 }}
+          {% autoescape off %}{{ result.note|linebreaks|safe|truncatewords_html:50 }}{% endautoescape %}
         {% elif result.text %}
-          {{ result.text|linebreaks|safe|truncatewords_html:50 }}
+          {% autoescape off %}{{ result.text|linebreaks|safe|truncatewords_html:50 }}{% endautoescape %}
         {% endif %}
-        {% endautoescape %}
         </p>
 
         {% if not result.context.field == 'Slug' and result.context.field != 'slug' %}
