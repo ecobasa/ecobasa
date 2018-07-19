@@ -165,11 +165,11 @@
         </h3>
 
         <p>
-        {% if result.about %}
+        {% if result.model_name == 'ecobasacommunityprofile' %}
           {{ result.about|linebreaks|truncatewords_html:50 }}
-        {% elif result.note %}
+        {% elif result.model_name == 'event' %}
           {% autoescape off %}{{ result.note|linebreaks|truncatewords_html:50 }}{% endautoescape %}
-        {% elif result.text %}
+        {% elif result.model_name == 'note' %}
           {% autoescape off %}{{ result.text|linebreaks|truncatewords_html:50 }}{% endautoescape %}
         {% endif %}
         </p>
