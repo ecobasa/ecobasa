@@ -6,6 +6,7 @@ from haystack.fields import CharField, SearchField
 from haystack.indexes import BasicSearchIndex, Indexable
 
 from .models import EcobasaCommunityProfile, EcobasaUserProfile
+from cosinnus_event.models import Event
 
 
 class TaggableField(SearchField):
@@ -86,3 +87,14 @@ class EcobasaUserProfileIndex(BasicSearchIndex, Indexable):
 
     def get_model(self):
         return EcobasaUserProfile
+
+class EventIndex(BasicSearchIndex, Indexable):
+    title = CharField(model_attr='title')
+    note = CharField(model_attr='note', null=True)
+    group_slug = CharField(model_attr='group__slug')
+    slug = CharField(model_attr='slug')
+    image = CharField(model_attr='image', null=True)
+    city = CharField(model_attr='city', null=True)
+
+    def get_model(self):
+        return Event

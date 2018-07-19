@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load static i18n bootstrap3 ecobasa_community thumbnail %}
+{% load static i18n bootstrap3 ecobasa_community thumbnail embed_video_tags %}
 
 
 {% block page_title %}{% trans "Search | ecobasa.org" %}{% endblock page_title %}
@@ -38,6 +38,19 @@
     {% for result in page.object_list %}
     <article class="search-result row">
       <div class="col-xs-12 col-sm-12 col-md-3">
+
+        {% if result.model_name == 'ecobasacommunityprofile' %}
+          <span class="type glyphicon glyphicon-home"></span>
+        {% elif result.model_name == 'ecobasauserprofile' %}
+          <span class="type glyphicon glyphicon-user"></span>
+        {% elif result.model_name == 'todoentry' %}
+          <span class="type glyphicon glyphicon-tasks"></span>
+        {% elif result.model_name == 'note' %}
+          <span class="type glyphicon glyphicon-file"></span>
+        {% elif result.model_name == 'event' %}
+          <span class="type glyphicon glyphicon-calendar"></span>
+        {% endif %}
+
         {% if result.model_name == 'ecobasacommunityprofile' or result.context.model_name == 'ecobasacommunityprofile' %}
         <a class="community-image" href="{% url 'community-detail' group=result.slug %}">
           {% if result.image %}
@@ -46,9 +59,8 @@
           {% else %}
             <span class="glyphicon glyphicon-home"></span>
           {% endif %}
-          </a>
-        {% endif %}
-        {% if result.model_name == 'ecobasauserprofile' or result.context.model_name == 'ecobasauserprofile' %}
+        </a>
+        {% elif result.model_name == 'ecobasauserprofile' or result.context.model_name == 'ecobasauserprofile' %}
           <a href="{% url 'pioneer-detail' username=result.username %}">
           {% if result.avatar %}
             {% thumbnail result.avatar 400x400 upscale crop as thumb %}
@@ -57,11 +69,29 @@
             <img class="img-responsive avatar" src="{% static 'img/avatar.png' %}" alt="{{ result.username }}" />
           {% endif %}
           </a>
-        {% endif %}
-        {% if result.model_name == 'todoentry' or result.context.model_name == 'todoentry' %}
+        {% elif result.model_name == 'todoentry' or result.context.model_name == 'todoentry' %}
           <a href="{% url 'cosinnus:todo:entry-detail' group=result.group_slug slug=result.slug %}"><span class="glyphicon glyphicon-tasks"></span></a>
+        {% elif result.model_name == 'note' %}
+          <a href="{% url 'cosinnus:note:note' group=result.group_slug slug=result.slug %}">
+            {% if result.video %}
+              <div class="video-responsive">
+                {% video result.video "tiny" is_secure=True %}
+              </div>
+            {% elif result.image %}
+            {% thumbnail result.image 400x400 upscale crop as thumb %}
+              <img class="img-responsive img-rounded center-block" src="{{ thumb.url }}" alt="{{ result.title }}" width="{{ thumb.width }}" />
+          {% endif %}
+          </a>
+        {% elif result.model_name == 'event' %}
+          <a href="{% url 'cosinnus:event:entry-detail' group=result.group_slug slug=result.slug %}">
+            {% if result.image %}
+            {% thumbnail result.image 400x400 upscale crop as thumb %}
+              <img class="img-responsive img-rounded center-block" src="{{ thumb.url }}" alt="{{ result.title }}" width="{{ thumb.width }}" />
+            {% endif %}
+          </a>
         {% endif %}
       </div>
+
       <div class="col-xs-12 col-sm-12 col-md-1">
         <div class="community-details text-center">
         {% if result.community_type = 'e' %}
@@ -99,6 +129,18 @@
       </div>
       
       <div class="col-xs-12 col-sm-12 col-md-8 excerpt">
+        {% if result.model_name == 'ecobasacommunityprofile' %}
+          <span class="label pull-right"><span class="glyphicon glyphicon-home"></span> {% trans "community" %}</span>
+        {% elif result.model_name == 'ecobasauserprofile' %}
+          <span class="label pull-right"><span class="glyphicon glyphicon-user"></span> {% trans "Pioneer" %}</span>
+        {% elif result.model_name == 'todoentry' %}
+          <span class="label pull-right"><span class="glyphicon glyphicon-tasks"></span> {% trans "Task" %}</span>
+        {% elif result.model_name == 'note' %}
+          <span class="label pull-right"><span class="glyphicon glyphicon-file"></span> {% trans "Blog Article" %}</span>
+        {% elif result.model_name == 'Event' %}
+          <span class="label pull-right"><span class="glyphicon glyphicon-calendar"></span> {% trans "Event" %}</span>
+        {% endif %}
+
         <h3>
           {% if result.model_name == 'ecobasacommunityprofile' %}
             <a href="{% url 'community-detail' group=result.slug %}" title="">{{ result.name }}</a>
@@ -113,13 +155,27 @@
             </a>
           {% elif result.model_name == 'todoentry' %}
             <a href="{% url 'cosinnus:todo:entry-detail' group=result.group_slug slug=result.slug %}">{{ result.title }}</a>
+          {% elif result.model_name == 'note' %}
+            <a href="{% url 'cosinnus:note:note' group=result.group_slug slug=result.slug %}">{{ result.title }}</a>
+          {% elif result.model_name == 'event' %}
+            <a href="{% url 'cosinnus:event:entry-detail' group=result.group_slug slug=result.slug %}">{{ result.title }}</a>
           {% else %}
             <a href="{% url 'community-detail' group=result.slug %}" title="">{{ result.name }}</a>
           {% endif %}
         </h3>
+
+        <p>
+        {% autoescape off %}
         {% if result.about %}
-          <p>{{ result.about|linebreaks|truncatewords_html:80 }}</p>
+          {{ result.about|linebreaks|safe|truncatewords_html:50 }}
+        {% elif result.note %}
+          {{ result.note|linebreaks|safe|truncatewords_html:50 }}
+        {% elif result.text %}
+          {{ result.text|linebreaks|safe|truncatewords_html:50 }}
         {% endif %}
+        {% endautoescape %}
+        </p>
+
         {% if not result.context.field == 'Slug' and result.context.field != 'slug' %}
           <h4>{{ result.context.field }}</h4>
           <div class="well">
@@ -137,15 +193,19 @@
 
         <span class="plus">
           {% if result.model_name == 'ecobasacommunityprofile' %}
-          <a href="{% url 'community-detail' group=result.slug %}" title="">
+          <a href="{% url 'community-detail' group=result.slug %}"><i class="glyphicon glyphicon-plus"></i> View Profile</a>
           {% elif result.model_name == 'ecobasauserprofile' %}
-            <a href="{% url 'pioneer-detail' username=result.username %}">
+            <a href="{% url 'pioneer-detail' username=result.username %}"><i class="glyphicon glyphicon-plus"></i> View Profile</a>
           {% elif result.model_name == 'todoentry' %}
-            <a href="{% url 'cosinnus:todo:entry-detail' group=result.group_slug slug=result.slug %}">
+            <a href="{% url 'cosinnus:todo:entry-detail' group=result.group_slug slug=result.slug %}"><i class="glyphicon glyphicon-plus"></i> View Task</a>
+          {% elif result.model_name == 'note' %}
+            <a href="{% url 'cosinnus:note:note' group=result.group_slug slug=result.slug %}"><i class="glyphicon glyphicon-plus"></i> View Article</a>
+          {% elif result.model_name == 'event' %}
+            <a href="{% url 'cosinnus:event:entry-detail' group=result.group_slug slug=result.slug %}"><i class="glyphicon glyphicon-plus"></i> View Event</a>
           {% else %}
-            <a href="{% url 'community-detail' group=result.slug %}" title="">
+            <a href="{% url 'community-detail' group=result.slug %}"><i class="glyphicon glyphicon-plus"></i> View Profile</a>
           {% endif %}
-          <i class="glyphicon glyphicon-plus"></i> View Profile</a></span>
+        </span>
       </div>
       <span class="clearfix border"></span>
     </article>

@@ -1834,6 +1834,10 @@ body#message ul.media-list li.media a.pioneer img.avatar {
 .search-result .col-md-8.excerpt {
   border-left: 1px dashed #da6137;
 }
+.search-result .type {
+  color: #da6137;
+  font-size: 150%;
+}
 .search-result a.community-image {
   text-align: center;
 }

@@ -1,0 +1,3 @@
+{{ object.title }}
+{{ object.note }}
+{{ object.city }}

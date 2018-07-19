@@ -1988,6 +1988,10 @@ body#message {
 	.col-md-8.excerpt { 
 		border-left: 1px dashed $primary;
 	}
+	.type {
+		color: $primary;
+		font-size: 150%;
+	}
 	a.community-image {
 		text-align: center;
 		span.glyphicon {
