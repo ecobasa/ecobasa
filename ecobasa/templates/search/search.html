@@ -24,7 +24,7 @@
     </div>
   {% else %}
     {% if query %}
-      <div class="alert alert-danger">
+      <div class="alert alert-warning">
         <p>{% blocktrans with query=query %}No results found for "{{ query }}".{% endblocktrans %}</p>
       </div>
     {% else %}
@@ -93,39 +93,39 @@
       </div>
 
       <div class="col-xs-12 col-sm-12 col-md-1">
-        <div class="community-details text-center">
+        <ul class="community-details text-center">
         {% if result.community_type = 'e' %}
-          <a href="" data-toggle="tooltip" title="Ecovillage"><i class="fa fa-home"></i></a>
+          <li><a href="" data-toggle="tooltip" title="Ecovillage"><i class="fa fa-home"></i></a></li>
         {% elif result.community_type = 'c' %}
-          <a href="" data-toggle="tooltip" title="Established (+4 years)"><i class="fa fa-home"></i></a>
+          <li><a href="" data-toggle="tooltip" title="Established (+4 years)"><i class="fa fa-home"></i></a></li>
         {% elif result.community_type = 'h' %}
-          <a href="" data-toggle="tooltip" title="Houseproject"><i class="fa fa-home"></i></a>
+          <li><a href="" data-toggle="tooltip" title="Houseproject"><i class="fa fa-home"></i></a></li>
         {% elif result.community_type = 'f' %}
-          <a href="" data-toggle="tooltip" title="Land Offer"><i class="fa fa-home"></i></a>
+          <li><a href="" data-toggle="tooltip" title="Land Offer"><i class="fa fa-home"></i></a></li>
         {% endif %}
         {% if result.community_status = 's' %}
-          <a href="" data-toggle="tooltip" title="Starting Project (first years)"><i class="fa fa-hand-rock-o"></i></a>
+          <li><a href="" data-toggle="tooltip" title="Starting Project (first years)"><i class="fa fa-hand-rock-o"></i></a></li>
         {% elif result.community_status = 'e' %}
-          <a href="" data-toggle="tooltip" title="Established (+4 years)"><i class="fa fa-thumbs-up"></i></a>
+          <li><a href="" data-toggle="tooltip" title="Established (+4 years)"><i class="fa fa-thumbs-up"></i></a></li>
         {% elif result.community_status = 'l' %}
-          <a href="" data-toggle="tooltip" title="Land Offer"><i class="fa fa-map-marker"></i></a>
+          <li><a href="" data-toggle="tooltip" title="Land Offer"><i class="fa fa-map-marker"></i></a></li>
         {% endif %}
         {% if result.basic_inhabitants %}
-        <a href="" data-toggle="tooltip" title="{{ result.basic_inhabitants }} people live there"><i class="fa fa-users"></i>{{ result.basic_inhabitants }}</a> 
+        <li><a href="" data-toggle="tooltip" title="{{ result.basic_inhabitants }} people live there"><i class="fa fa-users"></i>{{ result.basic_inhabitants }}</a></li> 
         {% endif %}
         {% if result.visitors_num %}
-        </br><a href="" data-toggle="tooltip" title="{% blocktrans with number=result.visitors_num  %}They can host up to {{ number }} people{% endblocktrans %}"><i class="fa fa-bed"></i>{{ result.visitors_num }}</a>
+          <li><a href="" data-toggle="tooltip" title="{% blocktrans with number=result.visitors_num  %}They can host up to {{ number }} people{% endblocktrans %}"><i class="fa fa-bed"></i>{{ result.visitors_num }}</a></li>
         {% endif %}
         {% if result.contact_country %}
-          </br><span class="glyphicon glyphicon-globe"></span> {{ result.contact_country }}</br>
+          <li><span class="glyphicon glyphicon-globe"></span> {{ result.contact_country }}</li>
         {% endif %}
         {% if result.country %}
-          <span class="glyphicon glyphicon-globe"></span> {{ result.country }}</br>
+          <li><span class="glyphicon glyphicon-globe"></span> {{ result.country }}</li>
         {% endif %}
         {% if result.city %}
-          <span class="glyphicon glyphicon-map-marker"></span> {{ result.city }}
+          <li><span class="glyphicon glyphicon-map-marker"></span> {{ result.city }}</li>
         {% endif %}
-        </div>
+        </ul>
       </div>
       
       <div class="col-xs-12 col-sm-12 col-md-8 excerpt">
@@ -143,7 +143,7 @@
 
         <h3>
           {% if result.model_name == 'ecobasacommunityprofile' %}
-            <a href="{% url 'community-detail' group=result.slug %}" title="">{{ result.name }}</a>
+            <a href="{% url 'community-detail' group=result.slug %}" title="">{{ result.name }}</a></h3>
           {% elif result.model_name == 'ecobasauserprofile' %}
             <a href="{% url 'pioneer-detail' username=result.username %}">
             {% if result.first_name or result.last_name %}
@@ -220,7 +220,7 @@
       <a {% if page.has_previous %}href="?q={{ query }}{% if request.GET.models %}&amp;models={{ request.GET.models }}{% endif %}&amp;page={{ page.previous_page_number }}"{% endif %}>&lt;</a>
     </li>
       {% for num in paginator.page_range %}
-        <li>{% ifequal num page.number %}<a class="active">{{ num }}</a>{% else %}<a href="?q={{ query }}{% if request.GET.models %}&amp;models={{ request.GET.models }}{% endif %}&amp;page={{ num }}"> {{ num }}</a>{% endifequal %}</li>
+        <li{% ifequal num page.number %} class="active"{% endifequal %}>{% ifequal num page.number %}<a class="active">{{ num }}</a>{% else %}<a href="?q={{ query }}{% if request.GET.models %}&amp;models={{ request.GET.models }}{% endif %}&amp;page={{ num }}"> {{ num }}</a>{% endifequal %}</li>
       {% endfor %}
 
       <li>
