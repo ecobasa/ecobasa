@@ -69,8 +69,6 @@
             <img class="img-responsive avatar" src="{% static 'img/avatar.png' %}" alt="{{ result.username }}" />
           {% endif %}
           </a>
-        {% elif result.model_name == 'todoentry' or result.context.model_name == 'todoentry' %}
-          <a href="{% url 'cosinnus:todo:entry-detail' group=result.group_slug slug=result.slug %}"><span class="glyphicon glyphicon-tasks"></span></a>
         {% elif result.model_name == 'note' %}
           <a href="{% url 'cosinnus:note:note' group=result.group_slug slug=result.slug %}">
             {% if result.video %}
