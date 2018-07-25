@@ -36,7 +36,7 @@
           {% endif %}
           {{ note.group }}</a>
         </span>
-         <div class="article">{{ note.text|striptags|safe|truncatewords_html:80 }}<a class="more" href="{% url 'cosinnus:note:note' group=note.group.slug slug=note.slug %}">read more <span class="glyphicon glyphicon-arrow-right"></span></a></div>
+         <div class="article">{{ note.text|striptags|safe|linebreaks|truncatewords_html:80 }}<a class="more" href="{% url 'cosinnus:note:note' group=note.group.slug slug=note.slug %}">read more <span class="glyphicon glyphicon-arrow-right"></span></a></div>
          <a href="{% url 'cosinnus:note:note' group=note.group.slug slug=note.slug %}#comments"><span class="label">{{ note.comments.count }}</span> {% trans "comments" %}</a>
          {% if note.attached_objects.all %}
               <div style="max-width:250px; max-height:200px; overflow:hidden;">
