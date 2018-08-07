@@ -13,7 +13,7 @@
     <div class="input-group input-group-lg">
       <input type="text" class="input-block-level search-query form-control" id="id_q" name="q" placeholder="{% trans "Enter search term" %}"{% if form.q.value %} value="{{ form.q.value }}"{% endif %}>
       <span class="input-group-btn">
-        <button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> {% trans "Search" %}</button>
+        <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> {% trans "Search" %}</button>
       </span>
     </div>
   </form>
@@ -78,7 +78,8 @@
             {% elif result.image %}
             {% thumbnail result.image 400x400 upscale crop as thumb %}
               <img class="img-responsive img-rounded center-block" src="{{ thumb.url }}" alt="{{ result.title }}" width="{{ thumb.width }}" />
-          {% endif %}
+
+            {% endif %}
           </a>
         {% elif result.model_name == 'event' %}
           <a href="{% url 'cosinnus:event:entry-detail' group=result.group_slug slug=result.slug %}">
