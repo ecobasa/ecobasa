@@ -17,8 +17,7 @@
 		<p>{% trans "This network is grown and maintained by its members, as we dont get many donations, we can not provide much of a service, so please contribute feedback, your skills (design, programming, communcation, networking, etc..) Just get in contact with us! Alternatively you can also give a donation, can be even really small, that helps us to pay the server costs and develop the site professionaly! There can be no gift-economy without a little gift-economy :)" %}</p>
 		<div class="row">
 	    <div class="col-xs-12 text-center">
-		    <script src="https://donorbox.org/install-popup-button.js" type="text/javascript" defer></script>
-				<a class="btn btn-lg btn-primary dbox-donation-button" href="https://donorbox.org/ecobasa?amount=10&donation_meter_color=%23ff7800" style="text-decoration: none;padding: 15px 38px 15px 38px; box-shadow: 0 1px 0 0 #9b5505; text-shadow: 0 1px rgba(0, 0, 0, 0.3);" ><span class="glyphicon glyphicon-heart"></span>{% trans "Donate" %}</a>
+		    <script src="https://donorbox.org/widget.js" paypalExpress="true"></script><iframe src="https://donorbox.org/embed/ecobasa-hosting-2018?show_content=true" height="685px" width="100%" style="max-width:100%; min-width:100%; max-height:none!important" seamless="seamless" name="donorbox" frameborder="0" scrolling="no" allowpaymentrequest></iframe>
 	    </div>
   	</div>
 
@@ -32,19 +31,19 @@
 	  {% endif %}
 	</div>
     <h1>{% trans "Welcome on board" %}, {{ user.first_name|default:user.username }}</h1>
-		<h2>{% trans "You are now an important part of the gift-economy network!" %}</h2>
+		<h2>{% trans "By giving something, you are co-creating the sustainable gift-economy network!" %}</h2>
 	</div>
 		<div class="hidden-xs col-md-3">
-			<a href="https://cloud.ecobasa.org/public.php?service=files&t=ef749b67e02e3e99d60d59acf76cfbec&download"><img align="left" src="{% static "img/Gift-Ambassador-Manual-Cover.jpg" %}" alt="{% trans "Download the Gift-Ambassador Manual" %}" data-toggle="tooltip" data-placement="top" title="{% trans "Download the Gift-Ambassador Manual" %}"></a>
+			<a href="https://cloud.ecobasa.org/s/lV2cnwNsmHXvWG9"><img align="left" src="{% static "img/Gift-Ambassador-Manual-Cover.jpg" %}" alt="{% trans "Download the Gift-Ambassador Manual" %}" data-toggle="tooltip" data-placement="top" title="{% trans "Download the Gift-Ambassador Manual" %}"></a>
 		</div>
 		<div class="col-xs-12 col-md-6">
-			<p>{% trans "If you want to go on" %} <a href="/community-tours/">Community-Tours</a> {% trans "with other people, invite them to join this network. You can create a new Tour and use the tools of this website to communicate, organize and network!" %}</p>
+			<p>{% trans "If you want to go on" %} <a href="/community-tours/">Community-Tours</a> {% trans "with other people, invite them to join this network. You can" %} <a href="/community-tours/tours/add/">{% trans "create a new Tour" %}</a> {% trans "and use the tools of this website to communicate, organize and network!" %}</p>
 			<p>{% trans "You can contact communities that you would like to visit and tell them to sign up on this website or update their profile, so we have their information. Then we can send them the experts and resources they wish for." %}</p>
 			<p>{% trans "To support your new job as a pioneer of gift-economy we created" %} <a href="https://cloud.ecobasa.org/public.php?service=files&t=ef749b67e02e3e99d60d59acf76cfbec&download">{% trans "this little manual." %}</a> {% trans "It will tell you how to grow a gift-economy network around your community and how to make a living in this new culture of trust and support." %}</p>
 			<div class="visible-xs">
-				<a href="https://cloud.ecobasa.org/public.php?service=files&t=ef749b67e02e3e99d60d59acf76cfbec&download"><img class="center-block" src="{% static "img/Gift-Ambassador-Manual-Cover.jpg" %}" alt="{% trans "Download the Gift-Ambassador Manual" %}" data-toggle="tooltip" data-placement="top" title="{% trans "Download the Gift-Ambassador Manual" %}"></a>
+				<a href="https://cloud.ecobasa.org/s/lV2cnwNsmHXvWG9"><img class="center-block" src="{% static "img/Gift-Ambassador-Manual-Cover.jpg" %}" alt="{% trans "Download the Gift-Ambassador Manual" %}" data-toggle="tooltip" data-placement="top" title="{% trans "Download the Gift-Ambassador Manual" %}"></a>
 			</div>
-			<p>{% trans "This network is grown and maintained by its members, as we dont get many donations, we can not provide much of a service, so please contribute feedback, your skills (design, programming, communcation, networking, etc..)" %}  <a href="/contact"></a>{% trans "Just get in contact with us!" %} {% trans "Alternatively you can also give a donation, can be even really small, that helps us to pay the server costs and develop the site professionaly! There can be no gift-economy without a little gift-economy :)" %}</p>
+			<p>{% trans "This network is grown and maintained by its members, as we dont get many donations, we can not provide much of a service, so please contribute your skills (design, programming, communcation, networking, etc..) or some ideas and feedback" %}  <a href="/contact"></a>{% trans "Just get in contact with us!" %} {% trans "As long as we don't get a free hosting, we have to pay the server costs. Thanks for your support!" %}</p>
 		</div>
 		<div class="hidden-xs col-md-3">
 			{% if user.cosinnus_profile.avatar %}
@@ -56,8 +55,9 @@
 	</div>
 		<div class="row">
 	    <div class="col-xs-12 text-center">
-		    <script src="https://donorbox.org/install-popup-button.js" type="text/javascript" defer></script>
-				<a class="btn btn-lg btn-primary dbox-donation-button" href="https://donorbox.org/ecobasa?amount=10" style="text-decoration: none;padding: 15px 38px 15px 38px; box-shadow: 0 1px 0 0 #9b5505; text-shadow: 0 1px rgba(0, 0, 0, 0.3);" ><span class="glyphicon glyphicon-heart"></span>{% trans "Donate" %}</a>
+	    	<h1>Support the network!</h1>
+	    </br>
+		    <script src="https://donorbox.org/widget.js" paypalExpress="true"></script><iframe src="https://donorbox.org/embed/ecobasa-hosting-2018?show_content=true" height="685px" width="100%" style="max-width:100%; min-width:100%; max-height:none!important" seamless="seamless" name="donorbox" frameborder="0" scrolling="no" allowpaymentrequest></iframe>
 				</br></br>
 				<a class="btn btn-primary btn-lg" href="{% url 'cosinnus:user-dashboard' %}"><span class="glyphicon glyphicon-dashboard"></span>{% trans "Ok Captain, take me to the dashboard!" %}</a>
 	    </div>
