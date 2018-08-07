@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n %}
+{% load i18n honeypot %}
 
 {% block content %}
 <div class="row">
@@ -10,6 +10,7 @@
 			{% csrf_token %}
 			<div class="form-group">
 				{{ form.name.label_tag }}
+					{% render_honeypot_field "Name" %}
 			    <input type="text" class="form-control" id="id_name" placeholder="Name" name="name" >
 			</div>
 			<div class="form-group">
