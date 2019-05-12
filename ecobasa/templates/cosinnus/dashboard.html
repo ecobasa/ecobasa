@@ -333,8 +333,8 @@
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="newsletter">Help us cover our costs</h4>
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">{% trans "Close" %}</span></button>
+        <h4 class="modal-title" id="newsletter">{% trans "Help us cover our costs" %}</h4>
       </div>
       <div class="modal-body">
         <p>{% trans "Dear" %} {% if user.first_name %}{{user.first_name}}{% else %}{{user.username}}{% endif %},<br>
@@ -364,7 +364,6 @@
         });
         document.cookie = "ModalShown=true; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
       }
-      $("#donate-modal").modal("show");
     });
   </script>
 {% endblock %}
