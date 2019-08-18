@@ -1,0 +1,57 @@
+cmsplugin-filer==0.9.5
+contextlib2==0.5.5
+-e git+https://git.sinnwerkstatt.com/cosinnus/cosinnus-core.git@3be63e6d342eb726b94498ddfd66ed3f3893ff30#egg=cosinnus
+-e git+https://git.sinnwerkstatt.com/cosinnus/cosinnus-etherpad.git@02f7be710b2586b854f8a674c41940d91b53c2a8#egg=cosinnus_etherpad
+-e git+https://git.sinnwerkstatt.com/cosinnus/cosinnus-event.git@3040a052a255c1014779449200647d633e9f5bbb#egg=cosinnus_event
+-e git+https://git.sinnwerkstatt.com/cosinnus/cosinnus-message.git@10d2ddca591fdd68e82f92759679c0ee3e782d49#egg=cosinnus_message
+-e git+https://git.sinnwerkstatt.com/cosinnus/cosinnus-note.git@6d8e26969936536d5cb5c6900b7606579caefd29#egg=cosinnus_note
+-e git+https://git.sinnwerkstatt.com/cosinnus/cosinnus-todo.git@37cc10b7c490e58e42af5c1bcd659ea495c0b043#egg=cosinnus_todo
+Django==1.5.8
+django-appconf==1.0.1
+-e git://github.com/Markush2010/django-bootstrap3.git@46a84044e89937ebe6128b2a8c560f141741a70e#egg=django_bootstrap3
+django-bootstrap3-datetimepicker==2.2.3
+django-classy-tags==0.6.2
+django-cms==2.4.3
+django-contact-form==1.0
+django-embed-video==1.1.2
+django-extensions==1.5.9
+django-extra-views==0.7.1
+django-filer==0.9.5
+django-geoposition==0.3.0
+django-haystack==2.1.0
+django-honeypot==0.4.0
+django-mptt==0.5.2
+-e git://github.com/bmispelon/django-multiform.git@ccc958db8daeba6044ec18c5ff6b158bc6a3d135#egg=django_multiform
+-e git://github.com/sinnwerkstatt/django-osm-field.git@81dd297034716b110441da38cb72ba26d3a51896#egg=django_osm_field
+django-polymorphic==0.7.2
+django-postman==3.1.0
+django-recaptcha==0.0.9
+django-sekizai==0.7
+Django-Select2==4.2.2
+django-settings-export==1.2.1
+django-suit==0.2.8
+django-taggit==0.17.1
+django-tinymce==1.5.2
+django-userprofiles==0.4
+django-widget-tweaks==1.3
+djangocms-text-ckeditor==1.0.11
+djangorestframework==3.2.4
+easy-thumbnails==1.4
+ecdsa==0.13
+etherpad-lite==0.2.1
+Fabric==1.8.3
+fabric-virtualenv==0.2.1
+gunicorn==19.7.1
+html5lib==0.9999
+paramiko==1.12.4
+Pillow==3.0.0
+piwik==0.5.1
+psycopg2==2.7.1
+pycrypto==2.6.1
+pytz==2015.6
+raven==6.1.0
+requests==2.8.0
+simplejson==3.10.0
+six==1.10.0
+South==0.8.4
+Whoosh==2.6.0
