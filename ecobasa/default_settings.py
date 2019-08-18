@@ -296,8 +296,7 @@ USERPROFILES_AUTO_LOGIN = True
 
 # from django.core.urlresolvers import reverse
 # LOGIN_URL = reverse('home')
-LOGIN_REDIRECT_URL = '/profile/dashboard'
-
+LOGIN_REDIRECT_URL = '/profile/dashboard/'
 
 # COSINNUS settings
 FORMAT_MODULE_PATH = 'cosinnus.formats'
@@ -345,7 +344,7 @@ HAYSTACK_SEARCH_RESULTS_PER_PAGE = 20
 HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
 
 # honeypot
-HONEYPOT_FIELD_NAME = 'body'
+HONEYPOT_FIELD_NAME = 'Username'
 
 # select2
 AUTO_RENDER_SELECT2_STATICS = True
