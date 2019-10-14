@@ -444,10 +444,12 @@ class EcobasaCommunityProfile(models.Model):
     network = models.BooleanField(
         _('Is this a regional network?'),
         default=False, blank=True)
+    COMMUNITY_STATUS_PLANNING = 'p'
     COMMUNITY_STATUS_STARTING = 's'
     COMMUNITY_STATUS_ESTABLISHED = 'e'
     COMMUNITY_STATUS_LAND = 'l'
     COMMUNITY_STATUS_CHOICES = (
+        (COMMUNITY_STATUS_PLANNING, _('Planning Project (finding co-founders)')),
         (COMMUNITY_STATUS_STARTING, _('Starting Project (first years)')),
         (COMMUNITY_STATUS_ESTABLISHED, _('Established (+4 years)')),
         (COMMUNITY_STATUS_LAND, _('Land Offer')),

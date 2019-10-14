@@ -367,6 +367,8 @@
           <span class="community-details">
             {% if profile.community_type = 'e' %}
               <a href="#" data-toggle="tooltip" title="Ecovillage"><i class="fa fa-home"></i></a> Ecovillage
+            {% elif profile.community_type = 'p' %}
+              <a href="#" data-toggle="tooltip" title="Planning Initiative (looking for co-founders)"><i class="fa fa-users"></i></a>Planning Initiative
             {% elif profile.community_type = 'c' %}
               <a href="#" data-toggle="tooltip" title="Established (+4 years)"><i class="fa fa-home"></i></a>Commune
             {% elif profile.community_type = 'h' %}
