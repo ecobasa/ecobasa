@@ -43,7 +43,7 @@ Fabric==1.8.3
 fabric-virtualenv==0.2.1
 gunicorn==19.7.1
 html5lib==0.9999
-paramiko==1.12.4
+paramiko==2.0.9
 Pillow==3.0.0
 piwik==0.5.1
 psycopg2==2.7.1
