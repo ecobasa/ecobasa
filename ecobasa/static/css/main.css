@@ -380,12 +380,8 @@ body#start .footer.navbar {
 }
 body#start .description {
   text-align: center;
-  height: 190px;
   background: url("../img/background.jpg");
   color: #fcf3e5;
-}
-body#start .description > .container {
-  padding-top: 2%;
 }
 body#start .description a {
   color: #fcf3e5;
@@ -396,12 +392,21 @@ body#start .description a:hover {
 }
 body#start .description h1 {
   font-size: 45px;
-  margin-bottom: 10px;
+  margin-bottom: 25px;
   color: #fcf3e5;
-  margin-top: 20px;
+  margin-top: 0px;
 }
 body#start .description p {
   font-size: 18px;
+}
+body#start .description #ecobasa_search_bar {
+  margin-bottom: 20px;
+}
+body#start .description #ecobasa_search_bar .form-control {
+  background-color: #fcf3e5;
+}
+body#start .description #ecobasa_search_bar .input-group-btn .btn:hover {
+  color: #452912;
 }
 body#start #blog_feature h1 {
   margin-top: 0px;

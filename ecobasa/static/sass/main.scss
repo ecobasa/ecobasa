@@ -439,12 +439,8 @@ body#start {
 	}
 	.description {
 		text-align: center;
-		height: 190px;
 		background: url('../img/background.jpg');
 		color: $secondary;
-		& > .container {
-			padding-top: 2%;
-		}
 		a {
 			color: $secondary;
 			&:hover {
@@ -454,12 +450,21 @@ body#start {
 		}
 		h1 {
 			font-size: 45px;
-			margin-bottom: 10px;
+			margin-bottom: 25px;
 			color: $secondary;
-			margin-top: 20px;
+			margin-top: 0px;
 		}
 		p {
 			font-size: 18px;
+		}
+		#ecobasa_search_bar {
+			margin-bottom: 20px;
+			.form-control {
+				background-color: $secondary;
+			}
+			.input-group-btn .btn:hover {
+				color: $brown;
+			}
 		}
 	}
 	#blog_feature h1 {

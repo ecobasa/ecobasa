@@ -21,7 +21,16 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12">
-        <a href="/accounts/register/">{% placeholder text %}</a>
+        <h1>{% trans "Search our global gift-economy network" %}</h1>
+        <form id="ecobasa_search_bar" action="/find/" method="GET">
+          <div class="input-group input-group-lg">
+            <input type="text" class="input-block-level search-query form-control" id="id_q" name="q" placeholder="{% trans 'What are you looking for?' %}" value="">
+            <span class="input-group-btn">
+              <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> Search</button>
+            </span>
+          </div>
+        </form>
+        <p>{% trans "You can find" %} <a href="{% url 'pioneer-list' %}">{% trans "people" %}</a>, <a href="{% url 'community-list' %}">{% trans "places" %}</a>, {% trans "products" %}, {% trans "skills" %}, {% trans "events" %}, {% trans "or posts" %}</p>
       </div>
     </div>
   </div>
