@@ -6,7 +6,7 @@ contextlib2==0.5.5
 -e git+https://git.sinnwerkstatt.com/cosinnus/cosinnus-message.git@10d2ddca591fdd68e82f92759679c0ee3e782d49#egg=cosinnus_message
 -e git+https://git.sinnwerkstatt.com/cosinnus/cosinnus-note.git@6d8e26969936536d5cb5c6900b7606579caefd29#egg=cosinnus_note
 -e git+https://git.sinnwerkstatt.com/cosinnus/cosinnus-todo.git@37cc10b7c490e58e42af5c1bcd659ea495c0b043#egg=cosinnus_todo
-Django==1.5.8
+Django==1.11.23
 django-appconf==1.0.1
 -e git://github.com/Markush2010/django-bootstrap3.git@46a84044e89937ebe6128b2a8c560f141741a70e#egg=django_bootstrap3
 django-bootstrap3-datetimepicker==2.2.3
