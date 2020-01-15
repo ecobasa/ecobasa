@@ -7,10 +7,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-10-14 12:25+0200\n"
+"POT-Creation-Date: 2020-01-15 16:18+0000\n"
 "PO-Revision-Date: 2014-11-23 18:07+0200\n"
-"Last-Translator: Sebastian Henschel <ecobasa@kodeaffe.de\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"Last-Translator: ArneBo <arne@ecobasa.org>\n"
+"Language-Team: German\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1260,7 +1260,6 @@ msgid "Is this a regional network?"
 msgstr "Ist es ein regionales Netzwerk?"
 
 #: models/profile.py:452
-#, fuzzy
 msgid "Planning Project (finding co-founders)"
 msgstr "Startendes Projekt (erste Jahre)"
 
@@ -1597,9 +1596,8 @@ msgid "images"
 msgstr "Bilder"
 
 #: templates/404.html:12
-#, fuzzy
 msgid "Not found"
-msgstr "Nicht auf der Karte"
+msgstr "Nicht gefunden"
 
 #: templates/404.html:13
 msgid ""
@@ -1640,16 +1638,52 @@ msgstr ""
 "schenken, die wir nicht an anderen Projekten mit Geldverdiehnen verschwenden "
 "müssen!"
 
-#: templates/start.html:44
+#: templates/start.html:24
+msgid "Search our global gift-economy network"
+msgstr "Durchsuche unser globales Schenkökonomie Netzwerk"
+
+#: templates/start.html:27 templates/cosinnus/topmenu.html:45
+msgid "What are you looking for?"
+msgstr "Was suchst du?"
+
+#: templates/start.html:33
+msgid "You can find"
+msgstr "Das kannst Du hier finden:"
+
+#: templates/start.html:33 templates/ecobasa/bus_list.html:38
+msgid "people"
+msgstr "Leute"
+
+#: templates/start.html:33
+msgid "places"
+msgstr "Orte"
+
+#: templates/start.html:33
+msgid "products"
+msgstr "Produkte"
+
+#: templates/start.html:33
+msgid "skills"
+msgstr "Fertigkeiten"
+
+#: templates/start.html:33
+msgid "events"
+msgstr "Veranstaltungen"
+
+#: templates/start.html:33
+msgid "or posts"
+msgstr "oder Posts"
+
+#: templates/start.html:53
 msgid "Large Map"
 msgstr "Große Karte"
 
-#: templates/start.html:111 templates/ecobasa/community_list.html:61
+#: templates/start.html:120 templates/ecobasa/community_list.html:61
 #: templates/ecobasa/community_list.html:136
 msgid "see profile"
 msgstr "Profil ansehen"
 
-#: templates/start.html:111 templates/ecobasa/community_list.html:59
+#: templates/start.html:120 templates/ecobasa/community_list.html:59
 #: templates/ecobasa/community_list.html:136
 msgid "What brings us together:"
 msgstr "Was uns zusammen bringt:"
@@ -1895,11 +1929,11 @@ msgstr "Widget hinzufügen"
 
 #: templates/cosinnus/dashboard.html:336
 msgid "Close"
-msgstr ""
+msgstr "Schliessen"
 
 #: templates/cosinnus/dashboard.html:337
 msgid "Help us cover our costs"
-msgstr ""
+msgstr "Hilf uns unsere Kosten zu decken"
 
 #: templates/cosinnus/dashboard.html:340
 msgid "Dear"
@@ -2083,10 +2117,6 @@ msgstr "Spenden"
 #: templates/cosinnus/topmenu.html:43
 msgid "Find everything you need"
 msgstr "Finde alles wonach du suchst. :)"
-
-#: templates/cosinnus/topmenu.html:45
-msgid "What are you looking for?"
-msgstr "Was suchst du?"
 
 #: templates/cosinnus/topmenu.html:63
 msgid "My Profile"
@@ -2717,10 +2747,6 @@ msgstr "Verbrauch"
 msgid "Needs a driver"
 msgstr "Braucht eine/n Fahrer/in"
 
-#: templates/ecobasa/bus_list.html:38
-msgid "people"
-msgstr "Leute"
-
 #: templates/ecobasa/bus_list.html:44
 #: templates/userprofiles/registration_member.html:118
 msgid "YES"
@@ -2851,19 +2877,17 @@ msgid "Write a Blogpost"
 msgstr "Blogge eine Nachricht"
 
 #: templates/ecobasa/caravan_form.html:6 templates/ecobasa/caravan_form.html:23
-#, fuzzy, python-format
+# python-format
 msgid "Edit Community-Tour “%(name)s”"
-msgstr "Gemeinschaft “%(name)s” bearbeiten"
+msgstr "Community-Tour “%(name)s” bearbeiten"
 
 #: templates/ecobasa/caravan_form.html:8
-#, fuzzy
 msgid "Create a Community-Tour"
-msgstr "Schließ dich einer Community-Tour an!"
+msgstr "Community-Tour anlegen"
 
 #: templates/ecobasa/caravan_form.html:25
-#, fuzzy
 msgid "Create Community-Tour"
-msgstr "Schließ dich einer Community-Tour an!"
+msgstr "Community-Tour anlegen"
 
 #: templates/ecobasa/caravan_list.html:16
 msgid "Join a Community-Tour!"
@@ -3284,7 +3308,7 @@ msgstr "%(name)s's Bewertungen"
 
 #: templates/ecobasa/support.html:32
 msgid "Flattr us"
-msgstr ""
+msgstr "Flattre uns"
 
 #: templates/ecobasa/tour_blog.html:5
 msgid "Community-Tours Blog"
@@ -3457,9 +3481,8 @@ msgid "Reply"
 msgstr "Antworten"
 
 #: templates/search/search.html:5
-#, fuzzy
 msgid "Search | ecobasa.org"
-msgstr "Schaue ecobasa.tv"
+msgstr "Durchsuche ecobasa.org"
 
 #: templates/search/search.html:10
 msgid ""
@@ -3475,7 +3498,7 @@ msgstr "Suchbegriff eingeben"
 
 #: templates/search/search.html:16
 msgid "Search"
-msgstr ""
+msgstr "Suche"
 
 #: templates/search/search.html:23
 #, python-format
@@ -3494,20 +3517,18 @@ msgid "No search term given!"
 msgstr "Kein Suchbegriff eingegeben!"
 
 #: templates/search/search.html:132
-#, fuzzy
 msgid "community"
 msgstr "Gemeinschaft"
 
 #: templates/search/search.html:136
 msgid "Task"
-msgstr ""
+msgstr "Aufgabe"
 
 #: templates/search/search.html:138
 msgid "Blog Article"
-msgstr ""
+msgstr "Blog Artikel"
 
 #: templates/search/search.html:140
-#, fuzzy
 msgid "Event"
 msgstr "Veranstaltungen"
 
@@ -3629,9 +3650,8 @@ msgid "Comune"
 msgstr "Kommune"
 
 #: templates/userprofiles/registration_community.html:32
-#, fuzzy
 msgid "Planning Initiative"
-msgstr "Transition Town Initiative"
+msgstr "Planungs Initiative"
 
 #: templates/userprofiles/registration_community.html:37
 msgid "Regional Network"
@@ -3763,7 +3783,6 @@ msgstr ""
 
 #: templates/userprofiles/registration_complete.html:17
 #: templates/userprofiles/registration_complete.html:52
-#, fuzzy
 msgid ""
 "This network is grown and maintained by its members, as we dont get many "
 "donations, we can not provide much of a service, so please contribute your "
@@ -3786,6 +3805,8 @@ msgid ""
 "As long as we don't get a free hosting, we have to pay the server costs. "
 "Thanks for your support!"
 msgstr ""
+"So lange wir das Server-Hosting nicht gesponsored bekommen, müssen wir für "
+"die Kosten aufkommen.Danke für Deine Unterstützung!"
 
 #: templates/userprofiles/registration_complete.html:28
 #: templates/userprofiles/registration_complete.html:30
@@ -3804,6 +3825,8 @@ msgid ""
 "By giving something, you are co-creating the sustainable gift-economy "
 "network!"
 msgstr ""
+"Indem Du etwas beiträgst, bringst du das nachhaltige Schenknetzwerk zum "
+"Leben!"
 
 #: templates/userprofiles/registration_complete.html:38
 #: templates/userprofiles/registration_complete.html:48
@@ -3816,20 +3839,17 @@ msgstr "Wenn du mit anderen Leuten auf "
 
 #: templates/userprofiles/registration_complete.html:44
 msgid "with other people, invite them to join this network. You can"
-msgstr ""
+msgstr "gehen willst, lade sie doch ein diesem Netzwerk beizutreten. Du kannst"
 
 #: templates/userprofiles/registration_complete.html:44
-#, fuzzy
 msgid "create a new Tour"
-msgstr "Eine neue Tour anlegen"
+msgstr "eine neue Tour anlegen"
 
 #: templates/userprofiles/registration_complete.html:44
-#, fuzzy
 msgid "and use the tools of this website to communicate, organize and network!"
 msgstr ""
-"gehen willst, dann lade sie ein sich hier anzumelden. Du kannst dann eine "
-"neue Tour anlegen und die Tools dieser Website benutzen um zu Kommunizieren, "
-"zu Organisieren und zu Netzwerken!"
+"und die Tools dieser Website benutzen um zu Kommunizieren, zu Organisieren "
+"und zu Netzwerken!"
 
 #: templates/userprofiles/registration_complete.html:45
 msgid ""
@@ -3844,10 +3864,12 @@ msgstr ""
 #: templates/userprofiles/registration_complete.html:46
 msgid "To support your new job as a pioneer of gift-economy we created"
 msgstr ""
+"Um Dich in Deinen neuen Job als Pionier der Schenkökonomie zuunterstützen, "
+"haben wir"
 
 #: templates/userprofiles/registration_complete.html:46
 msgid "this little manual."
-msgstr ""
+msgstr "dieses kleine Handbuch geschrieben."
 
 #: templates/userprofiles/registration_complete.html:46
 msgid ""
@@ -4034,9 +4056,6 @@ msgstr "Bewertung für %(pioneer)s bearbeiten"
 #~ msgid "Log In"
 #~ msgstr "Einloggen"
 
-#~ msgid "Welcome to the gift-economy network!"
-#~ msgstr "Willkommen im Schenkökonomie Netzwerk"
-
 #~ msgid "See you soon, the rest of the ecobasa team."
 #~ msgstr "Bis bald, der Rest des ecobasa Teams."
 
@@ -4075,9 +4094,6 @@ msgstr "Bewertung für %(pioneer)s bearbeiten"
 
 #~ msgid "knowledge/skills"
 #~ msgstr "Wissen/Fertigkeiten"
-
-#~ msgid "products"
-#~ msgstr "Produkte"
 
 #~ msgid "This tour doesnt have any buses, yet!"
 #~ msgstr "Es gibt noch keine Busse für diese Tour!"
@@ -4160,9 +4176,6 @@ msgstr "Bewertung für %(pioneer)s bearbeiten"
 
 #~ msgid "personal"
 #~ msgstr "Persönlich"
-
-#~ msgid "skills"
-#~ msgstr "Fertigkeiten"
 
 #~ msgid "bus"
 #~ msgstr "Bus"
