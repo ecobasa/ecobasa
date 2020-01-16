@@ -330,13 +330,15 @@ nav.navbar-sub ul li a {
   font-size: 1.1em;
 }
 #searchbar ul {
-  width: 260px;
+  width: 307px;
   padding: 10px 20px 20px;
-  margin-top: 11px;
+  margin-top: 10px;
   left: 0px;
+  border-top: 0px;
 }
 #searchbar input {
   display: inline;
+  background-color: rgba(252, 243, 229, 0.8);
 }
 #searchbar.expanded input {
   width: 125px;

@@ -38,11 +38,16 @@
       </ul>
           <ul class="nav navbar-nav navbar-right">
             <li id="searchbar" class="dropdown">
-                  <i class="fa fa-search" onclick="$('#cosinnus_search_form').submit();"></i>
+              <span class="glyphicon glyphicon-search" onclick="$('#cosinnus_search_form').submit();"></span>
               <ul class="dropdown-menu">
-                {% trans "Find everything you need" %}
+                <p>{% trans "Find everything you need" %}</p>
                 <form id="cosinnus_search_form" action="/find/" method="GET">
-                  <input class="form-control" placeholder="{% trans "What are you looking for?" %}" value="" name="q">
+                  <div class="input-group input-group">
+                    <input class="form-control" placeholder="{% trans "What are you looking for?" %}" value="" name="q">
+                    <span class="input-group-btn">
+                      <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-search" aria-hidden="true"></span> {% trans "Search" %}</button>
+                    </span>
+                  </div>
                 </form>
               </ul>
             </li>
