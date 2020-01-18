@@ -1,11 +1,11 @@
 cmsplugin-filer==0.9.5
 contextlib2==0.5.5
--e git+https://git.sinnwerkstatt.com/cosinnus/cosinnus-core.git@3be63e6d342eb726b94498ddfd66ed3f3893ff30#egg=cosinnus
--e git+https://git.sinnwerkstatt.com/cosinnus/cosinnus-etherpad.git@02f7be710b2586b854f8a674c41940d91b53c2a8#egg=cosinnus_etherpad
--e git+https://git.sinnwerkstatt.com/cosinnus/cosinnus-event.git@3040a052a255c1014779449200647d633e9f5bbb#egg=cosinnus_event
--e git+https://git.sinnwerkstatt.com/cosinnus/cosinnus-message.git@10d2ddca591fdd68e82f92759679c0ee3e782d49#egg=cosinnus_message
--e git+https://git.sinnwerkstatt.com/cosinnus/cosinnus-note.git@6d8e26969936536d5cb5c6900b7606579caefd29#egg=cosinnus_note
--e git+https://git.sinnwerkstatt.com/cosinnus/cosinnus-todo.git@37cc10b7c490e58e42af5c1bcd659ea495c0b043#egg=cosinnus_todo
+-e git+https://github.com/ecobasa/cosinnus-core.git#egg=cosinnus
+-e git+https://github.com/ecobasa/cosinnus-message.git#egg=cosinnus-message
+-e git+https://github.com/ecobasa/cosinnus-todo.git#egg=cosinnus-todo
+-e git+https://github.com/ecobasa/cosinnus-etherpad.git#egg=cosinnus-etherpad
+-e git+https://github.com/ecobasa/cosinnus-event.git@ecobasa#egg=cosinnus-event
+-e git+https://github.com/ecobasa/cosinnus-note.git#egg=cosinnus-note
 Django==1.5.8
 django-appconf==1.0.1
 -e git://github.com/Markush2010/django-bootstrap3.git@46a84044e89937ebe6128b2a8c560f141741a70e#egg=django_bootstrap3

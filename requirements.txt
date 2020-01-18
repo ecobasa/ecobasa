@@ -8,12 +8,12 @@ django-cms==2.4.3
 django-userprofiles==0.4
 easy-thumbnails==1.4
 -e git+git://github.com/Markush2010/django-bootstrap3.git@develop#egg=django-bootstrap3
--e git+https://git.sinnwerkstatt.com/cosinnus/cosinnus-core.git@ecobasa#egg=cosinnus
--e git+https://git.sinnwerkstatt.com/cosinnus/cosinnus-message.git@ecobasa#egg=cosinnus-message
--e git+https://git.sinnwerkstatt.com/cosinnus/cosinnus-todo.git@37cc10b7c490e58e42af5c1bcd659ea495c0b043#egg=cosinnus-todo
--e git+https://git.sinnwerkstatt.com/cosinnus/cosinnus-etherpad.git@ecobasa#egg=cosinnus-etherpad
--e git+https://git.sinnwerkstatt.com/cosinnus/cosinnus-event.git@3040a052a255c1014779449200647d633e9f5bbb#egg=cosinnus-event
--e git+https://git.sinnwerkstatt.com/cosinnus/cosinnus-note.git@ecobasa#egg=cosinnus-note
+-e git+https://github.com/ecobasa/cosinnus-core.git#egg=cosinnus
+-e git+https://github.com/ecobasa/cosinnus-message.git#egg=cosinnus-message
+-e git+https://github.com/ecobasa/cosinnus-todo.git#egg=cosinnus-todo
+-e git+https://github.com/ecobasa/cosinnus-etherpad.git#egg=cosinnus-etherpad
+-e git+https://github.com/ecobasa/cosinnus-event.git@ecobasa#egg=cosinnus-event
+-e git+https://github.com/ecobasa/cosinnus-note.git#egg=cosinnus-note
 -e git+git://github.com/sinnwerkstatt/django-osm-field.git@gh-pages#egg=django-osm-field
 django-sekizai==0.7
 django-suit==0.2.8
