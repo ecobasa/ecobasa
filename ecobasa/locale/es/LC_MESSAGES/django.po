@@ -3280,7 +3280,7 @@ msgstr "Añadir referencia por"
 msgid ""
 "How was the volunteers reliability, communication, social skills, efficiency?"
 msgstr ""
-"¿Cómo fue la fiabilidad de los voluntarios, la comunicación, las habilidades 
+"¿Cómo fue la fiabilidad de los voluntarios, la comunicación, las habilidades "
 "sociales, la eficiencia?"
 
 #: templates/ecobasa/pioneer_reference_form.html:41
@@ -3364,6 +3364,7 @@ msgid ""
 "\n"
 "Dear %(recipient)s,\n"
 msgstr ""
+"\n"
 "Estimado %(recipient)s,\n"
 
 #: templates/postman/email_user.txt:6

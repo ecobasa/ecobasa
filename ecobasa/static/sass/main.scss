@@ -183,9 +183,9 @@ p {
 }
 
 .gradient {
-	-webkit-box-shadow: inset 0 5px 10px -5px rgba(0,0,0,0.4);
-	-moz-box-shadow: inset 0 5px 10px -5px rgba(0,0,0,0.4);
-	box-shadow: inset 0 5px 10px -5px rgba(0,0,0,0.4);
+	-webkit-box-shadow: inset 0 5px 20px 0px rgba(0,0,0,0.4);
+	-moz-box-shadow: inset 0 5px 20px 0px rgba(0,0,0,0.4);
+	box-shadow: inset 0 5px 20px 0px rgba(0,0,0,0.4);
 	background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0%,#e5e5e5),color-stop(100%, transparent));
 	background-image: -webkit-linear-gradient(top,#e5e5e5, transparent);
 	background-image: -moz-linear-gradient(top,#e5e5e5, transparent);
@@ -469,6 +469,64 @@ body#start {
 			}
 		}
 	}
+	#explainer {
+		background: url('../img/footer2.png') no-repeat bottom;
+		padding-bottom: 300px;
+		h1 {
+			font-size: 60px;
+			margin-top: 0px;
+			margin-bottom: 30px;
+			color: $brown;
+		}
+		h2 {
+			font-size: 40px;
+		}
+		.glyphicon.startpage {
+			font-size: 80px;
+		}
+		.communities {
+			h2 {
+				color: $orange;
+			}
+			a:hover {
+				color: $orange;
+			}
+			.glyphicon.startpage {
+				color: $orange;
+			}
+		}
+		.individuals {
+			h2 {
+				color: $green;
+			}
+			a {
+				color: $green;
+				&:hover {
+					color: lighten($green, 20%);
+				}
+			}
+			.glyphicon.startpage {
+				color: $green;
+			}
+		}
+		.networks {
+			h2 {
+				color: $purple;
+			}
+			a {
+				color: $purple;
+				&:hover {
+					color: lighten($purple, 10%);
+				}
+			}
+			.glyphicon.startpage {
+				color: $purple;
+			}
+		}
+		ul li {
+			font-weight: 600;
+		}
+	}
 	#blog_feature h1 {
     margin-top: 0px;
     margin-bottom: 30px;
@@ -661,7 +719,7 @@ body#slideshow {
 #bus {
 	background: url('../img/bus.png') no-repeat center;
 	transition: 1s;
-    left: 0;
+  left: 0;
 	display: block;
 	width: 200px;
 	height: 179px;

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-01-15 16:18+0000\n"
+"POT-Creation-Date: 2020-01-17 20:27+0000\n"
 "PO-Revision-Date: 2014-11-23 18:07+0200\n"
 "Last-Translator: ArneBo <arne@ecobasa.org>\n"
 "Language-Team: German\n"
@@ -1642,9 +1642,14 @@ msgstr ""
 msgid "Search our global gift-economy network"
 msgstr "Durchsuche unser globales Schenkökonomie Netzwerk"
 
-#: templates/start.html:27 templates/cosinnus/topmenu.html:45
+#: templates/start.html:27 templates/cosinnus/topmenu.html:46
 msgid "What are you looking for?"
 msgstr "Was suchst du?"
+
+#: templates/start.html:29 templates/cosinnus/topmenu.html:48
+#: templates/search/search.html:16
+msgid "Search"
+msgstr "Suche"
 
 #: templates/start.html:33
 msgid "You can find"
@@ -1674,16 +1679,137 @@ msgstr "Veranstaltungen"
 msgid "or posts"
 msgstr "oder Posts"
 
-#: templates/start.html:53
+#: templates/start.html:42
+msgid "ecobasa is made for"
+msgstr "ecobasa ist für"
+
+#: templates/start.html:50 templates/cosinnus/topmenu.html:25
+#: templates/ecobasa/community_list.html:4
+msgid "Communities"
+msgstr "Gemeinschaften"
+
+#: templates/start.html:54
+msgid "get a public profile and use it like your website"
+msgstr "nutzt euer öffentliches Profil wie eure Webseite"
+
+#: templates/start.html:55
+msgid "communicate your needs"
+msgstr "Kommuniziert eure Bedarfe"
+
+#: templates/start.html:56
+msgid "offer your products, ressources, skills & experience"
+msgstr "bietet eure Produkte, Ressourcen, Fähigkeiten & Erfahrungen an"
+
+#: templates/start.html:57
+msgid "receive help from experts & volunteers"
+msgstr "Bekommt Hilfe von Experten & Freiwilligen"
+
+#: templates/start.html:58
+msgid "stay in contact with other communities & your volunteers"
+msgstr "Bleibt in Kontakt mit anderen Gemeinschaften & euren Freiwilligen"
+
+#: templates/start.html:59
+msgid "share your events"
+msgstr "Teilt eure Veranstaltungen"
+
+#: templates/start.html:60
+msgid "find the people you need"
+msgstr "Findet die Leute nach denen ihr sucht"
+
+#: templates/start.html:61
+msgid "use our projektmanagement tools in your community"
+msgstr "nutzt unsere Projekt-Management Tools in eurer Gemeinschaft"
+
+#: templates/start.html:63
+msgid "Messaging"
+msgstr "Nachrichten"
+
+#: templates/start.html:64
+msgid "Calender with Doodle (schedule meetings)"
+msgstr "Kalender mit Doodle (Meetings organisieren)"
+
+#: templates/start.html:65
+msgid "Etherpads (write minutes collaboratively)"
+msgstr "Etherpads (gemeinsam Protokoll schreiben)"
+
+#: templates/start.html:66
+msgid "Taskmanagement (ToDo's)"
+msgstr "Taskmanagement (ToDo's)"
+
+#: templates/start.html:67
+msgid "Discussions / Polls"
+msgstr "Diskussionen / Umfragen"
+
+#: templates/start.html:68
+msgid "Social Networking"
+msgstr "Soziales Netzwerken"
+
+#: templates/start.html:77
+msgid "Individuals"
+msgstr "Individuen"
+
+#: templates/start.html:81
+msgid "find inspiring places to visit & live in"
+msgstr "Finde inspirierende Orte zum Besuchen und Leben"
+
+#: templates/start.html:82
+msgid "experience alternative ways of living"
+msgstr "Erfahre alternative Lebensweisen"
+
+#: templates/start.html:83
+msgid "learn new skill through volunteering, workshops & skillsharing"
+msgstr "Lerne neue Fähigkeiten durch Freiwilligenarbeit, Workshops & Skillsharing"
+
+#: templates/start.html:84
+msgid "make your life more moneyless"
+msgstr "Mach dein Leben geldfreier"
+
+#: templates/start.html:85
+msgid "organize & join Community-Tours"
+msgstr "Community-Tours organisieren & sich anschliessen"
+
+#: templates/start.html:86
+msgid "find likeminded people in your area"
+msgstr "Finde Gleichgesinnte in deiner Gegend"
+
+#: templates/start.html:87
+msgid "start a new community with the people & resources you need"
+msgstr "Starte eine neue Gemeinschaft mit den Leuten & Ressourcen die du brauchst"
+
+#: templates/start.html:93
+msgid "Networking"
+msgstr "Netzwerken"
+
+#: templates/start.html:96
+msgid "set up regional networks with our project-management tools"
+msgstr "Gründe regionale Netzwerke mit unseren Projekt-Management Tools"
+
+#: templates/start.html:97
+msgid "organise convergences"
+msgstr "Organisiere Communities-Convergences"
+
+#: templates/start.html:98
+msgid "make friends & build trustful bonds"
+msgstr "mache Freunde & schaffe vertrauensvolle Verbindungen"
+
+#: templates/start.html:99
+msgid "social networking and microblogging"
+msgstr "Soziales Netzwerken & Microblogging"
+
+#: templates/start.html:100
+msgid "co-create a global gift-economy network"
+msgstr "Ko-kreiere ein globales Schenkökonomie Netzwerk"
+
+#: templates/start.html:108
 msgid "Large Map"
 msgstr "Große Karte"
 
-#: templates/start.html:120 templates/ecobasa/community_list.html:61
+#: templates/start.html:182 templates/ecobasa/community_list.html:61
 #: templates/ecobasa/community_list.html:136
 msgid "see profile"
 msgstr "Profil ansehen"
 
-#: templates/start.html:120 templates/ecobasa/community_list.html:59
+#: templates/start.html:182 templates/ecobasa/community_list.html:59
 #: templates/ecobasa/community_list.html:136
 msgid "What brings us together:"
 msgstr "Was uns zusammen bringt:"
@@ -1703,8 +1829,8 @@ msgid "Send"
 msgstr "Senden"
 
 #: templates/cosinnus/dashboard.html:5 templates/cosinnus/dashboard.html:11
-#: templates/cosinnus/footermenu.html:44 templates/cosinnus/topmenu.html:60
-#: templates/cosinnus/topmenu.html.py:126
+#: templates/cosinnus/footermenu.html:44 templates/cosinnus/topmenu.html:65
+#: templates/cosinnus/topmenu.html.py:131
 #: templates/ecobasa/community_detail.html:72
 msgid "Dashboard"
 msgstr "Dashboard"
@@ -1978,11 +2104,11 @@ msgstr "Newsletter"
 msgid "Contact"
 msgstr "Kontakt"
 
-#: templates/cosinnus/footermenu.html:30 templates/cosinnus/topmenu.html:68
+#: templates/cosinnus/footermenu.html:30 templates/cosinnus/topmenu.html:73
 msgid "My Communities"
 msgstr "Meine Gemeinschaften"
 
-#: templates/cosinnus/footermenu.html:30 templates/cosinnus/topmenu.html:68
+#: templates/cosinnus/footermenu.html:30 templates/cosinnus/topmenu.html:73
 msgid "My Community"
 msgstr "Meine Gemeinschaft"
 
@@ -1995,16 +2121,16 @@ msgstr "Alle Gemeinschaften auflisten"
 msgid "Profile"
 msgstr "Profil"
 
-#: templates/cosinnus/footermenu.html:45 templates/cosinnus/topmenu.html:87
+#: templates/cosinnus/footermenu.html:45 templates/cosinnus/topmenu.html:92
 msgid "Logout"
 msgstr "Abmelden"
 
-#: templates/cosinnus/footermenu.html:50 templates/cosinnus/topmenu.html:92
+#: templates/cosinnus/footermenu.html:50 templates/cosinnus/topmenu.html:97
 msgctxt "the verb"
 msgid "Register"
 msgstr "Registrieren"
 
-#: templates/cosinnus/footermenu.html:52 templates/cosinnus/topmenu.html:94
+#: templates/cosinnus/footermenu.html:52 templates/cosinnus/topmenu.html:99
 #: templates/cosinnus/registration/login.html:4
 #: templates/cosinnus/registration/login.html:18
 msgid "Login"
@@ -2074,10 +2200,6 @@ msgstr "Beratung"
 msgid "Team"
 msgstr "Team"
 
-#: templates/cosinnus/topmenu.html:25 templates/ecobasa/community_list.html:4
-msgid "Communities"
-msgstr "Gemeinschaften"
-
 #: templates/cosinnus/topmenu.html:26 templates/ecobasa/caravan_list.html:4
 msgid "Community-Tours"
 msgstr "Community-Tours"
@@ -2118,7 +2240,7 @@ msgstr "Spenden"
 msgid "Find everything you need"
 msgstr "Finde alles wonach du suchst. :)"
 
-#: templates/cosinnus/topmenu.html:63
+#: templates/cosinnus/topmenu.html:68
 msgid "My Profile"
 msgstr "Mein Profil"
 
@@ -2876,8 +2998,9 @@ msgstr "Blog-Nachrichten"
 msgid "Write a Blogpost"
 msgstr "Blogge eine Nachricht"
 
-#: templates/ecobasa/caravan_form.html:6 templates/ecobasa/caravan_form.html:23
 # python-format
+#: templates/ecobasa/caravan_form.html:6 templates/ecobasa/caravan_form.html:23
+#, python-format
 msgid "Edit Community-Tour “%(name)s”"
 msgstr "Community-Tour “%(name)s” bearbeiten"
 
@@ -3495,10 +3618,6 @@ msgstr ""
 #: templates/search/search.html:14
 msgid "Enter search term"
 msgstr "Suchbegriff eingeben"
-
-#: templates/search/search.html:16
-msgid "Search"
-msgstr "Suche"
 
 #: templates/search/search.html:23
 #, python-format

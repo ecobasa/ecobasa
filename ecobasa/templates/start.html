@@ -36,27 +36,91 @@
   </div>
 </div>
 <div class="gradient">
-<div class="container content" id="video">
-  <div class="row">
-    <div class="col-xs-12 col-md-6 pull-right">
-      <div class="video-responsive">
-        <iframe width="560" height="315" src="//www.youtube.com/embed/QBX0HkupHOQ" frameborder="0" allowfullscreen></iframe>
+  <div class="container content" id="explainer">
+    <div class="row">
+      <div class="col-xs-12">
+        <center><h1>{% trans "ecobasa is made for" %}</h1></center>
       </div>
     </div>
-    <div class="col-xs-12 col-md-6">{% placeholder video_text %}</div>
-  </div>
-</div>
-</div>
-<div class="gradient">
-  <div id="start-map" class="community-map-small">
-    <div class="overlay">
-      <a href="{% url 'community-list' %}"><button class="btn btn-primary btn-xxl"> <span class="glyphicon glyphicon-resize-full"></span> {% trans "Large Map" %}</button></a>
+    <div class="row">
+      <div class="col-xs-12 col-md-4 communities">
+        <center>
+          <a href="{% url 'register-community' %}">
+            <span class="glyphicon glyphicon-home startpage"></span>
+            <h2>{% trans "Communities" %}</h2>
+          </a>
+        </center>
+        <ul>
+          <li><a href="{% url 'register-community' %}">{% trans "get a public profile and use it like your website" %}</a></li>
+          <li>{% trans "communicate your needs" %}</li>
+          <li>{% trans "offer your products, ressources, skills & experience" %}</li>
+          <li>{% trans "receive help from experts & volunteers" %}</li>
+          <li>{% trans "stay in contact with other communities & your volunteers" %}</li>
+          <li>{% trans "share your events" %}</li>
+          <li><a href="{% url 'find' %}">{% trans "find the people you need" %}</a></li>
+          <li><a class="pm" href="">{% trans "use our projektmanagement tools in your community" %}<span class="glyphicon glyphicon-chevron-down pull-right"></span></a>
+            <ul id="pm-tools" class="slide hide">
+              <li>{% trans "Messaging" %}</li>
+              <li>{% trans "Calender with Doodle (schedule meetings)" %}</li>
+              <li>{% trans "Etherpads (write minutes collaboratively)" %}</li>
+              <li>{% trans "Taskmanagement (ToDo's)" %}</li>
+              <li>{% trans "Discussions / Polls" %}</li>
+              <li>{% trans "Social Networking" %}</li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="col-xs-12 col-md-4 individuals">
+        <center>
+          <a href="{% url 'register-member' %}">
+            <span class="glyphicon glyphicon-user startpage"></span>
+            <h2>{% trans "Individuals" %}</h2>
+          </a>
+        </center>
+        <ul>
+          <li><a href="{% url 'community-list' %}">{% trans "find inspiring places to visit & live in" %}</a></li>
+          <li>{% trans "experience alternative ways of living" %}</li>
+          <li>{% trans "learn new skill through volunteering, workshops & skillsharing" %}</li>
+          <li><a href="https://ecobasa.org/media/filer_public/82/c3/82c335b9-da85-4194-8fe2-3818cdb1ecfd/gift-ambassadors_community_manual_23_compressed.pdf" target="_blank">{% trans "make your life more moneyless" %}</a></li>
+          <li><a href="{% url 'pages-details-by-slug' slug='community-tours' %}">{% trans "organize & join Community-Tours" %}</a></li>
+          <li><a href="{% url 'pioneer-list' %}">{% trans "find likeminded people in your area" %}</a></li>
+          <li><a href="{% url 'register-community' %}">{% trans "start a new community with the people & resources you need" %}</a></li>
+        </ul>
+      </div>
+      <div class="col-xs-12 col-md-4 networks">
+        <center>
+          <span class="glyphicon glyphicon-globe startpage"></span>
+          <h2>{% trans "Networking" %}</h2>
+        </center>
+        <ul>
+          <li><a href="{% url 'register-community' %}">{% trans "set up regional networks with our project-management tools" %}</a></li>
+          <li><a href="{% url 'pages-details-by-slug' slug='communities-convergence' %}">{% trans "organise convergences" %}</a></li>
+          <li>{% trans "make friends & build trustful bonds" %}</li>
+          <li>{% trans "social networking & microblogging" %}</li>
+          <li><a href="{% url 'pages-details-by-slug' slug='about-the-network' %}">{% trans "co-create a global gift-economy network" %}</a></li>
+        </ul>
+      </div>
     </div>
   </div>
 </div>
+<div id="start-map" class="community-map-small">
+  <div class="overlay">
+    <a href="{% url 'community-list' %}"><button class="btn btn-primary btn-xxl"> <span class="glyphicon glyphicon-resize-full"></span> {% trans "Large Map" %}</button></a>
+  </div>
+</div>
 <div class="gradient">
-  <div class="container content" id="blog_feature">
-    <div class="row">
+  <div class="container content">
+    <div class="row" id="video">
+      <div class="col-xs-12 col-md-6 pull-right">
+        <div class="video-responsive">
+          <iframe width="560" height="315" src="//www.youtube.com/embed/QBX0HkupHOQ" frameborder="0" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        {% placeholder video_text %}
+      </div>
+    </div>
+    <div class="row" id="blog_feature">
       <div class="col-xs-12">
         {% placeholder blog %}
       </div>
@@ -64,9 +128,7 @@
     <div class="row">
       {% show_blog_posts %}
     </div>
-    </div>
   </div>
-</div>
 <div class="image">
   {% placeholder fullwith_image %}
   <div class="caption-wrapper">
@@ -119,6 +181,11 @@
     {% for l in locations %}
     StartMap.addMarker({{ l.lat|unlocalize }}, {{ l.lon|unlocalize }}, '{% if l.image %}{% thumbnail l.image 300x120 upscale crop as thumb %}<img src="{{ thumb.url }}" alt="{{ l.name }}" width="{{ thumb.width }}" /><br />{% endif %}<h5><a href="{% url 'community-detail' group=l.slug %}">{{ l.name }}</a></h5><span class="community-details"><a href="{% url 'community-detail' group=l.slug %}" data-toggle="tooltip" title="{{ l.members }} people live there"><i class="fa fa-users"></i>{{ l.members }}</a><a href="{% url 'community-detail' group=l.slug %}" data-toggle="tooltip" title="They can host up to {{ l.visitors }} people"><i class="fa fa-bed"></i>{{ l.visitors }}</a> {% if l.status = "l" %}<a href="{% url 'community-detail' group=l.slug %}" data-toggle="tooltip" title="Looking for volunteers"><i class="fa fa-hand-rock-o"></i></a>{% elif l.status = "c" %}<a href="{% url 'community-detail' group=l.slug %}" data-toggle="tooltip" title="Closed at the moment"><i class="fa fa-hand-stop-o"></i></a>{% elif l.status = "o" %}<a href="{% url 'community-detail' group=l.slug %}" data-toggle="tooltip" title="Looking for members"><i class="fa fa-user-plus"></i></a>{% endif %}</span> {% if l.text %}<span>{{ l.text|urlize|safe|truncatewords:50 }}</span> <a href="{% url 'community-detail' group=l.slug %}">{%trans "see profile" %}</a>{% elif l.text2 %}<span>{% trans "What brings us together:" %}</br>{{ l.text2|urlize|safe|truncatewords:50 }}</span> <a href="{% url 'community-detail' group=l.slug %}">{%trans "see profile" %}</a>{% endif %}');
     {% endfor %}
+    $('a.pm').click(function(ev) {
+      var slide = $(this).attr('href');
+      $('.slide.hide').removeClass('hide').addClass('show');
+      ev.preventDefault();
+    });
   });
   </script>
 {% endblock extrafooter %}
