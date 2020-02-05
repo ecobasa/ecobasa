@@ -1795,6 +1795,7 @@ body#profile.group {
 .comment.tooltip.left,
 .comment.tooltip.right {
 	position: relative;
+	z-index: 1;
 	.tooltip-inner {
 		background-color: $primary;
 		color: $secondary;

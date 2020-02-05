@@ -1641,6 +1641,7 @@ body#profile.group img.avatar.member.default {
 .comment.tooltip.left,
 .comment.tooltip.right {
   position: relative;
+  z-index: 1;
 }
 .comment.tooltip .tooltip-inner,
 .comment.tooltip.left .tooltip-inner,
