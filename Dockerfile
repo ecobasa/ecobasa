@@ -15,6 +15,10 @@ RUN pip install -r requirements.txt
 # copy our project code
 COPY ./ /opt/services/ecobasa/
 
+RUN cd /opt/services/ecobasa/ecobasa/ && \
+       /opt/services/ecobasa/manage.py compilemessages && \
+       cd -
+
 # expose the port 8000
 EXPOSE 8000
 
