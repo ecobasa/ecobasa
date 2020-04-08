@@ -6,7 +6,7 @@ git+https://github.com/ecobasa/cosinnus-todo.git#egg=cosinnus-todo
 git+https://github.com/ecobasa/cosinnus-etherpad.git#egg=cosinnus-etherpad
 git+https://github.com/ecobasa/cosinnus-event.git@ecobasa#egg=cosinnus-event
 git+https://github.com/ecobasa/cosinnus-note.git#egg=cosinnus-note
-Django==1.5.8
+Django==1.11.28
 django-appconf==1.0.1
 git+https://github.com/Markush2010/django-bootstrap3.git@46a84044e89937ebe6128b2a8c560f141741a70e#egg=django_bootstrap3
 django-bootstrap3-datetimepicker==2.2.3
