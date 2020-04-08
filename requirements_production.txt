@@ -1,14 +1,14 @@
 cmsplugin-filer==0.9.5
 contextlib2==0.5.5
--e git+https://github.com/ecobasa/cosinnus-core.git#egg=cosinnus
--e git+https://github.com/ecobasa/cosinnus-message.git#egg=cosinnus-message
--e git+https://github.com/ecobasa/cosinnus-todo.git#egg=cosinnus-todo
--e git+https://github.com/ecobasa/cosinnus-etherpad.git#egg=cosinnus-etherpad
--e git+https://github.com/ecobasa/cosinnus-event.git@ecobasa#egg=cosinnus-event
--e git+https://github.com/ecobasa/cosinnus-note.git#egg=cosinnus-note
+git+https://github.com/ecobasa/cosinnus-core.git#egg=cosinnus
+git+https://github.com/ecobasa/cosinnus-message.git#egg=cosinnus-message
+git+https://github.com/ecobasa/cosinnus-todo.git#egg=cosinnus-todo
+git+https://github.com/ecobasa/cosinnus-etherpad.git#egg=cosinnus-etherpad
+git+https://github.com/ecobasa/cosinnus-event.git@ecobasa#egg=cosinnus-event
+git+https://github.com/ecobasa/cosinnus-note.git#egg=cosinnus-note
 Django==1.5.8
 django-appconf==1.0.1
--e git://github.com/Markush2010/django-bootstrap3.git@46a84044e89937ebe6128b2a8c560f141741a70e#egg=django_bootstrap3
+git+https://github.com/Markush2010/django-bootstrap3.git@46a84044e89937ebe6128b2a8c560f141741a70e#egg=django_bootstrap3
 django-bootstrap3-datetimepicker==2.2.3
 django-classy-tags==0.6.2
 django-cms==2.4.3
@@ -21,8 +21,8 @@ django-geoposition==0.3.0
 django-haystack==2.1.0
 django-honeypot==0.4.0
 django-mptt==0.5.2
--e git://github.com/bmispelon/django-multiform.git@ccc958db8daeba6044ec18c5ff6b158bc6a3d135#egg=django_multiform
--e git://github.com/sinnwerkstatt/django-osm-field.git@81dd297034716b110441da38cb72ba26d3a51896#egg=django_osm_field
+git+https://github.com/bmispelon/django-multiform.git@ccc958db8daeba6044ec18c5ff6b158bc6a3d135#egg=django_multiform
+git+https://github.com/sinnwerkstatt/django-osm-field.git@81dd297034716b110441da38cb72ba26d3a51896#egg=django_osm_field
 django-polymorphic==0.7.2
 django-postman==3.1.0
 django-recaptcha==0.0.9
