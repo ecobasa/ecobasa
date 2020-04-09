@@ -1374,9 +1374,12 @@ body#profile .list-inline > li {
 #pioneer-map .leaflet-popup-content-wrapper .pioneer-details .text {
   text-align: justify;
   float: left;
+  margin-top: 8px;
+  color: #452912;
 }
 #pioneer-map .leaflet-popup-content-wrapper .pioneer-details ul {
   padding-left: 0px;
+  margin-bottom: 0px;
 }
 #pioneer-map .leaflet-popup-content-wrapper .pioneer-details ul li {
   list-style: none;

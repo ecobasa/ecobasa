@@ -1488,9 +1488,12 @@ body#profile {
 			.text {
 				text-align: justify;
 				float: left;
+				margin-top: 8px;
+				color: $brown;
 			}
 			ul {
 				padding-left: 0px;
+				margin-bottom: 0px;
 				li {
 					list-style: none;
 					display: inline-block;
