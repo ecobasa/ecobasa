@@ -3,6 +3,7 @@ static-collected/
 
 #sqlite
 mydatabase
+*.sql
 
 *.py[cod]
 .DS_Store
@@ -63,6 +64,8 @@ ecobasa/settings.py
 # npm and bower 
 bower_components/
 node_modules/
+package-lock.json
+*.map
 
 # search
 whoosh_index/

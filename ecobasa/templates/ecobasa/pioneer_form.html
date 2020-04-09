@@ -80,6 +80,10 @@
         {% bootstrap_field form.country %}
         {% bootstrap_field form.city %}
         {% bootstrap_field form.zipcode %}
+        {% bootstrap_field form.address show_label=False %}
+        {# hidden, but required fields #}
+        {{ form.address_lat }}
+        {{ form.address_lon }}
       </div>
             <br />
     </div>

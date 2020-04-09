@@ -324,7 +324,15 @@ class EcobasaUserProfile(BaseUserProfile):
         max_length=255, blank=True, null=True)
     zipcode = models.CharField(_('zipcode'),
         max_length=255, blank=True, null=True)
-
+    address = OSMField(_('Address'),
+        blank=True, 
+        null=True)
+    address_lat = LatitudeField(
+        blank=True, 
+        null=True)
+    address_lon = LongitudeField(
+        blank=True, 
+        null=True)
     interests = TaggableManager(_('interests'),
         through=TaggedInterest, related_name='_interest', blank=True,
         help_text=_('A comma-separated list of tags. You can type anything here. You can also chose from other users tags. Connect two words with a "-" to have one tag.'))

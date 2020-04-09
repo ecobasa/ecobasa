@@ -1475,6 +1475,32 @@ body#profile {
 
 /**************** Pioneer-List ******************/
 
+#pioneer-map {
+	.leaflet-top {
+		top: 60px !important;
+	}
+	.leaflet-popup-content-wrapper {
+		text-align: center;
+		h5 {
+			margin-top: 0px;
+		}
+		.pioneer-details {
+			.text {
+				float: left;
+			}
+			ul {
+				padding-left: 0px;
+				display: flex;
+				li {
+					list-style: none;
+					display: inline;
+					margin-right: 2px;
+				}
+			}
+		}
+	}
+}
+
 //  Added Rounded Corner Tables 
 
 $table-radius: 10px;
