@@ -1895,7 +1895,6 @@ msgid "Now you can look for the"
 msgstr "Jetzt kannst Du den"
 
 #: templates/cosinnus/dashboard.html:45
-#, fuzzy
 msgid "location"
 msgstr "Ort"
 
