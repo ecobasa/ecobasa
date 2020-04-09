@@ -1486,14 +1486,13 @@ body#profile {
 		}
 		.pioneer-details {
 			.text {
-				float: left;
+				text-align: left;
 			}
 			ul {
 				padding-left: 0px;
-				display: flex;
 				li {
 					list-style: none;
-					display: inline;
+					display: inline-block;
 					margin-right: 2px;
 				}
 			}
