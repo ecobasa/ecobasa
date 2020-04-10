@@ -470,7 +470,7 @@ body#start {
 		}
 	}
 	#explainer {
-		background: url('../img/footer2.png') no-repeat bottom;
+		background: url('../img/footer.png') no-repeat bottom;
 		padding-bottom: 300px;
 		h1 {
 			font-size: 60px;
@@ -845,9 +845,148 @@ body#note-detail {
 	section#content {
 		background: url('../img/back.jpg') repeat;
 	}
-	.sharing_buttons {
-		text-align: center;
+	.resp-sharing-button__link,
+	.resp-sharing-button__icon {
+	  display: inline-block
 	}
+
+	.resp-sharing-button__link {
+	  text-decoration: none;
+	  color: $secondary;
+	  margin: 0.5em
+	}
+
+	.resp-sharing-button {
+	  border-radius: 5px;
+	  transition: 25ms ease-out;
+	  padding: 0.5em 0.75em;
+	}
+
+	.resp-sharing-button__icon svg {
+	  width: 2em;
+	  height: 2em;
+	  margin: 0.4em;
+	  vertical-align: top
+	}
+
+	.resp-sharing-button--small svg {
+	  margin: 0;
+	  vertical-align: middle
+	}
+
+	/* Non solid icons get a stroke */
+	.resp-sharing-button__icon {
+	  stroke: #fff;
+	  fill: none
+	}
+
+	/* Solid icons get a fill */
+	.resp-sharing-button__icon--solid,
+	.resp-sharing-button__icon--solidcircle {
+	  fill: #fff;
+	  stroke: none
+	}
+
+	.resp-sharing-button {
+	  background-color: $primary;
+	}
+
+	.resp-sharing-button--twitter:hover {
+	  background-color: #2795e9
+	}
+
+	.resp-sharing-button--pinterest:hover {
+	  background-color: #8c0615
+	}
+
+	.resp-sharing-button--facebook:hover {
+	  background-color: #2d4373
+	}
+
+	.resp-sharing-button--tumblr:hover {
+	  background-color: #222d3c
+	}
+
+	.resp-sharing-button--reddit:hover {
+	  background-color: #3a80c1
+	}
+
+	.resp-sharing-button--google:hover {
+	  background-color: #c23321
+	}
+
+	.resp-sharing-button--linkedin:hover {
+	  background-color: #046293
+	}
+
+	.resp-sharing-button--email:hover {
+	  background-color: #5e5e5e
+	}
+
+	.resp-sharing-button--xing:hover {
+	  background-color: #114c4c
+	}
+
+	.resp-sharing-button--whatsapp:hover {
+	  background-color: #1da851
+	}
+
+	.resp-sharing-button--hackernews:hover, 
+	.resp-sharing-button--hackernews:focus {   
+		background-color: #FB6200 
+	}
+
+	.resp-sharing-button--vk:hover {
+	  background-color: #43648c
+	}
+
+	.resp-sharing-button--facebook:hover,
+	.resp-sharing-button--facebook:active {
+	  background-color: #2d4373;
+	  border-color: #2d4373;
+	}
+
+	.resp-sharing-button--twitter:hover,
+	.resp-sharing-button--twitter:active {
+	  background-color: #2795e9;
+	  border-color: #2795e9;
+	}
+
+	.resp-sharing-button--tumblr:hover,
+	.resp-sharing-button--tumblr:active {
+	  background-color: #222d3c;
+	  border-color: #222d3c;
+	}
+
+	.resp-sharing-button--email:hover,
+	.resp-sharing-button--email:active {
+	  background-color: #5e5e5e;
+	  border-color: #5e5e5e;
+	}
+
+	.resp-sharing-button--reddit:hover,
+	.resp-sharing-button--reddit:active {
+	  background-color: #3a80c1;
+	  border-color: #3a80c1;
+	}
+
+	.resp-sharing-button--whatsapp:hover,
+	.resp-sharing-button--whatsapp:active {
+	  background-color: #1DA851;
+	  border-color: #1DA851;
+	}
+
+	.resp-sharing-button--vk:hover
+	.resp-sharing-button--vk:active {
+	  background-color: #43648c;
+	  border-color: #43648c;
+	}
+
+	.resp-sharing-button--telegram:hover {
+	  background-color: #4B97D1;
+	}
+
+
 	#comments {
 		padding-top: 100px;
 		margin-top: -100px;
@@ -1474,6 +1613,35 @@ body#profile {
 }
 
 /**************** Pioneer-List ******************/
+
+#pioneer-map {
+	.leaflet-top {
+		top: 60px !important;
+	}
+	.leaflet-popup-content-wrapper {
+		text-align: center;
+		h5 {
+			margin-top: 0px;
+		}
+		.pioneer-details {
+			.text {
+				text-align: justify;
+				float: left;
+				margin-top: 8px;
+				color: $brown;
+			}
+			ul {
+				padding-left: 0px;
+				margin-bottom: 0px;
+				li {
+					list-style: none;
+					display: inline-block;
+					margin-right: 2px;
+				}
+			}
+		}
+	}
+}
 
 //  Added Rounded Corner Tables 
 

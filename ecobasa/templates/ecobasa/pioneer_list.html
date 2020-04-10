@@ -1,11 +1,12 @@
 {% extends "base.html" %}
-{% load i18n thumbnail static ecobasa_tags %}
+{% load i18n l10n thumbnail static ecobasa_tags ecobasa_community %}
 
 {% block page_title %}{% trans "Gift-Pioneers" %}{% endblock %}
 
 
 {% block extrahead %}
   {{ block.super }}
+  <link rel="stylesheet" href="{% static "leaflet/leaflet.css" %}" />
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.12/af-2.1.2/r-2.1.0/sc-1.4.2/datatables.min.css"/>
   <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/plug-ins/1.10.12/features/searchHighlight/dataTables.searchHighlight.css"/>
 {% endblock extrahead %}
@@ -13,108 +14,126 @@
 {% block body %}pioneers{% endblock body %}
 
 {% block content %}
-<div class="row">
-  <div class="col-xs-12">
-    <h1>{% trans "Gift-economy pioneers making the world a better place" %}</h1>
-    {% if user.is_superuser %}
-      <a class="btn btn-primary pull-right" href="{% url 'cosinnus:user-add' %}">{% trans "Add user" %}</a>
-    {% endif %}
-    
-    {% if pioneers %}
-      <table id="pioneer-list-table" class="table table-bordered table-striped table-hover table-curved dt-responsive" cellspacing="0" width="100%">
-          <thead>
-              <tr>
-                  <th>{% trans "Pioneer" %}</th>
-                  <th class="sorter-false">{% trans "About" %}</th>
-                  <th class="sorter-false">{% trans "Skills" %}</th>
-                  <th>{% trans "Ambassadors" %}</th>
-                  <th>{% trans "Bus" %}</th>
-              </tr>
-          </thead>
-          <tbody>
-          {% for pioneer in pioneers %}
-          {% with pioneer.cosinnus_profile as profile %}
-          <tr>
-            <td>
-                <a href="{% url 'pioneer-detail' username=pioneer.username %}">
-                {% if profile.avatar %}
-                  <img class="avatar media-object" src="{{ profile.avatar|thumbnail_url:"avatar_medium" }}" alt="{{ pioneer.get_full_name|default:pioneer.username }}" data-toggle="tooltip" data-placement="top" title="{{ pioneer.get_full_name|default:pioneer.username }}">
-                {% else %}
-                  <img class="avatar media-object" src="{% static "img/avatar.png" %}" alt="{{ pioneer.get_full_name|default:pioneer.username }}" data-toggle="tooltip" data-placement="top" title="{{ pioneer.get_full_name|default:pioneer.username }}">
-                {% endif %}
-                <div class="name">{{ pioneer.get_full_name|default:pioneer.username }}</div>
-                </a>
-            </td>
-            <td>
-                {{ profile.about|linebreaks|truncatewords_html:80 }}
-            </td>
-            <td>
-              {% if profile.skills.all %}
-              <ul>
-                {% for tag in profile.skills.all|slice:":8" %}
-                  <li><span class="label label-{{ skill }}">{{ tag|truncatewords_html:4 }}</span></li>
-                {% endfor %}
-              </ul>
-              {% endif %}
-            </td>
-            <td>
-              {% if pioneer.cosinnus_groups %}
-                <ul>
-                {% for group in pioneer.cosinnus_groups.all %}
-                  {% if group.profile %}
-                    {% url 'community-detail' group=group.slug as profile_url %}
-                  {% elif group.caravan %}
-                    {% url 'caravan-detail' group=group.slug as profile_url %}
-                  {% else %}
-                    {% url 'cosinnus:group-detail' group=group.slug as profile_url %}
-                  {% endif %}
-                  {% if group.pk != settings.ECOBASA_COMMUNITY_GROUP and group.pk != settings.ECOBASA_SPECIAL_COSINNUS_GROUP %}
-                  <li><a id="group" href="{{ profile_url }}">
-                    {% if group.profile %}
-                      <span class="glyphicon glyphicon-home"></span>
-                    {% elif group.caravan %}
-                      <span class="glyphicon glyphicon-road"></span>
-                    {% else %}
-                      <span class="glyphicon glyphicon-globe"></span>
-                    {% endif %}
-                    {{ group.name }}</a>
-                  </li>
-                  {% endif %}
-                {% endfor %}
-                </ul>
-              {% endif %}
-            </td>
-            <td>
-              {% if profile.has_bus %}
-                {% if profile.bus_image %}
-                    <img src="{{ profile.bus_image|thumbnail_url:"bus_medium" }}" />
-                {% else %}
-                    {% trans "Yes" %}
-                {% endif %}
-              {% else %}
-                  {% trans "No" %}
-              {% endif %}
-            </td>
-        </tr>
-        {% endwith %}
-        {% endfor %}
-        </tbody>
-      </table>
-    {% else %}
-        {% trans "There are no pioneers registered yet, " %}<a href="{% url 'register' %}">{% trans "join the tours now!" %}</a>
-    {% endif %}
+<div id="pioneer-map" class="community-map-large">
+  <div class="btn-group view-select">
+    <button type="button" class="btn btn-primary active"><span class="glyphicon glyphicon-globe"></span> {% trans "Map" %}</button>
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#pioneer-list"><span class="glyphicon glyphicon-list-alt"></span> {% trans "List" %}</button>
   </div>
 </div>
+<div class="modal fade" id="pioneer-list">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title">{% trans "Gift-economy pioneers making the world a better place" %}</h4>
+      </div>
+      <div class="modal-body">
+        {% if pioneers %}
+          <table id="pioneer-list-table" class="table table-bordered table-hover table-curved dt-responsive" cellspacing="0" width="100%">
+            <thead>
+              <tr>
+                <th>{% trans "Pioneer" %}</th>
+                <th>{% trans "Country" %}</th>
+                <th class="sorter-false">{% trans "Skills" %}</th>
+                <th class="sorter-false">{% trans "Ambassadors" %}</th>
+                <th>{% trans "Bus" %}</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for pioneer in pioneers %}
+            {% with pioneer.cosinnus_profile as profile %}
+            <tr>
+              <td>
+                  <a href="{% url 'pioneer-detail' username=pioneer.username %}">
+                  {% if profile.avatar %}
+                    <img class="avatar media-object" src="{{ profile.avatar|thumbnail_url:"avatar_medium" }}" alt="{{ pioneer.get_full_name|default:pioneer.username }}" data-toggle="tooltip" data-placement="top" title="{{ pioneer.get_full_name|default:pioneer.username }}">
+                  {% else %}
+                    <img class="avatar media-object" src="{% static "img/avatar.png" %}" alt="{{ pioneer.get_full_name|default:pioneer.username }}" data-toggle="tooltip" data-placement="top" title="{{ pioneer.get_full_name|default:pioneer.username }}">
+                  {% endif %}
+                  <div class="name">{{ pioneer.get_full_name|default:pioneer.username }}</div>
+                  </a>
+              </td>
+              <td>
+                  {{ profile.get_country_display }}
+              </td>
+              <td>
+                {% if profile.skills.all %}
+                <ul>
+                  {% for tag in profile.skills.all %}
+                    <li><span class="label label-{{ skill }}">{{ tag|truncatewords_html:4 }}</span></li>
+                  {% endfor %}
+                </ul>
+                {% endif %}
+              </td>
+              <td>
+                {% if pioneer.cosinnus_groups %}
+                  <ul>
+                  {% for group in pioneer.cosinnus_groups.all %}
+                    {% if group.profile %}
+                      {% url 'community-detail' group=group.slug as profile_url %}
+                    {% elif group.caravan %}
+                      {% url 'caravan-detail' group=group.slug as profile_url %}
+                    {% else %}
+                      {% url 'cosinnus:group-detail' group=group.slug as profile_url %}
+                    {% endif %}
+                    {% if group.pk != settings.ECOBASA_COMMUNITY_GROUP and group.pk != settings.ECOBASA_SPECIAL_COSINNUS_GROUP %}
+                    <li><a id="group" href="{{ profile_url }}">
+                      {% if group.profile %}
+                        <span class="glyphicon glyphicon-home"></span>
+                      {% elif group.caravan %}
+                        <span class="glyphicon glyphicon-road"></span>
+                      {% else %}
+                        <span class="glyphicon glyphicon-globe"></span>
+                      {% endif %}
+                      {{ group.name }}</a>
+                    </li>
+                    {% endif %}
+                  {% endfor %}
+                  </ul>
+                {% endif %}
+              </td>
+              <td>
+                {% if profile.has_bus %}
+                  {% if profile.bus_image %}
+                      <img src="{{ profile.bus_image|thumbnail_url:"bus_medium" }}" />
+                  {% else %}
+                      {% trans "Yes" %}
+                  {% endif %}
+                {% else %}
+                    {% trans "No" %}
+                {% endif %}
+              </td>
+            </tr>
+            {% endwith %}
+            {% endfor %}
+            </tbody>
+          </table>
+        {% else %}
+            {% trans "There are no pioneers registered yet, " %}<a href="{% url 'register' %}">{% trans "join the tours now!" %}</a>
+        {% endif %}
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
 {% endblock %}
 
 
 {% block extrafooter %}
   {{ block.super }}
+  <script src="{% static "leaflet/leaflet.js" %}"></script>
+  <script src="{% static "js/ecobasa_map.js" %}"></script>
+  <script type="text/javascript" src="https://stamen-maps.a.ssl.fastly.net/js/tile.stamen.js?v1.2.4"></script>
   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/v/bs/dt-1.10.12/af-2.1.2/r-2.1.0/sc-1.4.2/datatables.min.js"></script>
   <script type="text/javascript" src="//cdn.datatables.net/plug-ins/1.10.12/features/searchHighlight/dataTables.searchHighlight.min.js"></script>
   <script type="text/javascript" src="//bartaz.github.io/sandbox.js/jquery.highlight.js"></script>
   <script type="text/javascript">
+  {% get_pioneer_locations as locations %}
   $(function() {
+    PioneerMap.init('pioneer-map');
+    {% for l in locations %}
+      PioneerMap.addMarker({{ l.lat|unlocalize }}, {{ l.lon|unlocalize }}, '{% if l.image %}{% thumbnail l.image 100x100 upscale crop as thumb %}<a href="{% url 'pioneer-detail' username=l.name %}"><img class="avatar" src="{{ thumb.url }}" alt="{{ l.name }}" width="{{ thumb.width }}" /></a>{% else %}<a href="{% url 'pioneer-detail' username=l.name %}"><img class="avatar" src="{% static "img/avatar.png" %}" alt="{{ l.name }}" width="{{ thumb.width }}" /></a><br />{% endif %}<h5><a href="{% url 'pioneer-detail' username=l.name %}">{{ l.name }}</a></h5><span class="pioneer-details">{% if l.skills %}<ul>{% for tag in l.skills|slice:":12" %}<li><span class="label label-{{ skill }}">{{ tag|truncatewords_html:4 }}</span></li>{% endfor %}</ul><a href="{% url 'pioneer-detail' username=l.name %}">{%trans "more on profile" %}</a>{% endif %}{% if l.text2 %}<span class="text">{{ l.text2|urlize|safe|truncatewords:50 }}</span> </br><a href="{% url 'pioneer-detail' username=l.name %}">{%trans "see profile" %}</a>{% elif l.text %}<span class="text">{{ l.text|urlize|safe|truncatewords:50 }}</span> </br><a href="{% url 'pioneer-detail' username=l.name %}">{%trans "see profile" %}</a>{% endif %}');
+    {% endfor %}
+
     $('#pioneer-list-table').DataTable( {
       responsive: {
         details: {
@@ -132,7 +151,7 @@
       "searchHighlight": true,
       "pageLength": 10,
       "aoColumnDefs": [
-        { 'bSortable': false, 'aTargets': [ 1, 2 ] }
+        { 'bSortable': false, 'aTargets': [ 2, 3 ] }
       ]
     } );
   });

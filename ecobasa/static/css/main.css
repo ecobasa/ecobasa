@@ -1,33 +1,34 @@
+@charset "UTF-8";
 @font-face {
-  font-family: 'Bree Serif';
+  font-family: "Bree Serif";
   src: url("../fonts/breeserif-regular-webfont.eot");
   src: url("../fonts/breeserif-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/breeserif-regular-webfont.woff2") format("woff2"), url("../fonts/breeserif-regular-webfont.woff") format("woff"), url("../fonts/breeserif-regular-webfont.ttf") format("truetype"), url("../fonts/breeserif-regular-webfont.svg#bree_serifregular") format("svg");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Lato';
+  font-family: "Lato";
   src: url("../fonts/lato-regular-webfont.eot");
   src: url("../fonts/lato-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/lato-regular-webfont.woff") format("woff"), url("../fonts/lato-regular-webfont.ttf") format("truetype"), url("../fonts/lato-regular-webfont.svg#latoregular") format("svg");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Lato';
+  font-family: "Lato";
   src: url("../fonts/lato-bold-webfont.eot");
   src: url("../fonts/lato-bold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/lato-bold-webfont.woff") format("woff"), url("../fonts/lato-bold-webfont.ttf") format("truetype"), url("../fonts/lato-bold-webfont.svg#latobold") format("svg");
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
-  font-family: 'Lato';
+  font-family: "Lato";
   src: url("../fonts/lato-italic-webfont.eot");
   src: url("../fonts/lato-italic-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/lato-italic-webfont.woff") format("woff"), url("../fonts/lato-italic-webfont.ttf") format("truetype"), url("../fonts/lato-italic-webfont.svg#latoitalic") format("svg");
   font-weight: normal;
   font-style: italic;
 }
 @font-face {
-  font-family: 'Lato';
+  font-family: "Lato";
   src: url("../fonts/lato-bolditalic-webfont.eot");
   src: url("../fonts/lato-bolditalic-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/lato-bolditalic-webfont.woff") format("woff"), url("../fonts/lato-bolditalic-webfont.ttf") format("truetype"), url("../fonts/lato-bolditalic-webfont.svg#latobold_italic") format("svg");
   font-weight: bold;
@@ -37,7 +38,7 @@
 body {
   background: url("../img/back.jpg") repeat;
   background-color: #fcf3e5;
-  font-family: 'Lato';
+  font-family: "Lato";
   color: #452912;
 }
 
@@ -111,7 +112,7 @@ a:hover, a:focus {
 }
 
 h1, h2 {
-  font-family: 'Bree Serif', Courier, serif;
+  font-family: "Bree Serif", Courier, serif;
   color: #ff7800;
   margin-top: 30px;
 }
@@ -131,7 +132,7 @@ h2 {
 }
 
 h3, h4, h5, h6 {
-  font-family: 'Lato';
+  font-family: "Lato";
   font-weight: bold;
   color: #452912;
   line-height: 140%;
@@ -233,14 +234,14 @@ textarea.form-control {
 .header .navbar-brand h1, .header .navbar-brand h2 {
   color: #fcf3e5;
   font-size: 20px;
-  font-family: 'Bree Serif';
+  font-family: "Bree Serif";
   font-weight: normal;
   float: left;
   margin-top: 0px;
   margin-bottom: 0px;
 }
 .header .navbar-brand h2 {
-  font-family: "Lato",Helvetica,Arial,sans-serif;
+  font-family: "Lato", Helvetica, Arial, sans-serif;
   font-size: 16px;
 }
 
@@ -411,7 +412,7 @@ body#start .description #ecobasa_search_bar .input-group-btn .btn:hover {
   color: #452912;
 }
 body#start #explainer {
-  background: url("../img/footer2.png") no-repeat bottom;
+  background: url("../img/footer.png") no-repeat bottom;
   padding-bottom: 300px;
 }
 body#start #explainer h1 {
@@ -736,6 +737,10 @@ img.left {
   height: 100%;
 }
 
+body#note-detail {
+  /* Non solid icons get a stroke */
+  /* Solid icons get a fill */
+}
 body#note-detail .container.content {
   padding-top: 0px;
   padding-bottom: 0px;
@@ -765,8 +770,115 @@ body#note-detail section#header .carousel-inner .carousel-caption {
 body#note-detail section#content {
   background: url("../img/back.jpg") repeat;
 }
-body#note-detail .sharing_buttons {
-  text-align: center;
+body#note-detail .resp-sharing-button__link,
+body#note-detail .resp-sharing-button__icon {
+  display: inline-block;
+}
+body#note-detail .resp-sharing-button__link {
+  text-decoration: none;
+  color: #fcf3e5;
+  margin: 0.5em;
+}
+body#note-detail .resp-sharing-button {
+  border-radius: 5px;
+  transition: 25ms ease-out;
+  padding: 0.5em 0.75em;
+}
+body#note-detail .resp-sharing-button__icon svg {
+  width: 2em;
+  height: 2em;
+  margin: 0.4em;
+  vertical-align: top;
+}
+body#note-detail .resp-sharing-button--small svg {
+  margin: 0;
+  vertical-align: middle;
+}
+body#note-detail .resp-sharing-button__icon {
+  stroke: #fff;
+  fill: none;
+}
+body#note-detail .resp-sharing-button__icon--solid,
+body#note-detail .resp-sharing-button__icon--solidcircle {
+  fill: #fff;
+  stroke: none;
+}
+body#note-detail .resp-sharing-button {
+  background-color: #da6137;
+}
+body#note-detail .resp-sharing-button--twitter:hover {
+  background-color: #2795e9;
+}
+body#note-detail .resp-sharing-button--pinterest:hover {
+  background-color: #8c0615;
+}
+body#note-detail .resp-sharing-button--facebook:hover {
+  background-color: #2d4373;
+}
+body#note-detail .resp-sharing-button--tumblr:hover {
+  background-color: #222d3c;
+}
+body#note-detail .resp-sharing-button--reddit:hover {
+  background-color: #3a80c1;
+}
+body#note-detail .resp-sharing-button--google:hover {
+  background-color: #c23321;
+}
+body#note-detail .resp-sharing-button--linkedin:hover {
+  background-color: #046293;
+}
+body#note-detail .resp-sharing-button--email:hover {
+  background-color: #5e5e5e;
+}
+body#note-detail .resp-sharing-button--xing:hover {
+  background-color: #114c4c;
+}
+body#note-detail .resp-sharing-button--whatsapp:hover {
+  background-color: #1da851;
+}
+body#note-detail .resp-sharing-button--hackernews:hover,
+body#note-detail .resp-sharing-button--hackernews:focus {
+  background-color: #FB6200;
+}
+body#note-detail .resp-sharing-button--vk:hover {
+  background-color: #43648c;
+}
+body#note-detail .resp-sharing-button--facebook:hover,
+body#note-detail .resp-sharing-button--facebook:active {
+  background-color: #2d4373;
+  border-color: #2d4373;
+}
+body#note-detail .resp-sharing-button--twitter:hover,
+body#note-detail .resp-sharing-button--twitter:active {
+  background-color: #2795e9;
+  border-color: #2795e9;
+}
+body#note-detail .resp-sharing-button--tumblr:hover,
+body#note-detail .resp-sharing-button--tumblr:active {
+  background-color: #222d3c;
+  border-color: #222d3c;
+}
+body#note-detail .resp-sharing-button--email:hover,
+body#note-detail .resp-sharing-button--email:active {
+  background-color: #5e5e5e;
+  border-color: #5e5e5e;
+}
+body#note-detail .resp-sharing-button--reddit:hover,
+body#note-detail .resp-sharing-button--reddit:active {
+  background-color: #3a80c1;
+  border-color: #3a80c1;
+}
+body#note-detail .resp-sharing-button--whatsapp:hover,
+body#note-detail .resp-sharing-button--whatsapp:active {
+  background-color: #1DA851;
+  border-color: #1DA851;
+}
+body#note-detail .resp-sharing-button--vk:hover .resp-sharing-button--vk:active {
+  background-color: #43648c;
+  border-color: #43648c;
+}
+body#note-detail .resp-sharing-button--telegram:hover {
+  background-color: #4B97D1;
 }
 body#note-detail #comments {
   padding-top: 100px;
@@ -919,7 +1031,7 @@ body#communities .footer.navbar {
   border-radius: 5px;
 }
 .leaflet-popup-content h5 {
-  font-family: 'Bree Serif';
+  font-family: "Bree Serif";
   font-size: 18px;
   margin-bottom: 2px;
 }
@@ -965,7 +1077,7 @@ table#caravan-list a.community-image > img {
 }
 table#community-list-table a.name,
 table#caravan-list a.name {
-  font-family: 'Bree Serif';
+  font-family: "Bree Serif";
   font-size: 14px;
   margin-top: 10px;
   margin-bottom: 5px;
@@ -1361,6 +1473,31 @@ body#profile .list-inline > li {
 }
 
 /**************** Pioneer-List ******************/
+#pioneer-map .leaflet-top {
+  top: 60px !important;
+}
+#pioneer-map .leaflet-popup-content-wrapper {
+  text-align: center;
+}
+#pioneer-map .leaflet-popup-content-wrapper h5 {
+  margin-top: 0px;
+}
+#pioneer-map .leaflet-popup-content-wrapper .pioneer-details .text {
+  text-align: justify;
+  float: left;
+  margin-top: 8px;
+  color: #452912;
+}
+#pioneer-map .leaflet-popup-content-wrapper .pioneer-details ul {
+  padding-left: 0px;
+  margin-bottom: 0px;
+}
+#pioneer-map .leaflet-popup-content-wrapper .pioneer-details ul li {
+  list-style: none;
+  display: inline-block;
+  margin-right: 2px;
+}
+
 .table-curved {
   border-collapse: separate;
   border: solid #da6137 2px dotted;
@@ -1435,7 +1572,7 @@ table#pioneer-list-table ul li a#group span.glyphicon {
 
 /**************** Pioneer-Detail ******************/
 body#profile a:hover div.edit {
-  content: "\270f";
+  content: "✏";
 }
 body#profile a.email {
   margin-left: auto;
@@ -1548,7 +1685,7 @@ body#references span.label-danger {
 
 /**************** Bus-List ******************/
 table#bus_table a.pioneer {
-  font-family: 'Bree Serif' serif;
+  font-family: "Bree Serif" serif;
   font-size: 14px;
 }
 table#bus_table a i.fa,
@@ -1563,7 +1700,7 @@ table#bus_table .tablesorter-header i.fa {
 
 /*************** Caravan-List **************/
 table#caravan-list a.name {
-  font-family: 'Bree Serif';
+  font-family: "Bree Serif";
   font-size: 18px;
 }
 table#caravan-list .btn-group {
@@ -1572,7 +1709,7 @@ table#caravan-list .btn-group {
 
 /*************** Caravan-Detail **************/
 body#profile.group a.pioneer {
-  font-family: 'Bree Serif';
+  font-family: "Bree Serif";
   font-size: 18px;
   text-align: center;
 }
@@ -1690,7 +1827,7 @@ body.group .container.content {
 }
 
 a#group {
-  font-family: 'Bree Serif';
+  font-family: "Bree Serif";
   color: #452912;
   font-size: 18px;
 }
@@ -2045,12 +2182,12 @@ body#message ul.media-list li.media a.pioneer img.avatar {
   }
 
   body#note-detail section#header .carousel-inner,
-  body#profile.community .carousel-inner {
+body#profile.community .carousel-inner {
     height: 70px;
     top: 30%;
   }
   body#note-detail section#header .carousel-inner .carousel-caption,
-  body#profile.community .carousel-inner .carousel-caption {
+body#profile.community .carousel-inner .carousel-caption {
     display: block;
     padding-bottom: 0px;
     padding-top: 0px;
@@ -2058,7 +2195,7 @@ body#message ul.media-list li.media a.pioneer img.avatar {
     bottom: 0px;
   }
   body#note-detail section#header .carousel-inner .carousel-caption h1,
-  body#profile.community .carousel-inner .carousel-caption h1 {
+body#profile.community .carousel-inner .carousel-caption h1 {
     margin-bottom: 15px;
     font-size: 20px;
   }

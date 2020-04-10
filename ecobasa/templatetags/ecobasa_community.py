@@ -8,6 +8,9 @@ from cosinnus.models import CosinnusGroup
 from cosinnus_note.models import Note
 from ..models import EcobasaCommunityProfile
 
+from django.contrib.auth import get_user_model
+from ..models import EcobasaUserProfile
+
 register = template.Library()
 
 
@@ -32,6 +35,24 @@ def get_community_locations():
     qs = EcobasaCommunityProfile.objects.all().select_related('group')
     locations = [mkloc(c)
         for c in qs if c.contact_location_lat and c.contact_location_lon]
+    return locations
+
+@register.assignment_tag
+def get_pioneer_locations():
+    def mkloc(pioneer):
+        return {
+            'lat': pioneer.address_lat,
+            'lon': pioneer.address_lon,
+            'name': pioneer.user,
+            'image': pioneer.avatar,
+            'text': pioneer.about,
+            'text2': pioneer.world,
+            'skills': pioneer.skills.all,
+        }
+
+    qs = EcobasaUserProfile.objects.all().select_related('user')
+    locations = [mkloc(p)
+        for p in qs if p.address_lat and p.address_lon]
     return locations
 
 
