@@ -1,40 +1,25 @@
 from fabric.api import *  # noqa
-from fabvenv import virtualenv
-
-
-def staging():
-    env.hosts = ['ecobasa@server.sinnwerkstatt.com']
-    env.path = '/srv/ecobasa.sinnwerkstatt.com/ecobasa/'
-    env.virtualenv_path = '/srv/ecobasa.sinnwerkstatt.com/ecobasaenv/'
-    env.push_branch = 'master'
-    env.push_remote = 'origin'
-
 
 def production():
-    env.hosts = ['ecobasa@ecobasa.org']
-    env.path = '~/ecobasa/'
-    env.virtualenv_path = '~/.virtualenvs/ecobasa/'
+    env.hosts = ['root@strix.ecobytes.net -p666']
+    env.path = '/data/domains/ecobasa.org/src/'
     env.push_branch = 'master'
     env.push_remote = 'origin'
-
 
 def update():
     with cd(env.path):
         run("git pull %(push_remote)s %(push_branch)s" % env)
-        with virtualenv(env.virtualenv_path):
-            run("pip install -r requirements.txt")
-            run("./manage.py collectstatic --noinput")
-            run("cd ecobasa && django-admin.py compilemessages")
-
+        run("docker-compose build django")
+        run("docker-compose run --rm django ./manage.py collectstatic --noinput")
 
 def migrate():
-    with virtualenv(env.virtualenv_path):
-        run("%(path)s/manage.py syncdb" % env)
-        run("%(path)s/manage.py migrate" % env)
-
+    with cd(env.path):
+        run("docker-compose run --rm django ./manage.py syncdb")
+        run("docker-compose run --rm django ./manage.py migrate")
 
 def reload():
-        run("supervisorctl reload ecobasa")
+    with cd(env.path):
+        run("docker-compose stop django && docker-compose rm -f django && docker-compose up -d django")
 
 def deploy():
     update()
