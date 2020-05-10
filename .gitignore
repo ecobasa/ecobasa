@@ -65,7 +65,6 @@ ecobasa/settings.py
 bower_components/
 node_modules/
 package-lock.json
-*.map
 
 # search
 whoosh_index/
