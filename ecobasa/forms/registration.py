@@ -131,8 +131,11 @@ class RegistrationCommunityForm(RegistrationForm):
         profile.visitors_accommodation =\
             self.cleaned_data['visitors_accommodation']
 
+        profile.wishlist_projects = self.cleaned_data['wishlist_projects']
         profile.wishlist_materials = self.cleaned_data['wishlist_materials']
+        profile.wishlist_materials_info = self.cleaned_data['wishlist_materials_info']
         profile.wishlist_tools = self.cleaned_data['wishlist_tools']
+        profile.wishlist_tools_info = self.cleaned_data['wishlist_tools_info']
         profile.wishlist_special_needs =\
             self.cleaned_data['wishlist_special_needs']
         profile.wishlist_skills =\
