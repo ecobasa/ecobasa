@@ -23,4 +23,4 @@ RUN cd /opt/services/ecobasa/ecobasa/ && \
 EXPOSE 8000
 
 # define the default command to run when starting the container
-CMD ["gunicorn", "--bind", ":8000", "ecobasa.wsgi:application"]
+CMD ["gunicorn", "--bind", ":8000", "ecobasa.wsgi:application", "--workers 8", "--threads 8", "-t 120"]
