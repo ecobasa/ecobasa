@@ -253,7 +253,7 @@
               <h3><span class="fa fa-graduation-cap"></span> {% trans "Experts/People with the following skills" %}</h3>
               <ul>
                 {% for wishlist_skill in profile.wishlist_skills.all %}
-                <li>{{ wishlist_skill }}</li>
+                <li><span class="label label-{{ whish_skills }}">{{ wishlist_skill }}</span></li>
                 {% endfor %}
               </ul>
               {% if profile.wishlist_skill and user|is_group_admin:object %}
@@ -287,7 +287,7 @@
             {% if profile.wishlist_tools.all or profile.wishlist_tools_info or user|is_group_admin:object %}
               <h3><span class="glyphicon glyphicon-wrench"></span> {% trans "Tools" %}</h3>
             {% endif %}
-              {% if profile.wishlist_tools.all or user|is_group_admin:object %}
+            {% if profile.wishlist_tools.all or user|is_group_admin:object %}
               <ul class="list-inline">
                 {% for wishlist_tool in profile.wishlist_tools.all %}
                 <li><span class="label label-{{ whish_tool }}">{{ wishlist_tool }}</span></li>
@@ -300,11 +300,11 @@
               {% endif %}
               <h4><span class="glyphicon glyphicon-star"></span> {% trans "Additional info about tools" %}</h4>
               <p>{{ profile.wishlist_tools_info|urlize|linebreaksbr|safe }}</p>
-              {% if user|is_group_admin:object %}
+              {% if user|is_group_admin:object and not profile.wishlist_tools_info %}
                 <a href="{% url 'community-edit' group=object.slug %}#id_wishlist_tools" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add a description" %}</a>
+              {% endif %}
             {% endif %}
-            {% endif %}
-            {% if profile.wishlist_seeds.all or user|is_group_admin:object %}
+            {% if not profile.wishlist_seeds.value = None %}
               <h3><span class="glyphicon glyphicon-leaf"></span> {% trans "Seeds" %}</h3>
               <div class="table-responsive">
                 <table class="table table-striped">
@@ -324,7 +324,8 @@
                   </tbody>
                 </table>
               </div>
-              {% if user|is_group_admin:object %}
+              {% elif user|is_group_admin:object %}
+                <h3><span class="glyphicon glyphicon-leaf"></span> {% trans "Seeds" %}</h3>
                 <a href="{% url 'community-edit' group=object.slug %}#id_wishlist_seeds-0-id" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Ask for seeds" %}</a>
               {% endif %}
             {% endif %}
@@ -337,7 +338,6 @@
                 <a href="{% url 'community-edit' group=object.slug %}#id_wishlist_special_needs" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Ask for special needs" %}</a>
               {% endif %}
             {% endif %}
-          {% endif %}
           {% if member.cosinnus_profile.wishlist or user|is_group_member:object %}
             <h3><span class="fa fa-users"></span> {% trans "Personal wishes from community-members" %}</h3>
             <ul>
