@@ -4000,7 +4000,7 @@ msgstr ""
 "Dieses Netzwerk wird durch seine Mitglieder geschaffen und am Leben gehalten."
 "Da wir nicht viele Spenden bekommen, können wir auch nicht viel Service "
 "anbieten,also bitte bring dich ein mit Feedback, deinen Fähigkeiten(Design, "
-"Programmieren, Kommunikation, Netzwerken, etc..) Kontaktiere uns einfach!"
+"Programmieren, Kommunikation, Netzwerken, etc..)"
 
 #: templates/userprofiles/registration_complete.html:17
 #: templates/userprofiles/registration_complete.html:52
@@ -4013,8 +4013,8 @@ msgid ""
 "As long as we don't get a free hosting, we have to pay the server costs. "
 "Thanks for your support!"
 msgstr ""
-"So lange wir das Server-Hosting nicht gesponsored bekommen, müssen wir für "
-"die Kosten aufkommen.Danke für Deine Unterstützung!"
+"So lange wir das Server-Hosting nicht gesponsored bekommen, müssen wir alle gemeinsam "
+"die Kosten stemmen. Danke für Deine Unterstützung!"
 
 #: templates/userprofiles/registration_complete.html:28
 #: templates/userprofiles/registration_complete.html:30
@@ -4234,7 +4234,7 @@ msgstr "Bewertung für %(pioneer)s bearbeiten"
 #~ "Fähigkeiten(Design, Programmieren, Kommunikation, Netzwerken, etc..) "
 #~ "Kontaktiere uns einfach!Alternativ kannst du natürlich auch eine Spende "
 #~ "geben, sie kann auch sehr klein sein,das hilft uns die Serverkosten zu "
-#~ "bezahlen und die Seite professionell weiter zu entwickeln!Es kann keine "
+#~ "bezahlen und die Seite professionell weiter zu entwickeln! Es kann keine "
 #~ "Schenkökonomie geben ohne ein bisschen Schenkökonomie :)"
 
 #~ msgid "You are now an important part of the gift-economy network!"
@@ -4247,7 +4247,7 @@ msgstr "Bewertung für %(pioneer)s bearbeiten"
 #~ msgstr ""
 #~ "Alternativ kannst du natürlich auch eine Spende geben, sie kann auch sehr "
 #~ "klein sein,das hilft uns die Serverkosten zu bezahlen und die Seite "
-#~ "professionell weiter zu entwickeln!Es kann keine Schenkökonomie geben "
+#~ "professionell weiter zu entwickeln! Es kann keine Schenkökonomie geben "
 #~ "ohne ein bisschen Schenkökonomie :)"
 
 #~ msgid "Then we can send them the experts and resources they wish for."
