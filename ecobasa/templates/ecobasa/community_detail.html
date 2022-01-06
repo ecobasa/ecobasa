@@ -237,11 +237,11 @@
           <div class="col-xs-12">
             <h2><span class="glyphicon glyphicon-gift"></span> {% trans "Needs" %}</h2>
             {% if profile.wishlist_projects %}
-              <h3><span class="glyphicon glyphicon-home"></span> Projects/Construction Sites</h3>
+              <h3><span class="glyphicon glyphicon-home"></span> {% trans "Projects/Construction Sites" %}</h3>
               <p>{{ profile.wishlist_projects|urlize|linebreaksbr|safe }}</p>
             {% else %}
               {% if user|is_group_admin:object %}
-                <h3><span class="fa fa-building-o"></span> Projects/Construction Sites</h3>
+                <h3><span class="fa fa-building-o"></span> {% trans " Projects/Construction Sites" %}</h3>
                 {% if profile.wishlist_projects and user|is_group_admin:object %}
                   <a href="{% url 'community-edit' group=object.slug %}#id_wishlist_projects" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add more projects" %}</a>
                 {% elif user|is_group_admin:object %}
@@ -251,7 +251,7 @@
             {% endif %}
             {% if profile.wishlist_skills.all or user|is_group_admin:object%}
               <h3><span class="fa fa-graduation-cap"></span> {% trans "Experts/People with the following skills" %}</h3>
-              <ul>
+              <ul class="list-inline">
                 {% for wishlist_skill in profile.wishlist_skills.all %}
                 <li><span class="label label-{{ whish_skills }}">{{ wishlist_skill }}</span></li>
                 {% endfor %}
@@ -310,8 +310,8 @@
                 <table class="table table-striped">
                   <thead>
                     <tr>
-                      <th>Sort</th>
-                      <th>Quantity</th>
+                      <th>{% trans "Sort" %}</th>
+                      <th>{% trans "Quantity" %}</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -366,22 +366,22 @@
           <h2><span class="glyphicon glyphicon-info-sign"></span> {% trans "Visitor Info" %}</h2>
           <span class="community-details">
             {% if profile.community_type = 'e' %}
-              <a href="#" data-toggle="tooltip" title="Ecovillage"><i class="fa fa-home"></i></a> Ecovillage
+              <a href="#" data-toggle="tooltip" title="Ecovillage"><i class="fa fa-home"></i></a> {% trans "Ecovillage" %}
             {% elif profile.community_type = 'p' %}
-              <a href="#" data-toggle="tooltip" title="Planning Initiative (looking for co-founders)"><i class="fa fa-users"></i></a>Planning Initiative
+              <a href="#" data-toggle="tooltip" title="Planning Initiative (looking for co-founders)"><i class="fa fa-users"></i></a>{% trans "Planning Initiative" %}
             {% elif profile.community_type = 'c' %}
-              <a href="#" data-toggle="tooltip" title="Established (+4 years)"><i class="fa fa-home"></i></a>Commune
+              <a href="#" data-toggle="tooltip" title="Established (+4 years)"><i class="fa fa-home"></i></a>{% trans "Commune" %}
             {% elif profile.community_type = 'h' %}
-              <a href="#" data-toggle="tooltip" title="Houseproject"><i class="fa fa-home"></i></a>Houseproject
+              <a href="#" data-toggle="tooltip" title="Houseproject"><i class="fa fa-home"></i></a>{% trans "Houseproject" %}
             {% elif profile.community_type = 'f' %}
-              <a href="#" data-toggle="tooltip" title="Land Offer"><i class="fa fa-home"></i></a>Permaculture Farm
+              <a href="#" data-toggle="tooltip" title="Land Offer"><i class="fa fa-home"></i></a>{% trans "Permaculture Farm" %}
             {% endif %}
             {% if profile.community_status = 's' %}
-              <a href="#" data-toggle="tooltip" title="Starting Project (first years)"><i class="fa fa-hand-rock-o"></i></a>Starting Project (first years)
+              <a href="#" data-toggle="tooltip" title="Starting Project (first years)"><i class="fa fa-hand-rock-o"></i></a>{% trans "Starting Project (first years)" %}
             {% elif profile.community_status = 'e' %}
-              <a href="#" data-toggle="tooltip" title="Established (+4 years)"><i class="fa fa-thumbs-up"></i></a>Established (+4 years)
+              <a href="#" data-toggle="tooltip" title="Established (+4 years)"><i class="fa fa-thumbs-up"></i></a>{% trans "Established (+4 years)" %}
             {% elif profile.community_status = 'l' %}
-              <a href="#" data-toggle="tooltip" title="Land Offer"><i class="fa fa-map-marker"></i></a>Land Offer
+              <a href="#" data-toggle="tooltip" title="Land Offer"><i class="fa fa-map-marker"></i></a>{% trans "Land Offer" %}
             {% endif %}
             </span>
             <span class="community-details">
@@ -403,12 +403,12 @@
             <p>{{ profile.visitors_accommodation|urlize|linebreaksbr|safe }}</p>
           {% endif %}
           {% if profile.website %}
-            <h3><a href="{{ profile.website }}" target="_blank"><span class="glyphicon glyphicon-globe"></span> Website</a></h3>
+            <h3><a href="{{ profile.website }}" target="_blank"><span class="glyphicon glyphicon-globe"></span> {% trans "Website" %}</a></h3>
             <a href="{{ profile.website }}" target="_blank">{{ profile.website }}</a>
           {% endif %}
           <div class="contact">
             {% if user.is_authenticated and profile.contact_show %}
-              <h3>Contact info</h3>
+              <h3>{% trans "Contact info" %}</h3>
               {{ profile.contact_street }}</br>
               {{ profile.contact_zipcode }}
               {{ profile.contact_city }}</br>
@@ -509,7 +509,7 @@
                       <center>{{ reference.giver.username }}</center>
                     </a>
                   <div class="media-body">
-                    <h4 class="media-heading">{% if reference.recommend %}Positive{% else %}Negative!{% endif %}</h4>
+                    <h4 class="media-heading">{% if reference.recommend %}{% trans "Positive" %}{% else %}{% trans "Negative" %}!{% endif %}</h4>
                     <span class="details">{% trans "on" %} {{ reference.date }}{% if user.is_superuser or  reference.giver == user %} <a class="pull-right" href="{% url 'community-reference-edit' object.slug reference.pk %}"><b>{% trans "Edit" %}</b></a>{% endif %}</span>
                     <p>{{ reference.text|urlize|safe|truncatewords:25 }} <a href="{% url 'community-reference-list' object.slug %}">{% trans "read more" %}</a></p>
                   </div>
@@ -568,7 +568,7 @@
               written by <a href="{% url 'pioneer-detail' username=post.creator.get_username %}">{{ post.creator.get_full_name|default:post.creator.username }}</a> on {{ post.created }}
             </span>
             <div class="article">{{ post.text|urlize|linebreaks|safe|truncatewords_html:80 }}</div>
-            <a class="more" href="{% url 'cosinnus:note:note' group=object.slug slug=post.slug %}">read more</a>
+            <a class="more" href="{% url 'cosinnus:note:note' group=object.slug slug=post.slug %}">{% trans "read more" %}</a>
           </div>
           {% elif post.image %}
             <div class="col-xs-12 col-sm-4">
@@ -592,10 +592,10 @@
                 <h3>{{ post.title }}</h3>
               </a>
               <span class="details">
-                written by <a href="{% url 'pioneer-detail' username=post.creator.get_username %}">{{ post.creator.get_full_name|default:post.creator.username }}</a> on {{ post.created }}
+                {% trans "written by" %} <a href="{% url 'pioneer-detail' username=post.creator.get_username %}">{{ post.creator.get_full_name|default:post.creator.username }}</a> {% trans "on" %} {{ post.created }}
               </span>
               <div class="article">{{ post.text|striptags|linebreaks|safe|truncatewords_html:80 }}</div>
-              <a class="more" href="{% url 'cosinnus:note:note' group=object.slug slug=post.slug %}">read more</a>
+              <a class="more" href="{% url 'cosinnus:note:note' group=object.slug slug=post.slug %}">{% trans "read more" %}</a>
             </div>
           {% else %}
             <div class="col-xs-12">
@@ -614,10 +614,10 @@
                 <h3>{{ post.title }}</h3>
               </a>
               <span class="details">
-                written by <a href="{% url 'pioneer-detail' username=post.creator.get_username %}">{{ post.creator.get_full_name|default:post.creator.username }}</a> on {{ post.created }}
+                {% trans "written by" %} <a href="{% url 'pioneer-detail' username=post.creator.get_username %}">{{ post.creator.get_full_name|default:post.creator.username }}</a> on {{ post.created }}
               </span>
               <div class="article">{% autoescape off %}{{ post.text|urlize|linebreaks|truncatewords_html:80 }}{% endautoescape %}</div>
-              <a class="more" href="{% url 'cosinnus:note:note' group=object.slug slug=post.slug %}">read more</a>
+              <a class="more" href="{% url 'cosinnus:note:note' group=object.slug slug=post.slug %}">{% trans "read more" %}</a>
             </div>
           {% endif %}
           </div>

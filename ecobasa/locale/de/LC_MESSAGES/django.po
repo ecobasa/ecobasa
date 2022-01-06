@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-09 20:18+0200\n"
+"POT-Creation-Date: 2022-01-06 12:54+0100\n"
 "PO-Revision-Date: 2014-11-23 18:07+0200\n"
 "Last-Translator: ArneBo <arne@ecobasa.org>\n"
 "Language-Team: German\n"
@@ -1145,9 +1145,8 @@ msgid "zipcode"
 msgstr "PLZ"
 
 #: models/profile.py:327
-#, fuzzy
 msgid "Address"
-msgstr "Füge eine Ressource hinzu"
+msgstr "Adresse"
 
 #: models/profile.py:336
 msgid "interests"
@@ -1268,15 +1267,15 @@ msgstr "Ist es ein regionales Netzwerk?"
 msgid "Planning Project (finding co-founders)"
 msgstr "Startendes Projekt (erste Jahre)"
 
-#: models/profile.py:461
+#: models/profile.py:461 templates/ecobasa/community_detail.html:380
 msgid "Starting Project (first years)"
 msgstr "Startendes Projekt (erste Jahre)"
 
-#: models/profile.py:462
+#: models/profile.py:462 templates/ecobasa/community_detail.html:382
 msgid "Established (+4 years)"
 msgstr "Etabliert (+4 Jahre)"
 
-#: models/profile.py:463
+#: models/profile.py:463 templates/ecobasa/community_detail.html:384
 msgid "Land Offer"
 msgstr "Land Angebot"
 
@@ -1284,19 +1283,22 @@ msgstr "Land Angebot"
 msgid "Project status"
 msgstr "Projekt Status"
 
-#: models/profile.py:476 templates/userprofiles/registration_community.html:28
+#: models/profile.py:476 templates/ecobasa/community_detail.html:369
+#: templates/userprofiles/registration_community.html:28
 msgid "Ecovillage"
 msgstr "Ökodorf"
 
-#: models/profile.py:477
+#: models/profile.py:477 templates/ecobasa/community_detail.html:373
 msgid "Commune"
 msgstr "Kommune"
 
-#: models/profile.py:478 templates/userprofiles/registration_community.html:30
+#: models/profile.py:478 templates/ecobasa/community_detail.html:375
+#: templates/userprofiles/registration_community.html:30
 msgid "Houseproject"
 msgstr "Hausprojekt"
 
-#: models/profile.py:479 templates/userprofiles/registration_community.html:31
+#: models/profile.py:479 templates/ecobasa/community_detail.html:377
+#: templates/userprofiles/registration_community.html:31
 msgid "Permaculture Farm"
 msgstr "Permakultur Hof"
 
@@ -1684,133 +1686,132 @@ msgstr "Veranstaltungen"
 msgid "or posts"
 msgstr "oder Posts"
 
-#: templates/start.html:42
+#: templates/start.html:40
+msgid "Large Map"
+msgstr "Große Karte"
+
+#: templates/start.html:47
 msgid "ecobasa is made for"
 msgstr "ecobasa ist für"
 
-#: templates/start.html:50 templates/cosinnus/topmenu.html:25
+#: templates/start.html:55 templates/cosinnus/topmenu.html:25
 #: templates/ecobasa/community_list.html:4
 msgid "Communities"
 msgstr "Gemeinschaften"
 
-#: templates/start.html:54
+#: templates/start.html:59
 msgid "get a public profile and use it like your website"
 msgstr "nutzt euer öffentliches Profil wie eure Webseite"
 
-#: templates/start.html:55
+#: templates/start.html:60
 msgid "communicate your needs"
 msgstr "Kommuniziert eure Bedarfe"
 
-#: templates/start.html:56
+#: templates/start.html:61
 msgid "offer your products, ressources, skills & experience"
 msgstr "bietet eure Produkte, Ressourcen, Fähigkeiten & Erfahrungen an"
 
-#: templates/start.html:57
+#: templates/start.html:62
 msgid "receive help from experts & volunteers"
 msgstr "Bekommt Hilfe von Experten & Freiwilligen"
 
-#: templates/start.html:58
+#: templates/start.html:63
 msgid "stay in contact with other communities & your volunteers"
 msgstr "Bleibt in Kontakt mit anderen Gemeinschaften & euren Freiwilligen"
 
-#: templates/start.html:59
+#: templates/start.html:64
 msgid "share your events"
 msgstr "Teilt eure Veranstaltungen"
 
-#: templates/start.html:60
+#: templates/start.html:65
 msgid "find the people you need"
 msgstr "Findet die Leute nach denen ihr sucht"
 
-#: templates/start.html:61
+#: templates/start.html:66
 msgid "use our projektmanagement tools in your community"
 msgstr "nutzt unsere Projekt-Management Tools in eurer Gemeinschaft"
 
-#: templates/start.html:63
+#: templates/start.html:68
 msgid "Messaging"
 msgstr "Nachrichten"
 
-#: templates/start.html:64
+#: templates/start.html:69
 msgid "Calender with Doodle (schedule meetings)"
 msgstr "Kalender mit Doodle (Meetings organisieren)"
 
-#: templates/start.html:65
+#: templates/start.html:70
 msgid "Etherpads (write minutes collaboratively)"
 msgstr "Etherpads (gemeinsam Protokoll schreiben)"
 
-#: templates/start.html:66
+#: templates/start.html:71
 msgid "Taskmanagement (ToDo's)"
 msgstr "Taskmanagement (ToDo's)"
 
-#: templates/start.html:67
+#: templates/start.html:72
 msgid "Discussions / Polls"
 msgstr "Diskussionen / Umfragen"
 
-#: templates/start.html:68
+#: templates/start.html:73
 msgid "Social Networking"
 msgstr "Soziales Netzwerken"
 
-#: templates/start.html:77
+#: templates/start.html:82
 msgid "Individuals"
 msgstr "Individuen"
 
-#: templates/start.html:81
+#: templates/start.html:86
 msgid "find inspiring places to visit & live in"
 msgstr "Finde inspirierende Orte zum Besuchen und Leben"
 
-#: templates/start.html:82
+#: templates/start.html:87
 msgid "experience alternative ways of living"
 msgstr "Erfahre alternative Lebensweisen"
 
-#: templates/start.html:83
+#: templates/start.html:88
 msgid "learn new skill through volunteering, workshops & skillsharing"
 msgstr ""
 "Lerne neue Fähigkeiten durch Freiwilligenarbeit, Workshops & Skillsharing"
 
-#: templates/start.html:84
+#: templates/start.html:89
 msgid "make your life more moneyless"
 msgstr "Mach dein Leben geldfreier"
 
-#: templates/start.html:85
+#: templates/start.html:90
 msgid "organize & join Community-Tours"
 msgstr "Community-Tours organisieren & sich anschliessen"
 
-#: templates/start.html:86
+#: templates/start.html:91
 msgid "find likeminded people in your area"
 msgstr "Finde Gleichgesinnte in deiner Gegend"
 
-#: templates/start.html:87
+#: templates/start.html:92
 msgid "start a new community with the people & resources you need"
 msgstr ""
 "Starte eine neue Gemeinschaft mit den Leuten & Ressourcen die du brauchst"
 
-#: templates/start.html:93
+#: templates/start.html:98
 msgid "Networking"
 msgstr "Netzwerken"
 
-#: templates/start.html:96
+#: templates/start.html:101
 msgid "set up regional networks with our project-management tools"
 msgstr "Gründe regionale Netzwerke mit unseren Projekt-Management Tools"
 
-#: templates/start.html:97
+#: templates/start.html:102
 msgid "organise convergences"
 msgstr "Organisiere Communities-Convergences"
 
-#: templates/start.html:98
+#: templates/start.html:103
 msgid "make friends & build trustful bonds"
 msgstr "mache Freunde & schaffe vertrauensvolle Verbindungen"
 
-#: templates/start.html:99
-#, fuzzy
+#: templates/start.html:104
 msgid "social networking & microblogging"
 msgstr "Soziales Netzwerken & Microblogging"
 
-#: templates/start.html:100
+#: templates/start.html:105
 msgid "co-create a global gift-economy network"
 msgstr "Ko-kreiere ein globales Schenkökonomie Netzwerk"
-
-#: templates/start.html:108
-msgid "Large Map"
-msgstr "Große Karte"
 
 #: templates/start.html:182 templates/ecobasa/community_list.html:61
 #: templates/ecobasa/community_list.html:136
@@ -1886,9 +1887,8 @@ msgstr ""
 "und zu diesem Netzwerk aufzubauen"
 
 #: templates/cosinnus/dashboard.html:44
-#, fuzzy
 msgid "Do you want to be found on the map?"
-msgstr "Wenn du mit anderen Leuten auf "
+msgstr "Willst du auf der Karte gefunden werden?"
 
 #: templates/cosinnus/dashboard.html:45
 msgid "Now you can look for the"
@@ -2045,6 +2045,9 @@ msgstr "Genehmigen"
 #: templates/cosinnus/dashboard.html:265
 #: templates/cosinnus/userprofile_detail.html:218
 #: templates/ecobasa/community_detail.html:514
+#: templates/ecobasa/community_detail.html:571
+#: templates/ecobasa/community_detail.html:598
+#: templates/ecobasa/community_detail.html:620
 #: templates/ecobasa/pioneer_detail.html:245
 msgid "read more"
 msgstr "Lese mehr"
@@ -2404,6 +2407,7 @@ msgstr "Gruppen"
 
 #: templates/cosinnus/userprofile_detail.html:217
 #: templates/ecobasa/community_detail.html:513
+#: templates/ecobasa/community_detail.html:595
 #: templates/ecobasa/pioneer_detail.html:244
 msgid "on"
 msgstr "am"
@@ -3161,6 +3165,14 @@ msgstr "Werkstätten / Arbeitsplätze"
 msgid "Needs"
 msgstr "Bedürfnisse"
 
+#: templates/ecobasa/community_detail.html:240
+msgid "Projects/Construction Sites"
+msgstr "Projekte/Baustellen"
+
+#: templates/ecobasa/community_detail.html:244
+msgid " Projects/Construction Sites"
+msgstr "Projekte/Baustellen"
+
 #: templates/ecobasa/community_detail.html:246
 msgid "Add more projects"
 msgstr "Füge mehr Projekte hinzu"
@@ -3206,24 +3218,33 @@ msgid "Additional info about tools"
 msgstr "Zusätzliche Info zu Werkzeugen"
 
 #: templates/ecobasa/community_detail.html:308
+#: templates/ecobasa/community_detail.html:328
 #: templates/ecobasa/community_form.html:186
 #: templates/userprofiles/registration_community.html:268
 msgid "Seeds"
 msgstr "Saatgut"
 
-#: templates/ecobasa/community_detail.html:328
+#: templates/ecobasa/community_detail.html:313
+msgid "Sort"
+msgstr "Sorte"
+
+#: templates/ecobasa/community_detail.html:314
+msgid "Quantity"
+msgstr "Menge"
+
+#: templates/ecobasa/community_detail.html:329
 msgid "Ask for seeds"
 msgstr "Frag nach Saatgut"
 
-#: templates/ecobasa/community_detail.html:332
+#: templates/ecobasa/community_detail.html:333
 msgid "Special Needs"
 msgstr "Spezielle Bedürfnisse"
 
-#: templates/ecobasa/community_detail.html:335
+#: templates/ecobasa/community_detail.html:336
 msgid "Ask for more special needs"
 msgstr "Frage nach mehr speziellen Bedürfnissen"
 
-#: templates/ecobasa/community_detail.html:337
+#: templates/ecobasa/community_detail.html:338
 msgid "Ask for special needs"
 msgstr "Frage nach speziellen Bedürfnissen"
 
@@ -3239,13 +3260,34 @@ msgstr "Füge deinem Profil Wünsche hinzu"
 msgid "Visitor Info"
 msgstr "Besucher Information"
 
+#: templates/ecobasa/community_detail.html:371
+#: templates/userprofiles/registration_community.html:32
+msgid "Planning Initiative"
+msgstr "Planungs Initiative"
+
 #: templates/ecobasa/community_detail.html:402
 msgid "Accomodation for guests"
 msgstr "Unterkunft für Gäste"
 
+#: templates/ecobasa/community_detail.html:406
+msgid "Website"
+msgstr "Webseite"
+
+#: templates/ecobasa/community_detail.html:411
+msgid "Contact info"
+msgstr "Kontakt-Info"
+
 #: templates/ecobasa/community_detail.html:418
 msgid "Contact this community"
 msgstr "Kontaktiere diese Gemeinschaft"
+
+#: templates/ecobasa/community_detail.html:512
+msgid "Positive"
+msgstr "Positiv"
+
+#: templates/ecobasa/community_detail.html:512
+msgid "Negative"
+msgstr "Negativ"
 
 #: templates/ecobasa/community_detail.html:520
 msgid "See all References"
@@ -3254,6 +3296,11 @@ msgstr "Alle Bewertungen anzeigen"
 #: templates/ecobasa/community_detail.html:522
 msgid "There are no references for this community yet"
 msgstr "Es gibt noch keine Bewertungen für diese Gemeinschaft!"
+
+#: templates/ecobasa/community_detail.html:595
+#: templates/ecobasa/community_detail.html:617
+msgid "written by"
+msgstr "geschrieben von"
 
 #: templates/ecobasa/community_form.html:5
 #: templates/ecobasa/community_form.html:17
@@ -3453,9 +3500,8 @@ msgid "join the tours now!"
 msgstr "melde dich jetzt an!"
 
 #: templates/ecobasa/pioneer_list.html:134
-#, fuzzy
 msgid "more on profile"
-msgstr "Profil ansehen"
+msgstr "mehr auf dem Profil"
 
 #: templates/ecobasa/pioneer_reference_form.html:21
 msgid "Add a reference for"
@@ -3814,10 +3860,6 @@ msgstr "Bekomme ein Profil für deine"
 #: templates/userprofiles/registration_community.html:29
 msgid "Comune"
 msgstr "Kommune"
-
-#: templates/userprofiles/registration_community.html:32
-msgid "Planning Initiative"
-msgstr "Planungs Initiative"
 
 #: templates/userprofiles/registration_community.html:37
 msgid "Regional Network"
@@ -4330,9 +4372,6 @@ msgstr "Bewertung für %(pioneer)s bearbeiten"
 
 #~ msgid "Join as your communities gift-economy ambassador"
 #~ msgstr "Als Schenkökonomie Botschafter für deine Gemeinschaft anmelden"
-
-#~ msgid "contact info"
-#~ msgstr "Kontakt-Info"
 
 #~ msgid "offers"
 #~ msgstr "Angebote"
