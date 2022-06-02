@@ -42,7 +42,7 @@ etherpad-lite==0.2.1
 Fabric==1.8.3
 fabric-virtualenv==0.2.1
 gunicorn==19.7.1
-html5lib==0.9999
+html5lib==0.99999999
 paramiko==1.12.4
 Pillow==3.0.0
 piwik==0.5.1

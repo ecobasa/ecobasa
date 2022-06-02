@@ -41,5 +41,5 @@ django-postman==3.1.0
 django-extra-views==0.7.1
 django-classy-tags==0.6.2
 requests==2.8.0	
-html5lib==0.9999
+html5lib==0.99999999
 django-settings-export
