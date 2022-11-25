@@ -22,8 +22,15 @@
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-        <h4>{% trans "No Face" %}</h4>
-        {% trans "You don't have a picture of yourself in your profile!" %} <a href="{% url 'pioneer-edit' username=user.username %}" class="alert-link">{% trans "Add one now." %}</a>
+        <div class="row">
+          <div class="col-lg-1 col-xs-3">
+            <span class="glyphicon glyphicon-user fa-5x"></span>
+          </div>
+          <div class="col-lg-10 col-xs-8">
+            <h4>{% trans "No Face" %}</h4>
+            {% trans "You don't have a picture of yourself in your profile! As we want to encourage unconditional gift-economy interactions, which are based on trust, it helps to show your face, to write a bit about yourself and to be as unanonymous as possible" %} <a href="{% url 'pioneer-edit' username=user.username %}" class="alert-link">{% trans "Add a picture now." %}</a>
+          </div>
+        </div>
       </div>
     {% endif %}
     {% if not user.first_name or not user.last_name %}

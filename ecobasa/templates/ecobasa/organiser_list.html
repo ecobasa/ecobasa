@@ -17,38 +17,73 @@
     <h1>{% trans "The ecobasa team" %}</h1>
   </div>
 </div>
-    {% if object_list %}
-    <div class="row">
-      <div class="col-xs-12">
-        <ul class="media-list">
-            {% for organiser in object_list %}
-            {% with organiser.cosinnus_group_membership.user as cgm_user %}
-              <li class="media">
-                <div class="col-xs-12 col-md-3">
-                <a href="{% url 'pioneer-detail' username=cgm_user.username %}">
-                  {% if cgm_user.cosinnus_profile.avatar %}
-                    <img class="avatar" src="{{ cgm_user.cosinnus_profile.avatar|thumbnail_url:"avatar_large" }}">
-                  {% else %}
-                    <img class="avatar" src="{% static "img/avatar.png" %}" alt="{{ cgm_user.get_full_name|default:cgm_user.username }}" data-toggle="tooltip" data-placement="top" title="{{ cgm_user.get_full_name|default:cgm_user.username }}">
-                  {% endif %}
-                </a>
-                </div>
-                <div class="col-xs-12 col-md-9">
-                  <h2 class="media-heading">{{ cgm_user.username }} <span class="role">{{ organiser.title }}</span></h2>
-                  <p>
-                    {{ organiser.description|urlize|linebreaksbr|safe }}
-                  </p>
-                </div>
-              </li>
-            {% endwith %}
-            {% endfor %}
-          </ul>
-        </div>
+{% if object_list %}
+<div class="row">
+  <div class="col-xs-12">
+    <ul class="media-list">
+        {% for organiser in object_list %}
+        {% with organiser.cosinnus_group_membership.user as cgm_user %}
+          <li class="media">
+            <div class="col-xs-12 col-md-3">
+            <a href="{% url 'pioneer-detail' username=cgm_user.username %}">
+              {% if cgm_user.cosinnus_profile.avatar %}
+                <img class="avatar" src="{{ cgm_user.cosinnus_profile.avatar|thumbnail_url:"avatar_large" }}">
+              {% else %}
+                <img class="avatar" src="{% static "img/avatar.png" %}" alt="{{ cgm_user.get_full_name|default:cgm_user.username }}" data-toggle="tooltip" data-placement="top" title="{{ cgm_user.get_full_name|default:cgm_user.username }}">
+              {% endif %}
+            </a>
+            </div>
+            <div class="col-xs-12 col-md-9">
+              <h2 class="media-heading">{{ cgm_user.username }} <span class="role">{{ organiser.title }}</span></h2>
+              <p>
+                {{ organiser.description|urlize|linebreaksbr|safe }}
+              </p>
+            </div>
+          </li>
+        {% endwith %}
+        {% endfor %}
+      </ul>
     </div>
-    {% else %}
-      {% trans "There are no organisers registered yet, " %}<a href="{% url 'register' %}">{% trans "join now!" %}</a>
-      </div>
-    {% endif %}
+</div>
+{% else %}
+  {% trans "There are no organisers registered yet, " %}<a href="{% url 'register' %}">{% trans "join now!" %}</a>
+{% endif %}
+<div class="row">
+  <div class="col-xs-12">
+    <ul class="media-list">
+      <li class="media">
+        <div class="col-xs-12 col-md-3">
+          <a href="/contact">
+            {% if user.cosinnus_profile.avatar %}
+              <img class="avatar" src="{{ user.cosinnus_profile.avatar|thumbnail_url:"avatar_large" }}">
+            {% else %}
+              <img class="avatar" src="{% static "img/avatar.png" %}" alt="{{ user.get_full_name|default:user.username }}" data-toggle="tooltip" data-placement="top" title="{{ user.get_full_name|default:user.username }}">
+            {% endif %}
+          </a>
+        </div>
+        <div class="col-xs-12 col-md-9">
+          <a href="/contact">
+            <h2 class="media-heading">{% trans "YOU?" %} <span class="role">{% trans "Define your role" %}</span></h2>
+          </a>
+          <p>
+            {% trans "We are very happy to hear from you, if you want to join the team! We are self-organised using Sociocracy 3.0, so you have a lot of freedom, but it helps a lot, to be self-responsible. You can read more about our values" %} <a href="/about-the-network/">{% trans "here" %}.</a> {% trans "Just send us" %} <a href="/contact">{% trans "a motivational message." %}</a> 
+          </p>
+          <p>{% trans "We need help with:" %}</p>
+            <ul>
+              <li>{% trans "Backend programming (Django, your choices)" %}</li>
+              <li>{% trans "Frontend programming (Your choice)" %}</li>
+              <li>{% trans "Design, UX" %}</li>
+              <li>{% trans "Social Media" %}</li>
+              <li>{% trans "Correspondance with members by e-mail and written letters" %}</li>
+              <li>{% trans "Organizing and hosting events" %}</li>
+              <li>{% trans "Volunteer Management" %}</li>
+              <li>{% trans "Fundraising" %}</li>
+            </ul>
+          </p>
+        </div>             
+      </li>
+    </ul>
+  </div>
 </div>
 {% endblock %}
 
