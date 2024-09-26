@@ -128,26 +128,32 @@
         </a>
         <div class="media-body">
           <span class="details">
-            <p><i>"{{ reference.text|urlize|safe|truncatewords:25 }}"</i></p>
+            <p><i>"{{ reference.text|urlize|safe|truncatewords:25 }}"
+                {% if reference.receiver_pioneer %}
+                <a href="{% url 'pioneer-reference-list' reference.receiver_pioneer.username %}">{% trans "read more" %}</a></i>
+                {% else %}
+                <a href="{% url 'community-reference-list' reference.receiver_community.slug %}">{% trans "read more" %}</a></i>
+                {% endif %}
+            </p>
 
             {% if reference.products.all or reference.services.all or reference.skills.all %}
             <b>{% trans "Received gifts" %}</b>
               <ul class="list-inline">
 
                 {% if reference.products.all %}
-                  {% for tag_name in reference.products.all %}
+                {% for tag_name in reference.products.all|slice:":1" %}
                     <li><span class="label label-product">{{ tag_name }}</span></li>
                   {% endfor %}
                 {% endif %}
 
                 {% if reference.services.all %}
-                  {% for tag_name in reference.services.all %}
+                  {% for tag_name in reference.services.all|slice:":1" %}
                     <li><span class="label label-product">{{ tag_name }}</span></li>
                   {% endfor %}
                 {% endif %}
 
                 {% if reference.skills.all %}
-                  {% for tag_name in reference.skills.all %}
+                  {% for tag_name in reference.skills.all|slice:":1" %}
                     <li><span class="label label-product">{{ tag_name }}</span></li>
                   {% endfor %}
                 {% endif %}
@@ -157,12 +163,10 @@
             <i>
             {% trans "written for" %}
             {% if reference.receiver_pioneer %}
-            <a href="{% url 'pioneer-detail' reference.receiver_pioneer.username %}">
-              {{ reference.receiver_pioneer.username }}
-            </a>
+              <a href="{% url 'pioneer-detail' reference.receiver_pioneer.username %}"><span class="glyphicon glyphicon-user"></span> {{ reference.receiver_pioneer.username }}</a>
             {% endif %}
-            {% if reference.community %}
-              <span class="label label-community">{{ reference.receiver_community }}</span>
+            {% if reference.receiver_community %}
+              <a href="{% url 'community-detail' reference.receiver_community.slug %}"><span class="glyphicon glyphicon-home"></span> {{ reference.receiver_community }}</span></a>
             {% endif %}
             {% trans "on" %} {{ reference.date }}
             </i>
