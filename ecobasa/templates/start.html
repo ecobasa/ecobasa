@@ -110,6 +110,67 @@
     </div>
   </div>
 </div>
+{% block references %}
+<div class="container">
+  <h2>{% trans "Experiences people made in the gift-network" %}</h2>
+  <div class="row">
+    {% get_random_references as references %}
+    {% for reference in references %}
+      <div class="col-md-4">
+        <div class="media reference">
+        <a class="pull-left" href="{% url 'pioneer-detail' reference.giver.username %}">
+          {% if reference.giver.cosinnus_profile.avatar %}
+            <img class="avatar media-object" src="{{ reference.giver.cosinnus_profile.avatar|thumbnail_url:"avatar_medium" }}" />
+          {% else %}
+            <img class="avatar media-object" src="{% static "img/avatar.png" %}" width="64px">
+          {% endif %}
+          <center>{{ reference.giver }}</center>
+        </a>
+        <div class="media-body">
+          <span class="details">
+            <p><i>"{{ reference.text }}"</i></p>
+            {% trans "received" %}
+
+            {% if reference.products.all or reference.services.all or reference.skills.all %}
+              <ul class="list-inline">
+
+                {% if reference.products.all %}
+                  {% for tag_name in reference.products.all %}
+                    <li><span class="label label-product">{{ tag_name }}</span></li>
+                  {% endfor %}
+                {% endif %}
+
+                {% if reference.services.all %}
+                  {% for tag_name in reference.services.all %}
+                    <li><span class="label label-product">{{ tag_name }}</span></li>
+                  {% endfor %}
+                {% endif %}
+
+                {% if reference.skills.all %}
+                  {% for tag_name in reference.skills.all %}
+                    <li><span class="label label-product">{{ tag_name }}</span></li>
+                  {% endfor %}
+                {% endif %}
+              </ul>
+            {% endif %}
+
+            {% trans "from" %}
+            <a href="{% url 'pioneer-detail' reference.receiver_pioneer.username %}">
+              {{ reference.receiver_pioneer.username }}
+            </a>
+            {% if reference.community %}
+              <span class="label label-community">{{ reference.receiver_community }}</span>
+            {% endif %}
+            <p>{% trans "written on" %} {{ reference.date }}
+            </p>
+          </span>
+        </div>
+      </div>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}
 <div class="gradient">
   <div class="container content">
     <div class="row" id="video">
