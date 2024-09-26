@@ -155,9 +155,11 @@
             {% endif %}
 
             {% trans "from" %}
+            {% if reference.receiver_pioneer %}
             <a href="{% url 'pioneer-detail' reference.receiver_pioneer.username %}">
               {{ reference.receiver_pioneer.username }}
             </a>
+            {% endif %}
             {% if reference.community %}
               <span class="label label-community">{{ reference.receiver_community }}</span>
             {% endif %}
