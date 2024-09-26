@@ -5,7 +5,7 @@
 
 {% block extrahead %}
 {{ block.super }}
-<link rel="stylesheet" href="{% static "leaflet/leaflet.css" %}" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.12/af-2.1.2/r-2.1.0/sc-1.4.2/datatables.min.css"/>
 <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/plug-ins/1.10.12/features/searchHighlight/dataTables.searchHighlight.css"/>
 {% endblock %}
@@ -80,7 +80,7 @@
       <a href="{% url 'register' %}"><span class="glyphicon glyphicon-pencil"></span>{% trans "Sign up" %}</a>{% trans "and add one now." %}
   {% endif %}
 {% endif %}
-  
+
 {% endblock %}
 
 {% block extrafooter %}

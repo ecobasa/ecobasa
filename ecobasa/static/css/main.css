@@ -1,34 +1,33 @@
-@charset "UTF-8";
 @font-face {
-  font-family: "Bree Serif";
+  font-family: 'Bree Serif';
   src: url("../fonts/breeserif-regular-webfont.eot");
   src: url("../fonts/breeserif-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/breeserif-regular-webfont.woff2") format("woff2"), url("../fonts/breeserif-regular-webfont.woff") format("woff"), url("../fonts/breeserif-regular-webfont.ttf") format("truetype"), url("../fonts/breeserif-regular-webfont.svg#bree_serifregular") format("svg");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: "Lato";
+  font-family: 'Lato';
   src: url("../fonts/lato-regular-webfont.eot");
   src: url("../fonts/lato-regular-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/lato-regular-webfont.woff") format("woff"), url("../fonts/lato-regular-webfont.ttf") format("truetype"), url("../fonts/lato-regular-webfont.svg#latoregular") format("svg");
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: "Lato";
+  font-family: 'Lato';
   src: url("../fonts/lato-bold-webfont.eot");
   src: url("../fonts/lato-bold-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/lato-bold-webfont.woff") format("woff"), url("../fonts/lato-bold-webfont.ttf") format("truetype"), url("../fonts/lato-bold-webfont.svg#latobold") format("svg");
   font-weight: bold;
   font-style: normal;
 }
 @font-face {
-  font-family: "Lato";
+  font-family: 'Lato';
   src: url("../fonts/lato-italic-webfont.eot");
   src: url("../fonts/lato-italic-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/lato-italic-webfont.woff") format("woff"), url("../fonts/lato-italic-webfont.ttf") format("truetype"), url("../fonts/lato-italic-webfont.svg#latoitalic") format("svg");
   font-weight: normal;
   font-style: italic;
 }
 @font-face {
-  font-family: "Lato";
+  font-family: 'Lato';
   src: url("../fonts/lato-bolditalic-webfont.eot");
   src: url("../fonts/lato-bolditalic-webfont.eot?#iefix") format("embedded-opentype"), url("../fonts/lato-bolditalic-webfont.woff") format("woff"), url("../fonts/lato-bolditalic-webfont.ttf") format("truetype"), url("../fonts/lato-bolditalic-webfont.svg#latobold_italic") format("svg");
   font-weight: bold;
@@ -38,7 +37,7 @@
 body {
   background: url("../img/back.jpg") repeat;
   background-color: #fcf3e5;
-  font-family: "Lato";
+  font-family: 'Lato';
   color: #452912;
 }
 
@@ -112,7 +111,7 @@ a:hover, a:focus {
 }
 
 h1, h2 {
-  font-family: "Bree Serif", Courier, serif;
+  font-family: 'Bree Serif', Courier, serif;
   color: #ff7800;
   margin-top: 30px;
 }
@@ -132,7 +131,7 @@ h2 {
 }
 
 h3, h4, h5, h6 {
-  font-family: "Lato";
+  font-family: 'Lato';
   font-weight: bold;
   color: #452912;
   line-height: 140%;
@@ -234,17 +233,23 @@ textarea.form-control {
 .header .navbar-brand h1, .header .navbar-brand h2 {
   color: #fcf3e5;
   font-size: 20px;
-  font-family: "Bree Serif";
+  font-family: 'Bree Serif';
   font-weight: normal;
   float: left;
   margin-top: 0px;
   margin-bottom: 0px;
 }
 .header .navbar-brand h2 {
-  font-family: "Lato", Helvetica, Arial, sans-serif;
+  font-family: "Lato",Helvetica,Arial,sans-serif;
   font-size: 16px;
 }
 
+.navbar-default .navbar-toggle {
+  border-color: #fcf3e5;
+}
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #fcf3e5;
+}
 .navbar-default .navbar-brand h1 {
   margin-right: 15px;
 }
@@ -375,7 +380,7 @@ body#start .overlay {
   position: absolute;
   top: 20px;
   right: 20px;
-  z-index: 1;
+  z-index: 401;
 }
 body#start .footer.navbar {
   position: relative;
@@ -410,6 +415,37 @@ body#start .description #ecobasa_search_bar .form-control {
 }
 body#start .description #ecobasa_search_bar .input-group-btn .btn:hover {
   color: #452912;
+}
+body#start .reference {
+  background: red;
+}
+body#start .reference.media {
+  padding: 20px;
+  border: 2px dotted #da6137;
+  border-radius: 5px;
+}
+body#start .reference.media:last-child {
+  margin-bottom: 10px;
+}
+body#start .reference.media span.details {
+  margin-bottom: 10px;
+}
+body#start .reference.media span.details > a {
+  color: #80143b;
+}
+body#start .reference.media span.details > a:hover {
+  color: #da6137;
+}
+body#start .reference .negative {
+  background: rgba(180, 80, 44, 0.5);
+  color: #fcf3e5;
+  border: 2px dotted #da6137;
+  border-radius: 10px;
+}
+body#start .reference img.avatar {
+  width: 64px;
+  border: 2px dotted #da6137;
+  border-image: url("../img/flower.png") no-repeat bottom;
 }
 body#start #explainer {
   background: url("../img/footer.png") no-repeat bottom;
@@ -873,7 +909,8 @@ body#note-detail .resp-sharing-button--whatsapp:active {
   background-color: #1DA851;
   border-color: #1DA851;
 }
-body#note-detail .resp-sharing-button--vk:hover .resp-sharing-button--vk:active {
+body#note-detail .resp-sharing-button--vk:hover
+.resp-sharing-button--vk:active {
   background-color: #43648c;
   border-color: #43648c;
 }
@@ -966,9 +1003,6 @@ body#note-list .container.content {
 }
 
 /***************Communities**************/
-/*#community-map {
-	z-index: 0;
-}*/
 .community-map-small {
   height: 300px;
 }
@@ -983,6 +1017,7 @@ body#note-list .container.content {
   left: 0px;
   width: 100%;
   height: 100%;
+  z-index: 0;
 }
 
 .view-select {
@@ -991,7 +1026,7 @@ body#note-list .container.content {
   top: 60px;
   margin: 10px 10px 0 0;
   box-shadow: 0 1px 5px rgba(0, 0, 0, 0.65);
-  z-index: 7;
+  z-index: 401;
   border-radius: 4px;
 }
 
@@ -1031,7 +1066,7 @@ body#communities .footer.navbar {
   border-radius: 5px;
 }
 .leaflet-popup-content h5 {
-  font-family: "Bree Serif";
+  font-family: 'Bree Serif';
   font-size: 18px;
   margin-bottom: 2px;
 }
@@ -1077,7 +1112,7 @@ table#caravan-list a.community-image > img {
 }
 table#community-list-table a.name,
 table#caravan-list a.name {
-  font-family: "Bree Serif";
+  font-family: 'Bree Serif';
   font-size: 14px;
   margin-top: 10px;
   margin-bottom: 5px;
@@ -1572,7 +1607,7 @@ table#pioneer-list-table ul li a#group span.glyphicon {
 
 /**************** Pioneer-Detail ******************/
 body#profile a:hover div.edit {
-  content: "✏";
+  content: "\270f";
 }
 body#profile a.email {
   margin-left: auto;
@@ -1685,7 +1720,7 @@ body#references span.label-danger {
 
 /**************** Bus-List ******************/
 table#bus_table a.pioneer {
-  font-family: "Bree Serif" serif;
+  font-family: 'Bree Serif' serif;
   font-size: 14px;
 }
 table#bus_table a i.fa,
@@ -1700,7 +1735,7 @@ table#bus_table .tablesorter-header i.fa {
 
 /*************** Caravan-List **************/
 table#caravan-list a.name {
-  font-family: "Bree Serif";
+  font-family: 'Bree Serif';
   font-size: 18px;
 }
 table#caravan-list .btn-group {
@@ -1709,7 +1744,7 @@ table#caravan-list .btn-group {
 
 /*************** Caravan-Detail **************/
 body#profile.group a.pioneer {
-  font-family: "Bree Serif";
+  font-family: 'Bree Serif';
   font-size: 18px;
   text-align: center;
 }
@@ -1827,7 +1862,7 @@ body.group .container.content {
 }
 
 a#group {
-  font-family: "Bree Serif";
+  font-family: 'Bree Serif';
   color: #452912;
   font-size: 18px;
 }
@@ -2182,12 +2217,12 @@ body#message ul.media-list li.media a.pioneer img.avatar {
   }
 
   body#note-detail section#header .carousel-inner,
-body#profile.community .carousel-inner {
+  body#profile.community .carousel-inner {
     height: 70px;
     top: 30%;
   }
   body#note-detail section#header .carousel-inner .carousel-caption,
-body#profile.community .carousel-inner .carousel-caption {
+  body#profile.community .carousel-inner .carousel-caption {
     display: block;
     padding-bottom: 0px;
     padding-top: 0px;
@@ -2195,7 +2230,7 @@ body#profile.community .carousel-inner .carousel-caption {
     bottom: 0px;
   }
   body#note-detail section#header .carousel-inner .carousel-caption h1,
-body#profile.community .carousel-inner .carousel-caption h1 {
+  body#profile.community .carousel-inner .carousel-caption h1 {
     margin-bottom: 15px;
     font-size: 20px;
   }
@@ -2204,9 +2239,6 @@ body#profile.community .carousel-inner .carousel-caption h1 {
     max-width: 100%;
   }
 
-  .footer.navbar {
-    position: relative;
-  }
   .footer.navbar ul.navbar-nav > li > a {
     padding-right: 4px;
     padding-left: 4px;
@@ -2250,9 +2282,6 @@ body#profile.community .carousel-inner .carousel-caption h1 {
     font-size: 16px;
   }
 
-  .description {
-    height: 138px;
-  }
   .description h1 {
     font-size: 25px;
   }

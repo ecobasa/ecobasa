@@ -2,8 +2,8 @@
 {% load i18n l10n static embed_video_tags cosinnus_tags ecobasa_tags thumbnail %}
 
 {% block extrahead %}
-{{ block.super }} 
-<link rel="stylesheet" href="{% static "leaflet/leaflet.css" %}" />
+{{ block.super }}
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 {% endblock %}
 
 {% block page_title %}
@@ -35,7 +35,7 @@
   <div class="container content">
     <div class="row">
       <div class="col-xs-12">
-      <!-- 
+      <!--
       <div class="row">
         <div id="carousel-community" class="carousel slide gradient" data-ride="carousel">
           <ol class="carousel-indicators">
@@ -138,12 +138,12 @@
                         {% if not forloop.last %} {% endif %}
                       {% endfor %}
                     {% endfor %}
-                    </ul> 
+                    </ul>
                     {% if can_add_reference and not user|is_group_admin:object %}
                       <a class="btn btn-primary" href="{% url 'community-reference-add' object.slug %}"><span class="glyphicon glyphicon-plus"></span> {% trans "Add a skill you learned here with a review" %}</a>
                     {% elif user|is_group_admin:object %}
                       <a href="{% url 'community-edit' group=object.slug %}#s2id_id_offers_skills" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add a skill" %}</a>
-                    {% endif %}       
+                    {% endif %}
                 {% endif %}
                 {% if profile.offers_services %}
                 <h3><span class="fa fa-gears"></span> {% trans "Services" %}</h3>
@@ -246,7 +246,7 @@
                   <a href="{% url 'community-edit' group=object.slug %}#id_wishlist_projects" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add more projects" %}</a>
                 {% elif user|is_group_admin:object %}
                   <a href="{% url 'community-edit' group=object.slug %}#id_wishlist_projects" class="btn btn-primary"><span class="glyphicon glyphicon-plus"></span> {% trans "Add a project you need help for to your profile" %}</a>
-                {% endif %}    
+                {% endif %}
               {% endif %}
             {% endif %}
             {% if profile.wishlist_skills.all or user|is_group_admin:object%}
@@ -388,7 +388,7 @@
             <a href="#" data-toggle="tooltip" title="{{ profile.basic_inhabitants }} people live there"><i class="fa fa-users"></i>{{ profile.basic_inhabitants }}</a>
             <a href="#" data-toggle="tooltip" title="{{ profile.basic_inhabitants_underage }} children"><i class="fa fa-child"></i>{{ profile.basic_inhabitants_underage }}
             <a href="#" data-toggle="tooltip" title="They can host up to {{ profile.visitors_num }} people"><i class="fa fa-bed"></i>{{ profile.visitors_num }}</a>
-            
+
               {% if profile.basic_membership_status = 'l' %}
                 <a href="#" data-toggle="tooltip" title="Looking for volunteers"><i class="fa fa-hand-rock-o"></i></a>
               {% elif profile.basic_membership_status = 'c' %}
@@ -413,7 +413,7 @@
               {{ profile.contact_zipcode }}
               {{ profile.contact_city }}</br>
               {{ profile.get_contact_country_display }}</br></br>
-              <span class="glyphicon glyphicon-earphone"></span> {{ profile.contact_telephone }}      
+              <span class="glyphicon glyphicon-earphone"></span> {{ profile.contact_telephone }}
             {% endif %}
             <a href="{% url 'postman_write' recipients=object.name %}"><button class="email btn btn-primary btn-lg" data-toggle="tooltip" data-placement="top" title="If you want to visit and volunteer at this communtiy"><span class="glyphicon glyphicon-envelope"></span> {% trans "Contact this community" %}</button></a>
           </div>
@@ -631,7 +631,8 @@
 
 {% block extrafooter %}
   {{ block.super }}
-  <script src="{% static "leaflet/leaflet.js" %}"></script>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <script type="text/javascript" src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="{% static "js/ecobasa_map.js" %}"></script>
   <script type="text/javascript" src="https://stamen-maps.a.ssl.fastly.net/js/tile.stamen.js?v1.2.4"></script>
   <script type="text/javascript">

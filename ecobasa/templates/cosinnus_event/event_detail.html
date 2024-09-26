@@ -9,7 +9,7 @@
 
 {% block extrahead %}
 {{ block.super }}
-<link rel="stylesheet" href="{% static "leaflet/leaflet.css" %}" />
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 {% endblock extrahead %}
 
 
@@ -108,7 +108,8 @@
 
 {% block extrafooter %}
 {{ block.super }}
-<script src="{% static "leaflet/leaflet.js" %}"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<script type="text/javascript" src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="{% static "js/ecobasa_map.js" %}"></script>
 <script type="text/javascript" src="https://stamen-maps.a.ssl.fastly.net/js/tile.stamen.js?v1.2.4"></script>
 <script type="text/javascript">

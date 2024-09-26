@@ -1,7 +1,10 @@
 EcobasaMap = {
 	map: null,
-	mapUrl: "https://stamen-tiles.a.ssl.fastly.net/tiles/1.0.0/sat/{z}/{x}/{y}.png",
-	attrib: 'Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
+	mapUrl: "https://tiles.stadiamaps.com/tiles/stamen_watercolor/{z}/{x}/{y}.jpg",
+	attrib: '&copy; <a href="https://stadiamaps.com/" target="_blank">Stadia Maps</a>' +
+    '&copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a>' +
+    '&copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a>' +
+    '&copy; <a href="https://www.openstreetmap.org/copyright/" target="_blank">OpenStreetMap</a>',
 	minZoom: 8,
 	maxZoom: 13,
 	defaultZoom: 3,
@@ -19,10 +22,10 @@ EcobasaMap = {
 			maxZoom: EcobasaMap.maxZoom,
 			attribution: EcobasaMap.attrib
 		});
-		var url = "https://stamen-tiles.a.ssl.fastly.net/"
-		var layer1 = new L.TileLayer("https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.png", {
+		var url = "https://tiles.stadiamaps.com/"
+		var layer1 = new L.TileLayer("https://tiles.stadiamaps.com/tiles/stamen_watercolor/{z}/{x}/{y}.jpg", {
 		});
-		var layer2 = new L.TileLayer("https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.png", {
+		var layer2 = new L.TileLayer("https://tiles.stadiamaps.com/tiles/stamen_toner_lite/{z}/{x}/{y}{r}.png", {
 			opacity: 0.1,
 		});
 		EcobasaMap.map.addLayer(layer);
@@ -59,9 +62,12 @@ EcobasaMap = {
 
 PioneerMap = {
 	map: null,
-	mapUrl: "https://stamen-tiles.a.ssl.fastly.net/tiles/1.0.0/sat/{z}/{x}/{y}.png",
-	attrib: 'Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
-	minZoom: 8,
+	mapUrl: "https://tiles.stadiamaps.com/tiles/stamen_watercolor/{z}/{x}/{y}.jpg",
+	attrib: '&copy; <a href="https://stadiamaps.com/" target="_blank">Stadia Maps</a>' +
+    '&copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a>' +
+    '&copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a>' +
+    '&copy; <a href="https://www.openstreetmap.org/copyright/" target="_blank">OpenStreetMap</a>',
+  minZoom: 8,
 	maxZoom: 13,
 	defaultZoom: 3,
 	tms: true,
@@ -87,9 +93,9 @@ PioneerMap = {
 			attribution: PioneerMap.attrib
 		});
 		var url = "https://stamen-tiles.a.ssl.fastly.net/"
-		var layer1 = new L.TileLayer("https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.png", {
+		var layer1 = new L.TileLayer("https://tiles.stadiamaps.com/tiles/stamen_watercolor/{z}/{x}/{y}.jpg", {
 		});
-		var layer2 = new L.TileLayer("https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.png", {
+		var layer2 = new L.TileLayer("https://tiles.stadiamaps.com/tiles/stamen_toner_lite/{z}/{x}/{y}{r}.png", {
 			opacity: 0.1,
 		});
 		PioneerMap.map.addLayer(layer);
@@ -126,8 +132,11 @@ PioneerMap = {
 
 StartMap = {
 	map: null,
-	mapUrl: "https://stamen-tiles.a.ssl.fastly.net/tiles/1.0.0/sat/{z}/{x}/{y}.png",
-	attrib: 'Map data © <a href="http://openstreetmap.org">OpenStreetMap</a> contributors',
+	mapUrl: "https://tiles.stadiamaps.com/tiles/stamen_watercolor/{z}/{x}/{y}.jpg",
+	attrib: '&copy; <a href="https://stadiamaps.com/" target="_blank">Stadia Maps</a>' +
+    '&copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a>' +
+    '&copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a>' +
+    '&copy; <a href="https://www.openstreetmap.org/copyright/" target="_blank">OpenStreetMap</a>',
 	minZoom: 8,
 	maxZoom: 13,
 	defaultZoom: 3,
@@ -146,10 +155,10 @@ StartMap = {
 			maxZoom: StartMap.maxZoom,
 			attribution: StartMap.attrib
 		});
-		var url = "https://stamen-tiles.a.ssl.fastly.net/"
-		var layer1 = new L.TileLayer("https://stamen-tiles-{s}.a.ssl.fastly.net/watercolor/{z}/{x}/{y}.png", {
+		var url = "https://tiles.stadiamaps.com/"
+		var layer1 = new L.TileLayer("https://tiles.stadiamaps.com/tiles/stamen_watercolor/{z}/{x}/{y}.jpg", {
 		});
-		var layer2 = new L.TileLayer("https://stamen-tiles-{s}.a.ssl.fastly.net/toner-lite/{z}/{x}/{y}.png", {
+		var layer2 = new L.TileLayer("https://tiles.stadiamaps.com/tiles/stamen_toner_lite/{z}/{x}/{y}{r}.png", {
 			opacity: 0.1,
 		});
 		StartMap.map.addLayer(layer);
