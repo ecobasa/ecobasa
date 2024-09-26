@@ -154,7 +154,17 @@ StartMap = {
 	scrollWheelZoom: false,
 
 	addMarker: function(lat, lon, community) {
-		var marker = L.marker([lat, lon]).addTo(StartMap.map);
+    var ecobasaIcon = L.Icon.extend({
+      options: {
+        iconwUrl: '/static/leaflet/images/marker-shadow.png',
+        iconAnchor: [12, 41],
+        popupAnchor: [0, -41]
+      }
+    });
+    var ecobasaIcon = new ecobasaIcon({
+      iconUrl: '/static/leaflet/images/marker-icon.png',
+    });
+		var marker = L.marker([lat, lon], {icon:ecobasaIcon}).addTo(StartMap.map);
 		marker.bindPopup(community)
 	},
 
