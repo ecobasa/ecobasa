@@ -1167,6 +1167,11 @@ body#communities {
 	background-color: rgba($primary, 0.8);
 	border: 1px solid $third;
 	color: $secondary;
+	font-size: 10px;
+
+	.leaflet-control-layers-selector {
+	   accent-color: $primary;
+	}
 }
 
 .leaflet-popup-content-wrapper,

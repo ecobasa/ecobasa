@@ -1048,6 +1048,10 @@ body#communities .footer.navbar {
   background-color: rgba(218, 97, 55, 0.8);
   border: 1px solid #b4502c;
   color: #fcf3e5;
+  font-size: 10px;
+}
+.leaflet-control-layers.leaflet-control .leaflet-control-layers-selector {
+  accent-color: #da6137;
 }
 
 .leaflet-popup-content-wrapper,
