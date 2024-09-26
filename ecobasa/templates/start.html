@@ -128,7 +128,7 @@
         </a>
         <div class="media-body">
           <span class="details">
-            <p><i>"{{ reference.text|urlize|safe|truncatewords:25 }}"
+              <p><i>"{{ reference.text|safe|truncatechars:150 }}"
                 {% if reference.receiver_pioneer %}
                 <a href="{% url 'pioneer-reference-list' reference.receiver_pioneer.username %}">{% trans "read more" %}</a></i>
                 {% else %}
