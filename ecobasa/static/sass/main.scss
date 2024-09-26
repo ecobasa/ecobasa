@@ -1185,7 +1185,7 @@ body#communities {
 }
 
 .leaflet-popup-content {
-    font-size: 12px;
+    font-size: 12px !important;
 	> img {
 		border-radius: 5px;
 	}
