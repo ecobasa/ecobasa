@@ -1064,6 +1064,9 @@ body#communities .footer.navbar {
   text-decoration: none;
 }
 
+.leaflet-popup-content {
+  font-size: 12px;
+}
 .leaflet-popup-content > img {
   border-radius: 5px;
 }
@@ -1081,6 +1084,7 @@ body#communities .footer.navbar {
 }
 
 span.community-details {
+  font-size: 13px;
   display: block;
   margin-bottom: 10px;
 }

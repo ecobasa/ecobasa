@@ -1185,6 +1185,7 @@ body#communities {
 }
 
 .leaflet-popup-content {
+    font-size: 12px;
 	> img {
 		border-radius: 5px;
 	}
@@ -1204,6 +1205,7 @@ body#communities {
 }
 
 span.community-details {
+    font-size: 13px;
 	display: block;
 	margin-bottom: 10px;
 	a[data-toggle=tooltip] {

@@ -18,7 +18,9 @@ EcobasaMap = {
         popupAnchor: [0, -41]
       }
     });
-    var ecobasaIcon = new ecobasaIcon({iconUrl: '/static/leaflet/images/marker-icon.png'});
+    var ecobasaIcon = new ecobasaIcon({
+      iconUrl: '/static/leaflet/images/marker-icon.png',
+    });
 		var marker = L.marker([lat, lon], {icon:ecobasaIcon}).addTo(EcobasaMap.map);
 		marker.bindPopup(community)
 	},
