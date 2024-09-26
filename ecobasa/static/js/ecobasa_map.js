@@ -83,14 +83,14 @@ PioneerMap = {
 	tms: true,
 
 	addMarker: function(lat, lon, pioneer) {
-		var ecobasaIcon = L.Icon.extend({
+		var userIcon = L.Icon.extend({
 	    options: {
 	      shadowUrl: '/static/leaflet/images/marker-shadow.png',
 	      iconAnchor:   [12, 41],
 	      popupAnchor:  [0, -41]
 		  }
 		});
-		var userIcon = new ecobasaIcon({iconUrl: '/static/leaflet/images/user-icon.png'});
+		var userIcon = new userIcon({iconUrl: '/static/leaflet/images/user-icon.png'});
 		var marker = L.marker([lat, lon], {icon:userIcon}).addTo(PioneerMap.map);
 		marker.bindPopup(pioneer)
 	},
@@ -215,14 +215,14 @@ TourMap = {
 	tms: true,
 
 	addMarker: function(lat, lon, event) {
-		var ecobasaIcon = L.Icon.extend({
+		var tourIcon = L.Icon.extend({
 	    options: {
 	      shadowUrl: '/static/leaflet/images/marker-shadow.png',
 	      iconAnchor:   [12, 41],
 	      popupAnchor:  [0, -41]
 		  }
 		});
-		var userIcon = new ecobasaIcon({iconUrl: '/static/leaflet/images/tour-icon.png'});
+		var tourIcon = new tourIcon({iconUrl: '/static/leaflet/images/tour-icon.png'});
 		var marker = L.marker([lat, lon], {icon:userIcon}).addTo(TourMap.map);
 		marker.bindPopup(event)
 	},
