@@ -1065,7 +1065,7 @@ body#communities .footer.navbar {
 }
 
 .leaflet-popup-content {
-  font-size: 12px;
+  font-size: 12px !important;
 }
 .leaflet-popup-content > img {
   border-radius: 5px;
