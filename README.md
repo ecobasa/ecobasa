@@ -88,3 +88,5 @@ We use LESS - CSS has to be compiled
 ------------------------------------
 You can use grunt with node.js. Package.json will install all necessary dependencies, just type
 	$ npm install
+
+If you then type grunt, there is a watcher running that automatically compiles the less of static/sass/main.scss to static/css/main.css
