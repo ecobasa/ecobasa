@@ -201,3 +201,73 @@ StartMap = {
       });
 	},
 }
+
+TourMap = {
+	map: null,
+	mapUrl: "https://tiles.stadiamaps.com/tiles/stamen_watercolor/{z}/{x}/{y}.jpg",
+	attrib: '&copy; <a href="https://stadiamaps.com/" target="_blank">Stadia Maps</a>' +
+    '&copy; <a href="https://www.stamen.com/" target="_blank">Stamen Design</a>' +
+    '&copy; <a href="https://openmaptiles.org/" target="_blank">OpenMapTiles</a>' +
+    '&copy; <a href="https://www.openstreetmap.org/copyright/" target="_blank">OpenStreetMap</a>',
+  minZoom: 8,
+	maxZoom: 13,
+	defaultZoom: 3,
+	tms: true,
+
+	addMarker: function(lat, lon, event) {
+		var ecobasaIcon = L.Icon.extend({
+	    options: {
+	      shadowUrl: '/static/leaflet/images/marker-shadow.png',
+	      iconAnchor:   [12, 41],
+	      popupAnchor:  [0, -41]
+		  }
+		});
+		var userIcon = new ecobasaIcon({iconUrl: '/static/leaflet/images/tour-icon.png'});
+		var marker = L.marker([lat, lon], {icon:userIcon}).addTo(TourMap.map);
+		marker.bindPopup(event)
+	},
+
+	init: function(mapSelector) {
+		TourMap.map = L.map(mapSelector);
+		var layer = new L.TileLayer(TourMap.mapUrl, {
+		minZoom: TourMap.minZoom,
+		maxZoom: TourMap.maxZoom,
+		attribution: TourMap.attrib
+		});
+		var url = "https://stamen-tiles.a.ssl.fastly.net/"
+		var layer1 = new L.TileLayer("https://tiles.stadiamaps.com/tiles/stamen_watercolor/{z}/{x}/{y}.jpg", {
+		});
+		var layer2 = new L.TileLayer("https://tiles.stadiamaps.com/tiles/stamen_toner_lite/{z}/{x}/{y}{r}.png", {
+			opacity: 0.1,
+		});
+		TourMap.map.addLayer(layer);
+		TourMap.map.addLayer(layer1);
+		TourMap.map.addLayer(layer2);
+		layer1.setOpacity(0.6);
+		layer2.setOpacity(0.3);
+		googleSat = L.tileLayer('http://{s}.google.com/vt/lyrs=s&x={x}&y={y}&z={z}',{
+	    maxZoom: 20,
+	    subdomains:['mt0','mt1','mt2','mt3']
+		});
+		googleStreets = L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}',{
+	    maxZoom: 20,
+	    subdomains:['mt0','mt1','mt2','mt3']
+		});
+		googleHybrid = L.tileLayer('http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}',{
+	    maxZoom: 20,
+	    subdomains:['mt0','mt1','mt2','mt3']
+		});
+		var center = new L.LatLng(49.20, 16.00);
+		TourMap.map.setView(center, TourMap.defaultZoom);
+		var baseLayers = {
+	    "Satellite": googleSat,
+	    "Streets": googleStreets,
+	    "Hybrid": googleHybrid,
+	    "ecobasa map": layer2
+	  };
+	  var overlays = {
+
+	  };
+	  L.control.layers(baseLayers, overlays).addTo(TourMap.map);
+	},
+}
