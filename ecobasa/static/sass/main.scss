@@ -1122,10 +1122,12 @@ body#note-list {
 
 .community-map-small {
 	height: 300px;
+	z-index: 0;
 }
 
 .community-map-middle {
 	height: 400px;
+	z-index: 0;
 }
 
 .community-map-large {
