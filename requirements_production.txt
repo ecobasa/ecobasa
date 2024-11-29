@@ -11,7 +11,7 @@ django-appconf==1.0.1
 git+https://github.com/Markush2010/django-bootstrap3.git@46a84044e89937ebe6128b2a8c560f141741a70e#egg=django_bootstrap3
 django-bootstrap3-datetimepicker==2.2.3
 django-classy-tags==0.6.2
-django-cms==2.4.3
+django-cms==3.0.14
 django-contact-form==1.0
 django-embed-video==1.1.2
 django-extensions==1.5.9
