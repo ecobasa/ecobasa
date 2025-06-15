@@ -81,7 +81,7 @@
           {% endif %}
           <a href="{% url 'postman_write' recipients=group %}" class="btn btn-primary"><i class="fa fa-envelope"></i>{% trans "Write to all members" %}</a>
         {% endif %}
-        
+
         {% if user.is_authenticated %}
           {% if user.pk in group.members or user|is_group_admin:group %}
             <a class="btn btn-danger" href="{% url 'cosinnus:group-user-leave' group=group.slug %}"><span class="glyphicon glyphicon-log-out"></span>{% trans "Leave this" %} {% if group.caravan %}{% trans "Caravan" %}{% elif group.profile %}{% trans "Community" %}{% else %}{% trans "Group" %}{% endif %}</a>
@@ -358,7 +358,7 @@
         {% trans "Our annual costs for running this website including server rent, power and domain names are about 200€. Please help us to cover our costs for this year!" %}</p>
         <p>{% trans "Thanks for your support." %}</p>
         <p>{% trans "Your gifts keep us giving" %} <span class="glyphicon glyphicon-heart"></p>
-        <script src="https://donorbox.org/widget.js" paypalExpress="true"></script><iframe allowpaymentrequest="" frameborder="0" height="685px" name="donorbox" scrolling="no" seamless="seamless" src="https://donorbox.org/embed/ecobasa-hosting-2020" style="max-width:427px; min-width:310px; max-height:none!important; display: block; margin: auto; margin-top: 40px;" align="middle" width="100%"></iframe>
+        <script src="https://donorbox.org/widget.js" paypalExpress="true"></script><iframe allowpaymentrequest="" frameborder="0" height="900px" name="donorbox" scrolling="no" seamless="seamless" src="https://donorbox.org/embed/ecobasa-hosting-2024?language={{ LANGUAGE_CODE }}" style="max-width:427px; min-width:310px; max-height:none!important; display: block; margin: auto; margin-top: 40px;" align="middle" width="100%"></iframe>
         <center><button type="button" class="btn btn-primary" id="btnclose" data-dismiss="modal">Close</button><center>
       </div>
     </div>
