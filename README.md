@@ -2,6 +2,8 @@
 
 Repository of http://ecobasa.org
 
+> **Note:** Active development has moved to [ecobasa-2020](https://github.com/ecobasa/ecobasa-2020), a redesign of this project. Please refer to that repository for the latest work.
+
 # Requisites
 * Django (Python)
 * PostgreSQL
