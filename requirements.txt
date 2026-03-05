@@ -26,7 +26,7 @@ django-haystack==2.1.0
 django-honeypot==0.4.0
 django-contact-form==1.0
 # workaround to missing dependencies in cosinnus:
-django-tinymce==1.5.2
+django-tinymce==3.4.0
 -e git+git://github.com/bmispelon/django-multiform.git@ccc958db8daeba6044ec18c5ff6b158bc6a3d135#egg=django-multiform
 django-widget-tweaks==1.3.0
 pytz==2015.6
